@@ -1,0 +1,7 @@
+#!/bin/sh -eux
+
+rm -f xnconvert.sh
+rm -f xnconvert.png
+rm -f XnConvert.desktop
+mkdir -p "$UB_INSTALLDIR"/usr/lib/xnconvert/
+cp -ar . "$UB_INSTALLDIR"/usr/lib/xnconvert/

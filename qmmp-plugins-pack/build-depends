@@ -1,0 +1,6 @@
+cmake
+mpg123-dev
+qmmp-dev
+qt4-dev
+taglib-dev
+yasm

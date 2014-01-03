@@ -1,0 +1,10 @@
+dbus-glib-dev
+gtk-doc
+gtk2-dev
+intltool
+libcap-dev
+libgcrypt-dev
+libmatekeyring-dev
+libtasn1-dev
+mate-common
+pam-dev

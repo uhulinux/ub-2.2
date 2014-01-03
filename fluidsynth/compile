@@ -1,0 +1,10 @@
+#!/bin/sh -eux
+
+#ub_compile \
+#	      -Denable-ladspa=1
+cd "$UB_COMPILEDIR"
+./configure \
+	      --prefix="$UB_INSTALLDIR"/usr \
+	      --disable-static \
+	      --enable-ladspa=yes
+ub_make

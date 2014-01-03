@@ -1,0 +1,5 @@
+#!/usr/bin/env dl
+
+kdevplatform-${UB_VERSION/~/-}.tar.bz2 kdevplatform-${UB_VERSION#*~}/
+	ftp://ftp.kde.org/pub/kde/stable/kdevelop/${UB_VERSION/1/4}/src/
+	svn://anonsvn.kde.org/home/kde/trunk/KDE/kdevplatform/@${UB_VERSION#*r}

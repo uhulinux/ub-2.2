@@ -1,0 +1,9 @@
+diff -Naur pairs-4.10.0-ori/game/pairs.desktop pairs-4.10.0/game/pairs.desktop
+--- pairs-4.10.0-ori/game/pairs.desktop	2013-01-23 22:55:01.000000000 +0100
++++ pairs-4.10.0/game/pairs.desktop	2013-02-09 14:59:03.693778424 +0100
+@@ -62,4 +62,4 @@
+ GenericName[zh_CN]=增强记忆力的游戏
+ GenericName[zh_TW]=加強記憶的遊戲
+ Terminal=false
+-Categories=Qt;KDE;Education;Game;KidsGame;
++Categories=Qt;KDE;Education;Game;KidsGame;X-UHU-Menu/Games/Card;

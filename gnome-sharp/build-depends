@@ -1,0 +1,10 @@
+gnome-panel-dev
+gtk2-sharp
+gtkhtml-dev
+libgnomeprintui2-dev
+libgnomeui2-dev
+libgtkhtml2-dev
+librsvg2-dev
+libwnck-dev
+mono-dev
+vte-dev

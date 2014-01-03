@@ -1,0 +1,7 @@
+#!/bin/sh -eux
+
+/usr/lib/qt4/bin/qmake Webcamoid.pro \
+    USE3DPARTYLIBS=0 \
+    QMAKE_LRELEASE=/usr/lib/qt4/bin/lrelease
+    
+make

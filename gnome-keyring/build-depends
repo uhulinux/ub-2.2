@@ -1,0 +1,7 @@
+dbus-glib-dev
+gcr-dev
+gtk3-dev
+intltool
+libgcrypt-dev
+libtasn1-dev
+p11-kit-dev

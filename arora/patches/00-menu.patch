@@ -1,0 +1,27 @@
+diff -Naur a/src/arora.desktop b/src/arora.desktop
+--- a/src/arora.desktop	2010-09-27 04:42:17.000000000 +0200
++++ b/src/arora.desktop	2013-06-08 19:34:18.893162834 +0200
+@@ -10,6 +10,7 @@
+ Comment[es]=Navegar por internet
+ Comment[fr_FR]=Surfer sur le web
+ Comment[gl]=Navegar pola internet
++Comment[hu]=A világháló böngészése
+ Comment[nl]=Surfen op het wereldwijde web
+ Comment[nl_NL]=Surfen op het wereldwijde web
+ Comment[sr]=Крстарите интернетом
+@@ -22,6 +23,7 @@
+ GenericName[es]=Navegador web
+ GenericName[fr_FR]=Navigateur web
+ GenericName[gl]=Navegador web
++GenericName[hu]=Webböngésző
+ GenericName[nl]=Webbrowser
+ GenericName[nl_NL]=Webbrowser
+ GenericName[pl]=Przeglądarka WWW
+@@ -33,6 +35,6 @@
+ Terminal=false
+ Type=Application
+ Icon=arora
+-Categories=Application;Qt;Network;WebBrowser;
++Categories=Application;Qt;Network;WebBrowser;X-UHU-Menu/Internet/Browsers;
+ MimeType=text/html;text/xml;application/xhtml+xml;application/xml;image/gif;image/jpeg;image/png;
+ StartupNotify=true

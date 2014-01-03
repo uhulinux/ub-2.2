@@ -1,0 +1,15 @@
+alsa-lib-dev
+ffmpeg-dev
+gnome-panel-dev
+intltool
+libexosip2-dev
+libglade2-dev
+libortp-dev
+libosip2-dev
+libxmu-dev
+libxv-dev
+mediastreamer-dev
+mesa-dev
+openssl-dev
+pulseaudio-dev
+speex-dev

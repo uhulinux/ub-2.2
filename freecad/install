@@ -1,0 +1,10 @@
+#!/bin/sh -eux
+
+cd build
+ub_install
+install -Dm755 ../src/Tools/plugins/widget/libFreeCAD_widgets.so "${UB_INSTALLDIR}"/usr/lib/qt4/plugins/designer/libFreeCAD_widgets.so
+
+mkdir -p "${UB_INSTALLDIR}/usr/bin/"
+ln -sf /usr/lib/freecad/bin/FreeCAD "${UB_INSTALLDIR}/usr/bin/freecad"
+ln -sf /usr/lib/freecad/bin/FreeCADCmd "${UB_INSTALLDIR}/usr/bin/freecadcmd"
+

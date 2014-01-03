@@ -1,0 +1,39 @@
+diff -Naur kdelibs-3.5.3.orig/khtml/khtml_part.cpp kdelibs-3.5.3/khtml/khtml_part.cpp
+--- kdelibs-3.5.3.orig/khtml/khtml_part.cpp	2006-05-22 20:14:07.000000000 +0200
++++ kdelibs-3.5.3/khtml/khtml_part.cpp	2006-07-21 15:06:31.000000000 +0200
+@@ -2357,12 +2357,10 @@
+ 
+ KURL KHTMLPart::completeURL( const QString &url )
+ {
+-  if ( !d->m_doc ) return KURL( url );
++  if ( !d->m_doc ) return KURL::fromPathOrURL( url );
+ 
+-  if (d->m_decoder)
+-    return KURL(d->m_doc->completeURL(url), d->m_decoder->codec()->mibEnum());
+ 
+-  return KURL( d->m_doc->completeURL( url ) );
++  return KURL::fromPathOrURL( d->m_doc->completeURL( url ) );
+ }
+ 
+ // Called by ecma/kjs_window in case of redirections from Javascript,
+diff -Naur kdelibs-3.5.3.orig/khtml/xml/dom_docimpl.h kdelibs-3.5.3/khtml/xml/dom_docimpl.h
+--- kdelibs-3.5.3.orig/khtml/xml/dom_docimpl.h	2006-05-22 20:14:06.000000000 +0200
++++ kdelibs-3.5.3/khtml/xml/dom_docimpl.h	2006-07-21 14:05:24.000000000 +0200
+@@ -313,7 +313,7 @@
+     void finishParsing (  );
+ 
+     KURL URL() const { return m_url; }
+-    void setURL(const QString& url) { m_url = url; }
++    void setURL(const QString& url) { m_url = KURL::fromPathOrURL( url ); }
+ 
+     KURL baseURL() const { return m_baseURL.isEmpty() ? m_url : m_baseURL; }
+     void setBaseURL(const KURL& baseURL) { m_baseURL = baseURL; }
+@@ -321,7 +321,7 @@
+     QString baseTarget() const { return m_baseTarget; }
+     void setBaseTarget(const QString& baseTarget) { m_baseTarget = baseTarget; }
+ 
+-    QString completeURL(const QString& url) const { return KURL(baseURL(),url,m_decoderMibEnum).url(); };
++    QString completeURL(const QString& url) const { return KURL(baseURL(),url).url(); };
+     DOMString canonURL(const DOMString& url) const { return url.isEmpty() ? url : completeURL(url.string()); }
+ 
+     void setUserStyleSheet(const QString& sheet);

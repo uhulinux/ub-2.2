@@ -1,0 +1,327 @@
+diff -Naur guvcview-src-1.7.2-orig/src/acodecs.c guvcview-src-1.7.2/src/acodecs.c
+--- guvcview-src-1.7.2-orig/src/acodecs.c	2013-12-08 11:51:48.000000000 +0100
++++ guvcview-src-1.7.2/src/acodecs.c	2013-12-14 13:57:37.447069478 +0100
+@@ -19,7 +19,7 @@
+ #                                                                               #
+ ********************************************************************************/
+ 
+-#include <glib/gprintf.h>
++#include <glib.h>
+ #include "acodecs.h"
+ #include "guvcview.h"
+ #include "picture.h"
+diff -Naur guvcview-src-1.7.2-orig/src/audio_effects.c guvcview-src-1.7.2/src/audio_effects.c
+--- guvcview-src-1.7.2-orig/src/audio_effects.c	2013-12-08 11:51:48.000000000 +0100
++++ guvcview-src-1.7.2/src/audio_effects.c	2013-12-14 13:58:01.595069462 +0100
+@@ -19,7 +19,7 @@
+ #                                                                               #
+ ********************************************************************************/
+ 
+-#include <glib/gprintf.h>
++#include <glib.h>
+ #include <math.h>
+ #include <string.h>
+ 
+diff -Naur guvcview-src-1.7.2-orig/src/audio_tab.c guvcview-src-1.7.2/src/audio_tab.c
+--- guvcview-src-1.7.2-orig/src/audio_tab.c	2013-12-08 11:51:48.000000000 +0100
++++ guvcview-src-1.7.2/src/audio_tab.c	2013-12-14 13:59:08.711069418 +0100
+@@ -21,7 +21,6 @@
+ #                                                                               #
+ ********************************************************************************/
+ #include <glib.h>
+-#include <glib/gprintf.h>
+ /* support for internationalization - i18n */
+ #include <glib/gi18n.h>
+ #include <gtk/gtk.h>
+diff -Naur guvcview-src-1.7.2-orig/src/avilib.c guvcview-src-1.7.2/src/avilib.c
+--- guvcview-src-1.7.2-orig/src/avilib.c	2013-12-08 11:51:48.000000000 +0100
++++ guvcview-src-1.7.2/src/avilib.c	2013-12-14 14:00:35.723069363 +0100
+@@ -31,7 +31,7 @@
+ /*  Paulo Assis (6-4-2008): removed reading functions, cleaned build wranings  */
+ 
+ #include <stdio.h>
+-#include <glib/gstdio.h>
++#include <glib.h>
+ #include <fcntl.h>
+ #include <unistd.h>
+ #include <stdlib.h>
+diff -Naur guvcview-src-1.7.2-orig/src/create_image.c guvcview-src-1.7.2/src/create_image.c
+--- guvcview-src-1.7.2-orig/src/create_image.c	2013-12-08 11:51:48.000000000 +0100
++++ guvcview-src-1.7.2/src/create_image.c	2013-12-14 14:02:28.071069288 +0100
+@@ -21,7 +21,6 @@
+ 
+ 
+ #include <glib.h>
+-#include <glib/gprintf.h>
+ 
+ #include "defs.h"
+ #include "guvcview.h"
+diff -Naur guvcview-src-1.7.2-orig/src/create_video.c guvcview-src-1.7.2/src/create_video.c
+--- guvcview-src-1.7.2-orig/src/create_video.c	2013-12-08 11:51:48.000000000 +0100
++++ guvcview-src-1.7.2/src/create_video.c	2013-12-14 14:03:05.011069264 +0100
+@@ -21,7 +21,6 @@
+ 
+ #include <glib.h>
+ #include <glib/gi18n.h>
+-#include <glib/gprintf.h>
+ #include <pthread.h>
+ #include <stdlib.h>
+ #include <math.h>
+diff -Naur guvcview-src-1.7.2-orig/src/file_io.h guvcview-src-1.7.2/src/file_io.h
+--- guvcview-src-1.7.2-orig/src/file_io.h	2013-12-08 11:51:48.000000000 +0100
++++ guvcview-src-1.7.2/src/file_io.h	2013-12-14 15:07:48.579066732 +0100
+@@ -22,6 +22,7 @@
+ #ifndef FILE_IO_H
+ #define FILE_IO_H
+ 
++#include <stdio.h>
+ #include "../config.h"
+ #include "defs.h"
+ 
+diff -Naur guvcview-src-1.7.2-orig/src/globals.c guvcview-src-1.7.2/src/globals.c
+--- guvcview-src-1.7.2-orig/src/globals.c	2013-12-08 11:51:48.000000000 +0100
++++ guvcview-src-1.7.2/src/globals.c	2013-12-14 14:03:58.923069229 +0100
+@@ -19,7 +19,7 @@
+ #                                                                               #
+ ********************************************************************************/
+ 
+-#include <glib/gprintf.h>
++#include <glib.h>
+ /* support for internationalization - i18n */
+ #include <glib/gi18n.h>
+ #include "globals.h"
+diff -Naur guvcview-src-1.7.2-orig/src/guvcview.c guvcview-src-1.7.2/src/guvcview.c
+--- guvcview-src-1.7.2-orig/src/guvcview.c	2013-12-08 11:51:48.000000000 +0100
++++ guvcview-src-1.7.2/src/guvcview.c	2013-12-14 14:04:42.571069202 +0100
+@@ -27,7 +27,6 @@
+ 
+ #include <SDL/SDL.h>
+ #include <glib.h>
+-#include <glib/gprintf.h>
+ /* support for internationalization - i18n */
+ #include <glib/gi18n.h>
+ /* locale.h is needed if -O0 used (no optimiztions)  */
+diff -Naur guvcview-src-1.7.2-orig/src/img_controls.c guvcview-src-1.7.2/src/img_controls.c
+--- guvcview-src-1.7.2-orig/src/img_controls.c	2013-12-08 11:51:48.000000000 +0100
++++ guvcview-src-1.7.2/src/img_controls.c	2013-12-14 14:05:07.699069184 +0100
+@@ -23,7 +23,6 @@
+ 
+ /* support for internationalization - i18n */
+ #include <glib.h>
+-#include <glib/gprintf.h>
+ #include <glib/gi18n.h>
+ 
+ #include <gtk/gtk.h>
+diff -Naur guvcview-src-1.7.2-orig/src/lavc_common.c guvcview-src-1.7.2/src/lavc_common.c
+--- guvcview-src-1.7.2-orig/src/lavc_common.c	2013-12-08 11:51:48.000000000 +0100
++++ guvcview-src-1.7.2/src/lavc_common.c	2013-12-14 14:05:39.119069165 +0100
+@@ -22,8 +22,6 @@
+ ********************************************************************************/
+ 
+ #include <glib.h>
+-#include <glib/gprintf.h>
+-#include <glib/gstdio.h>
+ #include "lavc_common.h"
+ #include "v4l2uvc.h"
+ #include "vcodecs.h"
+diff -Naur guvcview-src-1.7.2-orig/src/matroska.c guvcview-src-1.7.2/src/matroska.c
+--- guvcview-src-1.7.2-orig/src/matroska.c	2013-12-08 11:51:48.000000000 +0100
++++ guvcview-src-1.7.2/src/matroska.c	2013-12-14 14:06:16.695069139 +0100
+@@ -26,7 +26,6 @@
+ #include <string.h>
+ #include <stdio.h>
+ #include <glib.h>
+-#include <glib/gprintf.h>
+ #include <unistd.h>
+ 
+ #include "ms_time.h"
+diff -Naur guvcview-src-1.7.2-orig/src/options.c guvcview-src-1.7.2/src/options.c
+--- guvcview-src-1.7.2-orig/src/options.c	2013-12-08 11:51:48.000000000 +0100
++++ guvcview-src-1.7.2/src/options.c	2013-12-14 14:06:41.895069124 +0100
+@@ -23,8 +23,6 @@
+ #include <unistd.h>
+ #include <fcntl.h>
+ #include <glib.h>
+-#include <glib/gstdio.h>
+-#include <glib/gprintf.h>
+ /* support for internationalization - i18n */
+ #include <glib/gi18n.h>
+ /*needs locale.h when debug is enabled*/
+diff -Naur guvcview-src-1.7.2-orig/src/picture.c guvcview-src-1.7.2/src/picture.c
+--- guvcview-src-1.7.2-orig/src/picture.c	2013-12-08 11:51:48.000000000 +0100
++++ guvcview-src-1.7.2/src/picture.c	2013-12-14 14:07:12.875069104 +0100
+@@ -24,7 +24,6 @@
+ #include "jpgenc.h"
+ #include <unistd.h>
+ #include <glib.h>
+-#include <glib/gprintf.h>
+ #include <png.h>
+ 
+ /*----------------------------------- Image Files ----------------------------*/ 
+diff -Naur guvcview-src-1.7.2-orig/src/profile.c guvcview-src-1.7.2/src/profile.c
+--- guvcview-src-1.7.2-orig/src/profile.c	2013-12-08 11:51:48.000000000 +0100
++++ guvcview-src-1.7.2/src/profile.c	2013-12-14 14:07:36.251069087 +0100
+@@ -21,8 +21,6 @@
+ 
+ #include <gtk/gtk.h>
+ #include <glib.h>
+-#include <glib/gstdio.h>
+-#include <glib/gprintf.h>
+ #include <unistd.h>
+ #include <string.h>
+ #include <stdlib.h>
+diff -Naur guvcview-src-1.7.2-orig/src/snd_devices.c guvcview-src-1.7.2/src/snd_devices.c
+--- guvcview-src-1.7.2-orig/src/snd_devices.c	2013-12-08 11:51:48.000000000 +0100
++++ guvcview-src-1.7.2/src/snd_devices.c	2013-12-14 14:08:35.251069050 +0100
+@@ -19,7 +19,6 @@
+ #                                                                               #
+ ********************************************************************************/
+ #include <glib.h>
+-#include <glib/gprintf.h>
+ #include <string.h>
+ #include "port_audio.h"
+ #include "pulse_audio.h"
+diff -Naur guvcview-src-1.7.2-orig/src/sound.c guvcview-src-1.7.2/src/sound.c
+--- guvcview-src-1.7.2-orig/src/sound.c	2013-12-08 11:51:48.000000000 +0100
++++ guvcview-src-1.7.2/src/sound.c	2013-12-14 14:09:16.859069023 +0100
+@@ -19,7 +19,7 @@
+ #                                                                               #
+ ********************************************************************************/
+ 
+-#include <glib/gprintf.h>
++#include <glib.h>
+ #include <string.h>
+ #include <math.h>
+ #include "sound.h"
+diff -Naur guvcview-src-1.7.2-orig/src/string_utils.c guvcview-src-1.7.2/src/string_utils.c
+--- guvcview-src-1.7.2-orig/src/string_utils.c	2013-12-08 11:51:48.000000000 +0100
++++ guvcview-src-1.7.2/src/string_utils.c	2013-12-14 14:09:40.719069006 +0100
+@@ -21,7 +21,6 @@
+ 
+ #include <string.h>
+ #include <glib.h>
+-#include <glib/gprintf.h>
+ #include "defs.h"
+ #include "string_utils.h"
+ #include "video_format.h"
+diff -Naur guvcview-src-1.7.2-orig/src/timers.c guvcview-src-1.7.2/src/timers.c
+--- guvcview-src-1.7.2-orig/src/timers.c	2013-12-08 11:51:48.000000000 +0100
++++ guvcview-src-1.7.2/src/timers.c	2013-12-14 14:10:18.407068981 +0100
+@@ -20,9 +20,9 @@
+ ********************************************************************************/
+ 
+ #include <SDL/SDL.h>
++#include <glib.h>
+ /* support for internationalization - i18n */
+ #include <glib/gi18n.h>
+-#include <glib/gprintf.h>
+ #include <gtk/gtk.h>
+ #include <stdio.h>
+ #include <sys/types.h>
+diff -Naur guvcview-src-1.7.2-orig/src/utils.c guvcview-src-1.7.2/src/utils.c
+--- guvcview-src-1.7.2-orig/src/utils.c	2013-12-08 11:51:48.000000000 +0100
++++ guvcview-src-1.7.2/src/utils.c	2013-12-14 14:10:43.087068965 +0100
+@@ -29,7 +29,6 @@
+ ********************************************************************************/
+ 
+ #include <glib.h>
+-#include <glib/gprintf.h>
+ /* support for internationalization - i18n */
+ #include <glib/gi18n.h>
+ #include "utils.h"
+diff -Naur guvcview-src-1.7.2-orig/src/v4l2_controls.c guvcview-src-1.7.2/src/v4l2_controls.c
+--- guvcview-src-1.7.2-orig/src/v4l2_controls.c	2013-12-08 11:51:48.000000000 +0100
++++ guvcview-src-1.7.2/src/v4l2_controls.c	2013-12-14 14:11:49.167068922 +0100
+@@ -22,10 +22,8 @@
+ #include <stdlib.h>
+ #include <stdio.h>
+ #include <glib.h>
+-#include <glib/gprintf.h>
+ #include <glib/gi18n.h>
+ 
+-#include <glib/gstdio.h>
+ #include <linux/videodev2.h>
+ #include <fcntl.h>
+ #include <string.h>
+diff -Naur guvcview-src-1.7.2-orig/src/v4l2_devices.c guvcview-src-1.7.2/src/v4l2_devices.c
+--- guvcview-src-1.7.2-orig/src/v4l2_devices.c	2013-12-08 11:51:48.000000000 +0100
++++ guvcview-src-1.7.2/src/v4l2_devices.c	2013-12-14 14:12:18.551068903 +0100
+@@ -20,8 +20,6 @@
+ ********************************************************************************/
+ 
+ #include <glib.h>
+-#include <glib/gprintf.h>
+-#include <glib/gstdio.h>
+ #include <fcntl.h>
+ #include <unistd.h>
+ #include <stdlib.h>
+diff -Naur guvcview-src-1.7.2-orig/src/v4l2_dyna_ctrls.c guvcview-src-1.7.2/src/v4l2_dyna_ctrls.c
+--- guvcview-src-1.7.2-orig/src/v4l2_dyna_ctrls.c	2013-12-08 11:51:48.000000000 +0100
++++ guvcview-src-1.7.2/src/v4l2_dyna_ctrls.c	2013-12-14 14:12:45.431068887 +0100
+@@ -20,8 +20,6 @@
+ ********************************************************************************/
+ 
+ #include <glib.h>
+-#include <glib/gprintf.h>
+-#include <glib/gstdio.h>
+ /* support for internationalization - i18n */
+ #include <glib/gi18n.h>
+ #include <errno.h>
+diff -Naur guvcview-src-1.7.2-orig/src/v4l2uvc.c guvcview-src-1.7.2/src/v4l2uvc.c
+--- guvcview-src-1.7.2-orig/src/v4l2uvc.c	2013-12-08 11:51:48.000000000 +0100
++++ guvcview-src-1.7.2/src/v4l2uvc.c	2013-12-14 14:14:11.631068829 +0100
+@@ -36,8 +36,7 @@
+ #include <sys/mman.h>
+ #include <sys/select.h>
+ #include <errno.h>
+-#include <glib/gprintf.h>
+-#include <glib/gstdio.h>
++#include <glib.h>
+ /* support for internationalization - i18n */
+ #include <glib/gi18n.h>
+ 
+diff -Naur guvcview-src-1.7.2-orig/src/vcodecs.c guvcview-src-1.7.2/src/vcodecs.c
+--- guvcview-src-1.7.2-orig/src/vcodecs.c	2013-12-08 11:51:48.000000000 +0100
++++ guvcview-src-1.7.2/src/vcodecs.c	2013-12-14 14:14:42.751068809 +0100
+@@ -19,7 +19,7 @@
+ #                                                                               #
+ ********************************************************************************/
+ 
+-#include <glib/gprintf.h>
++#include <glib.h>
+ #include "vcodecs.h"
+ #include "guvcview.h"
+ #include "picture.h"
+diff -Naur guvcview-src-1.7.2-orig/src/video.c guvcview-src-1.7.2/src/video.c
+--- guvcview-src-1.7.2-orig/src/video.c	2013-12-08 11:51:48.000000000 +0100
++++ guvcview-src-1.7.2/src/video.c	2013-12-14 14:15:18.183068786 +0100
+@@ -26,7 +26,6 @@
+ #include <portaudio.h>
+ #include <SDL/SDL.h>
+ #include <glib.h>
+-#include <glib/gprintf.h>
+ #include <gtk/gtk.h>
+ 
+ #include "defs.h"
+diff -Naur guvcview-src-1.7.2-orig/src/video_format.c guvcview-src-1.7.2/src/video_format.c
+--- guvcview-src-1.7.2-orig/src/video_format.c	2013-12-08 11:51:48.000000000 +0100
++++ guvcview-src-1.7.2/src/video_format.c	2013-12-14 14:15:53.647068764 +0100
+@@ -20,7 +20,6 @@
+ ********************************************************************************/
+ 
+ #include <glib.h>
+-#include <glib/gprintf.h>
+ /* support for internationalization - i18n */
+ #include <glib/gi18n.h>
+ #include <linux/videodev2.h>
+diff -Naur guvcview-src-1.7.2-orig/src/video_tab.c guvcview-src-1.7.2/src/video_tab.c
+--- guvcview-src-1.7.2-orig/src/video_tab.c	2013-12-08 11:51:48.000000000 +0100
++++ guvcview-src-1.7.2/src/video_tab.c	2013-12-14 14:16:22.319068744 +0100
+@@ -21,7 +21,6 @@
+ #                                                                               #
+ ********************************************************************************/
+ #include <glib.h>
+-#include <glib/gprintf.h>
+ /* support for internationalization - i18n */
+ #include <glib/gi18n.h>
+ #include <gtk/gtk.h>

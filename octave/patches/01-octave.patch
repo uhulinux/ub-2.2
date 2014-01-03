@@ -1,0 +1,20 @@
+diff -Naurd a/doc/icons/octave.desktop.in b/doc/icons/octave.desktop.in
+--- a/doc/icons/octave.desktop.in	2012-01-15 19:05:01.000000000 +0100
++++ b/doc/icons/octave.desktop.in	2011-02-11 17:35:03.000000000 +0100
+@@ -1,10 +1,12 @@
+ [Desktop Entry]
++Version=1.1
+ Name=GNU Octave
+ Comment=Scientific Computing using GNU Octave
+-TryExec=%OCTAVE_PREFIX%/bin/octave
+-Exec=%OCTAVE_PREFIX%/bin/octave
+-Icon=%OCTAVE_IMAGEDIR%/octave-logo.svg
++Comment[hu]=Matematikai programnyelv
++TryExec=octave
++Exec=octave
++Icon=octave-logo.svg
+ Terminal=true
+ Type=Application
+-Categories=Development;Math;Science;
++Categories=Development;Math;Science;X-UHU-Menu/Edutainment/Mathematics;
+ StartupNotify=false

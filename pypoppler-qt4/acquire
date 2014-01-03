@@ -1,0 +1,4 @@
+#!/usr/bin/env dl
+
+python-poppler-qt4-${UB_VERSION}.tar.gz python-poppler-qt4-${UB_VERSION}/
+  https://python-poppler-qt4.googlecode.com/files/

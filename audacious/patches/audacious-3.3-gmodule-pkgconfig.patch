@@ -1,0 +1,11 @@
+diff -Naur orig/src/audacious/Makefile mod/src/audacious/Makefile
+--- orig/src/audacious/Makefile	2012-07-27 01:37:14.000000000 +0200
++++ mod/src/audacious/Makefile	2012-08-05 15:42:17.000000000 +0200
+@@ -108,6 +108,7 @@
+         ${LIBS} -lm \
+ 		${LIBINTL}						\
+ 		${GLIB_LIBS}					\
++		`pkg-config --libs gmodule-2.0` \
+ 		${GMODULE_LIBS} \
+ 		${GTHREAD_LIBS} \
+ 		${GTK_LIBS}						\

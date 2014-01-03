@@ -1,0 +1,4 @@
+#!/usr/bin/env dl
+
+ganyremote-${UB_VERSION}.tar.gz ganyremote-${UB_VERSION}/
+	http://sourceforge.net/projects/anyremote/files/ganyremote/${UB_VERSION}/ganyremote-${UB_VERSION}.tar.gz/download

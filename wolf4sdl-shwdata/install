@@ -1,0 +1,32 @@
+#!/bin/sh -eux
+celdir="$UB_INSTALLDIR"/usr/share/games/wolf4sdl
+install -d -m 777 $celdir/\
+{wolf3d-shareware-v11,\
+wolf3d-shareware-v12,\
+wolf3d-shareware-v14,\
+spear-demo}
+
+forraslista=`ls 1WOLF11/ | grep WL1| tr '\n' ' '`
+for nagybetus in $forraslista ; do
+	kisbetus=`echo $nagybetus | tr [:upper:] [:lower:]`
+	install -m 644 1WOLF11/"$nagybetus" "$celdir"/wolf3d-shareware-v11/"$kisbetus"
+	done
+
+forraslista=`ls wolf12/ | grep WL1| tr '\n' ' '`
+for nagybetus in $forraslista ; do
+	kisbetus=`echo $nagybetus | tr [:upper:] [:lower:]`
+	install -m 644 wolf12/"$nagybetus" "$celdir"/wolf3d-shareware-v12/"$kisbetus"
+	done
+
+forraslista=`ls wolf3d14/ | grep WL1| tr '\n' ' '`
+for nagybetus in $forraslista ; do
+	kisbetus=`echo $nagybetus | tr [:upper:] [:lower:]`
+	install -m 644 wolf3d14/"$nagybetus" "$celdir"/wolf3d-shareware-v14/"$kisbetus"
+	done
+
+forraslista=`ls spear/ | grep SDM| tr '\n' ' '`
+for nagybetus in $forraslista ; do
+	kisbetus=`echo $nagybetus | tr [:upper:] [:lower:]`
+	install -m 644 spear/"$nagybetus" "$celdir"/spear-demo/"$kisbetus"
+	done
+

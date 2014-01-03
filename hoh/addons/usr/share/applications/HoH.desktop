@@ -1,0 +1,14 @@
+[Desktop Entry]
+Comment=
+Comment[hu]=Klasszikus solid 3d játék
+Encoding=UTF-8
+Exec=hoh -bgr
+GenericName=Head over Hells
+GenericName[hu]=Head over Hells
+Categories=X-UHU-Menu/Games/Action;
+Icon=/usr/share/doc/Packages/HoH/gfx/icon-1.gif
+MimeType=
+Name=HoH
+Name[hu]=HoH
+StartupNotify=false
+Type=Application

@@ -1,0 +1,2 @@
+urllist http://ftp3.ie.freebsd.org/pub/ftp.trolltech.com/pub/qt/add-ons/ | splitver '^qt-mobility-opensource-src-([0-9.]+).tar.gz$' | sort -V | tail -n 1
+

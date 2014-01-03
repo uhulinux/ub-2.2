@@ -1,0 +1,4 @@
+#!/usr/bin/env dl
+
+valama-${UB_VERSION_HEAD3}.tar.gz valama-${UB_VERSION_HEAD3}/
+	git://github.com/Valama/valama.git@0.1.1

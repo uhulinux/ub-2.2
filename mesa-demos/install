@@ -1,0 +1,24 @@
+#!/bin/sh -eux
+
+cd src
+mkdir -p "$UB_INSTALLDIR"/usr/share/mesa-demos
+cp -r * "$UB_INSTALLDIR"/usr/share/mesa-demos/
+cd "$UB_INSTALLDIR"/usr/share/mesa-demos/
+rm Makefile*
+direk=`ls`
+for i in $direk; do
+  cd $i
+  rm -rf .deps .libs
+  rm -f Makefile* *.o *.c *.h
+  cd ..
+done
+mv "$UB_INSTALLDIR"/usr/share/mesa-demos/xdemos/{glxgears,glxinfo} "$UB_INSTALLDIR"/usr/bin/
+rm -rf egl tools wgl
+cd objviewer
+
+ln -s ../images/bw.rgb alpine_down.rgb
+ln -s ../images/bw.rgb alpine_east.rgb
+ln -s ../images/bw.rgb alpine_north.rgb
+ln -s ../images/bw.rgb alpine_south.rgb
+ln -s ../images/bw.rgb alpine_up.rgb
+ln -s ../images/bw.rgb alpine_west.rgb

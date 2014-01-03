@@ -1,0 +1,16 @@
+#!/bin/sh -eux
+
+ub_install \
+	pkglibdir=/usr/lib
+
+mv "$UB_INSTALLDIR"/usr/mysql-test "$UB_INSTALLDIR"/usr/share/
+
+pod2man scripts/mysqlhotcopy "$UB_INSTALLDIR"/usr/share/man/man1/mysqlhotcopy.1
+
+mkdir -p "$UB_INSTALLDIR"/usr/share/doc/Packages/mysql/examples
+mv "$UB_INSTALLDIR"/usr/share/mysql/*cnf "$UB_INSTALLDIR"/usr/share/doc/Packages/mysql/examples/
+
+rm "$UB_INSTALLDIR"/usr/share/mysql/mi_test_all*
+rm "$UB_INSTALLDIR"/usr/share/mysql/mysql-log-rotate
+rm "$UB_INSTALLDIR"/usr/share/mysql/mysql.server
+mv "$UB_INSTALLDIR"/usr/sql-bench mysql-bench

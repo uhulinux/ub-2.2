@@ -1,0 +1,11 @@
+[Desktop Entry]
+Name=Cinelerra 
+Name[hu]=Cinelerra
+Comment=Video Editor
+Comment[hu]=Videó szerkesztő
+Categories=Application;AudioVideo;AudioVideoEditing;X-UHU-Menu/Multimedia/VideoEdit;
+Exec=cinelerra
+Icon=cinelerra.xpm
+Terminal=false
+Type=Application
+

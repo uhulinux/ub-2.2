@@ -1,0 +1,756 @@
+diff -Naur orig/css/Makefile mod/css/Makefile
+--- orig/css/Makefile	2013-04-04 22:16:40.000000000 +0200
++++ mod/css/Makefile	2013-01-20 14:55:28.000000000 +0100
+@@ -1,61 +1,77 @@
++#
++# Makefile for a Video Disk Recorder plugin
++# Adapted to the new VDR makefile environment by Stefan Hofmann
++#
++# $Id$
++
+ # The official name of this plugin.
++# This name will be used in the '-P...' option of VDR to load the plugin.
++# By default the main source file also carries this name.
+ 
+ PLUGIN = live
+ 
+-### Additional options to silence TNTNET warnings
+-TNTFLAGS   ?= -Wno-overloaded-virtual -Wno-unused-function
+-TNTVERSION ?= $(shell tntnet-config --version | sed -e's/\.//g' | sed -e's/pre.*//g' | awk '/^..$$/ { print $$1."000"} /^...$$/ { print $$1."00"} /^....$$/ { print $$1."0" } /^.....$$/ { print $$1 }')
+-
+-### The C++ compiler and options:
++### The version number of this plugin (taken from the setup header file):
+ 
+-CXX      ?= g++
+-AR       ?= ar
+-ECPPC    ?= ecppc
+-
+-CXXFLAGS ?= -O2 -Woverloaded-virtual -Wall -fPIC
+-DEFINES  ?= -DPLUGIN_NAME_I18N='"$(PLUGIN)"' -DTNTVERSION=$(TNTVERSION)
++VERSION = $(shell grep '\#define LIVEVERSION ' ../setup.h | awk '{ print $$3 }' | sed -e 's/[";]//g')
++TNTVERSION ?= $(shell tntnet-config --version | sed -e's/\.//g' | sed -e's/pre.*//g' | awk '/^..$$/ { print $$1."000"} /^...$$/ { print $$1."00"} /^....$$/ { print $$1."0" } /^.....$$/ { print $$1 }')
+ 
+ ### The directory environment:
+ 
+-VDRDIR   ?= ../../../..
++# Use package data if installed...otherwise assume we're under the VDR source directory:
++PKGCFG = $(if $(VDRDIR),$(shell pkg-config --variable=$(1) $(VDRDIR)/vdr.pc),$(shell pkg-config --variable=$(1) vdr || pkg-config --variable=$(1) ../../../../vdr.pc))
++LIBDIR = $(call PKGCFG,libdir)
++LOCDIR = $(call PKGCFG,locdir)
++#
++TMPDIR ?= /tmp
++
++### The compiler options:
+ 
+-### Make sure that necessary options are included:
++export CFLAGS   = $(call PKGCFG,cflags)
++export CXXFLAGS = $(call PKGCFG,cxxflags)
++TNTFLAGS ?= -Wno-overloaded-virtual -Wno-unused-function
+ 
+--include $(VDRDIR)/Make.global
++ECPPC ?= ecppc
+ 
+-### Allow user defined options to overwrite defaults:
++### The name of the library file:
+ 
+--include $(VDRDIR)/Make.config
++ARFILE = libcss.a
+ 
+ ### Includes and Defines (add further entries here):
+ 
+-INCLUDES += -I$(VDRDIR)/include -I..
++INCLUDES += -I..
++
++DEFINES ?= -DPLUGIN_NAME_I18N='"$(PLUGIN)"' -DTNTVERSION=$(TNTVERSION)
+ 
+ ### The object files (add further files here):
+ 
+-OBJS	= styles.o
++OBJS = styles.o
+ 
+-### Default rules:
++### The main target:
+ 
+ .PHONY: all clean
+ 
+-all: libcss.a
++all: $(ARFILE)
+ 
+ ### Implicit rules:
+ 
+ %.o: %.cpp
+-	$(CXX) $(CXXFLAGS) $(TNTFLAGS) -c $(DEFINES) $(PLUGINFEATURES) $(INCLUDES) $<
++	$(CXX) $(CXXFLAGS) $(TNTFLAGS) -c $(DEFINES) $(PLUGINFEATURES) $(INCLUDES) -o $@ $<
+ 
+ %.cpp: %.css
+-	$(ECPPC) $(ECPPFLAGS) $(ECPPFLAGS_CSS) -b -m "text/css" $<
++	$(ECPPC) $(ECPPFLAGS) $(ECPPFLAGS_CSS) -b -m "text/css" -o $@ $<
++
++### Internationalization (I18N):
+ 
++install-i18n:
++ 
+ ### Targets:
+ 
+-libcss.a: $(OBJS)
++$(ARFILE): $(OBJS)
+ 	$(AR) r $@ $^
+ 
+-clean:
+-	@rm -f *~ *.o core* libcss.a $(OBJS:%.o=%.cpp)
++install-lib: $(ARFILE)
+ 
+-dist: clean
+-	@echo "Nothing to do for distribution here ..."
++install: install-lib install-i18n
++
++clean:
++	@rm -f *~ *.o core* $(ARFILE) $(OBJS:%.o=%.cpp)
+diff -Naur orig/httpd/Makefile mod/httpd/Makefile
+--- orig/httpd/Makefile	2013-04-04 22:16:40.000000000 +0200
++++ mod/httpd/Makefile	2013-01-20 14:55:50.000000000 +0100
+@@ -1,31 +1,61 @@
+-CXX      ?= g++
+-AR       ?= ar
++#
++# Makefile for a Video Disk Recorder plugin
++# Adapted to the new VDR makefile environment by Stefan Hofmann
++#
++# $Id$
+ 
+-CXXFLAGS ?= -O2 -Woverloaded-virtual -Wall -fPIC
++# The official name of this plugin.
++# This name will be used in the '-P...' option of VDR to load the plugin.
++# By default the main source file also carries this name.
+ 
+-CXXFLAGS += `tntnet-config --cxxflags`
++PLUGIN = live
++
++### The version number of this plugin (taken from the setup header file):
++
++VERSION = $(shell grep '\#define LIVEVERSION ' ../setup.h | awk '{ print $$3 }' | sed -e 's/[";]//g')
++
++### The directory environment:
++
++# Use package data if installed...otherwise assume we're under the VDR source directory:
++#PKGCFG = $(if $(VDRDIR),$(shell pkg-config --variable=$(1) $(VDRDIR)/vdr.pc),$(shell pkg-config --variable=$(1) vdr || pkg-config --variable=$(1) ../../../vdr.pc))
++LIBDIR = $(call PKGCFG,libdir)
++LOCDIR = $(call PKGCFG,locdir)
++#
++TMPDIR ?= /tmp
++
++### The compiler options:
++
++export CFLAGS   = $(call PKGCFG,cflags)
++export CXXFLAGS = $(call PKGCFG,cxxflags)
++CXXFLAGS += $(shell tntnet-config --cxxflags)
++
++### The name of the library file:
++
++ARFILE = libhttpd.a
+ 
+ ### Includes and Defines (add further entries here):
+ 
+-INCLUDES += -I.
++INCLUDES += -I..
++
++DEFINES ?= -DPLUGIN_NAME_I18N='"$(PLUGIN)"' -DTNTVERSION=$(TNTVERSION)
+ 
+ ### The object files (add further files here):
+ 
+ OBJS = dispatcher.o  job.o       regex.o   worker.o \
+        listener.o    poller.o    tntnet.o
+ 
+-### Default rules:
++### The main target:
+ 
+ .PHONY: all clean
+ 
+-all: libhttpd.a
++all: $(ARFILE)
+ 
+ ### Implicit rules:
+ 
+ %.o: %.cpp
+ 	$(CXX) $(CXXFLAGS) -c $(DEFINES) $(INCLUDES) -o $@ $<
+ 
+-# Dependencies:
++### Dependencies:
+ 
+ MAKEDEP = $(CXX) -MM -MG
+ DEPFILE = .dependencies
+@@ -34,13 +64,18 @@
+ 
+ -include $(DEPFILE)
+ 
++### Internationalization (I18N):
++
++install-i18n:
++ 
+ ### Targets:
+ 
+-libhttpd.a: $(OBJS)
++$(ARFILE): $(OBJS)
+ 	$(AR) r $@ $^
+ 
+-clean:
+-	@rm -f *~ *.o core* libhttpd.a proctest $(DEPFILE)
++install-lib: $(ARFILE)
++
++install: install-lib install-i18n
+ 
+-dist: clean
+-	@echo "Nothing to do for distribution here ..."
++clean:
++	@rm -f *.o core* $(ARFILE) proctest $(DEPFILE)
+diff -Naur orig/javascript/Makefile mod/javascript/Makefile
+--- orig/javascript/Makefile	2013-04-04 22:16:40.000000000 +0200
++++ mod/javascript/Makefile	2013-01-20 14:54:25.000000000 +0100
+@@ -1,61 +1,77 @@
++#
++# Makefile for a Video Disk Recorder plugin
++# Adapted to the new VDR makefile environment by Stefan Hofmann
++#
++# $Id$
++
+ # The official name of this plugin.
++# This name will be used in the '-P...' option of VDR to load the plugin.
++# By default the main source file also carries this name.
+ 
+ PLUGIN = live
+ 
+-### Additional options to silence TNTNET warnings
+-TNTFLAGS   ?= -Wno-overloaded-virtual -Wno-unused-function
+-TNTVERSION ?= $(shell tntnet-config --version | sed -e's/\.//g' | sed -e's/pre.*//g' | awk '/^..$$/ { print $$1."000"} /^...$$/ { print $$1."00"} /^....$$/ { print $$1."0" } /^.....$$/ { print $$1 }')
+-
+-### The C++ compiler and options:
++### The version number of this plugin (taken from the setup header file):
+ 
+-CXX      ?= g++
+-AR       ?= ar
+-ECPPC    ?= ecppc
+-
+-CXXFLAGS ?= -O2 -Woverloaded-virtual -Wall -fPIC
+-DEFINES  ?= -DPLUGIN_NAME_I18N='"$(PLUGIN)"' -DTNTVERSION=$(TNTVERSION)
++VERSION = $(shell grep '\#define LIVEVERSION ' ../setup.h | awk '{ print $$3 }' | sed -e 's/[";]//g')
++TNTVERSION ?= $(shell tntnet-config --version | sed -e's/\.//g' | sed -e's/pre.*//g' | awk '/^..$$/ { print $$1."000"} /^...$$/ { print $$1."00"} /^....$$/ { print $$1."0" } /^.....$$/ { print $$1 }')
+ 
+ ### The directory environment:
+ 
+-VDRDIR   ?= ../../../..
++# Use package data if installed...otherwise assume we're under the VDR source directory:
++#PKGCFG = $(if $(VDRDIR),$(shell pkg-config --variable=$(1) $(VDRDIR)/vdr.pc),$(shell pkg-config --variable=$(1) vdr || pkg-config --variable=$(1) ../../../vdr.pc))
++LIBDIR = $(call PKGCFG,libdir)
++LOCDIR = $(call PKGCFG,locdir)
++#
++TMPDIR ?= /tmp
++
++### The compiler options:
+ 
+-### Make sure that necessary options are included:
++export CFLAGS   = $(call PKGCFG,cflags)
++export CXXFLAGS = $(call PKGCFG,cxxflags)
++TNTFLAGS ?= -Wno-overloaded-virtual -Wno-unused-function
+ 
+--include $(VDRDIR)/Make.global
++ECPPC ?= ecppc
+ 
+-### Allow user defined options to overwrite defaults:
++### The name of the library file:
+ 
+--include $(VDRDIR)/Make.config
++ARFILE = libjavascript.a
+ 
+ ### Includes and Defines (add further entries here):
+ 
+-INCLUDES += -I$(VDRDIR)/include -I..
++INCLUDES += -I..
++
++DEFINES ?= -DPLUGIN_NAME_I18N='"$(PLUGIN)"' -DTNTVERSION=$(TNTVERSION)
+ 
+ ### The object files (add further files here):
+ 
+-OBJS	= treeview.o
++OBJS = treeview.o
+ 
+-### Default rules:
++### The main target:
+ 
+ .PHONY: all clean
+ 
+-all: libjavascript.a
++all: $(ARFILE)
+ 
+ ### Implicit rules:
+ 
+ %.o: %.cpp
+-	$(CXX) $(CXXFLAGS) $(TNTFLAGS) -c $(DEFINES) $(PLUGINFEATURES) $(INCLUDES) $<
++	$(CXX) $(CXXFLAGS) $(TNTFLAGS) -c $(DEFINES) $(PLUGINFEATURES) $(INCLUDES) -o $@ $<
+ 
+ %.cpp: %.js
+-	$(ECPPC) $(ECPPFLAGS) $(ECPPFLAGS_JS) -b -m "text/javascript" $<
++	$(ECPPC) $(ECPPFLAGS) $(ECPPFLAGS_JS) -b -m "text/javascript" -o $@ $<
++
++### Internationalization (I18N):
+ 
++install-i18n:
++ 
+ ### Targets:
+ 
+-libjavascript.a: $(OBJS)
++$(ARFILE): $(OBJS)
+ 	$(AR) r $@ $^
+ 
+-clean:
+-	@rm -f *~ *.o core* libjavascript.a $(OBJS:%.o=%.cpp)
++install-lib: $(ARFILE)
+ 
+-dist: clean
+-	@echo "Nothing to do for distribution here ..."
++install: install-lib install-i18n
++
++clean:
++	@rm -f *~ *.o core* $(ARFILE) $(OBJS:%.o=%.cpp)
+diff -Naur orig/Makefile mod/Makefile
+--- orig/Makefile	2013-04-04 22:16:40.000000000 +0200
++++ mod/Makefile	2013-01-21 20:42:16.000000000 +0100
+@@ -1,171 +1,160 @@
+ #
+ # Makefile for a Video Disk Recorder plugin
++# Adapted to the new VDR makefile environment by Stefan Hofmann
+ #
++# $Id$
+ 
+ # The official name of this plugin.
+ # This name will be used in the '-P...' option of VDR to load the plugin.
+ # By default the main source file also carries this name.
+-# IPORTANT: the presence of this macro is important for the Make.config
+-# file. So it must be defined, even if it is not used here!
+-#
++
+ PLUGIN = live
+ 
+-### The version number of this plugin (taken from the main source file):
++### The version number of this plugin (taken from the setup header file):
+ 
+ VERSION = $(shell grep '\#define LIVEVERSION ' setup.h | awk '{ print $$3 }' | sed -e 's/[";]//g')
+ 
+-### The C++ compiler and options:
+-
+-CXX	 ?= g++
+-ECPPC	 ?= ecppc
+-
+-### This variable is overriden in pages/Makefile because we don't want the
+-### extra warnings in the tntnet generated files. So if you change here
+-### something be sure to check pages/Makefile too.
+-CXXFLAGS ?= -fPIC -O2 -Wall
+-LDFLAGS	 ?= -fPIC -g
++TNTVERSION = $(shell tntnet-config --version | sed -e's/\.//g' | sed -e's/pre.*//g' | awk '/^..$$/ { print $$1."000"} /^...$$/ { print $$1."00"} /^....$$/ { print $$1."0" } /^.....$$/ { print $$1 }')
++TNTVERS7   = $(shell ver=$(TNTVERSION); if [ $$ver -ge "1606" ]; then echo "yes"; fi)
+ 
+-### Check for libpcre c++ wrapper
+-HAVE_LIBPCRECPP = $(shell pcre-config --libs-cpp)
++VERSIONSUFFIX = gen_version_suffix.h
+ 
+ ### The directory environment:
+ 
+-VDRDIR	 ?= ../../..
+-LIBDIR	 ?= ../../lib
+-TMPDIR	 ?= /tmp
++# Use package data if installed...otherwise assume we're under the VDR source directory:
++PKGCFG = $(if $(VDRDIR),$(shell pkg-config --variable=$(1) $(VDRDIR)/vdr.pc),$(shell pkg-config --variable=$(1) vdr || pkg-config --variable=$(1) ../../../vdr.pc))
++LIBDIR = $(call PKGCFG,libdir)
++LOCDIR = $(call PKGCFG,locdir)
++PLGCONFDIR = $(call PKGCFG,configdir)/plugins/$(PLUGIN)
++#
++TMPDIR ?= /tmp
+ 
+-### Make sure that necessary options are included:
++### The compiler options:
+ 
+--include $(VDRDIR)/Make.global
++export CFLAGS   = $(call PKGCFG,cflags)
++export CXXFLAGS = $(call PKGCFG,cxxflags)
++CXXFLAGS += $(shell tntnet-config --cxxflags)
+ 
+-### Allow user defined options to overwrite defaults:
++# Check for libpcre c++ wrapper
+ 
+--include $(VDRDIR)/Make.config
++HAVE_LIBPCRECPP = $(shell pcre-config --libs-cpp)
++ECPPC ?= ecppc
+ 
+-### The version number of VDR's plugin API (taken from VDR's "config.h"):
+ 
+-APIVERSION = $(shell sed -ne '/define APIVERSION/s/^.*"\(.*\)".*$$/\1/p' $(VDRDIR)/config.h)
+-I18NTARG   = $(shell if [ `echo $(APIVERSION) | tr [.] [0]` -ge "10507" ]; then echo "i18n"; fi)
+-TNTVERSION = $(shell tntnet-config --version | sed -e's/\.//g' | sed -e's/pre.*//g' | awk '/^..$$/ { print $$1."000"} /^...$$/ { print $$1."00"} /^....$$/ { print $$1."0" } /^.....$$/ { print $$1 }')
+-CXXTOOLVER = $(shell cxxtools-config --version | sed -e's/\.//g' | sed -e's/pre.*//g' | awk '/^..$$/ { print $$1."000"} /^...$$/ { print $$1."00"} /^....$$/ { print $$1."0" } /^.....$$/ { print $$1 }')
+-TNTVERS7   = $(shell ver=$(TNTVERSION); if [ $$ver -ge "1606" ]; then echo "yes"; fi)
++### The version number of VDR's plugin API:
+ 
+-CXXFLAGS  += $(shell tntnet-config --cxxflags)
+-LIBS      += $(shell tntnet-config --libs)
+-
+-### Optional configuration features
+-PLUGINFEATURES =
+-ifneq ($(HAVE_LIBPCRECPP),)
+-	PLUGINFEATURES += -DHAVE_LIBPCRECPP
+-	CXXFLAGS       += $(shell pcre-config --cflags)
+-	LIBS           += $(HAVE_LIBPCRECPP)
+-endif
++APIVERSION = $(call PKGCFG,apiversion)
+ 
+ ### The name of the distribution archive:
+ 
+ ARCHIVE = $(PLUGIN)-$(VERSION)
+ PACKAGE = vdr-$(ARCHIVE)
+ 
++### The name of the shared object file:
++
++SOFILE = libvdr-$(PLUGIN).so
++
+ ### Includes and Defines (add further entries here):
+ 
+-INCLUDES += -I$(VDRDIR)/include
++INCLUDES += 
++
++DEFINES	 += -DPLUGIN_NAME_I18N='"$(PLUGIN)"'
++DEFINES  += -DTNTVERSION=$(TNTVERSION)
++
++### Optional configuration features:
++
+ ifneq ($(TNTVERS7),yes)
+ 	INCLUDES += -Ihttpd
+ 	LIBS	 += httpd/libhttpd.a
+ endif
+ 
+-DEFINES	 += -D_GNU_SOURCE -DPLUGIN_NAME_I18N='"$(PLUGIN)"' -DTNTVERSION=$(TNTVERSION) -DCXXTOOLVER=$(CXXTOOLVER)
++PLUGINFEATURES =
++ifneq ($(HAVE_LIBPCRECPP),)
++	PLUGINFEATURES += -DHAVE_LIBPCRECPP
++	DEFINES        += $(PLUGINFEATURES)
++	CXXFLAGS       += $(shell pcre-config --cflags)
++	LIBS           += $(HAVE_LIBPCRECPP)
++endif
++
++### The object files (add further files here):
+ 
+-SUBDIRS	  = pages css javascript
++SUBDIRS	= pages css javascript
+ ifneq ($(TNTVERS7),yes)
+ 	SUBDIRS += httpd
+ endif
+ 
+-VERSIONSUFFIX = gen_version_suffix.h
+-
+-### The object files (add further files here):
++OBJS = $(PLUGIN).o thread.o tntconfig.o setup.o i18n.o timers.o \
++       tools.o recman.o tasks.o status.o epg_events.o epgsearch.o \
++       grab.o md5.o filecache.o livefeatures.o preload.o timerconflict.o \
++       users.o
+ 
+-PLUGINOBJS = $(PLUGIN).o thread.o tntconfig.o setup.o i18n.o timers.o \
+-	     tools.o recman.o tasks.o status.o epg_events.o epgsearch.o \
+-	     grab.o md5.o filecache.o livefeatures.o preload.o timerconflict.o \
+-	     users.o
++LIBS += $(shell tntnet-config --libs)
+ 
+ WEBLIBS	   = pages/libpages.a css/libcss.a javascript/libjavascript.a
+ 
+-### Default rules:
+-
+-all: libvdr-$(PLUGIN).so $(I18NTARG)
++### The main target:
+ 
+ .PHONY: all dist clean subdirs $(SUBDIRS) PAGES
+ 
++all: subdirs $(SOFILE) i18n
++
+ ### Implicit rules:
+ 
+ %.o: %.cpp
+-	$(CXX) $(CXXFLAGS) -c $(DEFINES) $(PLUGINFEATURES) $(INCLUDES) $<
++	$(CXX) $(CXXFLAGS) -c $(DEFINES) $(PLUGINFEATURES) $(INCLUDES) -o $@ $<
+ 
+-# Dependencies:
++### Dependencies:
+ 
+ MAKEDEP = $(CXX) -MM -MG
+ DEPFILE = .dependencies
+ $(DEPFILE): Makefile
+-	@$(MAKEDEP) $(DEFINES) $(PLUGINFEATURES) $(INCLUDES) $(PLUGINOBJS:%.o=%.cpp) > $@
++	@$(MAKEDEP) $(DEFINES) $(PLUGINFEATURES) $(INCLUDES) $(OBJS:%.o=%.cpp) > $@
+ 
+-ifneq ($(MAKECMDGOALS),clean)
+ -include $(DEPFILE)
+-endif
+ 
+ ### Internationalization (I18N):
+ 
+-PODIR	  = po
+-LOCALEDIR = $(VDRDIR)/locale
+-I18Npo	  = $(wildcard $(PODIR)/*.po)
+-I18Nmo	  = $(addsuffix .mo, $(foreach file, $(I18Npo), $(basename $(file))))
+-I18Ndirs  = $(notdir $(foreach file, $(I18Npo), $(basename $(file))))
+-I18Npot	  = $(PODIR)/$(PLUGIN).pot
+-I18Nvdrmo = vdr-$(PLUGIN).mo
+-ifeq ($(strip $(APIVERSION)),1.5.7)
+-  I18Nvdrmo = $(PLUGIN).mo
+-endif
++PODIR     = po
++I18Npo    = $(wildcard $(PODIR)/*.po)
++I18Nmo    = $(addsuffix .mo, $(foreach file, $(I18Npo), $(basename $(file))))
++I18Nmsgs  = $(addprefix $(DESTDIR)$(LOCDIR)/, $(addsuffix /LC_MESSAGES/vdr-$(PLUGIN).mo, $(notdir $(foreach file, $(I18Npo), $(basename $(file))))))
++I18Npot   = $(PODIR)/$(PLUGIN).pot
+ 
+ %.mo: %.po
+ 	msgfmt -c -o $@ $<
+ 
+-$(I18Npot): PAGES $(PLUGINOBJS:%.o=%.cpp)
+-	xgettext -C -cTRANSLATORS --no-wrap --no-location -k -ktr -ktrNOOP --omit-header -o $@ $(PLUGINOBJS:%.o=%.cpp) pages/*.cpp setup.h epg_events.h
++$(I18Npot): $(OBJS:%.o=%.cpp)
++	xgettext -C -cTRANSLATORS --no-wrap --no-location -k -ktr -ktrNOOP --package-name=vdr-$(PLUGIN) --package-version=$(VERSION) --msgid-bugs-address=' http://live.vdr-developer.org' -o $@ $(OBJS:%.o=%.cpp) pages/*.cpp setup.h epg_events.h
++
++%.po: $(I18Npot)
++	msgmerge -U --no-wrap --no-location --backup=none -q -N $@ $<
++	@touch $@
+ 
+-$(I18Npo): $(I18Npot)
+-	msgmerge -U --no-wrap --no-location --backup=none -q $@ $<
++$(I18Nmsgs): $(DESTDIR)$(LOCDIR)/%/LC_MESSAGES/vdr-$(PLUGIN).mo: $(PODIR)/%.mo
++	install -D -m644 $< $@
+ 
+-i18n: $(I18Nmo)
+-	@mkdir -p $(LOCALEDIR)
+-	for i in $(I18Ndirs); do\
+-	    mkdir -p $(LOCALEDIR)/$$i/LC_MESSAGES;\
+-	    cp $(PODIR)/$$i.mo $(LOCALEDIR)/$$i/LC_MESSAGES/$(I18Nvdrmo);\
+-	    done
++.PHONY: i18n
++i18n: $(I18Nmo) $(I18Npot)
+ 
+-generate-i18n: i18n-template.h $(I18Npot) $(I18Npo) buildutil/pot2i18n.pl
+-	buildutil/pot2i18n.pl $(I18Npot) i18n-template.h > i18n-generated.h
++install-i18n: $(I18Nmsgs)
+ 
+ ### Targets:
+ 
+ subdirs: $(SUBDIRS)
+ 
+-$(SUBDIRS):
+-	@$(MAKE) -C $@ $(MAKECMDGOALS) PLUGINFEATURES="$(PLUGINFEATURES)"
+-
+-PAGES:
+-	@$(MAKE) -C pages PLUGINFEATURES="$(PLUGINFEATURES)" .dependencies
++$(SUBDIRS): $(VERSIONSUFFIX)
++	@echo "*** $@"
++	@$(MAKE) -C $@ VDRDIR="$(shell realpath "$(VDRDIR)")" PLUGINFEATURES="$(PLUGINFEATURES)"
+ 
+-$(VERSIONSUFFIX): FORCE
++$(VERSIONSUFFIX):
+ 	./buildutil/version-util $(VERSIONSUFFIX) || ./buildutil/version-util -F $(VERSIONSUFFIX)
+ 
+-libvdr-$(PLUGIN).so: $(VERSIONSUFFIX) $(SUBDIRS) $(PLUGINOBJS)
+-	$(CXX) $(LDFLAGS) -shared -o $@	 $(PLUGINOBJS) -Wl,--whole-archive $(WEBLIBS) -Wl,--no-whole-archive $(LIBS)
+-	@cp --remove-destination $@ $(LIBDIR)/$@.$(APIVERSION)
++$(SOFILE): $(VERSIONSUFFIX) $(OBJS)
++	$(CXX) $(CXXFLAGS) $(LDFLAGS) -shared $(OBJS) -Wl,--whole-archive $(WEBLIBS) -Wl,--no-whole-archive $(LIBS) -o $@
+ 
+ ifneq ($(TNTVERS7),yes)
+ 	@echo ""
+-	@echo "LIVE was built successfully and you can try to use it!"
++	@echo "If LIVE was built successfully and you can try to use it!"
+ 	@echo ""
+ 	@echo ""
+ 	@echo ""
+@@ -186,19 +175,24 @@
+ 	@echo ""
+ endif
+ 
+-dist: clean
++install-lib: $(SOFILE)
++	install -D $^ $(DESTDIR)$(LIBDIR)/$^.$(APIVERSION)
++
++install-resources:
++	mkdir -p $(DESTDIR)$(PLGCONFDIR)
++	cp -a live/* $(DESTDIR)$(PLGCONFDIR)
++
++install: subdirs install-lib install-i18n install-resources
++
++dist: $(I18Npo) clean
+ 	@-rm -rf $(TMPDIR)/$(ARCHIVE)
+ 	@mkdir $(TMPDIR)/$(ARCHIVE)
+ 	@cp -a * $(TMPDIR)/$(ARCHIVE)
+-	@tar czf $(TMPDIR)/$(PACKAGE).tar.gz -C $(TMPDIR) $(ARCHIVE)
++	@tar czf $(PACKAGE).tgz -C $(TMPDIR) $(ARCHIVE)
+ 	@-rm -rf $(TMPDIR)/$(ARCHIVE)
+-	@echo Distribution package created as $(TMPDIR)/$(PACKAGE).tar.gz
++	@echo Distribution package created as $(PACKAGE).tgz
+ 
+-clean: $(SUBDIRS)
++clean: subdirs
+ 	@-rm -f $(PODIR)/*.mo $(PODIR)/*.pot
+-	@-rm -f $(PLUGINOBJS) $(DEPFILE) *.so *.tgz core* *~
++	@-rm -f $(OBJS) $(DEPFILE) *.so *.tgz core* *~
+ 	@-rm -f $(VERSIONSUFFIX)
+-
+-.PRECIOUS: $(I18Npo)
+-
+-FORCE:
+diff -Naur orig/pages/Makefile mod/pages/Makefile
+--- orig/pages/Makefile	2013-04-04 22:16:40.000000000 +0200
++++ mod/pages/Makefile	2013-01-20 14:53:44.000000000 +0100
+@@ -1,36 +1,46 @@
++#
++# Makefile for a Video Disk Recorder plugin
++# Adapted to the new VDR makefile environment by Stefan Hofmann
++#
++# $Id$
++
+ # The official name of this plugin.
++# This name will be used in the '-P...' option of VDR to load the plugin.
++# By default the main source file also carries this name.
+ 
+ PLUGIN = live
+ 
+-### Additional options to silence TNTNET warnings
+-TNTFLAGS   ?= -Wno-overloaded-virtual -Wno-unused-variable
+-TNTVERSION ?= $(shell tntnet-config --version | sed -e's/\.//g' | sed -e's/pre.*//g' | awk '/^..$$/ { print $$1."000"} /^...$$/ { print $$1."00"} /^....$$/ { print $$1."0" } /^.....$$/ { print $$1 }')
+-CXXTOOLVER ?= $(shell cxxtools-config --version | sed -e's/\.//g' | sed -e's/pre.*//g' | awk '/^..$$/ { print $$1."000"} /^...$$/ { print $$1."00"} /^....$$/ { print $$1."0" } /^.....$$/ { print $$1 }')
+-
+-### The C++ compiler and options:
++### The version number of this plugin (taken from the setup header file):
+ 
+-CXX      ?= g++
+-AR       ?= ar
+-ECPPC    ?= ecppc
+-
+-CXXFLAGS ?= -O2 -Woverloaded-virtual -Wall -fPIC
+-DEFINES  ?= -DPLUGIN_NAME_I18N='"$(PLUGIN)"' -DTNTVERSION=$(TNTVERSION) -DCXXTOOLVER=$(CXXTOOLVER)
++VERSION = $(shell grep '\#define LIVEVERSION ' ../setup.h | awk '{ print $$3 }' | sed -e 's/[";]//g')
++TNTVERSION ?= $(shell tntnet-config --version | sed -e's/\.//g' | sed -e's/pre.*//g' | awk '/^..$$/ { print $$1."000"} /^...$$/ { print $$1."00"} /^....$$/ { print $$1."0" } /^.....$$/ { print $$1 }')
+ 
+ ### The directory environment:
+ 
+-VDRDIR   ?= ../../../..
++# Use package data if installed...otherwise assume we're under the VDR source directory:
++PKGCFG = $(if $(VDRDIR),$(shell pkg-config --variable=$(1) $(VDRDIR)/vdr.pc),$(shell pkg-config --variable=$(1) vdr || pkg-config --variable=$(1) ../../../../vdr.pc))
++LIBDIR = $(call PKGCFG,libdir)
++LOCDIR = $(call PKGCFG,locdir)
++#
++TMPDIR ?= /tmp
++
++### The compiler options:
+ 
+-### Make sure that necessary options are included:
++export CFLAGS   = $(call PKGCFG,cflags)
++export CXXFLAGS = $(call PKGCFG,cxxflags)
++TNTFLAGS ?= -Wno-overloaded-virtual -Wno-unused-variable  -Wno-unused-but-set-variable
+ 
+--include $(VDRDIR)/Make.global
++ECPPC ?= ecppc
+ 
+-### Allow user defined options to overwrite defaults:
++### The name of the library file:
+ 
+--include $(VDRDIR)/Make.config
++ARFILE = libpages.a
+ 
+ ### Includes and Defines (add further entries here):
+ 
+-INCLUDES += -I$(VDRDIR)/include -I..
++INCLUDES += -I..
++
++DEFINES ?= -DPLUGIN_NAME_I18N='"$(PLUGIN)"' -DTNTVERSION=$(TNTVERSION)
+ 
+ ### The object files (add further files here):
+ 
+@@ -43,38 +53,41 @@
+           rwd_recording.o setup.o content.o epginfo.o timerconflicts.o  \
+           recstream.o users.o edit_user.o edit_recording.o
+ 
+-### Default rules:
++### The main target:
+ 
+ .PHONY: all clean
+ 
+-all: libpages.a
++all: $(ARFILE)
+ 
+ ### Implicit rules:
+ 
+ %.o: %.cpp
+-	$(CXX) $(CXXFLAGS) $(TNTFLAGS) -c $(DEFINES) $(PLUGINFEATURES) $(INCLUDES) $<
++	$(CXX) $(CXXFLAGS) $(TNTFLAGS) -c $(DEFINES) $(PLUGINFEATURES) $(INCLUDES) -o $@ $<
+ 
+ %.cpp: %.ecpp
+-	$(ECPPC) $(ECPPFLAGS) $(ECPPFLAGS_CPP) $<
++	$(ECPPC) $(ECPPFLAGS) $(ECPPFLAGS_CPP) -o $@ $<
+ 
+-# Dependencies:
++### Dependencies:
+ 
+ MAKEDEP = $(CXX) -MM -MG
+ DEPFILE = .dependencies
+ $(DEPFILE): Makefile $(OBJS:%.o=%.cpp) $(OBJS:%.o=%.ecpp)
+ 	@$(MAKEDEP) $(DEFINES) $(PLUGINFEATURES) $(INCLUDES) $(OBJS:%.o=%.cpp) > $@
+ 
+-ifneq ($(MAKECMDGOALS),clean)
+ -include $(DEPFILE)
+-endif
+ 
++### Internationalization (I18N):
++
++install-i18n:
++ 
+ ### Targets:
+ 
+-libpages.a: $(OBJS)
++$(ARFILE): $(OBJS)
+ 	$(AR) r $@ $^
+ 
+-clean:
+-	@rm -f *~ *.o core* libpages.a $(OBJS:%.o=%.cpp) $(DEPFILE)
++install-lib: $(ARFILE)
+ 
+-dist: clean
+-	@echo "Nothing to do for distribution here ..."
++install: install-lib install-i18n
++
++clean:
++	@rm -f *~ *.o core* $(ARFILE) $(OBJS:%.o=%.cpp) $(DEPFILE)
+diff -Naur orig/README mod/README
+--- orig/README	2013-04-04 22:16:40.000000000 +0200
++++ mod/README	2013-01-21 20:44:20.000000000 +0100
+@@ -8,7 +8,9 @@
+ 
+ Project's homepage:          http://live.vdr-developer.org
+ 
+-Latest version available at: http://live.vdr-developer.org
++Latest version available at: either http://live.vdr-developer.org
++                             or the current cvs version at
++                             http://www.vdr-developer.org/cgi-bin/cvsweb.cgi/live/live.tar.gz?tarball=1
+ 
+ See the file COPYING for license information.
+ 
+@@ -74,8 +76,8 @@
+ 
+ Locale::PO 		- perl module from CPAN www.cpan.org
+ 
+-The default i18n-generated.h header contains all
+-translations from GIT. Users that just want to stay on bleeding development
++The default i18n-generated.h header (provided via CVS) contains all
++translations from CVS. Users that just want to stay on bleeding development
+ edge of live do not need Locale::PO installed.
+ 
+ How to get Locale::PO
+@@ -96,6 +98,8 @@
+ copy the resulting binary to VDRs directory where the other plugins
+ are expected.
+ 
++Obsolete, now accomplished by the plugin's Makefile:
++
+ In order to work correctly you must copy the subdirectory 'live' from
+ the source distribution to the directory where the vdr plugins look
+ for their configuration files. The pure VDR default for this config

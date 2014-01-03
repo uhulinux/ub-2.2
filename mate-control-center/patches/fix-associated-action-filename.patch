@@ -1,0 +1,12 @@
+diff -Naur orig/org.mate.control-center.gschema.xml.in.in patched/org.mate.control-center.gschema.xml.in.in
+--- orig/org.mate.control-center.gschema.xml.in.in	2013-07-30 19:41:24.000000000 +0200
++++ patched/org.mate.control-center.gschema.xml.in.in	2013-11-03 15:38:47.940986777 +0100
+@@ -2,7 +2,7 @@
+     <schema id="org.mate.control-center" path="/org/mate/control-center/">
+         <child name="appearance" schema="org.mate.control-center.appearance" />
+         <key name="cc-actions-list" type="as">
+-            <_default l10n="messages">[ 'Change Theme;mate-appearance-properties.desktop', 'Set Preferred Applications;default-applications.desktop' ]</_default>
++            <_default l10n="messages">[ 'Change Theme;mate-appearance-properties.desktop', 'Set Preferred Applications;mate-default-applications-properties.desktop' ]</_default>
+             <_summary>Task names and associated .desktop files</_summary>
+             <_description>The task name to be displayed in the control-center followed by a ";" separator then the filename of an associated .desktop file to launch for that task.</_description>
+         </key>

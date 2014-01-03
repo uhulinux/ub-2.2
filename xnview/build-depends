@@ -1,0 +1,8 @@
+fontconfig-dev
+gst-plugins-base-dev
+gstreamer-dev
+ilmbase-dev
+libxext-dev
+libxrender-dev
+mesa-dev
+qt4-dev

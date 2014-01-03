@@ -1,0 +1,18 @@
+#!/bin/sh -eux
+
+destdir="$UB_INSTALLDIR"/usr
+localedir="$destdir"/share/locale
+mkdir -p "$localedir"
+cp -r share "$destdir"
+rm -rf "$destdir"/share/gnome-shell/gnome-shell-frippery
+cd "$destdir"/share/gnome-shell/extensions
+direk=`ls`
+for i in $direk; do
+if [ -d "$i"/locale ]; then
+cd "$i"/locale
+cp -r * "$localedir"/
+cd ..
+rm -rf locale
+cd ..
+fi
+done

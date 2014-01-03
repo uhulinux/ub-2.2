@@ -1,0 +1,15 @@
+#!/bin/sh -eux
+
+autoreconf -vif
+ub_compile \
+	--with-dri-drivers=i915,i965,nouveau,r200,radeon,swrast \
+	--with-gallium-drivers=i915,r300,r600,swrast \
+	--enable-openvg \
+	--enable-dri \
+	--enable-glx \
+	--enable-xorg \
+	--enable-osmesa \
+	--enable-gallium-egl \
+	--enable-gles1 \
+	--enable-gles2
+

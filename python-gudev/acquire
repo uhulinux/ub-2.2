@@ -1,0 +1,4 @@
+#!/usr/bin/env dl
+
+python-gudev_${UB_VERSION}.orig.tar.gz nzjrs-python-gudev-ee8a644/
+	https://launchpad.net/ubuntu/+archive/primary/+files/

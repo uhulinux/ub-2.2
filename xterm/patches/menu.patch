@@ -1,0 +1,30 @@
+diff -Naur orig/uxterm.desktop mod/uxterm.desktop
+--- orig/uxterm.desktop	2012-06-25 00:20:29.000000000 +0200
++++ mod/uxterm.desktop	2013-11-15 21:22:11.000000000 +0100
+@@ -34,9 +34,10 @@
+ Name=UXTerm
+ #GenericName=Terminal
+ Comment=standard terminal emulator for the X window system
++Comment[hu]=Hagyományos grafikus terminál
+ Exec=uxterm
+ Terminal=false
+ Type=Application
+ Encoding=UTF-8
+ Icon=xterm-color_48x48
+-Categories=System;TerminalEmulator;
++Categories=System;TerminalEmulator;X-UHU-Menu/Tools/Terminals;
+diff -Naur orig/xterm.desktop mod/xterm.desktop
+--- orig/xterm.desktop	2012-06-25 00:20:29.000000000 +0200
++++ mod/xterm.desktop	2013-11-15 21:21:21.000000000 +0100
+@@ -34,9 +34,10 @@
+ Name=XTerm
+ #GenericName=Terminal
+ Comment=standard terminal emulator for the X window system
++Comment[hu]=Hagyományos grafikus terminál
+ Exec=xterm
+ Terminal=false
+ Type=Application
+ Encoding=UTF-8
+ Icon=xterm-color_48x48
+-Categories=System;TerminalEmulator;
++Categories=System;TerminalEmulator;X-UHU-Menu/Tools/Terminals;

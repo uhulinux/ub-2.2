@@ -1,0 +1,12 @@
+cmake
+curl-dev
+flac-dev
+gnome2-vfs-dev
+id3lib-dev
+intltool
+libglade2-dev
+libgpod-dev
+libid3tag-dev
+libvorbis-dev
+mp4v2-dev
+perl-xml-parser

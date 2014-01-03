@@ -1,0 +1,9 @@
+diff -Naur ORIG/xfce4-taskmanager.desktop.in UHU/xfce4-taskmanager.desktop.in
+--- ORIG/xfce4-taskmanager.desktop.in	2010-05-26 00:01:15.000000000 +0200
++++ UHU/xfce4-taskmanager.desktop.in	2010-06-17 18:04:52.000000000 +0200
+@@ -7,4 +7,4 @@
+ Terminal=false
+ StartupNotify=true
+ Type=Application
+-Categories=System;Utility;
++Categories=System;Utility;X-UHU-Menu/Tools/Utilities;

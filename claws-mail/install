@@ -1,0 +1,21 @@
+#!/bin/sh -eux
+
+ub_install
+
+# az ub_install Permission denied hibával leáll a po mappában
+# chroot alatt...
+
+cd po
+ub_make
+for lang in bg ca cs de en_GB es fi fr he hu id_ID it ja lt nl pl pt_BR pt_PT ru sk sv uk zh_CN zh_TW; do
+mkdir -p "$UB_INSTALLDIR"/usr/share/locale/$lang/LC_MESSAGES
+cp $lang.gmo "$UB_INSTALLDIR"/usr/share/locale/$lang/LC_MESSAGES/claws-mail.mo
+done
+cd ..
+
+mkdir -p "$UB_INSTALLDIR"/usr/share/claws-mail/themes
+
+mkdir -p "$UB_INSTALLDIR"/usr/share/claws-mail/tools
+cp -r tools/* "$UB_INSTALLDIR"/usr/share/claws-mail/tools/
+rm -f "$UB_INSTALLDIR"/usr/share/claws-mail/tools/Makefile*
+

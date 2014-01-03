@@ -1,0 +1,6 @@
+#!/usr/bin/env dl
+cave9_src-${UB_VERSION}.tgz cave9-${UB_VERSION}/
+	http://cave9.googlecode.com/files/
+
+cave9_data-${UB_VERSION_MINOR}.tgz .
+	http://cave9.googlecode.com/files/

@@ -1,0 +1,10 @@
+diff -Naur a/src/KGoldrunner.desktop b/src/KGoldrunner.desktop
+--- a/src/KGoldrunner.desktop	2013-07-10 01:25:03.000000000 +0200
++++ b/src/KGoldrunner.desktop	2013-08-19 13:41:35.751793364 +0200
+@@ -176,5 +176,5 @@
+ Comment[zh_CN]=一个结合动作与解谜的游戏
+ Comment[zh_TW]= 一個動作和解謎的遊戲
+ Terminal=false
+-Categories=Qt;KDE;Game;ArcadeGame;
++Categories=Qt;KDE;Game;ArcadeGame;X-UHU-Menu/Games/Arcade;
+ X-DBUS-StartupType=Multi

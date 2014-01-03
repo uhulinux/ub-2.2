@@ -1,0 +1,8 @@
+#!/bin/sh
+
+. /etc/init.d/common
+
+DAEMON=/usr/sbin/httpd
+PIDFILE="/var/run/apache.pid"
+
+startstop "$@"

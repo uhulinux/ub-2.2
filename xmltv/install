@@ -1,0 +1,6 @@
+#!/bin/sh -eux
+
+mv Makefile xmltv-${UB_VERSION}
+cd xmltv-${UB_VERSION}
+make test
+ub_install

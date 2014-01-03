@@ -1,0 +1,11 @@
+[Desktop Entry]
+Encoding=UTF-8
+Name=xdipo
+Comment[hu]=műhold antenna beállító
+Exec=xdipo
+Type=Application
+Categories=X-UHU-Menu/Multimedia/TVRadio;
+GenericName=xdipo
+Terminal=false
+Icon=satdish
+X-KDE-SubstituteUID=false

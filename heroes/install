@@ -1,0 +1,5 @@
+#!/bin/sh -eux
+
+ub_install
+
+cp misc/heroes-1.xpm "$UB_INSTALLDIR"/usr/share/pixmaps/

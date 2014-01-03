@@ -1,0 +1,11 @@
+#!/bin/sh -eux
+celdir="$UB_INSTALLDIR"/usr/share/games/tomatoes
+install -d -m 755 "$celdir"
+cp -r music "$celdir"/
+cp tomatoes.mpk config.cfg "$celdir"/
+cp icon.png "$UB_INSTALLDIR"/usr/share/pixmaps/tomatoes.png
+# Change special key to right ctrl for altgr users and others.
+cp $UB_SRCDIR/patches/config.cfg.skip $celdir/config.cfg
+mkdir -p "$UB_INSTALLDIR"/usr/bin
+chmod +x tomatoes
+cp tomatoes "$UB_INSTALLDIR"/usr/bin/

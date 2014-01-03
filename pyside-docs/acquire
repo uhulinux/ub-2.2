@@ -1,0 +1,4 @@
+#!/usr/bin/env dl
+
+pyside-docs-latest.zip pyside-docs-latest/
+	http://www.pyside.org/docs/

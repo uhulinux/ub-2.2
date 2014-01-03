@@ -1,0 +1,4 @@
+#!/usr/bin/env dl
+
+connman-${UB_VERSION}.tar.xz connman-${UB_VERSION}/
+	https://www.kernel.org/pub/linux/network/connman/

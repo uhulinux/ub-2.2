@@ -1,0 +1,216 @@
+diff -Naur WindowMaker-0.92.0.orig/WindowMaker/Makefile.in WindowMaker-0.92.0/WindowMaker/Makefile.in
+--- WindowMaker-0.92.0.orig/WindowMaker/Makefile.in	2005-06-19 05:23:01.000000000 +0200
++++ WindowMaker-0.92.0/WindowMaker/Makefile.in	2006-04-04 15:45:24.000000000 +0200
+@@ -283,51 +283,8 @@
+ 	autostart.sh\
+ 	background.menu\
+ 	exitscript.sh\
+-	menu\
+-	menu.bg\
+-	menu.ca\
+-	menu.cz\
+-	menu.da\
+-	menu.de\
+-	menu.el\
+-	menu.es\
+-	menu.fi\
+-	menu.fr\
+-	menu.gl\
+-	menu.he\
+-	menu.hr\
+-	menu.hu\
+-	menu.it\
+-	menu.ja\
+-	menu.ko\
+-	menu.nl\
+-	menu.no\
+-	menu.pl\
+-	menu.pt\
+-	menu.ro\
+-	menu.ru\
+-	menu.se\
+-	menu.sk\
+-	menu.sl\
+-	menu.tr\
+-	menu.zh_CN\
+-	menu.zh_TW\
+ 	plmenu\
+-	plmenu.bg\
+-	plmenu.da\
+-	plmenu.de\
+-	plmenu.es\
+-	plmenu.fi\
+-	plmenu.fr\
+-	plmenu.hr\
+-	plmenu.it\
+-	plmenu.ja\
+-	plmenu.ko\
+-	plmenu.pl\
+-	plmenu.ro\
+-	plmenu.sk\
+-	plmenu.zh_CN\
+-	plmenu.zh_TW\
++	plmenu.hu\
+ 	README\
+ 	README.themes\
+ 	wmmacros
+diff -Naur WindowMaker-0.92.0.orig/WindowMaker/plmenu WindowMaker-0.92.0/WindowMaker/plmenu
+--- WindowMaker-0.92.0.orig/WindowMaker/plmenu	2004-10-23 05:49:23.000000000 +0200
++++ WindowMaker-0.92.0/WindowMaker/plmenu	2006-04-04 15:39:40.000000000 +0200
+@@ -1,73 +1,21 @@
+ ("Applications",
+  ("Info",
+   ("Info Panel", INFO_PANEL),
+-  ("Legal", LEGAL_PANEL),
+-  ("System Console", EXEC, "xconsole"),
+-  ("System Load", SHEXEC, "xosview || xload"),
+-  ("Process List", EXEC, "xterm -e top"),
+-  ("Manual Browser", EXEC, "xman")
++  ("Legal", LEGAL_PANEL)
+  ),
+  ("Run...", SHEXEC, "%a(Run,Type command to run:)"),
+- ("XTerm", EXEC, "xterm -sb"),
+- ("Mozilla Firefox", EXEC, "firefox"),
+  ("Workspaces", WORKSPACE_MENU),
+- ("Applications",
+-  ("Gimp", SHEXEC, "gimp >/dev/null"),
+-  ("Ghostview", EXEC, "ghostview %a(Enter file to view)"),
+-  ("Xpdf", EXEC, "xpdf %a(Enter PDF to view)"),
+-  ("Abiword", EXEC, "abiword"),
+-  ("Dia", EXEC, "dia"),
+-  ("OpenOffice.org",
+-   ("OpenOffice.org", EXEC, "ooffice"),
+-   ("Writer", EXEC, "oowriter"),
+-   ("Spreadsheet", EXEC, "oocalc"),
+-   ("Draw", EXEC, "oodraw"),
+-   ("Impress", EXEC, "ooimpress")
+-  ),
+-  ("Editors",
+-   ("XEmacs", EXEC, "xemacs"),
+-   ("Emacs", EXEC, "emacs"),
+-   ("XJed", EXEC, "xjed"),
+-   ("VI", EXEC, "xterm -e vi"),
+-   ("GVIM", EXEC, "gvim"),
+-   ("NEdit", EXEC, "nedit"),
+-   ("Xedit", EXEC, "xedit")
+-  ),
+-  ("Multimedia",
+-   ("XMMS",
+-    ("XMMS", EXEC, "xmms"),
+-    ("XMMS play/pause", EXEC, "xmms -t"),
+-    ("XMMS stop", EXEC, "xmms -s")
+-   ),
+-   ("Xine video player", EXEC, "xine"),
+-   ("MPlayer", EXEC, "mplayer")
+-  )
+- ),
+- ("Utils",
+-  ("Calculator", EXEC, "xcalc"),
+-  ("Window Properties", SHEXEC, "xprop | xmessage -center -title 'xprop' -file -"),
+-  ("Font Chooser", EXEC, "xfontsel"),
+-  ("Magnify", EXEC, "wmagnify"),
+-  ("Colormap", EXEC, "xcmap"),
+-  ("Kill X Application", EXEC, "xkill")
+- ),
+- ("Selection",
+-  ("Copy", SHEXEC, "echo '%s' | wxcopy"),
+-  ("Mail To", EXEC, "xterm -name mail -T Pine -e pine %s"),
+-  ("Navigate", EXEC, "mozilla %s"),
+-  ("Search in Manual", EXEC, "MANUAL_SEARCH(%s)")
+- ),
++ ("UHU Menu", OPEN_MENU, "/usr/lib/menu/windowmaker/menu[.LANG]"),
+  ("Commands",
+   ("Hide Others", HIDE_OTHERS),
+   ("Show All", SHOW_ALL),
+   ("Arrange Icons", ARRANGE_ICONS),
+-  ("Refresh", REFRESH),
+-  ("Lock", EXEC, "xlock -allowroot -usefirst")
++  ("Refresh", REFRESH)
+  ),
+  ("Appearance",
+-  ("Themes", OPEN_MENU, "-noext #wmdatadir#/Themes $HOME/GNUstep/Library/WindowMaker/Themes WITH setstyle"),
+-  ("Styles", OPEN_MENU, "-noext #wmdatadir#/Styles $HOME/GNUstep/Library/WindowMaker/Styles WITH setstyle"),
+-  ("Icon Sets", OPEN_MENU, "-noext #wmdatadir#/IconSets $HOME/GNUstep/Library/WindowMaker/IconSets WITH seticons"),
++  ("Themes", OPEN_MENU, "-noext /usr/share/WindowMaker/Themes $HOME/GNUstep/Library/WindowMaker/Themes WITH setstyle"),
++  ("Styles", OPEN_MENU, "-noext /usr/share/WindowMaker/Styles $HOME/GNUstep/Library/WindowMaker/Styles WITH setstyle"),
++  ("Icon Sets", OPEN_MENU, "-noext /usr/share/WindowMaker/IconSets $HOME/GNUstep/Library/WindowMaker/IconSets WITH seticons"),
+   ("Background",
+    ("Solid",
+ 	("Black", EXEC, "wdwrite WindowMaker WorkspaceBack '(solid, black)'"),
+@@ -89,18 +37,16 @@
+ 	("Grey Shades",   EXEC, "wdwrite WindowMaker WorkspaceBack '(vgradient, \"#636380\", \"#131318\")'"),
+ 	("Wine Shades",   EXEC, "wdwrite WindowMaker WorkspaceBack '(vgradient, \"#600040\", \"#180010\")'")
+    ),
+-   ("Images", OPEN_MENU, "-noext #wmdatadir#/Backgrounds $HOME/GNUstep/Library/WindowMaker/Backgrounds WITH wmsetbg -u -t")
++   ("Images", OPEN_MENU, "-noext /usr/share/WindowMaker/Backgrounds $HOME/GNUstep/Library/WindowMaker/Backgrounds WITH wmsetbg -u -t")
+    ),
+    ("Save Theme", SHEXEC, "getstyle -t $HOME/GNUstep/Library/WindowMaker/Themes/\"%a(Theme name)\""),
+    ("Save IconSet", SHEXEC, "geticonset $HOME/GNUstep/Library/WindowMaker/IconSets/\"%a(IconSet name)\""),
+-   ("Preferences Utility", EXEC, "/usr/local/GNUstep/Applications/WPrefs.app/WPrefs")
++   ("Preferences Utility", EXEC, "/usr/lib/GNUstep/Applications/WPrefs.app/WPrefs")
+    ),
+    ("Session",
+     ("Save Session", SAVE_SESSION),
+     ("Clear Session", CLEAR_SESSION),
+ 	("Restart Window Maker", RESTART),
+-	("Start BlackBox", RESTART, blackbox),
+-	("Start IceWM", RESTART, icewm),
+ 	("Exit", EXIT)
+    )
+ )
+diff -Naur WindowMaker-0.92.0.orig/WindowMaker/plmenu.hu WindowMaker-0.92.0/WindowMaker/plmenu.hu
+--- WindowMaker-0.92.0.orig/WindowMaker/plmenu.hu	1970-01-01 01:00:00.000000000 +0100
++++ WindowMaker-0.92.0/WindowMaker/plmenu.hu	2006-04-04 15:59:04.000000000 +0200
+@@ -0,0 +1,52 @@
++("Alkalmazások",
++ ("Infó",
++  ("Infó ablak", INFO_PANEL),
++  ("Licenc", LEGAL_PANEL)
++ ),
++ ("Futtatás...", SHEXEC, "%a(Futtatás,Futtatandó parancs:)"),
++ ("Munkafelületek", WORKSPACE_MENU),
++ ("UHU Menü", OPEN_MENU, "/usr/lib/menu/windowmaker/menu[.LANG]"),
++ ("Parancsok",
++  ("Többi eltűntetése", HIDE_OTHERS),
++  ("Mindegyik mutatása", SHOW_ALL),
++  ("Ikonok elrendezése", ARRANGE_ICONS),
++  ("Frissítés", REFRESH)
++ ),
++ ("Megjelenés",
++  ("Témák", OPEN_MENU, "-noext /usr/share/WindowMaker/Themes $HOME/GNUstep/Library/WindowMaker/Themes WITH setstyle"),
++  ("Stílusok", OPEN_MENU, "-noext /usr/share/WindowMaker/Styles $HOME/GNUstep/Library/WindowMaker/Styles WITH setstyle"),
++  ("Ikonkészletek", OPEN_MENU, "-noext /usr/share/WindowMaker/IconSets $HOME/GNUstep/Library/WindowMaker/IconSets WITH seticons"),
++  ("Háttér",
++   ("Egyszínű",
++	("Fekete", EXEC, "wdwrite WindowMaker WorkspaceBack '(solid, black)'"),
++	("Kék",  EXEC, "wdwrite WindowMaker WorkspaceBack '(solid, \"#505075\")'"),
++	("Indigó", EXEC, "wdwrite WindowMaker WorkspaceBack '(solid, \"#243e6c\")'"),
++	("Tengerkék", EXEC, "wdwrite WindowMaker WorkspaceBack '(solid, \"#224477\")'"),
++	("Lila", EXEC, "wdwrite WindowMaker WorkspaceBack '(solid, \"#554466\")'"),
++	("Búza", EXEC, "wdwrite WindowMaker WorkspaceBack '(solid, wheat4)'"),
++	("Sötétszürke", EXEC, "wdwrite WindowMaker WorkspaceBack '(solid, \"#333340\")'"),
++	("Vörösbor", EXEC, "wdwrite WindowMaker WorkspaceBack '(solid, \"#400020\")'")
++   ),
++   ("Átmenetek",
++	("Naplemente", EXEC, "wdwrite WindowMaker WorkspaceBack '(mvgradient, deepskyblue4, black, deepskyblue4, tomato4)'"),
++	("Ég", EXEC, "wdwrite WindowMaker WorkspaceBack '(vgradient, blue4, white)'"),
++	("Kék árnyalatok",   EXEC, "wdwrite WindowMaker WorkspaceBack '(vgradient, \"#7080a5\", \"#101020\")'"),
++	("Indigó árnyalatok", EXEC, "wdwrite WindowMaker WorkspaceBack '(vgradient, \"#746ebc\", \"#242e4c\")'"),
++	("Lila árnyalatok", EXEC, "wdwrite WindowMaker WorkspaceBack '(vgradient, \"#654c66\", \"#151426\")'"),
++	("Búza árnyalatok",  EXEC, "wdwrite WindowMaker WorkspaceBack '(vgradient, \"#a09060\", \"#302010\")'"),
++	("Szürke árnyalatok",   EXEC, "wdwrite WindowMaker WorkspaceBack '(vgradient, \"#636380\", \"#131318\")'"),
++	("Vörösbor árnyalatok",   EXEC, "wdwrite WindowMaker WorkspaceBack '(vgradient, \"#600040\", \"#180010\")'")
++   ),
++   ("Képek", OPEN_MENU, "-noext /usr/share/WindowMaker/Backgrounds $HOME/GNUstep/Library/WindowMaker/Backgrounds WITH wmsetbg -u -t")
++   ),   
++   ("Téma mentése", SHEXEC, "getstyle -t $HOME/GNUstep/Library/WindowMaker/Themes/\"%a(Téma neve)\""),
++   ("Ikonkészlet mentése", SHEXEC, "geticonset $HOME/GNUstep/Library/WindowMaker/IconSets/\"%a(Ikonkészlet neve)\""),
++   ("Beállítások", EXEC, "/usr/lib/GNUstep/Applications/WPrefs.app/WPrefs")
++   ), 
++   ("Munkamenet",
++    ("Munkamenet mentése", SAVE_SESSION),
++    ("Munkamenet törlése", CLEAR_SESSION),
++	("Window Maker újraindítása", RESTART),
++	("Kilépés", EXIT)
++   )
++)

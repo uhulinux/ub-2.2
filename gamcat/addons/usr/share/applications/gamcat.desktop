@@ -1,0 +1,10 @@
+[Desktop Entry]
+Version=1.0
+Name=GamCat
+Comment[hu]=CD/DVD katalógizáló
+Exec=GamCat.gambas
+Icon=gamcat
+Terminal=false
+Type=Application
+StartupNotify=true
+Categories=X-RedHat-Extra;Archiving;X-UHU-Menu/Tools/Utilities;

@@ -1,0 +1,4 @@
+#!/usr/bin/env dl
+
+frei0r-plugins-${UB_VERSION}.tar.gz frei0r-${UB_VERSION}/
+	http://www.piksel.no/frei0r/releases/

@@ -1,0 +1,10 @@
+--- tntnet-2.1.orig/framework/defcomp/static.cpp
++++ tntnet-2.1/framework/defcomp/static.cpp
+@@ -34,6 +34,7 @@
+ #include <tnt/http.h>
+ #include <tnt/httpheader.h>
+ #include <tnt/comploader.h>
++#include <unistd.h>
+ #include <fstream>
+ #include <cxxtools/log.h>
+ #include <cxxtools/systemerror.h>

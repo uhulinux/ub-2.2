@@ -1,0 +1,12 @@
+Summary=LXDE Display Manager
+Summary[hu]=LXDE bejelentkezés-kezelő
+Description=Graphical login manager in the style of LXDE.
+Description[hu]=Az LXDE kinézetéhez illeszkedő grafikus bejelentkezés-kezelő.
+MsgDesc=LXDE Display Manager
+MsgDesc[hu]=LXDE bejelentkezés-kezelő
+Script=/etc/init.d/lxdm
+SupportsReload=yes
+Runlevels=5
+Sequence=98
+Resources=:0,tty7
+Preference=-10

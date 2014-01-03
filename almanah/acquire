@@ -1,0 +1,4 @@
+#!/usr/bin/env dl
+
+almanah-${UB_VERSION}.tar.xz almanah-${UB_VERSION}/
+	http://ftp.gnome.org/pub/gnome/sources/almanah/${UB_VERSION_HEAD2}/

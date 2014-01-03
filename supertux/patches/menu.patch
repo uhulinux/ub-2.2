@@ -1,0 +1,9 @@
+diff -Naur ORIG/supertux2.desktop UHU/supertux2.desktop
+--- ORIG/supertux2.desktop	2010-03-01 13:40:55.000000000 +0100
++++ UHU/supertux2.desktop	2010-03-25 20:16:41.000000000 +0100
+@@ -39,4 +39,4 @@
+ Exec=supertux2
+ Terminal=false
+ StartupNotify=false
+-Categories=Game;ArcadeGame;
++Categories=Game;ArcadeGame;X-UHU-Menu/Games/Action;

@@ -1,0 +1,13 @@
+cairo-dev
+folks-dev
+gdk-pixbuf-dev
+gettext
+glib2-dev
+gnome-desktop-dev
+gnome-online-accounts-dev
+gtk3-dev
+intltool
+libgee-dev
+libnotify-dev
+telepathy-glib-dev
+vala-dev

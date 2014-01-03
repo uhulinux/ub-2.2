@@ -1,0 +1,32 @@
+diff -Naur gdm-2.14.9.orig/daemon/gdm.c gdm-2.14.9/daemon/gdm.c
+--- gdm-2.14.9.orig/daemon/gdm.c	2006-05-30 22:12:33.000000000 +0200
++++ gdm-2.14.9/daemon/gdm.c	2006-08-09 21:00:54.000000000 +0200
+@@ -602,28 +602,6 @@
+ change_to_first_and_clear (gboolean restart)
+ {
+ 	gdm_change_vt (1);
+-	VE_IGNORE_EINTR (close (0));
+-	VE_IGNORE_EINTR (close (1));
+-	VE_IGNORE_EINTR (close (2));
+-	VE_IGNORE_EINTR (open ("/dev/tty1", O_WRONLY));
+-	VE_IGNORE_EINTR (open ("/dev/tty1", O_WRONLY));
+-	VE_IGNORE_EINTR (open ("/dev/tty1", O_WRONLY));
+-
+-	g_setenv ("TERM", "linux", TRUE);
+-
+-	/* evil hack that will get the fonts right */
+-	if (g_access ("/bin/bash", X_OK) == 0)
+-		system ("/bin/bash -l -c /bin/true");
+-
+-	/* clear screen and set to red */
+-	printf ("\033[H\033[J\n\n\033[1m---\n\033[1;31m ");
+-
+-	if (restart)
+-		printf (_("System is restarting, please wait ..."));
+-	else
+-		printf (_("System is shutting down, please wait ..."));
+-	/* set to black */
+-	printf ("\033[0m\n\033[1m---\033[0m\n\n");
+ }
+ #endif /* __linux__ */
+ 

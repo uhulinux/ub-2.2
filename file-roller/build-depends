@@ -1,0 +1,7 @@
+docbook-dtds
+gnome-doc-utils
+intltool
+itstool
+libsm-dev
+nautilus-dev
+python-dev

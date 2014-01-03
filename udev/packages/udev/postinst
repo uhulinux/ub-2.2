@@ -1,0 +1,5 @@
+#!/bin/bash
+
+rm -f /etc/udev/rules.d/40-uhu.rules
+rm -f /etc/udev/rules.d/50-udev.rules
+rm -f /etc/udev/rules.d/55-usb.rules

@@ -1,0 +1,10 @@
+Summary=PC/SC Smart Card Daemon
+Summary[hu]=PC/SC Smart Card Démon
+Description=PC/SC Smart Card Daemon
+Description[hu]=PC/SC Smart Card Démon
+MsgDesc=PC/SC Smart Card Daemon
+MsgDesc[hu]=PC/SC Smart Card Démon
+Script=/etc/init.d/pcscd
+SupportsReload=yes
+Runlevels=345
+Sequence=20

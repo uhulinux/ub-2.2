@@ -1,0 +1,12 @@
+[Desktop Entry]
+Encoding=UTF-8
+Name=Foobillard
+Name[hu]=billiárd
+Comment=A 3D billiards game using OpenGL
+Comment[hu]=térbeli billiárd játék
+Exec=foobillard
+Icon=foobillard
+Terminal=false
+Type=Application
+Categories=Game;X-UHU-Menu/Games/Arcade;
+StartupNotify=false

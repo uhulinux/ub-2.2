@@ -1,0 +1,9 @@
+diff -Naur orig/data/udev-discover.desktop patched/data/udev-discover.desktop
+--- orig/data/udev-discover.desktop	2012-01-04 13:54:03.000000000 +0100
++++ patched/data/udev-discover.desktop	2013-07-22 20:51:06.590787185 +0200
+@@ -7,4 +7,4 @@
+ Icon=udev-discover
+ Terminal=false
+ Type=Application
+-Categories=Utility;HardwareSettings;
++Categories=Utility;HardwareSettings;X-UHU-Menu/Settings;

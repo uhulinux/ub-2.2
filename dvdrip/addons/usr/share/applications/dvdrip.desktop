@@ -1,0 +1,10 @@
+[Desktop Entry]
+Encoding=UTF-8
+Name=DVDrip
+Name[hu]=DVDrip
+Comment=DVD ripper
+Comment[hu]=DVD sávokat ment le
+Exec=dvdrip
+Terminal=0
+Type=Application
+Categories=Application;AudioVideo;X-UHU-Menu/Multimedia/Rippers;

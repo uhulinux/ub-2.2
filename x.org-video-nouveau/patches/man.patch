@@ -1,0 +1,12 @@
+diff -Naurd a/man/Makefile.am b/man/Makefile.am
+--- a/man/Makefile.am	2009-12-17 04:14:21.000000000 +0100
++++ b/man/Makefile.am	2010-01-28 17:05:01.961248605 +0100
+@@ -29,7 +29,7 @@
+ 
+ driverman_PRE = @DRIVER_NAME@.man
+ 
+-driverman_DATA = $(driverman_PRE:man=@DRIVER_MAN_SUFFIX@)
++driverman_DATA = $(driverman_PRE:man=$(DRIVER_MAN_SUFFIX))
+ 
+ EXTRA_DIST = @DRIVER_NAME@.man
+ 

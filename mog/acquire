@@ -1,0 +1,5 @@
+#!/usr/bin/env dl
+mog.src_0.63-${UB_VERSION}.tgz mog-0.63.${UB_VERSION}/
+	http://braingames.jorito.net/mog/downloads/
+
+

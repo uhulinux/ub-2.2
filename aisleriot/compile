@@ -1,0 +1,9 @@
+#!/bin/sh -eux
+
+ub_compile \
+	--with-gtk=3.0 \
+	--with-guile=2.0 \
+	--enable-sound \
+	--with-card-theme-formats=all \
+	--with-kde-card-theme-path=/usr/share/apps/carddecks \
+	--with-pysol-card-theme-path==usr/share/PySolFC

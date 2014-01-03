@@ -1,0 +1,11 @@
+diff -Naur orig/src/decoder/dec_lavc.c patched/src/decoder/dec_lavc.c
+--- orig/src/decoder/dec_lavc.c	2013-10-12 00:08:22.000000000 +0200
++++ patched/src/decoder/dec_lavc.c	2013-10-12 00:16:00.419462121 +0200
+@@ -31,6 +31,7 @@
+ #include "../rb.h"
+ #include "dec_lavc.h"
+ 
++#define AVCODEC_MAX_AUDIO_FRAME_SIZE   192000 
+ 
+ /* uncomment this to get some debug info */
+ /* #define LAVC_DEBUG */

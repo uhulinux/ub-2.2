@@ -1,0 +1,9 @@
+gettext
+gnome-python-dev
+gnome2-desktop-dev
+gnome2-menus-dev
+gtk2-dev
+intltool
+libglade2-dev
+pygtk-dev
+pyxdg

@@ -1,0 +1,4 @@
+#!/bin/sh -eux
+
+ub_install
+install -m755 extras/cuetag.sh "$UB_INSTALLDIR"/usr/bin/cuetag.sh

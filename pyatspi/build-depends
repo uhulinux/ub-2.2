@@ -1,0 +1,5 @@
+at-spi2-core-dev
+dbus-dev
+dbus-python-dev
+pygobject3-dev
+python-dev

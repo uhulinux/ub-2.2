@@ -1,0 +1,6 @@
+#!/bin/sh -eux
+#rm i18n.c i18n.h
+make	PREFIX=/usr \
+	CONFDIR=/var/vdr/config \
+	VIDEODIR=/var/vdr/video \
+	DESTDIR=/usr

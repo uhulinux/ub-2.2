@@ -1,0 +1,4 @@
+#!/usr/bin/env dl
+
+w_scan-${UB_VERSION}.tar.bz2 w_scan-${UB_VERSION}/
+	http://wirbel.htpc-forum.de/w_scan/

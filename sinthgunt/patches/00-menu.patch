@@ -1,0 +1,16 @@
+diff -Naur sinthgunt-2.0.3-ori/share/sinthgunt.desktop sinthgunt-2.0.3/share/sinthgunt.desktop
+--- sinthgunt-2.0.3-ori/share/sinthgunt.desktop	2010-11-14 13:02:41.000000000 +0100
++++ sinthgunt-2.0.3/share/sinthgunt.desktop	2011-06-13 16:54:11.911662388 +0200
+@@ -2,9 +2,10 @@
+ Name=sinthgunt
+ GenericName=Video converter
+ Comment=Convert video files
++Comment[hu]=Videó konvertáló
+ Exec=sinthgunt
+-Icon=sinthgunt.png
++Icon=sinthgunt
+ Type=Application
+ Terminal=false
+ Encoding=UTF-8
+-Categories=Application;AudioVideo;
++Categories=Application;AudioVideo;X-UHU-Menu/Multimedia/VideoEdit;

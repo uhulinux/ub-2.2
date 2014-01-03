@@ -1,0 +1,21 @@
+diff --git a/src/kamoso.cpp b/src/kamoso.cpp
+index ae4c048..6026bdd 100644
+--- a/src/kamoso.cpp
++++ b/src/kamoso.cpp
+@@ -670,7 +670,8 @@ void Kamoso::settingsMenu(bool )
+         m.addSeparator();
+     }
+     m.addAction(KIcon("configure"), i18n("Settings"), this, SLOT(configuration()));
+-    m.addMenu(customHelpMenu());
++    KMenu *help = helpMenu();
++    m.addMenu(help);
+ 
+     m.exec(mainWidgetUi->configure->parentWidget()->mapToGlobal(mainWidgetUi->configure->geometry().bottomLeft()));
+ }
+@@ -726,4 +727,4 @@ void Kamoso::updateThumbnails(const KUrl::List& urls)
+ 
+         mainWidgetUi->thumbnailView->update(idx);
+     }
+-}
+\ No newline at end of file
++}

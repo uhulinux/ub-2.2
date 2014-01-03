@@ -1,0 +1,13 @@
+#!/bin/sh -eux
+
+export CXXFLAGS+=" -fpermissive"
+ub_compile \
+    -DCMAKE_BUILD_TYPE=Release \
+    -DCMAKE_EXE_LINKER_FLAGS="-lpthread" \
+    -DENABLE_LAPACK=yes
+#  cmake "${srcdir}/${pkgname}-${pkgver}" \
+#    -DCMAKE_BUILD_TYPE=Release \
+#    -DCMAKE_INSTALL_PREFIX=/usr \
+#    -DCMAKE_EXE_LINKER_FLAGS="-lpthread" \
+#    -DENABLE_LAPACK=yes
+#  make

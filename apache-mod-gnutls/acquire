@@ -1,0 +1,4 @@
+#!/usr/bin/env dl
+
+mod_gnutls-${UB_VERSION}.tar.bz2 mod_gnutls-${UB_VERSION}/
+	http://www.outoforder.cc/downloads/mod_gnutls/

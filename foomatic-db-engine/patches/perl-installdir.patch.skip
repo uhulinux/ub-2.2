@@ -1,0 +1,12 @@
+diff -urN foomatic-db-engine-4.0.3.orig/Makefile.in foomatic-db-engine-4.0.3/Makefile.in
+--- foomatic-db-engine-4.0.3.orig/Makefile.in	2009-08-19 20:09:13.000000000 +0200
++++ foomatic-db-engine-4.0.3/Makefile.in	2009-11-05 19:47:25.000000000 +0100
+@@ -188,7 +188,7 @@
+ #	$(DESTDIR) properly
+ 	( cd lib && \
+ 	  $(MAKE) PREFIX=$(PERLPREFIX) && \
+-	  $(MAKE) PREFIX=$(DESTDIR)$(PERLPREFIX) pure_install \
++	  $(MAKE) PREFIX=$(PERLPREFIX) pure_install \
+ 	)
+ 	${SRC}/mkinstalldirs $(DESTDIR)$(BINDIR)
+ 	${SRC}/mkinstalldirs $(DESTDIR)$(SBINDIR)

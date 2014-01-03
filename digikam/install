@@ -1,0 +1,38 @@
+#!/bin/sh -eux
+
+ub_install
+
+#remove konflicting files - libkdcraw, libkexiv2, libkipi, libksane
+rm -rf "$UB_INSTALLDIR"/usr/include/libkdcraw/*
+rm -rf "$UB_INSTALLDIR"/usr/include/libkexiv2/*
+rm -rf "$UB_INSTALLDIR"/usr/include/libkipi/*
+rm -rf "$UB_INSTALLDIR"/usr/include/libksane/*
+
+rm -rf "$UB_INSTALLDIR"/usr/lib/pkgconfig/libkdcraw.pc
+rm -rf "$UB_INSTALLDIR"/usr/lib/pkgconfig/libkexiv2.pc
+rm -rf "$UB_INSTALLDIR"/usr/lib/pkgconfig/libkipi.pc
+rm -rf "$UB_INSTALLDIR"/usr/lib/pkgconfig/libksane.pc
+
+rm -rf "$UB_INSTALLDIR"/usr/lib/libkdcraw.so*
+rm -rf "$UB_INSTALLDIR"/usr/lib/libkexiv2.so*
+rm -rf "$UB_INSTALLDIR"/usr/lib/libkipi.so*
+rm -rf "$UB_INSTALLDIR"/usr/lib/libksane.so*
+
+rm -rf "$UB_INSTALLDIR"/usr/share/icons/hicolor/*/apps/kdcraw.png
+rm -rf "$UB_INSTALLDIR"/usr/share/libkdcraw/profiles/*
+rm -rf "$UB_INSTALLDIR"/usr/share/libkexiv2/data/*
+rm -rf "$UB_INSTALLDIR"/usr/share/icons/hicolor/*/apps/kipi.png
+rm -rf "$UB_INSTALLDIR"/usr/share/kde4/servicetypes/kipiplugin.desktop
+rm -rf "$UB_INSTALLDIR"/usr/share/kipi/data/*
+rm -rf "$UB_INSTALLDIR"/usr/lib/cmake/KSane/KSaneConfig.cmake
+rm -rf "$UB_INSTALLDIR"/usr/share/icons/hicolor/*/actions/black-white.png
+rm -rf "$UB_INSTALLDIR"/usr/share/icons/hicolor/*/actions/color.png
+rm -rf "$UB_INSTALLDIR"/usr/share/icons/hicolor/*/actions/gray-scale.png
+
+rm -rf "$UB_INSTALLDIR"/usr/bin/kxmlkipicmd
+rm -rf "$UB_INSTALLDIR"/usr/lib/kde4/kipiplugin_kxmlhelloworld.so
+rm -rf "$UB_INSTALLDIR"/usr/share/kipi/kipiplugin_kxmlhelloworldui.rc
+rm -rf "$UB_INSTALLDIR"/usr/share/kde4/services/kipiplugin_kxmlhelloworld.desktop
+rm -rf "$UB_INSTALLDIR"/usr/share/kxmlkipicmd/kxmlkipicmd_defaultui.rc
+rm -rf "$UB_INSTALLDIR"/usr/share/kxmlkipicmd/kxmlkipicmd_gwenviewui.rc
+rm -rf "$UB_INSTALLDIR"/usr/share/locale/hu/LC_MESSAGES/libkipi.mo

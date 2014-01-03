@@ -1,0 +1,6 @@
+#!/bin/sh -eux
+
+make install INSTALL_ROOT=${UB_INSTALLDIR}
+mv ${UB_INSTALLDIR}/include ${UB_INSTALLDIR}/usr/lib/qt4
+mv ${UB_INSTALLDIR}/plugins ${UB_INSTALLDIR}/usr/lib/qt4
+mv ${UB_INSTALLDIR}/translations ${UB_INSTALLDIR}/usr/lib/qt4

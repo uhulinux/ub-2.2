@@ -1,0 +1,18 @@
+#!/bin/sh -eux
+
+export QTDIR=/usr/lib/qt4
+
+# remove phonon
+sed -i "/typesystem_phonon.xml/d" generator/generator.qrc
+sed -i "/qtscript_phonon/d" qtbindings/qtbindings.pro
+	
+cd generator/
+qmake-qt4
+make
+./generator
+
+cd ..
+cd qtbindings/
+qmake-qt4
+
+make

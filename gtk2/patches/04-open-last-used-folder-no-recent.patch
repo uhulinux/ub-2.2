@@ -1,0 +1,12 @@
+diff -Naur orig/gtk/gtkfilechoosersettings.c patched/gtk/gtkfilechoosersettings.c
+--- orig/gtk/gtkfilechoosersettings.c	2013-01-29 00:16:54.000000000 +0100
++++ patched/gtk/gtkfilechoosersettings.c	2013-08-18 12:25:09.849826440 +0200
+@@ -264,7 +264,7 @@
+   settings->geometry_y	    = -1;
+   settings->geometry_width  = -1;
+   settings->geometry_height = -1;
+-  settings->startup_mode = STARTUP_MODE_RECENT;
++  settings->startup_mode = STARTUP_MODE_CWD;
+ }
+ 
+ GtkFileChooserSettings *

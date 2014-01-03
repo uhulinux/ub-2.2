@@ -1,0 +1,42 @@
+#!/bin/bash -eux
+
+KVER="$(ls -1 /lib/modules|grep i386)"
+cellibdir="$UB_INSTALLDIR"/usr/lib
+xmoduldir="$cellibdir"/xorg/modules
+desktopdir="$UB_INSTALLDIR"/usr/share/applications
+mandir="$UB_INSTALLDIR"/usr/share/man/man1/
+vendordir="$UB_INSTALLDIR"/etc/OpenCL/vendors
+pixmapdir="$UB_INSTALLDIR"/usr/share/pixmaps/
+mkdir -p "$cellibdir"/nvidia \
+	"$xmoduldir"/{drivers,extensions} \
+	"$desktopdir" \
+	"$mandir" \
+	"$vendordir" \
+	"$pixmapdir"
+mv lib $UB_INSTALLDIR/
+# biztonságba helyezés a régi módon
+mv libglx.so."$UB_VERSION" "$cellibdir"/nvidia/
+#Áthelyezzük a nem a $cellibdir alá kerülő *.so-kat
+mv nvidia_drv.so "$xmoduldir"/drivers/
+mv tls "$cellibdir"
+ln -s libwfb.so "$xmoduldir"/libnvidia-wfb.so."$UB_VERSION"
+mv *.so.* "$cellibdir"/
+
+ln -s "libvdpau_nvidia.so.$UB_VERSION" "$cellibdir"/libvdpau_nvidia.so
+ln -s "libnvcuvid.so.$UB_VERSION" "$cellibdir"/libnvcuvid.so
+ln -s "libnvcuvid.so.$UB_VERSION" "$cellibdir"/libnvcuvid.so.1
+
+#segédprogram futtatható előre gyártott binárisainak elhelyezése
+mv nvidia-xconfig \
+  nvidia-settings \
+  nvidia-bug-report.sh \
+  nvidia-smi \
+  tls_test \
+  tls_test_dso.so \
+  "$UB_INSTALLDIR"/usr/bin/
+
+mv nvidia-settings.desktop "$desktopdir"/
+mv nvidia-settings.png "$pixmapdir"/
+gunzip *.1.gz
+mv *.1 "$mandir"/
+mv nvidia.icd "$vendordir"

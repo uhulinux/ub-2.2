@@ -1,0 +1,74 @@
+diff -Naur a/drivers/media/dvb/frontends/stb0899_drv.c b/drivers/media/dvb/frontends/stb0899_drv.c
+--- a/drivers/media/dvb/frontends/stb0899_drv.c	2013-04-26 06:20:25.000000000 +0200
++++ b/drivers/media/dvb/frontends/stb0899_drv.c	2013-06-22 12:08:56.927382113 +0200
+@@ -977,6 +977,16 @@
+ 
+ 				*strength = stb0899_table_lookup(stb0899_dvbsrf_tab, ARRAY_SIZE(stb0899_dvbsrf_tab) - 1, val);
+ 				*strength += 750;
++				
++				const int MIN_STRENGTH_DVBS = 0;
++				const int MAX_STRENGTH_DVBS = 680;
++				if (*strength < MIN_STRENGTH_DVBS)
++				  *strength = 0;
++				else if(*strength > MAX_STRENGTH_DVBS)
++				  *strength = 0xFFFF;
++				else
++				  *strength = (*strength - MIN_STRENGTH_DVBS) * 0xFFFF / (MAX_STRENGTH_DVBS - MIN_STRENGTH_DVBS);
++				
+ 				dprintk(state->verbose, FE_DEBUG, 1, "AGCIQVALUE = 0x%02x, C = %d * 0.1 dBm",
+ 					val & 0xff, *strength);
+ 			}
+@@ -989,6 +999,7 @@
+ 
+ 			*strength = stb0899_table_lookup(stb0899_dvbs2rf_tab, ARRAY_SIZE(stb0899_dvbs2rf_tab) - 1, val);
+ 			*strength += 950;
++			*strength = *strength << 4;
+ 			dprintk(state->verbose, FE_DEBUG, 1, "IF_AGC_GAIN = 0x%04x, C = %d * 0.1 dBm",
+ 				val & 0x3fff, *strength);
+ 		}
+@@ -1022,6 +1033,16 @@
+ 				val = MAKEWORD16(buf[0], buf[1]);
+ 
+ 				*snr = stb0899_table_lookup(stb0899_cn_tab, ARRAY_SIZE(stb0899_cn_tab) - 1, val);
++				
++				const int MIN_SNR_DVBS = 0;
++				const int MAX_SNR_DVBS = 200;
++				if (*snr < MIN_SNR_DVBS)
++				  *snr = 0;
++				else if(*snr > MAX_SNR_DVBS)
++				  *snr = 0xFFFF;
++				else
++				  *snr = (*snr - MIN_SNR_DVBS) * 0xFFFF / (MAX_SNR_DVBS - MIN_SNR_DVBS);
++				
+ 				dprintk(state->verbose, FE_DEBUG, 1, "NIR = 0x%02x%02x = %u, C/N = %d * 0.1 dBm\n",
+ 					buf[0], buf[1], val, *snr);
+ 			}
+@@ -1046,6 +1067,16 @@
+ 				val = (quantn - estn) / 10;
+ 			}
+ 			*snr = val;
++			
++			const int MIN_SNR_DVBS2 = 10;
++			const int MAX_SNR_DVBS2 = 70;
++			if (*snr < MIN_SNR_DVBS2)
++			  *snr = 0;
++			else if(*snr > MAX_SNR_DVBS2)
++			  *snr = 0xFFFF;
++			else
++			  *snr = (*snr - MIN_SNR_DVBS2) * 0xFFFF / (MAX_SNR_DVBS2 - MIN_SNR_DVBS2);
++			
+ 			dprintk(state->verbose, FE_DEBUG, 1, "Es/N0 quant = %d (%d) estimate = %u (%d), C/N = %d * 0.1 dBm",
+ 				quant, quantn, est, estn, val);
+ 		}
+diff -Naur a/drivers/media/dvb/mantis/mantis_vp1041.c b/drivers/media/dvb/mantis/mantis_vp1041.c
+--- a/drivers/media/dvb/mantis/mantis_vp1041.c	2013-04-26 06:20:25.000000000 +0200
++++ b/drivers/media/dvb/mantis/mantis_vp1041.c	2013-06-22 11:59:00.323363924 +0200
+@@ -322,7 +322,7 @@
+ 				vp1041_stb0899_config.demod_address);
+ 
+ 			if (dvb_attach(stb6100_attach, mantis->fe, &vp1041_stb6100_config, adapter)) {
+-				if (!dvb_attach(lnbp21_attach, mantis->fe, adapter, 0, 0))
++				if (!dvb_attach(lnbp21_attach, mantis->fe, adapter, LNBP21_PCL , LNBP21_LLC | LNBP21_ISEL | LNBP21_TEN))
+ 					dprintk(MANTIS_ERROR, 1, "No LNBP21 found!");
+ 			}
+ 		} else {

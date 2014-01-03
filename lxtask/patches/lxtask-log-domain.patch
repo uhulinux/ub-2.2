@@ -1,0 +1,23 @@
+diff -Naur orig/src/Makefile.am patched/src/Makefile.am
+--- orig/src/Makefile.am	2011-06-21 23:50:00.000000000 +0200
++++ patched/src/Makefile.am	2013-09-22 12:37:58.762869441 +0200
+@@ -1,6 +1,6 @@
+ INCLUDES = \
+ 	-I$(top_srcdir)/include \
+-	-DG_LOG_DOMAIN=\"xfce4-taskmanager\" \
++	-DG_LOG_DOMAIN=\"lxtask\" \
+ 	-DPACKAGE_LOCALE_DIR=\"$(localedir)\"
+ 
+ bin_PROGRAMS = lxtask
+diff -Naur orig/src/Makefile.in patched/src/Makefile.in
+--- orig/src/Makefile.in	2011-06-21 23:50:35.000000000 +0200
++++ patched/src/Makefile.in	2013-09-22 12:34:03.068694065 +0200
+@@ -183,7 +183,7 @@
+ top_srcdir = @top_srcdir@
+ INCLUDES = \
+ 	-I$(top_srcdir)/include \
+-	-DG_LOG_DOMAIN=\"xfce4-taskmanager\" \
++	-DG_LOG_DOMAIN=\"lxtask\" \
+ 	-DPACKAGE_LOCALE_DIR=\"$(localedir)\"
+ 
+ lxtask_SOURCES = \

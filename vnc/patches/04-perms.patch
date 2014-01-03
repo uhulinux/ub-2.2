@@ -1,0 +1,29 @@
+diff -Naur vnc-4_1_1-unixsrc.orig/unix/vncinstall vnc-4_1_1-unixsrc/unix/vncinstall
+--- vnc-4_1_1-unixsrc.orig/unix/vncinstall	2006-01-05 16:46:53.000000000 +0100
++++ vnc-4_1_1-unixsrc/unix/vncinstall	2006-01-05 16:47:07.000000000 +0100
+@@ -67,7 +67,7 @@
+       echo "Copying $f to $dst"
+       mkdir -p $dst
+       cp -pf $f $dst
+-      chmod 0555 $dst/`basename $f`
++      chmod 0755 $dst/`basename $f`
+     fi
+ 
+ 
+@@ -79,7 +79,7 @@
+           echo "Copying $f.man to $mandst/`basename $f.1`"
+           mkdir -p $mandst
+           cp -pf $f.man $mandst/`basename $f.1`
+-          chmod 0444 $mandst/`basename $f.1`
++          chmod 0644 $mandst/`basename $f.1`
+         fi
+       fi
+     fi
+@@ -95,6 +95,6 @@
+     echo "Copying $vncModule to $moduledst"
+     mkdir -p $moduledst
+     cp -pf $vncModule $moduledst
+-    chmod 0555 $moduledst/`basename $vncModule`
++    chmod 0755 $moduledst/`basename $vncModule`
+   fi
+ fi

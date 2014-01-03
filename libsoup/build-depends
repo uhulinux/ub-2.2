@@ -1,0 +1,10 @@
+dbus-dev
+glib-networking
+gnutls-dev
+gobject-introspection-dev
+intltool
+libgnome-keyring-dev
+libproxy-dev
+libxml2-dev
+openssl-dev
+sqlite-dev

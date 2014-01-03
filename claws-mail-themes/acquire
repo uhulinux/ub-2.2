@@ -1,0 +1,7 @@
+#!/usr/bin/env dl
+
+claws-mail-themes-${UB_VERSION}.tar.gz claws-mail-themes-${UB_VERSION}/
+	http://claws-mail.org/themes/
+
+#claws-mail-themes-20100514.tar.gz claws-mail-themes-20100514/
+#	http://claws-mail.org/themes/

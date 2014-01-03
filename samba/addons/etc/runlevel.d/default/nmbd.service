@@ -1,0 +1,10 @@
+Summary=NetBIOS Name Server
+Summary[hu]=NetBIOS névkiszolgáló
+Description=NetBIOS name server to provide NetBIOS over IP naming services to clients. Part of the Samba suite.
+Description[hu]=IP fölötti NetBIOS névkiszolgálást nyújtó szerver. A Samba programcsomag része.
+MsgDesc=Samba Name Server
+MsgDesc[hu]=Samba névkiszolgáló
+Script=/etc/init.d/nmbd
+SupportsReload=yes
+Runlevels=
+Sequence=20

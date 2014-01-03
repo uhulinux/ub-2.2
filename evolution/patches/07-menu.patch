@@ -1,0 +1,11 @@
+--- evolution.orig/data/evolution.desktop.in.in	2008-10-13 11:05:28.000000000 +0200
++++ evolution/data/evolution.desktop.in.in	2009-03-21 13:41:49.000000000 +0100
+@@ -7,7 +7,7 @@
+ Icon=evolution
+ Terminal=false
+ Type=Application
+-Categories=GNOME;GTK;Office;Email;Calendar;ContactManagement;X-Red-Hat-Base;
++Categories=GTK;GNOME;Office;Email;Calendar;ContactManagement;X-UHU-Menu/Internet/Email;
+ StartupNotify=true
+ X-GNOME-Bugzilla-Bugzilla=GNOME
+ X-GNOME-Bugzilla-Product=Evolution

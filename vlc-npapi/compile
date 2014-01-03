@@ -1,0 +1,8 @@
+#!/bin/sh -eux
+
+export CPPFLAGS=-I/usr/include/firefox
+
+ub_compile \
+	--enable-npapi \
+	--with-gtk
+

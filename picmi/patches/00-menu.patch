@@ -1,0 +1,9 @@
+diff -Naur a/picmi.desktop b/picmi.desktop
+--- a/picmi.desktop	2013-08-06 14:49:32.000000000 +0200
++++ b/picmi.desktop	2013-08-19 11:12:16.756029584 +0200
+@@ -116,4 +116,4 @@
+ Terminal=false
+ Type=Application
+ X-KDE-StartupNotify=true
+-Categories=Qt;KDE;Game;LogicGame;
++Categories=Qt;KDE;Game;LogicGame;X-UHU-Menu/Games/TacticStrategy;

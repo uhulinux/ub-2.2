@@ -1,0 +1,4 @@
+#!/usr/bin/env dl
+
+gtk2-metatheme-gilouche-${UB_VERSION}-28.3.src.rpm
+ http://download.opensuse.org/repositories/GNOME:/Factory/openSUSE_Factory/src/

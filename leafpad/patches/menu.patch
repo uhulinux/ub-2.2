@@ -1,0 +1,18 @@
+diff -Naur orig/data/leafpad.desktop patched/data/leafpad.desktop
+--- orig/data/leafpad.desktop	2009-10-29 19:44:00.000000000 +0100
++++ patched/data/leafpad.desktop	2013-03-29 17:42:44.386229721 +0100
+@@ -43,4 +43,4 @@
+ Terminal=false
+ Type=Application
+ MimeType=text/plain
+-Categories=GTK;Utility;TextEditor;
++Categories=GTK;Utility;TextEditor;X-UHU-Menu/Tools/Editors;
+diff -Naur orig/data/leafpad.desktop.in patched/data/leafpad.desktop.in
+--- orig/data/leafpad.desktop.in	2009-10-27 20:51:30.000000000 +0100
++++ patched/data/leafpad.desktop.in	2013-03-29 17:42:54.906326820 +0100
+@@ -7,4 +7,4 @@
+ Terminal=false
+ Type=Application
+ MimeType=text/plain
+-Categories=GTK;Utility;TextEditor;
++Categories=GTK;Utility;TextEditor;X-UHU-Menu/Tools/Editors;

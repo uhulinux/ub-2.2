@@ -1,0 +1,66 @@
+diff -Naur orig/gtk/apport-gtk.desktop.in patched/gtk/apport-gtk.desktop.in
+--- orig/gtk/apport-gtk.desktop.in	2010-06-24 15:35:01.000000000 +0200
++++ patched/gtk/apport-gtk.desktop.in	2010-07-17 18:37:42.000000000 +0200
+@@ -2,10 +2,10 @@
+ Encoding=UTF-8
+ _Name=Report a problem...
+ _Comment=Report a malfunction to the developers
+-Exec=/usr/share/apport/apport-gtk -f
++Exec=apport-gtk -f
+ Icon=apport
+ Terminal=false
+ Type=Application
+-Categories=GNOME;Application;Core;
++Categories=GNOME;Application;Core;X-UHU-Menu/Tools/More;
+ OnlyShowIn=GNOME;XFCE;
+ StartupNotify=true
+diff -Naur orig/gtk/apport-gtk-mime.desktop.in patched/gtk/apport-gtk-mime.desktop.in
+--- orig/gtk/apport-gtk-mime.desktop.in	2010-06-24 15:35:01.000000000 +0200
++++ patched/gtk/apport-gtk-mime.desktop.in	2010-07-17 18:38:22.000000000 +0200
+@@ -1,11 +1,11 @@
+ [Desktop Entry]
+ _Name=Report a problem...
+ _Comment=Report a malfunction to the developers
+-Exec=/usr/share/apport/apport-gtk -c %f
++Exec=apport-gtk -c %f
+ Icon=apport
+ Terminal=false
+ Type=Application
+ MimeType=text/x-apport;
+-Categories=GNOME;GTK;
++Categories=GNOME;GTK;X-UHU-Menu/Tools/More;
+ NoDisplay=true
+ StartupNotify=true
+diff -Naur orig/kde/apport-kde.desktop.in patched/kde/apport-kde.desktop.in
+--- orig/kde/apport-kde.desktop.in	2010-06-24 15:35:01.000000000 +0200
++++ patched/kde/apport-kde.desktop.in	2010-07-17 18:40:01.000000000 +0200
+@@ -1,10 +1,10 @@
+ [Desktop Entry]
+ _Name=Report a problem...
+ _Comment=Report a malfunction to the developers
+-Exec=/usr/share/apport/apport-kde -f
++Exec=apport-kde -f
+ Icon=apport
+ Terminal=false
+ Type=Application
+-Categories=KDE;System;
++Categories=KDE;System;X-UHU-Menu/Tools/More;
+ OnlyShowIn=KDE;
+ StartupNotify=true
+diff -Naur orig/kde/apport-kde-mime.desktop.in patched/kde/apport-kde-mime.desktop.in
+--- orig/kde/apport-kde-mime.desktop.in	2010-06-24 15:35:01.000000000 +0200
++++ patched/kde/apport-kde-mime.desktop.in	2010-07-17 18:39:07.000000000 +0200
+@@ -1,11 +1,11 @@
+ [Desktop Entry]
+ _Name=Report a problem...
+ _Comment=Report a malfunction to the developers
+-Exec=/usr/share/apport/apport-kde -c %f
++Exec=apport-kde -c %f
+ Icon=apport
+ Terminal=false
+ Type=Application
+ MimeType=text/x-apport;
+-Categories=KDE;
++Categories=KDE;X-UHU-Menu/Tools/More;
+ NoDisplay=true
+ StartupNotify=true

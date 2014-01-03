@@ -1,0 +1,5 @@
+#!/usr/bin/env dl
+
+kamoso-${UB_VERSION}.tar.bz2 kamoso-${UB_VERSION}/
+	ftp://ftp.kde.org/pub/kde/stable/kamoso/${UB_VERSION}/src/
+

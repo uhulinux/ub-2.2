@@ -1,0 +1,12 @@
+#!/bin/sh -eux
+convert simutrans.ico -alpha on simutrans.png
+chmod 644 simsys_opengl.cc
+make \
+  BACKEND=mixer_sdl \
+  COLOUR_DEPTH=16 \
+  OSTYPE=linux \
+  SDL_CONFIG=sdl-config \
+  FLAGS=-DSTEPS16 \
+  OPTIMISE=1 \
+  -j3
+

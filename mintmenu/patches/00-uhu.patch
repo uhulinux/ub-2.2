@@ -1,0 +1,24 @@
+diff -Naur mintmenu-ori/usr/lib/linuxmint/mintMenu/mintRemove.py mintmenu/usr/lib/linuxmint/mintMenu/mintRemove.py
+--- mintmenu-ori/usr/lib/linuxmint/mintMenu/mintRemove.py	2013-03-10 03:02:01.000000000 +0100
++++ mintmenu/usr/lib/linuxmint/mintMenu/mintRemove.py	2013-04-18 16:04:34.025661278 +0200
+@@ -34,7 +34,7 @@
+ 
+     def run(self):  
+         removePackages = string.split(self.package)
+-        cmd = ["sudo", "/usr/sbin/synaptic", "--hide-main-window",  \
++        cmd = ["synaptic", "--hide-main-window",  \
+                 "--non-interactive", "--parent-window-id", self.window_id]
+         cmd.append("--progress-str")
+         cmd.append("\"" + _("Please wait, this can take some time") + "\"")
+diff -Naur mintmenu-ori/usr/lib/linuxmint/mintMenu/plugins/system_management.py mintmenu/usr/lib/linuxmint/mintMenu/plugins/system_management.py
+--- mintmenu-ori/usr/lib/linuxmint/mintMenu/plugins/system_management.py	2013-03-06 11:19:59.000000000 +0100
++++ mintmenu/usr/lib/linuxmint/mintMenu/plugins/system_management.py	2013-04-18 16:04:00.197138422 +0200
+@@ -141,7 +141,7 @@
+ 
+         if ( self.showPackageManager == True ):
+             Button2 = easyButton( "applications-system", self.iconsize, [_("Package Manager")], -1, -1 )
+-            Button2.connect( "clicked", self.ButtonClicked, "gksu /usr/sbin/synaptic" )
++            Button2.connect( "clicked", self.ButtonClicked, "synaptic" )
+             Button2.show()
+             self.systemBtnHolder.pack_start( Button2, False, False, 0 )
+             self.mintMenuWin.setTooltip( Button2, _("Install, remove and upgrade software packages") )

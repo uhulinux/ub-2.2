@@ -1,0 +1,8 @@
+#!/bin/sh -eux
+
+ub_compile
+ln -s . freetype2
+
+cd ft2demos-${UB_VERSION}
+X11_PATH="/usr" ub_compile
+cd ..

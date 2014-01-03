@@ -1,0 +1,36 @@
+#!/bin/sh -eux
+
+rm CMakeLists.txt
+
+# CR-LF fix
+sed -i 's/\r$//' sql-bench/innotest*.sh
+
+export CXXFLAGS="-O2 -g -felide-constructors -fno-rtti"
+export CFLAGS="-fPIC"
+
+ub_configure \
+	--libexecdir=/usr/sbin \
+	--localstatedir=/var/lib/mysql \
+	--with-libwrap \
+	--enable-assembler \
+	--with-berkeley-db \
+	--with-blackhole-storage-engine \
+	--with-csv-storage-engine \
+	--with-archive-storage-engine \
+	--with-innodb \
+	--enable-static \
+	--enable-local-infile \
+	--with-raid \
+	--enable-thread-safe-client \
+	--without-readline \
+	--with-unix-socket-path=/var/run/mysqld/mysqld.sock \
+	--with-mysqld-user=mysql \
+	--without-bench \
+	--with-client-ldflags=-lstdc++ \
+	--with-charset=utf8 \
+	--with-extra-charsets=all \
+	--with-pic \
+	--with-embedded-server
+
+ub_make \
+	pkglibdir=/usr/lib

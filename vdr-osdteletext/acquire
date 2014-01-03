@@ -1,0 +1,5 @@
+#!/usr/bin/env dl
+
+vdr-osdteletext-${UB_VERSION_HEAD3}.tgz osdteletext-${UB_VERSION_HEAD3}/
+	http://projects.vdr-developer.org/attachments/download/899/
+	http://projects.vdr-developer.org/attachments/download/1282/

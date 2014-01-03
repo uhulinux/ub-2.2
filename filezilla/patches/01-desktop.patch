@@ -1,0 +1,18 @@
+--- filezilla-3.2.4.1.orig/data/filezilla.desktop	2009-04-27 23:16:36.000000000 +0200
++++ filezilla-3.2.4.1/data/filezilla.desktop	2009-04-30 15:17:24.000000000 +0200
+@@ -3,12 +3,14 @@
+ GenericName=FTP client
+ GenericName[de]=FTP-Client
+ GenericName[fr]=Client FTP
++GenericName[hu]=FTP kliens
+ Comment=Download and upload files via FTP, FTPS and SFTP
+ Comment[de]=Dateien über FTP, FTPS und SFTP übertragen
+ Comment[fr]=Transférer des fichiers via FTP, FTPS et SFTP
++Comment[hu]=Adatok fel és letöltésére FTP, FTPS és SFTP protokollokkal
+ Exec=filezilla
+ Terminal=false
+ Icon=filezilla
+ Type=Application
+-Categories=Network;FileTransfer;
++Categories=Network;FileTransfer;X-UHU-Menu/Internet/Downloaders;
+ Version=1.0

@@ -1,0 +1,8 @@
+#!/bin/sh
+
+. /etc/init.d/common
+
+DAEMON=/usr/bin/xdm
+PIDFILE="/var/run/xdm.pid"
+
+startstop "$@"

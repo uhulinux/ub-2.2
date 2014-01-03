@@ -1,0 +1,5 @@
+#!/usr/bin/env dl
+
+#http://streamripper.sourceforge.net/files/streamripper-1.32.tar.gz
+streamripper-${UB_VERSION}.tar.gz streamripper-${UB_VERSION}/
+	http://download.sourceforge.net/streamripper/

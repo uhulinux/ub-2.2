@@ -1,0 +1,36 @@
+diff -Naur orig/misc/ext.d/misc.sh.in patched/misc/ext.d/misc.sh.in
+--- orig/misc/ext.d/misc.sh.in	2013-07-09 14:41:32.000000000 +0200
++++ patched/misc/ext.d/misc.sh.in	2013-07-11 17:09:58.964518037 +0200
+@@ -13,7 +13,7 @@
+ 
+     case "${filetype}" in
+     iso9660)
+-         isoinfo -d -i "${MC_EXT_FILENAME}" && isoinfo -l -i "${MC_EXT_FILENAME}"
++         /usr/share/mc/extfs/iso9660 view "${MC_EXT_FILENAME}"
+         ;;
+     cat)
+         /bin/cat "${MC_EXT_FILENAME}" 2>/dev/null
+diff -Naur orig/src/vfs/extfs/helpers/iso9660.in patched/src/vfs/extfs/helpers/iso9660.in
+--- orig/src/vfs/extfs/helpers/iso9660.in	2013-07-09 14:41:49.000000000 +0200
++++ patched/src/vfs/extfs/helpers/iso9660.in	2013-07-11 17:07:51.307339795 +0200
+@@ -166,6 +166,10 @@
+ 
+ #*** main code *********************************************************
+ 
++mcisofs_view () {
++	$ISOINFO -l -i "$1"
++}
++
+ LC_ALL=C
+ 
+ cmd="$1"
+@@ -210,5 +214,9 @@
+     }
+     exit 0
+     ;;
++  view)
++    test_iso "$@";
++    mcisofs_view "$@";
++    exit 0;;    
+ esac
+ exit 1

@@ -1,0 +1,15 @@
+diff -Naur gdm-2.19.6.orig/po/hu.po gdm-2.19.6/po/hu.po
+--- gdm-2.19.6.orig/po/hu.po	2007-08-15 20:16:33.000000000 +0200
++++ gdm-2.19.6/po/hu.po	2007-08-23 19:28:37.000000000 +0200
+@@ -3251,9 +3251,10 @@
+ msgid "Cannot start the greeter"
+ msgstr "Az üdvözlőt nem sikerült elindítani"
+ 
++#. Ez a gdm-et hozza alap helyzetbe, nem indít újra semmit.
+ #: ../gui/gdmlogin.c:3257
+ msgid "Restart"
+-msgstr "Újraindítás"
++msgstr "Mégse"
+ 
+ #: ../gui/gdmlogin.c:3290 ../gui/greeter/greeter.c:790
+ #, c-format

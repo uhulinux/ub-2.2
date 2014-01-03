@@ -1,0 +1,9 @@
+#!/usr/bin/env dl
+simutrans-src-${UB_VERSION_MAJOR}-${UB_VERSION_MINOR}.zip .
+  http://downloads.sourceforge.net/project/simutrans/simutrans/${UB_VERSION_MAJOR}-${UB_VERSION_MINOR}/
+
+#update_texts_23052010.zip 
+# http://downloads.sourceforge.net/project/simutrans/simutrans/${UB_VERSION_MAJOR}-${UB_VERSION_MINOR}-${UB_VERSION_MICRO}/
+
+simulinux-${UB_VERSION_MAJOR}-${UB_VERSION_MINOR}.zip .
+  http://downloads.sourceforge.net/project/simutrans/simutrans/${UB_VERSION_MAJOR}-${UB_VERSION_MINOR}/

@@ -1,0 +1,4 @@
+#!/usr/bin/env dl
+
+gpa-${UB_VERSION}.tar.bz2 gpa-${UB_VERSION}/
+	ftp://ftp.gnupg.org/gcrypt/gpa/

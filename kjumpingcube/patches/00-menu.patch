@@ -1,0 +1,9 @@
+diff -Naur a/kjumpingcube.desktop b/kjumpingcube.desktop
+--- a/kjumpingcube.desktop	2013-01-23 23:06:12.000000000 +0100
++++ b/kjumpingcube.desktop	2013-02-10 22:43:20.481869162 +0100
+@@ -119,4 +119,4 @@
+ Terminal=false
+ X-KDE-StartupNotify=true
+ X-DBUS-StartupType=Multi
+-Categories=Qt;KDE;Game;StrategyGame;
++Categories=Qt;KDE;Game;StrategyGame;X-UHU-Menu/Games/TacticStrategy;

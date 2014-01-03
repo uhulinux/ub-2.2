@@ -1,0 +1,12 @@
+diff -Naur orig/editor/dconf-editor.desktop.in mod/editor/dconf-editor.desktop.in
+--- orig/editor/dconf-editor.desktop.in	2012-03-07 05:49:37.000000000 +0100
++++ mod/editor/dconf-editor.desktop.in	2013-05-16 23:52:10.000000000 +0200
+@@ -6,7 +6,7 @@
+ Type=Application
+ Icon=dconf-editor
+ StartupNotify=true
+-Categories=GNOME;GTK;System;
++Categories=GNOME;GTK;System;X-UHU-Menu/Settings;
+ X-GNOME-Bugzilla-Bugzilla=GNOME
+ X-GNOME-Bugzilla-Product=dconf
+ X-GNOME-Bugzilla-Component=editor

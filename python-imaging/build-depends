@@ -1,0 +1,8 @@
+freetype2-dev
+libjpeg-dev
+libpng-dev
+libx11-dev
+python-dev
+sane-backends-dev
+tcl-dev
+tk-dev

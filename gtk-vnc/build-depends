@@ -1,0 +1,8 @@
+cyrus-sasl2
+gnutls-dev
+gobject-introspection-dev
+gtk3-dev
+intltool
+libvorbis-dev
+pulseaudio-dev
+vala-dev

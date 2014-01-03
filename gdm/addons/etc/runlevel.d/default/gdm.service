@@ -1,0 +1,11 @@
+Summary=Gnome Display Manager
+Summary[hu]=Gnome bejelentkezés-kezelő
+Description=Graphical login manager in the style of Gnome.
+Description[hu]=A Gnome kinézetéhez illeszkedő grafikus bejelentkezés-kezelő.
+MsgDesc=Gnome Display Manager
+MsgDesc[hu]=Gnome bejelentkezés-kezelő
+Script=/etc/init.d/gdm
+SupportsReload=yes
+Runlevels=5
+Sequence=98
+Resources=:0,tty7

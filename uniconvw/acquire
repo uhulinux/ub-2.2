@@ -1,0 +1,4 @@
+#!/usr/bin/env dl
+
+uniconvw-${UB_VERSION}.tar.gz uniconvw-${UB_VERSION}/
+	http://uniconvertor.googlecode.com/files/

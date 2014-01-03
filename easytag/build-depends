@@ -1,0 +1,10 @@
+flac-dev
+gtk2-dev
+id3lib-dev
+intltool
+libid3tag-dev
+libogg-dev
+libvorbis-dev
+speex-dev
+taglib-dev
+wavpack-dev

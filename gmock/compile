@@ -1,0 +1,4 @@
+#!/bin/sh -eux
+
+autoreconf -fvi
+ub_compile

@@ -1,0 +1,4 @@
+#!/usr/bin/env dl
+
+duplicity-"$UB_VERSION".tar.gz duplicity-"$UB_VERSION"/
+	http://code.launchpad.net/duplicity/"$UB_VERSION_HEAD2"-series/"$UB_VERSION"/+download/

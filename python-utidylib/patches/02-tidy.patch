@@ -1,0 +1,12 @@
+diff -Naur orig/tidy/lib.py patched/tidy/lib.py
+--- orig/tidy/lib.py	2007-11-16 14:33:37.000000000 +0100
++++ patched/tidy/lib.py	2007-11-16 14:48:43.000000000 +0100
+@@ -22,7 +22,7 @@
+ # directory too
+ thelib=None
+ os.environ['PATH'] = "%s%s%s" % (packagedir, os.pathsep, os.environ['PATH'])
+-for libname in ('cygtidy-0-99-0', 'libtidy', 'libtidy.so',
++for libname in ('tidy', 'cygtidy-0-99-0', 'libtidy', 'libtidy.so',
+                 'libtidy-0.99.so.0', 'tidylib'):
+     try:
+         thelib = getattr(ctypes.cdll, libname)

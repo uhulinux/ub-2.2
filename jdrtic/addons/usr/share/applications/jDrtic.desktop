@@ -1,0 +1,14 @@
+[Desktop Entry]
+Comment=
+Exec=jdrtic
+GenericName=DreamBox-hoz
+Icon=java
+Name=Feiratfájl konvertáló
+NoDisplay=false
+StartupNotify=false
+Terminal=0
+TerminalOptions=
+Type=Application
+X-KDE-SubstituteUID=false
+X-KDE-Username=
+Categories=X-UHU-Menu/Multimedia/TVRadio;

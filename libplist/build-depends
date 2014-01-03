@@ -1,0 +1,5 @@
+cmake
+glib2-dev
+libxml2-dev
+python-dev
+swig

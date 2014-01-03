@@ -1,0 +1,8 @@
+#!/bin/sh -eux
+
+ls
+rm GoldieBluez-3.4/{preview.jpg,README} 
+celdir="$UB_INSTALLDIR"/usr/share/themes
+mkdir -p $celdir
+cp -R GoldieBluez-3.4 "$celdir"/
+

@@ -1,0 +1,31 @@
+From 0d42872d1e0bab1808c0a544c7ece049da103825 Mon Sep 17 00:00:00 2001
+From: Chris Wilson <chris@chris-wilson.co.uk>
+Date: Wed, 03 Oct 2012 13:42:19 +0000
+Subject: sna: Protect against undefined O_CLOEXEC
+
+Reported-by: Giovanni Mariani <mc2374@mclink.it>
+Bugzilla: https://bugs.freedesktop.org/show_bug.cgi?id=55577
+Signed-off-by: Chris Wilson <chris@chris-wilson.co.uk>
+---
+diff --git a/src/sna/kgem.c b/src/sna/kgem.c
+index 52d32bb..3d8620a 100644
+--- a/src/sna/kgem.c
++++ b/src/sna/kgem.c
+@@ -2841,12 +2841,12 @@ struct kgem_bo *kgem_create_for_prime(struct kgem *kgem, int name, uint32_t size
+ 
+ int kgem_bo_export_to_prime(struct kgem *kgem, struct kgem_bo *bo)
+ {
+-#ifdef DRM_IOCTL_PRIME_HANDLE_TO_FD
++#if defined(DRM_IOCTL_PRIME_HANDLE_TO_FD) && defined(O_CLOEXEC)
+ 	struct drm_prime_handle args;
+ 
+ 	VG_CLEAR(args);
+ 	args.handle = bo->handle;
+-	args.flags = DRM_CLOEXEC;
++	args.flags = O_CLOEXEC;
+ 
+ 	if (drmIoctl(kgem->fd, DRM_IOCTL_PRIME_HANDLE_TO_FD, &args))
+ 		return -1;
+--
+cgit v0.9.0.2-2-gbebe
+

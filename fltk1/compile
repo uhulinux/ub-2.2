@@ -1,0 +1,38 @@
+#!/bin/sh -eux
+
+sed -i \
+	-e '/C\(XX\)\?FLAGS=/s:@C\(XX\)\?FLAGS@::' \
+	-e '/^LDFLAGS=/d' \
+	./fltk-config.in
+# some fixes introduced because slotting
+sed -i \
+	-e '/RANLIB/s:$(libdir)/\(.*LIBNAME)\):$(libdir)/`basename \1`:g' \
+	src/Makefile
+# docs in proper docdir
+#sed -i \
+#	-e "/^docdir/s:fltk:/html:" \
+#	makeinclude.in
+#sed -e "s/7/$(get_version_component_range 3)/" \
+#	"${FILESDIR}"/FLTKConfig.cmake > CMake/FLTKConfig.cmake
+#	autoreconf
+
+	ub_configure \
+	--enable-threads \
+	--enable-xinerama \
+	--enable-xft \
+	--enable-xdbe \
+	--enable-largefile \
+	--enable-localjpeg \
+	--enable-localpng \
+	--enable-localzlib \
+
+ub_make
+
+cd test
+ub_make blocks
+ub_make sudoku
+ub_make checkers
+ub_make all
+cd ../documentation
+ub_make alldocs
+

@@ -1,0 +1,5 @@
+#!/usr/bin/env dl
+
+kapman-${UB_VERSION}.tar.xz kapman-${UB_VERSION}/
+	ftp://ftp.kde.org/pub/kde/stable/${UB_VERSION}/src/
+

@@ -1,0 +1,13 @@
+diff -urN mod_gnutls-0.4.3.orig/src/Makefile.in mod_gnutls-0.4.3/src/Makefile.in
+--- mod_gnutls-0.4.3.orig/src/Makefile.in	2008-03-03 15:15:51.000000000 +0100
++++ mod_gnutls-0.4.3/src/Makefile.in	2008-06-20 19:55:21.000000000 +0200
+@@ -559,7 +559,8 @@
+ 	rm -fr .libs
+ 
+ install: make_so
+-	@${APXS_BIN} -i -n gnutls mod_gnutls.so
++	mkdir -p $(DESTDIR)/`$(APXS_BIN) -q LIBEXECDIR`
++	@${APXS_BIN} -S LIBEXECDIR=$(DESTDIR)/`$(APXS_BIN) -q LIBEXECDIR` -i -n gnutls mod_gnutls.so
+ 	@echo ""
+ 	@echo ""
+ 	@echo "***********************************************"

@@ -1,0 +1,4 @@
+#!/usr/bin/env dl
+
+xbmc-${UB_VERSION}.tar.gz	xbmc-${UB_VERSION}/
+	http://mirrors.xbmc.org/releases/source/

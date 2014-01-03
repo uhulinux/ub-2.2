@@ -1,0 +1,8 @@
+	/usr/bin/designer
+	/usr/bin/linguist
+	/usr/lib/qt/bin/designer
+	/usr/lib/qt/bin/linguist
+	/usr/lib/qt/plugins/designer
+	/usr/lib/qt/tools
+	/usr/share/applications/qt-designer.desktop
+	/usr/share/applications/qt-linguist.desktop

@@ -1,0 +1,11 @@
+diff -Naur orig/setup.cfg patched/setup.cfg
+--- orig/setup.cfg	2012-01-04 13:54:03.000000000 +0100
++++ patched/setup.cfg	2013-07-22 20:49:11.665726467 +0200
+@@ -1,5 +1,5 @@
+ [build]
+-prefix=/usr/local
++prefix=/usr
+ 
+ [install]
+-prefix=/usr/local
++prefix=/usr

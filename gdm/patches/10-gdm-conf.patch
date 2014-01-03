@@ -1,0 +1,153 @@
+diff -Naur orig/config/gdm.conf.in patched/config/gdm.conf.in
+--- orig/config/gdm.conf.in	2007-10-15 23:43:04.000000000 +0200
++++ patched/config/gdm.conf.in	2013-04-12 14:26:57.521828250 +0200
+@@ -68,11 +68,11 @@
+ 
+ # The greeter for attached (non-xdmcp) logins.  Change gdmlogin to gdmgreeter
+ # to get the new graphical greeter.
+-#Greeter=@libexecdir@/gdmlogin
++#Greeter=@libexecdir@/gdmgreeter
+ 
+ # The greeter for xdmcp logins, usually you want a less graphically intensive
+ # greeter here so it's better to leave this with gdmlogin
+-#RemoteGreeter=@libexecdir@/gdmlogin
++#RemoteGreeter=@libexecdir@/gdmgreeter
+ 
+ # Launch the greeter with an additional list of colon separated GTK+ modules.
+ # This is useful for enabling additional feature support e.g. GNOME
+@@ -163,7 +163,7 @@
+ # really a PATH style variable since 2.4.4.2 to allow actual interoperability
+ # with KDM.  Note that <dmconfdir>/Sessions is there for backwards
+ # compatibility reasons with 2.4.4.x.
+-#SessionDesktopDir=/etc/X11/sessions/:@dmconfdir@/Sessions/:@datadir@/gdm/BuiltInSessions/:@datadir@/xsessions/
++SessionDesktopDir=@datadir@/xsessions/:/etc/X11/sessions/:@dmconfdir@/Sessions/:@datadir@/gdm/BuiltInSessions/
+ # This is the default .desktop session.  One of the ones in SessionDesktopDir
+ #DefaultSession=gnome.desktop
+ # Better leave this blank and HOME will be used.  You can use syntax ~/ below
+@@ -349,7 +349,7 @@
+ # The specific gtkrc file we use.  It should be the full path to the gtkrc that
+ # we need.  Unless you need a specific gtkrc that doesn't correspond to a
+ # specific theme, then just use the GtkTheme key.
+-#GtkRC=@datadir@/themes/Default/gtk-2.0/gtkrc
++#GtkRC=@datadir@/themes/UHU/gtk-2.0/gtkrc
+ 
+ # The GTK+ theme to use for the GUI.
+ #GtkTheme=Default
+@@ -512,7 +512,7 @@
+ # list then provide a list that is delimited by /: to the GraphicalThemes
+ # key and set GraphicalThemeRand to true.  Otherwise use GraphicalTheme
+ # and specify just one theme.
+-#GraphicalTheme=circles
++#GraphicalTheme=UHU
+ #GraphicalThemes=circles/:happygnome
+ GraphicalThemeDir=@datadir@/gdm/themes/
+ GraphicalThemeRand=false
+@@ -528,7 +528,7 @@
+ # user input.  If SoundOnLogin is a file and the greeter finds the 'play'
+ # executable (see daemon/SoundProgram) it will play that file instead of just
+ # beeping.
+-#SoundOnLogin=true
++#SoundOnLogin=false
+ #SoundOnLoginFile=
+ # If SoundOnLoginSuccess, then the greeter will play a sound (as above) when a
+ # user successfully logs in.
+diff -Naur orig/daemon/gdm-daemon-config-entries.h patched/daemon/gdm-daemon-config-entries.h
+--- orig/daemon/gdm-daemon-config-entries.h	2007-10-15 23:43:04.000000000 +0200
++++ patched/daemon/gdm-daemon-config-entries.h	2013-04-12 14:31:10.516163301 +0200
+@@ -294,8 +294,8 @@
+ 	 * disables the AlwaysRestartServer option as highlighted in the gdm
+ 	 * documentation */
+ 
+-	{ GDM_CONFIG_GROUP_DAEMON, "Greeter", GDM_CONFIG_VALUE_STRING, LIBEXECDIR "/gdmlogin", GDM_ID_GREETER },
+-	{ GDM_CONFIG_GROUP_DAEMON, "RemoteGreeter", GDM_CONFIG_VALUE_STRING, LIBEXECDIR "/gdmlogin", GDM_ID_REMOTE_GREETER },
++	{ GDM_CONFIG_GROUP_DAEMON, "Greeter", GDM_CONFIG_VALUE_STRING, LIBEXECDIR "/gdmgreeter", GDM_ID_GREETER },
++	{ GDM_CONFIG_GROUP_DAEMON, "RemoteGreeter", GDM_CONFIG_VALUE_STRING, LIBEXECDIR "/gdmgreeter", GDM_ID_REMOTE_GREETER },
+ 	{ GDM_CONFIG_GROUP_DAEMON, "AddGtkModules", GDM_CONFIG_VALUE_BOOL, "false", GDM_ID_ADD_GTK_MODULES },
+ 	{ GDM_CONFIG_GROUP_DAEMON, "GtkModulesList", GDM_CONFIG_VALUE_STRING, NULL, GDM_ID_GTK_MODULES_LIST },
+ 
+@@ -317,7 +317,7 @@
+ 	{ GDM_CONFIG_GROUP_DAEMON, "XKeepsCrashing", GDM_CONFIG_VALUE_STRING, GDMCONFDIR "/XKeepsCrashing", GDM_ID_X_KEEPS_CRASHING },
+ 	{ GDM_CONFIG_GROUP_DAEMON, "RootPath", GDM_CONFIG_VALUE_STRING, "/sbin:/usr/sbin:" GDM_USER_PATH, GDM_ID_ROOT_PATH },
+ 	{ GDM_CONFIG_GROUP_DAEMON, "ServAuthDir", GDM_CONFIG_VALUE_STRING, AUTHDIR, GDM_ID_SERV_AUTHDIR },
+-	{ GDM_CONFIG_GROUP_DAEMON, "SessionDesktopDir", GDM_CONFIG_VALUE_STRING, "/etc/X11/sessions/:" DMCONFDIR "/Sessions/:" DATADIR "/gdm/BuiltInSessions/:" DATADIR "/xsessions/", GDM_ID_SESSION_DESKTOP_DIR },
++	{ GDM_CONFIG_GROUP_DAEMON, "SessionDesktopDir", GDM_CONFIG_VALUE_STRING, DATADIR "/xsessions/:" "/etc/X11/sessions/:" DMCONFDIR "/Sessions/:" DATADIR "/gdm/BuiltInSessions/:", GDM_ID_SESSION_DESKTOP_DIR },
+ 	{ GDM_CONFIG_GROUP_DAEMON, "BaseXsession", GDM_CONFIG_VALUE_STRING, GDMCONFDIR "/Xsession", GDM_ID_BASE_XSESSION },
+ 	{ GDM_CONFIG_GROUP_DAEMON, "DefaultSession", GDM_CONFIG_VALUE_STRING, "gnome.desktop", GDM_ID_DEFAULT_SESSION },
+ 
+@@ -390,7 +390,7 @@
+ 	{ GDM_CONFIG_GROUP_XDMCP, "ProxyReconnect", GDM_CONFIG_VALUE_STRING, "", GDM_ID_XDMCP_PROXY_RECONNECT },
+ 
+ 	{ GDM_CONFIG_GROUP_GUI, "GtkTheme", GDM_CONFIG_VALUE_STRING, "Default", GDM_ID_GTK_THEME },
+-	{ GDM_CONFIG_GROUP_GUI, "GtkRC", GDM_CONFIG_VALUE_STRING, DATADIR "/themes/Default/gtk-2.0/gtkrc", GDM_ID_GTKRC },
++	{ GDM_CONFIG_GROUP_GUI, "GtkRC", GDM_CONFIG_VALUE_STRING, DATADIR "/themes/UHU/gtk-2.0/gtkrc", GDM_ID_GTKRC },
+ 	{ GDM_CONFIG_GROUP_GUI, "MaxIconWidth", GDM_CONFIG_VALUE_INT, "128", GDM_ID_MAX_ICON_WIDTH },
+ 	{ GDM_CONFIG_GROUP_GUI, "MaxIconHeight", GDM_CONFIG_VALUE_INT, "128", GDM_ID_MAX_ICON_HEIGHT },
+ 
+@@ -448,7 +448,7 @@
+ 	{ GDM_CONFIG_GROUP_GREETER, "Use24Clock", GDM_CONFIG_VALUE_STRING, "auto", GDM_ID_USE_24_CLOCK },
+ 	{ GDM_CONFIG_GROUP_GREETER, "UseCirclesInEntry", GDM_CONFIG_VALUE_BOOL, "false", GDM_ID_ENTRY_CIRCLES },
+ 	{ GDM_CONFIG_GROUP_GREETER, "UseInvisibleInEntry", GDM_CONFIG_VALUE_BOOL, "false", GDM_ID_ENTRY_INVISIBLE },
+-	{ GDM_CONFIG_GROUP_GREETER, "GraphicalTheme", GDM_CONFIG_VALUE_STRING, "circles", GDM_ID_GRAPHICAL_THEME },
++	{ GDM_CONFIG_GROUP_GREETER, "GraphicalTheme", GDM_CONFIG_VALUE_STRING, "UHU", GDM_ID_GRAPHICAL_THEME },
+ 	{ GDM_CONFIG_GROUP_GREETER, "GraphicalThemes", GDM_CONFIG_VALUE_STRING, "circles/:happygnome", GDM_ID_GRAPHICAL_THEMES },
+ 	{ GDM_CONFIG_GROUP_GREETER, "GraphicalThemeRand", GDM_CONFIG_VALUE_BOOL, "false", GDM_ID_GRAPHICAL_THEME_RAND },
+ 	{ GDM_CONFIG_GROUP_GREETER, "GraphicalThemeDir", GDM_CONFIG_VALUE_STRING, DATADIR "/gdm/themes/", GDM_ID_GRAPHICAL_THEME_DIR },
+@@ -459,7 +459,7 @@
+ 
+ 	{ GDM_CONFIG_GROUP_GREETER, "PreFetchProgram", GDM_CONFIG_VALUE_STRING, "", GDM_ID_PRE_FETCH_PROGRAM },
+ 
+-	{ GDM_CONFIG_GROUP_GREETER, "SoundOnLogin", GDM_CONFIG_VALUE_BOOL, "true", GDM_ID_SOUND_ON_LOGIN },
++	{ GDM_CONFIG_GROUP_GREETER, "SoundOnLogin", GDM_CONFIG_VALUE_BOOL, "false", GDM_ID_SOUND_ON_LOGIN },
+ 	{ GDM_CONFIG_GROUP_GREETER, "SoundOnLoginSuccess", GDM_CONFIG_VALUE_BOOL, "false", GDM_ID_SOUND_ON_LOGIN_SUCCESS },
+ 	{ GDM_CONFIG_GROUP_GREETER, "SoundOnLoginFailure", GDM_CONFIG_VALUE_BOOL, "false", GDM_ID_SOUND_ON_LOGIN_FAILURE },
+ 	{ GDM_CONFIG_GROUP_GREETER, "SoundOnLoginFile", GDM_CONFIG_VALUE_STRING, "", GDM_ID_SOUND_ON_LOGIN_FILE },
+diff -Naur orig/daemon/gdm-daemon-config-keys.h patched/daemon/gdm-daemon-config-keys.h
+--- orig/daemon/gdm-daemon-config-keys.h	2007-10-15 23:43:04.000000000 +0200
++++ patched/daemon/gdm-daemon-config-keys.h	2013-04-12 14:34:02.945754778 +0200
+@@ -31,8 +31,8 @@
+ #define GDM_KEY_CHOOSER "daemon/Chooser=" LIBEXECDIR "/gdmchooser"
+ #define GDM_KEY_AUTOMATIC_LOGIN_ENABLE "daemon/AutomaticLoginEnable=false"
+ #define GDM_KEY_AUTOMATIC_LOGIN "daemon/AutomaticLogin="
+-#define GDM_KEY_GREETER "daemon/Greeter=" LIBEXECDIR "/gdmlogin"
+-#define GDM_KEY_REMOTE_GREETER "daemon/RemoteGreeter=" LIBEXECDIR "/gdmlogin"
++#define GDM_KEY_GREETER "daemon/Greeter=" LIBEXECDIR "/gdmgreeter"
++#define GDM_KEY_REMOTE_GREETER "daemon/RemoteGreeter=" LIBEXECDIR "/gdmgreeter"
+ #define GDM_KEY_ADD_GTK_MODULES "daemon/AddGtkModules=false"
+ #define GDM_KEY_GTK_MODULES_LIST "daemon/GtkModulesList="
+ #define GDM_KEY_GROUP "daemon/Group=gdm"
+@@ -57,7 +57,7 @@
+ #define GDM_KEY_CUSTOM_CMD_IS_PERSISTENT_TEMPLATE "customcommand/CustomCommandIsPersistent"
+ #define GDM_KEY_ROOT_PATH "daemon/RootPath=/sbin:/usr/sbin:" GDM_USER_PATH
+ #define GDM_KEY_SERV_AUTHDIR "daemon/ServAuthDir=" AUTHDIR
+-#define GDM_KEY_SESSION_DESKTOP_DIR "daemon/SessionDesktopDir=/etc/X11/sessions/:" DMCONFDIR "/Sessions/:" DATADIR "/gdm/BuiltInSessions/:" DATADIR "/xsessions/"
++#define GDM_KEY_SESSION_DESKTOP_DIR "daemon/SessionDesktopDir=DATADIR /xsessions/:" "/etc/X11/sessions/:" DMCONFDIR "/Sessions/:" DATADIR "/gdm/BuiltInSessions/"
+ #define GDM_KEY_BASE_XSESSION "daemon/BaseXsession=" GDMCONFDIR "/Xsession"
+ #define GDM_KEY_DEFAULT_SESSION "daemon/DefaultSession=gnome.desktop"
+ #define GDM_KEY_SUSPEND "daemon/SuspendCommand=" SUSPEND_COMMAND
+@@ -125,7 +125,7 @@
+ #define GDM_KEY_XDMCP_PROXY_XSERVER "xdmcp/ProxyXServer="
+ #define GDM_KEY_XDMCP_PROXY_RECONNECT "xdmcp/ProxyReconnect="
+ #define GDM_KEY_GTK_THEME "gui/GtkTheme=Default"
+-#define GDM_KEY_GTKRC "gui/GtkRC=" DATADIR "/themes/Default/gtk-2.0/gtkrc"
++#define GDM_KEY_GTKRC "gui/GtkRC=" DATADIR "/themes/UHU/gtk-2.0/gtkrc"
+ #define GDM_KEY_MAX_ICON_WIDTH "gui/MaxIconWidth=128"
+ #define GDM_KEY_MAX_ICON_HEIGHT "gui/MaxIconHeight=128"
+ #define GDM_KEY_ALLOW_GTK_THEME_CHANGE "gui/AllowGtkThemeChange=true"
+@@ -170,7 +170,7 @@
+ #define GDM_KEY_USE_24_CLOCK "greeter/Use24Clock=auto"
+ #define GDM_KEY_ENTRY_CIRCLES "greeter/UseCirclesInEntry=false"
+ #define GDM_KEY_ENTRY_INVISIBLE "greeter/UseInvisibleInEntry=false"
+-#define GDM_KEY_GRAPHICAL_THEME "greeter/GraphicalTheme=circles"
++#define GDM_KEY_GRAPHICAL_THEME "greeter/GraphicalTheme=UHU"
+ #define GDM_KEY_GRAPHICAL_THEMES "greeter/GraphicalThemes=circles/:happygnome"
+ #define GDM_KEY_GRAPHICAL_THEME_RAND "greeter/GraphicalThemeRand=false"
+ #define GDM_KEY_GRAPHICAL_THEME_DIR "greeter/GraphicalThemeDir=" DATADIR "/gdm/themes/"
+@@ -178,7 +178,7 @@
+ #define GDM_KEY_INFO_MSG_FILE "greeter/InfoMsgFile="
+ #define GDM_KEY_INFO_MSG_FONT "greeter/InfoMsgFont="
+ #define GDM_KEY_PRE_FETCH_PROGRAM "greeter/PreFetchProgram="
+-#define GDM_KEY_SOUND_ON_LOGIN "greeter/SoundOnLogin=true"
++#define GDM_KEY_SOUND_ON_LOGIN "greeter/SoundOnLogin=false"
+ #define GDM_KEY_SOUND_ON_LOGIN_SUCCESS "greeter/SoundOnLoginSuccess=false"
+ #define GDM_KEY_SOUND_ON_LOGIN_FAILURE "greeter/SoundOnLoginFailure=false"
+ #define GDM_KEY_SOUND_ON_LOGIN_FILE "greeter/SoundOnLoginFile="

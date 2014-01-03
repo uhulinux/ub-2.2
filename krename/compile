@@ -1,0 +1,4 @@
+#!/bin/sh -eux
+
+export CFLAGS="-I/usr/include/freetype2/freetype"
+ub_compile

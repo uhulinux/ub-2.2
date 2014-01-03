@@ -1,0 +1,5 @@
+#!/usr/bin/env dl
+
+qt-mobility-opensource-src-${UB_VERSION}.tar.gz qt-mobility-opensource-src-${UB_VERSION}/
+	http://ftp3.ie.freebsd.org/pub/ftp.trolltech.com/pub/qt/add-ons/
+	

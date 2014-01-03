@@ -1,0 +1,11 @@
+diff -Naur orig/include/Inventor/SbBasic.h mod/include/Inventor/SbBasic.h
+--- orig/include/Inventor/SbBasic.h	2010-03-02 14:20:09.000000000 +0100
++++ mod/include/Inventor/SbBasic.h	2013-05-18 17:05:48.000000000 +0200
+@@ -24,6 +24,7 @@
+  *
+ \**************************************************************************/
+ 
++#include <Inventor/C/errors/debugerror.h>
+ #include <Inventor/C/basic.h>
+ 
+ /* ********************************************************************** */

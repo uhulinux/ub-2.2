@@ -1,0 +1,9 @@
+alsa-lib-dev
+arts-dev
+audiofile-dev
+cmake
+esound-dev
+glib2-dev
+libpng-dev
+mesa-dev
+pulseaudio

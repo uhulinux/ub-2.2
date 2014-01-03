@@ -1,0 +1,16 @@
+#!/bin/sh -eux
+#datadir="$UB_INSTALLDIR"/usr/share/games/boondog
+#install -d -m 777 $datadir $datadir/{dat,gfx,packs} $datadir/{packs/Tutorial,packs/"Pack 1 - The Facility"}
+#install -m 644 dat/* gfx/* $datadir/dat/
+#install -m 644 gfx/* $datadir/gfx/
+#install -m 644 packs/Tutorial/* $datadir/packs/Tutorial/
+#install -m 644 packs/'Pack 1 - The Facility'/* $datadir/packs/'Pack 1 - The Facility'/
+#install  --mode=755 boondog-linux $datadir/boondog
+#chmod 666  $datadir/dat/save.dat
+#rm $datadir/dat/plug-mm.dll
+ub_install
+convert _src/icons/worldeditor.ico "$UB_INSTALLDIR"/usr/share/pixmaps/smw-worldedit.png
+convert _src/icons/leveleditor.ico "$UB_INSTALLDIR"/usr/share/pixmaps/smw-leveledit.png
+convert _src/icons/smw.ico "$UB_INSTALLDIR"/usr/share/pixmaps/smw.png
+mkdir -p "$UB_INSTALLDIR"/usr/share/doc/Packages/supermariowar
+ln -s "$UB_INSTALLDIR"/usr/share/games/smw/gfx "$UB_INSTALLDIR"/usr/share/doc/Packages/supermariowar

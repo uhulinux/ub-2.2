@@ -1,0 +1,9 @@
+#/bin/sh
+
+if [ -d "/usr/share/ca-certificates" ] ; then
+	# if the user has local certs, we need to rebuild again
+	# to include their stuff in the db.
+	# However it's too overzealous when the user has custom certs in place.
+	# --fresh is to clean up dangling symlinks
+	/usr/sbin/update-ca-certificates --root /
+fi

@@ -1,0 +1,4 @@
+#!/usr/bin/env dl
+
+74689-gtk-kde4(src)${UB_VERSION}.tar.gz gtk-kde4/
+	http://kde-apps.org/CONTENT/content-files/

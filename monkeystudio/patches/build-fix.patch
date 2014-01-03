@@ -1,0 +1,12 @@
+diff -Naur orig/config.pri mod/config.pri
+--- orig/config.pri	2012-11-12 00:12:53.000000000 +0100
++++ mod/config.pri	2013-11-03 21:33:28.102318403 +0100
+@@ -30,7 +30,7 @@
+ PACKAGE_DESTDIR = $${PACKAGE_PWD}/bin
+ 
+ # temporary path for building
+-#PACKAGE_BUILD_PATH  = $${PACKAGE_PWD}/build
++PACKAGE_BUILD_PATH  = $${PACKAGE_PWD}/build
+ PACKAGE_BUILD_PATH  = $$(PWD)/build
+ RAMDISK_PATH = /media/ramdisk
+ 

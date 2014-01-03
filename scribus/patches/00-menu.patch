@@ -1,0 +1,21 @@
+diff -Naur orig/scribus.desktop mod/scribus.desktop
+--- orig/scribus.desktop	2012-05-05 11:09:15.000000000 +0200
++++ mod/scribus.desktop	2012-12-01 17:59:50.000000000 +0100
+@@ -1,7 +1,7 @@
+ [Desktop Entry]
+ Name=Scribus
+ Type=Application
+-Icon=scribus
++Icon=/usr/share/scribus/icons/scribus.png
+ Comment=Page Layout and Publication
+ Comment[ar]=سكريبس
+ Comment[fa]=اسکریباس
+@@ -94,7 +94,7 @@
+ Exec=scribus %f
+ Terminal=false
+ MimeType=application/vnd.scribus;
+-Categories=Qt;Graphics;Publishing;
++Categories=Qt;Graphics;Publishing;X-UHU-Menu/Tools/DesktopPublishing;
+ StartupWMClass=scribus
+ StartupNotify=false
+ X-AppInstall-Package=scribus

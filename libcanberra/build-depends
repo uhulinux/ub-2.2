@@ -1,0 +1,11 @@
+alsa-lib-dev
+dbus-dev
+gconf2-dev
+gstreamer-dev
+gtk2-dev
+gtk3-dev
+libsm-dev
+libsndfile-dev
+libvorbis-dev
+pulseaudio-dev
+udev-dev

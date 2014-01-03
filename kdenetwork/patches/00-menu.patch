@@ -1,0 +1,59 @@
+diff -Naur a/kget-4.11.1/desktop/kget.desktop.cmake b/kget-4.11.1/desktop/kget.desktop.cmake
+--- a/kget-4.11.1/desktop/kget.desktop.cmake	2013-08-06 14:50:37.000000000 +0200
++++ b/kget-4.11.1/desktop/kget.desktop.cmake	2013-08-19 15:41:24.867603810 +0200
+@@ -157,6 +157,6 @@
+ GenericName[zh_CN]=下载管理器
+ GenericName[zh_HK]=下載管理員
+ GenericName[zh_TW]=下載管理員
+-Categories=Qt;KDE;Network;FileTransfer;
++Categories=Qt;KDE;Network;FileTransfer;X-UHU-Menu/Internet/Downloaders;
+ X-DBUS-ServiceType=Unique
+ X-DocPath=kget/index.html
+diff -Naur a/kopete-4.11.1/kopete/kopete.desktop b/kopete-4.11.1/kopete/kopete.desktop
+--- a/kopete-4.11.1/kopete/kopete.desktop	2013-07-10 01:45:56.000000000 +0200
++++ b/kopete-4.11.1/kopete/kopete.desktop	2013-08-19 15:32:33.127617830 +0200
+@@ -232,6 +232,6 @@
+ X-DocPath=kopete/index.html
+ Terminal=false
+ Icon=kopete
+-Categories=Qt;KDE;Network;InstantMessaging;
++Categories=Qt;KDE;Network;InstantMessaging;X-UHU-Menu/Internet/Messengers;
+ X-DBUS-StartupType=Unique
+ X-KDE-ServiceTypes=DBUS/InstantMessenger
+diff -Naur a/kppp-4.11.1/Kppp.desktop b/kppp-4.11.1/Kppp.desktop
+--- a/kppp-4.11.1/Kppp.desktop	2013-07-10 01:46:06.000000000 +0200
++++ b/kppp-4.11.1/Kppp.desktop	2013-08-19 18:31:13.632460621 +0200
+@@ -153,4 +153,4 @@
+ Terminal=false
+ X-KDE-StartupNotify=true
+ X-DBUS-StartupType=Multi
+-Categories=Qt;KDE;Network;Dialup;
++Categories=Qt;KDE;Network;Dialup;X-UHU-Menu/Internet/Tools;
+diff -Naur a/kppp-4.11.1/logview/kppplogview.desktop b/kppp-4.11.1/logview/kppplogview.desktop
+--- a/kppp-4.11.1/logview/kppplogview.desktop	2013-07-10 01:46:06.000000000 +0200
++++ b/kppp-4.11.1/logview/kppplogview.desktop	2013-08-19 18:31:12.212460578 +0200
+@@ -137,5 +137,5 @@
+ Type=Application
+ Terminal=false
+ X-DBUS-StartupType=Multi
+-Categories=Qt;KDE;Network;X-KDE-More;Dialup;
++Categories=Qt;KDE;Network;X-KDE-More;Dialup;X-UHU-Menu/Internet/Tools;
+ NoDisplay=true
+diff -Naur a/krdc-4.11.1/krdc.desktop b/krdc-4.11.1/krdc.desktop
+--- a/krdc-4.11.1/krdc.desktop	2013-08-06 14:50:49.000000000 +0200
++++ b/krdc-4.11.1/krdc.desktop	2013-08-19 15:34:29.359614765 +0200
+@@ -121,4 +121,4 @@
+ GenericName[zh_CN]=远程桌面客户端
+ GenericName[zh_TW]=遠端桌面客戶端
+ X-DocPath=krdc/index.html
+-Categories=Qt;KDE;Network;RemoteAccess;
++Categories=Qt;KDE;Network;RemoteAccess;X-UHU-Menu/Internet/Tools;
+diff -Naur a/krfb-4.11.1/krfb/krfb.desktop b/krfb-4.11.1/krfb/krfb.desktop
+--- a/krfb-4.11.1/krfb/krfb.desktop	2013-08-06 14:50:51.000000000 +0200
++++ b/krfb-4.11.1/krfb/krfb.desktop	2013-08-19 15:35:14.491613575 +0200
+@@ -143,4 +143,4 @@
+ GenericName[zh_CN]=桌面共享
+ GenericName[zh_HK]=桌面分享
+ GenericName[zh_TW]=桌面分享
+-Categories=Qt;KDE;System;Network;RemoteAccess;
++Categories=Qt;KDE;System;Network;RemoteAccess;X-UHU-Menu/Internet/Tools;

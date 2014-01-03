@@ -1,0 +1,4 @@
+#!/usr/bin/env dl
+
+json-c-${UB_VERSION}.tar.gz json-c-${UB_VERSION}/
+	http://oss.metaparadigm.com/json-c/

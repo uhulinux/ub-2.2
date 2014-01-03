@@ -1,0 +1,24 @@
+diff -Naur a/Makefile b/Makefile
+--- a/Makefile	2013-05-13 13:47:43.000000000 +0200
++++ b/Makefile	2013-06-21 15:17:01.393775266 +0200
+@@ -6,16 +6,16 @@
+ cleanall: clean
+ 	rm -f youtube-dl youtube-dl.exe
+ 
+-PREFIX=/usr/local
++PREFIX=/usr
+ BINDIR=$(PREFIX)/bin
+-MANDIR=$(PREFIX)/man
++MANDIR=$(PREFIX)/share/man
+ PYTHON=/usr/bin/env python
+ 
+-# set SYSCONFDIR to /etc if PREFIX=/usr or PREFIX=/usr/local
++# set SYSCONFDIR to /etc if PREFIX=/usr or PREFIX=/usr
+ ifeq ($(PREFIX),/usr)
+     SYSCONFDIR=/etc
+ else
+-    ifeq ($(PREFIX),/usr/local)
++    ifeq ($(PREFIX),/usr)
+         SYSCONFDIR=/etc
+     else
+         SYSCONFDIR=$(PREFIX)/etc

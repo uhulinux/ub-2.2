@@ -1,0 +1,8 @@
+[Desktop Entry]
+Encoding=UTF-8
+Type=Application
+Name=Atris
+Icon=atris
+Comment[hu]=Tetris változat
+Exec=atris
+Categories=X-UHU-Menu/Games/Arcade;

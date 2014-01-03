@@ -1,0 +1,12 @@
+Summary=KDE Display Manager
+Summary[hu]=KDE bejelentkezés-kezelő
+Description=Graphical login manager in the style of KDE.
+Description[hu]=A KDE kinézetéhez illeszkedő grafikus bejelentkezés-kezelő.
+MsgDesc=KDE Display Manager
+MsgDesc[hu]=KDE bejelentkezés-kezelő
+Script=/etc/init.d/kdm
+SupportsReload=yes
+Runlevels=5
+Sequence=98
+Resources=:0,tty7
+Preference=-10

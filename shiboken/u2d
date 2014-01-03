@@ -1,0 +1,1 @@
+urllist http://download.qt-project.org/official_releases/pyside/ | splitver '^shiboken-([0-9.]+).tar.bz2$' | sort -V | tail -n 1

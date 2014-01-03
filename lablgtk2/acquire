@@ -1,0 +1,4 @@
+#!/usr/bin/env dl
+
+lablgtk-${UB_VERSION}.tar.gz lablgtk-${UB_VERSION}/
+	http://wwwfun.kurims.kyoto-u.ac.jp/soft/olabl/dist/

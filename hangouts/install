@@ -1,0 +1,8 @@
+#!/bin/sh -eux
+
+rm -Rf opt/google/talkplugin/cron
+cp -R opt ${UB_INSTALLDIR}/opt
+mkdir -p ${UB_INSTALLDIR}/usr/lib/mozilla/plugins
+ln -s /opt/google/talkplugin/libnpgoogletalk.so ${UB_INSTALLDIR}/usr/lib/mozilla/plugins/libnpgoogletalk.so
+ln -s /opt/google/talkplugin/libnpgtpo3dautoplugin.so ${UB_INSTALLDIR}/usr/lib/mozilla/plugins/libnpgtpo3dautoplugin.so
+ln -s /opt/google/talkplugin/libnpo1d.so ${UB_INSTALLDIR}/usr/lib/mozilla/plugins/libnpo1d.so

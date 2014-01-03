@@ -1,0 +1,4 @@
+#!/usr/bin/env dl
+
+kaffeine-${UB_VERSION}.tar.gz kaffeine-${UB_VERSION}/
+	http://dfn.dl.sourceforge.net/project/kaffeine/current/

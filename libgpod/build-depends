@@ -1,0 +1,16 @@
+glib2-dev
+gtk2-dev
+gtk2-sharp
+intltool
+libplist-dev
+libsgutils
+libusb-dev
+libxml2-dev
+mutagen
+perl-xml-parser
+pygobject-dev
+python-dev
+sqlite-dev
+swig
+taglib-dev
+udev-dev

@@ -1,0 +1,3 @@
+#!/usr/bin/env dl
+cytadela-${UB_VERSION}.tar.bz2 cytadela-${UB_VERSION}/
+  http://downloads.sourceforge.net/cytadela/

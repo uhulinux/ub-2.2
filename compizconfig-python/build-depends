@@ -1,0 +1,5 @@
+glib2-dev
+libcompizconfig-dev
+pyrex
+python-dev
+xcb-util-dev

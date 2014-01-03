@@ -1,0 +1,13 @@
+diff --git a/src/photoshootmode.cpp b/src/photoshootmode.cpp
+index c98f6c4..713b67a 100644
+--- a/src/photoshootmode.cpp
++++ b/src/photoshootmode.cpp
+@@ -73,7 +73,7 @@ void PhotoShootMode::shootClicked(bool pressed)
+ 
+ QIcon PhotoShootMode::icon() const
+ {
+-    return KIcon("webcamreceive");
++    return KIcon("camera-web");
+ }
+ 
+ QString PhotoShootMode::name() const

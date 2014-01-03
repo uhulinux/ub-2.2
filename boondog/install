@@ -1,0 +1,10 @@
+#!/bin/sh -eux
+datadir="$UB_INSTALLDIR"/usr/share/games/boondog
+install -d -m 777 $datadir $datadir/{dat,gfx,packs} $datadir/{packs/Tutorial,packs/"Pack 1 - The Facility"}
+install -m 644 dat/* gfx/* $datadir/dat/
+install -m 644 gfx/* $datadir/gfx/
+install -m 644 packs/Tutorial/* $datadir/packs/Tutorial/
+install -m 644 packs/'Pack 1 - The Facility'/* $datadir/packs/'Pack 1 - The Facility'/
+install  --mode=755 boondog-linux $datadir/boondog
+chmod 666  $datadir/dat/save.dat
+rm $datadir/dat/plug-mm.dll

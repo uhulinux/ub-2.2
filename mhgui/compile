@@ -1,0 +1,4 @@
+#!/bin/sh -eux
+
+sed -i 's/\r$//' mhgui.pc.in
+ub_compile

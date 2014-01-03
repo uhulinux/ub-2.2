@@ -1,0 +1,4 @@
+#!/bin/sh -eux
+
+ub_compile \
+	-DPULSEAUDIO_VERSION:STRING="1.0"

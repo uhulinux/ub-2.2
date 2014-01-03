@@ -1,0 +1,10 @@
+[Desktop Entry]
+Version=1.1
+Name=evolvotron
+Comment=
+Comment[hu]=Véletlenszerű grafika
+Exec=evolvotron
+Terminal=false
+Icon=/usr/share/pixmaps/evolvotron.jpg
+Type=Application
+Categories=X-UHU-Menu/Graphics;

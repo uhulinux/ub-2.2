@@ -1,0 +1,12 @@
+#!/bin/sh -eux
+
+mkdir -p "$UB_INSTALLDIR"/usr/share/google/talkplugin
+mkdir -p "$UB_INSTALLDIR"/usr/lib/firefox/plugins/
+cd "$UB_COMPILEDIR"/opt
+cp -a . "$UB_INSTALLDIR"/usr/share
+rm -Rf "$UB_INSTALLDIR"/usr/share/google/talkplugin/cron
+ln -s "$UB_INSTALLDIR"/usr/share/google/talkplugin/lib/libCg.so "$UB_INSTALLDIR"/usr/lib/firefox/plugins/libCg.so
+ln -s "$UB_INSTALLDIR"/usr/share/google/talkplugin/lib/libCgGL.so "$UB_INSTALLDIR"/usr/lib/firefox/plugins/libCgGL.so
+ln -s "$UB_INSTALLDIR"/usr/share/google/talkplugin/libnpgoogletalk.so "$UB_INSTALLDIR"/usr/lib/firefox/plugins/libnpgoogletalk.so
+ln -s "$UB_INSTALLDIR"/usr/share/google/talkplugin/libnpgtpo3dautoplugin.so "$UB_INSTALLDIR"/usr/lib/firefox/plugins/libnpgtpo3dautoplugin.so
+

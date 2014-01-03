@@ -1,0 +1,1245 @@
+diff -Naur orig/src/po/hu_HU/messages.po mod/src/po/hu_HU/messages.po
+--- orig/src/po/hu_HU/messages.po	1970-01-01 01:00:00.000000000 +0100
++++ mod/src/po/hu_HU/messages.po	2013-11-02 21:50:15.000000000 +0100
+@@ -0,0 +1,1241 @@
++msgid ""
++msgstr ""
++"Project-Id-Version: XMLCopyEditor\n"
++"Report-Msgid-Bugs-To: \n"
++"POT-Creation-Date: 2007-02-23 11:15+0000\n"
++"PO-Revision-Date: 2013-11-02 21:50+0100\n"
++"Last-Translator: Kiss Attila <attus@enterpriseforever.com>\n"
++"Language-Team: Thomas Wenzel <thowen@users.sourceforge.net>\n"
++"MIME-Version: 1.0\n"
++"Content-Type: text/plain; charset=UTF-8\n"
++"Content-Transfer-Encoding: 8bit\n"
++"Plural-Forms: nplurals=2; plural=(n != 1);\n"
++"X-Poedit-SourceCharset: utf-8\n"
++"Language: de_DE\n"
++"X-Generator: Poedit 1.5.5\n"
++
++msgid "\tCtrl+%i"
++msgstr "\tCtrl+%i"
++
++msgid ""
++"\n"
++"XML Copy Editor is free software released under the GNU\n"
++"General Public License.\n"
++"\n"
++"Many thanks are due to "
++msgstr ""
++"\n"
++"Az XML Copy Editor szabad szoftver, a GNU hatálya alatt lett kiadva\n"
++"General Public License.\n"
++"\n"
++"Köszönet érte "
++
++msgid " "
++msgstr " "
++
++msgid " in large document mode?"
++msgstr "Nagyméretű dokument mód?"
++
++msgid "%g %s saved"
++msgstr "%g %s tárolva"
++
++msgid "%i match"
++msgid_plural "%i matches"
++msgstr[0] "%i egyezik"
++msgstr[1] "%i Übereinstimmungen"
++
++msgid "%i replacement made"
++msgid_plural "%i replacements made"
++msgstr[0] "%i cserélve"
++msgstr[1] "%i csere történt"
++
++msgid "%s contains %i word"
++msgid_plural "%s contains %i words"
++msgstr[0] "%s tartalmaz %i szót "
++msgstr[1] "%s tartalmaz %i szót"
++
++msgid "%s is %s"
++msgstr "%s az %s"
++
++msgid "%s is already open"
++msgstr "%s már nyitva van"
++
++msgid "&About XML Copy Editor"
++msgstr "&Az XML Copy Editor-ról"
++
++msgid "&Always insert closing tag"
++msgstr "&Záró elem automatikus"
++
++msgid "&Associate"
++msgstr "&Megfeleltetés..."
++
++msgid "&Blue background, white text"
++msgstr "&Kék alapon fehér szöveg"
++
++msgid "&Browser\tCtrl+B"
++msgstr "&Böngésző\tCtrl+B"
++
++msgid "&Change all"
++msgstr "&Minden módosítása"
++
++msgid "&Check Well-formedness\tF2"
++msgstr "&Alakhelyessség ellenőrzés\tF2"
++
++msgid "&Close\tCtrl+W"
++msgstr "&Bezár\tCtrl+W"
++
++msgid "&Color Scheme"
++msgstr "&Színséma"
++
++msgid "&Cut\tCtrl+X"
++msgstr "&Kivág\tCtrl+X"
++
++msgid "&DTD\tF4"
++msgstr "&DTD\tF4"
++
++msgid "&Default"
++msgstr "&Alapérték"
++
++msgid "&DocBook to HTML\tAlt+1"
++msgstr "&DocBook -ból HTML\tAlt+1"
++
++msgid "&DocBook to XHTML\tAlt+2"
++msgstr "&DocBook -ból XHTML\tAlt+2"
++
++msgid "&Download Source"
++msgstr "&Forrás letöltés"
++
++msgid "&Edit"
++msgstr "&Szerkeszt"
++
++msgid "&Element...\tCtrl+I"
++msgstr "&Elemek...\tCtrl+I"
++
++msgid "&Enable network access for DTD validation"
++msgstr "&Hálózat engedélyezés a DTD-érvényesítéshez "
++
++msgid "&Entity...\tCtrl+E"
++msgstr "&Entity...\tCtrl+E"
++
++msgid "&Evaluate XPath...\tF9"
++msgstr "&Evaluate XPath...\tF9"
++
++msgid "&Export Microsoft Word Document..."
++msgstr "&Microsoft Word Dokument export..."
++
++msgid "&File"
++msgstr "&Fájl"
++
++msgid "&Find what: "
++msgstr "&Keresni ezt: "
++
++msgid "&Find...\tCtrl+F"
++msgstr "&Keres...\tCtrl+F"
++
++msgid "&Fold Tags\tCtrl+Shift+F"
++msgstr "Csomók &összecsukása\tCtrl+Shift+F"
++
++msgid "&Folding"
++msgstr "&Összecsuk"
++
++msgid "&Forum"
++msgstr "&Fórum"
++
++msgid "&Global Replace...\tCtrl+Shift+R"
++msgstr "&Globális csere...\tCtrl+Shift+R"
++
++msgid "&Help"
++msgstr "&Segítség"
++
++msgid "&Hide Attributes Only\tCtrl+Shift+A"
++msgstr "&Csak az attribútumok elrejtése\tCtrl+Shift+A"
++
++msgid "&Highlight current line"
++msgstr "&Aktuális sor kiemelése"
++
++msgid "&Home Page"
++msgstr "&Honlap"
++
++msgid "&Indentation guides"
++msgstr "&Alapsegítségek"
++
++msgid "&Insert"
++msgstr "&Beszúrás"
++
++msgid "&Light"
++msgstr "&Kiemelés"
++
++msgid "&Line numbers"
++msgstr "&Sorszámok"
++
++msgid "&Lock Tags\tCtrl+L"
++msgstr "&Csomók bezárása"
++
++msgid "&Match case"
++msgstr "&Kis és nagybetű különbözik"
++
++msgid "&New...\tCtrl+N"
++msgstr "&Új..\tCtrl+N"
++
++msgid "&Next Document\tCtrl+PgDn"
++msgstr "&Következő dokument\tCtrl+PgDn"
++
++msgid "&None"
++msgstr "&Nincs"
++
++msgid "&One application instance only"
++msgstr "&Csak egy alkalmazás rész"
++
++msgid "&Open...\tCtrl+O"
++msgstr "&Megnyit...\tCtrl+O"
++
++msgid "&Options..."
++msgstr "&Beállítás.."
++
++msgid "&Paste\tCtrl+V"
++msgstr "&Beilleszt\tCtrl+V"
++
++msgid "&Pretty-print\tF11"
++msgstr "&Nyomtatás előkészület\tF11"
++
++msgid "&Previous Document\tCtrl+PgUp"
++msgstr "&Előző dokument\tCtrl+PgUp"
++
++msgid "&Printable report"
++msgstr "&Nyomtatható"
++
++msgid "&Public DTD..."
++msgstr "&NyilvánosDTD..."
++
++msgid "&RELAX NG...\tF6"
++msgstr "&RELAX NG...\tF6"
++
++msgid "&Redo\tCtrl+Y"
++msgstr "&Ismét\tCtrl+Y"
++
++msgid "&Regex"
++msgstr "&Szabványos kifejezés"
++
++msgid "&Remember open tabs on close"
++msgstr "&A nyitott csomókat bezárva megjegyezni"
++
++msgid "&Replace"
++msgstr "&Csere"
++
++msgid "&Replace...\tCtrl+R"
++msgstr "&Csere...\tCtrl+R"
++
++msgid "&Report"
++msgstr "&Ismertetés"
++
++msgid "&Revert"
++msgstr "&Visszavon"
++
++msgid "&Save\tCtrl+S"
++msgstr "&Mentés\tCtrl+S"
++
++msgid "&Save UTF-8 byte order mark"
++msgstr "&Az UTF-8 byte order mark mentése"
++
++msgid "&Show Tags and Attributes\tCtrl+T"
++msgstr "&Csomók és attribútumok láttatása\tCtrl+T"
++
++msgid "&Sibling...\tCtrl+Shift+I"
++msgstr "&Testvér...\tCtrl+Shift+I"
++
++msgid "&Spelling and Style...\tF7"
++msgstr "&Helyesírás és stílus...\tF7"
++
++msgid "&System DTD..."
++msgstr "&System DTD..."
++
++msgid "&TEI to HTML\tAlt+4"
++msgstr "&TEI -ből HTML\tAlt+4"
++
++msgid "&Tag completion"
++msgstr "&Tag completion"
++
++msgid "&Text Size"
++msgstr "&Szövegméret"
++
++msgid "&Toggle Fold"
++msgstr "&Fold váltása"
++
++msgid "&Tools"
++msgstr "&Eszközök"
++
++msgid "&Twin\tCtrl+Enter"
++msgstr "&Iker\tCtrl+Enter"
++
++msgid "&Undo\tCtrl+Z"
++msgstr "&Visszavon\tCtrl+Z"
++
++msgid "&Unfold Tags\tCtrl+Shift+U"
++msgstr "&Csomók kinyitása\tCtrl+Shift+U"
++
++msgid "&Use Microsoft rebar control (restart required)"
++msgstr "&Microsoft rebar control használat (újraindítás kell)"
++
++msgid "&Validate"
++msgstr "&Ellenőrzés"
++
++msgid "&Validate as you type"
++msgstr "&Ellenőrzés írás alatt"
++
++msgid "&View"
++msgstr "&Nézet"
++
++msgid "&White space visible"
++msgstr "&Szóközök látszanak"
++
++msgid "&Word Count"
++msgstr "&Szó számlálás"
++
++msgid "&XML"
++msgstr "&XML"
++
++msgid "&XML Copy Editor Help\tF1"
++msgstr "&XML Copy Editor Súgó\tF1"
++
++msgid "&XML Schema\tF5"
++msgstr "&XML séma\tF5"
++
++msgid "&XML Schema..."
++msgstr "&XML séma..."
++
++msgid "&XSL Transform...\tF8"
++msgstr "&XSL átalakítás...\tF8"
++
++msgid "&XSLT"
++msgstr "&XSLT"
++
++msgid "'%s' is not a valid line number"
++msgstr "'%s' érvénytelen sorszám"
++
++msgid "(No filter)"
++msgstr "(Nincs szűrés)"
++
++msgid "(No filters found)"
++msgstr "(Nincs szűrő)"
++
++msgid "(No rule sets found)"
++msgstr "(nincs szabály leíró)"
++
++msgid "(lossless conversion requires version 2003 or later)"
++msgstr "(veszteségmentes átalakításhoz legalább 2003-as verzió kell)"
++
++msgid "(unknown error)"
++msgstr "(ismeretlen hiba)"
++
++msgid ""
++".\n"
++"\n"
++"Select \"Abort\" to exit, \"Retry\" to close this window and \"Ignore\" to "
++"continue."
++msgstr ""
++".\n"
++"\n"
++" \"Abort\" a kilépéshez, \"Retry\" az ablak bezáráshoz \"Ignore\" a "
++"folytatáshoz."
++
++msgid "A more recent version of Microsoft Word is required"
++msgstr "A Microsoft Word újabb verziója kell"
++
++msgid "About"
++msgstr "Rólam"
++
++msgid "Action"
++msgstr "Ténykedés"
++
++msgid ""
++"All files (*.*)|*.*|XML (*.xml)|*.xml|XHTML (*.html)|*.html|DTD (*.dtd)|*."
++"dtd|XML Schema (*.xsd)|*.xsd|RELAX NG grammar (*.rng)|*.rng|XSL (*.xsl)|*.xsl"
++msgstr ""
++"Minden fájl (*.*)|*.*|XML (*.xml)|*.xml|XHTML (*.html)|*.html|DTD (*.dtd)|*."
++"dtd|XML Schema (*.xsd)|*.xsd|RELAX NG grammar (*.rng)|*.rng|XSL (*.xsl)|*.xsl"
++
++msgid "Application directory"
++msgstr "Alkalmazás könyvtár"
++
++msgid "Associate %s"
++msgstr "Asszociál %s"
++
++msgid "Attributes hidden"
++msgstr "Attributúmok rejtve"
++
++msgid "Blue background, white text"
++msgstr "Kék alapon fehér szöveg"
++
++msgid "Browse"
++msgstr "Keresés"
++
++msgid "Browser"
++msgstr "Fájlkezelő"
++
++msgid "C&ancel"
++msgstr "&Abbahagy"
++
++msgid "C&lose All"
++msgstr "&Minden bezárása"
++
++msgid "C&lose Message/Find/Replace Panes\tAlt+C"
++msgstr "&Üzenet/Keresés/Csere-párbeszédek bezárása\tAlt+C"
++
++msgid "C&opy\tCtrl+C"
++msgstr "&Másolás\tCtrl+C"
++
++msgid "Cannot access application directory"
++msgstr "Alkalmazások könyvtára elérhetetlen"
++
++msgid "Cannot associate %s: %s"
++msgstr "Nem lehetséges asszociáció %s : %s"
++
++msgid "Cannot compile regular expression '"
++msgstr "Ez a szabályos kifelyezés nem használható: '"
++
++msgid "Cannot count words: %s"
++msgstr "Szavak nem számolhatók: %s"
++
++msgid "Cannot create report: "
++msgstr "Report nem lehetséges:"
++
++msgid "Cannot evaluate XPath"
++msgstr "XPath nem kiértékelhető"
++
++msgid "Cannot find '%s'"
++msgstr " '%s' nincs"
++
++msgid "Cannot open %s"
++msgstr " %s megnyithatatlan"
++
++msgid "Cannot open %s for import"
++msgstr "A  %s fájl nem importálható"
++
++msgid "Cannot open application directory: see Tools, Options..., General"
++msgstr "A könyvtár megnyithatatlan: lásd Eszközök, Beállítások..., Általános"
++
++msgid "Cannot open clipboard"
++msgstr "A vágólap megnyithatatlan"
++
++msgid "Cannot open imported file"
++msgstr "Az importált fájl megnyithatatlan"
++
++msgid "Cannot open in browser: %s not found (see Tools, Options..., General)"
++msgstr ""
++"A fájlkezelővel megnyithatatlan: %s nincs ( lásd Eszközök, Beállítások..., "
++"Általános)"
++
++msgid ""
++"Cannot open in browser: no browser defined (see Tools, Options..., General)"
++msgstr ""
++"Fájlkezelővel megnyithatatlan: nincs beállított fájlkezelő ( lásd Eszközök, "
++"Beállítások..., Általános)"
++
++msgid "Cannot open stylesheet %s"
++msgstr "A %s nstíluslap megnyithatatlan"
++
++msgid "Cannot paste as new document: no text on clipboard"
++msgstr "Új dokumentként beilleszthetetlen: a vágólap üres."
++
++msgid "Cannot pretty-print: "
++msgstr "Nyomtatás előkészítés lehetetlen: "
++
++msgid "Cannot read temporary file"
++msgstr "Ideiglenes fájl olvashatatlan"
++
++msgid "Cannot replace: "
++msgstr "Cserélhetetlen: "
++
++msgid "Cannot save %s"
++msgstr "A %s menthetetlen"
++
++msgid "Cannot save document in %s: %s (saved in default encoding UTF-8)"
++msgstr "A dokumentum %s -ként menthetetlen: %s (UTF-8 kódolással mentve)"
++
++msgid ""
++"Cannot save temporary copy for validation; please save or discard changes"
++msgstr ""
++"Az ellenőrzéshez ideiglenes másolat létrehozhatatlan; a változtatások "
++"mentendők, vagy eldobandók"
++
++msgid "Cannot save temporary file"
++msgstr "Átmeneti fájl menthetetlen"
++
++msgid "Cannot set encoding (cannot open temporary file)"
++msgstr "A kódolás érvényesíthetetlen (átmeneti fájl megnyithatatlan)"
++
++msgid "Cannot set encoding (cannot parse temporary file)"
++msgstr "A kódolás érvényesíthetetlen (átmeneti fájl értelmezhetetlen)"
++
++msgid "Cannot set encoding: "
++msgstr "A kódolás érvényesíthetetlen:"
++
++msgid "Cannot start Microsoft Word"
++msgstr "A Microsoft Word nem indítható"
++
++msgid "Cannot transform: "
++msgstr "Átalakítás lehetetlen: "
++
++msgid "Change"
++msgstr "Változtatás"
++
++msgid "Change all"
++msgstr "Minden megváltoztatása"
++
++msgid "Change once"
++msgstr "Egyszeri változtatás"
++
++msgid "Check Well-formedness"
++msgstr "Külalaki ellenőrzés"
++
++msgid "Choose a document type:"
++msgstr "Dokument típus választás:"
++
++msgid "Choose a file:"
++msgstr "Fájl választás:"
++
++msgid "Choose a public identifier:"
++msgstr "Public identifier választás:"
++
++msgid "Choose an encoding:"
++msgstr "Karakterkódolás választás:"
++
++msgid "Close"
++msgstr "Bezár"
++
++msgid "Close All"
++msgstr "Mindent bezár"
++
++msgid "Close Message/Find/Replace Panes"
++msgstr "Értesítés/Keresés/Csere-dialóg zárása"
++
++msgid "Close all"
++msgstr "Mindent bezár"
++
++msgid "Closes the dialog box without saving any changes you have made"
++msgstr "Párbeszéd doboz bezárás, változtatások mentése nélkül"
++
++msgid "Closes this dialog without making any changes"
++msgstr "Párbeszéd ablak bezárás, változtatás nélkül"
++
++msgid "Command line processing incomplete: no file specified"
++msgstr "A paracssor végrehajthatatlan: nincs megadva fájl"
++
++msgid "Confirmation"
++msgstr "Megerősítés"
++
++msgid "Context"
++msgstr "Összefüggés"
++
++msgid "Copy"
++msgstr "Másolás"
++
++msgid "Copyright © 2005-2007 Gerald Schmidt <gnschmidt@users.sourceforge.net>"
++msgstr "Copyright © 2005-2007 Gerald Schmidt <gnschmidt@users.sourceforge.net>"
++
++msgid "Creating report..."
++msgstr "Report gyártás..."
++
++msgid "Current Element"
++msgstr "Aktuális elem"
++
++msgid "Cut"
++msgstr "Kivág"
++
++msgid "D&ocBook to XSL-FO\tAlt+3"
++msgstr "D&ocBook -ból XSL-FO\tAlt+3"
++
++msgid "DTD"
++msgstr "DTD"
++
++msgid "DTD validation in progress..."
++msgstr "DTD-Ellenőrzés megy..."
++
++msgid "David Håsäther (Swedish) <hasather@gmail.com>"
++msgstr "David Håsäther (svéd) <hasather@gmail.com>"
++
++msgid "Decrease"
++msgstr "Kissebb"
++
++msgid "Decrease\tCtrl+D"
++msgstr "Kissebb\tCtrl+D"
++
++msgid "Default"
++msgstr "Alapállapot"
++
++msgid "Default dictionary and style"
++msgstr "Alap szótár és stílusl"
++
++msgid "Delete entity reference?"
++msgstr "Entity hivatkozás törlés?"
++
++msgid "Delete tag?"
++msgstr "Csomó törlés?"
++
++msgid "Do you want to open "
++msgstr "Megnyitás"
++
++msgid "Do you want to save the changes to "
++msgstr "Változtatások mentése ide"
++
++msgid "DocBook to HTML"
++msgstr "DocBook -ból HTML"
++
++msgid "DocBook to XHTML"
++msgstr "DocBook -ból XHTML"
++
++msgid "DocBook to XSL-FO"
++msgstr "DocBook -ból XSL-FO"
++
++msgid "Document has been modified: save or discard changes"
++msgstr "A dokumentum változott: menteni, vagy elvetni?"
++
++msgid "Document%i"
++msgstr "Dokument%i"
++
++msgid "Download Source"
++msgstr "Forrás letöltése"
++
++msgid "E&ncoding..."
++msgstr "&Kódolás..."
++
++msgid "E&xit"
++msgstr "&Kilépés"
++
++msgid "E&xpand internal entities on open"
++msgstr "Belső tartalom kibontása megnyitáskor"
++
++msgid "Edited document empty"
++msgstr "A szerkesztett dokumentum üresr"
++
++msgid "Editor"
++msgstr "Szerkesztő"
++
++msgid "Element..."
++msgstr "Elemek..."
++
++msgid "Encoding"
++msgstr "Kódolás"
++
++msgid "Encoding should be one of "
++msgstr "A kódolás ezek egyike legyen: "
++
++msgid "Encoding should be one of %s (file saved in default encoding UTF-8)"
++msgstr "A kódolás ezek egyike legyen: %s (A fájl UTF-8 kódolással mentve)"
++
++msgid "Encoding..."
++msgstr "Karakterkódolás..."
++
++msgid "Enter XPath:"
++msgstr "XPath megadás:"
++
++msgid "Enter line number:"
++msgstr "Sorszám megadás:"
++
++msgid "Enter new suggestion:"
++msgstr "Új ajánlat:"
++
++msgid "Entity..."
++msgstr "Entity..."
++
++msgid "Error"
++msgstr "Hiba"
++
++msgid "Evaluate XPath"
++msgstr ""
++
++msgid "Evaluate XPath..."
++msgstr ""
++
++msgid "Exit"
++msgstr "Kilép"
++
++msgid "Export Microsoft Word Document"
++msgstr "Microsoft Word Dokument exportálás"
++
++msgid "Export in progress..."
++msgstr "Exportálás megy..."
++
++msgid "Extends the scope to all open documents"
++msgstr "Keresés az összes nyitott dokumentumban"
++
++msgid "F&ind Again\tF3"
++msgstr "Ismét k&eres\tF3"
++
++msgid ""
++"File has been modified by another application.\n"
++"Do you want to proceed?"
++msgstr ""
++"A fájl megváltozott.\n"
++"Újra beolvasni?"
++
++msgid "Find"
++msgstr "Keres"
++
++msgid "Find &Next"
++msgstr "&Továbbkeres"
++
++msgid "Find Again"
++msgstr "Újra keres..."
++
++msgid "Find and Replace"
++msgstr "Keres és csere"
++
++msgid "Find..."
++msgstr "Keres..."
++
++msgid "Find:"
++msgstr "Keres:"
++
++msgid ""
++"Finds all instances of the text specified in Find what and replaces them "
++"with the text in Replace with"
++msgstr ""
++"A keresendőnek megadott szöveg előfordulásait megkeresi és lecseréli a "
++"megadottra"
++
++msgid ""
++"Finds only text with lowercase and uppercase letters as specified in Find "
++"what"
++msgstr "Kereséskor a kis és nagybetűket figyelembe veszi"
++
++msgid "Fold Tags"
++msgstr "Csomókat összezárni"
++
++msgid "Font"
++msgstr "Betű"
++
++msgid "Forum"
++msgstr "Fórum"
++
++msgid "François Badier (French) <frabad@gmail.com>"
++msgstr "François Badier (francia) <frabad@gmail.com>"
++
++msgid "G&o To...\tCtrl+G"
++msgstr "&Ugrás...\tCtrl+G"
++
++msgid "General"
++msgstr "Általános"
++
++msgid "Gerald Schmidt (development) <gnschmidt@users.sourceforge.net>"
++msgstr "Gerald Schmidt (fejlesztő) <gnschmidt@users.sourceforge.net>"
++
++msgid "Global Find and Replace"
++msgstr "Átfogó keresés és csere"
++
++msgid "Global Replace..."
++msgstr "Átfogó csere..."
++
++msgid "Go To"
++msgstr "Ugrás"
++
++msgid "Go To..."
++msgstr "Ugrás..."
++
++msgid "H&ide Tags and Attributes\tCtrl+Shift+T"
++msgstr "&Csomók és attribútumok elrejtése\tCtrl+Shift+T"
++
++msgid "Help"
++msgstr "Súgó"
++
++msgid "Hide Attributes Only"
++msgstr "Csak az attribútumok elrejtése"
++
++msgid "Hide Tags and Attributes"
++msgstr "Csomók és attribútumok elrejtése"
++
++msgid "Home Page"
++msgstr "Honlap"
++
++msgid "I&gnore all"
++msgstr "M&indent figyelmen kívül hagy"
++
++msgid "I&mport Microsoft Word Document..."
++msgstr "Microsoft Word Dokumentum I&mportálás..."
++
++msgid "I&ntelligent backspace/delete"
++msgstr "I&ntelligens visszavonás/törlés"
++
++msgid "Ignore"
++msgstr "Figyelmen kívül hagy"
++
++msgid "Ignore all"
++msgstr "Mindent figyelmen kívül hagy"
++
++msgid "Ignore once"
++msgstr "Egyszer figyelmen kívül hagy"
++
++msgid "Import Microsoft Word Document"
++msgstr "Microsoft Word Dokumentum importálás"
++
++msgid "Import in progress..."
++msgstr "Importálás megy..."
++
++msgid "Increase"
++msgstr "Növelni"
++
++msgid "Increase\tCtrl+U"
++msgstr "Növelni\tCtrl+U"
++
++msgid "Information"
++msgstr "Információ"
++
++msgid "Insert Element"
++msgstr "Elem beszúrás"
++
++msgid "Insert Entity"
++msgstr "tartalom beszúrás"
++
++msgid "Insert Sibling"
++msgstr "Testvér beszúrás"
++
++msgid "Interprets the text specified in Find what as a regular expression"
++msgstr "A keresendőt szabványos kifejezésként értelmezi"
++
++msgid "L&ock hidden tags"
++msgstr "Rejtett csomók zár&olása"
++
++msgid "Language (restart required)"
++msgstr "Nyelv (újraindítás kell)"
++
++msgid "Light"
++msgstr "Kiemelés"
++
++msgid "Ln %i Col %i"
++msgstr "Sor %i Oszlop %i"
++
++msgid "Lock Tags"
++msgstr "Csomók zárolása sperren"
++
++msgid "MB"
++msgstr "MB"
++
++msgid "MSXML validation failed (version 4.0 or later required)"
++msgstr "MSXML ellenőrzés hibás (legalább 4.0 verzó kell)"
++
++msgid "Match"
++msgstr "Találat"
++
++msgid "Matt Smigielski (testing) <alectrus@users.sourceforge.net>"
++msgstr "Matt Smigielski (tesztelő) <alectrus@users.sourceforge.net>"
++
++msgid "Memory low: %s saved in large document mode"
++msgstr "Kevés a memória: %s nagyméretű dokumentként mentve"
++
++msgid "Message"
++msgstr "Üzenet"
++
++msgid "Microsoft Word cannot save %s"
++msgstr "A Microsoft Word a %s -t nem tudja menteni"
++
++msgid "Microsoft Word cannot save %s as XML"
++msgstr "A Microsoft Word a %s -t nem tudja menteni XML -ként"
++
++msgid "Microsoft Word cannot save this document as WordprocessingML "
++msgstr ""
++"A Microsoft Word ezt a dokumentumot WordprocessingML -ként nem tudja menteni"
++
++msgid "Modified"
++msgstr "Módosult"
++
++msgid "New"
++msgstr "Új"
++
++msgid "New Document"
++msgstr "Új dokumentum"
++
++msgid "New Suggestion"
++msgstr "Új ajánlat"
++
++msgid "New suggestion..."
++msgstr "Új ajánlat..."
++
++msgid "New..."
++msgstr "Új..."
++
++msgid "Next Document"
++msgstr "Következő dokumentum"
++
++msgid "No filter"
++msgstr "Nincs szűrő"
++
++msgid "No items selected"
++msgstr "Nincs kiválasztva semmi"
++
++msgid "No matching nodes found"
++msgstr "Nincs egyezés"
++
++msgid "No."
++msgstr "Nr."
++
++msgid "None"
++msgstr "Semmi"
++
++msgid "Normal"
++msgstr "Normál"
++
++msgid "Normal\tCtrl+0"
++msgstr "Normál\tCtrl+0"
++
++msgid "O&pen Large Document...\tCtrl+Shift+O"
++msgstr "Nagy dokumentum nyitás...\tCtrl+Shift+O"
++
++msgid "OK"
++msgstr "OK"
++
++msgid "Open"
++msgstr "Nyitás"
++
++msgid "Open Large Document"
++msgstr "Nagy dokumentum nyitás"
++
++msgid "Open Large Document..."
++msgstr "Nagy dokumentum nyitás..."
++
++msgid "Open..."
++msgstr "Nyitás..."
++
++msgid "Opening imported file..."
++msgstr "Importált fájl nyitás..."
++
++msgid "Opening spelling and style check in read-only mode: "
++msgstr "Helyesírás és stílus ellenőrzés nyitása csak olvashatóan:"
++
++msgid "Opens a standard file dialog"
++msgstr "Sztenderd dialógfájl nyitás."
++
++msgid "Options"
++msgstr "Beállítások"
++
++msgid "Options..."
++msgstr "Beállítások..."
++
++msgid "Out of memory"
++msgstr "Memóra kevés"
++
++msgid "Output document empty"
++msgstr "Kimenő dokumentum üres"
++
++msgid "P&aste As New Document"
++msgstr "Új &dokumentumként beilleszt"
++
++msgid "P&rint Preview..."
++msgstr "&Nyomtatott előkép"
++
++msgid "Pa&ge Setup..."
++msgstr "Old&albeállítás..."
++
++msgid "Page Setup..."
++msgstr "Oldalbeállítás..."
++
++msgid "Parse in progress..."
++msgstr "Értelmezés megy..."
++
++msgid "Paste"
++msgstr "Beilleszt"
++
++msgid "Paste As New Document"
++msgstr "Új dokumentumként beilleszt"
++
++msgid "Pr&int...\tCtrl+P"
++msgstr "&Nyomtat...\tCtrl+P"
++
++msgid "Pr&intable summary"
++msgstr "Nyomtathatóság"
++
++msgid "Preparing Print Preview..."
++msgstr "Nyomtatáskép készítés..."
++
++msgid "Preparing to print..."
++msgstr "Nyomtatáskép készítés..."
++
++msgid "Pretty-print"
++msgstr "Nyomtatási feldolgozás"
++
++msgid "Pretty-print unsuccessful: output document empty"
++msgstr "Nyomtatási feldolgozás sikertelen: a dokumentum üres."
++
++msgid "Pretty-printing in progress..."
++msgstr "Nyomtatási feldolgozás megy ..."
++
++msgid "Previous Document"
++msgstr "Előző dokumentum"
++
++msgid "Print"
++msgstr "Nyomtat"
++
++msgid "Print Preview..."
++msgstr "Nyomtatási előkép..."
++
++msgid "Print..."
++msgstr "Nyomtat..."
++
++msgid "Provides a space for you to type additional information"
++msgstr "Járulékus információk megadásának helye"
++
++msgid "Provides a space for you to type the path of the file"
++msgstr "A fájl útvonal megadásának helye"
++
++msgid "Provides a space for you to type the text you want to find"
++msgstr "Keresendő szöveg megadásának helye"
++
++msgid ""
++"Provides a space for you to type the text you want to replace the text you "
++"typed in Find what"
++msgstr "Annak a szövegnek megadásának a helye, amire cserélni kell a cserénél"
++
++msgid "Public DTD"
++msgstr "Public DTD"
++
++msgid "Public DTD..."
++msgstr "Public DTD..."
++
++msgid "Question"
++msgstr "Kérdés"
++
++msgid "R&eplace in all open documents"
++msgstr "Cs&ere a nyitott dokumentumokban"
++
++msgid "RELAX NG grammar"
++msgstr "RELAX NG Nyelvtan"
++
++msgid "RELAX NG validation in progress..."
++msgstr "RELAX NG ellenőrzés megy..."
++
++msgid "RELAX NG..."
++msgstr "RELAX NG..."
++
++msgid "Re&gex"
++msgstr "Szabványos kifejezések"
++
++msgid "Re&member layout on close"
++msgstr "KInézet &mentése záráskor"
++
++msgid "Re&tain undo history on save"
++msgstr "Visszavonási előzmények mentése"
++
++msgid "Redo"
++msgstr "Ismét"
++
++msgid "Replace"
++msgstr "Csere"
++
++msgid "Replace &All"
++msgstr "Mindent cserél"
++
++msgid "Replace with:"
++msgstr "Csere erre:"
++
++msgid "Replace with: "
++msgstr "Csere erre: "
++
++msgid "Replace..."
++msgstr "Csere..."
++
++msgid "Revert"
++msgstr "Visszavon"
++
++msgid "Rule"
++msgstr "Szabály"
++
++msgid "S&ave As...\tF12"
++msgstr "Ment mint...\tF12"
++
++msgid "S&how Current Element Pane"
++msgstr "Aktuális elem párbeszé&dmezőjének mutatása"
++
++msgid "S&how full path on frame"
++msgstr "Teljes útvonal mutatás"
++
++msgid "S&ymbol..."
++msgstr "Karakter..."
++
++msgid "Save"
++msgstr "Ment"
++
++msgid "Save As"
++msgstr "Ment mint"
++
++msgid "Save As..."
++msgstr "Ment mint..."
++
++msgid "Select "
++msgstr "Választás"
++
++msgid "Select RELAX NG grammar"
++msgstr "RELAX NG nyelvtan választás"
++
++msgid "Select stylesheet"
++msgstr "Stíluslap választás"
++
++msgid "Selects the file specified"
++msgstr "Fájl választás"
++
++msgid "Sh&ow Toolbar"
++msgstr "Eszközsáv mutatás"
++
++msgid "Show Current ElementPane"
++msgstr "Aktuális elem párbeszédmezője látszik"
++
++msgid "Show Tags and Attributes"
++msgstr "Csomók és attribútumok látszanak"
++
++msgid "Show Toolbar"
++msgstr "Eszközsáv látszik"
++
++msgid "Sibling..."
++msgstr "Testvér..."
++
++msgid "Spelling and Style"
++msgstr "Helyesírás és stílus"
++
++msgid "Spelling and Style..."
++msgstr "Helyesírás és stílus..."
++
++msgid "Stopped"
++msgstr "Leállítva"
++
++msgid "Suggestion"
++msgstr "Ajánlat"
++
++msgid "Symbol..."
++msgstr "Karakter..."
++
++msgid "System DTD"
++msgstr "System DTD"
++
++msgid "System DTD..."
++msgstr "System DTD..."
++
++msgid "T&EI to LaTeX\tAlt+5"
++msgstr "T&EI -ből LaTeX\tAlt+5"
++
++msgid "TE&I to XHTML\tAlt+6"
++msgstr "TE&I -ből XHTML\tAlt+6"
++
++msgid "TEI to &XSL-FO\tAlt+7"
++msgstr "TEI -ből &XSL-FO\tAlt+7"
++
++msgid "TEI to HTML"
++msgstr "TEI -ből HTML"
++
++msgid "TEI to LaTeX"
++msgstr "TEI -ből LaTeX"
++
++msgid "TEI to XHTML"
++msgstr "TEI -ből XHTML"
++
++msgid "TEI to XSL-FO"
++msgstr "TEI -ből XSL-FO"
++
++msgid "Tags Locked"
++msgstr "Csomók zárolva"
++
++msgid "Tags hidden"
++msgstr "Csomók rejtve"
++
++msgid "Tags locked"
++msgstr "Csomók zárolva"
++
++msgid "The following error has occurred: "
++msgstr "A következő hiba történt: "
++
++msgid "The operating system has turned down a request for additional memory"
++msgstr "A rendszer nem ad több memóriát"
++
++msgid "This functionality requires Microsoft Windows"
++msgstr "Ehhez Microsoft Windows kell"
++
++msgid "Toggle Fold"
++msgstr "Toggle Fold"
++
++msgid "Twin"
++msgstr "Iker"
++
++msgid "Undo"
++msgstr "Visszavon"
++
++msgid "Unknown command line switch (expecting 'w' or 's')"
++msgstr "Ismeretlen paranccsori adat ( 'w' vagy 's' kellene)"
++
++msgid ""
++"Using local encoding because %s is neither valid UTF-8 nor well-formed XML: "
++"%s"
++msgstr ""
++"Lokális kódolás lesz, mert a %s nem érvényes UTF-8, vagy nem jól formázott: "
++"%s"
++
++msgid "Va&riable highlight in tag free view"
++msgstr "Változók a csomók szabad nézetében kiemeltek"
++
++msgid "Validation error"
++msgstr "Ellenőrzési hiba"
++
++msgid "Validation in progress..."
++msgstr "Ellenőrzés megy..."
++
++msgid "Viliam Búr (Slovak) <viliam@bur.sk>"
++msgstr "Viliam Búr (szlovák) <viliam@bur.sk>"
++
++msgid "Warning"
++msgstr "Vigyázat"
++
++msgid "Word Count"
++msgstr "Szószámlálás"
++
++msgid "Wra&p lines"
++msgstr "Sorok összefűzése"
++
++msgid "XML Copy Editor"
++msgstr "XML Copy Editor"
++
++msgid "XML Copy Editor has encountered an error and needs to close"
++msgstr "Az XML Copy Editor hibát észlelt és kilép"
++
++msgid "XML Copy Editor has encountered an error and needs to close."
++msgstr "Az XML Copy Editor hibát észlelt és kilép."
++
++msgid ""
++"XML Copy Editor has encountered the following error and needs to close: "
++msgstr "Az XML Copy Editor a következő hibát észlelte és kilép:"
++
++msgid "XML Schema"
++msgstr "XML Schema"
++
++msgid "XML Schema..."
++msgstr "XML Schema..."
++
++msgid "XML document (*.xml)"
++msgstr "XML dokumentum (*.xml)"
++
++msgid "XS&LT stylesheet..."
++msgstr "XS&LT stíluslap..."
++
++msgid "XSL Transform..."
++msgstr "XSL átalakítás..."
++
++msgid "XSL transformation in progress..."
++msgstr "XSL átalakítás megy..."
++
++msgid "XSLT stylesheet"
++msgstr "XSLT stíluslap"
++
++msgid "XSLT stylesheet..."
++msgstr "XSLT stíluslap..."
++
++msgid "byte"
++msgid_plural "bytes"
++msgstr[0] "bájt"
++msgstr[1] "bájtok"
++
++msgid "kB"
++msgstr "kB"
++
++msgid "valid"
++msgstr "Ellenőrzött"
++
++msgid "well-formed"
++msgstr "Jóalakú"
++
++msgid "|All files (*.*)|*.*"
++msgstr "|Minden fájl (*.*)|*.*"

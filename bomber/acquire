@@ -1,0 +1,5 @@
+#!/usr/bin/env dl
+
+bomber-${UB_VERSION}.tar.xz bomber-${UB_VERSION}/
+	ftp://ftp.kde.org/pub/kde/stable/${UB_VERSION}/src/
+

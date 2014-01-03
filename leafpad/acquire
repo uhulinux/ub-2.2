@@ -1,0 +1,4 @@
+#!/usr/bin/env dl
+
+leafpad-${UB_VERSION}.tar.gz leafpad-${UB_VERSION}/
+	http://savannah.nongnu.org/download/leafpad/

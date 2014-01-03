@@ -1,0 +1,13 @@
+#!/bin/sh -eux
+
+rm -Rf ./plugins/address_book
+rm -Rf ./plugins/chameleon
+rm -Rf ./plugins/growl
+rm -f plugins/amsnplus/snapshot
+#sed -i -e "s/LDFLAGS += -s/LDFLAGS += /" Makefile.in
+autoreconf
+
+ub_configure \
+	--enable-debug
+ub_make
+ub_make -C plugins/amsnplus

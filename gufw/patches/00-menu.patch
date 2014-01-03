@@ -1,0 +1,10 @@
+diff -Naur gui-ufw-13.04.0-ori/gufw.desktop.in gui-ufw-13.04.0/gufw.desktop.in
+--- gui-ufw-13.04.0-ori/gufw.desktop.in	2012-12-21 16:49:16.000000000 +0100
++++ gui-ufw-13.04.0/gufw.desktop.in	2013-02-22 22:13:15.482783983 +0100
+@@ -66,5 +66,5 @@
+ Comment[ast]=Permite configurar el tornafuéu ufw
+ Comment[ar]=يسٌمح لك بإعداد الجدار الناري UFW
+ Icon=gufw.png
+-Categories=System;Settings;X-GNOME-Settings-Panel;X-GNOME-SystemSettings;
++Categories=System;Settings;X-GNOME-Settings-Panel;X-GNOME-SystemSettings;X-UHU-Menu/Internet/Firewall;
+ X-GNOME-Settings-Panel=gufw.png

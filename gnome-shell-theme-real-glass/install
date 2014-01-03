@@ -1,0 +1,5 @@
+#!/bin/sh -eux
+rm Real-glass/Wallpaper.zip Real-glass/gnome-shell/Preview.jpg
+celdir="$UB_INSTALLDIR"/usr/share/themes/
+mkdir -p "$celdir"
+cp -R Real-glass "$celdir"/

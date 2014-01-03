@@ -1,0 +1,11 @@
+--- empathy/data/empathy.desktop.in.in.orig	2011-10-22 18:26:52.000000000 +0200
++++ empathy/data/empathy.desktop.in.in	2011-10-22 18:27:36.000000000 +0200
+@@ -9,7 +9,7 @@
+ StartupNotify=false
+ Terminal=false
+ Type=Application
+-Categories=GNOME;GTK;Network;InstantMessaging;
++Categories=GNOME;GTK;Network;InstantMessaging;X-UHU-Menu/Internet/Messengers;
+ X-GNOME-Bugzilla-Bugzilla=GNOME
+ X-GNOME-Bugzilla-Product=empathy
+ X-GNOME-Bugzilla-Component=General

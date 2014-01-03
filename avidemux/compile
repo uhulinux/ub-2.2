@@ -1,0 +1,8 @@
+#!/bin/sh -eux
+
+sed -i -e '/Build Option/d' avidemux/common/ADM_commonUI/myOwnMenu.h
+export QTDIR="/usr/lib/qt4"
+sh bootStrap.bash \
+	--without-gtk \
+	--with-cli
+

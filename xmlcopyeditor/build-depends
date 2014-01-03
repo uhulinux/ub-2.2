@@ -1,0 +1,9 @@
+aspell-dev
+boost-dev
+curl-dev
+expat-dev
+gettext-tools
+libxslt-dev
+pcre-dev
+wxwidgets-dev
+xerces-c-dev

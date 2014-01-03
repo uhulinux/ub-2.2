@@ -1,0 +1,5 @@
+#!/usr/bin/env dl
+
+gambas3-${UB_VERSION}.tar.bz2 gambas3-${UB_VERSION}/
+	http://downloads.sourceforge.net/project/gambas/gambas3/
+

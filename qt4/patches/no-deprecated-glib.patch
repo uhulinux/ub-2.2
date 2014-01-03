@@ -1,0 +1,24 @@
+diff -Naur orig/config.tests/unix/glib/glib.cpp patched/config.tests/unix/glib/glib.cpp
+--- orig/config.tests/unix/glib/glib.cpp	2013-06-07 07:16:41.000000000 +0200
++++ patched/config.tests/unix/glib/glib.cpp	2013-11-07 02:38:14.307502854 +0100
+@@ -48,8 +48,6 @@
+     GMainContext *context;
+     GSource *source;
+     GPollFD *pollfd;
+-    if (!g_thread_supported())
+-        g_thread_init(NULL);
+     context = g_main_context_default();
+     source = g_source_new(0, 0);
+     g_source_add_poll(source, pollfd);
+diff -Naur orig/src/corelib/kernel/qeventdispatcher_glib.cpp patched/src/corelib/kernel/qeventdispatcher_glib.cpp
+--- orig/src/corelib/kernel/qeventdispatcher_glib.cpp	2013-06-07 07:16:52.000000000 +0200
++++ patched/src/corelib/kernel/qeventdispatcher_glib.cpp	2013-11-07 02:37:47.711257378 +0100
+@@ -298,8 +298,6 @@
+     if (qgetenv("QT_NO_THREADED_GLIB").isEmpty()) {
+         static int dummyValue = 0; // only used for its address
+         QMutexLocker locker(QMutexPool::instance()->get(&dummyValue));
+-        if (!g_thread_supported())
+-            g_thread_init(NULL);
+     }
+ 
+     if (mainContext) {

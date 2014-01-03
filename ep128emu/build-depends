@@ -1,0 +1,10 @@
+dotconf-dev
+fltk1-dev
+imagemagick
+libjpeg-dev
+libpng-dev
+libsndfile-dev
+mesa-dev
+portaudio-dev
+scons
+sdl-dev

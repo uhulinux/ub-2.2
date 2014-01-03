@@ -1,0 +1,4 @@
+#!/bin/sh -eux
+
+export V=1
+ub_compile --enable-gtk-doc

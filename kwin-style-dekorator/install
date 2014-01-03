@@ -1,0 +1,11 @@
+#!/bin/sh -eux
+
+ub_install
+mkdir -p ${UB_INSTALLDIR}/usr/share/deKorator/themes
+cd themesStuff
+tar -xf Bushido-Yellow-theme.tar.gz -C ${UB_INSTALLDIR}/usr/share/deKorator/themes
+tar -xf template-theme.tar.gz -C ${UB_INSTALLDIR}/usr/share/deKorator/themes
+mv "The K-style: Infinity-theme.tar.gz" 01.tar.gz
+tar -xf 01.tar.gz -C ${UB_INSTALLDIR}/usr/share/deKorator/themes
+tar -xf ugly-theme.tar.gz -C ${UB_INSTALLDIR}/usr/share/deKorator/themes
+tar xvfj Default-theme.tar.bz2 -C ${UB_INSTALLDIR}/usr/share/deKorator/themes

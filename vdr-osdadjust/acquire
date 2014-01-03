@@ -1,0 +1,4 @@
+#!/usr/bin/env dl
+
+vdr-osdadjust-${UB_VERSION}.tgz osdadjust-${UB_VERSION}/ :osdadjust
+	http://www.zulu-entertainment.de/files/vdr-osdadjust/

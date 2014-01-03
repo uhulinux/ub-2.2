@@ -1,0 +1,7 @@
+#!/bin/sh -eux
+
+rm preview-Elegant-Red.jpg
+celdir="$UB_INSTALLDIR"/usr/share/themes/Elegant-Red/gnome-shell
+mkdir -p "$celdir"
+cp * "$celdir"/
+

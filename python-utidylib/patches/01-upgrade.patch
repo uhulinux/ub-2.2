@@ -1,0 +1,215 @@
+diff -Naur orig/ChangeLog patched/ChangeLog
+--- orig/ChangeLog	1970-01-01 01:00:00.000000000 +0100
++++ patched/ChangeLog	2007-11-16 14:33:37.000000000 +0100
+@@ -0,0 +1,9 @@
++uTidylib (0.2)
++    * More tests for encoding type stuff
++    * Improve packaging on win32 (include ctypes and libtidy)
++    * Greatly simplify implementation by using tidyParseOptValue() API
++ -- Cory Dodt (corydodt@twistedmatrix.com)
++
++uTidylib (0.1)
++    * Initial release.
++ -- Cory Dodt (corydodt@twistedmatrix.com)
+diff -Naur orig/main.aap patched/main.aap
+--- orig/main.aap	1970-01-01 01:00:00.000000000 +0100
++++ patched/main.aap	2007-11-16 14:33:37.000000000 +0100
+@@ -0,0 +1,15 @@
++
++@from setup import setup_data
++@ver = setup_data['version']
++
++all: dist/uTidylib-$(ver).zip dist/uTidylib-$(ver).win32.exe
++    :print : Done with all
++
++dist/uTidylib-$(ver).zip: setup.py
++    :sys python setup.py sdist
++
++dist/uTidylib-$(ver).win32.exe: setup.py 
++                                tidy/cygtidy-0-99-0.dll
++                                tidy/pvt_ctypes/ctypes.zip
++                                tidy/pvt_ctypes/_ctypes.pyd
++    :sys python setup.py bdist_wininst
+diff -Naur orig/MANIFEST.in patched/MANIFEST.in
+--- orig/MANIFEST.in	2004-02-19 10:53:00.000000000 +0100
++++ patched/MANIFEST.in	2007-11-16 14:33:37.000000000 +0100
+@@ -1,7 +1,7 @@
+-include INSTALL.txt
+-include LICENSE
+-include *.py
+-include README.*
+-include MANIFEST.in
+-include tidy/README.*
+-include tidy/pvt_ctypes/README.*
++include INSTALL.txt
++include LICENSE
++include *.py
++include README.*
++include MANIFEST.in
++include tidy/README.*
++include tidy/pvt_ctypes/README.*
+diff -Naur orig/setup.py patched/setup.py
+--- orig/setup.py	2004-02-24 09:10:00.000000000 +0100
++++ patched/setup.py	2007-11-16 14:33:37.000000000 +0100
+@@ -60,7 +60,7 @@
+                                 install=install_utidylib,
+                                 ),
+                   name='uTidylib',
+-                  version='0.2',
++                  version='0.2+cvs',
+                   author='Cory Dodt',
+                   author_email='corydodt@twistedmatrix.com',
+                   url='http://utidylib.sf.net',
+diff -Naur orig/tidy/__init__.py patched/tidy/__init__.py
+--- orig/tidy/__init__.py	2004-02-19 10:56:00.000000000 +0100
++++ patched/tidy/__init__.py	2007-11-16 14:33:37.000000000 +0100
+@@ -23,11 +23,6 @@
+   </body>
+ </html>
+ 
+-For options like newline and output_encoding, which must be set to one of a
+-fixed number of choices, you can provide either the numeric or string version
+-of the choice; so both tidy.parseString('<HTML>foo</html>', newline=2) and
+-tidy.parseString('<HTML>foo</html>', newline='CR') do the same thing.  
+-
+ There are no plans to support other features of TidyLib, such as document-tree
+ traversal, since Python has several quality DOM implementations. (The author
+ uses Twisted's implementation, twisted.web.microdom).
+diff -Naur orig/tidy/pvt_ctypes/README.ctypes patched/tidy/pvt_ctypes/README.ctypes
+--- orig/tidy/pvt_ctypes/README.ctypes	2004-02-19 11:24:00.000000000 +0100
++++ patched/tidy/pvt_ctypes/README.ctypes	2007-11-16 14:33:37.000000000 +0100
+@@ -1,24 +1,24 @@
+-** This notice applies only to the version of ctypes packaged with the Windows
+-binary package.  These files are found in the pvt_ctypes directory. 
+-See the file LICENSE for information about uTidyLib. **
+-
+-	   Copyright (c) 2000, 2001, 2002, 2003 Thomas Heller
+-
+-Permission is hereby granted, free of charge, to any person obtaining
+-a copy of this software and associated documentation files (the
+-"Software"), to deal in the Software without restriction, including
+-without limitation the rights to use, copy, modify, merge, publish,
+-distribute, sublicense, and/or sell copies of the Software, and to
+-permit persons to whom the Software is furnished to do so, subject to
+-the following conditions:
+-
+-The above copyright notice and this permission notice shall be
+-included in all copies or substantial portions of the Software.
+-
+-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND,
+-EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
+-MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND
+-NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE
+-LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION
+-OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION
+-WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
++** This notice applies only to the version of ctypes packaged with the Windows
++binary package.  These files are found in the pvt_ctypes directory. 
++See the file LICENSE for information about uTidyLib. **
++
++	   Copyright (c) 2000, 2001, 2002, 2003 Thomas Heller
++
++Permission is hereby granted, free of charge, to any person obtaining
++a copy of this software and associated documentation files (the
++"Software"), to deal in the Software without restriction, including
++without limitation the rights to use, copy, modify, merge, publish,
++distribute, sublicense, and/or sell copies of the Software, and to
++permit persons to whom the Software is furnished to do so, subject to
++the following conditions:
++
++The above copyright notice and this permission notice shall be
++included in all copies or substantial portions of the Software.
++
++THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND,
++EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
++MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND
++NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE
++LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION
++OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION
++WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+diff -Naur orig/tidy/README.tidydll patched/tidy/README.tidydll
+--- orig/tidy/README.tidydll	2004-02-19 11:23:00.000000000 +0100
++++ patched/tidy/README.tidydll	2007-11-16 14:33:37.000000000 +0100
+@@ -1,41 +1,41 @@
+-** This notice applies only to the tidy DLL distributed with the Windows binary
+-package of uTidylib.  See the file LICENSE for information about uTidyLib. **
+-
+-HTML Tidy
+-
+-HTML parser and pretty printer
+-
+-Copyright (c) 1998-2003 World Wide Web Consortium
+-(Massachusetts Institute of Technology, European Research 
+-Consortium for Informatics and Mathematics, Keio University).
+-All Rights Reserved.
+-
+-This software and documentation is provided "as is," and
+-the copyright holders and contributing author(s) make no
+-representations or warranties, express or implied, including
+-but not limited to, warranties of merchantability or fitness
+-for any particular purpose or that the use of the software or
+-documentation will not infringe any third party patents,
+-copyrights, trademarks or other rights. 
+-
+-The copyright holders and contributing author(s) will not be held
+-liable for any direct, indirect, special or consequential damages
+-arising out of any use of the software or documentation, even if
+-advised of the possibility of such damage.
+-
+-Permission is hereby granted to use, copy, modify, and distribute
+-this source code, or portions hereof, documentation and executables,
+-for any purpose, without fee, subject to the following restrictions:
+-
+-1. The origin of this source code must not be misrepresented.
+-2. Altered versions must be plainly marked as such and must
+-   not be misrepresented as being the original source.
+-3. This Copyright notice may not be removed or altered from any
+-   source or altered source distribution.
+- 
+-The copyright holders and contributing author(s) specifically
+-permit, without fee, and encourage the use of this source code
+-as a component for supporting the Hypertext Markup Language in
+-commercial products. If you use this source code in a product,
+-acknowledgment is not required but would be appreciated.
+-
++** This notice applies only to the tidy DLL distributed with the Windows binary
++package of uTidylib.  See the file LICENSE for information about uTidyLib. **
++
++HTML Tidy
++
++HTML parser and pretty printer
++
++Copyright (c) 1998-2003 World Wide Web Consortium
++(Massachusetts Institute of Technology, European Research 
++Consortium for Informatics and Mathematics, Keio University).
++All Rights Reserved.
++
++This software and documentation is provided "as is," and
++the copyright holders and contributing author(s) make no
++representations or warranties, express or implied, including
++but not limited to, warranties of merchantability or fitness
++for any particular purpose or that the use of the software or
++documentation will not infringe any third party patents,
++copyrights, trademarks or other rights. 
++
++The copyright holders and contributing author(s) will not be held
++liable for any direct, indirect, special or consequential damages
++arising out of any use of the software or documentation, even if
++advised of the possibility of such damage.
++
++Permission is hereby granted to use, copy, modify, and distribute
++this source code, or portions hereof, documentation and executables,
++for any purpose, without fee, subject to the following restrictions:
++
++1. The origin of this source code must not be misrepresented.
++2. Altered versions must be plainly marked as such and must
++   not be misrepresented as being the original source.
++3. This Copyright notice may not be removed or altered from any
++   source or altered source distribution.
++ 
++The copyright holders and contributing author(s) specifically
++permit, without fee, and encourage the use of this source code
++as a component for supporting the Hypertext Markup Language in
++commercial products. If you use this source code in a product,
++acknowledgment is not required but would be appreciated.
++

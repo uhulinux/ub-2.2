@@ -1,0 +1,11 @@
+Summary=LDAP Server
+Summary[hu]=LDAP-szerver
+Description=A server for providing directory service.
+Description[hu]=Címtár-szolgáltatást nyújtó szerver.
+MsgDesc=LDAP Directory Service
+MsgDesc[hu]=LDAP címtár szolgáltatás
+Script=/etc/init.d/slapd
+SupportsReload=no
+Runlevels=
+Sequence=20
+Resources=tcp/ldap

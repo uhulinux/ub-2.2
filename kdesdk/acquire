@@ -1,0 +1,41 @@
+#!/usr/bin/env dl
+
+cervisia-${UB_VERSION}.tar.xz .
+	ftp://ftp.kde.org/pub/kde/stable/${UB_VERSION}/src/
+	
+kapptemplate-${UB_VERSION}.tar.xz .
+	ftp://ftp.kde.org/pub/kde/stable/${UB_VERSION}/src/
+	
+kompare-${UB_VERSION}.tar.xz .
+	ftp://ftp.kde.org/pub/kde/stable/${UB_VERSION}/src/
+	
+lokalize-${UB_VERSION}.tar.xz .
+	ftp://ftp.kde.org/pub/kde/stable/${UB_VERSION}/src/
+	
+okteta-${UB_VERSION}.tar.xz .
+	ftp://ftp.kde.org/pub/kde/stable/${UB_VERSION}/src/
+	
+umbrello-${UB_VERSION}.tar.xz .
+	ftp://ftp.kde.org/pub/kde/stable/${UB_VERSION}/src/
+	
+kcachegrind-${UB_VERSION}.tar.xz .
+	ftp://ftp.kde.org/pub/kde/stable/${UB_VERSION}/src/
+	
+kde-dev-scripts-${UB_VERSION}.tar.xz .
+	ftp://ftp.kde.org/pub/kde/stable/${UB_VERSION}/src/
+	
+kde-dev-utils-${UB_VERSION}.tar.xz .
+	ftp://ftp.kde.org/pub/kde/stable/${UB_VERSION}/src/
+	
+kdesdk-kioslaves-${UB_VERSION}.tar.xz .
+	ftp://ftp.kde.org/pub/kde/stable/${UB_VERSION}/src/
+	
+kdesdk-strigi-analyzers-${UB_VERSION}.tar.xz .
+	ftp://ftp.kde.org/pub/kde/stable/${UB_VERSION}/src/
+	
+kdesdk-thumbnailers-${UB_VERSION}.tar.xz .
+	ftp://ftp.kde.org/pub/kde/stable/${UB_VERSION}/src/
+	
+poxml-${UB_VERSION}.tar.xz .
+	ftp://ftp.kde.org/pub/kde/stable/${UB_VERSION}/src/
+

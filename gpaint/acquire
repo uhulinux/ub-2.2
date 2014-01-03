@@ -1,0 +1,4 @@
+#!/usr/bin/env dl
+
+gpaint-2-$UB_VERSION.tar.gz gpaint-2-$UB_VERSION/
+	ftp://alpha.gnu.org/gnu/gpaint/

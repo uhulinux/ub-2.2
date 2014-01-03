@@ -1,0 +1,1 @@
+urllist http://mirror.lihnidos.org/GNU/ftp/gnu/ed/ | splitver 'ed-([0-9.]+).tar.gz$' | sort -V | tail -n 1

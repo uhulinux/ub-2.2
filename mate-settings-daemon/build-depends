@@ -1,0 +1,12 @@
+dbus-glib-dev
+dconf-dev
+intltool
+libcanberra-dev
+libmatekbd-dev
+libnotify-dev
+libxkbfile-dev
+mate-common
+mate-desktop-dev
+nss-dev
+polkit-dev
+pulseaudio-dev

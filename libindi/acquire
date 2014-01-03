@@ -1,0 +1,4 @@
+#!/usr/bin/env dl
+
+libindi_${UB_VERSION}.tar.gz libindi-${UB_VERSION}/
+	http://downloads.sourceforge.net/indi/

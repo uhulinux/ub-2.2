@@ -1,0 +1,21 @@
+#!/bin/bash
+
+. /etc/init.d/common
+
+case "$1" in
+	start)
+#		echo -n "$MsgStart  "
+		/etc/webmin/start && echo "$OK" || echo "$ERR"
+		;;
+	stop)
+		/etc/webmin/stop && echo "$OK"
+		;;
+	restart)
+		/etc/webmin/restart && echo "$OK"
+		;;
+#	reload)
+#		/etc/webmin/reload && echo "$OK"
+#		;;
+esac
+
+exit 0

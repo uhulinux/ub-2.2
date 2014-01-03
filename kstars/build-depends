@@ -1,0 +1,7 @@
+eigen2
+kdelibs-dev
+libcfitsio-dev
+libindi-dev
+mesa-dev
+wcslib-dev
+xplanet

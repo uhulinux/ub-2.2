@@ -1,0 +1,12 @@
+[Desktop Entry]
+Name=FreeGuide
+Comment=Download a TV guide from the Internet and view it
+Comment[hu]=TV műsor letöltő és megjelenítő
+GenericName=TV Guide
+GenericName[hu]=TV műsor
+Encoding=UTF-8
+Type=Application
+Categories=Application;Utility;Java;AudioVideo;Video;TV;X-UHU-Menu/Multimedia/TVRadio;
+Exec=freeguide
+Icon=freeguide.png
+

@@ -1,0 +1,15 @@
+perl-archive-zip
+perl-date-manip
+perl-html-tree
+perl-io-stringy
+perl-libwww
+perl-parse-recdescent
+perl-soap-lite
+perl-term-readkey
+perl-tk
+perl-unicode-string
+perl-xml-libxml
+perl-xml-libxml-common
+perl-xml-simple
+perl-xml-twig
+perl-xml-writer

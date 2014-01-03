@@ -1,0 +1,10 @@
+[Desktop Entry]
+Encoding=UTF-8
+Type=Application
+Name=dvbcut
+Comment[hu]=Film vagdaló
+GenericName=DVB Cutting Program
+GenricName[hu]=Film daraboló
+Icon=/usr/share/pixmaps/dvbcut.svg
+Categories=Qt;Video;AudioVideo;AudioVideoEditing;X-UHU-Menu/Multimedia/VideoEdit;
+Exec=dvbcut %F

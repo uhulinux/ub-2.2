@@ -1,0 +1,14 @@
+diff -Naur orig/src/uhubuild-common patched/src/uhubuild-common
+--- orig/src/uhubuild-common	2005-08-31 15:54:11.000000000 +0200
++++ patched/src/uhubuild-common	2013-10-26 00:05:51.805458714 +0200
+@@ -38,8 +38,8 @@
+ 
+ listpackages ()
+ {
+-	local i pkg ver rest
+-	COLUMNS=1000 dpkg -l | sed 1,5d | grep '^i' | while read -r i pkg ver rest; do
++	local pkg ver
++	dpkg-query -W -f='${Package} ${Version}\n' \* | while read -r pkg ver; do
+ 		echo "${pkg}_${ver}"
+ 	done
+ }

@@ -1,0 +1,4 @@
+#!/usr/bin/env dl
+libspectrum-${UB_VERSION}.tar.gz libspectrum-${UB_VERSION}/
+	http://prdownloads.sourceforge.net/fuse-emulator/
+	http://dfn.dl.sourceforge.net/sourceforge/fuse-emulator/

@@ -1,0 +1,20 @@
+#!/bin/sh -eux
+
+ub_compile \
+	--enable-gstreamer \
+	--enable-alsa \
+	--enable-usb \
+	--enable-netlink \
+	--enable-tools \
+	--enable-bccmd \
+	--enable-hid2hci \
+	--enable-dfutool \
+	--enable-hidd \
+	--enable-pand \
+	--enable-dund \
+	--enable-cups \
+	--enable-test \
+	--enable-manpages \
+	--enable-configfiles \
+	--enable-initscripts \
+	--enable-pcmcia

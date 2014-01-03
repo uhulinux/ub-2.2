@@ -1,0 +1,4 @@
+#!/usr/bin/env dl
+
+dirmngr-$UB_VERSION.tar.bz2 dirmngr-$UB_VERSION/
+	ftp://ftp.gnupg.org/gcrypt/dirmngr/

@@ -1,0 +1,5 @@
+#!/usr/bin/env dl
+
+bsfilter-${UB_VERSION/~/.}.tgz bsfilter-${UB_VERSION/~/.}/
+	http://sourceforge.jp/projects/bsfilter/downloads/39712/
+

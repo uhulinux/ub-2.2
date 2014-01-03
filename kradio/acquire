@@ -1,0 +1,5 @@
+#!/usr/bin/env dl
+
+kradio4-${UB_VERSION}.tar.gz kradio4-${UB_VERSION}/
+	http://sourceforge.net/projects/kradio/files/kradio/${UB_VERSION}/
+

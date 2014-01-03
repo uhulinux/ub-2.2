@@ -1,0 +1,5 @@
+#!/usr/bin/env dl
+
+smtube-${UB_VERSION}.tar.bz2 smtube-${UB_VERSION}/
+	http://sourceforge.net/projects/smplayer/files/SMTube/${UB_VERSION}/
+

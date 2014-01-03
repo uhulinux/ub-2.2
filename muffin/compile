@@ -1,0 +1,13 @@
+#!/bin/sh -eux
+
+autoreconf -vfi
+
+ub_compile \
+	--enable-shape \
+	--enable-sm \
+	--enable-startup-notification \
+	--enable-xsync \
+	--enable-verbose-mode \
+	--enable-compile-warnings=maximum \
+	--with-libcanberra
+	

@@ -1,0 +1,5 @@
+#!/usr/bin/env dl
+
+xt7-player-${UB_VERSION}.tar.gz xt7-player-${UB_VERSION}/
+	http://wpage.unina.it/aorefice/xt7player_dist/xt7-${UB_VERSION}/autotools/
+

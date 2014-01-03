@@ -1,0 +1,11 @@
+--- geoclue-0.12.0/providers/skyhook/geoclue-skyhook.c.g_thread_init	2012-03-01 18:19:48.259700437 +0200
++++ geoclue-0.12.0/providers/skyhook/geoclue-skyhook.c	2012-03-01 18:19:54.226555593 +0200
+@@ -307,7 +307,6 @@
+ main()
+ {
+ 	g_type_init();
+-	g_thread_init (NULL);
+ 
+ 	GeoclueSkyhook *o = g_object_new (GEOCLUE_TYPE_SKYHOOK, NULL);
+ 	o->loop = g_main_loop_new (NULL, TRUE);
+

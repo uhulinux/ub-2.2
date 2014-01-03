@@ -1,0 +1,15 @@
+--- ORIG/pychess.desktop	2010-04-29 16:46:35.000000000 +0200
++++ UHU/pychess.desktop	2010-09-02 10:37:52.000000000 +0200
+@@ -2,9 +2,10 @@
+ Type=Application
+ Name=PyChess
+ Comment=PyChess is a fully featured, nice looking, easy to use chess client for the Gnome desktop
++Comment[hu]=A PyChess egy teljes értékű, jól kinéző, egyszerűen használható sakkprogram a Gnome desktophoz
+ GenericName=Chess Game
+-Icon=pychess
++Icon=/usr/share/icons/hicolor/scalable/apps/pychess.svg
+ Exec=pychess
+ Terminal=false
+-Categories=Game;BoardGame;
++Categories=Game;BoardGame;X-UHU-Menu/Games/Board;
+ MimeType=application/x-chess-pgn;

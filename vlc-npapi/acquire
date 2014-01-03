@@ -1,0 +1,4 @@
+#!/usr/bin/env dl
+
+npapi-vlc-${UB_VERSION/~/-}.tar.xz npapi-vlc-${UB_VERSION/~*/}/
+	http://download.videolan.org/pub/videolan/vlc/${UB_VERSION}/

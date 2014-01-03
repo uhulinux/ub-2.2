@@ -1,0 +1,53 @@
+#!/bin/sh -eux
+
+# lényegi cuccok
+ub_install
+make -C fluid DESTDIR=$UB_INSTALLDIR install-linux
+make -C documentation DESTDIR=$UB_INSTALLDIR install
+make -C test DESTDIR=$UB_INSTALLDIR install-linux
+make -C documentation DESTDIR=$UB_INSTALLDIR install-linux
+
+#nehány változó
+prefix="$UB_INSTALLDIR"/usr
+bindir="$prefix"/bin
+share="$prefix"/share
+docdir="$share"/doc/fltk
+desktopdir="$share"/applications
+
+
+# test lényegének installálása
+mkdir -p $docdir/examples 
+cd test
+rm *.o *.ico *.wat *.rc Makefile CMakeLists.txt makedepend README 
+rm -r blocks.app checkers.app desktop pixmaps sudoku.app
+install * "$docdir"/examples/
+ln -s -T /usr/bin/fluid "$docdir"/examples/fluid #egy link a demóból hívott fluid -nak
+cd ..
+
+#demó indító szkript
+echo "#!/bin/bash" > "$bindir"/fltk-demo
+echo "cd /usr/share/doc/fltk1/examples ; ./demo" >"$bindir"/fltk-demo
+chmod +x "$bindir"/fltk-demo
+
+# a demó desktopja
+lista="[Desktop Entry]
+Encoding=UTF-8
+Type=Application
+Name=FLTK Demo
+Comment=FLTK examples
+Comment[hu]=FLTK Demó
+Icon= fluid
+Exec=fltk-demo
+Categories=X-UHU-Menu/Tools/More"
+for listatag in "$lista"
+do
+echo "$listatag" > "$desktopdir"/fltk-demo.desktop
+done
+#flt2 csomag ütközés
+mv "$UB_INSTALLDIR"/usr/share/applications/fluid.desktop "$UB_INSTALLDIR"/usr/share/applications/fluid1.desktop
+mv "$UB_INSTALLDIR"/usr/share/doc/fltk "$UB_INSTALLDIR"/usr/share/doc/fltk1
+mv "$UB_INSTALLDIR"/usr/bin/fltk-config "$UB_INSTALLDIR"/usr/bin/fltk1-config
+mv "$UB_INSTALLDIR"/usr/share/man/man1/fltk-config.1 "$UB_INSTALLDIR"/usr/share/man/man1/fltk1-config.1
+
+#efltk2 csomag ütközés
+mv "$UB_INSTALLDIR"/usr/share/man/man1/fluid.1 "$UB_INSTALLDIR"/usr/share/man/man1/fluid1.1

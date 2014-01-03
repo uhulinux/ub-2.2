@@ -1,0 +1,13 @@
+boost-dev
+cmake
+curl-dev
+glew-dev
+intltool
+libogg-dev
+libvorbis-dev
+mesa-dev
+openal-dev
+physfs-dev
+sdl-dev
+sdl-image-dev
+sdl-mixer-dev

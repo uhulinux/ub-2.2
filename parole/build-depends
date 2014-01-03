@@ -1,0 +1,13 @@
+dbus-dev
+dbus-glib-dev
+gst-plugins-base-dev
+gstreamer-dev
+gtk2-dev
+intltool
+libnotify-dev
+libsm-dev
+libxfce4ui-dev
+libxfce4util-dev
+startup-notification-dev
+taglib-dev
+xcb-util-dev

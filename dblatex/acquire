@@ -1,0 +1,4 @@
+#!/usr/bin/env dl
+
+dblatex-${UB_VERSION}.tar.bz2 dblatex-${UB_VERSION}/
+	http://downloads.sourceforge.net/dblatex/

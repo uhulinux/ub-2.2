@@ -1,0 +1,7 @@
+curl-dev
+db4-dev
+libiodbc-dev
+libxml2-dev
+raptor2-dev
+rasqal-dev
+unixodbc-dev

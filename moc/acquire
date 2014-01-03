@@ -1,0 +1,6 @@
+#!/usr/bin/env dl
+
+moc-${UB_VERSION/~/-}.tar.bz2 moc-${UB_VERSION/~/-}/
+#	svn://daper.net/moc/trunk@${UB_VERSION/2.5.0~r/}
+	ftp://ftp.daper.net/pub/soft/moc/unstable/
+#	ftp://ftp.daper.net/pub/soft/moc/stable/

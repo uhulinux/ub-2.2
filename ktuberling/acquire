@@ -1,0 +1,5 @@
+#!/usr/bin/env dl
+
+ktuberling-${UB_VERSION}.tar.xz ktuberling-${UB_VERSION}/
+	ftp://ftp.kde.org/pub/kde/stable/${UB_VERSION}/src/
+

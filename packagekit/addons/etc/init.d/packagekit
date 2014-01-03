@@ -1,0 +1,9 @@
+#!/bin/sh
+
+. /etc/init.d/common
+
+DAEMON=/usr/libexec/packagekitd
+PIDFILE="/var/run/packagekit.pid"
+DAEMONARGS=()
+
+startstop "$@"

@@ -1,0 +1,30 @@
+diff -Naur orig/app/Makefile.am patched/app/Makefile.am
+--- orig/app/Makefile.am	2013-04-04 21:47:02.000000000 +0200
++++ patched/app/Makefile.am	2013-07-28 02:54:02.252657138 +0200
+@@ -33,11 +33,9 @@
+ 		$(INSTALL) -d $(DESTDIR)$(gbdatadir)/icons; \
+ 		cp -f $(srcdir)/mime/application-x-gambas*.png $(DESTDIR)$(gbdatadir)/icons; \
+ 		echo "Registering Gambas script mimetype"; \
+-		xdg-icon-resource install --context mimetypes --size 64 $(DESTDIR)$(gbdatadir)/icons/application-x-gambasscript.png application-x-gambasscript; \
+-		xdg-mime install $(srcdir)/mime/application-x-gambasscript.xml; \
++		cp -f $(srcdir)/mime/application-x-gambasscript.xml $(DESTDIR)$(datadir)/mime; \
+ 		echo "Registering Gambas server page mimetype"; \
+-		xdg-icon-resource install --context mimetypes --size 64 $(DESTDIR)$(gbdatadir)/icons/application-x-gambasserverpage.png application-x-gambasserverpage; \
+-		xdg-mime install $(srcdir)/mime/application-x-gambasserverpage.xml; \
++		cp -f $(srcdir)/mime/application-x-gambasserverpage.xml $(DESTDIR)$(datadir)/mime; \
+ 	fi
+ 
+ uninstall-local:
+diff -Naur orig/main/Makefile.am patched/main/Makefile.am
+--- orig/main/Makefile.am	2013-04-04 21:47:39.000000000 +0200
++++ patched/main/Makefile.am	2013-07-28 02:54:02.252657138 +0200
+@@ -20,8 +20,7 @@
+ 		echo "Registering Gambas executable mimetype"; \
+ 		$(INSTALL) -d $(DESTDIR)$(gbdatadir)/icons; \
+ 		cp -f $(srcdir)/mime/application-x-gambas3.png $(DESTDIR)$(gbdatadir)/icons; \
+-		xdg-icon-resource install --context mimetypes --size 64 $(DESTDIR)$(gbdatadir)/icons/application-x-gambas3.png application-x-gambas3; \
+-		xdg-mime install $(srcdir)/mime/application-x-gambas3.xml; \
++		cp -f $(srcdir)/mime/application-x-gambas3.xml $(DESTDIR)$(datadir)/mime; \
+ 	fi
+ 
+ uninstall-local:

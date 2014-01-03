@@ -1,0 +1,14 @@
+enchant-dev
+glib2
+gtk3-dev
+icon-theme-gnome-symbolic
+intltool
+itstool
+libjpeg-dev
+libsm-dev
+libxslt-dev
+libxt-dev
+sqlite-dev
+webkitgtk3-dev
+xz-dev
+yelp-xsl

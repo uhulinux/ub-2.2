@@ -1,0 +1,15 @@
+#!/bin/bash -eux
+
+cd ./linux-firmware
+export DESTDIR=${UB_INSTALLDIR}
+ub_make install
+
+cd ../dvb-firmware
+cp -a * ${UB_INSTALLDIR}/lib/firmware
+
+cd ../broadcom-firmware
+cp -a b43 b43legacy ${UB_INSTALLDIR}/lib/firmware
+
+rm -f ${UB_INSTALLDIR}/lib/firmware/configure
+rm -f ${UB_INSTALLDIR}/lib/firmware/Makefile
+

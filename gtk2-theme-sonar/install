@@ -1,0 +1,13 @@
+#!/bin/sh -eux
+
+rpm2cpio gtk3-metatheme-sonar-3.2.20111102-12.3.src.rpm | cpio -dimv
+tar xf Sonar-3.2.tar.bz2
+mkdir ${UB_INSTALLDIR}/usr/share/themes
+mv Sonar-3.2 ${UB_INSTALLDIR}/usr/share/themes/Sonar
+cd ${UB_INSTALLDIR}/usr/share/themes/Sonar
+rm AUTHORS
+rm COPYING
+rm gtk-3.0/LICENSE
+rm gtk-3.0/NEWS
+rm metacity-1/Make*
+

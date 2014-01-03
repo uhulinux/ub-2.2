@@ -1,0 +1,11 @@
+diff -Naur orig/sigc++/signal_base.h mod/sigc++/signal_base.h
+--- orig/sigc++/signal_base.h	2009-09-02 16:32:15.000000000 +0200
++++ mod/sigc++/signal_base.h	2012-10-07 22:10:06.000000000 +0200
+@@ -27,6 +27,7 @@
+ #include <sigc++/trackable.h>
+ #include <sigc++/functors/slot.h>
+ #include <sigc++/functors/mem_fun.h>
++#include <stddef.h>
+ 
+ /** The libsigc++ namespace.
+  */

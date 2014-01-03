@@ -1,0 +1,13 @@
+diff -Naur vnc-4_1_1-unixsrc.orig/unix/vncserver vnc-4_1_1-unixsrc/unix/vncserver
+--- vnc-4_1_1-unixsrc.orig/unix/vncserver	2005-02-23 13:28:18.000000000 +0100
++++ vnc-4_1_1-unixsrc/unix/vncserver	2006-01-05 16:38:30.000000000 +0100
+@@ -35,8 +35,7 @@
+ 
+ $geometry = "1024x768";
+ $depth = 16;
+-$vncJavaFiles = (((-d "/usr/share/vnc/classes") && "/usr/share/vnc/classes") ||
+-                 ((-d "/usr/local/vnc/classes") && "/usr/local/vnc/classes"));
++$vncJavaFiles = ((-d "/usr/lib/vnc/classes") && "/usr/lib/vnc/classes");
+ $vncUserDir = "$ENV{HOME}/.vnc";
+ $xauthorityFile = "$ENV{XAUTHORITY}" || "$ENV{HOME}/.Xauthority";
+ 

@@ -1,0 +1,5 @@
+#!/bin/sh -eux
+
+sed -i -e '/DISABLE_DEPRECATED/d' configure
+export V=1
+ub_compile

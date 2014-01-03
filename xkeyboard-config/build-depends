@@ -1,0 +1,5 @@
+intltool
+libx11-dev
+perl-xml-parser
+x.org-proto-dev
+xkb-utils

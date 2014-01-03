@@ -1,0 +1,6 @@
+#!/bin/sh -eux
+
+make -C JLib
+make -C src \
+	HC_BIN_DIR=/usr/bin/
+	HC_BASE=/usr/share/games/holotz-castle

@@ -1,0 +1,10 @@
+diff -Naur marble-4.6.80-orig//src/marble.desktop marble-4.6.80//src/marble.desktop
+--- marble-4.6.80-orig//src/marble.desktop	2011-05-20 22:34:41.000000000 +0200
++++ marble-4.6.80//src/marble.desktop	2011-06-01 10:36:53.000000000 +0200
+@@ -111,5 +111,5 @@
+ GenericName[zh_TW]=桌面星象儀
+ Icon=marble
+ Terminal=false
+-Categories=Qt;KDE;Education;Geography;
++Categories=Qt;KDE;Education;Geography;X-UHU-Menu/Edutainment/Miscellaneous;
+ X-DocPath=marble/index.html

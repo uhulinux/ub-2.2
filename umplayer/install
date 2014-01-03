@@ -1,0 +1,10 @@
+#!/bin/sh -eux
+
+ub_install \
+	DESTDIR="$UB_INSTALLDIR" \
+	PREFIX=/usr \
+	QMAKE=qmake-qt4 \
+	LRELEASE=/usr/lib/qt4/bin/lrelease
+mkdir -p "$UB_INSTALLDIR"/usr/share/doc/Packages
+mv "$UB_INSTALLDIR"/usr/share/doc/packages/umplayer "$UB_INSTALLDIR"/usr/share/doc/Packages/umplayer
+rm -R "$UB_INSTALLDIR"/usr/share/doc/packages

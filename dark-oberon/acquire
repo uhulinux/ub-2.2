@@ -1,0 +1,4 @@
+#!/usr/bin/env dl
+
+dark-oberon-${UB_VERSION/~rc/-RC}.tar.gz dark-oberon-${UB_VERSION/~rc/-RC}/
+      http://downloads.sourceforge.net/dark-oberon/

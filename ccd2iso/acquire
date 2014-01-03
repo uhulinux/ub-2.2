@@ -1,0 +1,4 @@
+#!/usr/bin/env dl
+
+ccd2iso-${UB_VERSION}.tar.gz ccd2iso-${UB_VERSION}/
+	http://downloads.sourceforge.net/ccd2iso/

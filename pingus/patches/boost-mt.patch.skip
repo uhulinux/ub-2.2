@@ -1,0 +1,40 @@
+diff -Naurdp pingus-0.7.2.orig/SConstruct pingus-0.7.2/SConstruct
+--- pingus-0.7.2.orig/SConstruct	2007-10-30 10:23:37.000000000 +0100
++++ pingus-0.7.2/SConstruct	2009-12-03 20:55:06.000000000 +0100
+@@ -333,7 +333,7 @@ class _SpaceListOptionClass:
+ SpaceListOption = _SpaceListOptionClass()
+ 
+ def DefineOptions(filename, args):
+-   opts = Options(filename, args)
++   opts = Variables(filename, args)
+    opts.Add('CC', 'C Compiler', 'gcc')
+    opts.Add('CXX', 'C++ Compiler', 'g++')
+ #   opts.Add('debug', 'Build with debugging options', 0)
+@@ -347,11 +347,11 @@ def DefineOptions(filename, args):
+    opts.Add('CCFLAGS',    'C Compiler flags', [])
+    opts.Add('LINKFLAGS',  'Linker Compiler flags', [])
+ 
+-   opts.Add(BoolOption('with_xinput',        'Build with Xinput support', False))
+-   opts.Add(BoolOption('with_linuxusbmouse', 'Build with Linux USB mouse support', True))
+-   opts.Add(BoolOption('with_linuxevdev',    'Build with Linux evdev support', True))
+-   opts.Add(BoolOption('with_wiimote',       'Build with Wiimote support', False))
+-   opts.Add(BoolOption('ignore_errors',      'Ignore any fatal configuration errors', False))
++   opts.Add(BoolVariable('with_xinput',        'Build with Xinput support', False))
++   opts.Add(BoolVariable('with_linuxusbmouse', 'Build with Linux USB mouse support', True))
++   opts.Add(BoolVariable('with_linuxevdev',    'Build with Linux evdev support', True))
++   opts.Add(BoolVariable('with_wiimote',       'Build with Wiimote support', False))
++   opts.Add(BoolVariable('ignore_errors',      'Ignore any fatal configuration errors', False))
+    opts.Add('optional_sources', 'Additional source files', [])
+    return opts
+ 
+@@ -476,8 +476,8 @@ if ('configure' in COMMAND_LINE_TARGETS)
+         env['optional_sources'] += ['src/input/xinput_driver.cpp',
+                                     'src/input/xinput_device.cpp']
+         
+-    if not config.CheckLibWithHeader('boost_signals', 'boost/signals.hpp', 'c++'):
+-        fatal_error += "  * library 'boost_signals' not found\n"
++    if not config.CheckLibWithHeader('boost_signals-mt', 'boost/signals.hpp', 'c++'):
++        fatal_error += "  * library 'boost_signals-mt' not found\n"
+ 
+     if not config.CheckLibWithHeader('png', 'png.h', 'c++'):
+        fatal_error += "  * library 'png' not found\n"

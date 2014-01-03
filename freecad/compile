@@ -1,0 +1,30 @@
+#!/bin/sh -eux
+
+#rm -rf src/3rdParty
+
+for _FILE in $( grep -Rl "BRepTools::OuterShell" * )
+do
+    sed -e "s|BRepTools|BRepClass3d|g" -i "$_FILE"
+done
+CASROOT=/usr/share/opencascade
+mkdir -p build
+cd build
+  cmake -DCMAKE_INSTALL_PREFIX:PATH=/usr/lib/freecad .. \
+ 	-DFREECAD_USE_EXTERNAL_PIVY:BOOL=ON \
+	-DCMAKE_C_FLAGS:STRING=" -fpermissive" \
+	-DCMAKE_CXX_FLAGS:STRING=" -fpermissive" \
+	-DOCC_INCLUDE_DIR="${CASROOT}"/inc \
+	-DOCC_INCLUDE_PATH="${CASROOT}"/inc \
+	-DOCC_LIBRARY="${CASROOT}"/lib/libTKernel.so \
+	-DOCC_LIBRARY_DIR="${CASROOT}"/lib \
+	-DOCC_LIB_PATH="${CASROOT}"/lib  \
+	-DCMAKE_BINARY_DIR=/usr/bin \
+	-DCOIN3D_INCLUDE_DIR=/usr/include \
+	-DCOIN3D_LIBRARY=/usr/lib/libCoin.so
+
+
+make -j3
+# Builds Qt plugin
+  cd ../src/Tools/plugins/widget/
+  qmake-qt4 plugin.pro
+make -j3

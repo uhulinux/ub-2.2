@@ -1,0 +1,6 @@
+-         -          755  /usr/lib/uhu-pkg/postinst/gtk3-icon-cache
+-         -          755  /usr/lib/uhu-pkg/postinst/gtk3-immodules
+-         -          755  /usr/lib/uhu-pkg/postrm/gtk3-icon-cache
+-         -          755  /usr/lib/uhu-pkg/postrm/gtk3-immodules
+-         -          755  /usr/lib/uhu-pkg/prerm/gtk3-icon-cache
+-         -          755  /usr/lib/uhu-pkg/prerm/gtk3-immodules

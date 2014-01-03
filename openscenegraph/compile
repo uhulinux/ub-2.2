@@ -1,0 +1,6 @@
+#!/bin/sh -eux
+
+cmake \
+  -DCMAKE_INSTALL_PREFIX=${UB_INSTALLDIR}/usr \
+  -DCMAKE_BUILD_TYPE=Release
+ub_make

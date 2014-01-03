@@ -1,0 +1,5 @@
+#!/usr/bin/env dl
+
+arora-${UB_VERSION}.tar.gz arora-${UB_VERSION}/
+	http://arora.googlecode.com/files/
+

@@ -1,0 +1,78 @@
+--- fontconfig-2.7.3.orig/fc-cache/fc-cache.c	2009-03-18 22:02:20.000000000 +0100
++++ fontconfig-2.7.3/fc-cache/fc-cache.c	2009-09-11 15:06:21.000000000 +0200
+@@ -70,6 +70,7 @@
+     {"force", 0, 0, 'f'},
+     {"really-force", 0, 0, 'r'},
+     {"system-only", 0, 0, 's'},
++	{"no-sleep", 0, 0, 'n'},
+     {"version", 0, 0, 'V'},
+     {"verbose", 0, 0, 'v'},
+     {"help", 0, 0, 'h'},
+@@ -87,10 +88,10 @@
+ {
+     FILE *file = error ? stderr : stdout;
+ #if HAVE_GETOPT_LONG
+-    fprintf (file, "usage: %s [-frsvVh] [--force|--really-force] [--system-only] [--verbose] [--version] [--help] [dirs]\n",
++    fprintf (file, "usage: %s [-frsnvVh] [--force|--really-force] [--system-only] [--no-sleep] [--verbose] [--version] [--help] [dirs]\n",
+ 	     program);
+ #else
+-    fprintf (file, "usage: %s [-frsvVh] [dirs]\n",
++    fprintf (file, "usage: %s [-frsnvVh] [dirs]\n",
+ 	     program);
+ #endif
+     fprintf (file, "Build font information caches in [dirs]\n"
+@@ -100,6 +101,7 @@
+     fprintf (file, "  -f, --force          scan directories with apparently valid caches\n");
+     fprintf (file, "  -r, --really-force   erase all existing caches, then rescan\n");
+     fprintf (file, "  -s, --system-only    scan system-wide directories only\n");
++	fprintf (file, "  -n, --no-sleep       do not sleep before exit\n");
+     fprintf (file, "  -v, --verbose        display status information while busy\n");
+     fprintf (file, "  -V, --version        display font config version and exit\n");
+     fprintf (file, "  -h, --help           display this help and exit\n");
+@@ -107,6 +109,7 @@
+     fprintf (file, "  -f         (force)   scan directories with apparently valid caches\n");
+     fprintf (file, "  -r,   (really force) erase all existing caches, then rescan\n");
+     fprintf (file, "  -s         (system)  scan system-wide directories only\n");
++	fprintf (file, "  -n        (no-sleep) do not sleep before exit\n");
+     fprintf (file, "  -v         (verbose) display status information while busy\n");
+     fprintf (file, "  -V         (version) display font config version and exit\n");
+     fprintf (file, "  -h         (help)    display this help and exit\n");
+@@ -367,6 +370,7 @@
+     FcBool	force = FcFalse;
+     FcBool	really_force = FcFalse;
+     FcBool	systemOnly = FcFalse;
++	FcBool  nosleep = FcFalse;
+     FcConfig	*config;
+     int		i;
+     int		ret;
+@@ -374,9 +378,9 @@
+     int		c;
+ 
+ #if HAVE_GETOPT_LONG
+-    while ((c = getopt_long (argc, argv, "frsVvh", longopts, NULL)) != -1)
++    while ((c = getopt_long (argc, argv, "frsnVvh", longopts, NULL)) != -1)
+ #else
+-    while ((c = getopt (argc, argv, "frsVvh")) != -1)
++    while ((c = getopt (argc, argv, "frsnVvh")) != -1)
+ #endif
+     {
+ 	switch (c) {
+@@ -389,6 +393,9 @@
+ 	case 's':
+ 	    systemOnly = FcTrue;
+ 	    break;
++	case 'n':
++		nosleep = FcTrue;
++		break;
+ 	case 'V':
+ 	    fprintf (stderr, "fontconfig version %d.%d.%d\n", 
+ 		     FC_MAJOR, FC_MINOR, FC_REVISION);
+@@ -461,7 +468,7 @@
+      */
+     FcConfigDestroy (config);
+     FcFini ();
+-    sleep (2);
++    if (!nosleep) sleep (2);
+     if (verbose)
+ 	printf ("%s: %s\n", argv[0], ret ? "failed" : "succeeded");
+     return ret;

@@ -1,0 +1,5 @@
+#!/usr/bin/env dl
+
+kbounce-${UB_VERSION}.tar.xz kbounce-${UB_VERSION}/
+	ftp://ftp.kde.org/pub/kde/stable/${UB_VERSION}/src/
+

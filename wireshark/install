@@ -1,0 +1,14 @@
+#!/bin/sh -eux
+
+ub_install
+
+rm -rf "$UB_INSTALLDIR"/usr/share/wireshark/{AUTHORS-SHORT,COPYING}
+
+install -D -m 644 wireshark.desktop "$UB_INSTALLDIR"/usr/share/applications/
+
+for quality in hi lo; do
+	for size in 16 32 48; do
+		install -D -m 644 image/${quality}${size}-app-wireshark.png \
+		  "$UB_INSTALLDIR"/usr/share/icons/${quality}color/${size}x${size}/apps/wireshark.png
+	done
+done

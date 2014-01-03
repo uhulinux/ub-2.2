@@ -1,0 +1,11 @@
+#!/bin/sh -eux
+
+ub_install
+
+#kdm-nek indító desktopfájlok kellenek
+kdmsessions=$UB_INSTALLDIR/usr/share/kdm/sessions
+gnomesessions=$UB_INSTALLDIR/usr/share/xsessions
+mkdir -p $kdmsessions
+ln -s $gnomesessions/cinnamon.desktop $kdmsessions/cinnamon.desktop
+ln -s $gnomesessions/cinnamon2d.desktop $kdmsessions/cinnamon2.desktop
+

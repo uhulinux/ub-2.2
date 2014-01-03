@@ -1,0 +1,5 @@
+#!/usr/bin/env dl
+
+qGTalk_en-${UB_VERSION}.tar.gz qGTalk_en-${UB_VERSION}/
+	http://qgtalk.googlecode.com/files/
+

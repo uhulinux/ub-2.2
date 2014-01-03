@@ -1,0 +1,103 @@
+diff -Naur orig/desktop-themes/TraditionalOk/gtk-3.0/gtk-widgets.css mod/desktop-themes/TraditionalOk/gtk-3.0/gtk-widgets.css
+--- orig/desktop-themes/TraditionalOk/gtk-3.0/gtk-widgets.css	2013-06-09 22:16:36.000000000 +0200
++++ mod/desktop-themes/TraditionalOk/gtk-3.0/gtk-widgets.css	2013-06-21 15:51:43.000000000 +0200
+@@ -56,7 +56,7 @@
+ *:insensitive {
+ 	background-color: @insensitive_bg_color;
+ 	color: @insensitive_fg_color;
+-	text-shadow: 1px 1px @insensitive_text_shadow_color;
++	text-shadow: 1 1 @insensitive_text_shadow_color;
+ 	border-color: @insensitive_border_color;
+ }
+ 
+@@ -302,12 +302,7 @@
+ 	                      alpha (@progressbar_gradient_a, 0.7),
+ 	                      alpha (@progressbar_gradient_b, 0.7) 50%,
+ 	                      alpha (@progressbar_gradient_c, 0.7) 50%,
+-	                      alpha (@progressbar_gradient_d, 0.7)),
+-	                  repeating-linear-gradient(135deg,
+-	                      alpha (@progressbar_pattern_color, 0.0),
+-	                      alpha (@progressbar_pattern_color, 0.0) 12px,
+-	                      alpha (@progressbar_pattern_color, 0.5) 12px,
+-	                      alpha (@progressbar_pattern_color, 0.5) 24px);
++	                      alpha (@progressbar_gradient_d, 0.7));
+ 	border-radius: 3px;
+ 	border-width: 1px;
+ 	border-style: solid;
+@@ -324,12 +319,7 @@
+ 	                      alpha (@progressbar_gradient_a, 0.7),
+ 	                      alpha (@progressbar_gradient_b, 0.7) 50%,
+ 	                      alpha (@progressbar_gradient_c, 0.7) 50%,
+-	                      alpha (@progressbar_gradient_d, 0.7)),
+-	                  repeating-linear-gradient(45deg,
+-	                      alpha (@progressbar_pattern_color, 0.0),
+-	                      alpha (@progressbar_pattern_color, 0.0) 12px,
+-	                      alpha (@progressbar_pattern_color, 0.5) 12px,
+-	                      alpha (@progressbar_pattern_color, 0.5) 24px);
++	                      alpha (@progressbar_gradient_d, 0.7));
+ }
+ 
+ /* for progressbars in cell renderers */
+diff -Naur orig/desktop-themes/TraditionalOk/gtk-3.0/gtk-widgets-img.css mod/desktop-themes/TraditionalOk/gtk-3.0/gtk-widgets-img.css
+--- orig/desktop-themes/TraditionalOk/gtk-3.0/gtk-widgets-img.css	2013-06-20 23:51:19.000000000 +0200
++++ mod/desktop-themes/TraditionalOk/gtk-3.0/gtk-widgets-img.css	2013-06-21 15:51:02.000000000 +0200
+@@ -11,8 +11,7 @@
+ 	                      alpha (@switch_slider_gradient_a, 0.5),
+ 	                      alpha (@switch_slider_gradient_b, 0.5) 50%,
+ 	                      alpha (@switch_slider_gradient_c, 0.5) 50%,
+-	                      alpha (@switch_slider_gradient_d, 0.5)),
+-	                  url("img/slider-horz-grip.png");
++	                      alpha (@switch_slider_gradient_d, 0.5));
+ 	background-repeat: no-repeat;
+ 	background-position: center center;
+ }
+@@ -22,8 +21,7 @@
+ 	                      alpha (@switch_slider_insensitive_gradient_a, 0.8),
+ 	                      alpha (@switch_slider_insensitive_gradient_b, 0.8) 50%,
+ 	                      alpha (@switch_slider_insensitive_gradient_c, 0.8) 50%,
+-	                      alpha (@switch_slider_insensitive_gradient_d, 0.8)),
+-	                  url("img/slider-horz-grip.png");
++	                      alpha (@switch_slider_insensitive_gradient_d, 0.8));
+ }
+ 
+ /***************
+@@ -50,8 +48,7 @@
+ 	                      alpha (@scrollbar_slider_gradient_b, 0.5) 50%,
+ 	                      alpha (@scrollbar_slider_gradient_c, 0.5) 50%,
+ 	                      alpha (@scrollbar_slider_gradient_d, 0.5) 95%,
+-	                      alpha (@scrollbar_slider_inner_border_color, 0.5)),
+-	                  url("img/slider-vert-grip.png");
++	                      alpha (@scrollbar_slider_inner_border_color, 0.5));
+ }
+ 
+ .scrollbar.slider.horizontal {
+@@ -61,8 +58,7 @@
+ 	                      alpha (@scrollbar_slider_gradient_b, 0.5) 50%,
+ 	                      alpha (@scrollbar_slider_gradient_c, 0.5) 50%,
+ 	                      alpha (@scrollbar_slider_gradient_d, 0.5) 95%,
+-	                      alpha (@scrollbar_slider_inner_border_color, 0.5)),
+-	                  url("img/slider-horz-grip.png");
++	                      alpha (@scrollbar_slider_inner_border_color, 0.5));
+ }
+ 
+ .scrollbar.slider.vertical:hover {
+@@ -72,8 +68,7 @@
+ 	                      alpha (@scrollbar_slider_hover_gradient_b, 0.5) 50%,
+ 	                      alpha (@scrollbar_slider_hover_gradient_c, 0.5) 50%,
+ 	                      alpha (@scrollbar_slider_hover_gradient_d, 0.5) 95%,
+-	                      alpha (@scrollbar_slider_inner_border_color, 0.5)),
+-	                  url("img/slider-vert-grip.png");
++	                      alpha (@scrollbar_slider_inner_border_color, 0.5));
+ }
+ 
+ .scrollbar.slider.horizontal:hover {
+@@ -83,8 +78,7 @@
+ 	                      alpha (@scrollbar_slider_hover_gradient_b, 0.5) 50%,
+ 	                      alpha (@scrollbar_slider_hover_gradient_c, 0.5) 50%,
+ 	                      alpha (@scrollbar_slider_hover_gradient_d, 0.5) 95%,
+-	                      alpha (@scrollbar_slider_inner_border_color, 0.5)),
+-	                  url("img/slider-horz-grip.png");
++	                      alpha (@scrollbar_slider_inner_border_color, 0.5));
+ }
+ 
+ /*************************

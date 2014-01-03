@@ -1,0 +1,5 @@
+#!/usr/bin/env dl
+
+kjumpingcube-${UB_VERSION}.tar.xz kjumpingcube-${UB_VERSION}/
+	ftp://ftp.kde.org/pub/kde/stable/${UB_VERSION}/src/
+

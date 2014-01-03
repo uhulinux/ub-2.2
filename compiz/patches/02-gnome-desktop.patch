@@ -1,0 +1,20 @@
+diff -Naur orig/gtk/gnome/compiz.desktop.in mod/gtk/gnome/compiz.desktop.in
+--- orig/gtk/gnome/compiz.desktop.in	2010-03-28 14:14:47.000000000 +0200
++++ mod/gtk/gnome/compiz.desktop.in	2012-12-23 23:17:18.000000000 +0100
+@@ -2,7 +2,7 @@
+ Type=Application
+ Encoding=UTF-8
+ _Name=Compiz
+-Exec=compiz
++Exec=bash -c 'compiz ccp decoration --sm-client-id $DESKTOP_AUTOSTART_ID'
+ NoDisplay=true
+ # name of loadable control center module
+ X-GNOME-WMSettingsModule=compiz
+@@ -10,6 +10,6 @@
+ X-GNOME-Autostart-Phase=WindowManager
+ X-GNOME-Provides=windowmanager
+ # name we put on the WM spec check window
+-X-GNOME-WMName=compiz
++X-GNOME-WMName=compiz
+ # back compat only 
+ X-GnomeWMSettingsLibrary=compiz

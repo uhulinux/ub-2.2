@@ -1,0 +1,5 @@
+#!/usr/bin/env dl
+
+kmid-${UB_VERSION}.tar.bz2 kmid-${UB_VERSION}/
+	http://downloads.sourceforge.net/project/kmid2/${UB_VERSION}/
+

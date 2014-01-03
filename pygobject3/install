@@ -1,0 +1,6 @@
+#!/bin/sh -eux
+
+ub_install
+
+#rm $UB_INSTALLDIR/usr/lib/python2.6/site-packages/gi/{_gi_cairo.so,_gi.so,importer.py,types.py,__init__.py,module.py,_gi_cairo.la,_gi.la}
+#rm -Rf $UB_INSTALLDIR/usr/lib/python2.6/site-packages/gi/{overrides,repository}

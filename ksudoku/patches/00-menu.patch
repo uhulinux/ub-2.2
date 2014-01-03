@@ -1,0 +1,9 @@
+diff -Naur a/src/gui/ksudoku.desktop b/src/gui/ksudoku.desktop
+--- a/src/gui/ksudoku.desktop	2013-01-23 23:07:29.000000000 +0100
++++ b/src/gui/ksudoku.desktop	2013-02-10 23:34:52.040001559 +0100
+@@ -154,4 +154,4 @@
+ Comment[zh_CN]=KSudoku，KDE 下的增强型数独游戏
+ Comment[zh_TW]=KDE Sudoku 遊戲，以及其變化
+ Terminal=false
+-Categories=Qt;KDE;Game;LogicGame;
++Categories=Qt;KDE;Game;LogicGame;X-UHU-Menu/Games/TacticStrategy;

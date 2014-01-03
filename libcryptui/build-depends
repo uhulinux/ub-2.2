@@ -1,0 +1,11 @@
+dbus-glib-dev
+gconf2-dev
+gobject-introspection-dev
+gpg
+gpgme-dev
+gtk3-dev
+intltool
+libassuan-dev
+libgnome-keyring-dev
+libnotify-dev
+libsm-dev

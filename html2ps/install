@@ -1,0 +1,11 @@
+#!/bin/sh -eux
+
+mkdir -p "$UB_INSTALLDIR"/usr/lib/html2ps
+
+mv html2ps "$UB_INSTALLDIR"/usr/bin
+mv sample "$UB_INSTALLDIR"/usr/lib/html2ps/html2psrc
+mv html2ps.1 "$UB_INSTALLDIR"/usr/share/man/man1
+mv html2psrc.5 "$UB_INSTALLDIR"/usr/share/man/man5
+mv hyphen.tex "$UB_INSTALLDIR"/usr/lib/html2ps
+mv html2ps.html "$UB_INSTALLDIR"/usr/lib/html2ps
+

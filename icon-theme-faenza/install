@@ -1,0 +1,109 @@
+#!/bin/sh -eux
+
+#Telepítési mappák létrehozása
+mkdir ${UB_INSTALLDIR}/usr/share/icons
+mkdir -p ${UB_INSTALLDIR}/usr/share/filezilla/resources
+
+#Források kibontása a megfelelő mappákba
+tar xf Faenza.tar.gz -C ${UB_INSTALLDIR}/usr/share/icons
+tar xf Faenza-Dark.tar.gz -C ${UB_INSTALLDIR}/usr/share/icons
+tar xf Faenza-Darkest.tar.gz -C ${UB_INSTALLDIR}/usr/share/icons
+tar xf Faenza-Ambiance.tar.gz -C ${UB_INSTALLDIR}/usr/share/icons
+tar xf Faenza-Radiance.tar.gz -C ${UB_INSTALLDIR}/usr/share/icons
+tar xf emesene-faenza-theme.tar.gz -C ${UB_INSTALLDIR}/usr/lib
+
+#Kategória ikonok igazítása UHU menühöz
+cd ${UB_INSTALLDIR}/usr/share/icons/Faenza 
+for i in 16 22 24 32 48; do
+mkdir -p ./$i/categories
+	ln -s ../../categories/$i/applications-accessories.png $i/categories/icon-applications.png
+	ln -s ../../categories/$i/applications-development.png $i/categories/icon-development.png
+	ln -s ../../categories/$i/applications-games.png $i/categories/icon-games.png
+	ln -s ../../categories/$i/applications-graphics.png $i/categories/icon-gfx.png
+	ln -s ../../categories/$i/applications-internet.png $i/categories/stock-panel-internet.png
+	ln -s ../../categories/$i/applications-multimedia.png $i/categories/icon-media.png
+	ln -s ../../mimetypes/$i/x-office-address-book.png $i/categories/icon-documentation.png
+	ln -s ../../apps/$i/glade.png $i/categories/package_edutainment.png
+	ln -s ../../categories/$i/configuration_section.png $i/categories/icon-configuration.png
+	ln -s ../../apps/$i/gnome-calculator.png $i/categories/icon-accessories.png
+	ln -s ../../devices/$i/computer.png $i/categories/icon-computer.png
+	ln -s ../../apps/$i/system-file-manager.png $i/categories/icon-filemanager.png
+	ln -s ../../apps/$i/accessories-text-editor.png $i/categories/icon-notepad.png
+	ln -s ../../places/$i/desktop.png $i/categories/icon-network.png
+	ln -s ../../apps/$i/preferences-system-firewall.png $i/categories/icon-network-firewall.png
+	ln -s ../../apps/$i/preferences-system-network.png $i/categories/icon-network-system.png
+	ln -s ../../devices/$i/printer.png $i/categories/stock-print.png
+	ln -s ../../mimetypes/$i/text-html.png $i/categories/icon-html.png
+	ln -s ../../devices/$i/video-display.png $i/categories/icon-monitor.png
+	ln -s ../../apps/$i/accessories-character-map.png $i/categories/icon-launcher.png
+	ln -s ../../apps/$i/accessories-calculator.png $i/categories/icon-calculator.png
+	ln -s ../../mimetypes/$i/vcalendar.png $i/categories/icon-date.png
+	ln -s ../../mimetypes/$i/vcalendar.png $i/categories/icon-datetime.png
+	ln -s ../../apps/$i/libreoffice-template.png $i/categories/icon-office.png
+	ln -s ../../mimetypes/$i/x-office-address-book.png $i/categories/stock-book.png
+	ln -s ../../mimetypes/$i/x-office-document.png $i/categories/icon-office-wordprocessor.png
+	ln -s ../../mimetypes/$i/x-office-presentation.png $i/categories/icon-office-presentation.png
+	ln -s ../../mimetypes/$i/x-office-spreadsheet.png $i/categories/icon-office-spreadsheet.png
+	ln -s ../../apps/$i/utilities-terminal.png $i/categories/icon-terminal.png
+	ln -s ../../apps/$i/config-language.png $i/categories/stock-convert.png
+	ln -s ../../categories/$i/applications-fonts.png $i/categories/file-devel.png
+	ln -s ../../devices/$i/camera-photo.png $i/categories/stock-panel-screenshot.png
+	ln -s ../../apps/$i/internet-news-reader.png $i/categories/news.png
+	ln -s ../../apps/$i/internet-web-browser.png $i/categories/icon-web-browser.png
+	ln -s ../../actions/$i/mail-inbox.png $i/categories/icon-update.png
+	ln -s ../../apps/$i/evolution.png $i/categories/icon-email.png
+	ln -s ../../apps/$i/emesene.png $i/categories/icon-instantmessage.png
+	ln -s ../../apps/$i/gnome-gnibbles.png $i/categories/package_games_arcade.png
+	ln -s ../../apps/$i/gnome-glchess.png $i/categories/package_games_board.png
+	ln -s ../../apps/$i/gnome-aisleriot.png $i/categories/package_games_card.png
+	ln -s ../../apps/$i/gbrainy.png $i/categories/package_games_strategy.png
+	ln -s ../../apps/$i/gnome-tali.png $i/categories/package_toys.png
+	ln -s ../../devices/$i/media-optical.png $i/categories/cd.png
+	ln -s ../../devices/$i/audio-card.png $i/categories/icon-mixer.png
+	ln -s ../../apps/$i/preferences-desktop-sound.png $i/categories/icon-sound.png
+	ln -s ../../mimetypes/$i/video-x-generic.png $i/categories/emblem-video.png
+	ln -s ../../apps/$i/tvtime.png $i/categories/icon-television.png
+	ln -s ../../apps/$i/config-language.png $i/categories/edu_languages.png
+	ln -s ../../apps/$i/accessories-calculator.png $i/categories/edu_mathematics.png
+	ln -s ../../categories/$i/applications-other.png $i/categories/edu_miscellaneous.png
+	ln -s ../../categories/$i/applications-science.png $i/categories/edu_science.png
+	ln -s ../../mimetypes/$i/x-office-address-book.png $i/categories/icon-logbook.png
+	ln -s ../../categories/$i/applications-games.png $i/categories/package_games.png
+done
+mv ./16 ./16x16
+mv ./22 ./22x22
+mv ./24 ./24x24
+mv ./32 ./32x32
+mv ./48 ./48x48
+
+#UHU ikonok átmásolása és átlinkelése a megfelelő helyekre
+cd ${UB_INSTALLDIR}/usr/share/icons
+distributor=uhu
+iconname="distributor-logo-$distributor"
+cd ./Faenza/places/scalable/ && ln -sf ./$iconname.svg distributor-logo.svg && cd ../../..
+for size in 48 32 24 22; do
+	cd ./Faenza/places/$size/ && ln -sf ./$iconname.png distributor-logo.png && cd ../../..
+done
+cd ./Faenza/places/scalable/ && ln -sf ./distributor-logo.svg uhu-logo.svg && cd ../../..
+for size in 48 32 24 22; do
+	cd ./Faenza/places/$size/ && ln -sf ./distributor-logo.png uhu-logo.png && cd ../../..
+done
+cd ./Faenza-Dark/places/scalable/ && ln -sf ../../../Faenza/places/scalable/$iconname.svg distributor-logo.svg && cd ../../..
+for size in 48 32 24 22; do
+	cd ./Faenza-Dark/places/$size/ && ln -sf ../../../Faenza/places/$size/$iconname.png distributor-logo.png && cd ../../..
+done
+cd ./Faenza-Dark/places/scalable/ && ln -sf ../../../Faenza/places/scalable/$iconname.svg start-here-uhu.svg && cd ../../..
+for size in 48 32; do
+	cd ./Faenza-Dark/places/$size/ && ln -sf ../../../Faenza/places/$size/$iconname.png start-here-uhu.png && cd ../../..
+done
+for theme in Faenza Faenza-Dark; do
+	cd ./Faenza/places/scalable/ && ln -sf ./start-here-uhu.svg start-here.svg && cd ../../..
+	for size in 48 32 24 22; do
+		cd ./$theme/places/$size/ && ln -sf ./start-here-uhu.png start-here.png && cd ../../..
+	done
+done
+cd ./Faenza-Dark/places/48/ && ln -sf ../../../Faenza/places/48/start-here-uhu.png start-here.png && cd ../../..
+cd ./Faenza-Dark/places/32/ && ln -sf ../../../Faenza/places/32/start-here-uhu.png start-here.png && cd ../../..
+cd ./Faenza-Dark/places/24/ && ln -sf ./start-here-uhu.png distributor-logo.png && cd ../../..
+cd ./Faenza-Dark/places/22/ && ln -sf ./start-here-uhu.png distributor-logo.png && cd ../../..
+cd ./Faenza-Dark/places/scalable/ && ln -sf ../../../Faenza/places/scalable/distributor-logo.svg start-here-uhu.svg && cd ../../..

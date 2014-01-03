@@ -1,0 +1,8 @@
+[Desktop Entry]
+Encoding=UTF-8
+Categories=X-UHU-Menu/Games/Action/smw;
+Exec=smw-leveledit
+Icon=smw-leveledit
+Name=smw Leveleditor
+Name[hu]=smw pályaszerkesztő
+Type=Application

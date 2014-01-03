@@ -1,0 +1,10 @@
+--- "$UB_COMPILEDIR"/po/LINGUAS	2007-07-19 16:27:04.000000000 +0200
++++ "$UB_COMPILEDIR"/po/LINGUAS	2007-08-03 15:04:57.000000000 +0200
+@@ -5,4 +5,5 @@
+ fr
+ pt
+ ro
+-sv
+\ No newline at end of file
++sv
++hu

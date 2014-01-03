@@ -1,0 +1,5 @@
+#!/usr/bin/env dl
+
+libvlc-qt_${UB_VERSION}_src.tar.gz libvlc-qt-${UB_VERSION}/
+	http://download.tano.si/vlc-qt/${UB_VERSION}/
+

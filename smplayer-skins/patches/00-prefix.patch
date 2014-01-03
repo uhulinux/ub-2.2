@@ -1,0 +1,14 @@
+diff -Naur a/Makefile b/Makefile
+--- a/Makefile	2012-10-28 14:12:33.000000000 +0100
++++ b/Makefile	2013-05-21 13:14:54.372865398 +0200
+@@ -1,8 +1,8 @@
+ 
+-PREFIX=/usr/local
++PREFIX=${UB_INSTALLDIR}/usr
+ #PREFIX=/tmp/smplayer
+ 
+-THEMES_PATH=$(DESTDIR)$(PREFIX)/share/smplayer/themes
++THEMES_PATH=${UB_INSTALLDIR}/usr/share/smplayer/themes
+ 
+ install:
+ 	-install -d $(THEMES_PATH)

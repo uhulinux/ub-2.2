@@ -1,0 +1,5 @@
+#!/usr/bin/env dl
+
+cuetools-${UB_VERSION}.tar.gz cuetools-${UB_VERSION}/
+	http://download.berlios.de/cuetools/
+

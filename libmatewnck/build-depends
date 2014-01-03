@@ -1,0 +1,9 @@
+gobject-introspection-dev
+gtk-doc
+gtk2-dev
+intltool
+libsm-dev
+libxres-dev
+mate-common
+startup-notification-dev
+xcb-util-dev

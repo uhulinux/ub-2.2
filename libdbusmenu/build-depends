@@ -1,0 +1,5 @@
+dbus-dev
+gnome-doc-utils
+gtk2-dev
+intltool
+json-glib-dev

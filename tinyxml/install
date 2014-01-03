@@ -1,0 +1,12 @@
+#!/bin/sh -eux
+pkgname=tinyxml
+pkgver=$UB_VERSION
+  install -d -m 0755 "$UB_INSTALLDIR"/usr/{lib,include}
+  install -m 0755 lib${pkgname}.so.0.$pkgver "$UB_INSTALLDIR"/usr/lib/
+  install -m 0644 $pkgname.h tinystr.h "$UB_INSTALLDIR"/usr/include
+
+cd "$UB_INSTALLDIR"/usr/lib
+    ln -s lib${pkgname}.so.0.$pkgver lib${pkgname}.so.0
+    ln -s lib${pkgname}.so.0.$pkgver lib${pkgname}.so
+
+

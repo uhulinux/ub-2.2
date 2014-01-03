@@ -1,0 +1,9 @@
+[Desktop Entry]
+Encoding=UTF-8
+Type=Application
+Name=Flash 4 Linux
+Comment[hu]=Flash szerkesztő
+GenericName=Flash 4 Linux
+Icon=video-x-generic
+Categories=Network;WebDevelopment;X-UHU-Menu/Development/Web;
+Exec=f4l

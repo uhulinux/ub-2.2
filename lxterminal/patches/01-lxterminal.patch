@@ -1,0 +1,16 @@
+diff -Naurd orig/data/lxterminal.desktop mod/data/lxterminal.desktop
+--- orig/data/lxterminal.desktop	2010-03-01 22:05:00.000000000 +0100
++++ mod/data/lxterminal.desktop	2010-03-02 21:07:07.000000000 +0100
+@@ -1,5 +1,5 @@
+ [Desktop Entry]
+-Encoding=UTF-8
++Version=1.1
+ Name=LXTerminal
+ Name[ar]=LXTerminal
+ Name[bg]=LXTerminal
+@@ -126,4 +126,4 @@
+ Exec=lxterminal
+ Icon=lxterminal
+ Type=Application
+-Categories=GTK;Utility;TerminalEmulator;
++Categories=GTK;Utility;TerminalEmulator;X-UHU-Menu/Tools/Terminals;

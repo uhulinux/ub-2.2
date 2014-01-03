@@ -1,0 +1,6 @@
+#!/usr/bin/env dl
+
+mysql-${UB_VERSION}.tar.gz mysql-${UB_VERSION}/
+#	ftp://xenia.sote.hu/pub/mirrors/www.mysql.com/Downloads/MySQL-${UB_VERSION_HEAD2}/
+	http://ftp.gwdg.de/pub/misc/mysql/Downloads/MySQL-${UB_VERSION_HEAD2}/
+	http://mysql.mirrors.crysys.hit.bme.hu/Downloads/MySQL-${UB_VERSION_HEAD2}/

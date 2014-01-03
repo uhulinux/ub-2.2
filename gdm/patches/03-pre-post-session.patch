@@ -1,0 +1,98 @@
+diff -Naur gdm-2.19.6.orig/config/PostSession.in gdm-2.19.6/config/PostSession.in
+--- gdm-2.19.6.orig/config/PostSession.in	2007-08-15 20:14:56.000000000 +0200
++++ gdm-2.19.6/config/PostSession.in	2007-08-23 16:55:42.000000000 +0200
+@@ -1,22 +1,5 @@
+ #!/bin/sh
+ 
+-PATH="@X_PATH@:$PATH:/bin:/usr/bin"
+-OLD_IFS=$IFS
+-
+-gdmwhich () {
+-  COMMAND="$1"
+-  OUTPUT=
+-  IFS=:
+-  for dir in $PATH
+-  do
+-    if test -x "$dir/$COMMAND" ; then
+-      if test "x$OUTPUT" = "x" ; then
+-        OUTPUT="$dir/$COMMAND"
+-      fi
+-    fi
+-  done
+-  IFS=$OLD_IFS 
+-  echo "$OUTPUT"
+-}
++PATH="/usr/local/bin:/bin:/usr/bin"
+ 
+ exit 0
+diff -Naur gdm-2.19.6.orig/config/PreSession.in gdm-2.19.6/config/PreSession.in
+--- gdm-2.19.6.orig/config/PreSession.in	2007-08-15 20:14:56.000000000 +0200
++++ gdm-2.19.6/config/PreSession.in	2007-08-23 16:55:42.000000000 +0200
+@@ -2,66 +2,6 @@
+ #
+ # Note that output goes into the .xsession-errors file for easy debugging
+ #
+-PATH="@X_PATH@:$PATH:/bin:/usr/bin"
+-OLD_IFS=$IFS
+-
+-gdmwhich () {
+-  COMMAND="$1"
+-  OUTPUT=
+-  IFS=:
+-  for dir in $PATH
+-  do
+-    if test -x "$dir/$COMMAND" ; then
+-      if test "x$OUTPUT" = "x" ; then
+-        OUTPUT="$dir/$COMMAND"
+-      fi
+-    fi
+-  done
+-  IFS=$OLD_IFS 
+-  echo "$OUTPUT"
+-}
+-
+-# Set background color
+-XSETROOT=`gdmwhich xsetroot`
+-if [ "x$XSETROOT" != "x" ] ; then
+-
+-	CHECKBACKCOLOR="OK"
+-	if [ "x$GDM_GREETER_TYPE" = "xTHEMED" ]; then
+-		BACKCOLOR=`gdmflexiserver --command="GET_CONFIG greeter/GraphicalThemedColor $DISPLAY"`
+-
+-		CHECKBACKCOLOR=`echo $BACKCOLOR | sed 's/^\([^ ]*\) .*$/\1/'`
+-		if [ "x$CHECKBACKCOLOR" = "xOK" ]; then
+-			BACKCOLOR=`echo $BACKCOLOR | sed 's/^.* \(.*\)$/\1/'`
+-		else
+-			BACKCOLOR=""
+-		fi
+-	fi
+-
+-	# If we tried to load the themed backgroundcolor, but failed, then try loading plain color
+-	if [ "x$CHECKBACKCOLOR" != "xOK" ] || [ "x$GDM_GREETER_TYPE" = "xPLAIN" ]; then
+-
+-		# Background type can be 0=None, 1=Image & Color, 2=Color, or 3=Image 
+-		BACKTYPE=`gdmflexiserver --command="GET_CONFIG greeter/BackgroundType $DISPLAY"`
+-
+-		# Skip if background type does not include a color
+-		if [ "x$BACKTYPE" = "xOK 1" ] || [ "x$BACKTYPE" = "xOK 2" ]; then
+-			BACKCOLOR=`gdmflexiserver --command="GET_CONFIG greeter/BackgroundColor $DISPLAY"`
+-
+-			CHECKBACKCOLOR=`echo $BACKCOLOR | sed 's/^\([^ ]*\) .*$/\1/'`
+-			if [ "x$CHECKBACKCOLOR" = "xOK" ]; then
+-				BACKCOLOR=`echo $BACKCOLOR | sed 's/^.* \(.*\)$/\1/'`
+-			else
+-				BACKCOLOR=""
+-			fi
+-		fi
+-	fi
+-
+-	# Default value
+- 	if [ "x$BACKCOLOR" = "x" ]; then
+- 		BACKCOLOR="#76848F"
+- 	fi
+-
+-	"$XSETROOT" -cursor_name left_ptr -solid "$BACKCOLOR"
+-fi
++PATH="/usr/local/bin:/bin:/usr/bin"
+ 
+ exit 0

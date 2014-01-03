@@ -1,0 +1,4 @@
+#!/usr/bin/env dl
+
+exiftime-${UB_VERSION}.tar.gz exiftime-${UB_VERSION}/
+    http://downloads.sourceforge.net/project/exiftime/exiftime/${UB_VERSION}/

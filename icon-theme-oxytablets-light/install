@@ -1,0 +1,63 @@
+#!/bin/sh -eux
+
+mkdir ${UB_INSTALLDIR}/usr/share/icons
+mv oxyTablets-light ${UB_INSTALLDIR}/usr/share/icons
+
+for theme in oxyTablets-light; do
+	for i in 16x16 22x22 32x32 48x48 64x64 128x128; do
+
+		ln -s /usr/share/icons/$theme/$i/categories/applications-other.png "$UB_INSTALLDIR"/usr/share/icons/$theme/$i/categories/icon-applications.png
+		ln -s /usr/share/icons/$theme/$i/categories/applications-development.png "$UB_INSTALLDIR"/usr/share/icons/$theme/$i/categories/icon-development.png
+		ln -s /usr/share/icons/$theme/$i/categories/applications-games.png "$UB_INSTALLDIR"/usr/share/icons/$theme/$i/categories/icon-games.png
+		ln -s /usr/share/icons/$theme/$i/categories/applications-graphics.png "$UB_INSTALLDIR"/usr/share/icons/$theme/$i/categories/icon-gfx.png
+		ln -s /usr/share/icons/$theme/$i/categories/applications-internet.png "$UB_INSTALLDIR"/usr/share/icons/$theme/$i/categories/stock-panel-internet.png
+		ln -s /usr/share/icons/$theme/$i/categories/applications-multimedia.png "$UB_INSTALLDIR"/usr/share/icons/$theme/$i/categories/icon-media.png
+		ln -s /usr/share/icons/$theme/$i/apps/kjournal.png "$UB_INSTALLDIR"/usr/share/icons/$theme/$i/categories/icon-documentation.png
+		ln -s /usr/share/icons/$theme/$i/categories/applications-education.png "$UB_INSTALLDIR"/usr/share/icons/$theme/$i/categories/package_edutainment.png
+		ln -s /usr/share/icons/$theme/$i/categories/preferences-desktop.png "$UB_INSTALLDIR"/usr/share/icons/$theme/$i/categories/icon-configuration.png
+		ln -s /usr/share/icons/$theme/$i/categories/applications-accessories.png "$UB_INSTALLDIR"/usr/share/icons/$theme/$i/categories/icon-accessories.png
+		ln -s /usr/share/icons/$theme/$i/devices/computer.png "$UB_INSTALLDIR"/usr/share/icons/$theme/$i/categories/icon-computer.png
+		ln -s /usr/share/icons/$theme/$i/apps/system-file-manager.png "$UB_INSTALLDIR"/usr/share/icons/$theme/$i/categories/icon-filemanager.png
+		ln -s /usr/share/icons/$theme/$i/apps/kate.png "$UB_INSTALLDIR"/usr/share/icons/$theme/$i/categories/icon-notepad.png
+		ln -s /usr/share/icons/$theme/$i/categories/applications-internet.png "$UB_INSTALLDIR"/usr/share/icons/$theme/$i/categories/icon-network.png
+		ln -s /usr/share/icons/$theme/$i/categories/applications-internet.png "$UB_INSTALLDIR"/usr/share/icons/$theme/$i/categories/icon-network-firewall.png
+		ln -s /usr/share/icons/$theme/$i/categories/applications-internet.png "$UB_INSTALLDIR"/usr/share/icons/$theme/$i/categories/icon-network-system.png
+		ln -s /usr/share/icons/$theme/$i/apps/preferences-desktop-printer.png "$UB_INSTALLDIR"/usr/share/icons/$theme/$i/categories/stock-print.png
+		ln -s /usr/share/icons/$theme/$i/apps/libreoffice-writer.png "$UB_INSTALLDIR"/usr/share/icons/$theme/$i/categories/icon-html.png
+		ln -s /usr/share/icons/$theme/$i/apps/graphics-viewer-document.png "$UB_INSTALLDIR"/usr/share/icons/$theme/$i/categories/icon-monitor.png
+		ln -s /usr/share/icons/$theme/$i/apps/preferences-desktop-launch-feedback.png "$UB_INSTALLDIR"/usr/share/icons/$theme/$i/categories/icon-launcher.png
+		ln -s /usr/share/icons/$theme/$i/apps/accessories-calculator.png "$UB_INSTALLDIR"/usr/share/icons/$theme/$i/categories/icon-calculator.png
+		ln -s /usr/share/icons/$theme/$i/mimetypes/gnome-mime-text-x-vcalendar.png "$UB_INSTALLDIR"/usr/share/icons/$theme/$i/categories/icon-date.png
+		ln -s /usr/share/icons/$theme/$i/mimetypes/gnome-mime-text-x-vcalendar.png "$UB_INSTALLDIR"/usr/share/icons/$theme/$i/categories/icon-datetime.png
+		ln -s /usr/share/icons/$theme/$i/categories/applications-office.png "$UB_INSTALLDIR"/usr/share/icons/$theme/$i/categories/icon-office.png
+		ln -s /usr/share/icons/$theme/$i/apps/accessories-dictionary.png "$UB_INSTALLDIR"/usr/share/icons/$theme/$i/categories/stock-book.png
+		ln -s /usr/share/icons/$theme/$i/apps/libreoffice-writer.png "$UB_INSTALLDIR"/usr/share/icons/$theme/$i/categories/icon-office-wordprocessor.png
+		ln -s /usr/share/icons/$theme/$i/apps/kpresenter.png "$UB_INSTALLDIR"/usr/share/icons/$theme/$i/categories/icon-office-presentation.png
+		ln -s /usr/share/icons/$theme/$i/apps/libreoffice-calc.png "$UB_INSTALLDIR"/usr/share/icons/$theme/$i/categories/icon-office-spreadsheet.png
+		ln -s /usr/share/icons/$theme/$i/apps/utilities-terminal.png "$UB_INSTALLDIR"/usr/share/icons/$theme/$i/categories/icon-terminal.png
+		ln -s /usr/share/icons/$theme/$i/categories/applications-development.png "$UB_INSTALLDIR"/usr/share/icons/$theme/$i/categories/stock-convert.png
+		ln -s /usr/share/icons/$theme/$i/apps/accessories-text-editor.png "$UB_INSTALLDIR"/usr/share/icons/$theme/$i/categories/file-devel.png
+		ln -s /usr/share/icons/$theme/$i/apps/ksnapshot.png "$UB_INSTALLDIR"/usr/share/icons/$theme/$i/categories/stock-panel-screenshot.png
+		ln -s /usr/share/icons/$theme/$i/apps/knewsticker.png "$UB_INSTALLDIR"/usr/share/icons/$theme/$i/categories/news.png
+		ln -s /usr/share/icons/$theme/$i/apps/internet-web-browser.png "$UB_INSTALLDIR"/usr/share/icons/$theme/$i/categories/icon-web-browser.png
+		ln -s /usr/share/icons/$theme/$i/apps/system-software-update.png "$UB_INSTALLDIR"/usr/share/icons/$theme/$i/categories/icon-update.png
+		ln -s /usr/share/icons/$theme/$i/apps/internet-mail.png "$UB_INSTALLDIR"/usr/share/icons/$theme/$i/categories/icon-email.png
+		ln -s /usr/share/icons/$theme/$i/apps/telepathy.png "$UB_INSTALLDIR"/usr/share/icons/$theme/$i/categories/icon-instantmessage.png
+		ln -s /usr/share/icons/$theme/$i/categories/system-help.png "$UB_INSTALLDIR"/usr/share/icons/$theme/$i/categories/package_games_arcade.png
+		ln -s /usr/share/icons/$theme/$i/apps/kmahjongg.png "$UB_INSTALLDIR"/usr/share/icons/$theme/$i/categories/package_games_board.png
+		ln -s /usr/share/icons/$theme/$i/apps/kpat.png "$UB_INSTALLDIR"/usr/share/icons/$theme/$i/categories/package_games_card.png
+		ln -s /usr/share/icons/$theme/$i/apps/ksudoku.png "$UB_INSTALLDIR"/usr/share/icons/$theme/$i/categories/package_games_strategy.png
+		ln -s /usr/share/icons/$theme/$i/categories/applications-games.png "$UB_INSTALLDIR"/usr/share/icons/$theme/$i/categories/package_games.png
+		ln -s /usr/share/icons/$theme/$i/categories/applications-toys.png "$UB_INSTALLDIR"/usr/share/icons/$theme/$i/categories/package_toys.png
+		ln -s /usr/share/icons/$theme/$i/apps/package-manager-icon.png "$UB_INSTALLDIR"/usr/share/icons/$theme/$i/categories/cd.png
+		ln -s /usr/share/icons/$theme/$i/apps/multimedia-volume-control.png "$UB_INSTALLDIR"/usr/share/icons/$theme/$i/categories/icon-mixer.png
+		ln -s /usr/share/icons/$theme/$i/apps/preferences-desktop-sound.png "$UB_INSTALLDIR"/usr/share/icons/$theme/$i/categories/icon-sound.png
+		ln -s /usr/share/icons/$theme/$i/apps/preferences-desktop-display.png "$UB_INSTALLDIR"/usr/share/icons/$theme/$i/categories/emblem-video.png
+		ln -s /usr/share/icons/$theme/$i/apps/kmplayer.png "$UB_INSTALLDIR"/usr/share/icons/$theme/$i/categories/icon-television.png
+		ln -s /usr/share/icons/$theme/$i/categories/applications-education-language.png "$UB_INSTALLDIR"/usr/share/icons/$theme/$i/categories/edu_languages.png
+		ln -s /usr/share/icons/$theme/$i/categories/applications-education-mathematics.png "$UB_INSTALLDIR"/usr/share/icons/$theme/$i/categories/edu_mathematics.png
+		ln -s /usr/share/icons/$theme/$i/categories/applications-education-miscellaneous.png "$UB_INSTALLDIR"/usr/share/icons/$theme/$i/categories/edu_miscellaneous.png
+		ln -s /usr/share/icons/$theme/$i/categories/applications-education-science.png "$UB_INSTALLDIR"/usr/share/icons/$theme/$i/categories/edu_science.png
+		ln -s /usr/share/icons/$theme/$i/apps/office-address-book.png "$UB_INSTALLDIR"/usr/share/icons/$theme/$i/categories/icon-logbook.png
+	done
+done

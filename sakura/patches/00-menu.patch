@@ -1,0 +1,16 @@
+diff -Naur sakura-3.0.4-ori/sakura.desktop sakura-3.0.4/sakura.desktop
+--- sakura-3.0.4-ori/sakura.desktop	2012-04-30 17:09:01.000000000 +0200
++++ sakura-3.0.4/sakura.desktop	2013-05-11 23:01:17.119744566 +0200
+@@ -1,10 +1,11 @@
+ [Desktop Entry]
+ Name=Sakura
+ Comment=Use the command line
++Comment[hu]=Sakura terminál
+ TryExec=sakura
+ Exec=sakura
+ Icon=terminal-tango
+ Type=Application
+-Categories=GTK;Utility;TerminalEmulator;System;
++Categories=GTK;Utility;TerminalEmulator;System;X-UHU-Menu/Tools/Terminals;
+ StartupNotify=true
+ X-Ubuntu-Gettext-Domain=sakura

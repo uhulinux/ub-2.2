@@ -1,0 +1,13 @@
+diff -Naur a/kwin-client/CMakeLists.txt b/kwin-client/CMakeLists.txt
+--- a/kwin-client/CMakeLists.txt	2008-08-15 14:07:11.000000000 +0200
++++ b/kwin-client/CMakeLists.txt	2013-06-16 12:47:24.266686759 +0200
+@@ -1,9 +1,6 @@
+ project (kwin-iaora)
+ 
+ set (kwin_iaora_SOURCES kwin_iaora.cpp)
+-kde4_add_plugin (kwin3_iaora ${kwin_iaora_SOURCES})
+-target_link_libraries (kwin3_iaora ${KDE4_KDEUI_LIBS} kdecorations)
+-install (TARGETS kwin3_iaora DESTINATION ${PLUGIN_INSTALL_DIR})
+ install (FILES iaora.desktop DESTINATION ${DATA_INSTALL_DIR}/kwin)
+ 
+ add_subdirectory (config)

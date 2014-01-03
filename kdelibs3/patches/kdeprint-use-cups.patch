@@ -1,0 +1,8 @@
+diff -Naur kdelibs-3.3.2.orig/kdeprint/kdeprintrc kdelibs-3.3.2/kdeprint/kdeprintrc
+--- kdelibs-3.3.2.orig/kdeprint/kdeprintrc	2004-10-03 09:40:19.000000000 +0200
++++ kdelibs-3.3.2/kdeprint/kdeprintrc	2005-01-13 15:57:55.170276439 +0100
+@@ -4,3 +4,4 @@
+ ViewToolBar=false
+ ViewMenuBar=true
+ ViewPrinterInfos=true
++PrintSystem=cups

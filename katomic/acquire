@@ -1,0 +1,5 @@
+#!/usr/bin/env dl
+
+katomic-${UB_VERSION}.tar.xz katomic-${UB_VERSION}/
+	ftp://ftp.kde.org/pub/kde/stable/${UB_VERSION}/src/
+

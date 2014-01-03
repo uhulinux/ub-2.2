@@ -1,0 +1,5 @@
+#!/usr/bin/env dl
+
+kmplayer-${UB_VERSION}.tar.bz2 kmplayer-${UB_VERSION}/
+	http://kmplayer.kde.org/pkgs/
+	ftp://ftp.ro.debian.org/pub/linux/distributions/frugalware/frugalware-current/source/kde-extra/kmplayer/

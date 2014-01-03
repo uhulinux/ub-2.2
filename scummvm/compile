@@ -1,0 +1,8 @@
+#!/bin/sh -eux
+
+cd "$UB_COMPILEDIR"
+./configure \
+	      --prefix=/usr \
+	      --mandir=/usr/share/man \
+	      --enable-mpeg2
+ub_make \

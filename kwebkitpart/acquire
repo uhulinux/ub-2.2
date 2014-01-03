@@ -1,0 +1,4 @@
+#!/usr/bin/env dl
+
+kwebkitpart-${UB_VERSION}.tar.xz kwebkitpart-${UB_VERSION}/
+	http://dev.gentoo.org/~johu/distfiles/

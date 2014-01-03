@@ -1,0 +1,16 @@
+diff -Naur ORIG/doc/uhubuild.sgml UHU/doc/uhubuild.sgml
+--- ORIG/doc/uhubuild.sgml	2009-09-29 14:10:09.000000000 +0200
++++ UHU/doc/uhubuild.sgml	2011-11-05 10:03:43.580000139 +0100
+@@ -678,6 +678,12 @@
+ 	A bináris csomagok közül legfeljebb egynek szabad files fájl nélkülinek
+ 	lennie.
+ 
++  <tag/excludes [?]/
++
++	Kihagyandó fájlok, soronként egy.
++	A files kiegészítője arra az esetre, ha az abban csoportosan megadott
++	fájlok közül egy vagy több mégsem tartozik az adott csomagba.
++
+   <tag/groups [?]/
+ 
+ 	Amennyiben a csomag csoporto(ka)t hoz létre, az(oka)t ide tehetjük.

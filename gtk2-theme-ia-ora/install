@@ -1,0 +1,4 @@
+#!/bin/sh -eux
+
+cd ${UB_COMPILEDIR}/ia_ora-gnome-$UB_VERSION
+ub_install

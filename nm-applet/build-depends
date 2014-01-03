@@ -1,0 +1,13 @@
+dbus-glib-dev
+gconf2-dev
+gnome-bluetooth-dev
+gnome-keyring-dev
+gtk3-dev
+intltool
+iso-codes
+libnotify-dev
+libsm-dev
+networkmanager-dev
+policykit-dev
+polkit-dev
+udev-dev

@@ -1,0 +1,10 @@
+#!/bin/sh -eux
+
+/usr/lib/apache-ant/bin/ant
+mkdir ${UB_INSTALLDIR}/usr/share/freeguide
+mv jar/FreeGuide.jar ${UB_INSTALLDIR}/usr/share/freeguide
+gzip install-bin/linux/freeguide.1
+mv install-bin/linux/freeguide.1.gz ${UB_INSTALLDIR}/usr/share/man/man1
+mv doc-bin ${UB_INSTALLDIR}/usr/share/doc/freeguide
+mv install/linux/icons/logo-48x48.png ${UB_INSTALLDIR}/usr/share/pixmaps/freeguide.png
+ub_install 

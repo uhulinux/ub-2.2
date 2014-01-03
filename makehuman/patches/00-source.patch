@@ -1,0 +1,122 @@
+diff -Naur makehuman-0.9.1-rc1a-ori/src/BodyPanel.h makehuman-0.9.1-rc1a/src/BodyPanel.h
+--- makehuman-0.9.1-rc1a-ori/src/BodyPanel.h	2007-11-25 10:28:06.000000000 +0100
++++ makehuman-0.9.1-rc1a/src/BodyPanel.h	2011-04-10 02:32:59.461028466 +0200
+@@ -34,6 +34,7 @@
+ #include <vector>
+ #include <mhgui/Panel.h>
+ #include <mhgui/Image.h>
++#include <algorithm>
+ #include "util.h"
+ #include "TargetSelectionListener.h"
+ 
+diff -Naur makehuman-0.9.1-rc1a-ori/src/CharacterSettingPanel.h makehuman-0.9.1-rc1a/src/CharacterSettingPanel.h
+--- makehuman-0.9.1-rc1a-ori/src/CharacterSettingPanel.h	2007-12-02 23:30:18.000000000 +0100
++++ makehuman-0.9.1-rc1a/src/CharacterSettingPanel.h	2011-04-10 02:33:30.701028854 +0200
+@@ -32,6 +32,7 @@
+ #endif
+ 
+ #include <vector>
++#include <algorithm>
+ #include <mhgui/Panel.h>
+ #include <mhgui/ImageSlider.h>
+ #include <mhgui/Image.h>
+diff -Naur makehuman-0.9.1-rc1a-ori/src/ClothesPanel.h makehuman-0.9.1-rc1a/src/ClothesPanel.h
+--- makehuman-0.9.1-rc1a-ori/src/ClothesPanel.h	2007-11-25 10:28:07.000000000 +0100
++++ makehuman-0.9.1-rc1a/src/ClothesPanel.h	2011-04-10 02:33:52.709362159 +0200
+@@ -32,6 +32,7 @@
+ #endif
+ 
+ #include <vector>
++#include <algorithm>
+ #include <mhgui/Panel.h>
+ #include <mhgui/Image.h>
+ #include "util.h"
+diff -Naur makehuman-0.9.1-rc1a-ori/src/FacePanel.h makehuman-0.9.1-rc1a/src/FacePanel.h
+--- makehuman-0.9.1-rc1a-ori/src/FacePanel.h	2007-11-25 10:28:07.000000000 +0100
++++ makehuman-0.9.1-rc1a/src/FacePanel.h	2011-04-10 02:34:17.421362023 +0200
+@@ -32,6 +32,7 @@
+ #endif
+ 
+ #include <vector>
++#include <algorithm>
+ #include <mhgui/Panel.h>
+ #include <mhgui/Image.h>
+ #include "TargetSelectionListener.h"
+diff -Naur makehuman-0.9.1-rc1a-ori/src/FileTools.h makehuman-0.9.1-rc1a/src/FileTools.h
+--- makehuman-0.9.1-rc1a-ori/src/FileTools.h	2007-11-25 10:28:06.000000000 +0100
++++ makehuman-0.9.1-rc1a/src/FileTools.h	2011-04-10 02:36:06.045029296 +0200
+@@ -35,6 +35,8 @@
+ #include <string>
+ #include <list>
+ #include <cassert>
++#include <cstring>
++#include <cstdlib>
+ 
+ using std::string;
+ using std::list;
+diff -Naur makehuman-0.9.1-rc1a-ori/src/HandsPanel.h makehuman-0.9.1-rc1a/src/HandsPanel.h
+--- makehuman-0.9.1-rc1a-ori/src/HandsPanel.h	2007-11-25 10:28:07.000000000 +0100
++++ makehuman-0.9.1-rc1a/src/HandsPanel.h	2011-04-10 02:36:41.437028365 +0200
+@@ -32,6 +32,7 @@
+ #endif
+ 
+ #include <vector>
++#include <algorithm>
+ #include <mhgui/Panel.h>
+ #include <mhgui/Image.h>
+ #include "util.h"
+diff -Naur makehuman-0.9.1-rc1a-ori/src/PosesBodyPanel.h makehuman-0.9.1-rc1a/src/PosesBodyPanel.h
+--- makehuman-0.9.1-rc1a-ori/src/PosesBodyPanel.h	2007-11-25 10:28:07.000000000 +0100
++++ makehuman-0.9.1-rc1a/src/PosesBodyPanel.h	2011-04-10 02:37:13.661037218 +0200
+@@ -32,6 +32,7 @@
+ #endif
+ 
+ #include <vector>
++#include <algorithm>
+ #include <mhgui/Panel.h>
+ #include <mhgui/Image.h>
+ #include "util.h"
+diff -Naur makehuman-0.9.1-rc1a-ori/src/TeethPanel.h makehuman-0.9.1-rc1a/src/TeethPanel.h
+--- makehuman-0.9.1-rc1a-ori/src/TeethPanel.h	2007-11-25 10:28:06.000000000 +0100
++++ makehuman-0.9.1-rc1a/src/TeethPanel.h	2011-04-10 02:37:49.709038211 +0200
+@@ -32,6 +32,7 @@
+ #endif
+ 
+ #include <vector>
++#include <algorithm>
+ #include <mhgui/Panel.h>
+ #include <mhgui/Image.h>
+ #include "util.h"
+diff -Naur makehuman-0.9.1-rc1a-ori/src/ToolbarPanel.h makehuman-0.9.1-rc1a/src/ToolbarPanel.h
+--- makehuman-0.9.1-rc1a-ori/src/ToolbarPanel.h	2007-11-25 10:28:07.000000000 +0100
++++ makehuman-0.9.1-rc1a/src/ToolbarPanel.h	2011-04-10 02:38:31.617370424 +0200
+@@ -32,6 +32,7 @@
+ #endif
+ 
+ #include <vector>
++#include <algorithm>
+ #include <mhgui/Panel.h>
+ #include <mhgui/Image.h>
+ #include "ImageListener.h"
+diff -Naur makehuman-0.9.1-rc1a-ori/src/UtilitiesPanel.h makehuman-0.9.1-rc1a/src/UtilitiesPanel.h
+--- makehuman-0.9.1-rc1a-ori/src/UtilitiesPanel.h	2007-11-25 10:28:07.000000000 +0100
++++ makehuman-0.9.1-rc1a/src/UtilitiesPanel.h	2011-04-10 02:38:57.785036636 +0200
+@@ -32,6 +32,7 @@
+ #endif
+ 
+ #include <vector>
++#include <algorithm>
+ #include <mhgui/Panel.h>
+ #include <mhgui/ImageSlider.h>
+ #include <mhgui/Image.h>
+diff -Naur makehuman-0.9.1-rc1a-ori/src/UtilitybarPanel.h makehuman-0.9.1-rc1a/src/UtilitybarPanel.h
+--- makehuman-0.9.1-rc1a-ori/src/UtilitybarPanel.h	2007-11-25 10:28:07.000000000 +0100
++++ makehuman-0.9.1-rc1a/src/UtilitybarPanel.h	2011-04-10 02:39:33.325036922 +0200
+@@ -32,6 +32,7 @@
+ #endif
+ 
+ #include <vector>
++#include <algorithm>
+ #include <mhgui/Image.h>
+ #include <mhgui/Panel.h>
+ #include "ImageListener.h"

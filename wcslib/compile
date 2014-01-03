@@ -1,0 +1,4 @@
+#!/bin/sh -eux
+
+ub_compile --prefix=${UB_INSTALLDIR}/usr \
+  --mandir=${UB_INSTALLDIR}/usr/share/man

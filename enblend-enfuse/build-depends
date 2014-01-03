@@ -1,0 +1,13 @@
+boost-dev
+glew
+lcms-dev
+libice-dev
+libjpeg-dev
+libpng-dev
+libtiff-dev
+libx11-dev
+libxi-dev
+libxmu-dev
+mesa-dev
+openexr-dev
+plotutils

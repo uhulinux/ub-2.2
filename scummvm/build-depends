@@ -1,0 +1,11 @@
+alsa-lib-dev
+flac-dev
+fluidsynth-dev
+libmad-dev
+libmpeg2-dev
+libogg-dev
+libvorbis-dev
+libx11-dev
+libxext-dev
+nasm
+sdl-dev

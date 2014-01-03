@@ -1,0 +1,13 @@
+#!/bin/sh -eux
+
+# --enable-openconnect: openconnect
+# --enable-vpnc: vpnc
+
+ub_compile \
+	--enable-client \
+	--enable-l2tp \
+	--enable-pptp \
+	--enable-openvpn \
+	--enable-hh2serial-gps \
+	--enable-nmcompat \
+	--enable-polkit

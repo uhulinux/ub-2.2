@@ -1,0 +1,24 @@
+diff -Naur orig/data/pitivi.desktop.in mod/data/pitivi.desktop.in
+--- orig/data/pitivi.desktop.in	2012-05-03 16:51:11.000000000 +0200
++++ mod/data/pitivi.desktop.in	2013-06-12 17:55:36.000000000 +0200
+@@ -6,7 +6,7 @@
+ Terminal=false
+ Type=Application
+ Icon=pitivi
+-Categories=GNOME;GTK;AudioVideo;AudioVideoEditing;
++Categories=GNOME;GTK;AudioVideo;AudioVideoEditing;X-UHU-Menu/Multimedia/VideoEdit;
+ MimeType=text/x-xptv;
+ StartupNotify=true
+ X-GNOME-Bugzilla-Bugzilla=GNOME
+diff -Naur orig/data/pitivi.desktop.in.in mod/data/pitivi.desktop.in.in
+--- orig/data/pitivi.desktop.in.in	2012-02-22 20:45:13.000000000 +0100
++++ mod/data/pitivi.desktop.in.in	2013-06-12 17:55:44.000000000 +0200
+@@ -6,7 +6,7 @@
+ Terminal=false
+ Type=Application
+ Icon=pitivi
+-Categories=GNOME;GTK;AudioVideo;AudioVideoEditing;
++Categories=GNOME;GTK;AudioVideo;AudioVideoEditing;X-UHU-Menu/Multimedia/VideoEdit;
+ MimeType=text/x-xptv;
+ StartupNotify=true
+ X-GNOME-Bugzilla-Bugzilla=GNOME

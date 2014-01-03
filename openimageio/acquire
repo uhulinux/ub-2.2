@@ -1,0 +1,4 @@
+#!/usr/bin/env dl
+
+openimageio-${UB_VERSION}.tar.gz OpenImageIO-oiio-db9df57/
+	https://github.com/OpenImageIO/oiio/tarball/Release-${UB_VERSION}

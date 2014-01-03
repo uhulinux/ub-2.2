@@ -1,0 +1,62 @@
+#!/bin/sh -eux
+
+mkdir ${UB_INSTALLDIR}/usr/share/icons
+mv ColoredPlastic ${UB_INSTALLDIR}/usr/share/icons
+cd ${UB_INSTALLDIR}/usr/share/icons/ColoredPlastic
+sed -i index.theme -e 's/Name\[ru\]=Цветной пластик/Name\[hu\]=ColoredPlastic/'
+mv places/start-here.svg places/start-here-ubuntu.svg
+mv places/start-here1.svg places/start-here.svg
+convert -background none devices/cdrom_mount.svg categories/cd.png
+convert -background none devices/cdrom_mount.svg categories/cdrom_mount.png
+convert -background none apps/preferences-desktop-locale.svg categories/edu_languages.png
+convert -background none categories/applications-mathematics.svg categories/edu_mathematics.png
+convert -background none categories/applications-debugging.svg categories/edu_miscellaneous.png
+convert -background none categories/applications-physics.svg categories/edu_science.png
+convert -background none categories/applications-multimedia.svg categories/emblem-video.png
+convert -background none categories/applications-fonts.svg categories/file-devel.png
+convert -background none apps/accessories-calculator.svg categories/icon-accessories.png
+convert -background none categories/applications-accessories.svg categories/icon-applications.png
+convert -background none apps/accessories-calculator.svg categories/icon-calculator.png
+convert -background none devices/computer.svg categories/icon-computer.png
+convert -background none apps/gconf-editor.svg categories/icon-configuration.png
+convert -background none mimetypes/x-office-calendar.svg categories/icon-date.png
+convert -background none mimetypes/x-office-calendar.svg categories/icon-datetime.png
+convert -background none categories/applications-development.svg categories/icon-development.png
+convert -background none categories/applications-libraries.svg categories/icon-documentation.png
+convert -background none categories/applications-mail.svg categories/icon-email.png
+convert -background none apps/nautilus.svg categories/icon-filemanager.png
+convert -background none devices/joystick.svg categories/icon-games.png
+convert -background none categories/applications-painting.svg categories/icon-gfx.png
+convert -background none mimetypes/text-html.svg categories/icon-html.png
+convert -background none apps/system-users.svg categories/icon-instantmessage.png
+convert -background none apps/accessories-character-map.svg categories/icon-launcher.png
+convert -background none categories/applications-libraries.svg categories/icon-logbook.png
+convert -background none categories/applications-multimedia.svg categories/icon-media.png
+convert -background none devices/audio-card.svg categories/icon-mixer.png
+convert -background none devices/video-display.svg categories/icon-monitor.png
+convert -background none apps/xscreensaver.svg categories/icon-network-firewall.png
+convert -background none apps/gnome-nettool.svg categories/icon-network.png
+convert -background none apps/vinagre.svg categories/icon-network-system.png
+convert -background none categories/applications-graphics.svg categories/icon-notepad.png
+convert -background none apps/libreoffice-main.svg categories/icon-office.png
+convert -background none apps/libreoffice-impress.svg categories/icon-office-presentation.png
+convert -background none apps/libreoffice-calc.svg categories/icon-office-spreadsheet.png
+convert -background none apps/libreoffice-writer.svg categories/icon-office-wordprocessor.png
+convert -background none apps/preferences-desktop-sound.svg categories/icon-sound.png
+convert -background none apps/preferences-desktop-screensaver.svg categories/icon-television.png
+convert -background none apps/utilities-terminal.svg categories/icon-terminal.png
+convert -background none actions/mail-inbox.svg categories/icon-update.png
+convert -background none apps/web-browser.svg categories/icon-web-browser.png
+convert -background none apps/internet-feed-reader.svg categories/news.png
+convert -background none emblems/emblem-desktop.svg categories/package_edutainment.png
+convert -background none categories/applications-simulation.svg categories/package_games_arcade.png
+convert -background none apps/gnome-mahjongg.svg categories/package_games_board.png
+convert -background none apps/gnome-aisleriot.svg categories/package_games_card.png
+convert -background none devices/joystick.svg categories/package_games.png
+convert -background none apps/gbrainy.svg categories/package_games_strategy.png
+convert -background none categories/applications-sports.svg categories/package_toys.png
+convert -background none categories/applications-libraries.svg categories/stock-book.png
+convert -background none apps/preferences-desktop-locale.svg categories/stock-convert.png
+convert -background none categories/applications-internet.svg categories/stock-panel-internet.png
+convert -background none categories/applications-photography.svg categories/stock-panel-screenshot.png
+convert -background none devices/printer.svg categories/stock-print.png

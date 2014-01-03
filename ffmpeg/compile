@@ -1,0 +1,48 @@
+#!/bin/sh -eux
+./configure \
+	--prefix=/usr \
+	--mandir=/usr/share/man \
+	--enable-shared \
+	--disable-static \
+	--enable-gpl \
+	--enable-libbluray \
+	--enable-libopencore-amrnb \
+	--enable-libopencore-amrwb \
+	--enable-libcdio \
+	--enable-libfaac \
+	--enable-libmp3lame \
+	--enable-libopenjpeg \
+	--enable-libpulse \
+	--enable-libschroedinger \
+	--enable-libvorbis \
+	--enable-libtheora \
+	--enable-nonfree \
+	--enable-libv4l2 \
+	--enable-libdc1394 \
+	--enable-pthreads \
+	--enable-postproc \
+	--enable-avfilter\
+	--enable-libspeex \
+	--enable-libx264 \
+	--enable-libxvid \
+	--enable-x11grab \
+	--enable-version3 \
+	--enable-swscale \
+	--enable-vdpau \
+	--enable-vaapi \
+	--enable-gray \
+	--enable-frei0r \
+	--enable-libass \
+	--enable-openal \
+	--enable-libfreetype \
+	--enable-libgsm \
+	--enable-libmodplug \
+	--enable-libvpx \
+	--enable-pic \
+	--enable-swresample \
+	--enable-version3 \
+	--enable-avresample \
+	--enable-dxva2 \
+	--enable-fontconfig
+
+ub_make

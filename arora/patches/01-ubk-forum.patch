@@ -1,0 +1,48 @@
+diff -Naur a/autotests/webpage/tst_webpage.cpp b/autotests/webpage/tst_webpage.cpp
+--- a/autotests/webpage/tst_webpage.cpp	2010-09-27 04:42:17.000000000 +0200
++++ b/autotests/webpage/tst_webpage.cpp	2013-06-08 20:22:29.745175113 +0200
+@@ -354,7 +354,7 @@
+     QTest::addColumn<bool>("windowArora");
+ 
+     QTest::newRow("qrc:/notfound.html") << QUrl("qrc:/notfound.html") << true << false;
+-    QTest::newRow("qrc:/startpage.html") << QUrl("qrc:/startpage.html") << true << true;
++    QTest::newRow("http://ubk.hu/forum/") << QUrl("http://ubk.hu/forum/") << true << true;
+ }
+ 
+ void tst_WebPage::javaScriptObjects()
+diff -Naur a/src/browsermainwindow.cpp b/src/browsermainwindow.cpp
+--- a/src/browsermainwindow.cpp	2010-09-27 04:42:17.000000000 +0200
++++ b/src/browsermainwindow.cpp	2013-06-08 20:25:21.705175845 +0200
+@@ -1408,7 +1408,7 @@
+ {
+     QSettings settings;
+     settings.beginGroup(QLatin1String("MainWindow"));
+-    QString home = settings.value(QLatin1String("home"), QLatin1String("about:home")).toString();
++    QString home = settings.value(QLatin1String("home"), QLatin1String("http://ubk.hu/forum/")).toString();
+     tabWidget()->loadString(home);
+ }
+ 
+diff -Naur a/src/settings.cpp b/src/settings.cpp
+--- a/src/settings.cpp	2010-09-27 04:42:17.000000000 +0200
++++ b/src/settings.cpp	2013-06-08 20:25:53.853175983 +0200
+@@ -146,7 +146,7 @@
+     settings.endGroup();
+ 
+     settings.beginGroup(QLatin1String("MainWindow"));
+-    QString defaultHome = QLatin1String("about:home");
++    QString defaultHome = QLatin1String("http://ubk.hu/forum/");
+     homeLineEdit->setText(settings.value(QLatin1String("home"), defaultHome).toString());
+     startupBehavior->setCurrentIndex(settings.value(QLatin1String("startupBehavior"), 0).toInt());
+     settings.endGroup();
+diff -Naur a/src/tabwidget.cpp b/src/tabwidget.cpp
+--- a/src/tabwidget.cpp	2010-09-27 04:42:17.000000000 +0200
++++ b/src/tabwidget.cpp	2013-06-08 20:19:55.393174458 +0200
+@@ -829,7 +829,7 @@
+ 
+     if (url.scheme() == QLatin1String("about")
+         && url.path() == QLatin1String("home"))
+-        url = QUrl(QLatin1String("qrc:/startpage.html"));
++        url = QUrl(QLatin1String("http://ubk.hu/forum/"));
+ 
+     // QUrl::isValid() is too much tolerant.
+     // We actually want to check if the url conforms to the RFC, which QUrl::isValid() doesn't state.

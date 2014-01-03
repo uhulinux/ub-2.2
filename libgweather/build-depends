@@ -1,0 +1,11 @@
+dbus-glib-dev
+gconf2-dev
+glibc-timezones
+gnome-keyring-dev
+gobject-introspection-dev
+gtk3-dev
+intltool
+libgcrypt-dev
+libsoup-gnome-dev
+libxml2-dev
+sqlite-dev

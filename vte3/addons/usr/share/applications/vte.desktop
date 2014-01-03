@@ -1,0 +1,8 @@
+[Desktop Entry]
+Name=vte
+Comment=The core engine of Gnome Terminal
+Comment[hu]=A Gnome terminál lelke
+Exec=vte2_90
+Icon=gnome-terminal.png
+Type=Application
+Categories=GTK;System;Utility;TerminalEmulator;X-UHU-Menu/Tools/Terminals;

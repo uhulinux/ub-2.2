@@ -1,0 +1,11 @@
+#!/bin/sh -eux
+
+ub_compile \
+	--localstatedir=/var/lib \
+	--with-openldap=yes \
+	--with-krb5=/usr \
+	--with-clutter \
+	--enable-nss=yes \
+	--enable-smime=yes \
+	--enable-python \
+	--enable-plugins=all

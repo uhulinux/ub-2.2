@@ -1,0 +1,13 @@
+#!/bin/sh
+
+. /etc/init.d/common
+
+DAEMON=/bin/dbus-daemon
+PIDFILE="/var/run/dbus/pid"
+DAEMONARGS=(--system)
+
+function _init() {
+	dbus-uuidgen --ensure
+}
+
+startstop "$@"

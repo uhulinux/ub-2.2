@@ -1,0 +1,4 @@
+#!/bin/sh -eux
+
+ub_configure
+make LDFLAGS="-lX11 -ldl -lXext" 

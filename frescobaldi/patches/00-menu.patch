@@ -1,0 +1,9 @@
+diff -Naur frescobaldi-2.0.8-ori/frescobaldi.desktop frescobaldi-2.0.8/frescobaldi.desktop
+--- frescobaldi-2.0.8-ori/frescobaldi.desktop	2012-02-05 11:52:09.000000000 +0100
++++ frescobaldi-2.0.8/frescobaldi.desktop	2013-01-01 01:30:12.561657740 +0100
+@@ -20,4 +20,4 @@
+ Type=Application
+ Terminal=false
+ InitialPreference=8
+-Categories=Qt;AudioVideo;Music;Utility;TextEditor;
++Categories=Qt;AudioVideo;Music;Utility;TextEditor;X-UHU-Menu/Multimedia/SoundEdit;

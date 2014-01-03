@@ -1,0 +1,5 @@
+#!/bin/sh -eux
+
+sed -i 's|PREFIX := /usr/local|PREFIX := /usr|' Makefile
+sed -i 's|MANDIR := $(PREFIX)/man|MANDIR := $(PREFIX)/share/man|' Makefile
+ub_make

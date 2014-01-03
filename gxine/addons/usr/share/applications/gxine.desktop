@@ -1,0 +1,18 @@
+[Desktop Entry]
+Version=1.0
+Name=gxine
+GenericName=Video Player
+GenericName[ca]=Reproductor de peŀlícules
+GenericName[de]=Video-Player
+GenericName[es]=Reproductor de películas
+GenericName[hu]=Videólejátszó
+Comment=Watch videos or TV and listen to audio in a variety of formats
+Comment[ca]=Reproduïu vídeos i cançons
+Comment[es]=Reproduce vídeos y canciones
+Comment[hu]=Film- és zenelejátszó, digitális TV-néző
+Exec=gxine
+Icon=gxine
+Terminal=false
+Type=Application
+StartupNotify=true
+Categories=AudioVideo;GTK;Player;TV;X-UHU-Menu/Multimedia/VideoPlayers;

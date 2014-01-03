@@ -1,0 +1,14 @@
+diff -Naur orig/src/vdpau_dump.c mod/src/vdpau_dump.c
+--- orig/src/vdpau_dump.c	2012-10-05 17:02:58.000000000 +0200
++++ mod/src/vdpau_dump.c	2013-12-07 23:36:23.026495870 +0100
+@@ -59,8 +59,8 @@
+         _(VAEncSequenceParameterBufferType);
+         _(VAEncPictureParameterBufferType);
+         _(VAEncSliceParameterBufferType);
+-        _(VAEncH264VUIBufferType);
+-        _(VAEncH264SEIBufferType);
++//         _(VAEncH264VUIBufferType);
++//         _(VAEncH264SEIBufferType);
+ #endif
+ #if VA_CHECK_VERSION(0,31,1)
+         _(VAQMatrixBufferType);

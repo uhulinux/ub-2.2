@@ -1,0 +1,12 @@
+dbus-glib-dev
+gdk-pixbuf-dev
+gobject-introspection-dev
+gtk2-dev
+libart-lgpl-dev
+libcroco-dev
+libgsf-dev
+libsm-dev
+libxml2-dev
+libxt-dev
+openssl-dev
+popt-dev

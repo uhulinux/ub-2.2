@@ -1,0 +1,11 @@
+--- empathy/data/org.gnome.Empathy.gschema.xml.in.orig	2011-10-22 18:19:12.000000000 +0200
++++ empathy/data/org.gnome.Empathy.gschema.xml.in	2011-10-22 18:19:24.000000000 +0200
+@@ -212,7 +212,7 @@
+       <_description>Whether to use the theme for chat rooms.</_description>
+     </key>
+     <key name="spell-checker-languages" type="s">
+-      <default>'en'</default>
++      <default>'hu'</default>
+       <_summary>Spell checking languages</_summary>
+       <_description>Comma-separated list of spell checker languages to use (e.g. "en, fr, nl").</_description>
+     </key>

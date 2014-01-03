@@ -1,0 +1,4 @@
+#!/bin/sh -eux
+
+sed -i s/\#error/\\/\\/\#error/g scan.c
+ub_compile

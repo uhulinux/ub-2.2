@@ -1,0 +1,5 @@
+#!/usr/bin/env dl
+
+lskat-${UB_VERSION}.tar.xz lskat-${UB_VERSION}/
+	ftp://ftp.kde.org/pub/kde/stable/${UB_VERSION}/src/
+

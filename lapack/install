@@ -1,0 +1,10 @@
+#!/bin/sh -eux
+
+install -m755 libblas.so."$UB_VERSION" "$UB_INSTALLDIR"/usr/lib/
+ln -sf libblas.so."$UB_VERSION" "$UB_INSTALLDIR"/usr/lib/libblas.so
+ln -sf libblas.so."$UB_VERSION" "$UB_INSTALLDIR"/usr/lib/libblas.so.3
+
+install -m755 liblapack.so."$UB_VERSION" "$UB_INSTALLDIR"/usr/lib/
+ln -sf liblapack.so."$UB_VERSION" "$UB_INSTALLDIR"/usr/lib/liblapack.so
+ln -sf liblapack.so."$UB_VERSION" "$UB_INSTALLDIR"/usr/lib/liblapack.so.3
+

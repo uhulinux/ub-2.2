@@ -1,0 +1,7 @@
+#!/usr/bin/env dl
+
+rpm-$UB_VERSION.tar.bz2 rpm-$UB_VERSION/
+	http://rpm.org/releases/rpm-${UB_VERSION_HEAD2}.x/
+
+db-4.8.30.tar.gz db-4.8.30/ :db
+	http://pkgs.fedoraproject.org/repo/pkgs/db4/db-4.8.30.tar.gz/f80022099c5742cd179343556179aa8c/

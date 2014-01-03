@@ -1,0 +1,5 @@
+#!/usr/bin/env dl
+
+skype-${UB_VERSION}.tar.bz2 skype-${UB_VERSION}/
+	http://download.skype.com/linux/
+

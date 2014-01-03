@@ -1,0 +1,55 @@
+diff -Naurdp mesa-demos-8.0.1/src/egl/Makefile.in mesa-demos-8.0.1-no-egl/src/egl/Makefile.in
+--- mesa-demos-8.0.1/src/egl/Makefile.in	2010-07-13 20:53:23.000000000 +0200
++++ mesa-demos-8.0.1-no-egl/src/egl/Makefile.in	2010-11-24 19:50:49.000000000 +0100
+@@ -261,7 +261,6 @@ top_srcdir = @top_srcdir@
+ SUBDIRS = \
+ 	eglut \
+ 	opengl \
+-	openvg \
+ 	opengles1 \
+ 	opengles2
+ 
+diff -Naurdp mesa-demos-8.0.1/src/egl/openvg/Makefile.in mesa-demos-8.0.1-no-egl/src/egl/openvg/Makefile.in
+--- mesa-demos-8.0.1/src/egl/openvg/Makefile.in	2010-07-13 20:53:24.000000000 +0200
++++ mesa-demos-8.0.1-no-egl/src/egl/openvg/Makefile.in	2010-11-24 19:46:29.000000000 +0100
+@@ -328,7 +328,7 @@ sp_screen_LDADD = ../eglut/libeglut_scre
+ lion_x11_LDADD = ../eglut/libeglut_x11.la
+ sp_x11_LDADD = ../eglut/libeglut_x11.la
+ SUBDIRS = \
+-	trivial
++	
+ 
+ all: all-recursive
+ 
+diff -Naurdp mesa-demos-8.0.1/src/Makefile.in mesa-demos-8.0.1-no-egl/src/Makefile.in
+--- mesa-demos-8.0.1/src/Makefile.in	2010-07-13 20:53:23.000000000 +0200
++++ mesa-demos-8.0.1-no-egl/src/Makefile.in	2010-11-24 20:04:39.000000000 +0100
+@@ -274,7 +274,6 @@ SUBDIRS = \
+ 	redbook \
+ 	samples \
+ 	slang \
+-	tests \
+ 	tools \
+ 	trivial \
+ 	vp \
+diff -Naurdp mesa-demos-8.0.1/src/tests/Makefile.in mesa-demos-8.0.1-no-egl/src/tests/Makefile.in
+--- mesa-demos-8.0.1/src/tests/Makefile.in	2010-07-13 20:53:26.000000000 +0200
++++ mesa-demos-8.0.1-no-egl/src/tests/Makefile.in	2010-11-24 19:57:12.000000000 +0100
+@@ -495,7 +495,7 @@ SOURCES = afsmultiarb.c antialias.c arbf
+ 	lineclip.c manytex.c mapbufrange.c minmag.c mipgen.c \
+ 	mipmap_comp.c mipmap_comp_tests.c mipmap_limits.c \
+ 	mipmap_view.c multipal.c multitexarray.c multiwindow.c \
+-	no_s3tc.c packedpixels.c pbo.c persp_hint.c prim.c \
++	no_s3tc.c packedpixels.c pbo.c persp_hint.c \
+ 	prog_parameter.c quads.c random.c readrate.c rubberband.c \
+ 	scissor.c scissor-viewport.c seccolor.c shader_api.c \
+ 	sharedtex.c stencilreaddraw.c stencilwrap.c streaming_rect.c \
+@@ -519,7 +519,7 @@ DIST_SOURCES = afsmultiarb.c antialias.c
+ 	mapbufrange.c minmag.c mipgen.c mipmap_comp.c \
+ 	mipmap_comp_tests.c mipmap_limits.c mipmap_view.c multipal.c \
+ 	multitexarray.c multiwindow.c no_s3tc.c packedpixels.c pbo.c \
+-	persp_hint.c prim.c prog_parameter.c quads.c random.c \
++	persp_hint.c prog_parameter.c quads.c random.c \
+ 	readrate.c rubberband.c scissor.c scissor-viewport.c \
+ 	seccolor.c shader_api.c sharedtex.c stencilreaddraw.c \
+ 	stencilwrap.c streaming_rect.c subtex.c subtexrate.c tex1d.c \

@@ -1,0 +1,9 @@
+diff -Naur a/qGTalk/qGTalk.desktop b/qGTalk/qGTalk.desktop
+--- a/qGTalk/qGTalk.desktop	2012-09-30 10:05:13.000000000 +0200
++++ b/qGTalk/qGTalk.desktop	2013-07-05 23:04:41.281218965 +0200
+@@ -5,4 +5,4 @@
+ Icon=qGTalk
+ Name=qGTalk
+ Type=Application
+-Categories=Qt;Network;InstantMessaging;
++Categories=Qt;Network;InstantMessaging;X-UHU-Menu/Internet/Messengers;

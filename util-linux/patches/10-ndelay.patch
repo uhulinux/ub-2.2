@@ -1,0 +1,34 @@
+diff -Naurd a/disk-utils/blockdev.c b/disk-utils/blockdev.c
+--- a/disk-utils/blockdev.c	2004-09-07 20:53:42.663497065 +0200
++++ b/disk-utils/blockdev.c	2004-09-07 21:05:53.355683743 +0200
+@@ -93,6 +93,8 @@
+ 
+ #define SIZE(a)	(sizeof(a)/sizeof((a)[0]))
+ 
++int ndelay = 0;
++
+ static void
+ usage(void) {
+ 	int i;
+@@ -165,6 +167,12 @@
+ 		exit(0);
+ 	}
+ 
++	if (!strcmp(argv[1], "-n")) {
++		ndelay = O_NDELAY;
++		argv++;
++		argc--;
++	}
++
+ 	/* do each of the commands on each of the devices */
+ 	/* devices start after last command */
+ 	for (d = 1; d < argc; d++) {
+@@ -187,7 +195,7 @@
+ 		usage();
+ 
+ 	for (k = d; k < argc; k++) {
+-		fd = open(argv[k], O_RDONLY, 0);
++		fd = open(argv[k], O_RDONLY | ndelay, 0);
+ 		if (fd < 0) {
+ 			perror(argv[k]);
+ 			exit(1);

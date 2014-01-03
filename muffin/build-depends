@@ -1,0 +1,17 @@
+cairo-dev
+clutter-dev
+cogl-dev
+gconf2-dev
+gdk-pixbuf-dev
+glib2-dev
+gnome-doc-utils
+gobject-introspection-dev
+gsettings-desktop-schemas
+gtk3-dev
+intltool
+libcanberra-dev
+libxcomposite-dev
+pango-dev
+startup-notification-dev
+xcb-util-dev
+zenity

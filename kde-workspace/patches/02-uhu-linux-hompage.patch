@@ -1,0 +1,14 @@
+diff -Naur kde-workspace-4.9.5-ori/plasma/desktop/applets/kickoff/ui/brandingbutton.cpp kde-workspace-4.9.5/plasma/desktop/applets/kickoff/ui/brandingbutton.cpp
+--- kde-workspace-4.9.5-ori/plasma/desktop/applets/kickoff/ui/brandingbutton.cpp	2012-11-30 08:24:40.000000000 +0100
++++ kde-workspace-4.9.5/plasma/desktop/applets/kickoff/ui/brandingbutton.cpp	2013-01-26 00:34:45.253751740 +0100
+@@ -68,7 +68,9 @@
+ 
+ void BrandingButton::openHomepage()
+ {
+-    new KRun(Plasma::Theme::defaultTheme()->homepage(), topLevelWidget(), false, false);
++    KUrl uhuurl;
++    uhuurl = "http://www.linuxempire.hu/uhu-linux/";
++    new KRun(uhuurl, topLevelWidget(), false, false);
+ }
+ 
+ void BrandingButton::paintEvent(QPaintEvent *event)

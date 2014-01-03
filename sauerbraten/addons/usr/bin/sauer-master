@@ -1,0 +1,4 @@
+#!/bin/bash
+
+cd /usr/share/games/sauerbraten
+/usr/libexec/sauer_master /VAR

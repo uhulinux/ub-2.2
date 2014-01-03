@@ -1,0 +1,31 @@
+diff -Naur httpd-2.0.43.orig/config.layout httpd-2.0.43/config.layout
+--- httpd-2.0.43.orig/config.layout	2002-07-16 20:29:59.000000000 +0200
++++ httpd-2.0.43/config.layout	2002-10-10 19:16:39.000000000 +0200
+@@ -298,3 +298,27 @@
+     installbuilddir: ${prefix}/etc/apache2/build
+     errordir:      ${datadir}/error
+ </Layout>
++
++# UHU layout
++<Layout UHU>
++    prefix:        /usr
++    exec_prefix:   ${prefix}
++    bindir:        ${prefix}/bin
++    sbindir:       ${prefix}/sbin
++    libdir:        ${prefix}/lib
++    libexecdir:    ${prefix}/lib/apache
++    mandir:        ${prefix}/share/man
++    sysconfdir:    /etc/apache
++    datadir:       /srv/www
++    installbuilddir: /usr/lib/apache/build
++    errordir:      ${datadir}/error
++    iconsdir:      ${datadir}/icons
++    htdocsdir:     ${datadir}/html
++    manualdir:     ${datadir}/manual
++    cgidir:        ${datadir}/cgi-bin
++    includedir:    ${prefix}/include/apache
++    localstatedir: /var
++    runtimedir:    ${localstatedir}/run
++    logfiledir:    ${localstatedir}/log/apache
++    proxycachedir: ${localstatedir}/cache/apache
++</Layout>     

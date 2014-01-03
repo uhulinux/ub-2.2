@@ -1,0 +1,5 @@
+#!/usr/bin/env dl
+
+antenna-dtv-${UB_VERSION}.tar .
+	http://downloads.sourceforge.net/project/antenna-dtv/antenna-dtv_${UB_VERSION}-0_all/
+

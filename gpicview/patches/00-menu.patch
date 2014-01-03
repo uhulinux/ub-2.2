@@ -1,0 +1,15 @@
+diff -Naur gpicview-0.2.3-ori/gpicview.desktop.in gpicview-0.2.3/gpicview.desktop.in
+--- gpicview-0.2.3-ori/gpicview.desktop.in	2012-04-20 22:34:30.000000000 +0200
++++ gpicview-0.2.3/gpicview.desktop.in	2013-05-11 22:12:45.986972060 +0200
+@@ -1,9 +1,10 @@
+ [Desktop Entry]
+ Encoding=UTF-8
+-Categories=Graphics;Utility;Core;GTK;Viewer;RasterGraphics;2DGraphics;Photography;
++Categories=Graphics;Utility;Core;GTK;Viewer;RasterGraphics;2DGraphics;Photography;X-UHU-Menu/Graphics;
+ Exec=gpicview %f
+ Icon=gpicview
+ StartupNotify=true
++Comment[hu]=Kép megjelenítő
+ Type=Application
+ Terminal=false
+ MimeType=image/bmp;image/gif;image/jpeg;image/jpg;image/png;image/tiff;image/x-bmp;image/x-pcx;image/x-tga;image/x-portable-pixmap;image/x-portable-bitmap;image/x-targa;image/x-portable-greymap;application/pcx;image/svg+xml;image/svg-xml;

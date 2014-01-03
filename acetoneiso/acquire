@@ -1,0 +1,4 @@
+#!/usr/bin/env dl
+
+acetoneiso_"$UB_VERSION".tar.gz acetoneiso_"$UB_VERSION"/
+	http://downloads.sourceforge.net/acetoneiso/

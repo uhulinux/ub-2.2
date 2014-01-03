@@ -1,0 +1,5 @@
+gtkmm2-dev
+intltool
+libcanberra-dev
+libglademm2-dev
+pulseaudio-dev

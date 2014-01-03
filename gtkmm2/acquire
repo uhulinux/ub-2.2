@@ -1,0 +1,4 @@
+#!/usr/bin/env dl
+
+gtkmm-${UB_VERSION}.tar.bz2 gtkmm-${UB_VERSION}/
+	ftp://ftp.gnome.org/pub/gnome/sources/gtkmm/${UB_VERSION_HEAD2}/

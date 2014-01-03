@@ -1,0 +1,3 @@
+#!/bin/bash
+
+mkfontdir /usr/share/fonts/misc

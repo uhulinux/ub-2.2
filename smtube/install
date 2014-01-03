@@ -1,0 +1,5 @@
+#!/bin/sh -eux
+
+
+make QMAKE=/usr/lib/qt4/bin/qmake LRELEASE=/usr/lib/qt4/bin/lrelease PREFIX="/usr" DESTDIR=${UB_INSTALLDIR} install
+rm -Rf ${UB_INSTALLDIR}/usr/share/doc/smtube

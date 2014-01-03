@@ -1,0 +1,9 @@
+#!/bin/sh -eux
+
+#find -type f | while read i; do
+#	if [ `file -b --mime-type "$i" | sed 's,/.*,,'` = 'text' ]; then
+#		sed -i 's,\r,,' "$i"
+#	fi
+#done
+
+ub_compile

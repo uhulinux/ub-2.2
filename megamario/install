@@ -1,0 +1,11 @@
+#!/bin/sh -eux
+make PREFIX=$UB_INSTALLDIR/usr install
+mv $UB_INSTALLDIR/usr/bin/megamario $UB_INSTALLDIR/usr/bin/megamario.bin
+mkdir $UB_INSTALLDIR/usr/share/megamario/mp3music
+cp mp3music/* $UB_INSTALLDIR/usr/share/megamario/mp3music/
+install -D -m644 megamario.png $UB_INSTALLDIR/usr/share/pixmaps/megamario.png
+cd $UB_INSTALLDIR/usr/share/megamario
+find -type d -exec chmod 755 {} \;
+find -type f -exec chmod 644 {} \;
+ln $UB_INSTALLDIR/usr/share/megamario/gfx/background/Iceland.jpg $UB_INSTALLDIR/usr/share/megamario/gfx/background/iceland.jpg
+ln $UB_INSTALLDIR/usr/share/megamario/gfx/background/canyon.jpg $UB_INSTALLDIR/usr/share/megamario/gfx/background/Canyon.jpg

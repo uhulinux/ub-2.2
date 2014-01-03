@@ -1,0 +1,15 @@
+#!/bin/sh
+
+. /etc/init.d/common
+
+DAEMON=/usr/lib/postfix/master
+PIDFILE="/var/spool/postfix/pid/master.pid"
+
+function _init() {
+	if [ ! -f /etc/aliases.db -o /etc/aliases.db -ot /etc/aliases ]; then
+		newaliases
+	fi
+}
+
+export _POSTFIX_FORK=true
+startstop "$@"

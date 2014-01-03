@@ -1,0 +1,5 @@
+#!/bin/sh -eux
+
+ub_compile \
+	--enable-dynamic-linking \
+	--with-pidfile-dir=/var/run

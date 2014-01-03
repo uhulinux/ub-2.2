@@ -1,0 +1,10 @@
+#!/bin/sh -eux
+
+# ub_compile
+
+./waf configure \
+		--prefix="$UB_INSTALLDIR"/usr \
+		--dbus \
+		--doxygen \
+		--classic
+./waf build 

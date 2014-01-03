@@ -1,0 +1,54 @@
+diff -Naur orig/configure.ac patched/configure.ac
+--- orig/configure.ac	2005-10-03 00:07:34.000000000 +0200
++++ patched/configure.ac	2012-10-21 00:50:55.654897022 +0200
+@@ -1,4 +1,4 @@
+->AC_PREREQ(2.53)
++AC_PREREQ(2.53)
+ AC_INIT([libfakekey], 0.1, [mallum@openedhand.com])
+ AC_CONFIG_SRCDIR([src/libfakekey.c])
+ 
+@@ -19,6 +19,7 @@
+ AC_SUBST(LT_CURRENT)
+ AC_SUBST(LT_REVISION)
+ LT_AGE=0
++AC_SUBST(LT_AGE)
+ 
+ LT_VERSION_INFO="$LT_CURRENT:$LT_REVISION:$LT_AGE"
+ AC_SUBST(LT_VERSION_INFO)
+diff -Naur orig/src/libfakekey.c patched/src/libfakekey.c
+--- orig/src/libfakekey.c	2005-10-03 00:07:34.000000000 +0200
++++ patched/src/libfakekey.c	2012-10-21 00:45:22.481244864 +0200
+@@ -25,7 +25,7 @@
+  * Boston, MA 02111-1307, USA.
+  */
+ 
+-
++#include <X11/XKBlib.h>
+ #include <fakekey/fakekey.h>
+ 
+ #if HAVE_CONFIG_H
+@@ -201,8 +201,8 @@
+     {
+       if (fk->modifier_table[mod_index])
+ 	{
+-	  KeySym ks = XKeycodeToKeysym(fk->xdpy, 
+-				       fk->modifier_table[mod_index], 0);
++	  KeySym ks = XkbKeycodeToKeysym(fk->xdpy, 
++				       fk->modifier_table[mod_index], 0, 0);
+ 	  
+ 	  /* 
+ 	   *  Note: ControlMapIndex is already defined by xlib
+@@ -292,11 +292,11 @@
+ 
+       /* we already have a keycode for this keysym */
+       /* Does it need a shift key though ? */
+-      if (XKeycodeToKeysym(fk->xdpy, code, 0) != keysym)
++      if (XkbKeycodeToKeysym(fk->xdpy, code, 0, 0) != keysym)
+ 	{
+ 	  DBG("does not equal code for index o, needs shift?\n");
+ 	  /* TODO: Assumes 1st modifier is shifted  */
+-	  if (XKeycodeToKeysym(fk->xdpy, code, 1) == keysym)
++	  if (XkbKeycodeToKeysym(fk->xdpy, code, 1, 0) == keysym)
+ 	    flags |= FAKEKEYMOD_SHIFT; 	/* can get at it via shift */
+ 	  else
+ 	    code = 0; /* urg, some other modifier do it the heavy way */

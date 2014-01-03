@@ -1,0 +1,5 @@
+#!/bin/sh -eux
+make \
+  RO_GAME_DIR=/usr/share/games/rocksndiamonds \
+  RW_GAME_DIR=/var/games/rocksndiamonds \
+  sdl

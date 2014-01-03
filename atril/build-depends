@@ -1,0 +1,16 @@
+caja-dev
+dbus-dev
+djvulibre-dev
+gobject-introspection-dev
+gtk-doc
+gtk2-dev
+intltool
+libmatekeyring-dev
+libsm-dev
+libspectre-dev
+libtiff-dev
+libxml2-dev
+mate-common
+mate-doc-utils
+mate-icon-theme
+poppler-glib-dev

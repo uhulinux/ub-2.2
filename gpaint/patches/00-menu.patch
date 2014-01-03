@@ -1,0 +1,17 @@
+diff -Naur gpaint-2-0.3.2-ori/gpaint.desktop gpaint-2-0.3.2/gpaint.desktop
+--- gpaint-2-0.3.2-ori/gpaint.desktop	2005-01-03 18:37:58.000000000 +0100
++++ gpaint-2-0.3.2/gpaint.desktop	2011-03-05 14:31:02.654946185 +0100
+@@ -3,11 +3,12 @@
+ Comment=A small-scale painting program for GNOME, the GNU Desktop
+ Comment[fr]=Un petit outil de dessin pour GNOME, le desktop GNU
+ Comment[pt_BR]=Um pequeno programa de desenho para o GNOME, o Desktop GNU
++Comment[hu]=Egyszerű rajzoló program GNOME asztalhoz
+ TryExec=gpaint-2
+ Exec=gpaint-2
+ Icon=gnome-logo-icon-transparent.png
+ Terminal=0
+ Type=Application
+-
++Categories=X-UHU-Menu/Graphics/Bitmaps;
+ 
+ 

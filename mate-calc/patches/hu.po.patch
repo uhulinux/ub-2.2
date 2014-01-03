@@ -1,0 +1,36 @@
+diff -Naur orig/po/hu.po patched/po/hu.po
+--- orig/po/hu.po	2013-04-01 01:03:18.000000000 +0200
++++ patched/po/hu.po	2013-07-19 20:37:01.083579638 +0200
+@@ -3,17 +3,17 @@
+ # This file is distributed under the same license as the PACKAGE package.
+ # 
+ # Translators:
+-# Andras Timar <timar at mate dot hu>, 2003.
+-# Gabor Kelemen <kelemeng at mate dot hu>, 2005-2012.
+-# Laszlo Dvornik <dvornik at mate dot hu>, 2004.
+-# Mate ORY <orymate at gmail d0t com>, 2006.
+-# Rezső Páder <rezso@rezso.net>, 2013.
++# Andras Timar <timar at mate dot hu>, 2003
++# Gabor Kelemen <kelemeng at mate dot hu>, 2005-2012
++# Laszlo Dvornik <dvornik at mate dot hu>, 2004
++# Mate ORY <orymate at gmail d0t com>, 2006
++# Rezső Páder <rezso@rezso.net>, 2013
+ msgid ""
+ msgstr ""
+ "Project-Id-Version: MATE Desktop Environment\n"
+ "Report-Msgid-Bugs-To: https://github.com/mate-desktop/\n"
+ "POT-Creation-Date: 2013-03-24 20:10+0100\n"
+-"PO-Revision-Date: 2013-03-30 11:43+0000\n"
++"PO-Revision-Date: 2013-07-12 08:44+0000\n"
+ "Last-Translator: Rezső Páder <rezso@rezso.net>\n"
+ "Language-Team: Hungarian (http://www.transifex.com/projects/p/MATE/language/hu/)\n"
+ "MIME-Version: 1.0\n"
+@@ -1268,7 +1268,7 @@
+ #: ../src/math-equation.c:1253
+ #, c-format
+ msgid "Malformed expression at token '%s'"
+-msgstr ""
++msgstr "Hibás kifejezés a(z) '%s' token-nél"
+ 
+ #. Unknown error.
+ #. Error displayed to user when they enter an invalid calculation

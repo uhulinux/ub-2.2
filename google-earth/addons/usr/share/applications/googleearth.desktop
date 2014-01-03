@@ -1,0 +1,14 @@
+[Desktop Entry]
+Encoding=UTF-8
+Name=Google Earth
+GenericName=3D planet viewer
+GenericName[hu]=3D földgömb
+Comment=Explore, search and discover the planet
+Exec=google-earth %f
+Terminal=false
+MultipleArgs=false
+Type=Application
+Icon=google-earth
+Categories=X-UHU-Menu/Internet;
+MimeType=application/vnd.google-earth.kml+xml;application/vnd.google-earth.kmz;application/earthviewer;application/keyhole
+

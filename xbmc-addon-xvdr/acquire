@@ -1,0 +1,7 @@
+#!/usr/bin/env dl
+
+xvdr-${UB_VERSION}.tar.gz xbmc-addon-xvdr-xvdr-${UB_VERSION}/
+  https://github.com/pipelka/xbmc-addon-xvdr/archive/
+
+#xbmc-addon-xvdr-${UB_VERSION}.tar.gz xbmc-addon-xvdr-master/
+#  git://github.com/pipelka/xbmc-addon-xvdr.git@master

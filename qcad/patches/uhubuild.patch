@@ -1,0 +1,30 @@
+diff -urN qcad-2.0.5.0-1-community.src.orig/scripts/build_qcad.sh qcad-2.0.5.0-1-community.src/scripts/build_qcad.sh
+--- qcad-2.0.5.0-1-community.src.orig/scripts/build_qcad.sh	2005-11-22 12:27:33.000000000 +0100
++++ qcad-2.0.5.0-1-community.src/scripts/build_qcad.sh	2009-12-02 01:09:39.532403309 +0100
+@@ -42,7 +42,7 @@
+     echo "Platform is FreeBSD"
+     platform=freebsd
+ else
+-    export MAKE=make
++    export MAKE=ub_make
+     echo "Platform is Linux"
+     platform=linux
+ fi
+@@ -156,7 +156,7 @@
+ cd fparser
+ if [ -z $noconfig ]
+ then
+-    ./configure
++    ub_configure
+ fi
+ eval $MAKE
+ cd ..
+@@ -171,7 +171,7 @@
+ cd dxflib
+ if [ -z $noconfig ]
+ then
+-    ./configure
++    ub_configure
+ fi
+ eval $MAKE
+ cd ..

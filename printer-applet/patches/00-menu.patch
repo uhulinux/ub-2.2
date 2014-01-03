@@ -1,0 +1,12 @@
+diff -Naur print-manager-4.10.0-ori/printer-manager-kcm/kcm_printer_manager.desktop print-manager-4.10.0/printer-manager-kcm/kcm_printer_manager.desktop
+--- print-manager-4.10.0-ori/printer-manager-kcm/kcm_printer_manager.desktop	2013-01-30 21:35:57.000000000 +0100
++++ print-manager-4.10.0/printer-manager-kcm/kcm_printer_manager.desktop	2013-02-09 19:19:44.582504141 +0100
+@@ -8,7 +8,7 @@
+ X-KDE-System-Settings-Parent-Category=hardware
+ X-KDE-System-Settings-Parent-Category-V2=hardware
+ X-KDE-ParentApp=kcontrol
+-Categories=Qt;KDE;X-KDE-settings-hardware;
++Categories=Qt;KDE;X-KDE-settings-hardware;X-UHU-Menu/Settings;
+ 
+ Name=Printers
+ Name[bs]=Štampači

@@ -1,0 +1,4 @@
+#!/usr/bin/env dl
+
+${UB_VERSION}.tar.gz	mate-image-viewer-plugins-${UB_VERSION}/
+	https://github.com/cygwinports/mate-image-viewer-plugins/archive/

@@ -1,0 +1,14 @@
+diff -Naurd a/src/vte-private.h b/src/vte-private.h
+--- a/src/vte-private.h	2007-06-06 12:20:37.000000000 +0200
++++ b/src/vte-private.h	2007-06-06 13:41:04.000000000 +0200
+@@ -84,8 +84,8 @@
+ #define VTE_INVALID_BYTE		'?'
+ #define VTE_COALESCE_TIMEOUT		10
+ #define VTE_DISPLAY_TIMEOUT		10
+-#define VTE_UPDATE_TIMEOUT		10
+-#define VTE_UPDATE_REPEAT_TIMEOUT	25
++#define VTE_UPDATE_TIMEOUT		5
++#define VTE_UPDATE_REPEAT_TIMEOUT	10
+ 
+ /* The structure we use to hold characters we're supposed to display -- this
+  * includes any supported visible attributes. */

@@ -1,0 +1,15 @@
+cvs
+docbook-dtds
+gconf2-dev
+glitz-dev
+gnome-common
+gnome-doc-utils-dev
+intltool
+libcanberra-dev
+libglade2-dev
+libnotify-dev
+libsexy-dev
+libsm-dev
+openssl-dev
+python-dev
+tcl-dev

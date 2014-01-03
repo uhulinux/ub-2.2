@@ -1,0 +1,14 @@
+[Desktop Entry]
+Version=1.0
+Name=guvcview
+Name[hu]=guvcview
+GenericName=GTK UVC video viewer
+GenericName[hu]=GTK alapú webkamera képfelvevő program
+Comment=A video viewer and capturer for the linux uvc driver
+TryExec=guvcview
+Exec=guvcview
+Icon=/usr/share/pixmaps/guvcview/guvcview.png
+Terminal=false
+Type=Application
+Categories=GTK;GNOME;AudioVideo;X-UHU-Menu/Graphics;
+StartupNotify=true

@@ -1,0 +1,15 @@
+#!/bin/sh -eux
+
+ub_compile \
+	--enable-login \
+	--enable-srp \
+	--enable-srp-setpass \
+	--enable-ntlm \
+	--disable-krb4 \
+	--disable-java \
+	--with-dblib=berkeley \
+	--enable-sql \
+	--with-pgsql=/usr/include/postgresql \
+	--without-sqlite \
+	--with-ldap \
+	--enable-ldapdb

@@ -1,0 +1,36 @@
+diff -Naur partitionmanager-1.0.3-ori/src/partitionmanager.desktop partitionmanager-1.0.3/src/partitionmanager.desktop
+--- partitionmanager-1.0.3-ori/src/partitionmanager.desktop	2010-09-01 13:44:48.000000000 +0200
++++ partitionmanager-1.0.3/src/partitionmanager.desktop	2013-04-02 17:11:34.504803339 +0200
+@@ -12,6 +12,7 @@
+ Name[fr]=Gestionnaire de partitions de KDE
+ Name[ga]=Bainisteoir Deighiltí KDE
+ Name[gl]=Xestor de particións de KDE
++Name[gl]=KDE particiószerkesztő
+ Name[it]=Gestore delle partizioni di KDE
+ Name[ja]=KDE パーティションマネージャ
+ Name[km]=កម្មវិធី​គ្រប់គ្រង​ការ​ចែកភាគ​ថាស​របស់ KDE
+@@ -43,6 +44,7 @@
+ GenericName[fr]=Éditeur de partitions
+ GenericName[ga]=Eagarthóir Deighiltí
+ GenericName[gl]=Editor de particións
++GenericName[hu]=Partíciószerkesztő
+ GenericName[it]=Editor delle partizioni
+ GenericName[ja]=パーティション編集ツール
+ GenericName[km]=កម្មវិធី​កែសម្រួល​ការ​ចែកភាគ​ថាស
+@@ -74,6 +76,7 @@
+ Comment[fr]=Gérez vos disques, partitions et systèmes de fichiers
+ Comment[ga]=Bainistigh dioscaí, deighiltí agus córais comhad
+ Comment[gl]=Xestiona os discos, particións e sistemas de ficheiros
++Comment[hu]=Partíciók létrehozása, újraszervezése és törlése
+ Comment[it]=Gestisci dischi, partizioni e filesystem
+ Comment[ja]=ディスク、パーティション、ファイルシステムを管理します
+ Comment[km]=គ្រប់គ្រង​ថាស ការ​ចែកភាគ​ថាស និង​ប្រព័ន្ធ​ឯកសារ
+@@ -96,7 +99,7 @@
+ Comment[zh_TW]=管理磁碟、分割區與檔案系統
+ Exec=partitionmanager
+ Icon=partitionmanager
+-Categories=System;Filesystem;KDE;Qt;
++Categories=System;Filesystem;KDE;Qt;X-UHU-Menu/Tools/Utilities;
+ 
+ X-KDE-SubstituteUID=true
+ X-KDE-StartupNotify=true

@@ -1,0 +1,9 @@
+libgcrypt-dev
+libgnome-keyring-dev
+libxslt
+networkmanager-dev
+python-dev
+telepathy-glib-dev
+udev-dev
+upower-dev
+util-linux-dev

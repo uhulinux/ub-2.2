@@ -1,0 +1,4 @@
+#!/usr/bin/env dl
+
+v${UB_VERSION}.tar.gz libvdpau-va-gl-${UB_VERSION}/
+	https://github.com/i-rinat/libvdpau-va-gl/archive/

@@ -1,0 +1,150 @@
+diff -Naur orig/osdadjust/po/hu_HU.po mod/osdadjust/po/hu_HU.po
+--- orig/osdadjust/po/hu_HU.po	2009-05-05 20:02:53.000000000 +0200
++++ mod/osdadjust/po/hu_HU.po	2010-06-07 14:03:11.000000000 +0200
+@@ -13,110 +13,110 @@
+ "Last-Translator: Istvan Koenigsberger <istvnko@hotmail.com>, Guido Josten <guido.josten@t-online.de>\n"
+ "Language-Team: <vdr@linuxtv.org>\n"
+ "MIME-Version: 1.0\n"
+-"Content-Type: text/plain; charset=ISO-8859-2\n"
++"Content-Type: text/plain; charset=UTF-8\n"
+ "Content-Transfer-Encoding: 8bit\n"
+ 
+ msgid "Transparent"
+-msgstr ""
++msgstr "áttetsző"
+ 
+ msgid "Transparent 50"
+-msgstr ""
++msgstr "áttetsző 50"
+ 
+ msgid "Black"
+-msgstr ""
++msgstr "fekete"
+ 
+ msgid "Red"
+-msgstr ""
++msgstr "piros"
+ 
+ msgid "Green"
+-msgstr ""
++msgstr "zöld"
+ 
+ msgid "Yellow"
+-msgstr ""
++msgstr "sárga"
+ 
+ msgid "Magenta"
+-msgstr ""
++msgstr "bíbor"
+ 
+ msgid "Blue"
+-msgstr ""
++msgstr "kék"
+ 
+ msgid "Cyan"
+-msgstr ""
++msgstr "azúr"
+ 
+ msgid "White"
+-msgstr ""
++msgstr "fehér"
+ 
+ msgid "Gray"
+-msgstr ""
++msgstr "szürke"
+ 
+ msgid "Size and Position"
+-msgstr ""
++msgstr "méret és hely"
+ 
+ msgid "Video Format"
+-msgstr ""
++msgstr "videó formátum"
+ 
+ msgid "General Options"
+-msgstr ""
++msgstr "fő beállítások"
+ 
+ msgid "Hide main menu entry"
+-msgstr ""
++msgstr "menü belépés ki"
+ 
+ msgid "Hide help text"
+-msgstr ""
++msgstr "segítő szöveg ki"
+ 
+ msgid "Mute on open"
+-msgstr ""
++msgstr "megnyitáskor némít"
+ 
+ msgid "Background color"
+-msgstr ""
++msgstr "alap szín"
+ 
+ msgid "Foreground color"
+-msgstr ""
++msgstr "tinta szín"
+ 
+ msgid "Line thickness"
+-msgstr ""
++msgstr "vonalvastagság"
+ 
+ msgid "Gauge"
+-msgstr ""
++msgstr "mérték"
+ 
+ msgid "Aspect Ratio"
+-msgstr ""
++msgstr "képeraány"
+ 
+ msgid "Show grid"
+-msgstr ""
++msgstr "rács be"
+ 
+ msgid "Adjust OSD Size and Position"
+-msgstr ""
++msgstr "OSD méret és hely beállítás"
+ 
+ msgid "OSD adjust"
+-msgstr ""
++msgstr "OSD méretezés"
+ 
+ msgid "Press 1-9 to move,"
+-msgstr ""
++msgstr "1-9 gomb mozgat,"
+ 
+ msgid "Up/Down & Left/Right to resize,"
+-msgstr ""
++msgstr "fel/le és jobb/bal méretez,"
+ 
+ msgid "Ok to save, Back to cancel."
+-msgstr ""
++msgstr "Ok ment, vissza gomb menekül."
+ 
+ msgid "Top"
+-msgstr ""
++msgstr "fenn"
+ 
+ msgid "Bottom"
+-msgstr ""
++msgstr "lenn"
+ 
+ msgid "Left"
+-msgstr ""
++msgstr "balra"
+ 
+ msgid "Right"
+-msgstr ""
++msgstr "jobbra"
+ 
+ msgid "Width"
+-msgstr ""
++msgstr "szélesség"
+ 
+ msgid "Height"
+-msgstr ""
++msgstr "magasság"
+ 
+ msgid "Width must be a multiple of 8!"
+-msgstr ""
++msgstr "szélesség 8 többszöröse legyen"

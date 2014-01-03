@@ -1,0 +1,4 @@
+#!/usr/bin/env dl
+
+libcompizconfig-${UB_VERSION}.tar.bz2 libcompizconfig-${UB_VERSION}/
+	http://releases.compiz.org/components/libcompizconfig/

@@ -1,0 +1,5 @@
+#!/usr/bin/env dl
+
+158488-knapsen-${UB_VERSION}.tar.gz knapsen-${UB_VERSION}/
+	http://kde-apps.org/CONTENT/content-files/
+

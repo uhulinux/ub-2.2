@@ -1,0 +1,4 @@
+#!/bin/sh -eux
+
+cmake ./ -DCMAKE_INSTALL_PREFIX=/usr -DQT_QMAKE_EXECUTABLE=/usr/lib/qt4/bin/qmake -DCMAKE_BUILD_TYPE=RelWithDebInfo -DENABLE_LIGHTDM_GREETER=OFF -DMODULE_LIGHTDM=OFF
+make

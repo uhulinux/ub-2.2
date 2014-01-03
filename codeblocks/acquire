@@ -1,0 +1,7 @@
+#!/usr/bin/env dl
+
+#codeblocks-${UB_VERSION}-src.tar.bz2 codeblocks-${UB_VERSION}/
+#	http://downloads.sourceforge.net/codeblocks/
+
+codeblocks_${UB_VERSION}-1.tar.gz codeblocks-${UB_VERSION}release8629/
+	http://download.berlios.de/codeblocks/

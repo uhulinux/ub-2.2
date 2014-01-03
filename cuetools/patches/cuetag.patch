@@ -1,0 +1,47 @@
+diff -Naur orig/extras/cuetag.sh patched/extras/cuetag.sh
+--- orig/extras/cuetag.sh	2006-02-15 01:10:02.000000000 +0100
++++ patched/extras/cuetag.sh	2012-12-31 20:04:50.282842971 +0100
+@@ -18,7 +18,7 @@
+ {
+ 	# FLAC tagging
+ 	# --remove-vc-all overwrites existing comments
+-	METAFLAC="metaflac --remove-vc-all --import-vc-from=-"
++	METAFLAC="metaflac --remove-all-tags --import-tags-from=-"
+ 
+ 	# Ogg Vorbis tagging
+ 	# -w overwrites existing comments
+@@ -63,7 +63,7 @@
+ 	(for field in $fields; do
+ 		value=""
+ 		for conv in `eval echo \\$$field`; do
+-			value=`$CUEPRINT -n $1 -t "$conv\n" $cue_file`
++			value=`$CUEPRINT -n $1 -t "$conv\n" "$cue_file"`
+ 
+ 			if [ -n "$value" ]; then
+ 				echo "$field=$value"
+@@ -96,7 +96,7 @@
+ 	for field in $fields; do
+ 		value=""
+ 		for conv in `eval echo \\$$field`; do
+-			value=`$CUEPRINT -n $1 -t "$conv\n" $cue_file`
++			value=`$CUEPRINT -n $1 -t "$conv\n" "$cue_file"`
+ 
+ 			if [ -n "$value" ]; then
+ 				break
+@@ -141,14 +141,14 @@
+ 	cue_file=$1
+ 	shift
+ 
+-	ntrack=`cueprint -d '%N' $cue_file`
++	ntrack=`cueprint -d '%N' "$cue_file"`
+ 	trackno=1
+ 
+ 	if [ $# -ne $ntrack ]; then
+ 		echo "warning: number of files does not match number of tracks"
+ 	fi
+ 
+-	for file in $@; do
++	for file in "$@"; do
+ 		case $file in
+ 		*.[Ff][Ll][Aa][Cc])
+ 			vorbis $trackno "$file"

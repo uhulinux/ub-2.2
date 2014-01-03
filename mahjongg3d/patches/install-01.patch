@@ -1,0 +1,25 @@
+diff -Naur orig/Makefile.doit mod/Makefile.doit
+--- orig/Makefile.doit	2004-06-18 14:46:43.000000000 +0200
++++ mod/Makefile.doit	2009-07-21 23:02:29.000000000 +0200
+@@ -49,17 +49,17 @@
+ distclean: qmake_all FORCE
+ 	 ( [ -d src ] && cd src ; $(MAKE) -f $(MAKEFILE) $@; $(DEL_FILE) $(MAKEFILE); ) || true
+ 
+-install: all  install_subdirs
++install: install_subdirs
+ 	echo MahJongg Solitaire 3D will be installed to $(PREFIX)
+ 	mkdir -p $(GAMEDATA_PREFIX)/mahjongg3d
+ 	mkdir -p $(PREFIX)/bin
+-	mkdir -p /usr/man/man6
++	mkdir -p $(PREFIX)/share/man/man6
+ 	cp -a bin/* $(GAMEDATA_PREFIX)/mahjongg3d
+ 	mv $(GAMEDATA_PREFIX)/mahjongg3d/mahjongg3d $(PREFIX)/bin
+ 	chmod a+rx $(PREFIX)/bin/mahjongg3d
+ 	chmod -R a+rx $(GAMEDATA_PREFIX)/mahjongg3d
+-	cp mahjongg3d.6 /usr/man/man6
+-	chmod a+r /usr/man/man6/mahjongg3d.6
++	cp mahjongg3d.6 $(PREFIX)/share/man/man6
++	chmod a+r $(PREFIX)/share/man/man6/mahjongg3d.6
+ 	
+ 	@echo " "
+ 	@echo " "

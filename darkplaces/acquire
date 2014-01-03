@@ -1,0 +1,4 @@
+#!/usr/bin/env dl
+
+darkplacesengine${UB_VERSION}.zip ./darkplacesenginesource20130304.zip darkplaces/
+	http://offload2.icculus.org/twilight/darkplaces/files/

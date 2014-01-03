@@ -1,0 +1,14 @@
+diff -Naur a/backends/NetworkManager/nmdbusactiveconnectionmonitor.cpp b/backends/NetworkManager/nmdbusactiveconnectionmonitor.cpp
+--- a/backends/NetworkManager/nmdbusactiveconnectionmonitor.cpp	2013-06-15 16:37:35.000000000 +0200
++++ b/backends/NetworkManager/nmdbusactiveconnectionmonitor.cpp	2013-03-16 18:20:40.000000000 +0100
+@@ -88,10 +88,6 @@
+             aState = Knm::InterfaceConnection::Activated;
+             break;
+         case NM_ACTIVE_CONNECTION_STATE_DEACTIVATING:
+-            aState = Knm::InterfaceConnection::Deactivating;
+-            break;
+-        case NM_ACTIVE_CONNECTION_STATE_DEACTIVATED:
+-            aState = Knm::InterfaceConnection::Deactivated;
+             break;
+         default:
+             kDebug() << "Unhandled activation state" << nmState;

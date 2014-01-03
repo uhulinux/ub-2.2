@@ -1,0 +1,5 @@
+#!/usr/bin/env dl
+
+gpsbabel-${UB_VERSION}.tar.gz gpsbabel-${UB_VERSION}/
+	http://www.gpsbabel.org/download.html/
+	http://dev.gentoo.org/~patrick/

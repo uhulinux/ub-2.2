@@ -1,0 +1,5 @@
+#!/bin/sh -eux
+
+ub_compile \
+	-DLLVM_ENABLE_PIC:BOOL=OFF \
+	-DLLVM_ENABLE_ASSERTIONS:BOOL=OFF

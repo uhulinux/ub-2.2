@@ -1,0 +1,5 @@
+#!/usr/bin/env dl
+
+google-talkplugin_current_i386.deb .
+	http://dl.google.com/linux/direct/
+

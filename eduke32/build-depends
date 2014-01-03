@@ -1,0 +1,8 @@
+flac-dev
+gtk2-dev
+libvorbis-dev
+libvpx-dev
+mesa-dev
+nasm
+sdl-dev
+sdl-mixer-dev

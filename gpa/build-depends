@@ -1,0 +1,5 @@
+gpg
+gpgme-dev
+gtk2-dev
+libassuan-dev
+libgpg-error-dev

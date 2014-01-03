@@ -1,0 +1,5 @@
+#!/usr/bin/env dl
+
+libQtGTL-${UB_VERSION}.tar.bz2 libQtGTL-${UB_VERSION}/
+	http://download.opengtl.org/
+	http://www.opengtl.org/download/

@@ -1,0 +1,9 @@
+diff -Naur kdenlive-0.9-orig/src/kdenlive.desktop kdenlive-0.9/src/kdenlive.desktop
+--- kdenlive-0.9-orig/src/kdenlive.desktop	2012-05-14 21:55:13.000000000 +0200
++++ kdenlive-0.9/src/kdenlive.desktop	2012-05-15 20:39:51.000000000 +0200
+@@ -77,4 +77,4 @@
+ X-DocPath[cs]=http://cs.wikibooks.org/wiki/Kdenlive
+ Terminal=false
+ MimeType=application/x-kdenlive;
+-Categories=Qt;KDE;AudioVideo;AudioVideoEditing;
++Categories=Qt;KDE;AudioVideo;AudioVideoEditing;X-UHU-Menu/Multimedia/VideoEdit;

@@ -1,0 +1,6 @@
+#!/bin/sh -eux
+
+ub_compile \
+	--with-gtk=2.0 \
+	--with-omf-dir=/usr/share/omf/mate-desktop \
+	--enable-deprecation-flags

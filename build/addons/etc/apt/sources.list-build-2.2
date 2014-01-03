@@ -1,0 +1,21 @@
+# /etc/apt/sources.list-build
+#
+# Lokálisan tárolt UHU csomagok, adott esetben a build
+# rendszer megfelelő packages könyvtárai.
+# A Packages, Packages.gz és Release fájlok megléte
+# szükséges a megadott könyvtárban!
+
+deb file:/usr/src/UHUBUILD/packages-2.2 ./
+
+# UHU tároló
+
+deb ftp://ftp.uhulinux.hu/uhu/2.2 ./ 
+# deb http://download.uhulinux.hu/uhu/2.2 ./
+
+# UHU tároló tisztított mirror ubk.hu-n
+# deb ftp://ubk.hu/pkg/uhu/2.2-official ./
+# http://download.ubk.hu/pkg/uhu/2.2-official ./
+
+# UBK
+deb ftp://ubk.hu/pkg/uhu/2.2 ./
+# http://download.ubk.hu/pkg/uhu/2.2/ ./

@@ -1,0 +1,12 @@
+Summary=X Display Manager
+Summary[hu]=X bejelentkezés-kezelő
+Description=Graphical login manager.
+Description[hu]=Grafikus bejelentkezés-kezelő.
+MsgDesc=Display Manager
+MsgDesc[hu]=Bejelentkezés-kezelő
+Script=/etc/init.d/xdm
+SupportsReload=yes
+Runlevels=
+Sequence=98
+Resources=:0,tty7
+Preference=-100

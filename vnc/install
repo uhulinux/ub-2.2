@@ -1,0 +1,11 @@
+#!/bin/sh -eux
+
+cd unix
+./vncinstall \
+	"$UB_INSTALLDIR"/usr/bin \
+	"$UB_INSTALLDIR"/usr/share/man \
+	"$UB_INSTALLDIR"/usr/lib/xorg/modules/extensions
+
+mkdir -p "$UB_INSTALLDIR"/usr/lib/vnc/classes
+cd ../java
+cp -a index.vnc logo150x150.gif vncviewer.jar "$UB_INSTALLDIR"/usr/lib/vnc/classes/

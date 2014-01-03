@@ -1,0 +1,34 @@
+diff -Naur orig/MANIFEST patched/MANIFEST
+--- orig/MANIFEST	2003-11-16 00:02:59.000000000 +0100
++++ patched/MANIFEST	2007-11-16 06:35:19.000000000 +0100
+@@ -5,6 +5,5 @@
+ Levenshtein.h
+ setup.cfg
+ setup.py
+-gendoc.sh
+ StringMatcher.py
+ MANIFEST
+diff -Naur orig/PKG-INFO patched/PKG-INFO
+--- orig/PKG-INFO	2005-01-13 21:10:43.000000000 +0100
++++ patched/PKG-INFO	2007-11-16 06:35:57.000000000 +0100
+@@ -2,7 +2,7 @@
+ Name: python-Levenshtein
+ Version: 0.10.1
+ Summary: Python extension computing string distances and similarities.
+-Home-page: http://trific.ath.cx/python/levenshtein/
++Home-page: http://trific.ath.cx/resources/python/levenshtein/
+ Author: David Necas (Yeti)
+ Author-email: yeti@physics.muni.cz
+ License: GNU GPL
+diff -Naur orig/setup.py patched/setup.py
+--- orig/setup.py	2005-01-13 21:07:51.000000000 +0100
++++ patched/setup.py	2007-11-16 06:38:55.000000000 +0100
+@@ -10,7 +10,7 @@
+       author = 'David Necas (Yeti)',
+       author_email = 'yeti@physics.muni.cz',
+       license = 'GNU GPL',
+-      url = 'http://trific.ath.cx/python/levenshtein/',
++      url = 'http://trific.ath.cx/resources/python/levenshtein/',
+       long_description = '''
+ Levenshtein computes Levenshtein distances, similarity ratios, generalized
+ medians and set medians of Strings and Unicodes.  Becuase it's implemented

@@ -1,0 +1,6 @@
+#!/bin/sh -eux
+
+./configure \
+	--prefix=/usr \
+	--audio-drv-list="oss alsa sdl esd" \
+	--enable-mixemu

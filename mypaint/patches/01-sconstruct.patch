@@ -1,0 +1,12 @@
+diff -Naur mypaint-0.9.1-ori/SConstruct mypaint-0.9.1/SConstruct
+--- mypaint-0.9.1-ori/SConstruct	2011-03-04 15:44:59.000000000 +0100
++++ mypaint-0.9.1/SConstruct	2011-05-16 01:42:27.814116698 +0200
+@@ -23,7 +23,7 @@
+ if sys.platform == "darwin":
+     default_prefix = '/opt/local/'
+ else:
+-    default_prefix = '/usr/local/'
++    default_prefix = '${UB_INSTALLDIR}/usr/'
+ 
+ opts = Variables()
+ opts.Add(PathVariable('prefix', 'autotools-style installation prefix', default_prefix, validator=PathVariable.PathIsDirCreate))

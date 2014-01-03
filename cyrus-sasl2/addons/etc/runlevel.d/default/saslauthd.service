@@ -1,0 +1,10 @@
+Summary=SASL Authentication Daemon
+Summary[hu]=SASL autentikációs démon
+Description=SASL Authentication Daemon.
+Description[hu]=SASL autentikációs démon.
+MsgDesc=SASL Authentication Daemon
+MsgDesc[hu]=SASL autentikációs démon
+Script=/etc/init.d/saslauthd
+SupportsReload=yes
+Runlevels=
+Sequence=20

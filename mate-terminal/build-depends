@@ -1,0 +1,7 @@
+dconf-dev
+intltool
+libsm-dev
+libxslt-dev
+mate-common
+mate-doc-utils
+vte-dev

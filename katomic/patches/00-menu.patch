@@ -1,0 +1,9 @@
+diff -Naur a/katomic.desktop b/katomic.desktop
+--- a/katomic.desktop	2013-01-23 23:05:24.000000000 +0100
++++ b/katomic.desktop	2013-02-10 21:57:01.171632079 +0100
+@@ -136,4 +136,4 @@
+ GenericName[zh_TW]=倉庫番(sokoban)式的智力遊戲
+ X-KDE-StartupNotify=true
+ X-DBUS-StartupType=Multi
+-Categories=Qt;KDE;Game;StrategyGame;
++Categories=Qt;KDE;Game;StrategyGame;X-UHU-Menu/Games/TacticStrategy;

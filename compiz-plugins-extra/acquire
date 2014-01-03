@@ -1,0 +1,4 @@
+#!/usr/bin/env dl
+
+compiz-plugins-extra-${UB_VERSION}.tar.gz compiz-plugins-extra-${UB_VERSION}/
+	http://releases.compiz.org/components/plugins-extra/

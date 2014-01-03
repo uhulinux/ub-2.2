@@ -1,0 +1,12 @@
+Summary=ADSL Connection
+Summary[hu]=ADSL kapcsolat
+Description=Establishes an already configured ADSL connection.
+Description[hu]=A korábban már beállított ADSL kapcsolat felépítése.
+MsgStart=Setting up ADSL connection
+MsgStart[hu]=ADSL kapcsolat felépítése
+MsgStop=Terminating ADSL connection
+MsgStop[hu]=ADSL kapcsolat bontása
+Script=/etc/init.d/adsl
+SupportsReload=no
+Runlevels=
+Sequence=12

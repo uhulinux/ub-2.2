@@ -1,0 +1,10 @@
+#!/bin/sh -eux
+
+ub_makeinstall
+
+rm "$UB_INSTALLDIR"/usr/bin/{2to3,python,python2}
+rm "$UB_INSTALLDIR"/usr/share/man/man1/python.1
+
+mv "$UB_INSTALLDIR"/usr/bin/idle "$UB_INSTALLDIR"/usr/bin/idle2.7
+mv "$UB_INSTALLDIR"/usr/bin/pydoc "$UB_INSTALLDIR"/usr/bin/pydoc2.7
+mv "$UB_INSTALLDIR"/usr/bin/smtpd.py "$UB_INSTALLDIR"/usr/bin/smtpd.py2.7

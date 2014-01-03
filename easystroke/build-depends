@@ -1,0 +1,6 @@
+boost-dev
+dbus-glib-dev
+gtkmm2-dev
+intltool
+libxtst-dev
+x.org-server-dev

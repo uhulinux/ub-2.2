@@ -1,0 +1,13 @@
+#!/bin/sh -eux
+
+sed -i "/^SCMREVISION/c SCMREVISION=\"${UB_VERSION_HEAD3}beta${UB_VERSION_TAIL1}\"" librecad/src/src.pro
+# some critical stuff, already in master for 2.0
+export CPPFLAGS="-std=c++0x"
+export PATH="/usr/lib/qt4/bin:${PATH}"
+#export MUPARSER_DIR="/usr"
+#export BOOST_DIR="/usr"
+qmake-qt4 librecad.pro
+
+make
+
+

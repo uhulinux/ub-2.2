@@ -1,0 +1,5 @@
+#!/bin/sh -eux
+
+export LDFLAGS="-ldl"
+ub_compile \
+	-DOVERIDE_LLVM_ASSERT:BOOL=ON

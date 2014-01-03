@@ -1,0 +1,5 @@
+#!/usr/bin/env dl
+
+compiz-${UB_VERSION}.tar.bz2 compiz-${UB_VERSION}/
+	http://releases.compiz-fusion.org/${UB_VERSION}/
+	http://releases.compiz.org/${UB_VERSION}/

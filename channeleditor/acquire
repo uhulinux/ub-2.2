@@ -1,0 +1,4 @@
+#!/usr/bin/env dl
+
+ChannelEditor_${UB_VERSION}.1.jar
+	http://sourceforge.net/projects/channeleditor/files/channeleditor/${UB_VERSION}/

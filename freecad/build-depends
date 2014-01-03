@@ -1,0 +1,15 @@
+boost-dev
+cmake
+coin-dev
+desktop-file-utils
+doxygen
+eigen3
+gfortran
+opencascade
+pivy
+pycollada
+python-dev
+qt4-dev
+soqt-dev
+swig
+xerces-c-dev

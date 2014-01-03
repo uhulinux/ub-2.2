@@ -1,0 +1,12 @@
+apache-dev
+apr-dev
+apr-util-dev
+db4-dev
+expat-dev
+libxml2-dev
+neon-dev
+openssl-dev
+python
+python-dev
+sqlite-dev
+swig

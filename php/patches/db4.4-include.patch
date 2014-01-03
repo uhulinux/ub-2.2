@@ -1,0 +1,14 @@
+diff -Naur orig/configure patched/configure
+--- orig/configure	2012-12-19 08:38:10.000000000 +0100
++++ patched/configure	2012-12-29 00:59:51.135295443 +0100
+@@ -31337,6 +31337,10 @@
+       THIS_PREFIX=$i
+       THIS_INCLUDE=$i/include/db4.5/db.h
+       break
++    elif test -f "$i/include/db4.4/db.h"; then
++      THIS_PREFIX=$i
++      THIS_INCLUDE=$i/include/db4.4/db.h
++      break
+     elif test -f "$i/include/db4/db.h"; then
+       THIS_PREFIX=$i
+       THIS_INCLUDE=$i/include/db4/db.h

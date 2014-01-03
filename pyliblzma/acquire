@@ -1,0 +1,4 @@
+#!/usr/bin/env dl
+
+pyliblzma-${UB_VERSION}.tar.bz2 pyliblzma-${UB_VERSION}/
+	http://pypi.python.org/packages/source/p/pyliblzma/

@@ -1,0 +1,4 @@
+#!/usr/bin/env dl
+
+xdotool-${UB_VERSION}.tar.gz xdotool-${UB_VERSION}/
+	http://semicomplete.googlecode.com/files/

@@ -1,0 +1,78 @@
+diff -Naur a/cervisia-4.11.1/cervisia.desktop b/cervisia-4.11.1/cervisia.desktop
+--- a/cervisia-4.11.1/cervisia.desktop	2013-07-10 01:41:03.000000000 +0200
++++ b/cervisia-4.11.1/cervisia.desktop	2013-08-19 18:47:13.596489891 +0200
+@@ -141,4 +141,4 @@
+ Name[zh_TW]=Cervisia
+ 
+ X-DBUS-StartupType=Multi
+-Categories=Qt;KDE;Development;RevisionControl;
++Categories=Qt;KDE;Development;RevisionControl;X-UHU-Menu/Development/Programming;
+diff -Naur a/kapptemplate-4.11.1/kapptemplate.desktop b/kapptemplate-4.11.1/kapptemplate.desktop
+--- a/kapptemplate-4.11.1/kapptemplate.desktop	2013-07-10 01:41:13.000000000 +0200
++++ b/kapptemplate-4.11.1/kapptemplate.desktop	2013-08-19 18:48:06.492491503 +0200
+@@ -103,4 +103,4 @@
+ Name[x-test]=xxKAppTemplatexx
+ Name[zh_CN]=KAppTemplate
+ Name[zh_TW]=KAppTemplate
+-Categories=Qt;KDE;Development;
++Categories=Qt;KDE;Development;X-UHU-Menu/Development/Programming;
+diff -Naur a/kcachegrind-4.11.1/kcachegrind/kcachegrind.desktop b/kcachegrind-4.11.1/kcachegrind/kcachegrind.desktop
+--- a/kcachegrind-4.11.1/kcachegrind/kcachegrind.desktop	2013-07-10 01:41:17.000000000 +0200
++++ b/kcachegrind-4.11.1/kcachegrind/kcachegrind.desktop	2013-08-19 18:48:32.728492303 +0200
+@@ -174,4 +174,4 @@
+ Comment[zh_TW]=效能分析資料視覺化
+ X-DBUS-StartupType=Multi
+ X-DBUS-ServiceName=net.sf.kcachegrind
+-Categories=Qt;KDE;Development;
++Categories=Qt;KDE;Development;X-UHU-Menu/Development/Programming;
+diff -Naur a/kde-dev-utils-4.11.1/kuiviewer/kuiviewer.desktop b/kde-dev-utils-4.11.1/kuiviewer/kuiviewer.desktop
+--- a/kde-dev-utils-4.11.1/kuiviewer/kuiviewer.desktop	2013-07-10 01:41:19.000000000 +0200
++++ b/kde-dev-utils-4.11.1/kuiviewer/kuiviewer.desktop	2013-08-19 18:49:04.324493267 +0200
+@@ -117,5 +117,5 @@
+ MimeType=application/x-designer;
+ Terminal=false
+ X-DBUS-StartupType=Multi
+-Categories=Qt;KDE;Development;
++Categories=Qt;KDE;Development;X-UHU-Menu/Development/Programming;
+ InitialPreference=10
+diff -Naur a/kompare-4.11.1/kompare.desktop b/kompare-4.11.1/kompare.desktop
+--- a/kompare-4.11.1/kompare.desktop	2013-07-10 01:41:35.000000000 +0200
++++ b/kompare-4.11.1/kompare.desktop	2013-08-19 19:24:12.612557551 +0200
+@@ -133,5 +133,5 @@
+ X-DocPath=kompare/index.html
+ Terminal=false
+ X-DBUS-StartupType=Multi
+-Categories=Qt;KDE;Development;
++Categories=Qt;KDE;Development;X-UHU-Menu/Development/Programming;
+ InitialPreference=10
+diff -Naur a/lokalize-4.11.1/src/lokalize.desktop b/lokalize-4.11.1/src/lokalize.desktop
+--- a/lokalize-4.11.1/src/lokalize.desktop	2013-07-10 01:41:47.000000000 +0200
++++ b/lokalize-4.11.1/src/lokalize.desktop	2013-08-19 18:49:53.040494753 +0200
+@@ -55,7 +55,7 @@
+ Exec=lokalize %i -caption %c
+ Icon=lokalize
+ Type=Application
+-Categories=Qt;KDE;Development;Office;Translation;
++Categories=Qt;KDE;Development;Office;Translation;X-UHU-Menu/Development/Translation;
+ MimeType=application/x-xliff;text/x-gettext-translation;application/x-lokalize-project;
+ X-DocPath=lokalize/index.html
+ GenericName=Computer-Aided Translation System
+diff -Naur a/okteta-4.11.1/program/okteta.desktop b/okteta-4.11.1/program/okteta.desktop
+--- a/okteta-4.11.1/program/okteta.desktop	2013-07-10 01:41:59.000000000 +0200
++++ b/okteta-4.11.1/program/okteta.desktop	2013-08-19 18:50:39.180496158 +0200
+@@ -95,5 +95,5 @@
+ X-KDE-StartupNotify=true
+ X-DBUS-StartupType=Multi
+ X-DBUS-ServiceName=org.kde.okteta
+-Categories=Qt;KDE;Utility;X-KDE-Utilities-File;
++Categories=Qt;KDE;Utility;X-KDE-Utilities-File;X-UHU-Menu/Development/Programming;
+ 
+diff -Naur a/umbrello-4.11.1/umbrello/umbrello.desktop b/umbrello-4.11.1/umbrello/umbrello.desktop
+--- a/umbrello-4.11.1/umbrello/umbrello.desktop	2013-07-10 01:43:24.000000000 +0200
++++ b/umbrello-4.11.1/umbrello/umbrello.desktop	2013-08-19 18:51:14.984497251 +0200
+@@ -125,4 +125,4 @@
+ GenericName[zh_CN]=UML 建模工具
+ GenericName[zh_TW]=UML Modeller
+ MimeType=application/x-uml;
+-Categories=Qt;KDE;Development;
++Categories=Qt;KDE;Development;X-UHU-Menu/Development/Programming;

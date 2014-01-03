@@ -1,0 +1,12 @@
+Summary=enmy-territory sound
+Summary[hu]=enmy-territory hang
+Description=Enable OSS sound for the game "Enemy-territory".
+Description[hu]=Az "Enemy-territory" játékszámára hang engedélyezése.
+MsgStart=Setting up et-sound
+MsgStart[hu]=Az et-sound hangrendszer indítása
+MsgStop=Terminating et-sound
+MsgStop[hu]=Az et-sound hangrendszer leállítása
+Script=/etc/init.d/et-sound
+SupportsReload=no
+Runlevels=
+Sequence=12

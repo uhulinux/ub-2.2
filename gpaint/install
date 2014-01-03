@@ -1,0 +1,4 @@
+#!/bin/sh -eux
+
+cp gpaint.desktop ${UB_INSTALLDIR}/usr/share/applications
+ub_install

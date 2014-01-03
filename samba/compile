@@ -1,0 +1,22 @@
+#!/bin/sh -eux
+
+cd source3
+
+ub_compile \
+	--with-fhs \
+	--with-privatedir=/etc/samba \
+	--with-lockdir=/var/lib/samba \
+	--with-swatdir=/usr/share/swat \
+	--with-configdir=/etc/samba \
+	--with-libsmbclient \
+	--with-winbind \
+	--with-pam \
+	--with-pam_smbpass \
+	--with-syslog \
+	--with-utmp \
+	--with-acl-support \
+	--with-cifsmount \
+	--enable-avahi \
+	--with-quotas \
+	--without-libtdb \
+#	--disable-cups 

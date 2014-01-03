@@ -1,0 +1,5 @@
+#!/bin/sh
+
+export LD_LIBRARY_PATH=/usr/lib/xnview/lib
+export QT_PLUGIN_PATH=/usr/lib/xnview/lib
+/usr/lib/xnview/xnview "$@"

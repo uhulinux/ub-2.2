@@ -1,0 +1,4 @@
+#!/bin/sh -eux
+
+sed -i 's|add_subdirectory( doc-translations )|# add_subdirectory( doc-translations )|' CMakeLists.txt
+ub_compile

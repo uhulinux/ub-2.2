@@ -1,0 +1,14 @@
+gtk2-dev
+intltool
+libidn-dev
+libnotify-dev
+librsvg2-dev
+libunique-dev
+libxml2-dev
+libxscrnsaver-dev
+openssl-dev
+python-dev
+python-docutils
+sqlite-dev
+vala
+webkitgtk-dev

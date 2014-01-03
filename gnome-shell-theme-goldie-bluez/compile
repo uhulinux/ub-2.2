@@ -1,0 +1,8 @@
+#!/bin/sh -eux
+
+7z x GoldieBluez.7z
+rm GoldieBluez.7z
+mv GoldieBluez/GoldieBluez-3.4.tar.gz ./
+rm -Rf GoldieBluez 
+tar -xzf GoldieBluez-3.4.tar.gz
+rm GoldieBluez-3.4.tar.gz

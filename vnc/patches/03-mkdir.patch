@@ -1,0 +1,38 @@
+diff -Naur vnc-4_1_1-unixsrc.orig/unix/vncinstall vnc-4_1_1-unixsrc/unix/vncinstall
+--- vnc-4_1_1-unixsrc.orig/unix/vncinstall	2005-02-28 14:00:32.000000000 +0100
++++ vnc-4_1_1-unixsrc/unix/vncinstall	2006-01-05 16:45:39.000000000 +0100
+@@ -65,17 +65,19 @@
+       echo "`basename $f` hasn't changed"
+     else
+       echo "Copying $f to $dst"
++      mkdir -p $dst
+       cp -pf $f $dst
+       chmod 0555 $dst/`basename $f`
+     fi
+ 
+ 
+     if [ -f $f.man ]; then
+-      if [ "$mandst" != "" -a -d "$mandst" ]; then
++      if [ "$mandst" != "" ]; then
+         if cmp -s $f.man $mandst/`basename $f.1`; then
+           echo "`basename $f.man` hasn't changed"
+         else
+           echo "Copying $f.man to $mandst/`basename $f.1`"
++          mkdir -p $mandst
+           cp -pf $f.man $mandst/`basename $f.1`
+           chmod 0444 $mandst/`basename $f.1`
+         fi
+@@ -86,11 +88,12 @@
+ done
+ 
+ vncModule=xc/programs/Xserver/vnc/module/vnc.so
+-if [ -f "$vncModule" -a -d "$moduledst" ]; then
++if [ -f "$vncModule" ]; then
+   if cmp -s $vncModule $moduledst/`basename $vncModule`; then
+     echo "`basename $vncModule` hasn't changed"
+   else
+     echo "Copying $vncModule to $moduledst"
++    mkdir -p $moduledst
+     cp -pf $vncModule $moduledst
+     chmod 0555 $moduledst/`basename $vncModule`
+   fi

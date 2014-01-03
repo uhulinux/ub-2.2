@@ -1,0 +1,12 @@
+diff -Naur orig/Makefile.am patched/Makefile.am
+--- orig/Makefile.am	2013-04-30 14:03:24.000000000 +0200
++++ patched/Makefile.am	2013-05-01 13:55:38.496465814 +0200
+@@ -1,7 +1,7 @@
+ ACLOCAL_AMFLAGS = -I m4
+ AUTOMAKE_OPTIONS = dist-bzip2
+ 
+-SUBDIRS = m4 po src tools config doc manual
++SUBDIRS = m4 src tools config doc manual
+ 
+ EXTRA_DIST = \
+ 	ChangeLog \

@@ -1,0 +1,1 @@
+urllist ftp://ftp.funet.fi/pub/mirrors/ftp.easysw.com/pub/cups/ | splitver '^([0-9.]+)$' | sort -V | tail -n 1

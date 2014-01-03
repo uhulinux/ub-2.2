@@ -1,0 +1,5 @@
+#!/usr/bin/env dl
+
+pnputils-${UB_VERSION}.tar.gz pnputils-${UB_VERSION}/
+	ftp://ftp.kernel.org/pub/linux/kernel/people/helgaas/
+

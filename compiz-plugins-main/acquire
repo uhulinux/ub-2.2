@@ -1,0 +1,4 @@
+#!/usr/bin/env dl
+
+compiz-plugins-main-${UB_VERSION}.tar.gz compiz-plugins-main-${UB_VERSION}/
+	http://releases.compiz.org/components/plugins-main/

@@ -1,0 +1,5 @@
+#!/bin/sh -eux
+
+install -Dm755 colorcode ${UB_INSTALLDIR}/usr/bin/colorcode
+install -Dm644 img/cc64.png ${UB_INSTALLDIR}/usr/share/pixmaps/cc64.png
+ub_install

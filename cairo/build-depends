@@ -1,0 +1,9 @@
+fontconfig-dev
+freetype2-dev
+glitz-dev
+gobject-introspection-dev
+libpng-dev
+libx11-dev
+libxml2-dev
+libxrender-dev
+pixman-dev

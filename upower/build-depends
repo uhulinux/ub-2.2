@@ -1,0 +1,14 @@
+dbus-glib-dev
+devicekit-power-dev
+docbook-dtds
+docbook-xsl
+eggdbus-dev
+glib2-dev
+gobject-introspection-dev
+intltool
+libimobiledevice-dev
+libusb-compat-dev
+libusb-dev
+libxslt
+polkit-dev
+udev-dev

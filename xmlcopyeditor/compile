@@ -1,0 +1,7 @@
+#!/bin/sh -eux
+
+cd src/po/hu_HU
+msgfmt messages.po -o messages.mo
+cd ../../..
+sh autogen.sh
+ub_compile

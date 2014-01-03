@@ -1,0 +1,18 @@
+diff -Naurdp a/net/core/sock.c b/net/core/sock.c
+--- a/net/core/sock.c	2007-03-26 00:56:23.000000000 +0200
++++ b/net/core/sock.c	2007-04-02 10:33:57.000000000 +0200
+@@ -215,14 +215,6 @@ static int sock_set_timeout(long *timeo_
+ 
+ static void sock_warn_obsolete_bsdism(const char *name)
+ {
+-	static int warned;
+-	static char warncomm[TASK_COMM_LEN];
+-	if (strcmp(warncomm, current->comm) && warned < 5) {
+-		strcpy(warncomm,  current->comm);
+-		printk(KERN_WARNING "process `%s' is using obsolete "
+-		       "%s SO_BSDCOMPAT\n", warncomm, name);
+-		warned++;
+-	}
+ }
+ 
+ static void sock_disable_timestamp(struct sock *sk)

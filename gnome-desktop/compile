@@ -1,0 +1,9 @@
+#!/bin/sh -eux
+
+ub_compile \
+	--with-pnp-ids-path="/usr/share/hwdata/pnp.ids" \
+	--disable-scrollkeeper \
+	--disable-static \
+	--with-gnome-distributor=UHU-UBK \
+
+

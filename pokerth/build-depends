@@ -1,0 +1,9 @@
+boost-dev
+curl-dev
+libgcrypt-dev
+libgsasl-dev
+libircclient-dev
+libprotobuf-dev
+qt5-dev
+sdl-mixer-dev
+tinyxml

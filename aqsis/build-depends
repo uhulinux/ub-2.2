@@ -1,0 +1,13 @@
+bison
+boost-dev
+cmake
+flex-dev
+icon-theme-hicolor
+libjpeg-dev
+libtiff-dev
+libtool
+libxslt-dev
+openexr-dev
+qt4-dev
+shared-mime-info
+zlib-dev

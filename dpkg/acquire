@@ -1,0 +1,6 @@
+#!/usr/bin/env dl
+
+dpkg_${UB_VERSION}.tar.xz dpkg-${UB_VERSION}/
+	http://ubk.hu/src/dpkg/
+	ftp://ftp.debian.org/debian/pool/main/d/dpkg/
+	ftp://ftp.hu.debian.org/debian/pool/main/d/dpkg/

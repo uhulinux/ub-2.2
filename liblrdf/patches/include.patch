@@ -1,0 +1,12 @@
+diff -Naur a/lrdf.h b/lrdf.h
+--- a/lrdf.h	2004-11-09 04:12:32.000000000 +0100
++++ b/lrdf.h	2013-05-27 20:01:24.511002554 +0200
+@@ -5,7 +5,7 @@
+ extern "C" {
+ #endif
+ 
+-#include <raptor.h>
++#include <raptor2/raptor2.h>
+ #include <string.h>
+ #include <sys/types.h>
+ 

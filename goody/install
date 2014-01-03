@@ -1,0 +1,11 @@
+#!/bin/sh -eux
+
+datadir="$UB_INSTALLDIR"/usr/share/games/goody
+srcdir="usr/share/games/goody"
+install -d -m 755 "$datadir"/data1 "$datadir"/data2
+install -m 644 "$srcdir"/data1/* "$datadir"/data1/
+install -m 644 "$srcdir"/data2/* "$datadir"/data2/
+install -m 644 "$srcdir"/mpeg.so "$datadir"/
+install -m 644 "$srcdir"/goody.dcb "$datadir"/
+install -m 755 "$srcdir"/fxi "$datadir"/
+install -m 755 usr/games/goody "$UB_INSTALLDIR"/usr/bin/

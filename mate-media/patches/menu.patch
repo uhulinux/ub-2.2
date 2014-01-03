@@ -1,0 +1,24 @@
+diff -Naur orig/gst-mixer/mate-volume-control.desktop.in.in patched/gst-mixer/mate-volume-control.desktop.in.in
+--- orig/gst-mixer/mate-volume-control.desktop.in.in	2013-03-23 11:50:09.000000000 +0100
++++ patched/gst-mixer/mate-volume-control.desktop.in.in	2013-03-30 18:38:58.094751259 +0100
+@@ -8,7 +8,7 @@
+ X-Info=Mate Mixer
+ Terminal=false
+ Type=Application
+-Categories=GTK;Settings;HardwareSettings;
++Categories=GTK;Settings;HardwareSettings;X-UHU-Menu/Settings;
+ X-MATE-DocPath=gst-mixer/mate-volume-control.xml
+ X-MATE-Bugzilla-Bugzilla=MATE
+ X-MATE-Bugzilla-Product=mate-media
+diff -Naur orig/mate-volume-control/data/mate-volume-control.desktop.in.in patched/mate-volume-control/data/mate-volume-control.desktop.in.in
+--- orig/mate-volume-control/data/mate-volume-control.desktop.in.in	2013-03-23 11:50:09.000000000 +0100
++++ patched/mate-volume-control/data/mate-volume-control.desktop.in.in	2013-03-30 18:39:34.087083457 +0100
+@@ -6,7 +6,7 @@
+ Terminal=false
+ Type=Application
+ StartupNotify=true
+-Categories=MATE;GTK;Settings;HardwareSettings;
++Categories=MATE;GTK;Settings;HardwareSettings;X-UHU-Menu/Settings;
+ OnlyShowIn=MATE;
+ X-MATE-Bugzilla-Bugzilla=MATE
+ X-MATE-Bugzilla-Product=mate-media

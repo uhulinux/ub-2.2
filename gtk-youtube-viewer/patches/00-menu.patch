@@ -1,0 +1,16 @@
+diff -Naur WWW-YoutubeViewer-ori/share/gtk-youtube-viewer.desktop WWW-YoutubeViewer/share/gtk-youtube-viewer.desktop
+--- WWW-YoutubeViewer-ori/share/gtk-youtube-viewer.desktop	2012-12-16 09:55:48.000000000 +0100
++++ WWW-YoutubeViewer/share/gtk-youtube-viewer.desktop	2012-12-16 10:07:52.429629314 +0100
+@@ -2,9 +2,10 @@
+ Name=GTK Youtube Viewer
+ Version=1.0
+ Comment=A Gtk2 application to search and play Youtube videos with MPlayer.
++Comment[hu]=YouTube videót kereső és lejátszó
+ Exec=gtk-youtube-viewer
+-Icon=gtk-youtube-viewer
++Icon=youtube
+ StartupNotify=false
+ Terminal=false
+ Type=Application
+-Categories=AudioVideo;
++Categories=AudioVideo;X-UHU-Menu/Multimedia/VideoPlayers;

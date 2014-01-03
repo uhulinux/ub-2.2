@@ -1,0 +1,772 @@
+diff -Naur orig/po/hu.po patched/po/hu.po
+--- orig/po/hu.po	2013-12-14 11:17:01.000000000 +0100
++++ patched/po/hu.po	2013-12-14 12:44:42.000000000 +0100
+@@ -8,11 +8,11 @@
+ msgstr ""
+ "Project-Id-Version: Claws Mail 3.8.0\n"
+ "Report-Msgid-Bugs-To: paul@claws-mail.org\n"
+-"POT-Creation-Date: 2013-12-14 10:16+0000\n"
+-"PO-Revision-Date: 2013-05-05 13:26+0100\n"
++"POT-Creation-Date: 2013-12-07 08:54+0000\n"
++"PO-Revision-Date: 2013-12-14 12:44+0100\n"
+ "Last-Translator: rezso <rezso@rezso.net>\n"
+ "Language-Team:  <NONE>\n"
+-"Language: hu\n"
++"Language: hu_HU\n"
+ "MIME-Version: 1.0\n"
+ "Content-Type: text/plain; charset=UTF-8\n"
+ "Content-Transfer-Encoding: 8bit\n"
+@@ -230,7 +230,7 @@
+ msgstr "A művelet felhasználói argumentuma"
+ 
+ # src/addressbook.c:3099
+-#: src/addr_compl.c:610 src/addressbook.c:4870
++#: src/addr_compl.c:600 src/addressbook.c:4870
+ #: src/plugins/vcalendar/vcal_meeting_gtk.c:314
+ msgid "Group"
+ msgstr "Csoport"
+@@ -1102,7 +1102,7 @@
+ msgstr "Figyelmeztetés"
+ 
+ # src/alertpanel.c:146 src/compose.c:2496 src/inc.c:475
+-#: src/alertpanel.c:172 src/alertpanel.c:195 src/compose.c:5538 src/inc.c:665
++#: src/alertpanel.c:172 src/alertpanel.c:195 src/compose.c:5538 src/inc.c:652
+ #: src/plugins/pgpcore/sgpgme.c:152 src/plugins/pgpcore/sgpgme.c:246
+ msgid "Error"
+ msgstr "Hiba"
+@@ -1716,9 +1716,8 @@
+ 
+ # src/mimeview.c:120
+ #: src/compose.c:593
+-#, fuzzy
+ msgid "_Replace signature"
+-msgstr "Aláírás ellenőrzése"
++msgstr "Aláírás cse_réje"
+ 
+ # src/prefs_common.c:2052 src/summaryview.c:2694
+ #: src/compose.c:597
+@@ -3074,13 +3073,13 @@
+ msgstr "A mappa új neve:"
+ 
+ # src/editgroup.c:509 src/folderview.c:1542 src/folderview.c:1786
+-#: src/editgroup.c:556 src/foldersel.c:572 src/imap_gtk.c:195 src/mh_gtk.c:145
++#: src/editgroup.c:556 src/foldersel.c:552 src/imap_gtk.c:195 src/mh_gtk.c:145
+ #: src/plugins/mailmbox/plugin_gtk.c:239 src/plugins/rssyl/rssyl_cb_menu.c:89
+ msgid "New folder"
+ msgstr "Új mappa"
+ 
+ # src/editgroup.c:510 src/folderview.c:1543
+-#: src/editgroup.c:557 src/foldersel.c:573 src/mh_gtk.c:146
++#: src/editgroup.c:557 src/foldersel.c:553 src/mh_gtk.c:146
+ #: src/plugins/mailmbox/plugin_gtk.c:240 src/plugins/rssyl/rssyl_cb_menu.c:90
+ msgid "Input the name of new folder:"
+ msgstr "Az új mappa neve:"
+@@ -3858,44 +3857,44 @@
+ #: src/file_checker.c:76
+ #, c-format
+ msgid "The file %s is missing! Do you want to use the backup file from %s?"
+-msgstr ""
++msgstr "%s fájl hiányzik! Szeretnéd használni a mentést (%s)?"
+ 
+ # src/editldap.c:167 src/editldap_basedn.c:290
+ #: src/file_checker.c:84 src/file_checker.c:106
+-#, fuzzy, c-format
++#, c-format
+ msgid "Could not copy %s to %s"
+-msgstr "Nem tudtam kapcsolódni a szerverhez"
++msgstr "%s nem másolható át erre: %s"
+ 
+ #: src/file_checker.c:98
+ #, c-format
+ msgid ""
+ "The file %s is empty or corrupted! Do you want to use the backup file from "
+ "%s?"
+-msgstr ""
++msgstr "%s fájl üres, vagy sérült! Szeretnéd használni a mentést (%s)?"
+ 
+ # src/foldersel.c:223 src/folderview.c:875 src/prefs_folder_item.c:206
+-#: src/folder.c:1577 src/foldersel.c:394 src/prefs_folder_item.c:308
++#: src/folder.c:1577 src/foldersel.c:374 src/prefs_folder_item.c:308
+ msgid "Inbox"
+ msgstr "Bejövő"
+ 
+ # src/foldersel.c:226 src/folderview.c:882 src/prefs_folder_item.c:207
+-#: src/folder.c:1581 src/foldersel.c:398
++#: src/folder.c:1581 src/foldersel.c:378
+ msgid "Sent"
+ msgstr "Elküldött"
+ 
+ # src/foldersel.c:229 src/folderview.c:889 src/prefs_folder_item.c:209
+-#: src/folder.c:1585 src/foldersel.c:402
++#: src/folder.c:1585 src/foldersel.c:382
+ #: src/plugins/attachwarner/attachwarner.c:219 src/prefs_folder_item.c:311
+ msgid "Queue"
+ msgstr "Küldendő"
+ 
+ # src/foldersel.c:232 src/folderview.c:896 src/prefs_folder_item.c:210
+-#: src/folder.c:1589 src/foldersel.c:406 src/prefs_folder_item.c:312
++#: src/folder.c:1589 src/foldersel.c:386 src/prefs_folder_item.c:312
+ msgid "Trash"
+ msgstr "Kuka"
+ 
+ # src/foldersel.c:235 src/folderview.c:905 src/prefs_folder_item.c:208
+-#: src/folder.c:1593 src/foldersel.c:410 src/prefs_folder_item.c:310
++#: src/folder.c:1593 src/foldersel.c:390 src/prefs_folder_item.c:310
+ msgid "Drafts"
+ msgstr "Vázlatok"
+ 
+@@ -3932,18 +3931,18 @@
+ msgstr "%s szinkronizációja kapcsolat nélküli munkához...\n"
+ 
+ # src/foldersel.c:146
+-#: src/foldersel.c:239
++#: src/foldersel.c:221
+ msgid "Select folder"
+ msgstr "Mappa kiválasztása"
+ 
+ # src/folderview.c:1544 src/folderview.c:1790
+-#: src/foldersel.c:574 src/imap_gtk.c:199 src/mh_gtk.c:147
++#: src/foldersel.c:554 src/imap_gtk.c:199 src/mh_gtk.c:147
+ #: src/plugins/mailmbox/plugin_gtk.c:241 src/plugins/rssyl/rssyl_cb_menu.c:91
+ msgid "NewFolder"
+ msgstr "Új mappa"
+ 
+ # src/folderview.c:1548 src/folderview.c:1619 src/folderview.c:1795
+-#: src/foldersel.c:582 src/imap_gtk.c:210 src/imap_gtk.c:216
++#: src/foldersel.c:562 src/imap_gtk.c:210 src/imap_gtk.c:216
+ #: src/imap_gtk.c:272 src/imap_gtk.c:277 src/mh_gtk.c:155 src/mh_gtk.c:259
+ #: src/news_gtk.c:314 src/plugins/mailmbox/plugin_gtk.c:249
+ #: src/plugins/mailmbox/plugin_gtk.c:416 src/plugins/rssyl/rssyl_cb_menu.c:97
+@@ -3954,7 +3953,7 @@
+ msgstr "A mappnév nem tartalmazhatja '%c'-t."
+ 
+ # src/folderview.c:1560 src/folderview.c:1629 src/folderview.c:1807
+-#: src/foldersel.c:592 src/imap_gtk.c:226 src/imap_gtk.c:284 src/mh_gtk.c:165
++#: src/foldersel.c:572 src/imap_gtk.c:226 src/imap_gtk.c:284 src/mh_gtk.c:165
+ #: src/mh_gtk.c:266 src/news_gtk.c:321 src/plugins/mailmbox/plugin_gtk.c:261
+ #: src/plugins/mailmbox/plugin_gtk.c:425 src/plugins/rssyl/rssyl_cb_menu.c:107
+ #: src/plugins/rssyl/rssyl_cb_menu.c:348
+@@ -3964,7 +3963,7 @@
+ msgstr "'%s' mappa már létezik."
+ 
+ # src/folderview.c:1567 src/folderview.c:1814
+-#: src/foldersel.c:599 src/imap_gtk.c:232 src/mh_gtk.c:171
++#: src/foldersel.c:579 src/imap_gtk.c:232 src/mh_gtk.c:171
+ #: src/plugins/mailmbox/plugin_gtk.c:268 src/plugins/rssyl/rssyl_cb_menu.c:113
+ #, c-format
+ msgid "Can't create the folder '%s'."
+@@ -4114,7 +4113,7 @@
+ msgid "+_Empty trash"
+ msgstr "+_Kuka ürítése"
+ 
+-#: src/folderview.c:2376 src/inc.c:1538 src/toolbar.c:2678
++#: src/folderview.c:2376 src/inc.c:1528 src/toolbar.c:2678
+ msgid "Offline warning"
+ msgstr "Kapcsolat nélküli jelzés"
+ 
+@@ -5484,6 +5483,8 @@
+ "For more information about plugins see the <a href=\"%s\"><span underline="
+ "\"none\">Claws Mail website</span></a>."
+ msgstr ""
++"További információk a pluginekről a <a href=\"%s\"><span underline=\"none"
++"\">Claws Mail weboldalán</span></a>."
+ 
+ #: src/gtk/pluginwindow.c:414
+ msgid "Click here to load one or more plugins"
+@@ -5778,7 +5779,7 @@
+ 
+ #: src/gtk/quicksearch.c:808 src/gtk/quicksearch.c:823
+ msgid "E_dit"
+-msgstr ""
++msgstr "Sz_erkesztés"
+ 
+ # src/account.c:626 src/addressbook.c:2391 src/addressbook.c:2395
+ # src/addressbook.c:2432 src/addressbook.c:2538 src/addressbook.c:2544
+@@ -6261,11 +6262,11 @@
+ msgstr "Az IMAP szerver eléréséhez hálózati kapcsolat kell."
+ 
+ # src/send.c:375
+-#: src/imap.c:1086 src/inc.c:814 src/news.c:388 src/send_message.c:269
++#: src/imap.c:1086 src/inc.c:802 src/news.c:388 src/send_message.c:269
+ msgid "Insecure connection"
+ msgstr "Nem biztonságos kapcsolat"
+ 
+-#: src/imap.c:1087 src/inc.c:815 src/news.c:389 src/send_message.c:270
++#: src/imap.c:1087 src/inc.c:803 src/news.c:389 src/send_message.c:270
+ msgid ""
+ "This connection is configured to be secured using SSL, but SSL is not "
+ "available in this build of Claws Mail. \n"
+@@ -6279,7 +6280,7 @@
+ "Folytatod a kapcsolódást a szerverhez? A kommunikáció nem lesz titkosítva."
+ 
+ # src/send.c:375
+-#: src/imap.c:1093 src/inc.c:821 src/news.c:395 src/send_message.c:276
++#: src/imap.c:1093 src/inc.c:809 src/news.c:395 src/send_message.c:276
+ msgid "Con_tinue connecting"
+ msgstr "Kapcsolódás foly_tatása"
+ 
+@@ -6877,17 +6878,17 @@
+ msgstr "Készenlét"
+ 
+ # src/inc.c:479
+-#: src/inc.c:617 src/inc.c:671
++#: src/inc.c:604 src/inc.c:658
+ msgid "Cancelled"
+ msgstr "Megszakítva"
+ 
+ # src/inc.c:442
+-#: src/inc.c:628
++#: src/inc.c:615
+ msgid "Retrieving"
+ msgstr "Fogadás"
+ 
+ # src/inc.c:451
+-#: src/inc.c:637
++#: src/inc.c:624
+ #, c-format
+ msgid "Done (%d message (%s) received)"
+ msgid_plural "Done (%d messages (%s) received)"
+@@ -6895,34 +6896,34 @@
+ msgstr[1] "Kész (%d üzenet (%s) fogadva)"
+ 
+ # src/inc.c:455
+-#: src/inc.c:643
++#: src/inc.c:630
+ msgid "Done (no new messages)"
+ msgstr "Kész (nincs új üzenet)"
+ 
+ # src/inc.c:462
+-#: src/inc.c:648
++#: src/inc.c:635
+ msgid "Connection failed"
+ msgstr "Kapcsolódás sikertelen"
+ 
+ # src/inc.c:466
+-#: src/inc.c:651
++#: src/inc.c:638
+ msgid "Auth failed"
+ msgstr "Azonosítás nem sikerült"
+ 
+ # src/inc.c:470
+-#: src/inc.c:658 src/prefs_matcher.c:393 src/prefs_summary_column.c:88
++#: src/inc.c:645 src/prefs_matcher.c:393 src/prefs_summary_column.c:88
+ #: src/summaryview.c:2782 src/summaryview.c:6308
+ msgid "Locked"
+ msgstr "Zárolt"
+ 
+ # src/editldap.c:420
+-#: src/inc.c:668 src/plugins/spamassassin/spamassassin_gtk.c:378
++#: src/inc.c:655 src/plugins/spamassassin/spamassassin_gtk.c:378
+ msgid "Timeout"
+ msgstr "Időtúllépés"
+ 
+ # src/inc.c:520
+ # src/inc.c:523
+-#: src/inc.c:755
++#: src/inc.c:742
+ #, c-format
+ msgid "Finished (%d new message)"
+ msgid_plural "Finished (%d new messages)"
+@@ -6931,78 +6932,78 @@
+ 
+ # src/inc.c:520
+ # src/inc.c:523
+-#: src/inc.c:759
++#: src/inc.c:746
+ msgid "Finished (no new messages)"
+ msgstr "Befejezve (Nincs új üzenet)"
+ 
+ # src/inc.c:593
+-#: src/inc.c:798
++#: src/inc.c:785
+ #, c-format
+ msgid "%s: Retrieving new messages"
+ msgstr "%s: új üzenetek vétele"
+ 
+ # src/inc.c:621
+-#: src/inc.c:828
++#: src/inc.c:818
+ #, c-format
+ msgid "Account '%s': Connecting to POP3 server: %s:%d..."
+ msgstr "'%s' fiók: Kapcsolódás a POP3 szerverhez: %s:%d..."
+ 
+ # src/inc.c:629
+-#: src/inc.c:846
++#: src/inc.c:836
+ #, c-format
+ msgid "Can't connect to POP3 server: %s:%d"
+ msgstr "Nem sikerült a kapcsolódás a POP3 szerverhez: %s:%d"
+ 
+ # src/inc.c:629
+-#: src/inc.c:850
++#: src/inc.c:840
+ #, c-format
+ msgid "Can't connect to POP3 server: %s:%d\n"
+ msgstr "Nem sikerült a kapcsolódás a POP3 szerverhez: %s:%d\n"
+ 
+ # src/inc.c:764
+-#: src/inc.c:930 src/send_message.c:486
++#: src/inc.c:920 src/send_message.c:486
+ msgid "Authenticating..."
+ msgstr "Azonosítás..."
+ 
+ # src/inc.c:732 src/inc.c:785
+-#: src/inc.c:932
++#: src/inc.c:922
+ #, c-format
+ msgid "Retrieving messages from %s (%s)..."
+ msgstr "Üzenetek vétele: %s (%s) ..."
+ 
+ # src/inc.c:768
+-#: src/inc.c:938
++#: src/inc.c:928
+ msgid "Getting the number of new messages (STAT)..."
+ msgstr "Új üzenetek számának lekérdezése (STAT)..."
+ 
+ # src/inc.c:772
+-#: src/inc.c:942
++#: src/inc.c:932
+ msgid "Getting the number of new messages (LAST)..."
+ msgstr "Új üzenetek számának lekérdezése (LAST)..."
+ 
+ # src/inc.c:776
+-#: src/inc.c:946
++#: src/inc.c:936
+ msgid "Getting the number of new messages (UIDL)..."
+ msgstr "Új üzenetek számának lekérdezése (UIDL)..."
+ 
+ # src/inc.c:780
+-#: src/inc.c:950
++#: src/inc.c:940
+ msgid "Getting the size of messages (LIST)..."
+ msgstr "Üzenetekméretének lekérdezése (LIST)..."
+ 
+ # src/inc.c:807
+-#: src/inc.c:957 src/send_message.c:504
++#: src/inc.c:947 src/send_message.c:504
+ msgid "Quitting"
+ msgstr "Kilépés"
+ 
+ # src/inc.c:732 src/inc.c:785
+-#: src/inc.c:982
++#: src/inc.c:972
+ #, c-format
+ msgid "Retrieving message (%d / %d) (%s / %s)"
+ msgstr "Üzenet vétele (%d / %d) (%s / %s)"
+ 
+ # src/inc.c:451
+-#: src/inc.c:995
++#: src/inc.c:985
+ #, c-format
+ msgid "Retrieving (%d message (%s) received)"
+ msgid_plural "Retrieving (%d messages (%s) received)"
+@@ -7010,18 +7011,18 @@
+ msgstr[1] "Fogadás (%d üzenet (%s) fogadva)"
+ 
+ # src/inc.c:462
+-#: src/inc.c:1154
++#: src/inc.c:1144
+ #, c-format
+ msgid "Connection to %s:%d failed."
+ msgstr "Kapcsolódás sikertelen %s:%d."
+ 
+ # src/inc.c:870
+-#: src/inc.c:1159
++#: src/inc.c:1149
+ msgid "Error occurred while processing mail."
+ msgstr "Hiba az e-mail feldolgozása közben."
+ 
+ # src/inc.c:870
+-#: src/inc.c:1165
++#: src/inc.c:1155
+ #, c-format
+ msgid ""
+ "Error occurred while processing mail:\n"
+@@ -7031,42 +7032,42 @@
+ "%s"
+ 
+ # src/inc.c:873
+-#: src/inc.c:1171
++#: src/inc.c:1161
+ msgid "No disk space left."
+ msgstr "Nincs több szabad hely a meghajtón."
+ 
+ # src/recv.c:154 src/recv.c:193 src/recv.c:209
+-#: src/inc.c:1176
++#: src/inc.c:1166
+ msgid "Can't write file."
+ msgstr "Nem lehet a fájlba írni."
+ 
+ # src/pop.c:379 src/pop.c:426
+-#: src/inc.c:1181
++#: src/inc.c:1171
+ msgid "Socket error."
+ msgstr "Socket hiba."
+ 
+ # src/news.c:158
+-#: src/inc.c:1184
++#: src/inc.c:1174
+ #, c-format
+ msgid "Socket error on connection to %s:%d."
+ msgstr "Socket hiba a kapcsolat létesítésekor: %s:%d."
+ 
+-#: src/inc.c:1189 src/send_message.c:414 src/send_message.c:678
++#: src/inc.c:1179 src/send_message.c:414 src/send_message.c:678
+ msgid "Connection closed by the remote host."
+ msgstr "A távoli szerver lezárta a kapcsolatot."
+ 
+-#: src/inc.c:1192
++#: src/inc.c:1182
+ #, c-format
+ msgid "Connection to %s:%d closed by the remote host."
+ msgstr "A távoli kiszolgáló lezárta a %s:%d kapcsolatot."
+ 
+ # src/inc.c:877
+-#: src/inc.c:1197
++#: src/inc.c:1187
+ msgid "Mailbox is locked."
+ msgstr "A postaláda zárolt"
+ 
+ # src/inc.c:877
+-#: src/inc.c:1201
++#: src/inc.c:1191
+ #, c-format
+ msgid ""
+ "Mailbox is locked:\n"
+@@ -7076,12 +7077,12 @@
+ "%s"
+ 
+ # src/prefs_account.c:1161
+-#: src/inc.c:1207 src/send_message.c:663
++#: src/inc.c:1197 src/send_message.c:663
+ msgid "Authentication failed."
+ msgstr "Az azonosítás nem sikerült."
+ 
+ # src/prefs_account.c:1161
+-#: src/inc.c:1213 src/send_message.c:666
++#: src/inc.c:1203 src/send_message.c:666
+ #, c-format
+ msgid ""
+ "Authentication failed:\n"
+@@ -7090,7 +7091,7 @@
+ "Az azonosítás nem sikerült:\n"
+ "%s"
+ 
+-#: src/inc.c:1218 src/send_message.c:682
++#: src/inc.c:1208 src/send_message.c:682
+ msgid ""
+ "Session timed out. You may be able to recover by increasing the timeout "
+ "value in Preferences/Other/Miscellaneous."
+@@ -7099,27 +7100,27 @@
+ "időtúllépés értékét a Beállítások/Egyéb/Vegyes menüpontban."
+ 
+ # src/inc.c:462
+-#: src/inc.c:1223
++#: src/inc.c:1213
+ #, c-format
+ msgid "Connection to %s:%d timed out."
+ msgstr "Kapcsolódási időtúllépés: %s:%d"
+ 
+ # src/inc.c:905
+-#: src/inc.c:1261
++#: src/inc.c:1251
+ msgid "Incorporation cancelled\n"
+ msgstr "Fogadás megszakítva\n"
+ 
+-#: src/inc.c:1528
++#: src/inc.c:1518
+ #, c-format
+ msgid "%s%sYou're working offline. Override for %d minutes?"
+ msgstr "%s%s Kapcsolat nélküli módban vagy. Kapcsolódsz %d percre?"
+ 
+-#: src/inc.c:1534
++#: src/inc.c:1524
+ #, c-format
+ msgid "%s%sYou're working offline. Override?"
+ msgstr "%s%sKapcsolat nélkül dolgozol. Kapcsolódsz?"
+ 
+-#: src/inc.c:1541
++#: src/inc.c:1531
+ msgid "On_ly once"
+ msgstr "Csak egyszer"
+ 
+@@ -9228,8 +9229,8 @@
+ "You probably need to install libetpan and recompile Claws Mail."
+ msgstr ""
+ "Egy vagy több hírcsoport hozzáférésed van megadva, de a Claws Mail "
+-"hírcsoport támogatás nélkül lett fordítva, emiatt a hírcsoport hozzáférése(i)"
+-"d nem használhatók.\n"
++"hírcsoport támogatás nélkül lett fordítva, emiatt a hírcsoport "
++"hozzáférése(i)d nem használhatók.\n"
+ "\n"
+ "Telepítsd a libetpan-t, és fordítsd újra a Claws Mail-t."
+ 
+@@ -9969,41 +9970,37 @@
+ msgstr "csatolás"
+ 
+ #: src/plugins/attachwarner/attachwarner_prefs.c:85
+-#, fuzzy
+ msgid "One of the following regular expressions is matched (one per line):"
+ msgstr ""
+-"Figyelmeztetés a következő reguláris kifejezésekre illeszkedéskor:\n"
+-"(soronként egy)"
++"A következő reguláris kifejezések közül egyre illeszkedik (soronként egy):"
+ 
+ #: src/plugins/attachwarner/attachwarner_prefs.c:89
+ msgid "Expressions are case sensitive"
+-msgstr ""
++msgstr "A kifejezések kis- és nagybetűérzékenyek"
+ 
+ #: src/plugins/attachwarner/attachwarner_prefs.c:96
+-#, fuzzy
+ msgid "Case sensitive when matching for the regular expressions in the list"
+ msgstr ""
+-"Figyelmeztetés a következő reguláris kifejezésekre illeszkedéskor:\n"
+-"(soronként egy)"
++"Kis- és nagybetű érzékeny a következő reguláris kifejezésekre illeszkedéskor"
+ 
+ #: src/plugins/attachwarner/attachwarner_prefs.c:114
+ msgid "Lines starting with quotation marks"
+-msgstr ""
++msgstr "Az idézetet jelző jellel kezdődő sorok"
+ 
+ #: src/plugins/attachwarner/attachwarner_prefs.c:121
+-#, fuzzy
+ msgid ""
+ "Exclude quoted lines from checking for the regular expressions above. Note "
+ "that handmade quotes cannot be distinguished from quotes generated by "
+ "replying."
+ msgstr ""
+-"Idézett sorok kihagyása az ellenőrzésből a megadott reguláris kifejezéseknél"
++"Idézett sorok kihagyása az ellenőrzésből a megadott reguláris "
++"kifejezéseknél. A kézzel létrehozott idézetek nincsenek megkülönböztetve a "
++"válaszkor létrejövő idézetektől."
+ 
+ # src/mainwindow.c:1858
+ #: src/plugins/attachwarner/attachwarner_prefs.c:124
+-#, fuzzy
+ msgid "Forwarded or redirected messages"
+-msgstr "továbbított üzenet"
++msgstr "Továbbított vagy átirányított üzenetek"
+ 
+ #: src/plugins/attachwarner/attachwarner_prefs.c:131
+ msgid ""
+@@ -10028,15 +10025,13 @@
+ 
+ # src/alertpanel.c:133 src/main.c:245
+ #: src/plugins/attachwarner/attachwarner_prefs.c:147
+-#, fuzzy
+ msgid "Warn when"
+-msgstr "Figyelmeztetés"
++msgstr "Figyelmeztetés, ha"
+ 
+ # src/compose.c:4386
+ #: src/plugins/attachwarner/attachwarner_prefs.c:151
+-#, fuzzy
+ msgid "Excluding"
+-msgstr "Kódolás"
++msgstr "Kivéve"
+ 
+ # src/compose.c:3955
+ #: src/plugins/attachwarner/attachwarner_prefs.c:229
+@@ -11327,9 +11322,8 @@
+ # src/mainwindow.c:598 src/summaryview.c:382
+ #: src/plugins/notification/notification_popup.c:381
+ #: src/plugins/notification/notification_trayicon.c:647
+-#, fuzzy
+ msgid "Present main window"
+-msgstr "Me_gnyitás új ablakban"
++msgstr "Megnézem"
+ 
+ # src/grouplistdialog.c:216
+ #: src/plugins/notification/notification_popup.c:491
+@@ -13854,9 +13848,8 @@
+ 
+ # src/send.c:375
+ #: src/plugins/vcalendar/vcal_folder.c:1091
+-#, fuzzy
+ msgid "Meetings"
+-msgstr "egyéb"
++msgstr "Találkozók"
+ 
+ #: src/plugins/vcalendar/vcal_folder.c:1475
+ msgid "in the past"
+@@ -15224,9 +15217,8 @@
+ #: src/prefs_actions.c:337 src/prefs_filtering_action.c:616
+ #: src/prefs_filtering.c:486 src/prefs_matcher.c:778 src/prefs_template.c:318
+ #: src/prefs_toolbar.c:1056
+-#, fuzzy
+ msgid "Re_move"
+-msgstr "Eltávolítás"
++msgstr "El_távolítás"
+ 
+ #: src/prefs_actions.c:345
+ msgid "Delete the selected action from the list"
+@@ -16006,14 +15998,12 @@
+ msgstr "Feltétel"
+ 
+ #: src/prefs_filtering.c:424
+-#, fuzzy
+ msgid " D_efine... "
+-msgstr " Meghatározás..."
++msgstr " M_eghatározás... "
+ 
+ #: src/prefs_filtering.c:446
+-#, fuzzy
+ msgid " De_fine... "
+-msgstr " Meghatározás..."
++msgstr " Me_ghatározás... "
+ 
+ #: src/prefs_filtering.c:475
+ msgid "Append the new rule above to the list"
+@@ -16032,9 +16022,8 @@
+ msgstr "A kiválasztott szabály mozgatása legfelülre"
+ 
+ #: src/prefs_filtering.c:535
+-#, fuzzy
+ msgid "Page u_p"
+-msgstr "Egy oldalt fel"
++msgstr "Oldal _fel"
+ 
+ #: src/prefs_filtering.c:543
+ msgid "Move the selected rule one page up"
+@@ -16049,9 +16038,8 @@
+ msgstr "A kiválasztott szabály mozgatása lefelé"
+ 
+ #: src/prefs_filtering.c:563
+-#, fuzzy
+ msgid "Page dow_n"
+-msgstr "Egy oldalt le"
++msgstr "Oldal _le"
+ 
+ #: src/prefs_filtering.c:571
+ msgid "Move the selected rule one page down"
+@@ -17463,7 +17451,6 @@
+ 
+ # src/prefs_common.c:1909
+ #: src/prefs_receive.c:199
+-#, fuzzy
+ msgid "After receiving new mail"
+ msgstr "Új e-mail ellenőrzése után"
+ 
+@@ -17528,9 +17515,8 @@
+ 
+ # src/compose.c:2242
+ #: src/prefs_send.c:172
+-#, fuzzy
+ msgid "Warn when Subject is empty"
+-msgstr "Tárgy nincs megadva. %s"
++msgstr "Figyelmeztetés, ha a Tárgy nincs megadva"
+ 
+ # src/prefs_common.c:1073
+ #: src/prefs_send.c:180
+@@ -18412,7 +18398,7 @@
+ 
+ #: src/prefs_toolbar.c:1042
+ msgid "A_dd"
+-msgstr ""
++msgstr "Hozzáa_dás"
+ 
+ #: src/prefs_toolbar.c:1261 src/prefs_toolbar.c:1275 src/prefs_toolbar.c:1289
+ msgid "Toolbars"
+@@ -18557,7 +18543,6 @@
+ "alatt."
+ 
+ #: src/procmsg.c:1732
+-#, fuzzy
+ msgid ""
+ "Couldn't determine sending information. Maybe the email hasn't been "
+ "generated by Claws Mail."
+@@ -20330,92 +20315,3 @@
+ 
+ #~ msgid "More plugins are available from the Claws Mail website."
+ #~ msgstr "A Claws Mail weboldalán további pluginek is elérhetőek."
+-
+-# src/mainwindow.c:1619 src/messageview.c:115
+-#~ msgid "Claws Mail: %d new message"
+-#~ msgid_plural "Claws Mail: %d new messages"
+-#~ msgstr[0] "Claws Mail: %d új üzenet"
+-#~ msgstr[1] "Claws Mail: %d új üzenet"
+-
+-#~ msgid "Unable to connect: you are offline."
+-#~ msgstr "Nem lehet kapcsolódni: kapcsolat nélküli módban vagy."
+-
+-# src/send.c:416
+-#~ msgid "Exiting..."
+-#~ msgstr "Kilépés..."
+-
+-#~ msgid "Claws Mail can not start without its data volume (%s)."
+-#~ msgstr "A Claws Mail nem tud elindulni az adatok nélkül (%s)."
+-
+-#~ msgid "No registered viewer for this file type."
+-#~ msgstr "E fájltípushoz nincs beállított megjelenítő."
+-
+-#~ msgid "Skip quoted lines"
+-#~ msgstr "Idézett sorok kihagyása"
+-
+-#~ msgid "Skip forwards and redirections"
+-#~ msgstr "Továbbítások és átirányítások kihagyása"
+-
+-# src/compose.c:3964 src/prefs_common.c:1186
+-#~ msgid "Skip signature"
+-#~ msgstr "Aláírás kihagyása"
+-
+-#~ msgid ""
+-#~ "This plugin provides Python integration features.\n"
+-#~ "\n"
+-#~ "For the most up-to-date API documentation, type\n"
+-#~ "\n"
+-#~ " help(clawsmail)\n"
+-#~ "\n"
+-#~ "in the interactive Python console under Tools -> Show Python console.\n"
+-#~ "\n"
+-#~ "The source distribution of this plugin comes with various example scripts "
+-#~ "in the \"examples\" subdirectory. If you wrote a script that you would be "
+-#~ "interested in sharing, feel free to send it to me to have it considered "
+-#~ "for inclusion in the examples.\n"
+-#~ "\n"
+-#~ "Feedback to <berndth@gmx.de> is welcome."
+-#~ msgstr ""
+-#~ "A plugin Python scriptek, kódok használatát teszi lehetővé.\n"
+-#~ "\n"
+-#~ "A legfrissebb API dokumentáció elérhető a\n"
+-#~ "\n"
+-#~ " help(clawsmail)\n"
+-#~ "\n"
+-#~ "parancs használatával az interaktív Python konzolból (Eszközök -> Python "
+-#~ "konzol megjelenítése).\n"
+-#~ "\n"
+-#~ "A plugin forráskódja több példa scriptet tartalmaz az \"examples\" "
+-#~ "alkönyvtárban. Ha szeretnél megosztani másokkal egy saját scriptedet, "
+-#~ "küldd el nekem, és hozzáteszem a példákhoz.\n"
+-#~ "\n"
+-#~ "Örömmel veszek minden visszajelzést a <berndth@gmx.de> címre."
+-
+-# src/compose.c:5131
+-#~ msgid "Replace"
+-#~ msgstr "Csere"
+-
+-# src/editldap.c:402
+-#~ msgid "Blink LED"
+-#~ msgstr "LED villogtatása"
+-
+-#~ msgid "Play sound"
+-#~ msgstr "Hang lejátszása"
+-
+-#~ msgid "Show info banner"
+-#~ msgstr "Információs sáv megjelenítése"
+-
+-#~ msgid "on internal memory"
+-#~ msgstr "belső memóriában"
+-
+-#~ msgid "on external memory card"
+-#~ msgstr "külső memóriakártyán"
+-
+-#~ msgid "on internal memory card"
+-#~ msgstr "belső memóriakártyán"
+-
+-#~ msgid "<span weight=\"bold\">Store data</span>"
+-#~ msgstr "<span weight=\"bold\">Adat tárolása</span>"
+-
+-#~ msgid "Accounts List Get Column Name|G"
+-#~ msgstr "F"

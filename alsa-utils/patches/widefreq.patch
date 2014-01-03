@@ -1,0 +1,14 @@
+diff -Naurdp alsa-utils-1.0.21.orig/speaker-test/speaker-test.c alsa-utils-1.0.21/speaker-test/speaker-test.c
+--- alsa-utils-1.0.21.orig/speaker-test/speaker-test.c	2009-08-31 17:13:36.000000000 +0200
++++ alsa-utils-1.0.21/speaker-test/speaker-test.c	2009-09-30 20:08:10.000000000 +0200
+@@ -818,8 +818,8 @@ int main(int argc, char *argv[]) {
+       break;
+     case 'f':
+       freq = atof(optarg);
+-      freq = freq < 30.0 ? 30.0 : freq;
+-      freq = freq > 5000.0 ? 5000.0 : freq;
++      freq = freq < 10.0 ? 10.0 : freq;
++      freq = freq > 48000.0 ? 48000.0 : freq;
+       break;
+     case 'b':
+       buffer_time = atoi(optarg);

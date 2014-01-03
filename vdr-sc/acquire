@@ -1,0 +1,4 @@
+#!/usr/bin/env dl
+
+sasc-ng-${UB_VERSION_HEAD3}.tar.gz sasc-${UB_VERSION_TAIL1}/
+      git://github.com/bas-t/sasc.git@${UB_VERSION_TAIL1}

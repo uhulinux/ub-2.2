@@ -1,0 +1,29 @@
+diff -Naur orig/randr/randr.c patched/randr/randr.c
+--- orig/randr/randr.c	2012-05-17 19:09:05.000000000 +0200
++++ patched/randr/randr.c	2012-06-19 18:46:33.438969556 +0200
+@@ -478,10 +478,24 @@
+ static int
+ ProcRRDispatch(ClientPtr client)
+ {
++    int ret;
+     REQUEST(xReq);
+     if (stuff->data >= RRNumberRequests || !ProcRandrVector[stuff->data])
+         return BadRequest;
+-    return (*ProcRandrVector[stuff->data]) (client);
++    ret = ProcRandrVector[stuff->data](client);
++
++    if (ret) {
++        int i;
++        ErrorF("RANDR failure: %d (extension base %d)\n", ret, RRErrorBase);
++        for (i = 0; i < stuff->length; i++) {
++            ErrorF("%08x ", ((unsigned int *)stuff) + i);
++            if ((i+1) % 4 == 0)
++               ErrorF("\n");
++        }
++        ErrorF("\n");
++    }
++
++    return ret;
+ }
+ 
+ static int

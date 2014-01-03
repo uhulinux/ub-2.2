@@ -1,0 +1,80 @@
+diff -Naur orig/po/hu.po patched/po/hu.po
+--- orig/po/hu.po	2013-07-12 20:52:29.000000000 +0200
++++ patched/po/hu.po	2013-07-19 20:24:02.688395310 +0200
+@@ -3,13 +3,13 @@
+ # This file is distributed under the same license as the PACKAGE package.
+ # 
+ # Translators:
+-# Rezső Páder <rezso@rezso.net>, 2013.
++# Rezső Páder <rezso@rezso.net>, 2013
+ msgid ""
+ msgstr ""
+ "Project-Id-Version: MATE Desktop Environment\n"
+ "Report-Msgid-Bugs-To: https://github.com/mate-desktop/\n"
+ "POT-Creation-Date: 2013-02-10 23:10+0100\n"
+-"PO-Revision-Date: 2013-03-11 16:38+0000\n"
++"PO-Revision-Date: 2013-07-12 08:49+0000\n"
+ "Last-Translator: Rezső Páder <rezso@rezso.net>\n"
+ "Language-Team: Hungarian (http://www.transifex.com/projects/p/MATE/language/hu/)\n"
+ "MIME-Version: 1.0\n"
+@@ -763,15 +763,15 @@
+ 
+ #: ../applets/fish/org.mate.panel.FishApplet.mate-panel-applet.in.in.h:1
+ msgid "Wanda Factory"
+-msgstr ""
++msgstr "Wanda factory"
+ 
+ #: ../applets/fish/org.mate.panel.FishApplet.mate-panel-applet.in.in.h:2
+ msgid "From Whence That Stupid Fish Came"
+-msgstr ""
++msgstr "Ahonnan a buta hal jött"
+ 
+ #: ../applets/fish/org.mate.panel.FishApplet.mate-panel-applet.in.in.h:4
+ msgid "Display a swimming fish or another animated creature"
+-msgstr ""
++msgstr "Úszó halat vagy más mozgó lényt jelenít meg"
+ 
+ #: ../applets/notification_area/main.c:124
+ #: ../applets/notification_area/org.mate.panel.NotificationAreaApplet.mate-panel-applet.in.in.h:3
+@@ -784,15 +784,15 @@
+ 
+ #: ../applets/notification_area/org.mate.panel.NotificationAreaApplet.mate-panel-applet.in.in.h:1
+ msgid "Notification Area Factory"
+-msgstr ""
++msgstr "Értesítési terület factory"
+ 
+ #: ../applets/notification_area/org.mate.panel.NotificationAreaApplet.mate-panel-applet.in.in.h:2
+ msgid "Factory for notification area"
+-msgstr ""
++msgstr "Factory a panel értesítési területéhez"
+ 
+ #: ../applets/notification_area/org.mate.panel.NotificationAreaApplet.mate-panel-applet.in.in.h:4
+ msgid "Area where notification icons appear"
+-msgstr ""
++msgstr "Terület, ahol az értesítési ikonok megjelennek"
+ 
+ #: ../applets/wncklet/org.mate.panel.applet.window-list.gschema.xml.in.in.h:1
+ msgid "Show windows from all workspaces"
+@@ -868,11 +868,11 @@
+ 
+ #: ../applets/wncklet/org.mate.panel.Wncklet.mate-panel-applet.in.in.h:1
+ msgid "Window Navigation Applet Factory"
+-msgstr ""
++msgstr "Ablaknavigációs kisalkalmazás Factory"
+ 
+ #: ../applets/wncklet/org.mate.panel.Wncklet.mate-panel-applet.in.in.h:2
+ msgid "Factory for the window navigation related applets"
+-msgstr ""
++msgstr "Factory az ablaknavigációval kapcsolatos kisalkalmazások számára"
+ 
+ #: ../applets/wncklet/org.mate.panel.Wncklet.mate-panel-applet.in.in.h:3
+ #: ../applets/wncklet/window-menu.c:81 ../applets/wncklet/window-menu.c:238
+@@ -1592,7 +1592,7 @@
+ "\"none\" - the default GTK+ widget background will be used, \"color\" - the "
+ "color key will be used as background color or \"image\" - the image "
+ "specified by the image key will be used as background."
+-msgstr ""
++msgstr "Milyen típusú legyen ezen panel háttere. Lehetséges értékek: „none” – az alapértelmezett GTK+ elemháttér használata, „color” – a color (szín) kulcs lesz használva háttérszínként vagy „image” – az image (kép) kulcs által megadott kép lesz használva."
+ 
+ #: ../data/org.mate.panel.toplevel.gschema.xml.in.in.h:43
+ msgid "Background color"

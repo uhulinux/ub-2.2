@@ -1,0 +1,22 @@
+#!/bin/sh -eux
+
+cd build_unix
+ub_install \
+	docdir=/usr/share/doc/Packages/db5
+
+mkdir -p "$UB_INSTALLDIR"/usr/include/db${UB_VERSION_HEAD2}
+mv "$UB_INSTALLDIR"/usr/include/*.h "$UB_INSTALLDIR"/usr/include/db${UB_VERSION_HEAD2}
+
+mv "$UB_INSTALLDIR"/usr/lib/db.jar "$UB_INSTALLDIR"/usr/lib/db5.jar
+
+ln -s libdb-5.so "$UB_INSTALLDIR"/usr/lib/libdb5.so
+
+rm -f "$UB_INSTALLDIR"/usr/lib/libdb.so
+rm -f "$UB_INSTALLDIR"/usr/lib/libdb_cxx.so
+rm -f "$UB_INSTALLDIR"/usr/lib/libdb_java.so
+
+for i in "$UB_INSTALLDIR"/usr/lib/lib*.la; do
+	ub_replace "dependency_libs=''" "dependency_libs='-lpthread'" "$i"
+done
+
+chmod 755 "$UB_INSTALLDIR"/usr/bin/*

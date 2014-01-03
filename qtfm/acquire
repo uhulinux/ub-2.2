@@ -1,0 +1,5 @@
+#!/usr/bin/env dl
+
+qtfm-${UB_VERSION}.tar.gz qtfm-${UB_VERSION}/
+	http://www.qtfm.org/
+

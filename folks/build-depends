@@ -1,0 +1,10 @@
+dbus-glib-dev
+evolution-data-server-dev
+gconf2-dev
+gobject-introspection-dev
+intltool
+krb5-dev
+libgee-dev
+libsocialweb-dev
+telepathy-glib-dev
+vala-dev

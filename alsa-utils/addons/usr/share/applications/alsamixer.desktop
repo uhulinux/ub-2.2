@@ -1,0 +1,8 @@
+[Desktop Entry]
+Name=AlsaMixer
+Comment=Mixer for the ALSA sound system
+Comment[hu]=Az ALSA hangrendszer hangkeverője
+Exec=alsamixer
+Terminal=true
+Type=Application
+Categories=X-UHU-Menu/Multimedia/Mixers;

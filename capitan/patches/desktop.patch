@@ -1,0 +1,16 @@
+diff -Naur orig/extra/capitan.desktop mod/extra/capitan.desktop
+--- orig/extra/capitan.desktop	2009-03-02 16:38:37.000000000 +0100
++++ mod/extra/capitan.desktop	2009-04-23 10:43:48.000000000 +0200
+@@ -2,10 +2,10 @@
+ Encoding=UTF-8
+ Name=Captain 'S' The Remake
+ Comment=Save Seville from the evil Torrebruno
++Comment[hu]=Mentsd ki Seville kapitányt
+ Exec=capitan
+ Icon=capitan.png
+ Terminal=false
+ Type=Application
+-Categories=Application;Game;ArcadeGame;
++Categories=Application;Game;ArcadeGame;X-UHU-Menu/Games/Arcade;
+ StartupNotify=false
+-

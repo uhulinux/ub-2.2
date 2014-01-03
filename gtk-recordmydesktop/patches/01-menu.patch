@@ -1,0 +1,15 @@
+diff -Naur gtk-recordmydesktop-0.3.8-orig/src/gtk-recordmydesktop.desktop gtk-recordmydesktop-0.3.8/src/gtk-recordmydesktop.desktop
+--- gtk-recordmydesktop-0.3.8-orig/src/gtk-recordmydesktop.desktop	2008-11-23 16:09:17.000000000 +0100
++++ gtk-recordmydesktop-0.3.8/src/gtk-recordmydesktop.desktop	2010-12-14 19:45:19.558193674 +0100
+@@ -4,9 +4,10 @@
+ Name=gtk-recordMyDesktop
+ Comment=Frontend for recordMyDesktop
+ Comment[fr]=Interface pour recordmydesktop
++Comment[hu]=Grafikus előtét a recordMyDesktop programhoz
+ Exec=gtk-recordMyDesktop
+ Terminal=false
+ Type=Application
+ Icon=gtk-recordmydesktop.png
+-Categories=AudioVideo;Recorder;
++Categories=AudioVideo;Recorder;X-UHU-Menu/Multimedia/More;
+ StartupNotify=false

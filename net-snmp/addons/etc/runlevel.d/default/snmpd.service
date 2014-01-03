@@ -1,0 +1,10 @@
+Summary=Daemon that responds to SNMP requests
+Summary[hu]=Démon SNMP kérések kezelésére
+Description=A daemon that responds to any SNMP (Simple Network Management Protocol) requests 
+Description[hu]=Egy démon SNMP (Egyszerű Hálózat-menedzselési Protokoll) kérések kezelésére
+MsgDesc=SNMP Server
+MsgDesc[hu]=SNMP-szerver
+Script=/etc/init.d/snmpd
+SupportsReload=no
+Runlevels=
+Sequence=25

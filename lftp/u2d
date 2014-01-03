@@ -1,0 +1,1 @@
+urllist ftp://ftp.st.ryukoku.ac.jp/pub/network/ftp/lftp/ | splitver '^lftp-([0-9.]+).tar.(gz|bz2|xz)$' | sort -V | tail -n 1

@@ -1,0 +1,9 @@
+diff -Naur a/src/kmancala.desktop b/src/kmancala.desktop
+--- a/src/kmancala.desktop	2011-04-28 15:05:59.000000000 +0200
++++ b/src/kmancala.desktop	2013-05-31 23:16:46.017341040 +0200
+@@ -89,4 +89,4 @@
+ Terminal=false
+ X-KDE-StartupNotify=true
+ X-DBUS-StartupType=Multi
+-Categories=Qt;KDE;Game;BoardGame;
++Categories=Qt;KDE;Game;BoardGame;X-UHU-Menu/Games/Board;

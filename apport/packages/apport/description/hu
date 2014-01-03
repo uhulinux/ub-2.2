@@ -1,0 +1,1 @@
+Az Apport elkapja a programösszeomlásokat, összegyűjti a &debug információkat az összeomlásról és a rendszerkörnyezetről, majd elküldi a hibakövetőkbe, szabványos formában. Továbbá felajánlja a hibajelentést egy csomagról, a lehető legtöbb információ újbóli összegyűjtésével (Ubuntu és &OpenSUSE esetén).

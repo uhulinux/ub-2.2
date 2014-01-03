@@ -1,0 +1,11 @@
+--- a/SConstruct	2007-10-30 10:23:37.000000000 +0100
++++ b/SConstruct	2008-05-22 20:04:02.000000000 +0200
+@@ -476,7 +476,7 @@
+         env['optional_sources'] += ['src/input/xinput_driver.cpp',
+                                     'src/input/xinput_device.cpp']
+         
+-    if not config.CheckLibWithHeader('boost_signals', 'boost/signals.hpp', 'c++'):
++    if not (config.CheckLibWithHeader('boost_signals', 'boost/signals.hpp', 'c++') or config.CheckLibWithHeader('boost_signals-mt', 'boost/signals.hpp', 'c++')):
+         fatal_error += "  * library 'boost_signals' not found\n"
+ 
+     if not config.CheckLibWithHeader('png', 'png.h', 'c++'):

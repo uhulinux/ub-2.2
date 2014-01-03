@@ -1,0 +1,14 @@
+#!/bin/sh -eux
+
+ub_install
+
+## remove this due to conflicts with icon-theme-hicolor
+rm -rf "${UB_INSTALLDIR}"/usr/share/icons/hicolor
+
+## PAM link for kdm and kscreensaver
+mkdir -p "$UB_INSTALLDIR"/etc/pam.d
+ln -s graphic-login "$UB_INSTALLDIR"/etc/pam.d/kde
+mkdir -p ${UB_INSTALLDIR}/usr/share/kdm/faces
+ln -s /usr/share/kdm/pics/users/default3.png ${UB_INSTALLDIR}/usr/share/kdm/faces/.default.face.icon
+ln -s /usr/share/pixmaps/uhu-64x64.png ${UB_INSTALLDIR}/usr/share/kdm/faces/uhu.face.icon
+ln -s /usr/share/kdm/pics/users/root1.png ${UB_INSTALLDIR}/usr/share/kdm/faces/root.face.icon

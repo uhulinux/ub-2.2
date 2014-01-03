@@ -1,0 +1,17 @@
+#!/usr/bin/env dl
+
+lftp-${UB_VERSION}.tar.gz lftp-${UB_VERSION}/
+	ftp://ftp.yars.free.net/pub/source/lftp/
+	http://www.ibiblio.org/pub/Linux/system/network/file-transfer/
+	http://tactical.wiretapped.net/mirrors/lftp/
+	ftp://ftp.wiretapped.net/pub/mirrors/lftp/
+	ftp://ftp.st.ryukoku.ac.jp/pub/network/ftp/lftp/
+	ftp://ftp.bme.hu/packages/lftp/
+	ftp://ftp.tuwien.ac.at/infosys/browsers/ftp/lftp/
+	ftp://ftp.cs.tu-berlin.de/pub/net/ftp/lftp/
+	ftp://mirror.widexs.nl/pub/lftp/
+	ftp://ftp.130th.net/pub/mirror/lftp/
+	ftp://ftp.iasi.roedu.net/pub/os/Linux/network/ftp/lftp/
+	ftp://ftp.kaizo.org/pub/lftp/
+	http://ftp.yars.free.net/pub/source/lftp/
+	http://ftp.yars.free.net/pub/source/lftp/old/

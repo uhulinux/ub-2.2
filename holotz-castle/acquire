@@ -1,0 +1,4 @@
+#!/usr/bin/env dl
+
+holotz-castle_${UB_VERSION}.orig.tar.gz holotz-castle-${UB_VERSION}-src/
+	http://ftp.de.debian.org/debian/pool/main/h/holotz-castle/

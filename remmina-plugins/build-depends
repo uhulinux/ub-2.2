@@ -1,0 +1,16 @@
+avahi-dev
+freerdp-dev
+glib2-dev
+glibc-dev
+gnome2-panel-dev
+gnutls-dev
+gtk2-dev
+intltool
+libgcrypt-dev
+libjpeg-dev
+libssh-dev
+libtelepathy-dev
+libunique-dev
+libxkbfile-dev
+remmina
+remmina-dev

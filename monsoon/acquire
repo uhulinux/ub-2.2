@@ -1,0 +1,4 @@
+#!/usr/bin/env dl
+
+monsoon-${UB_VERSION}.tar.gz monsoon-${UB_VERSION}/
+	http://www.monsoon-project.org/jaws/data/files/

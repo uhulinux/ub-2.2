@@ -1,0 +1,5 @@
+#!/usr/bin/env dl
+
+f4l-$UB_VERSION.tar.bz2 f4l-$UB_VERSION/
+	http://sourceforge.net/projects/f4l/files/f4l_beta_swfExport/$UB_VERSION/
+

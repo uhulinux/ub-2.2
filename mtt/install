@@ -1,0 +1,10 @@
+#!/bin/sh -eux
+
+tar zxvf mtt.tar.gz
+mkdir ${UB_INSTALLDIR}/usr/share/doc/Packages
+mkdir ${UB_INSTALLDIR}/usr/share/doc/Packages/mtt
+cd mtt
+mv mtt ${UB_INSTALLDIR}/usr/bin
+ln -s /usr/lib/libjpeg.so.7.0.0 ${UB_INSTALLDIR}/usr/lib/libjpeg.so.62
+mv mtt-icon.png ${UB_INSTALLDIR}/usr/share/pixmaps/mtt.png
+mv README ${UB_INSTALLDIR}/usr/share/doc/Packages/mtt

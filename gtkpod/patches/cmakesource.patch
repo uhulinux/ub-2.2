@@ -1,0 +1,27 @@
+diff -Naur orig/cmake/sources.cmake patched/cmake/sources.cmake
+--- orig/cmake/sources.cmake	2010-04-13 20:11:08.000000000 +0200
++++ patched/cmake/sources.cmake	2011-02-28 16:56:20.000000000 +0100
+@@ -27,7 +27,6 @@
+     src/infodlg.c
+     src/ipod_init.c
+     src/main.c
+-    src/md5.c
+     src/misc.c
+     src/misc_confirm.c
+     src/misc_conversion.c
+@@ -46,7 +45,6 @@
+     src/sha1.c
+     src/sort_window.c
+     src/stock_icons.c
+-    src/support.c
+     src/syncdir.c
+     src/tools.c
+     src/wavfile.c
+diff -Naur orig/po/POTFILES.skip patched/po/POTFILES.skip
+--- orig/po/POTFILES.skip	2010-08-01 22:00:16.000000000 +0200
++++ patched/po/POTFILES.skip	2011-02-28 16:57:15.000000000 +0100
+@@ -1,4 +1,2 @@
+ src/date_parser.c
+-src/md5.c
+ src/podcast.c
+-src/support.c

@@ -1,0 +1,10 @@
+Summary=Spamd
+Summary[hu]=bogofilterd
+Description=Spam filter daemon.
+Description[hu]=Spamszűrő démon.
+MsgDesc=Spam Filter Daemon
+MsgDesc[hu]=Spamszűrő démon
+Script=/etc/init.d/bogofilterd
+SupportsReload=no
+Runlevels=
+Sequence=19

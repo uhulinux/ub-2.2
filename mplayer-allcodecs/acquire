@@ -1,0 +1,7 @@
+#!/usr/bin/env dl
+
+all-"$UB_VERSION".tar.bz2 all-"$UB_VERSION"/ :usr/lib/codecs
+	http://www1.mplayerhq.hu/MPlayer/releases/codecs/
+	ftp://ftp1.mplayerhq.hu/MPlayer/releases/codecs/
+	http://www2.mplayerhq.hu/MPlayer/releases/codecs/
+	ftp://ftp2.mplayerhq.hu/MPlayer/releases/codecs/

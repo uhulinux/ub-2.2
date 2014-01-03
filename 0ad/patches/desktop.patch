@@ -1,0 +1,16 @@
+diff -Naur orig/build/resources/0ad.desktop mod/build/resources/0ad.desktop
+--- orig/build/resources/0ad.desktop	2010-10-08 16:08:54.000000000 +0200
++++ mod/build/resources/0ad.desktop	2012-03-08 23:28:15.000000000 +0100
+@@ -2,9 +2,9 @@
+ Version=1.0
+ Name=0 A.D.
+ Comment=A real-time strategy game of ancient warfare
+-Comment[it]=Videogioco strategico in tempo reale di guerre antiche
+-Exec=/usr/bin/0ad
++Comment[hu]=valós idejű stratégiai játék
++Exec=0ad
+ Icon=0ad
+ Terminal=false
+ Type=Application
+-Categories=Game;StrategyGame;
++Categories=Game;StrategyGame;X-UHU-Menu/Games/TacticStrategy;

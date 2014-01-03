@@ -1,0 +1,16 @@
+diff -Naur monsoon-0.21-ori/Monsoon/monsoon.desktop monsoon-0.21/Monsoon/monsoon.desktop
+--- monsoon-0.21-ori/Monsoon/monsoon.desktop	2009-04-20 21:12:34.000000000 +0200
++++ monsoon-0.21/Monsoon/monsoon.desktop	2011-03-05 23:29:59.268047401 +0100
+@@ -3,10 +3,11 @@
+ Encoding=UTF-8
+ Name=Monsoon
+ Comment=BitTorrent Client
++Comment[hu]=BitTorrent kliens
+ Exec=monsoon
+ Terminal=false
+ Type=Application
+-Categories=GNOME;Internet;FileTransfer;Network;
++Categories=GNOME;Internet;FileTransfer;Network;X-UHU-Menu/Internet/Downloaders;
+ X-GNOME-Bugzilla-Bugzilla=Novell
+ X-GNOME-Bugzilla-Product=Mono:Tools
+ X-GNOME-Bugzilla-Component=Monsoon

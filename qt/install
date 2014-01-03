@@ -1,0 +1,40 @@
+#!/bin/sh -eux
+
+mkdir -p "$UB_INSTALLDIR"/usr/lib/qt/{bin,lib,mkspecs,plugins,tools/designer}
+mkdir -p "$UB_INSTALLDIR"/usr/share/doc/qt
+
+# bin
+cp -a bin "$UB_INSTALLDIR"/usr/lib/qt/
+rm "$UB_INSTALLDIR"/usr/lib/qt/bin/qmake
+cp -a qmake/qmake "$UB_INSTALLDIR"/usr/lib/qt/bin/
+for i in $(ls "$UB_INSTALLDIR"/usr/lib/qt/bin); do
+	ln -s ../lib/qt/bin/$i "$UB_INSTALLDIR"/usr/bin/$i
+done
+
+# include
+# sajnos itt vannak dangling szimlinkek is
+cp -L -p --recursive include "$UB_INSTALLDIR"/usr/lib/qt/ || true
+
+# lib
+cp -a lib/lib*.so* "$UB_INSTALLDIR"/usr/lib/qt/lib/
+for i in $(ls "$UB_INSTALLDIR"/usr/lib/qt/lib | grep ^libqt-mt); do
+	ln -s $i "$UB_INSTALLDIR"/usr/lib/qt/lib/${i/-mt/}
+done
+for i in $(ls "$UB_INSTALLDIR"/usr/lib/qt/lib); do
+	ln -s qt/lib/$i "$UB_INSTALLDIR"/usr/lib/
+done
+cp -a lib/libqassistantclient.a "$UB_INSTALLDIR"/usr/lib/qt/lib/
+
+# mkspecs
+cp -a mkspecs "$UB_INSTALLDIR"/usr/lib/qt/
+
+# plugins
+cp -a plugins/{designer,sqldrivers} "$UB_INSTALLDIR"/usr/lib/qt/plugins/
+
+# tools
+cp -a tools/designer/templates "$UB_INSTALLDIR"/usr/lib/qt/tools/designer/
+
+# doc
+cp -a doc/man "$UB_INSTALLDIR"/usr/share/
+cp -a doc/html "$UB_INSTALLDIR"/usr/share/doc/qt/
+ln -s ../../share/doc/qt "$UB_INSTALLDIR"/usr/lib/qt/doc

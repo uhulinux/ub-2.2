@@ -1,0 +1,25 @@
+diff -Naur orig/ai/Makefile mod/ai/Makefile
+--- orig/ai/Makefile	2003-04-10 15:17:38.000000000 +0200
++++ mod/ai/Makefile	2013-05-16 23:17:10.000000000 +0200
+@@ -1,5 +1,5 @@
+-CC=gcc -g -O -march=i586 -mcpu=i586 -Wall -MD
+-LD=gcc -g -march=i586 -mcpu=i586
++CC=gcc -g -O -march=i686 -Wall -MD
++LD=gcc -g -march=i686 -ldl
+ 
+ CFLAGS=-I./../
+ LIBS=-lm
+diff -Naur orig/Makefile mod/Makefile
+--- orig/Makefile	2003-04-10 15:17:38.000000000 +0200
++++ mod/Makefile	2013-05-16 23:16:50.000000000 +0200
+@@ -7,8 +7,8 @@
+ 
+ OPENGL = 1
+ 
+-CC = gcc -g -O -march=i586 -mcpu=i586 -Wall -MD
+-LD = gcc -g -march=i586 -mcpu=i586
++CC = gcc -g -O -march=i686 -Wall -MD
++LD = gcc -g -march=i686 -ldl
+ 
+ CROSS_INCDIR=./unix/
+ 

@@ -1,0 +1,10 @@
+#!/bin/sh -eux
+
+ub_install
+
+cd ${UB_INSTALLDIR}/usr/lib
+ln -s libgdk_pixbuf-2.0.so.0.2600.4 libgdk_pixbuf-2.0.so.0.1800.9
+ln -s libgdk_pixbuf_xlib-2.0.so.0.2600.4 libgdk_pixbuf_xlib-2.0.so.0.1800.9
+ln -s libgdk_pixbuf-2.0.so.0.2600.4 libgdk_pixbuf-2.0.so.0.2400.1
+ln -s libgdk_pixbuf_xlib-2.0.so.0.2600.4 libgdk_pixbuf_xlib-2.0.so.0.2400.1
+

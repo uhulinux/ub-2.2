@@ -1,0 +1,5 @@
+glib2-dev
+gobject-introspection-dev
+libxcomposite-dev
+mesa-dev
+pango-dev

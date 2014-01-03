@@ -1,0 +1,13 @@
+[Event/exitkde]
+Action=Sound
+Execute=
+KTTS=
+Logfile=
+Sound=KDE_Logout_new.wav
+
+[Event/startkde]
+Action=Sound
+Execute=
+KTTS=
+Logfile=
+Sound=KDE_Startup_new.wav

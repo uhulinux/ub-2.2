@@ -1,0 +1,5 @@
+#!/usr/bin/env dl
+
+ctemplate-${UB_VERSION}.tar.gz ctemplate-${UB_VERSION}/
+	https://ctemplate.googlecode.com/files/
+

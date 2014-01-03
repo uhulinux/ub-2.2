@@ -1,0 +1,10 @@
+Summary=Resolver for NT Servers
+Summary[hu]=Névfeloldó NT szerverekhez
+Description=Name Service Switch daemon for resolving names from NT servers.
+Description[hu]=Névlekérdező modul NT szerveren tárolt központi felhasználóadatbázisokhoz
+MsgDesc=Resolver for NT Servers
+MsgDesc[hu]=Névfeloldó NT szerverekhez
+Script=/etc/init.d/winbindd
+SupportsReload=yes
+Runlevels=
+Sequence=20

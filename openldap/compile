@@ -1,0 +1,36 @@
+#!/bin/sh -eux
+
+ub_compile \
+	--libexecdir=/usr/sbin \
+	--enable-syslog \
+	--enable-dynamic \
+	--enable-proctitle \
+	--enable-ipv6 \
+	--enable-local \
+	--enable-cache \
+	--with-readline \
+	--with-threads \
+	--with-tls \
+	--enable-slapd \
+	--enable-slp \
+	--enable-aci \
+	--enable-cleartext \
+	--enable-crypt \
+	--enable-kpasswd \
+	--enable-lmpasswd \
+	--enable-spasswd \
+	--enable-phonetic \
+	--enable-rewrite \
+	--enable-multimaster \
+	--enable-rlookups \
+	--enable-wrappers \
+	--enable-bdb \
+	--enable-perl \
+	--disable-dnssrv \
+	--enable-ldap \
+	--enable-ldbm \
+	--enable-meta \
+	--enable-monitor \
+	--enable-null \
+	--enable-passwd \
+	--enable-slurpd

@@ -1,0 +1,4 @@
+#!/usr/bin/env dl
+
+cle4vdr.${UB_VERSION}-gtk2.tar.gz cle4vdr.${UB_VERSION}-gtk2/
+	http://cle4vdr.vdr-developer.org/files/

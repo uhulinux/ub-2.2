@@ -1,0 +1,12 @@
+diff --git a/src/plugins/youtube/kipiplugin_youtube.cpp b/src/plugins/youtube/kipiplugin_youtube.cpp
+index 07fe1c4..7ebabf8 100644
+--- a/src/plugins/youtube/kipiplugin_youtube.cpp
++++ b/src/plugins/youtube/kipiplugin_youtube.cpp
+@@ -36,6 +36,7 @@
+ #include <kwallet.h>
+ #include <KDebug>
+ #include <libkipi/interface.h>
++#include <libkipi/imagecollection.h>
+ 
+ using KWallet::Wallet;
+ 

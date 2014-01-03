@@ -1,0 +1,11 @@
+Summary=SMTP Server
+Summary[hu]=SMTP-szerver
+Description=Handles receiving and sending e-mails. With the default UHU-Linux configuration postfix only listens on the loopback interface, so running it doesn't open any ports.
+Description[hu]=E-mailek küldését és fogadását végzi. Az UHU-Linux alapértelmezett konfigurációjának használata esetén csak a loopback interfészen hallgat kapcsolatokra, így elindítása semmiképp sem teszi kívülről támadhatóvá a gépet.
+MsgDesc=Mail Server
+MsgDesc[hu]=Levelezőszerver
+Script=/etc/init.d/postfix
+SupportsReload=yes
+Runlevels=2345
+Sequence=20
+Resources=tcp/smtp

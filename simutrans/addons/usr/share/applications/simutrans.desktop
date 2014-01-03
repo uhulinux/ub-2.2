@@ -1,0 +1,10 @@
+[Desktop Entry]
+Encoding=UTF-8
+Type=Application
+Name=Simutrans
+Comment=An open source transportation simulation game
+Exec=simutrans
+Icon=simutrans
+Categories=Game;Simulation;X-UHU-Menu/Games/TacticStrategy
+Terminal=false
+StartupNotify=true

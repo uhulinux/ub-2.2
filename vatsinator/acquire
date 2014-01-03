@@ -1,0 +1,5 @@
+#!/usr/bin/env dl
+
+vatsinator-${UB_VERSION}.tar.gz .
+	http://vatsinator.eu.org/downloads/${UB_VERSION}/
+

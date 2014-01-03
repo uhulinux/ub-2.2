@@ -1,0 +1,5 @@
+#!/bin/sh -eux
+
+ub_install
+
+ln -sf libgmp.so.10 "$UB_INSTALLDIR"/usr/lib/libgmp.so.3

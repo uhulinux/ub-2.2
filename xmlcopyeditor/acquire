@@ -1,0 +1,4 @@
+#!/usr/bin/env dl
+
+xmlcopyeditor-${UB_VERSION}.tar.gz xmlcopyeditor-${UB_VERSION}/
+	http://downloads.sourceforge.net/xml-copy-editor/

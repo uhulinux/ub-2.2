@@ -1,0 +1,10 @@
+avahi-dev
+gpg
+gpgme-dev
+gtk3-dev
+intltool
+libassuan-dev
+libgpg-error-dev
+libsm-dev
+libsoup-dev
+seahorse

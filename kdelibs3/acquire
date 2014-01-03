@@ -1,0 +1,4 @@
+#!/usr/bin/env dl
+
+kdelibs-${UB_VERSION}.tar.bz2 kdelibs-${UB_VERSION}/
+	ftp://ftp.kde.org/pub/kde/stable/${UB_VERSION%.0}/src/

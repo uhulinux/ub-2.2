@@ -1,0 +1,17 @@
+avahi-dev
+dbus-glib-dev
+docbook-xsl
+eggdbus-dev
+expat-dev
+glib2-dev
+gtk-doc
+intltool
+libatasmart-dev
+libsgutils
+libsm-dev
+libxslt
+lvm-dev
+parted-dev
+polkit-dev
+sg3-utils
+udev-dev

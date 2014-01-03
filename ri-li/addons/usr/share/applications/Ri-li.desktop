@@ -1,0 +1,12 @@
+[Desktop Entry]
+Comment[hu]=favonat
+Encoding=UTF-8
+Categories=X-UHU-Menu/Games/Arcade;
+Exec=Ri_li
+GenericName=Ri-li
+GenericName[hu]=Ri-li
+Icon=/usr/share/games/Ri-li/Ri-li-icon-48x48.png
+MimeType=
+Name=Ri-li
+Name[hu]=Ri-li favonat
+Type=Application

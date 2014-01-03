@@ -1,0 +1,8 @@
+apt-dev
+gnome-common
+gtk3-dev
+intltool
+libglade2-dev
+rarian-dev
+vte3-dev
+xmlto

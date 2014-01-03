@@ -1,0 +1,9 @@
+[Desktop Entry]
+Name=AleVT DVB
+Comment=X11 Teletext browser
+Comment[hu]=X11 DVB Teletext böngésző
+Exec=TeletextDVB.sh
+Icon=mini-alevt
+Terminal=false
+Type=Application
+Categories=Application;AudioVideo;X-UHU-Menu/Multimedia/TVRadio;

@@ -1,0 +1,4 @@
+#!/usr/bin/env dl
+
+blender-$UB_VERSION-linux-glibc211-i686.tar.bz2 blender-$UB_VERSION-linux-glibc211-i686/
+	http://download.blender.org/release/Blender$UB_VERSION/

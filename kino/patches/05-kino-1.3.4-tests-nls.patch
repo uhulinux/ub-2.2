@@ -1,0 +1,18 @@
+https://bugs.gentoo.org/show_bug.cgi?id=193947#c4
+
+--- a/po/POTFILES.in	2011-05-19 09:46:31 +0000
++++ b/po/POTFILES.in	2011-05-19 09:52:10 +0000
+@@ -42,3 +42,12 @@
+ src/timfx/image_luma.cc
+ src/timfx/soft_focus.cc
+ src/kinoplus/book.cc
++
++ffmpeg/libavcodec/ps2/idct_mmi.c
++ffmpeg/libavcodec/sparc/dsputil_vis.c
++ffmpeg/libavcodec/sparc/vis.h
++ffmpeg/libavutil/bswap.h
++ffmpeg/libswscale/yuv2rgb_template.c
++src/export.h
++src/message.cc
++src/page_bttv.cc
+

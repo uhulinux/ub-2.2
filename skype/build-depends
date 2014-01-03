@@ -1,0 +1,10 @@
+alsa-lib-dev
+dbus-dev
+libsigc++-dev
+libx11-dev
+libxcursor-dev
+libxext-dev
+libxscrnsaver-dev
+libxt-dev
+libxv-dev
+qt4-dev

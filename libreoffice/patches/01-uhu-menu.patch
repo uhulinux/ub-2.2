@@ -1,0 +1,72 @@
+diff -Naur orig/sysui/desktop/menus/base.desktop patched/sysui/desktop/menus/base.desktop
+--- orig/sysui/desktop/menus/base.desktop	2013-10-22 19:49:23.000000000 +0200
++++ patched/sysui/desktop/menus/base.desktop	2013-11-23 20:51:36.808171668 +0100
+@@ -20,7 +20,7 @@
+ Terminal=false
+ Icon=base
+ Type=Application
+-Categories=Office;Database;X-Red-Hat-Base;X-MandrivaLinux-MoreApplications-Databases;
++Categories=Office;Database;X-Red-Hat-Base;X-MandrivaLinux-MoreApplications-Databases;X-UHU-Menu/Tools/Databases;
+ Exec=${UNIXBASISROOTNAME} --base %%FILE%%
+ MimeType=application/vnd.oasis.opendocument.database;application/vnd.sun.xml.base;
+ Name=%PRODUCTNAME Base
+diff -Naur orig/sysui/desktop/menus/calc.desktop patched/sysui/desktop/menus/calc.desktop
+--- orig/sysui/desktop/menus/calc.desktop	2013-10-22 19:49:23.000000000 +0200
++++ patched/sysui/desktop/menus/calc.desktop	2013-11-23 20:51:36.808171668 +0100
+@@ -20,7 +20,7 @@
+ Terminal=false
+ Icon=calc
+ Type=Application
+-Categories=Office;Spreadsheet;X-Red-Hat-Base;X-MandrivaLinux-Office-Spreadsheets;
++Categories=Office;Spreadsheet;X-Red-Hat-Base;X-MandrivaLinux-Office-Spreadsheets;X-UHU-Menu/Tools/Spreadsheets;
+ Exec=${UNIXBASISROOTNAME} --calc %%FILE%%
+ MimeType=application/vnd.oasis.opendocument.spreadsheet;application/vnd.oasis.opendocument.spreadsheet-template;application/vnd.sun.xml.calc;application/vnd.sun.xml.calc.template;application/msexcel;application/vnd.ms-excel;application/vnd.openxmlformats-officedocument.spreadsheetml.sheet;application/vnd.ms-excel.sheet.macroenabled.12;application/vnd.openxmlformats-officedocument.spreadsheetml.template;application/vnd.ms-excel.template.macroenabled.12;application/vnd.ms-excel.sheet.binary.macroenabled.12;text/csv;application/x-dbf;text/spreadsheet;application/csv;application/excel;application/tab-separated-values;application/vnd.lotus-1-2-3;application/vnd.oasis.opendocument.chart;application/vnd.oasis.opendocument.chart-template;application/x-dbase;application/x-dos_ms_excel;application/x-excel;application/x-msexcel;application/x-ms-excel;application/x-quattropro;application/x-123;text/comma-separated-values;text/tab-separated-values;text/x-comma-separated-values;text/x-csv;
+ Name=%PRODUCTNAME Calc
+diff -Naur orig/sysui/desktop/menus/draw.desktop patched/sysui/desktop/menus/draw.desktop
+--- orig/sysui/desktop/menus/draw.desktop	2013-10-22 19:49:23.000000000 +0200
++++ patched/sysui/desktop/menus/draw.desktop	2013-11-23 20:51:36.808171668 +0100
+@@ -20,7 +20,7 @@
+ Terminal=false
+ Icon=draw
+ Type=Application
+-Categories=Office;FlowChart;Graphics;2DGraphics;VectorGraphics;X-Red-Hat-Base;X-MandrivaLinux-Office-Drawing;
++Categories=Office;FlowChart;Graphics;2DGraphics;VectorGraphics;X-Red-Hat-Base;X-MandrivaLinux-Office-Drawing;X-UHU-Menu/Graphics/Vectors;
+ Exec=${UNIXBASISROOTNAME} --draw %%FILE%%
+ MimeType=application/vnd.oasis.opendocument.graphics;application/vnd.oasis.opendocument.graphics-template;application/vnd.sun.xml.draw;application/vnd.sun.xml.draw.template;application/vnd.visio;application/x-wpg;application/vnd.corel-draw;application/vnd.ms-publisher;
+ Name=%PRODUCTNAME Draw
+diff -Naur orig/sysui/desktop/menus/impress.desktop patched/sysui/desktop/menus/impress.desktop
+--- orig/sysui/desktop/menus/impress.desktop	2013-10-22 19:49:23.000000000 +0200
++++ patched/sysui/desktop/menus/impress.desktop	2013-11-23 20:51:36.808171668 +0100
+@@ -20,7 +20,7 @@
+ Terminal=false
+ Icon=impress
+ Type=Application
+-Categories=Office;Presentation;X-Red-Hat-Base;X-MandrivaLinux-Office-Presentations;
++Categories=Office;Presentation;X-Red-Hat-Base;X-MandrivaLinux-Office-Presentations;X-UHU-Menu/Tools/Presentations;
+ Exec=${UNIXBASISROOTNAME} --impress %%FILE%%
+ MimeType=application/vnd.oasis.opendocument.presentation;application/vnd.oasis.opendocument.presentation-template;application/vnd.sun.xml.impress;application/vnd.sun.xml.impress.template;application/mspowerpoint;application/vnd.ms-powerpoint;application/vnd.openxmlformats-officedocument.presentationml.presentation;application/vnd.ms-powerpoint.presentation.macroenabled.12;application/vnd.openxmlformats-officedocument.presentationml.template;application/vnd.ms-powerpoint.template.macroenabled.12;application/vnd.openxmlformats-officedocument.presentationml.slide;application/vnd.openxmlformats-officedocument.presentationml.slideshow;application/vnd.ms-powerpoint.slideshow.macroEnabled.12;
+ Name=%PRODUCTNAME Impress
+diff -Naur orig/sysui/desktop/menus/math.desktop patched/sysui/desktop/menus/math.desktop
+--- orig/sysui/desktop/menus/math.desktop	2013-10-22 19:49:23.000000000 +0200
++++ patched/sysui/desktop/menus/math.desktop	2013-11-23 20:51:36.808171668 +0100
+@@ -21,7 +21,7 @@
+ NoDisplay=true
+ Icon=math
+ Type=Application
+-Categories=Office;Education;Science;Math;X-Red-Hat-Base;X-MandrivaLinux-Office-Other;
++Categories=Office;Education;Science;Math;X-Red-Hat-Base;X-MandrivaLinux-Office-Other;X-UHU-Menu/Tools/More;
+ Exec=${UNIXBASISROOTNAME} --math %%FILE%%
+ MimeType=application/vnd.oasis.opendocument.formula;application/vnd.sun.xml.math;application/vnd.oasis.opendocument.formula-template;text/mathml;
+ Name=%PRODUCTNAME Math
+diff -Naur orig/sysui/desktop/menus/writer.desktop patched/sysui/desktop/menus/writer.desktop
+--- orig/sysui/desktop/menus/writer.desktop	2013-10-22 19:49:23.000000000 +0200
++++ patched/sysui/desktop/menus/writer.desktop	2013-11-23 20:51:36.808171668 +0100
+@@ -20,7 +20,7 @@
+ Terminal=false
+ Icon=writer
+ Type=Application
+-Categories=Office;WordProcessor;X-Red-Hat-Base;X-MandrivaLinux-Office-Wordprocessors;
++Categories=Office;WordProcessor;X-Red-Hat-Base;X-MandrivaLinux-Office-Wordprocessors;X-UHU-Menu/Tools/Word_Processors;
+ Exec=${UNIXBASISROOTNAME} --writer %%FILE%%
+ MimeType=application/vnd.oasis.opendocument.text;application/vnd.oasis.opendocument.text-template;application/vnd.oasis.opendocument.text-web;application/vnd.oasis.opendocument.text-master;application/vnd.sun.xml.writer;application/vnd.sun.xml.writer.template;application/vnd.sun.xml.writer.global;application/msword;application/vnd.ms-word;application/x-doc;application/x-hwp;application/rtf;text/rtf;application/vnd.wordperfect;application/wordperfect;application/vnd.lotus-wordpro;application/vnd.openxmlformats-officedocument.wordprocessingml.document;application/vnd.ms-word.document.macroenabled.12;application/vnd.openxmlformats-officedocument.wordprocessingml.template;application/vnd.ms-word.template.macroenabled.12;application/vnd.ms-works;application/vnd.stardivision.writer-global;application/x-extension-txt;application/x-t602;text/plain;
+ Name=%PRODUCTNAME Writer

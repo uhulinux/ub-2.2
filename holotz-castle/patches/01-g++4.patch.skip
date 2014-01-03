@@ -1,0 +1,30 @@
+diff -Naur orig/JLib/Makefile mod/JLib/Makefile
+--- orig/JLib/Makefile	2008-11-28 00:29:57.000000000 +0100
++++ mod/JLib/Makefile	2009-04-16 23:48:18.000000000 +0200
+@@ -1,5 +1,5 @@
+ # Makefile para JLib.
+-# (C) Juan Carlos Seijo Pérez - 2003.
++# (C) Juan Carlos Seijo Pï¿½ez - 2003.
+ 
+ GRAPHICS=JLib/Graphics
+ UTIL=JLib/Util
+@@ -28,15 +28,15 @@
+ 
+ # JLib
+ libJLib: $(JLIB_OBJS)
+-	g++-4.1 -shared -L/usr/lib -fPIC -o $@.so $? \
++	g++ -shared -L/usr/lib -fPIC -o $@.so $? \
+ 	&& ar rvus $@.a $? \
+ 
+ $(GRAPHICS)/%.o: $(GRAPHICS)/%.cpp
+-	g++-4.1 $(CFLAGS) -c -o $@ $<
++	g++ $(CFLAGS) -c -o $@ $<
+ $(UTIL)/%.o: $(UTIL)/%.cpp
+-	g++-4.1 $(CFLAGS) -c -o $@ $<
++	g++ $(CFLAGS) -c -o $@ $<
+ $(MATH)/%.o: $(MATH)/%.cpp
+-	g++-4.1 $(CFLAGS) -c -o $@ $<
++	g++ $(CFLAGS) -c -o $@ $<
+ 
+ .PHONY: install
+ install:

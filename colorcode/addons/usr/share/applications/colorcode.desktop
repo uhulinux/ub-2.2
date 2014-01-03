@@ -1,0 +1,11 @@
+[Desktop Entry]
+Name=ColorCode
+Name[hu]=ColorCode
+GenericName=MasterMind-like game
+GenericName[hu]=MasterMind játék
+Comment=MasterMind-like game
+Exec=colorcode
+Icon=cc64
+Terminal=false
+Type=Application
+Categories=Qt;Game;LogicGame;X-UHU-Menu/Games/TacticStrategy;

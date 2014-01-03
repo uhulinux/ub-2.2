@@ -1,0 +1,4 @@
+#!/bin/sh -eux
+
+ub_install
+ln -s ${UB_INSTALLDIR}/usr/share/icons/hicolor/48x48/apps/mate-mplayer.png ${UB_INSTALLDIR}/usr/share/pixmaps/mate-mplayer.png

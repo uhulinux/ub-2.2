@@ -1,0 +1,9 @@
+curl-dev
+fribidi-dev
+libxml++2-dev
+mesa-dev
+sdl-gfx-dev
+sdl-image-dev
+sdl-mixer-dev
+sdl-net-dev
+sdl-ttf-dev

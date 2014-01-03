@@ -1,0 +1,25 @@
+diff -Naur orig/gtk/gtkfilechooserdefault.c patched/gtk/gtkfilechooserdefault.c
+--- orig/gtk/gtkfilechooserdefault.c	2012-11-10 19:56:28.000000000 +0100
++++ patched/gtk/gtkfilechooserdefault.c	2012-12-30 17:50:36.044811493 +0100
+@@ -6157,6 +6156,7 @@
+ gtk_file_chooser_default_map (GtkWidget *widget)
+ {
+   GtkFileChooserDefault *impl;
++  GFile *folder;
+ 
+   profile_start ("start", NULL);
+ 
+@@ -6169,7 +6169,12 @@
+       switch (impl->reload_state)
+         {
+         case RELOAD_EMPTY:
+-	  recent_shortcut_handler (impl);
++         /* The user didn't explicitly give us a folder to display, so we'll
++          * use the saved one from the last invocation of the file chooser
++          */
++	folder = get_file_for_last_folder_opened (impl);
++        gtk_file_chooser_set_current_folder_file (GTK_FILE_CHOOSER (impl), folder, NULL);
++	g_object_unref (folder);
+           break;
+         
+         case RELOAD_HAS_FOLDER:

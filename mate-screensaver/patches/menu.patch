@@ -1,0 +1,12 @@
+diff -Naur orig/data/mate-screensaver-preferences.desktop.in patched/data/mate-screensaver-preferences.desktop.in
+--- orig/data/mate-screensaver-preferences.desktop.in	2013-03-14 16:05:44.000000000 +0100
++++ patched/data/mate-screensaver-preferences.desktop.in	2013-03-16 23:03:06.088064386 +0100
+@@ -5,7 +5,7 @@
+ Exec=mate-screensaver-preferences
+ Terminal=false
+ Type=Application
+-Categories=GTK;Settings;DesktopSettings;
++Categories=GTK;Settings;DesktopSettings;X-UHU-Menu/Settings;
+ OnlyShowIn=MATE;
+ StartupNotify=true
+ X-MATE-Bugzilla-Bugzilla=MATE

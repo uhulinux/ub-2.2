@@ -1,0 +1,9 @@
+diff -Naur a/src/knapsen.desktop b/src/knapsen.desktop
+--- a/src/knapsen.desktop	2013-05-05 11:12:57.000000000 +0200
++++ b/src/knapsen.desktop	2013-05-25 12:30:13.120209481 +0200
+@@ -7,4 +7,4 @@
+ Icon=knapsen
+ Type=Application
+ Terminal=false
+-Categories=Qt;KDE;Game;CardGame
++Categories=Qt;KDE;Game;CardGame;X-UHU-Menu/Games/Card;

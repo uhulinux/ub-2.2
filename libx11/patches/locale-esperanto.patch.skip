@@ -1,0 +1,69 @@
+diff -Naur libX11-1.0.1.orig/nls/compose.dir.pre libX11-1.0.1/nls/compose.dir.pre
+--- libX11-1.0.1.orig/nls/compose.dir.pre	2006-05-12 20:46:51.000000000 +0200
++++ libX11-1.0.1/nls/compose.dir.pre	2007-03-05 16:40:16.000000000 +0100
+@@ -67,7 +67,7 @@
+ iso8859-15/Compose:		en_US.ISO8859-15
+ iso8859-1/Compose:		en_ZA.ISO8859-1
+ iso8859-15/Compose:		en_ZA.ISO8859-15
+-iso8859-3/Compose:		eo_XX.ISO8859-3
++iso8859-3/Compose:		eo.ISO8859-3
+ iso8859-1/Compose:		es_AR.ISO8859-1
+ iso8859-1/Compose:		es_BO.ISO8859-1
+ iso8859-1/Compose:		es_CL.ISO8859-1
+@@ -279,7 +279,7 @@
+ en_US.UTF-8/Compose:		en_UK.UTF-8
+ en_US.UTF-8/Compose:		en_US.UTF-8
+ en_US.UTF-8/Compose:		en_ZA.UTF-8
+-en_US.UTF-8/Compose:		eo_XX.UTF-8
++en_US.UTF-8/Compose:		eo.UTF-8
+ en_US.UTF-8/Compose:		es_AR.UTF-8
+ en_US.UTF-8/Compose:		es_BO.UTF-8
+ en_US.UTF-8/Compose:		es_CL.UTF-8
+diff -Naur libX11-1.0.1.orig/nls/locale.alias.pre libX11-1.0.1/nls/locale.alias.pre
+--- libX11-1.0.1.orig/nls/locale.alias.pre	2006-05-12 20:49:02.000000000 +0200
++++ libX11-1.0.1/nls/locale.alias.pre	2007-03-05 16:40:16.000000000 +0100
+@@ -339,11 +339,16 @@
+ en_ZW:						en_ZW.ISO8859-1
+ en_ZW.iso88591:					en_ZW.ISO8859-1
+ en_ZW.ISO-8859-1:				en_ZW.ISO8859-1
+-eo:						eo_XX.ISO8859-3
+-eo_EO:						eo_EO.ISO8859-3
+-eo_EO.ISO8859-3:				eo_EO.ISO8859-3
+-eo_XX:						eo_XX.ISO8859-3
+-eo_XX.ISO8859-3:				eo_XX.ISO8859-3
++eo:						eo.ISO8859-3
++eo.utf8:					eo.UTF-8
++eo_EO:						eo.ISO8859-3
++eo_EO.ISO8859-3:				eo.ISO8859-3
++eo_EO.UTF-8:					eo.UTF-8
++eo_EO.utf8:					eo.UTF-8
++eo_XX:						eo.ISO8859-3
++eo_XX.ISO8859-3:				eo.ISO8859-3
++eo_XX.UTF-8:					eo.UTF-8
++eo_XX.utf8:					eo.UTF-8
+ es:						es_ES.ISO8859-1
+ es_AR:						es_AR.ISO8859-1
+ es_AR.iso88591:					es_AR.ISO8859-1
+diff -Naur libX11-1.0.1.orig/nls/locale.dir.pre libX11-1.0.1/nls/locale.dir.pre
+--- libX11-1.0.1.orig/nls/locale.dir.pre	2006-05-12 20:46:51.000000000 +0200
++++ libX11-1.0.1/nls/locale.dir.pre	2007-03-05 16:40:16.000000000 +0100
+@@ -82,8 +82,7 @@
+ iso8859-15/XLC_LOCALE:			en_US.ISO8859-15
+ iso8859-1/XLC_LOCALE:			en_ZA.ISO8859-1
+ iso8859-15/XLC_LOCALE:			en_ZA.ISO8859-15
+-iso8859-3/XLC_LOCALE:			eo_EO.ISO8859-3
+-iso8859-3/XLC_LOCALE:			eo_XX.ISO8859-3
++iso8859-3/XLC_LOCALE:			eo.ISO8859-3
+ iso8859-1/XLC_LOCALE:			es_AR.ISO8859-1
+ iso8859-1/XLC_LOCALE:			es_BO.ISO8859-1
+ iso8859-1/XLC_LOCALE:			es_CL.ISO8859-1
+@@ -299,8 +298,7 @@
+ en_US.UTF-8/XLC_LOCALE:			en_UK.UTF-8
+ en_US.UTF-8/XLC_LOCALE:			en_US.UTF-8
+ en_US.UTF-8/XLC_LOCALE:			en_ZA.UTF-8
+-en_US.UTF-8/XLC_LOCALE:			eo_EO.UTF-8
+-en_US.UTF-8/XLC_LOCALE:			eo_XX.UTF-8
++en_US.UTF-8/XLC_LOCALE:			eo.UTF-8
+ en_US.UTF-8/XLC_LOCALE:			es_AR.UTF-8
+ en_US.UTF-8/XLC_LOCALE:			es_BO.UTF-8
+ en_US.UTF-8/XLC_LOCALE:			es_CL.UTF-8

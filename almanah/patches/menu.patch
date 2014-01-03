@@ -1,0 +1,19 @@
+diff -Naur orig/data/almanah.desktop.in mod/data/almanah.desktop.in
+--- orig/data/almanah.desktop.in	2012-09-11 20:37:16.000000000 +0200
++++ mod/data/almanah.desktop.in	2013-06-10 19:17:46.000000000 +0200
+@@ -1,12 +1,14 @@
+ [Desktop Entry]
+ _Name=Almanah Diary
+ _Comment=Keep a personal diary
++_Comment[hu]=Személyes napló
+ _GenericName=Diary
++_GenericName[hu]=Személyes napló
+ Exec=almanah
+ Icon=almanah
+ Terminal=false
+ Type=Application
+-Categories=GTK;Utility;
++Categories=GTK;Utility;X-UHU-Menu/Tools/Organizer;
+ X-GNOME-Bugzilla-Bugzilla=GNOME
+ X-GNOME-Bugzilla-Product=almanah
+ X-GNOME-Bugzilla-Component=General

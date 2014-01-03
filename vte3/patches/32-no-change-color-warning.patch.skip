@@ -1,0 +1,19 @@
+diff -Naurdp a/src/vte.c b/src/vte.c
+--- a/src/vte.c	2007-06-06 14:24:03.000000000 +0200
++++ b/src/vte.c	2007-06-06 14:25:09.000000000 +0200
+@@ -2656,6 +2656,7 @@ vte_terminal_handle_sequence(VteTerminal
+ 		/* Let the handler handle it. */
+ 		ret = handler(terminal, match_s, match, params);
+ 	} else {
++		if (strcmp(match_s, "change-color")) {
+ #ifdef VTE_DEBUG
+ 		g_warning(_("No handler for control sequence `%s' defined."),
+ 				match_s);
+@@ -2668,6 +2669,7 @@ vte_terminal_handle_sequence(VteTerminal
+ 					match, (gpointer)0x1);
+ 		}
+ #endif
++		}
+ 		ret = FALSE;
+ 	}
+ 

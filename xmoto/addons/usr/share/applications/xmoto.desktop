@@ -1,0 +1,10 @@
+[Desktop Entry]
+Type=Application
+Version=1.0
+Name=Xmoto
+GenericName=Motocross game
+GenericName[fr_FR]=Jeu de moto
+GenericName[hu_HU]=Motocross játék
+Icon=xmoto.xpm
+Exec=xmoto
+Categories=Game;X-UHU-Menu/Games/Arcade;

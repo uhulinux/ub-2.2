@@ -1,0 +1,4 @@
+#!/usr/bin/env dl
+
+xvidcap-${UB_VERSION}.tar.gz xvidcap-${UB_VERSION}/
+	http://sourceforge.net/projects/xvidcap/files/xvidcap/1.1.7/

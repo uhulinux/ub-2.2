@@ -1,0 +1,5 @@
+ffmpeg-dev
+glibc-dev
+libjpeg-dev
+mysql-dev
+postgresql-dev

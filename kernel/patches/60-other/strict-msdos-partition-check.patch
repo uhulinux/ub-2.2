@@ -1,0 +1,40 @@
+diff -Naurdp a/fs/partitions/msdos.c b/fs/partitions/msdos.c
+--- a/block/partitions/msdos.c	2004-04-04 05:37:24.000000000 +0200
++++ b/block/partitions/msdos.c	2004-05-09 23:10:37.000000000 +0200
+@@ -56,7 +56,8 @@ static inline int is_extended_partition(
+ static inline int
+ msdos_magic_present(unsigned char *p)
+ {
+-	return (p[0] == MSDOS_LABEL_MAGIC1 && p[1] == MSDOS_LABEL_MAGIC2);
++	return ((p[510] == MSDOS_LABEL_MAGIC1 && p[511] == MSDOS_LABEL_MAGIC2)
++		&& !((p[446]|p[462]|p[478]|p[494])&~0x80));
+ }
+ 
+ /*
+@@ -95,7 +96,7 @@ parse_extended(struct parsed_partitions 
+ 		if (!data)
+ 			return;
+ 
+-		if (!msdos_magic_present(data + 510))
++		if (!msdos_magic_present(data))
+ 			goto done; 
+ 
+ 		p = (struct partition *) (data + 0x1be);
+@@ -342,7 +343,7 @@ parse_minix(struct parsed_partitions *st
+ 	/* The first sector of a Minix partition can have either
+ 	 * a secondary MBR describing its subpartitions, or
+ 	 * the normal boot sector. */
+-	if (msdos_magic_present (data + 510) &&
++	if (msdos_magic_present(data) &&
+ 	    SYS_IND(p) == MINIX_PARTITION) { /* subpartition table present */
+ 
+ 		printk(" %s%d: <minix:", state->name, origin);
+@@ -385,7 +386,7 @@ int msdos_partition(struct parsed_partit
+ 	data = read_dev_sector(bdev, 0, &sect);
+ 	if (!data)
+ 		return -1;
+-	if (!msdos_magic_present(data + 510)) {
++	if (!msdos_magic_present(data)) {
+ 		put_dev_sector(sect);
+ 		return 0;
+ 	}

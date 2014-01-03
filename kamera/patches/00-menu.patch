@@ -1,0 +1,9 @@
+diff -Naur a/kcontrol/kamera.desktop b/kcontrol/kamera.desktop
+--- a/kcontrol/kamera.desktop	2013-07-10 01:14:00.000000000 +0200
++++ b/kcontrol/kamera.desktop	2013-08-18 18:23:02.681923618 +0200
+@@ -209,4 +209,4 @@
+ Icon=camera-photo
+ Exec=kcmshell4 kamera
+ X-DocPath=kcontrol/kamera/index.html
+-Categories=Qt;KDE;X-KDE-settings-hardware;
++Categories=Qt;KDE;X-KDE-settings-hardware;X-UHU-Menu/Settings;

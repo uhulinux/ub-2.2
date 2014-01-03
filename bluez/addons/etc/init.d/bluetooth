@@ -1,0 +1,11 @@
+#!/bin/sh
+
+. /etc/init.d/common
+
+DAEMON=/usr/sbin/bluetoothd
+
+function _init() {
+	/lib/udev/hid2hci -q || true
+}
+
+startstop "$@"

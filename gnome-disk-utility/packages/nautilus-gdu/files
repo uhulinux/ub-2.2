@@ -1,0 +1,4 @@
+	/usr/lib/nautilus/**/*.a
+	/usr/lib/nautilus/**/*.la
+	/usr/lib/nautilus/**/*.so
+	/usr/share/icons/**/nautilus-gdu.*

@@ -1,0 +1,2 @@
+A &DirMngr tanúsítvány-visszavonási listák &(certificate &revocation &lists, &CRLs) kezelését és letöltését végző szerver az &X.509 tanúsítványokhoz.
+Kezeli az &OCSP kéréseket is. Használható a &gpgsm-ből &(GnuPG 2 verziótól) vagy démonként futva a &dirmngr-client programon keresztül.

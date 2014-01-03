@@ -1,0 +1,6 @@
+#!/usr/bin/env dl
+
+mx-${UB_VERSION_HEAD2}.zip mx-mx-${UB_VERSION_HEAD2}/
+	http://source.clutter-project.org/sources/mx/${UB_VERSION_HEAD2}/
+	https://github.com/downloads/clutter-project/mx/${UB_VERSION_HEAD2}/
+	https://github.com/clutter-project/mx/archive/

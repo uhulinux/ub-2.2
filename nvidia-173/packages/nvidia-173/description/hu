@@ -1,0 +1,57 @@
+Támogatott &chipek és kártyák
+
+&GeForce 200 &series:
+&GTX 280, &GTX 260
+
+&GeForce 9 &series:
+9800 &GX2, 9800 &GTX/GTX+, 9800 &GT, 9600 &GT, 9600 &GSO, 9500 &GT
+
+&GeForce 8 &series:
+8800 &Ultra, 8800 &GTX, 8800 &GTS 512, 8800 &GTS, 8800 &GT, 8800 &GS, 8600 &GTS
+8600 &GT, 8600 &GS, 8500 &GT, 8400 &SE, 8400 &GS, 8400, 8300 &GS, 8300
+8200 / &nForce &730a, 8200, 8100 / &nForce &720a
+
+&GeForce 7 &series:
+7950 &GX2, 7950 &GT, 7900 &GTX, 7900 &GT/GTO, 7900 &GS, 7800 &SLI, 7800 &GTX
+7800 &GS, 7650 &GS, 7600 &LE, 7600 &GT, 7600 &GS, 7550 &LE, 7500 &LE, 7350 &LE
+7300 &SE / 7200 &GS, 7300 &LE, 7300 &GT, 7300 &GS, 7150 / &NVIDIA &nForce &630i
+7100 &GS, 7100 / &NVIDIA &nForce &630i, 7100 / &NVIDIA &nForce &620i
+7050 &PV / &NVIDIA &nForce &630a, 7050 / &NVIDIA &nForce &630i
+7050 / &NVIDIA &nForce &610i, 7025 / &NVIDIA &nForce &630a
+
+&GeForce 6 &series:
+6800 &XT, 6800 &XE, 6800 &Ultra, 6800 &LE, 6800 &GT, 6800 &GS/XT, 6800 &GS
+6800, 6700 &XL, 6610 &XL, 6600 &VE, 6600 &LE, 6600 &GT, 6600, 6500, 6250
+6200 &TurboCache, &6200SE &TurboCache, 6200 &LE, 6200 &A-LE, 6200
+&6150SE &nForce 430, &6150LE / &Quadro &NVS210S, 6150 &LE, 6150
+6100 &nForce 420, 6100 &nForce 405, 6100 &nForce 400, 6100
+
+&GeForce 5 &FX &series:
+&PCX 5900, &PCX 5750, &PCX 5300, &FX 5950 &Ultra, &FX &5900ZT, &FX &5900XT
+&FX 5900 &Ultra, &FX 5900, &FX 5800 &Ultra, &FX 5800, &FX &5700VE
+&FX 5700 &Ultra, &FX &5700LE, &FX 5700, &FX &5600XT, &FX 5600 &Ultra, &FX 5600
+&FX 5500, &FX 5200 &Ultra, &FX &5200LE, &FX 5200, &FX 5100
+
+&Quadro &FX &series:
+&FX 700, &FX 570, &FX 5600, &FX 560, &FX 5500, &FX 550, &FX 540, &FX &500/FX 600
+&FX 4700 &X2, &FX 4600, &FX 4500 &X2, &FX 4500, &FX 4000, &FX 3700, &FX 370
+&FX 3500, &FX 350, &FX 3450, &FX 3400/4400, &FX 330, &FX 3000, &FX 2000
+&FX 1700, &FX 1500, &FX 1400, &FX 1300, &FX 1100, &FX 1000
+
+&Quadro &FX Notebook &series:
+&FX &570M, &FX &370M, &FX &360M, &FX &3600M, &FX &2700M, &FX &1700M, &FX &1600M
+
+&Quadro &NVS &series:
+&NVS440, &NVS290, &NVS285
+
+&Quadro &Plex &series:
+&Model &IV, &Model &II
+
+&Quadro &Sync &series:
+&G-Sync &II, &G-Sync &I
+
+&Quadro &SDI&series:
+&Quadro &SDI
+
+&GPU &Computing &Processor &series:
+&Tesla &C870

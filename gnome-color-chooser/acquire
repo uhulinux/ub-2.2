@@ -1,0 +1,6 @@
+#!/usr/bin/env dl
+
+gnome-color-chooser-${UB_VERSION/~/-}.tar.gz gnome-color-chooser-${UB_VERSION/~/-}/
+	http://downloads.sourceforge.net/project/gnomecc/gnome-color-chooser/${UB_VERSION}/
+
+

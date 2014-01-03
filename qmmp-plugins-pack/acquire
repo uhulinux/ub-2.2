@@ -1,0 +1,5 @@
+#!/usr/bin/env dl
+
+qmmp-plugin-pack-${UB_VERSION}.tar.bz2 qmmp-plugin-pack-${UB_VERSION}/
+	http://qmmp.ylsoftware.com/files/plugins/
+

@@ -1,0 +1,6 @@
+#!/usr/bin/env dl
+
+dos2unix-${UB_VERSION}.tar.gz dos2unix-${UB_VERSION}/
+    http://downloads.sourceforge.net/project/dos2unix/dos2unix/${UB_VERSION}/
+
+

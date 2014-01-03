@@ -1,0 +1,49 @@
+diff -Naurdp a/src/iso2022.c b/src/iso2022.c
+--- a/src/iso2022.c	2008-08-20 15:09:43.000000000 +0200
++++ b/src/iso2022.c	2008-09-11 15:28:33.000000000 +0200
+@@ -1159,7 +1159,7 @@ process_8_bit_sequence(struct _vte_iso20
+ 
+ static glong
+ process_cdata(struct _vte_iso2022_state *state, const guchar *cdata, gsize length,
+-	      GArray *gunichars)
++	      GArray *gunichars, int force_flush)
+ {
+ 	int ambiguous_width;
+ 	glong processed = 0;
+@@ -1201,6 +1201,15 @@ process_cdata(struct _vte_iso2022_state 
+ 			switch (converted) {
+ 			case ((gsize)-1):
+ 				switch (errno) {
++				case EINVAL:
++					/* Incomplete. Save for later,
++					 * unless force_flush is in effect,
++					 * in which case pretend it was EILSEQ */
++					if (!force_flush) {
++						stop = TRUE;
++						break;
++					}
++					/* intentionally no break here */
+ 				case EILSEQ:
+ 					/* Check if it's an 8-bit sequence. */
+ 					i = process_8_bit_sequence(state,
+@@ -1227,10 +1236,6 @@ process_cdata(struct _vte_iso2022_state 
+ 						break;
+ 					}
+ 					break;
+-				case EINVAL:
+-					/* Incomplete. Save for later. */
+-					stop = TRUE;
+-					break;
+ 				case E2BIG:
+ 					/* Should never happen. */
+ 					g_assert_not_reached();
+@@ -1653,7 +1658,8 @@ process_block (struct _vte_iso2022_state
+ 					  block->end -
+ 					  block->start -
+ 					  initial,
+-					  gunichars);
++					  gunichars,
++					  i < blocks->len - 1);
+ 			if (j == 0) {
+ 				break;
+ 			}

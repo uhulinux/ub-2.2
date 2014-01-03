@@ -1,0 +1,4 @@
+#!/bin/sh -eux
+
+/usr/lib/qt4/bin/qmake PREFIX=/usr CONFIG+=debug trojita.pro
+make

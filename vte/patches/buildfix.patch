@@ -1,0 +1,12 @@
+diff -Naur orig/python/vtemodule.c mod/python/vtemodule.c
+--- orig/python/vtemodule.c	2011-08-28 23:31:45.000000000 +0200
++++ mod/python/vtemodule.c	2013-01-16 19:00:35.000000000 +0100
+@@ -20,7 +20,7 @@
+ #include "../config.h"
+ #endif
+ #include <Python.h>
+-#include <pygobject.h>
++#include "/usr/include/pygtk-2.0/pygobject.h"
+ #include <pygtk/pygtk.h>
+ #include "../src/vte.h"
+ 

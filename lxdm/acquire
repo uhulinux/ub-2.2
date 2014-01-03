@@ -1,0 +1,4 @@
+#!/usr/bin/env dl
+
+lxdm-${UB_VERSION}.tar.gz lxdm-${UB_VERSION}/
+	http://sourceforge.net/projects/lxde/files/lxdm/LXDM%20${UB_VERSION}/

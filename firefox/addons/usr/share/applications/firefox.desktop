@@ -1,0 +1,13 @@
+[Desktop Entry]
+Encoding=UTF-8
+Name=Firefox
+Comment=Web Browser
+Comment[hu]=A világháló böngészése
+Exec=firefox %u
+Icon=firefox
+Terminal=0
+Type=Application
+GenericName=Web Browser
+GenericName[hu]=Webböngésző
+Categories=X-UHU-Menu/Internet/Browsers;
+MimeType=text/html;text/xml;application/xhtml+xml;

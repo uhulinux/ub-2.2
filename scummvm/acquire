@@ -1,0 +1,4 @@
+#!/usr/bin/env dl
+
+scummvm-${UB_VERSION}.tar.gz scummvm-${UB_VERSION}/
+	      http://downloads.sourceforge.net/scummvm/

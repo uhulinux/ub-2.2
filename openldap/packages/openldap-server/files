@@ -1,0 +1,11 @@
+	/etc/init.d
+	/etc/openldap/DB_CONFIG.example
+	/etc/openldap/schema
+	/etc/openldap/slapd.conf*
+	/etc/runlevel.d
+	/usr/sbin/slap*
+	/usr/sbin/slurpd
+	/usr/share/man/man5/slap*
+	/usr/share/man/man8/slap*
+	/usr/share/man/man8/slurpd.8
+	/var/openldap-data

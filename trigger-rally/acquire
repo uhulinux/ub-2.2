@@ -1,0 +1,6 @@
+#!/usr/bin/env dl
+trigger-${UB_VERSION}-src.tar.bz2 trigger-${UB_VERSION}-src/
+	http://ufpr.dl.sourceforge.net/sourceforge/trigger-rally/
+
+trigger-${UB_VERSION_MAJOR}.${UB_VERSION_MINOR}.${UB_VERSION_MICRO}-data.tar.bz2 .
+	http://download.sourceforge.net/sourceforge/trigger-rally/

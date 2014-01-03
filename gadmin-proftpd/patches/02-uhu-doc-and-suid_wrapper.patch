@@ -1,0 +1,37 @@
+diff -Naur gadmin-proftpd-0.4.1-orig/Makefile.in gadmin-proftpd-0.4.1/Makefile.in
+--- gadmin-proftpd-0.4.1-orig/Makefile.in	2011-01-13 00:13:21.000000000 +0100
++++ gadmin-proftpd-0.4.1/Makefile.in	2011-04-23 17:23:41.689365182 +0200
+@@ -730,9 +730,9 @@
+ 	if test -f $(DESTDIR)/usr/local/bin/consolehelper && test ! -f $(DESTDIR)/usr/local/bin/gadmin-proftpd; then \
+ 	   ln -s $(DESTDIR)/usr/local/bin/consolehelper $(DESTDIR)/usr/local/bin/gadmin-proftpd; \
+ 	fi;
+-	if test -d $(DESTDIR)$(sysconfdir)/pam.d; then \
+-	   cp etc/pam.d/gadmin-proftpd $(DESTDIR)$(sysconfdir)/pam.d/; \
+-	fi;
++#	if test -d $(DESTDIR)$(sysconfdir)/pam.d; then \
++#	   cp etc/pam.d/gadmin-proftpd $(DESTDIR)$(sysconfdir)/pam.d/; \
++#	fi;
+ 	if test -d $(DESTDIR)$(sysconfdir)/security/console.apps; then \
+ 	   cp etc/security/console.apps/gadmin-proftpd $(DESTDIR)$(sysconfdir)/security/console.apps/; \
+ 	fi;   
+@@ -742,13 +742,13 @@
+ 	if test -d $(DESTDIR)$(datadir)/gnome/apps/Internet; then \
+ 	   cp desktop/gadmin-proftpd.desktop $(DESTDIR)$(datadir)/gnome/apps/Internet/; \
+ 	fi;
+-	if test ! -d $(DESTDIR)$(datadir)/doc/gadmin-proftpd; then \
+-	   $(mkinstalldirs) $(DESTDIR)$(datadir)/doc/gadmin-proftpd; \
+-	   cp AUTHORS $(DESTDIR)$(datadir)/doc/gadmin-proftpd/; \
+-	   cp README $(DESTDIR)$(datadir)/doc/gadmin-proftpd/; \
+-	   cp ChangeLog $(DESTDIR)$(datadir)/doc/gadmin-proftpd/; \
+-	   cp COPYING $(DESTDIR)$(datadir)/doc/gadmin-proftpd/; \
+-	fi;
++#	if test ! -d $(DESTDIR)$(datadir)/doc/gadmin-proftpd; then \
++#	   $(mkinstalldirs) $(DESTDIR)$(datadir)/doc/gadmin-proftpd; \
++#	   cp AUTHORS $(DESTDIR)$(datadir)/doc/gadmin-proftpd/; \
++#	   cp README $(DESTDIR)$(datadir)/doc/gadmin-proftpd/; \
++#	   cp ChangeLog $(DESTDIR)$(datadir)/doc/gadmin-proftpd/; \
++#	   cp COPYING $(DESTDIR)$(datadir)/doc/gadmin-proftpd/; \
++#	fi;
+ 	if test ! -d $(DESTDIR)$(sysconfdir)/gadmin-proftpd; then \
+ 	   $(mkinstalldirs) $(DESTDIR)$(sysconfdir)/gadmin-proftpd; \
+ 	fi;

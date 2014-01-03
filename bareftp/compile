@@ -1,0 +1,5 @@
+#!/bin/sh -eux
+
+export MONO_SHARED_DIR=$(pwd)
+ub_compile \
+	--disable-caches

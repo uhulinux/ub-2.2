@@ -1,0 +1,4 @@
+#!/usr/bin/env dl
+
+paramiko-"$UB_VERSION".tar.gz paramiko-"$UB_VERSION"/
+	http://www.lag.net/paramiko/download/

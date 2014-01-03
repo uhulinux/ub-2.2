@@ -1,0 +1,174 @@
+diff -Naur orig/configure mod/configure
+--- orig/configure	2009-01-06 07:49:27.000000000 +0100
++++ mod/configure	2012-10-01 23:53:04.000000000 +0200
+@@ -22636,8 +22636,8 @@
+ case $host in
+   *-*-linux*)
+   if test "${ac_cv_header_linux_videodev_h+set}" = set; then
+-  { echo "$as_me:$LINENO: checking for linux/videodev.h" >&5
+-echo $ECHO_N "checking for linux/videodev.h... $ECHO_C" >&6; }
++  { echo "$as_me:$LINENO: checking for libv4l1-videodev.h" >&5
++echo $ECHO_N "checking for libv4l1-videodev.h... $ECHO_C" >&6; }
+ if test "${ac_cv_header_linux_videodev_h+set}" = set; then
+   echo $ECHO_N "(cached) $ECHO_C" >&6
+ fi
+@@ -22645,8 +22645,8 @@
+ echo "${ECHO_T}$ac_cv_header_linux_videodev_h" >&6; }
+ else
+   # Is the header compilable?
+-{ echo "$as_me:$LINENO: checking linux/videodev.h usability" >&5
+-echo $ECHO_N "checking linux/videodev.h usability... $ECHO_C" >&6; }
++{ echo "$as_me:$LINENO: checking libv4l1-videodev.h usability" >&5
++echo $ECHO_N "checking libv4l1-videodev.h usability... $ECHO_C" >&6; }
+ cat >conftest.$ac_ext <<_ACEOF
+ /* confdefs.h.  */
+ _ACEOF
+@@ -22654,7 +22654,7 @@
+ cat >>conftest.$ac_ext <<_ACEOF
+ /* end confdefs.h.  */
+ $ac_includes_default
+-#include <linux/videodev.h>
++#include <libv4l1-videodev.h>
+ _ACEOF
+ rm -f conftest.$ac_objext
+ if { (ac_try="$ac_compile"
+@@ -22686,15 +22686,15 @@
+ echo "${ECHO_T}$ac_header_compiler" >&6; }
+ 
+ # Is the header present?
+-{ echo "$as_me:$LINENO: checking linux/videodev.h presence" >&5
+-echo $ECHO_N "checking linux/videodev.h presence... $ECHO_C" >&6; }
++{ echo "$as_me:$LINENO: checking libv4l1-videodev.h presence" >&5
++echo $ECHO_N "checking libv4l1-videodev.h presence... $ECHO_C" >&6; }
+ cat >conftest.$ac_ext <<_ACEOF
+ /* confdefs.h.  */
+ _ACEOF
+ cat confdefs.h >>conftest.$ac_ext
+ cat >>conftest.$ac_ext <<_ACEOF
+ /* end confdefs.h.  */
+-#include <linux/videodev.h>
++#include <libv4l1-videodev.h>
+ _ACEOF
+ if { (ac_try="$ac_cpp conftest.$ac_ext"
+ case "(($ac_try" in
+@@ -22727,25 +22727,25 @@
+ # So?  What about this header?
+ case $ac_header_compiler:$ac_header_preproc:$ac_c_preproc_warn_flag in
+   yes:no: )
+-    { echo "$as_me:$LINENO: WARNING: linux/videodev.h: accepted by the compiler, rejected by the preprocessor!" >&5
+-echo "$as_me: WARNING: linux/videodev.h: accepted by the compiler, rejected by the preprocessor!" >&2;}
+-    { echo "$as_me:$LINENO: WARNING: linux/videodev.h: proceeding with the compiler's result" >&5
+-echo "$as_me: WARNING: linux/videodev.h: proceeding with the compiler's result" >&2;}
++    { echo "$as_me:$LINENO: WARNING: libv4l1-videodev.h: accepted by the compiler, rejected by the preprocessor!" >&5
++echo "$as_me: WARNING: libv4l1-videodev.h: accepted by the compiler, rejected by the preprocessor!" >&2;}
++    { echo "$as_me:$LINENO: WARNING: libv4l1-videodev.h: proceeding with the compiler's result" >&5
++echo "$as_me: WARNING: libv4l1-videodev.h: proceeding with the compiler's result" >&2;}
+     ac_header_preproc=yes
+     ;;
+   no:yes:* )
+-    { echo "$as_me:$LINENO: WARNING: linux/videodev.h: present but cannot be compiled" >&5
+-echo "$as_me: WARNING: linux/videodev.h: present but cannot be compiled" >&2;}
+-    { echo "$as_me:$LINENO: WARNING: linux/videodev.h:     check for missing prerequisite headers?" >&5
+-echo "$as_me: WARNING: linux/videodev.h:     check for missing prerequisite headers?" >&2;}
+-    { echo "$as_me:$LINENO: WARNING: linux/videodev.h: see the Autoconf documentation" >&5
+-echo "$as_me: WARNING: linux/videodev.h: see the Autoconf documentation" >&2;}
+-    { echo "$as_me:$LINENO: WARNING: linux/videodev.h:     section \"Present But Cannot Be Compiled\"" >&5
+-echo "$as_me: WARNING: linux/videodev.h:     section \"Present But Cannot Be Compiled\"" >&2;}
+-    { echo "$as_me:$LINENO: WARNING: linux/videodev.h: proceeding with the preprocessor's result" >&5
+-echo "$as_me: WARNING: linux/videodev.h: proceeding with the preprocessor's result" >&2;}
+-    { echo "$as_me:$LINENO: WARNING: linux/videodev.h: in the future, the compiler will take precedence" >&5
+-echo "$as_me: WARNING: linux/videodev.h: in the future, the compiler will take precedence" >&2;}
++    { echo "$as_me:$LINENO: WARNING: libv4l1-videodev.h: present but cannot be compiled" >&5
++echo "$as_me: WARNING: libv4l1-videodev.h: present but cannot be compiled" >&2;}
++    { echo "$as_me:$LINENO: WARNING: libv4l1-videodev.h:     check for missing prerequisite headers?" >&5
++echo "$as_me: WARNING: libv4l1-videodev.h:     check for missing prerequisite headers?" >&2;}
++    { echo "$as_me:$LINENO: WARNING: libv4l1-videodev.h: see the Autoconf documentation" >&5
++echo "$as_me: WARNING: libv4l1-videodev.h: see the Autoconf documentation" >&2;}
++    { echo "$as_me:$LINENO: WARNING: libv4l1-videodev.h:     section \"Present But Cannot Be Compiled\"" >&5
++echo "$as_me: WARNING: libv4l1-videodev.h:     section \"Present But Cannot Be Compiled\"" >&2;}
++    { echo "$as_me:$LINENO: WARNING: libv4l1-videodev.h: proceeding with the preprocessor's result" >&5
++echo "$as_me: WARNING: libv4l1-videodev.h: proceeding with the preprocessor's result" >&2;}
++    { echo "$as_me:$LINENO: WARNING: libv4l1-videodev.h: in the future, the compiler will take precedence" >&5
++echo "$as_me: WARNING: libv4l1-videodev.h: in the future, the compiler will take precedence" >&2;}
+     ( cat <<\_ASBOX
+ ## ---------------------------------------------------- ##
+ ## Report this to mjpeg-developer@lists.sourceforge.net ##
+@@ -22754,8 +22754,8 @@
+      ) | sed "s/^/$as_me: WARNING:     /" >&2
+     ;;
+ esac
+-{ echo "$as_me:$LINENO: checking for linux/videodev.h" >&5
+-echo $ECHO_N "checking for linux/videodev.h... $ECHO_C" >&6; }
++{ echo "$as_me:$LINENO: checking for libv4l1-videodev.h" >&5
++echo $ECHO_N "checking for libv4l1-videodev.h... $ECHO_C" >&6; }
+ if test "${ac_cv_header_linux_videodev_h+set}" = set; then
+   echo $ECHO_N "(cached) $ECHO_C" >&6
+ else
+diff -Naur orig/configure.ac mod/configure.ac
+--- orig/configure.ac	2009-01-06 07:33:48.000000000 +0100
++++ mod/configure.ac	2012-10-01 23:46:37.000000000 +0200
+@@ -155,11 +155,11 @@
+ have_video4linux=false
+ case $host in
+   *-*-linux*)
+-  AC_CHECK_HEADER(linux/videodev.h,
++  AC_CHECK_HEADER(libv4l1-videodev.h,
+                   [have_video4linux=true
+                    AC_DEFINE(HAVE_V4L, 1,
+ 		             [Building for Linux - using the video4linux API])],
+-                  [AC_MSG_ERROR([videodev.h not found - please install the linux kernel headers])])
++                  [AC_MSG_ERROR([libv4l1-videodev.h not found - please install the linux kernel headers])])
+    ;;
+ esac
+ AM_CONDITIONAL(HAVE_V4L, test x$have_video4linux = xtrue)
+diff -Naur orig/lavtools/lavvideo.c mod/lavtools/lavvideo.c
+--- orig/lavtools/lavvideo.c	2004-07-29 22:26:00.000000000 +0200
++++ mod/lavtools/lavvideo.c	2012-10-01 23:41:18.000000000 +0200
+@@ -63,7 +63,7 @@
+  * errors here, check your linux/time.h && sys/time.h header setup.
+  */
+ #define _LINUX_TIME_H
+-#include <linux/videodev.h>
++#include <libv4l1-videodev.h>
+ 
+ #include <videodev_mjpeg.h>
+ #include <frequencies.h>
+diff -Naur orig/lavtools/liblavplay.c mod/lavtools/liblavplay.c
+--- orig/lavtools/liblavplay.c	2006-08-25 16:37:34.000000000 +0200
++++ mod/lavtools/liblavplay.c	2012-10-01 23:43:11.000000000 +0200
+@@ -68,7 +68,8 @@
+  * errors here, check your linux/time.h && sys/time.h header setup.
+  */
+ #define _LINUX_TIME_H
+-#include <linux/videodev.h>
++#include <libv4l1-videodev.h>
++#define BASE_VIDIOCPRIVATE  192     /* 192-255 are private */
+ #else
+ #define VIDEO_MODE_PAL		0
+ #define VIDEO_MODE_NTSC		1
+diff -Naur orig/lavtools/liblavrec.c mod/lavtools/liblavrec.c
+--- orig/lavtools/liblavrec.c	2006-05-18 17:50:42.000000000 +0200
++++ mod/lavtools/liblavrec.c	2012-10-01 23:43:56.000000000 +0200
+@@ -63,7 +63,9 @@
+  * errors here, check your linux/time.h && sys/time.h header setup.
+  */
+ #define _LINUX_TIME_H
+-#include <linux/videodev.h>
++#include <libv4l1-videodev.h>
++#define BASE_VIDIOCPRIVATE  192     /* 192-255 are private */
++
+ #ifdef HAVE_SYS_SOUNDCARD_H
+ #include <sys/soundcard.h>
+ #endif
+diff -Naur orig/lavtools/testrec.c mod/lavtools/testrec.c
+--- orig/lavtools/testrec.c	2004-07-29 22:26:00.000000000 +0200
++++ mod/lavtools/testrec.c	2012-10-01 23:44:35.000000000 +0200
+@@ -89,7 +89,7 @@
+  * errors here, check your linux/time.h && sys/time.h header setup.
+  */
+ #define _LINUX_TIME_H
+-#include <linux/videodev.h>
++#include <libv4l1-videodev.h>
+ #include <linux/soundcard.h>
+ 
+ /* These are explicit prototypes for the compiler, to prepare separation of audiolib.c */

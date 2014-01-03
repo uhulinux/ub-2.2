@@ -1,0 +1,11 @@
+alsa-lib-dev
+ffmpeg-dev
+libX11-dev
+libva-dev
+libvdpau-dev
+libxcb-dev
+mesa-dev
+vdpau-video-dev
+vdr
+vdr-dev
+xcb-util-dev

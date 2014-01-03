@@ -1,0 +1,7 @@
+#!/bin/sh -eux
+
+ln -s /usr/lib/libmono.so.0.0.0 "$UB_INSTALLDIR"/usr/lib/libmoon.so.0
+mkdir -p "$UB_INSTALLDIR"/usr/lib/firefox/browser/extensions/moonlight@novell.com
+sed -i "s/4.0/30.0/" install.rdf
+cp -R components content locale plugins skin "$UB_INSTALLDIR"/usr/lib/firefox/browser/extensions/moonlight@novell.com
+cp chrome.manifest install.rdf "$UB_INSTALLDIR"/usr/lib/firefox/browser/extensions/moonlight@novell.com

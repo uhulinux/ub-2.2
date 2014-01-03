@@ -1,0 +1,550 @@
+From 51fd472c4979ba84f621e574f24d63f65703af85 Mon Sep 17 00:00:00 2001
+From: Justin Forest <hex@umonkey.net>
+Date: Mon, 20 Feb 2012 22:16:12 +0400
+Subject: [PATCH] ReplayGain support.
+
+Currently work with MP3 (native, not ffmpeg), OGG/Vorbis and FLAC.
+---
+ audio.c                         |  165 ++++++++++++++++++++++++++++++++++++++-
+ audio.h                         |    2 +
+ decoder_plugins/flac/flac.c     |    8 ++
+ decoder_plugins/mp3/mp3.c       |   33 ++++++++
+ decoder_plugins/vorbis/vorbis.c |   15 ++++
+ player.c                        |   47 ++++++++++-
+ player.h                        |    1 +
+ playlist.c                      |    8 ++
+ playlist.h                      |    4 +
+ tags_cache.c                    |   26 ++++++-
+ 10 files changed, 301 insertions(+), 8 deletions(-)
+
+diff --git a/audio.c b/audio.c
+index b8b091f..2800409 100644
+--- a/audio.c
++++ b/audio.c
+@@ -23,6 +23,10 @@
+ #include <strings.h>
+ #include <errno.h>
+ #include <assert.h>
++#include <math.h>
++#ifdef HAVE_INTTYPES_H
++# include <inttypes.h>
++#endif
+ 
+ #define DEBUG
+ 
+@@ -110,6 +114,10 @@ static char *last_stream_url = NULL;
+ 
+ static int current_mixer = 0;
+ 
++float rg_get_scale(const struct file_tags *);
++void rg_process_float(float *buf, size_t size, float scale);
++int rg_use_album_gain();
++
+ /* Check if the two sample rates don't differ as much that we can't play. */
+ #define sample_rate_compat(sound, device) ((device) * 1.05 >= sound \
+ 		&& (device) * 0.95 <= sound)
+@@ -798,11 +806,27 @@ int audio_send_pcm (const char *buf, const size_t size)
+ {
+         char *softmixed = NULL;
+         char *equalized = NULL;
++		char *attenuated = NULL;
++
++		if(replaygain_is_active())
++		{
++		  attenuated = xmalloc(size);
++		  memcpy(attenuated, buf, size);
++		  replaygain_process_buffer(attenuated, size, &driver_sound_params);
++		  buf = attenuated;
++		}
+ 
+         if(equalizer_is_active())
+         {
+-          equalized = xmalloc(size);
+-          memcpy(equalized, buf, size);
++		  if (attenuated)
++		  {
++		    equalized = attenuated;
++		  }
++		  else
++		  {
++            equalized = xmalloc(size);
++            memcpy(equalized, buf, size);
++		  }
+ 
+           equalizer_process_buffer(equalized, size, &driver_sound_params);
+ 
+@@ -1230,3 +1254,140 @@ void audio_toggle_mixer_channel ()
+         if(current_mixer<2)
+           hw.toggle_mixer_channel ();
+ }
++
++int replaygain_is_active ()
++{
++	return 1;
++}
++
++/**
++ * Calculates the scaling factor for track samples according to tags.
++ *
++ * @return float Sample multiplicator.
++ */
++float rg_get_scale(const struct file_tags *tags)
++{
++	float gain, peak, scale;
++
++	if (rg_use_album_gain() && tags->rg_album) {
++		gain = tags->rg_album;
++		peak = tags->rg_album_peak;
++	} else if (tags->rg_track) {
++		gain = tags->rg_track;
++		peak = tags->rg_track_peak;
++	} else {
++		return 1.0;
++	}
++
++	scale = pow(10.0, gain / 20.0);
++	if (scale > 15.0)
++		scale = 15.0;
++
++	if (tags->rg_track_peak && (scale * tags->rg_track_peak > 1.0))
++		scale = 1.0 / tags->rg_track_peak;
++
++	return scale;
++}
++
++void rg_process_u8(uint8_t *buf, size_t size, float scale)
++{
++	size_t i;
++	for (i = 0; i < size; i++)
++		buf[i] = scale * (float)buf[i];
++}
++
++void rg_process_s8(int8_t *buf, size_t size, float scale)
++{
++	size_t i;
++	for (i = 0; i < size; i++)
++		buf[i] = scale * (float)buf[i];
++}
++
++void rg_process_u16(uint16_t *buf, size_t size, float scale)
++{
++	size_t i;
++	for (i = 0; i < size; i++)
++		buf[i] = scale * (float)buf[i];
++}
++
++void rg_process_s16(int16_t *buf, size_t size, float scale)
++{
++	size_t i;
++	for (i = 0; i < size; i++)
++		buf[i] = scale * (float)buf[i];
++}
++
++void rg_process_u32(uint32_t *buf, size_t size, float scale)
++{
++	size_t i;
++	for (i = 0; i < size; i++)
++		buf[i] = scale * (float)buf[i];
++}
++
++void rg_process_s32(int32_t *buf, size_t size, float scale)
++{
++	size_t i;
++	for (i = 0; i < size; i++)
++		buf[i] = scale * (float)buf[i];
++}
++
++void rg_process_float(float *buf, size_t size, float scale)
++{
++	size_t i;
++	for (i = 0; i < size; i++)
++		buf[i] = scale * (float)buf[i];
++}
++
++/**
++ * Modifies volumes according to replaygain tags.
++ */
++void replaygain_process_buffer (char *buf, size_t size, const struct sound_params *sound_params)
++{
++	struct file_tags *tags;
++	float scale;
++
++	tags = audio_get_curr_tags();
++	if (!tags)
++		return;
++
++	if ((scale = rg_get_scale(tags)) == 1.0) {
++		tags_free(tags);
++		return;
++	}
++
++	switch (sound_params->fmt & SFMT_MASK_FORMAT) {
++	case SFMT_U8:
++		rg_process_u8((uint8_t *)buf, size / sizeof(uint8_t), scale);
++		break;
++	case SFMT_S8:
++		rg_process_s8((int8_t *)buf, size / sizeof(int8_t), scale);
++		break;
++	case SFMT_U16:
++		rg_process_u16((uint16_t *)buf, size / sizeof(uint16_t), scale);
++		break;
++	case SFMT_S16:
++		rg_process_s16((int16_t *)buf, size / sizeof(int16_t), scale);
++		break;
++	case SFMT_U32:
++		rg_process_u32((uint32_t *)buf, size / sizeof(uint32_t), scale);
++		break;
++	case SFMT_S32:
++		rg_process_s32((int32_t *)buf, size / sizeof(int32_t), scale);
++		break;
++	case SFMT_FLOAT:
++		rg_process_float((float *)buf, size / sizeof(float), scale);
++		break;
++	}
++
++	tags_free(tags);
++}
++
++/**
++ * Check whether the album mode should be used.  Need to check for a config
++ * file option and, perhaps, compare current album name with previous/next
++ * tracks.
++ */
++int rg_use_album_gain ()
++{
++	return 0;
++}
+diff --git a/audio.h b/audio.h
+index ada67f4..7735ae1 100644
+--- a/audio.h
++++ b/audio.h
+@@ -256,5 +256,7 @@ void audio_queue_delete (const char *file);
+ void audio_queue_clear ();
+ void audio_queue_move (const char *file1, const char *file2);
+ struct plist* audio_queue_get_contents ();
++int replaygain_is_active ();
++void replaygain_process_buffer (char *buf, size_t size, const struct sound_params *sound_params);
+ 
+ #endif
+diff --git a/decoder_plugins/flac/flac.c b/decoder_plugins/flac/flac.c
+index 9512e90..7924c79 100644
+--- a/decoder_plugins/flac/flac.c
++++ b/decoder_plugins/flac/flac.c
+@@ -467,6 +467,14 @@ static void fill_tag (FLAC__StreamMetadata_VorbisComment_Entry *comm,
+ 		tags->track = atoi (value);
+ 		free (value);
+ 	}
++	else if (!strcasecmp(name, "replaygain_track_gain"))
++		tags->rg_track = atof (value);
++	else if (!strcasecmp(name, "replaygain_track_peak"))
++		tags->rg_track_peak = atof (value);
++	else if (!strcasecmp(name, "replaygain_album_gain"))
++		tags->rg_album = atof (value);
++	else if (!strcasecmp(name, "replaygain_album_peak"))
++		tags->rg_album_peak = atof (value);
+ 	else
+ 		free (value);
+ 
+diff --git a/decoder_plugins/mp3/mp3.c b/decoder_plugins/mp3/mp3.c
+index 4c38695..659a926 100644
+--- a/decoder_plugins/mp3/mp3.c
++++ b/decoder_plugins/mp3/mp3.c
+@@ -185,6 +185,38 @@ static char *get_tag (struct id3_tag *tag, const char *what)
+ 	return comm;
+ }
+ 
++/**
++ * Finds frames with ReplayGain data, copies it to file_tags.
++ */
++static void get_replay_gain(struct file_tags *info, const struct id3_tag *tag)
++{
++	unsigned int idx;
++	struct id3_frame *frame;
++	id3_latin1_t const *key, *value;
++
++	for (idx = 0; (frame = id3_tag_findframe (tag, "TXXX", idx)); idx++) {
++		if (frame->nfields < 3)
++			continue;
++
++		key = id3_ucs4_latin1duplicate(id3_field_getstring(&frame->fields[1]));
++		value = id3_ucs4_latin1duplicate(id3_field_getstring(&frame->fields[2]));
++
++		debug("Found a TXX frame: %s = %s", key, value);
++
++		if (!strcasecmp(key, "replaygain_track_gain"))
++			info->rg_track = atof(value);
++		else if (!strcasecmp(key, "replaygain_album_gain"))
++			info->rg_album = atof(value);
++		else if (!strcasecmp(key, "replaygain_track_peak"))
++			info->rg_track_peak = atof(value);
++		else if (!strcasecmp(key, "replaygain_album_peak"))
++			info->rg_album_peak = atof(value);
++
++		free(key);
++		free(value);
++	}
++}
++
+ static int count_time_internal (struct mp3_data *data)
+ {
+ 	struct xing xing;
+@@ -468,6 +500,7 @@ static void mp3_info (const char *file_name, struct file_tags *info,
+ 			info->title = get_tag (tag, ID3_FRAME_TITLE);
+ 			info->album = get_tag (tag, ID3_FRAME_ALBUM);
+ 			track = get_tag (tag, ID3_FRAME_TRACK);
++			get_replay_gain(info, tag);
+ 			
+ 			if (track) {
+ 				char *end;
+diff --git a/decoder_plugins/vorbis/vorbis.c b/decoder_plugins/vorbis/vorbis.c
+index 30bd4bb..dc51b58 100644
+--- a/decoder_plugins/vorbis/vorbis.c
++++ b/decoder_plugins/vorbis/vorbis.c
+@@ -75,6 +75,21 @@ static void get_comment_tags (OggVorbis_File *vf, struct file_tags *info)
+ 					"track=", strlen ("track=")))
+ 			info->track = atoi (comments->user_comments[i]
+ 					+ strlen ("track="));
++		else if (!strncasecmp(comments->user_comments[i],
++					"replaygain_track_gain=", strlen ("replaygain_track_gain="))) {
++			info->rg_track = atof (comments->user_comments[i]
++					+ strlen ("replaygain_track_gain="));
++		}
++		else if (!strncasecmp(comments->user_comments[i],
++					"replaygain_album_gain=", strlen ("replaygain_album_gain="))) {
++			info->rg_album = atof (comments->user_comments[i]
++					+ strlen ("replaygain_album_gain="));
++		}
++		else if (!strncasecmp(comments->user_comments[i],
++					"replaygain_track_peak=", strlen ("replaygain_track_peak="))) {
++			info->rg_track_peak = atof (comments->user_comments[i]
++					+ strlen ("replaygain_track_peak="));
++		}
+ 	}
+ }
+ 
+diff --git a/player.c b/player.c
+index 6ec3c3b..8e75a1e 100644
+--- a/player.c
++++ b/player.c
+@@ -105,6 +105,8 @@ static int prebuffering = 0; /* are we prebuffering now? */
+ 
+ static struct bitrate_list bitrate_list;
+ 
++static void preload_tags(const char *file, const struct decoder *f);
++
+ static void bitrate_list_init (struct bitrate_list *b)
+ {
+ 	assert (b != NULL);
+@@ -353,13 +355,17 @@ void player_init ()
+ 	precache.ok =  0;
+ }
+ 
+-static void show_tags (const struct file_tags *tags)
++void show_tags (const struct file_tags *tags)
+ {
+ 	
+ 	debug ("TAG[title]: %s", tags->title ? tags->title : "N/A");
+ 	debug ("TAG[album]: %s", tags->album ? tags->album : "N/A");
+ 	debug ("TAG[artist]: %s", tags->artist ? tags->artist : "N/A");
+ 	debug ("TAG[track]: %d", tags->track);
++	debug ("TAG[track_gain]: %f", tags->rg_track);
++	debug ("TAG[track_peak]: %f", tags->rg_track_peak);
++	debug ("TAG[album_gain]: %f", tags->rg_album);
++	debug ("TAG[album_peak]: %f", tags->rg_album_peak);
+ }
+ 
+ /* Update tags if tags from the decoder or the stream are available. */
+@@ -421,7 +427,8 @@ static void buf_free_callback ()
+ static void decode_loop (const struct decoder *f, void *decoder_data,
+ 		const char *next_file, struct out_buf *out_buf,
+ 		struct sound_params sound_params,
+-		const float already_decoded_sec)
++		const float already_decoded_sec,
++		const char *file)
+ {
+ 	int eof = 0;
+ 	char buf[PCM_BUF_SIZE];
+@@ -437,6 +444,8 @@ static void decode_loop (const struct decoder *f, void *decoder_data,
+ 	curr_tags = tags_new ();
+ 	UNLOCK (curr_tags_mut);
+ 
++	preload_tags(file, f);
++
+ 	if (f->get_stream) {
+ 		LOCK (decoder_stream_mut);
+ 		decoder_stream = f->get_stream (decoder_data);
+@@ -594,6 +603,36 @@ static void decode_loop (const struct decoder *f, void *decoder_data,
+ 	out_buf_wait (out_buf);
+ }
+ 
++/**
++ * Reads the tags from the decoder.
++ *
++ * This is necessary to apply ReplayGain.  The OGG/Vorbis codec updates them
++ * from the stream, but the MP3 decoder does not, so without calling this the
++ * tags wouldn't be available and the volume wouldn't be adjusted.
++ *
++ * TODO: request from cache, see tags_cache_get_immediate().
++ */
++static void preload_tags(const char *file, const struct decoder *f)
++{
++	struct file_tags *new_tags;
++
++	if (file && !f->current_tags && f->info) {
++		debug("Decoder doesn't support streaming tags, preloading.");
++
++		LOCK (curr_tags_mut);
++
++		new_tags = tags_new ();
++		f->info (file, new_tags, TAGS_COMMENTS);
++		tags_copy (curr_tags, new_tags);
++		show_tags (new_tags);
++		tags_free (new_tags);
++		tags_change ();
++		tags_source = TAGS_SOURCE_DECODER;
++
++		UNLOCK (curr_tags_mut);
++	}
++}
++
+ /* Play a file (disk file) using the given decoder. next_file is precached. */
+ static void play_file (const char *file, const struct decoder *f,
+ 		const char *next_file, struct out_buf *out_buf)
+@@ -677,7 +716,7 @@ static void play_file (const char *file, const struct decoder *f,
+ 	precache_reset (&precache);
+ 
+ 	decode_loop (f, decoder_data, next_file, out_buf, sound_params,
+-			already_decoded_time);
++			already_decoded_time, file);
+ }
+ 
+ /* Play the stream (global decoder_stream) using the given decoder. */
+@@ -707,7 +746,7 @@ static void play_stream (const struct decoder *f, struct out_buf *out_buf)
+ 		audio_state_started_playing ();
+ 		bitrate_list_init (&bitrate_list);
+ 		decode_loop (f, decoder_data, NULL, out_buf, sound_params,
+-				0.0);
++				0.0, NULL);
+ 	}
+ }
+ 
+diff --git a/player.h b/player.h
+index 60b14a7..26be54f 100644
+--- a/player.h
++++ b/player.h
+@@ -15,5 +15,6 @@ void player_init ();
+ struct file_tags *player_get_curr_tags ();
+ void player_pause ();
+ void player_unpause ();
++void show_tags (const struct file_tags *tags);
+ 
+ #endif
+diff --git a/playlist.c b/playlist.c
+index 1a617f9..ccf10ed 100644
+--- a/playlist.c
++++ b/playlist.c
+@@ -85,6 +85,10 @@ void tags_copy (struct file_tags *dst, const struct file_tags *src)
+ 	
+ 	dst->track = src->track;
+ 	dst->time = src->time;
++	dst->rg_track = src->rg_track;
++	dst->rg_track_peak = src->rg_track_peak;
++	dst->rg_album = src->rg_album;
++	dst->rg_album_peak = src->rg_album_peak;
+ 	dst->filled = src->filled;
+ }
+ 
+@@ -99,6 +103,10 @@ struct file_tags *tags_new ()
+ 	tags->track = -1;
+ 	tags->time = -1;
+ 	tags->filled = 0;
++	tags->rg_track = 0;
++	tags->rg_track_peak = 0;
++	tags->rg_album = 0;
++	tags->rg_album_peak = 0;
+ 
+ 	return tags;
+ }
+diff --git a/playlist.h b/playlist.h
+index e14b0cf..5ca21b5 100644
+--- a/playlist.h
++++ b/playlist.h
+@@ -20,6 +20,10 @@ struct file_tags
+ 	int track;
+ 	int time;
+ 	int filled; /* Which tags are filled: TAGS_COMMENTS, TAGS_TIME. */
++	float rg_track;
++	float rg_track_peak;
++	float rg_album;
++	float rg_album_peak;
+ };
+ 
+ enum file_type
+diff --git a/tags_cache.c b/tags_cache.c
+index 30216d1..5ca8982 100644
+--- a/tags_cache.c
++++ b/tags_cache.c
+@@ -38,6 +38,7 @@
+ #define DEBUG
+ 
+ #include "server.h"
++#include "player.h"
+ #include "playlist.h"
+ #include "rbtree.h"
+ #include "common.h"
+@@ -51,7 +52,7 @@
+  *
+  * If you modify the DB structure, increase this number.
+  */
+-#define CACHE_DB_FORMAT_VERSION	1
++#define CACHE_DB_FORMAT_VERSION	2
+ 
+ struct cache_record
+ {
+@@ -188,7 +189,12 @@ static char *cache_record_serialize (const struct cache_record *rec, int *len)
+ 		+ album_len
+ 		+ title_len
+ 		+ sizeof(rec->tags->track)
+-		+ sizeof(rec->tags->time);
++		+ sizeof(rec->tags->time)
++		+ sizeof(rec->tags->rg_track)
++		+ sizeof(rec->tags->rg_track_peak)
++		+ sizeof(rec->tags->rg_album)
++		+ sizeof(rec->tags->rg_album_peak)
++		;
+ 
+ 	buf = p = (char *)xmalloc (*len);
+ 
+@@ -225,6 +231,18 @@ static char *cache_record_serialize (const struct cache_record *rec, int *len)
+ 	memcpy (p, &rec->tags->time, sizeof(rec->tags->time));
+ 	p += sizeof(rec->tags->time);
+ 
++	memcpy (p, &rec->tags->rg_track, sizeof(rec->tags->rg_track));
++	p += sizeof(rec->tags->rg_track);
++
++	memcpy (p, &rec->tags->rg_track_peak, sizeof(rec->tags->rg_track_peak));
++	p += sizeof(rec->tags->rg_track_peak);
++
++	memcpy (p, &rec->tags->rg_album, sizeof(rec->tags->rg_album));
++	p += sizeof(rec->tags->rg_album);
++
++	memcpy (p, &rec->tags->rg_album_peak, sizeof(rec->tags->rg_album_peak));
++	p += sizeof(rec->tags->rg_album_peak);
++
+ 	return buf;
+ }
+ 
+@@ -272,6 +290,10 @@ static int cache_record_deserialize (struct cache_record *rec,
+ 		extract_str (rec->tags->title);
+ 		extract_num (rec->tags->track);
+ 		extract_num (rec->tags->time);
++		extract_num (rec->tags->rg_track);
++		extract_num (rec->tags->rg_track_peak);
++		extract_num (rec->tags->rg_album);
++		extract_num (rec->tags->rg_album_peak);
+ 
+ 		if (rec->tags->title)
+ 			rec->tags->filled |= TAGS_COMMENTS;
+-- 
+1.7.5.4
+

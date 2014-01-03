@@ -1,0 +1,93 @@
+diff -Naur orig/src/filemanager/boxes.c patched/src/filemanager/boxes.c
+--- orig/src/filemanager/boxes.c	2013-07-09 14:41:32.000000000 +0200
++++ patched/src/filemanager/boxes.c	2013-07-11 17:01:40.367916146 +0200
+@@ -104,10 +104,12 @@
+ static unsigned long panel_listing_types_id, panel_user_format_id;
+ static unsigned long mini_user_status_id, mini_user_format_id;
+ 
++#if 0
+ #ifdef HAVE_CHARSET
+ static int new_display_codepage;
+ static unsigned long disp_bits_name_id;
+ #endif /* HAVE_CHARSET */
++#endif
+ 
+ #if defined(ENABLE_VFS) && defined(ENABLE_VFS_FTP)
+ static unsigned long ftpfs_always_use_proxy_id, ftpfs_proxy_host_id;
+@@ -260,6 +262,7 @@
+ 
+ /* --------------------------------------------------------------------------------------------- */
+ 
++#if 0
+ #ifdef HAVE_CHARSET
+ static int
+ sel_charset_button (WButton * button, int action)
+@@ -291,6 +294,7 @@
+     return 0;
+ }
+ #endif /* HAVE_CHARSET */
++#endif
+ 
+ /* --------------------------------------------------------------------------------------------- */
+ 
+@@ -784,6 +788,7 @@
+ 
+ /* --------------------------------------------------------------------------------------------- */
+ 
++#if 0
+ #ifndef HAVE_CHARSET
+ void
+ display_bits_box (void)
+@@ -904,6 +909,7 @@
+     }
+ }
+ #endif /* HAVE_CHARSET */
++#endif
+ 
+ /* --------------------------------------------------------------------------------------------- */
+ /** Show tree in a box, not on a panel */
+diff -Naur orig/src/filemanager/boxes.h patched/src/filemanager/boxes.h
+--- orig/src/filemanager/boxes.h	2013-06-27 11:10:32.000000000 +0200
++++ patched/src/filemanager/boxes.h	2013-07-11 17:01:40.367916146 +0200
+@@ -23,7 +23,9 @@
+ int panel_listing_box (WPanel * p, char **user, char **mini, int *use_msformat, int num);
+ const panel_field_t *sort_box (panel_sort_info_t * info);
+ void confirm_box (void);
++#if 0
+ void display_bits_box (void);
++#endif
+ void configure_vfs (void);
+ void jobs_cmd (void);
+ char *cd_dialog (void);
+diff -Naur orig/src/filemanager/midnight.c patched/src/filemanager/midnight.c
+--- orig/src/filemanager/midnight.c	2013-07-09 14:41:32.000000000 +0200
++++ patched/src/filemanager/midnight.c	2013-07-11 17:01:40.367916146 +0200
+@@ -1137,9 +1137,11 @@
+         diff_view_cmd ();
+         break;
+ #endif
++#if 0
+     case CK_OptionsDisplayBits:
+         display_bits_box ();
+         break;
++#endif
+     case CK_Edit:
+         edit_cmd ();
+         break;
+diff -Naur orig/src/setup.c patched/src/setup.c
+--- orig/src/setup.c	2013-07-09 14:41:32.000000000 +0200
++++ patched/src/setup.c	2013-07-11 17:01:40.371916182 +0200
+@@ -291,11 +291,13 @@
+     { "safe_delete", &safe_delete },
+     { "mouse_repeat_rate", &mou_auto_repeat },
+     { "double_click_speed", &double_click_speed },
++#if 0
+ #ifndef HAVE_CHARSET
+     { "eight_bit_clean", &mc_global.eight_bit_clean },
+     { "full_eight_bits", &mc_global.full_eight_bits },
+ #endif /* !HAVE_CHARSET */
+     { "use_8th_bit_as_meta", &use_8th_bit_as_meta },
++#endif
+     { "confirm_view_dir", &confirm_view_dir },
+     { "mouse_move_pages_viewer", &mcview_mouse_move_pages },
+     { "mouse_close_dialog", &mouse_close_dialog},

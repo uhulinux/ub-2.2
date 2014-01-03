@@ -1,0 +1,16 @@
+diff -Naur a/drivers/media/dvb/dvb-core/dvbdev.c b/drivers/media/dvb/dvb-core/dvbdev.c
+--- a/drivers/media/dvb/dvb-core/dvbdev.c	2013-04-26 06:20:25.000000000 +0200
++++ b/drivers/media/dvb/dvb-core/dvbdev.c	2013-06-22 11:47:56.107343671 +0200
+@@ -83,8 +83,11 @@
+ 			file->f_op = old_fops;
+ 			goto fail;
+ 		}
+-		if(file->f_op->open)
++		if(file->f_op->open) {
++			mutex_unlock(&dvbdev_mutex);
+ 			err = file->f_op->open(inode,file);
++			mutex_lock(&dvbdev_mutex);
++		}
+ 		if (err) {
+ 			fops_put(file->f_op);
+ 			file->f_op = fops_get(old_fops);

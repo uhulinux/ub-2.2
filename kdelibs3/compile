@@ -1,0 +1,25 @@
+#!/bin/sh -eux
+
+export QTDIR=/usr/lib/qt
+
+ub_compile \
+	--enable-threading \
+	--enable-mt \
+	--enable-new-ldflags \
+	--enable-cups \
+	--enable-mitshm \
+	--enable-pie \
+	--enable-sendfile \
+	--disable-libfam \
+	--disable-rpath \
+	--disable-fast-malloc \
+	--enable-dnotify \
+	--enable-inotify \
+	--without-aspell \
+	--without-hspell \
+	--with-xinerama \
+	--with-ssl      \
+	--without-lua   \
+	--with-alsa \
+	--with-openexr \
+	--with-jasper

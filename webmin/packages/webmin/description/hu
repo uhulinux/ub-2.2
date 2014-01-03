@@ -1,0 +1,24 @@
+Főleg azokat a modulokat tartalmazza, amik "uhusítva" lettek :-)
+
+Jelenleg használható modulok, a teljesség igénye nélkül:
+ * &fetchmail
+ * &postfix
+ * &proftpd
+ * &openssh
+ * &webalizer
+ * &xinetd
+ * &firewall
+ * &grub
+ * &mysql
+ * &apache
+ * &postgresql
+ * &bind
+
+Használata		: a kedvenc webböngésződ címsorába írd be ezt a linket: http://127.0.0.1:10000
+Felhasználónév	: &admin
+Jelszó			: &admin
+
+Alkalmi indítása a &daemonnak: &service &webmin start
+Ha &bootkor szeretnéd elindítani, akkor a szolgáltatásoknál kell aktiválnod!
+
+Megj.:Eredetileg Márkus Sándor által készített csomag.

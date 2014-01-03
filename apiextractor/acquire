@@ -1,0 +1,5 @@
+#!/usr/bin/env dl
+
+apiextractor-${UB_VERSION}.tar.bz2 apiextractor-${UB_VERSION}/
+	https://distfiles.macports.org/apiextractor/
+	ftp://ftp.leg.uct.ac.za/pub/packages/macports/distfiles/apiextractor/

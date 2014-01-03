@@ -1,0 +1,5 @@
+#!/bin/sh -eux
+
+export QTDIR="/usr/lib/qt4"
+ub_configure
+ub_make -j1

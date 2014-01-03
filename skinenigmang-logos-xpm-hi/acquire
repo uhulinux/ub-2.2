@@ -1,0 +1,4 @@
+#!/usr/bin/env dl
+
+skinenigmang-logos-xpm-hi-${UB_VERSION}.tgz skinenigmang/
+	http://andreas.vdr-developer.org/enigmang/download/

@@ -1,0 +1,19 @@
+diff -Naur a/pam/lxdm b/pam/lxdm
+--- a/pam/lxdm	2011-07-29 15:42:33.000000000 +0200
++++ b/pam/lxdm	2013-06-11 19:59:11.496306412 +0200
+@@ -1,9 +1,10 @@
+ #%PAM-1.0
+-auth       substack	system-auth
+-auth       optional	pam_gnome_keyring.so
++auth       include	system-auth
+ account    include	system-auth
+-session    optional	pam_keyinit.so force revoke
+-session    include	system-auth
++password   include	system-auth
+ session    required	pam_loginuid.so
++session    include	system-auth
+ session    optional	pam_console.so
+-session    optional	pam_gnome_keyring.so auto_start
++session    required	pam_env.so
++session    required	pam_envfeed.so
++session    required	pam_limits.so

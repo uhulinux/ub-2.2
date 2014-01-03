@@ -1,0 +1,4 @@
+#!/bin/sh
+
+chmod -R 777 /etc/skel
+chmod +x /etc/skel/Asztal/*.desktop

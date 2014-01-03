@@ -1,0 +1,4 @@
+#!/usr/bin/env dl
+
+goocanvas-${UB_VERSION}.tar.gz goocanvas-${UB_VERSION}/
+	ftp://ftp.gnome.org/pub/GNOME/sources/goocanvas/${UB_VERSION_HEAD2}/

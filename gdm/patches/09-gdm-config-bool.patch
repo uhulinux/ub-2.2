@@ -1,0 +1,30 @@
+This patch suppresses stupid warnings on startup.
+
+diff -Naur gdm-2.19.6.orig/daemon/gdm-daemon-config-entries.h gdm-2.19.6/daemon/gdm-daemon-config-entries.h
+--- gdm-2.19.6.orig/daemon/gdm-daemon-config-entries.h	2007-08-15 20:14:55.000000000 +0200
++++ gdm-2.19.6/daemon/gdm-daemon-config-entries.h	2007-08-27 16:40:53.000000000 +0200
+@@ -426,8 +426,8 @@
+ 	 * GDM_ID_REMOTEWELCOME so that the default value is returned when
+ 	 * you run GET_CONFIG on these keys.
+ 	 */
+-	{ GDM_CONFIG_GROUP_GREETER, "DefaultWelcome", GDM_CONFIG_VALUE_BOOL, "", GDM_ID_DEFAULT_WELCOME },
+-	{ GDM_CONFIG_GROUP_GREETER, "DefaultRemoteWelcome", GDM_CONFIG_VALUE_BOOL, "", GDM_ID_DEFAULT_REMOTE_WELCOME },
++	{ GDM_CONFIG_GROUP_GREETER, "DefaultWelcome", GDM_CONFIG_VALUE_BOOL, "true", GDM_ID_DEFAULT_WELCOME },
++	{ GDM_CONFIG_GROUP_GREETER, "DefaultRemoteWelcome", GDM_CONFIG_VALUE_BOOL, "true", GDM_ID_DEFAULT_REMOTE_WELCOME },
+ 	{ GDM_CONFIG_GROUP_GREETER, "Welcome", GDM_CONFIG_VALUE_LOCALE_STRING, GDM_DEFAULT_WELCOME_MSG, GDM_ID_WELCOME },
+ 	{ GDM_CONFIG_GROUP_GREETER, "RemoteWelcome", GDM_CONFIG_VALUE_LOCALE_STRING, GDM_DEFAULT_REMOTE_WELCOME_MSG, GDM_ID_REMOTE_WELCOME },
+ 	{ GDM_CONFIG_GROUP_GREETER, "XineramaScreen", GDM_CONFIG_VALUE_INT, "0", GDM_ID_XINERAMA_SCREEN },
+diff -Naur gdm-2.19.6.orig/daemon/gdm-daemon-config-keys.h gdm-2.19.6/daemon/gdm-daemon-config-keys.h
+--- gdm-2.19.6.orig/daemon/gdm-daemon-config-keys.h	2007-08-15 20:14:55.000000000 +0200
++++ gdm-2.19.6/daemon/gdm-daemon-config-keys.h	2007-08-27 16:40:53.000000000 +0200
+@@ -148,8 +148,8 @@
+ #define GDM_KEY_TITLE_BAR "greeter/TitleBar=true"
+ #define GDM_DEFAULT_WELCOME_MSG "Welcome"
+ #define GDM_DEFAULT_REMOTE_WELCOME_MSG "Welcome to %n"
+-#define GDM_KEY_DEFAULT_WELCOME "greeter/DefaultWelcome="
+-#define GDM_KEY_DEFAULT_REMOTE_WELCOME "greeter/DefaultRemoteWelcome="
++#define GDM_KEY_DEFAULT_WELCOME "greeter/DefaultWelcome=true"
++#define GDM_KEY_DEFAULT_REMOTE_WELCOME "greeter/DefaultRemoteWelcome=true"
+ #define GDM_KEY_WELCOME "greeter/Welcome=" GDM_DEFAULT_WELCOME_MSG
+ #define GDM_KEY_REMOTE_WELCOME "greeter/RemoteWelcome=" GDM_DEFAULT_REMOTE_WELCOME_MSG
+ #define GDM_KEY_XINERAMA_SCREEN "greeter/XineramaScreen=0"

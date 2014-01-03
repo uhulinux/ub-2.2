@@ -1,0 +1,13 @@
+diff -Naur orig/gtk/window-decorator/gtk-window-decorator.c mod/gtk/window-decorator/gtk-window-decorator.c
+--- orig/gtk/window-decorator/gtk-window-decorator.c	2010-03-28 14:15:35.000000000 +0200
++++ mod/gtk/window-decorator/gtk-window-decorator.c	2012-11-29 17:44:46.000000000 +0100
+@@ -31,9 +31,6 @@
+ #include <X11/extensions/Xrender.h>
+ #include <X11/Xregion.h>
+ 
+-#ifndef GDK_DISABLE_DEPRECATED
+-#define GDK_DISABLE_DEPRECATED
+-#endif
+ 
+ #ifndef GTK_DISABLE_DEPRECATED
+ #define GTK_DISABLE_DEPRECATED

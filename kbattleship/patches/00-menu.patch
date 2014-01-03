@@ -1,0 +1,9 @@
+diff -Naur a/src/kbattleship.desktop b/src/kbattleship.desktop
+--- a/src/kbattleship.desktop	2013-05-28 21:38:34.000000000 +0200
++++ b/src/kbattleship.desktop	2013-08-12 20:11:55.074317972 +0200
+@@ -90,4 +90,4 @@
+ GenericName[zh_TW]=擊沉船隻的遊戲
+ Terminal=false
+ X-DBUS-StartupType=Multi
+-Categories=Qt;KDE;Game;StrategyGame;
++Categories=Qt;KDE;Game;StrategyGame;X-UHU-Menu/Games/TacticStrategy;

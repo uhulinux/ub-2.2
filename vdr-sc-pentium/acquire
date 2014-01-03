@@ -1,0 +1,5 @@
+#!/usr/bin/env dl
+
+vdr-sc-${UB_VERSION}.tar.gz sc-tip/ :sc
+	hg://85.17.209.13:6100/hg/sc@tip
+

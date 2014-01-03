@@ -1,0 +1,25 @@
+#!/bin/bash -eux
+
+export maxkernel=$(dpkg -s kernel | grep Version: | sed s/'Version: '//g | sed s/-\.*/-99.99/g)
+KVER="$(ls -1 /lib/modules|grep i386)"
+forras=NVIDIA-Linux-x86-"${UB_VERSION}"-pkg1
+forrasfile=$forras.run
+chmod +x $forrasfile
+./$forrasfile -x 
+
+rm $forrasfile
+cd $forras/usr/share/applications
+patch < $UB_SRCDIR/patches/nvidia-settings-menu.patch.skip
+cd ../../src/nv
+patch < $UB_SRCDIR/patches/drop24support.patch.skip
+sed -i \
+  -e 's:-Wpointer-arith::g' \
+  -e 's:-Wsign-compare::g' \
+  Makefile.kbuild
+ln -s Makefile.kbuild Makefile
+mkdir -p "$UB_COMPILEDIR"/lib/modules/"$KVER"/kernel/drivers/video
+make CFLAGS="-Wno-sign-compare" IGNORE_CC_MISMATCH=yes V=1 SYSSRC=/usr/src/linux MODULE_ROOT="$UB_COMPILEDIR"/lib/modules/"$KVER"/kernel/drivers module
+sed -e 's/suser-sanity-check //g' -i Makefile.kbuild
+sed -e 's/depmod -ae/true/g' -i Makefile.kbuild
+make SYSSRC=/usr/src/linux KERNEL_UNAME="$KVER" MODULE_ROOT="$UB_COMPILEDIR"/lib/modules/"$KVER"/kernel/drivers module-install
+make clean

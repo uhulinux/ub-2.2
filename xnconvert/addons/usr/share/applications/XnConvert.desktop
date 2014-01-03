@@ -1,0 +1,11 @@
+[Desktop Entry]
+Encoding=UTF-8
+Terminal=0
+Exec=xnconvert
+Icon=/usr/share/pixmaps/xnconvert.png
+Type=Application
+Categories=Graphics;X-UHU-Menu/Graphics;
+StartupNotify=true
+Name=XnConvert
+GenericName=XnConvert
+

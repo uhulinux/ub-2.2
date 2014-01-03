@@ -1,0 +1,25 @@
+diff -Naur orig/kernel/Makefile.kbuild mod/kernel/Makefile.kbuild
+--- orig/kernel/Makefile.kbuild	2013-03-28 00:20:37.000000000 +0100
++++ mod/kernel/Makefile.kbuild	2013-04-24 15:24:24.948155849 +0200
+@@ -220,7 +220,7 @@
+ # NVIDIA sanity checks.
+ #
+ 
+-.PHONY: suser-sanity-check rmmod-sanity-check build-sanity-checks
++.PHONY: rmmod-sanity-check build-sanity-checks
+ 
+ suser-sanity-check:
+ 	@if ! $(CONFTEST) suser_sanity_check; then exit 1; fi
+@@ -255,10 +255,10 @@
+ # sufficient privileges. Rebuild the module dependency file.
+ #
+ 
+-module-install: suser-sanity-check module
++module-install: module
+ 	@mkdir -p $(MODULE_ROOT)/video; \
+ 	install -m 0664 -o root -g root $(MODULE_OBJECT) $(MODULE_ROOT)/video; \
+-	PATH="$(PATH):/bin:/sbin" depmod -a
++	PATH="$(PATH):/bin:/sbin" true
+ 
+ #
+ # This target builds, then installs, then creates device nodes and inserts

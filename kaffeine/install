@@ -1,0 +1,4 @@
+#!/bin/sh -eux
+
+ln -s ${UB_INSTALLDIR}/usr/share/icons/hicolor/48x48/apps/kaffeine.png ${UB_INSTALLDIR}/usr/share/pixmaps/kaffeine.png
+ub_install

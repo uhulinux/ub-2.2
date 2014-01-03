@@ -1,0 +1,5 @@
+#!/bin/sh -eux
+
+cd src
+python ./setup.py install --root="$UB_INSTALLDIR"
+

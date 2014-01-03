@@ -1,0 +1,4 @@
+#!/usr/bin/env dl
+
+smc-${UB_VERSION}.tar.bz2 smc-${UB_VERSION}/
+    http://prdownloads.sourceforge.net/smclone/

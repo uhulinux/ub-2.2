@@ -1,0 +1,4 @@
+#!/usr/bin/env dl
+
+bareftp-${UB_VERSION}.tar.gz bareftp-${UB_VERSION}/
+	http://www.bareftp.org/release/

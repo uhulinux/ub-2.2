@@ -1,0 +1,34 @@
+diff -Naur orig/Makefile patched/Makefile
+--- orig/Makefile	2011-05-30 09:29:58.000000000 +0200
++++ patched/Makefile	2013-09-14 14:02:57.161951681 +0200
+@@ -1,8 +1,8 @@
+ DESTDIR?=
+-PREFIX?=/usr/local
++PREFIX?=/usr
+ INSTALLBIN?=$(PREFIX)/bin
+ INSTALLLIB?=$(PREFIX)/lib
+-INSTALLMAN?=$(PREFIX)/man
++INSTALLMAN?=$(PREFIX)/share/man
+ INSTALLINCLUDE?=$(PREFIX)/include
+ 
+ DPREFIX=$(DESTDIR)$(PREFIX)
+@@ -28,8 +28,8 @@
+ CFLAGS?=-pipe -O2 $(WARNFLAGS)
+ CFLAGS+=-g # TODO(sissel): Comment before release
+ 
+-DEFAULT_LIBS=-L/usr/X11R6/lib -L/usr/local/lib -lX11 -lXtst -lXinerama
+-DEFAULT_INC=-I/usr/X11R6/include -I/usr/local/include
++DEFAULT_LIBS=-L/usr/X11R6/lib -L/usr/lib -lX11 -lXtst -lXinerama
++DEFAULT_INC=-I/usr/X11R6/include -I/usr/include
+ 
+ LIBS+=$(shell pkg-config --libs x11 xtst xinerama 2> /dev/null || echo "$(DEFAULT_LIBS)")
+ INC=$(shell pkg-config --cflags x11 xtst xinerama 2> /dev/null || echo "$(DEFAULT_INC)")
+@@ -65,7 +65,7 @@
+ 	$(CC) -o xdotool.static xdotool.o xdo.o xdo_search.o $(CMDOBJS) $(LDFLAGS)  -lm $(LIBS)
+ 
+ .PHONY: install
+-install: pre-install installlib installprog installman installheader post-install
++install: pre-install installlib installprog installman
+ 
+ .PHONY: pre-install
+ pre-install:

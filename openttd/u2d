@@ -1,0 +1,1 @@
+geturl http://binaries.openttd.org/releases/ | sed -r 's/\/index\.html//g' | sed -r 's/^.*\/([^\/]+)\/?$/\1/' | grep -E '^[0-9]+' | sed -r 's/-.*//g' | sort -V | tail -n 1

@@ -1,0 +1,9 @@
+curl-dev
+gtk2-dev
+libidn-dev
+libxml2-dev
+openssl-dev
+pygtk-dev
+python-dev
+rarian-dev
+taglib-dev

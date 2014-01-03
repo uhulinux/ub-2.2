@@ -1,0 +1,4 @@
+#!/bin/bash
+
+cd /usr/share/games/sauerbraten
+/usr/libexec/sauer_client -q\$HOME/.sauerbraten # -r /usr/share/games/sauerbraten

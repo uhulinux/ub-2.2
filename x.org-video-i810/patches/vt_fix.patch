@@ -1,0 +1,13 @@
+diff -Naur orig/src/legacy/i810/i810_accel.c patched/src/legacy/i810/i810_accel.c
+--- orig/src/legacy/i810/i810_accel.c	2012-07-18 23:50:35.000000000 +0200
++++ patched/src/legacy/i810/i810_accel.c	2013-03-05 16:16:37.882829646 +0100
+@@ -154,6 +154,9 @@
+    if (I810_DEBUG & (DEBUG_VERBOSE_ACCEL | DEBUG_VERBOSE_SYNC))
+       ErrorF("I810Sync\n");
+ 
++   if (!pScrn->vtSema)
++      return;
++
+ #ifdef HAVE_DRI1
+    /* VT switching tries to do this.  
+     */

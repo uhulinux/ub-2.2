@@ -1,0 +1,10 @@
+diff -Naur orig/data/atril.desktop.in.in patched/data/atril.desktop.in.in
+--- orig/data/atril.desktop.in.in	2013-04-01 12:44:15.000000000 +0200
++++ patched/data/atril.desktop.in.in	2013-04-04 21:38:24.997134397 +0200
+@@ -13,5 +13,5 @@
+ X-MATE-Bugzilla-Product=atril
+ X-MATE-Bugzilla-Component=BugBuddyBugs
+ X-MATE-Bugzilla-Version=@VERSION@
+-Categories=GTK;Graphics;VectorGraphics;Viewer;
++Categories=GTK;Graphics;VectorGraphics;Viewer;X-UHU-Menu/Tools/Viewers;
+ MimeType=@ATRIL_MIME_TYPES@

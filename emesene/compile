@@ -1,0 +1,4 @@
+#!/bin/sh -eux
+
+#sed -i -e  "/import e3dummy/d" emesene/emesene.py 
+ub_compile

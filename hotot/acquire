@@ -1,0 +1,5 @@
+#!/usr/bin/env dl
+
+${UB_VERSION}.tar.gz Hotot-${UB_VERSION}/
+	https://github.com/lyricat/Hotot/archive/
+

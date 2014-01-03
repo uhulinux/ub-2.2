@@ -1,0 +1,30 @@
+diff -Naur orig/gparted.desktop patched/gparted.desktop
+--- orig/gparted.desktop	2013-04-30 17:19:36.000000000 +0200
++++ patched/gparted.desktop	2013-08-03 23:12:37.856671400 +0200
+@@ -210,9 +210,9 @@
+ Comment[zh_CN]=创建、重新组织或删除分区
+ Comment[zh_HK]=建立、編輯或刪除分割區
+ Comment[zh_TW]=建立、編輯或刪除分割區
+-Exec=kdesudo /usr/local/sbin/gparted %f
++Exec=gparted %f
+ Icon=gparted
+ Terminal=false
+ Type=Application
+-Categories=GNOME;System;Filesystem;
++Categories=GNOME;System;Filesystem;X-UHU-Menu/Tools/Utilities;
+ StartupNotify=true
+diff -Naur orig/gparted.desktop.in.in patched/gparted.desktop.in.in
+--- orig/gparted.desktop.in.in	2012-11-06 22:12:33.000000000 +0100
++++ patched/gparted.desktop.in.in	2013-08-03 23:13:01.824892623 +0200
+@@ -3,9 +3,9 @@
+ _GenericName=Partition Editor
+ _X-GNOME-FullName=GParted Partition Editor
+ _Comment=Create, reorganize, and delete partitions
+-Exec=@gksuprog@ @installdir@/gparted %f
++Exec=gparted %f
+ Icon=gparted
+ Terminal=false
+ Type=Application
+-Categories=GNOME;System;Filesystem;
++Categories=GNOME;System;Filesystem;X-UHU-Menu/Tools/Utilities;
+ StartupNotify=true

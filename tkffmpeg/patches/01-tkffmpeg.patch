@@ -1,0 +1,15 @@
+diff -Naur orig/tkffmpeg.desktop mod/tkffmpeg.desktop
+--- orig/tkffmpeg.desktop	2009-06-15 11:24:08.000000000 +0200
++++ mod/tkffmpeg.desktop	2010-04-10 19:54:48.000000000 +0200
+@@ -4,7 +4,8 @@
+ Comment= FFmpeg video converter GUI
+ Comment[ru]= Интерфейс FFmpeg для конвертирования видео
+ Comment[uk]= Інтерфейс FFmpeg для конвертування відео
+-Exec=tkffmpeg.tcl
++Comment[hu]=ffmpeg frontend
++Exec=tkffmpeg
+ Icon=tkffmpeg
+ Terminal=false
+-Categories=AudioVideo;
+\ Nincs újsor a fájl végén
++Categories=AudioVideo;X-UHU-Menu/Multimedia/VideoEdit;

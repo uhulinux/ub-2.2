@@ -1,0 +1,9 @@
+dbus-glib-dev
+gtk-doc
+intltool
+libcanberra-dev
+libmatewnck-dev
+libnotify-dev
+libsm-dev
+mate-common
+xcb-util-dev

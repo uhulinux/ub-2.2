@@ -1,0 +1,12 @@
+diff -Naur orig/data/mate-calc.desktop.in patched/data/mate-calc.desktop.in
+--- orig/data/mate-calc.desktop.in	2013-03-23 12:09:38.000000000 +0100
++++ patched/data/mate-calc.desktop.in	2013-03-30 18:46:57.299174154 +0100
+@@ -7,7 +7,7 @@
+ Terminal=false
+ Type=Application
+ StartupNotify=true
+-Categories=GTK;Utility;Calculator;
++Categories=GTK;Utility;Calculator;X-UHU-Menu/Tools/Calculators;
+ X-MATE-DocPath=mate-calc/mate-calc.xml
+ X-MATE-Bugzilla-Bugzilla=MATE
+ X-MATE-Bugzilla-Product=mate-calc

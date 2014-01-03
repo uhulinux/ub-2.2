@@ -1,0 +1,12 @@
+diff -ur a/build/Makefile.cinelerra b/build/Makefile.cinelerra
+--- a/build/Makefile.cinelerra	2011-08-05 04:56:48.000000000 +0200
++++ b/build/Makefile.cinelerra	2013-08-04 02:15:22.178016058 +0200
+@@ -94,7 +94,7 @@
+ 
+ install:
+ 	$(MAKE) -C plugins install
+-	cp libmpeg3/x86_64/mpeg3dump libmpeg3/x86_64/mpeg3peek libmpeg3/x86_64/mpeg3toc  libmpeg3/x86_64/mpeg3cat bin
++	cp libmpeg3/i686/mpeg3dump libmpeg3/i686/mpeg3peek libmpeg3/i686/mpeg3toc  libmpeg3/i686/mpeg3cat bin
+ 	$(MAKE) -C po install
+ 	$(MAKE) -C doc install
+ 	cp COPYING README bin

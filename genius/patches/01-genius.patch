@@ -1,0 +1,24 @@
+diff -Naurd a/src/gnome-genius.desktop b/src/gnome-genius.desktop
+--- a/src/gnome-genius.desktop	2012-12-17 19:50:41.000000000 +0100
++++ b/src/gnome-genius.desktop	2012-12-20 15:33:07.000000000 +0100
+@@ -1,10 +1,10 @@
+ [Desktop Entry]
+-Encoding=UTF-8
++Version=1.1
+ Type=Application
+ Exec=gnome-genius %U
+ Icon=gnome-genius
+ Terminal=false
+-Categories=GNOME;Science;Math;Education;Calculator;Utility;
++Categories=GNOME;Science;Math;Education;Calculator;Utility;X-UHU-Menu/Edutainment/Mathematics;
+ MimeType=text/x-genius;
+ Name=Genius Math Tool
+ Name[ca]=Eina matemàtica Genius
+@@ -51,6 +51,7 @@
+ Comment[gl]=Genius Mathematical Tool and Calculator
+ Comment[hi]=जीनियस गणित औजार और गणक
+ Comment[hr]=Matematički alat i kalkulator Genius
++Comment[hu]=Matematika
+ Comment[it]=Genius Mathematical Tool e Calcolatore
+ Comment[ja]=Genius 式の数学ツールと計算機を提供します
+ Comment[lv]=Genius Matemātisks Rīks un Kalkulators

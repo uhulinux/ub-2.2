@@ -1,0 +1,24 @@
+diff -Naurd gnome-terminal-2.26.0.orig/src/gnome-terminal.schemas.in gnome-terminal-2.26.0/src/gnome-terminal.schemas.in
+--- gnome-terminal-2.26.0.orig/src/gnome-terminal.schemas.in	2009-01-12 19:58:42.000000000 +0100
++++ gnome-terminal-2.26.0/src/gnome-terminal.schemas.in	2009-03-15 18:25:44.000000000 +0100
+@@ -449,7 +449,7 @@
+       <applyto>/apps/gnome-terminal/profiles/Default/palette</applyto>
+       <owner>gnome-terminal</owner>
+       <type>string</type>
+-      <default>#2E2E34343636:#CCCC00000000:#4E4E9A9A0606:#C4C4A0A00000:#34346565A4A4:#757550507B7B:#060698209A9A:#D3D3D7D7CFCF:#555557575353:#EFEF29292929:#8A8AE2E23434:#FCFCE9E94F4F:#72729F9FCFCF:#ADAD7F7FA8A8:#3434E2E2E2E2:#EEEEEEEEECEC</default>
++      <default>#000000:#AA0000:#00AA00:#AA5500:#0000AA:#AA00AA:#00AAAA:#AAAAAA:#555555:#FF5555:#55FF55:#FFFF55:#5555FF:#FF55FF:#55FFFF:#FFFFFF</default>
+       <locale name="C">
+          <short>Palette for terminal applications</short>
+          <long>
+diff -Naurd gnome-terminal-2.26.0.orig/src/terminal-profile.c gnome-terminal-2.26.0/src/terminal-profile.c
+--- gnome-terminal-2.26.0.orig/src/terminal-profile.c	2009-01-12 19:58:42.000000000 +0100
++++ gnome-terminal-2.26.0/src/terminal-profile.c	2009-03-15 18:21:00.000000000 +0100
+@@ -133,7 +133,7 @@
+ #define DEFAULT_FOREGROUND_COLOR      ("#000000")
+ #define DEFAULT_LOGIN_SHELL           (FALSE)
+ #define DEFAULT_NAME                  (NULL)
+-#define DEFAULT_PALETTE               (terminal_palettes[TERMINAL_PALETTE_TANGO])
++#define DEFAULT_PALETTE               (terminal_palettes[TERMINAL_PALETTE_LINUX])
+ #define DEFAULT_SCROLL_BACKGROUND     (TRUE)
+ #define DEFAULT_SCROLLBACK_LINES      (512)
+ #define DEFAULT_SCROLLBAR_POSITION    (TERMINAL_SCROLLBAR_RIGHT)

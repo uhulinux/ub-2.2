@@ -1,0 +1,6 @@
+#!/usr/bin/env dl
+0ad-${UB_VERSION}-alpha-unix-build.tar.gz 0ad-${UB_VERSION}-alpha/
+      http://releases.wildfiregames.com/
+
+0ad-${UB_VERSION}-alpha-unix-data.tar.gz 0ad-${UB_VERSION}-alpha/
+      http://releases.wildfiregames.com/

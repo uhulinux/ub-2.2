@@ -1,0 +1,4 @@
+#!/usr/bin/env dl
+
+farsight2-${UB_VERSION}.tar.gz farsight2-${UB_VERSION}/
+	http://farsight.freedesktop.org/releases/farsight2/

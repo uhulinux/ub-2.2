@@ -1,0 +1,4 @@
+#!/usr/bin/env dl
+
+kdiff3-${UB_VERSION}.tar.gz kdiff3-${UB_VERSION}/
+	http://downloads.sourceforge.net/project/kdiff3/kdiff3/${UB_VERSION}/kdiff3-0.9.97.tar.gz

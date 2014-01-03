@@ -1,0 +1,10 @@
+Summary=ConsoleKit
+Summary[hu]=ConsoleKit
+Description=ConsoleKit is a framework for defining and tracking users, login sessions, and seats.
+Description[hu]=A ConsoleKit egy keretrendszer felhasználó és munkafolyamataik nyilvántartásához.
+MsgDesc=ConsoleKit
+MsgDesc[hu]=ConsoleKit
+Script=/etc/init.d/consolekit
+SupportsReload=no
+Runlevels=345
+Sequence=20

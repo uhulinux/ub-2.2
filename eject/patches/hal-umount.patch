@@ -1,0 +1,18 @@
+diff -Naur eject.orig/eject.c eject/eject.c
+--- eject.orig/eject.c	2006-02-11 02:54:38.000000000 +0100
++++ eject/eject.c	2006-07-07 20:26:09.000000000 +0200
+@@ -784,13 +784,7 @@
+ 	switch (fork()) {
+ 	  case 0: /* child */
+ 		  setuid(getuid()); /* reduce likelyhood of security holes when running setuid */
+-		  if(p_option) {
+-			  execlp("pumount", "pumount", fullName, "-n", NULL);
+-			  execlp("umount", "umount", fullName, "-n", NULL);
+-		  } else {
+-			  execlp("pumount", "pumount", fullName, NULL);
+-			  execlp("umount", "umount", fullName, NULL);
+-		  }
++		  execlp("hal-umount", "hal-umount", fullName, NULL);
+ 		  fprintf(stderr, _("%s: unable to exec umount of `%s': %s\n"),
+ 				  programName, fullName, strerror(errno));
+ 		  exit(1);

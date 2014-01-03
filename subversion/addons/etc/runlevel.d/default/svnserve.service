@@ -1,0 +1,10 @@
+Summary=SVN Server
+Summary[hu]=SVN Szerver
+Description=SVN Server
+Description[hu]=SVN Szerver
+MsgDesc=SVN Server
+MsgDesc[hu]=SVN Szerver
+Script=/etc/init.d/svnserve
+SupportsReload=no
+Runlevels=
+Sequence=20

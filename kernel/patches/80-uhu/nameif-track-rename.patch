@@ -1,0 +1,11 @@
+diff -Naurdp a/net/core/dev.c b/net/core/dev.c
+--- a/net/core/dev.c	2009-12-19 00:59:59.000000000 +0100
++++ b/net/core/dev.c	2009-12-19 01:06:11.000000000 +0100
+@@ -981,6 +981,7 @@ int dev_change_name(struct net_device *d
+ 	err = dev_get_valid_name(net, newname, dev->name, 1);
+ 	if (err < 0)
+ 		return err;
++	printk(KERN_INFO "%s renamed to %s\n", oldname, newname);
+ 
+ rollback:
+ 	/* For now only devices in the initial network namespace

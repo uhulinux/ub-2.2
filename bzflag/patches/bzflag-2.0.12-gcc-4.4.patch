@@ -1,0 +1,221 @@
+diff -up bzflag-2.0.12/include/common.h.gcc-4.4 bzflag-2.0.12/include/common.h
+--- bzflag-2.0.12/include/common.h.gcc-4.4	2008-04-06 07:30:59.000000000 +0200
++++ bzflag-2.0.12/include/common.h	2008-12-22 17:28:01.000000000 +0100
+@@ -33,9 +33,12 @@
+ 
+ #include <stdio.h>
+ #include <stdlib.h> /* needed for bzfrand */
+-#include <math.h>
+ #ifdef __cplusplus
+ #  include <cmath>
++#  include <cstring>
++#else
++#  include <math.h>
++#  include <string.h>
+ #endif
+ 
+ 
+diff -up bzflag-2.0.12/plugins/airspawn/airspawn.cpp.gcc-4.4 bzflag-2.0.12/plugins/airspawn/airspawn.cpp
+--- bzflag-2.0.12/plugins/airspawn/airspawn.cpp.gcc-4.4	2007-09-11 00:13:24.000000000 +0200
++++ bzflag-2.0.12/plugins/airspawn/airspawn.cpp	2008-12-22 17:28:01.000000000 +0100
+@@ -3,6 +3,7 @@
+ 
+ 
+ #include "bzfsAPI.h"
++#include <cstdlib>
+ #include <string>
+ #include <map>
+ 
+diff -up bzflag-2.0.12/plugins/flagStay/flagStay.cpp.gcc-4.4 bzflag-2.0.12/plugins/flagStay/flagStay.cpp
+--- bzflag-2.0.12/plugins/flagStay/flagStay.cpp.gcc-4.4	2007-09-11 00:13:24.000000000 +0200
++++ bzflag-2.0.12/plugins/flagStay/flagStay.cpp	2008-12-22 17:28:01.000000000 +0100
+@@ -2,6 +2,7 @@
+ //
+ 
+ #include "bzfsAPI.h"
++#include <cstdlib>
+ #include <string>
+ #include <vector>
+ #include <map>
+diff -up bzflag-2.0.12/plugins/HoldTheFlag/HoldTheFlag.cpp.gcc-4.4 bzflag-2.0.12/plugins/HoldTheFlag/HoldTheFlag.cpp
+--- bzflag-2.0.12/plugins/HoldTheFlag/HoldTheFlag.cpp.gcc-4.4	2007-10-27 10:53:51.000000000 +0200
++++ bzflag-2.0.12/plugins/HoldTheFlag/HoldTheFlag.cpp	2009-03-02 15:34:07.141548486 +0100
+@@ -5,6 +5,9 @@
+ 
+ #include "bzfsAPI.h"
+ #include <map>
++#include <cstdio>
++#include <cstdlib>
++#include <cstring>
+ #include <stdarg.h>
+ 
+ BZ_GET_PLUGIN_VERSION
+diff -up bzflag-2.0.12/plugins/keepaway/keepaway.cpp.gcc-4.4 bzflag-2.0.12/plugins/keepaway/keepaway.cpp
+--- bzflag-2.0.12/plugins/keepaway/keepaway.cpp.gcc-4.4	2007-10-27 10:53:50.000000000 +0200
++++ bzflag-2.0.12/plugins/keepaway/keepaway.cpp	2008-12-22 17:28:01.000000000 +0100
+@@ -1,6 +1,7 @@
+ // keepaway.cpp : Defines the entry point for the DLL application.
+ 
+ #include "bzfsAPI.h"
++#include <cstdlib>
+ #include <string>
+ #include <vector>
+ #include <map>
+diff -up bzflag-2.0.12/plugins/koth/koth.cpp.gcc-4.4 bzflag-2.0.12/plugins/koth/koth.cpp
+--- bzflag-2.0.12/plugins/koth/koth.cpp.gcc-4.4	2007-10-27 10:53:50.000000000 +0200
++++ bzflag-2.0.12/plugins/koth/koth.cpp	2008-12-22 17:28:01.000000000 +0100
+@@ -1,6 +1,7 @@
+ // koth.cpp : Defines the entry point for the DLL application.
+ 
+ #include "bzfsAPI.h"
++#include <cstdlib>
+ #include <string>
+ #include <vector>
+ #include <map>
+diff -up bzflag-2.0.12/plugins/logDetail/logDetail.cpp.gcc-4.4 bzflag-2.0.12/plugins/logDetail/logDetail.cpp
+--- bzflag-2.0.12/plugins/logDetail/logDetail.cpp.gcc-4.4	2008-04-24 23:08:49.000000000 +0200
++++ bzflag-2.0.12/plugins/logDetail/logDetail.cpp	2008-12-22 17:28:01.000000000 +0100
+@@ -13,6 +13,7 @@
+ // logDetail.cpp : Plugin module for logging server events to stdout
+ //
+ 
++#include <cstring>
+ #include <iostream>
+ #include <sstream>
+ #include "bzfsAPI.h"
+diff -up bzflag-2.0.12/plugins/nagware/nagware.cpp.gcc-4.4 bzflag-2.0.12/plugins/nagware/nagware.cpp
+--- bzflag-2.0.12/plugins/nagware/nagware.cpp.gcc-4.4	2007-11-15 23:28:18.000000000 +0100
++++ bzflag-2.0.12/plugins/nagware/nagware.cpp	2009-03-02 15:49:58.962903218 +0100
+@@ -3,6 +3,9 @@
+ // $Id: nagware.cpp 16200 2007-11-15 17:31:43Z JeffM2501 $
+ 
+ #include "bzfsAPI.h"
++#include <cstdio>
++#include <cstdlib>
++#include <cstring>
+ #include <vector>
+ 
+ BZ_GET_PLUGIN_VERSION
+@@ -485,25 +488,33 @@ char *strtrim (char *s){
+ }
+ 
+ MsgEnt * parseCfgMessage(const char *m){
+-  char *p;
++  char *p, *new_m;
+   int time, repeat=0;
++  MsgEnt *retval = NULL;
++
++  new_m = (char *)malloc (strlen (m));
++  strcpy (new_m, m);
+   
+-  if ((p = strchr (m, ' ')) == NULL)
+-    return NULL;
++  if ((p = strchr (new_m, ' ')) == NULL)
++    goto fail;
+   *p = '\0';
+-  if (strchr (m, ',') != NULL){
+-    if (sscanf (m, "%d,%d", &time, &repeat) != 2)
+-      return NULL;
++  if (strchr (new_m, ',') != NULL){
++    if (sscanf (new_m, "%d,%d", &time, &repeat) != 2)
++      goto fail;
+   } else {
+-    if (sscanf (m, "%d", &time) != 1)
+-      return NULL;
++    if (sscanf (new_m, "%d", &time) != 1)
++      goto fail;
+   }
+   if (time<0 || time > 500 || repeat < 0 || repeat > 1000)
+-    return NULL;
++    goto fail;
+ 
+ // TODO: check linelen < 128
+ 
+-  return new MsgEnt (time*TIME_FACTOR, repeat*TIME_FACTOR, p+1);
++  retval = new MsgEnt (time*TIME_FACTOR, repeat*TIME_FACTOR, p+1);
++
++fail:
++  free (new_m);
++  return retval;
+ }
+ 
+ 
+diff -up bzflag-2.0.12/plugins/rabbitTimer/rabbitTimer.cpp.gcc-4.4 bzflag-2.0.12/plugins/rabbitTimer/rabbitTimer.cpp
+--- bzflag-2.0.12/plugins/rabbitTimer/rabbitTimer.cpp.gcc-4.4	2007-09-20 21:48:54.000000000 +0200
++++ bzflag-2.0.12/plugins/rabbitTimer/rabbitTimer.cpp	2008-12-22 17:28:01.000000000 +0100
+@@ -2,6 +2,7 @@
+ //
+ 
+ #include "bzfsAPI.h"
++#include <cstdlib>
+ 
+ BZ_GET_PLUGIN_VERSION
+ 
+diff -up bzflag-2.0.12/plugins/rabidRabbit/rabidRabbit.cpp.gcc-4.4 bzflag-2.0.12/plugins/rabidRabbit/rabidRabbit.cpp
+--- bzflag-2.0.12/plugins/rabidRabbit/rabidRabbit.cpp.gcc-4.4	2007-10-27 10:53:51.000000000 +0200
++++ bzflag-2.0.12/plugins/rabidRabbit/rabidRabbit.cpp	2008-12-22 17:28:01.000000000 +0100
+@@ -4,7 +4,8 @@
+ #include <string>
+ #include <vector>
+ #include <map>
+-#include <math.h>
++#include <cstdlib>
++#include <cmath>
+ 
+ BZ_GET_PLUGIN_VERSION
+ 
+diff -up bzflag-2.0.12/plugins/recordmatch/recordmatch.cpp.gcc-4.4 bzflag-2.0.12/plugins/recordmatch/recordmatch.cpp
+--- bzflag-2.0.12/plugins/recordmatch/recordmatch.cpp.gcc-4.4	2009-03-02 15:51:00.115553228 +0100
++++ bzflag-2.0.12/plugins/recordmatch/recordmatch.cpp	2009-03-02 15:51:15.233550713 +0100
+@@ -2,6 +2,7 @@
+ //
+ 
+ #include "bzfsAPI.h"
++#include <cstdio>
+ 
+ class GameStartEndHandler : public bz_EventHandler
+ {
+diff -up bzflag-2.0.12/plugins/teamflagreset/teamflagreset.cpp.gcc-4.4 bzflag-2.0.12/plugins/teamflagreset/teamflagreset.cpp
+--- bzflag-2.0.12/plugins/teamflagreset/teamflagreset.cpp.gcc-4.4	2007-10-27 10:53:49.000000000 +0200
++++ bzflag-2.0.12/plugins/teamflagreset/teamflagreset.cpp	2008-12-22 17:28:01.000000000 +0100
+@@ -1,6 +1,7 @@
+ // teamflagreset.cpp : Defines the entry point for the DLL application.
+ 
+ #include "bzfsAPI.h"
++#include <cstring>
+ 
+ BZ_GET_PLUGIN_VERSION
+ 
+diff -up bzflag-2.0.12/plugins/timedctf/timedctf.cpp.gcc-4.4 bzflag-2.0.12/plugins/timedctf/timedctf.cpp
+--- bzflag-2.0.12/plugins/timedctf/timedctf.cpp.gcc-4.4	2007-10-27 10:53:51.000000000 +0200
++++ bzflag-2.0.12/plugins/timedctf/timedctf.cpp	2008-12-22 17:28:01.000000000 +0100
+@@ -1,6 +1,7 @@
+ // timedctf.cpp : Defines the entry point for the DLL application.
+ 
+ #include "bzfsAPI.h"
++#include <cstring>
+ 
+ BZ_GET_PLUGIN_VERSION
+ 
+diff -up bzflag-2.0.12/plugins/torBlock/torBlock.cpp.gcc-4.4 bzflag-2.0.12/plugins/torBlock/torBlock.cpp
+--- bzflag-2.0.12/plugins/torBlock/torBlock.cpp.gcc-4.4	2007-11-15 23:28:18.000000000 +0100
++++ bzflag-2.0.12/plugins/torBlock/torBlock.cpp	2008-12-22 17:28:01.000000000 +0100
+@@ -2,6 +2,7 @@
+ //
+ 
+ #include "bzfsAPI.h"
++#include <cstring>
+ #include <string>
+ #include <algorithm>
+ #include <sstream>
+diff -up bzflag-2.0.12/plugins/wwzones/wwzones.cpp.gcc-4.4 bzflag-2.0.12/plugins/wwzones/wwzones.cpp
+--- bzflag-2.0.12/plugins/wwzones/wwzones.cpp.gcc-4.4	2007-10-27 10:53:51.000000000 +0200
++++ bzflag-2.0.12/plugins/wwzones/wwzones.cpp	2008-12-22 17:28:01.000000000 +0100
+@@ -1,6 +1,7 @@
+ // wwzones.cpp : Defines the entry point for the DLL application.
+ 
+ #include "bzfsAPI.h"
++#include <cstdlib>
+ #include <string>
+ #include <vector>
+ #include <map>

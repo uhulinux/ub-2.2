@@ -1,0 +1,11 @@
+boost-dev
+cegui-dev
+libpng-dev
+libx11-dev
+libxinerama-dev
+mesa-dev
+sdl-dev
+sdl-gfx
+sdl-image-dev
+sdl-mixer-dev
+sdl-ttf-dev

@@ -1,0 +1,1 @@
+sflist heroines | splitver '^cinelerra-([0-9.]+)-src.tar.xz$' | sort -V | tail -n 1

@@ -1,0 +1,13 @@
+[Desktop Entry]
+Type=Application
+Version=1.0
+Encoding=UTF-8
+Name=Rocks'N'Diamonds
+GenericName=Underground digging game
+Comment=Dig for treasure and solve puzzles underground
+Comment[hu]=gyémántbányászat
+Icon=rocksndiamonds
+Exec=rocksndiamonds
+Terminal=false
+StartupNotify=false
+Categories=Game;ArcadeGame;X-UHU-Menu/Games/Arcade;

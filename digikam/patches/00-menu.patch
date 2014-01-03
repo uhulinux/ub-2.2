@@ -1,0 +1,75 @@
+diff -Naur a/core/digikam/main/digikam.desktop b/core/digikam/main/digikam.desktop
+--- a/core/digikam/main/digikam.desktop	2013-05-13 09:51:25.000000000 +0200
++++ b/core/digikam/main/digikam.desktop	2013-05-24 16:09:31.322796063 +0200
+@@ -1,7 +1,7 @@
+ # KDE Config File
+ [Desktop Entry]
+ Type=Application
+-Categories=Qt;KDE;Graphics;Photography;
++Categories=Qt;KDE;Graphics;Photography;X-UHU-Menu/Graphics;
+ Exec=digikam -caption %c %i
+ Icon=digikam
+ X-DocPath=digikam/index.html
+diff -Naur a/core/showfoto/main/showfoto.desktop b/core/showfoto/main/showfoto.desktop
+--- a/core/showfoto/main/showfoto.desktop	2013-05-13 09:51:25.000000000 +0200
++++ b/core/showfoto/main/showfoto.desktop	2013-05-24 16:12:28.342791393 +0200
+@@ -148,5 +148,5 @@
+ # TODO: What is image/x-eim? Register it to freedesktop.org if you need it.
+ MimeType=image/gif;image/x-xpixmap;image/x-xbitmap;image/jpeg;image/png;image/tiff;image/x-bmp;image/x-psd;image/x-portable-bitmap;image/x-portable-pixmap;image/x-portable-graymap;image/x-dcraw;
+ Terminal=false
+-Categories=Qt;KDE;Graphics;
++Categories=Qt;KDE;Graphics;X-UHU-Menu/Graphics;
+ X-DocPath=showfoto/index.html
+diff -Naur a/extra/kipi-plugins/acquireimages/scangui.desktop b/extra/kipi-plugins/acquireimages/scangui.desktop
+--- a/extra/kipi-plugins/acquireimages/scangui.desktop	2013-05-13 09:51:08.000000000 +0200
++++ b/extra/kipi-plugins/acquireimages/scangui.desktop	2013-05-24 16:12:10.814791858 +0200
+@@ -1,5 +1,5 @@
+ [Desktop Entry]
+-Categories=Qt;KDE;Graphics;
++Categories=Qt;KDE;Graphics;X-UHU-Menu/Graphics;
+ Comment=A tool to acquire images using a flat scanner
+ Comment[ast]=Una ferramienta p'alquirir imáxenes emplegando un escáner planu
+ Comment[bg]=Инструмент за сканиране на снимки с плосък скенер
+diff -Naur a/extra/kipi-plugins/dngconverter/plugin/dngconverter.desktop b/extra/kipi-plugins/dngconverter/plugin/dngconverter.desktop
+--- a/extra/kipi-plugins/dngconverter/plugin/dngconverter.desktop	2013-05-13 09:51:03.000000000 +0200
++++ b/extra/kipi-plugins/dngconverter/plugin/dngconverter.desktop	2013-05-24 16:10:08.250795088 +0200
+@@ -139,4 +139,4 @@
+ Type=Application
+ MimeType=image/x-dcraw;
+ Terminal=false
+-Categories=Qt;KDE;Graphics;
++Categories=Qt;KDE;Graphics;X-UHU-Menu/Graphics;
+diff -Naur a/extra/kipi-plugins/expoblending/plugin/expoblending.desktop b/extra/kipi-plugins/expoblending/plugin/expoblending.desktop
+--- a/extra/kipi-plugins/expoblending/plugin/expoblending.desktop	2013-05-13 09:51:06.000000000 +0200
++++ b/extra/kipi-plugins/expoblending/plugin/expoblending.desktop	2013-05-24 16:10:52.210793931 +0200
+@@ -1,6 +1,6 @@
+ #!/usr/bin/env xdg-open
+ [Desktop Entry]
+-Categories=Qt;KDE;Graphics;
++Categories=Qt;KDE;Graphics;X-UHU-Menu/Graphics;
+ Comment=A tool to blend bracketed images
+ Comment[bg]=Инструмент за сливане на снимани "в клин" снимки
+ Comment[bs]=Alat za miješanje kockastih slika
+diff -Naur a/extra/kipi-plugins/panorama/plugin/panoramagui.desktop b/extra/kipi-plugins/panorama/plugin/panoramagui.desktop
+--- a/extra/kipi-plugins/panorama/plugin/panoramagui.desktop	2013-05-13 09:51:04.000000000 +0200
++++ b/extra/kipi-plugins/panorama/plugin/panoramagui.desktop	2013-05-24 16:11:41.546792628 +0200
+@@ -1,6 +1,6 @@
+ #!/usr/bin/env xdg-open
+ [Desktop Entry]
+-Categories=Qt;KDE;Graphics;
++Categories=Qt;KDE;Graphics;X-UHU-Menu/Graphics;
+ Comment=A tool to assemble images as a panorama
+ Comment[bg]=Инструмент за свързване на снимки в панорама
+ Comment[ca]=Una eina per muntar imatges en un panorama
+diff -Naur a/extra/kipi-plugins/photolayoutseditor/plugin/photolayoutseditor.desktop b/extra/kipi-plugins/photolayoutseditor/plugin/photolayoutseditor.desktop
+--- a/extra/kipi-plugins/photolayoutseditor/plugin/photolayoutseditor.desktop	2013-05-13 09:51:09.000000000 +0200
++++ b/extra/kipi-plugins/photolayoutseditor/plugin/photolayoutseditor.desktop	2013-05-24 16:11:58.810792174 +0200
+@@ -2,7 +2,7 @@
+ 
+ [Desktop Entry]
+ Type=Application
+-Categories=Qt;KDE;Graphics;Photography;
++Categories=Qt;KDE;Graphics;Photography;X-UHU-Menu/Graphics;
+ Exec=photolayoutseditor
+ Icon=photolayoutseditor
+ Name=Photo Layouts Editor

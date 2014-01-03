@@ -1,0 +1,5 @@
+#!/usr/bin/env dl
+
+bovo-${UB_VERSION}.tar.xz bovo-${UB_VERSION}/
+	ftp://ftp.kde.org/pub/kde/stable/${UB_VERSION}/src/
+

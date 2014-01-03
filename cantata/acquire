@@ -1,0 +1,5 @@
+#!/usr/bin/env dl
+
+cantata-${UB_VERSION}.tar.bz2 cantata-${UB_VERSION}/
+	https://cantata.googlecode.com/files/
+

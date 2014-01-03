@@ -1,0 +1,12 @@
+diff -Naur kdelibs-3.2.0.orig/kioslave/http/kcookiejar/kcookiejar.cpp kdelibs-3.2.0/kioslave/http/kcookiejar/kcookiejar.cpp
+--- kdelibs-3.2.0.orig/kioslave/http/kcookiejar/kcookiejar.cpp	2004-01-17 13:53:19.000000000 +0100
++++ kdelibs-3.2.0/kioslave/http/kcookiejar/kcookiejar.cpp	2004-02-08 19:58:36.000000000 +0100
+@@ -1443,7 +1443,7 @@
+     m_rejectCrossDomainCookies = _config->readBoolEntry( "RejectCrossDomainCookies", true );
+     m_autoAcceptSessionCookies = _config->readBoolEntry( "AcceptSessionCookies", true );
+     m_ignoreCookieExpirationDate = _config->readBoolEntry( "IgnoreExpirationDate", false );
+-    QString value = _config->readEntry("CookieGlobalAdvice", L1("Ask"));
++    QString value = _config->readEntry("CookieGlobalAdvice", L1("Accept"));
+     m_globalAdvice = strToAdvice(value);
+ 
+     // Reset current domain settings first.

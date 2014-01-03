@@ -1,0 +1,5 @@
+#!/bin/sh -eux
+alapdir="$UB_INSTALLDIR"/var/vdr/config/plugins/skinenigmang
+install -d "$alapdir"/hqlogos
+cp -r  icons flags "$alapdir"/
+chmod 777 "$alapdir"/hqlogos

@@ -1,0 +1,17 @@
+apt-dev
+consolekit-dev
+cppunit-dev
+dbus-dev
+dbus-glib-dev
+docbook-xsl
+eggdbus-dev
+glib2-dev
+intltool
+kdevplatform
+networkmanager-dev
+polkit-dev
+polkit-gnome-dev
+polkit-qt-dev
+qt4-dev
+sqlite-dev
+udev-dev

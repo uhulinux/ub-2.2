@@ -1,0 +1,7 @@
+#!/bin/sh -eux
+
+rm -f kdm/kfrontend/sessions/*.desktop
+ub_compile \
+	-DKDE4_COMMON_PAM_SERVICE="kde" \
+	-DKWORKSPACE_USE_SYSTEMD=1 \
+	-DKDE4_ENABLE_FPIE=1

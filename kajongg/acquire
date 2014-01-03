@@ -1,0 +1,5 @@
+#!/usr/bin/env dl
+
+kajongg-${UB_VERSION}.tar.xz kajongg-${UB_VERSION}/
+	ftp://ftp.kde.org/pub/kde/stable/${UB_VERSION}/src/
+

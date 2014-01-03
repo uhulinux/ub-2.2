@@ -1,0 +1,12 @@
+diff -Naur a/data/stellarium.desktop b/data/stellarium.desktop
+--- a/data/stellarium.desktop	2013-08-04 08:20:27.000000000 +0200
++++ b/data/stellarium.desktop	2013-10-09 22:09:33.461626366 +0200
+@@ -9,7 +9,7 @@
+ Icon=stellarium
+ StartupNotify=false
+ Terminal=false
+-Categories=Astronomy;Education;Science;
++Categories=Astronomy;Education;Science;X-UHU-Menu/Edutainment/Science;
+ Comment=Planetarium
+ Comment[es]=Planetario
+ Comment[fr]=Planétarium

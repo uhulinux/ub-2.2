@@ -1,0 +1,11 @@
+diff -Naur kdelibs-3.5.3.orig/kresources/kresources.desktop kdelibs-3.5.3/kresources/kresources.desktop
+--- kdelibs-3.5.3.orig/kresources/kresources.desktop	2006-05-23 13:35:28.000000000 +0200
++++ kdelibs-3.5.3/kresources/kresources.desktop	2006-06-20 17:25:31.000000000 +0200
+@@ -176,6 +176,6 @@
+ Keywords[vi]=tài nguyên,tài nguyên konnector,tài nguyên liên lạc,tài nguyên lịch,tài nguyên ghi chú,imap
+ Keywords[zh_CN]=resources,konnector resource,contact resource,calendar resource,notes resource,imap资源,konnector 资源,联系人资源,日历资源,备忘资源
+ 
+-Categories=Qt;KDE;X-KDE-settings-components;
++Categories=Qt;KDE;X-KDE-settings-components;X-UHU-Menu/Settings;
+ OnlyShowIn=KDE;
+ 

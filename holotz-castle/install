@@ -1,0 +1,9 @@
+#!/bin/sh -eux
+
+make \
+	HC_BASE="$UB_INSTALLDIR"/usr/share/games/holotz-castle/ \
+	HC_DATA="$UB_INSTALLDIR"/usr/share/games/holotz-castle/game/ \
+	HCED_DATA="$UB_INSTALLDIR"/usr/share/games/holotz-castle/editor/ \
+	HC_BIN_DIR="$UB_INSTALLDIR"/usr/bin/ \
+install
+install -m 644 man/* "$UB_INSTALLDIR"/usr/share/man/man6/

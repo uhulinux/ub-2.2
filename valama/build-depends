@@ -1,0 +1,9 @@
+cmake
+desktop-file-utils
+gdl-dev
+gtk3-dev
+gtksourceview-dev
+icon-theme-hicolor
+imagemagick
+libgee-dev
+vala-dev

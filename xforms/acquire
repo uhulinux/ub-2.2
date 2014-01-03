@@ -1,0 +1,4 @@
+#!/usr/bin/env dl
+
+xforms-${UB_VERSION}.tar.gz xforms-${UB_VERSION}/
+	http://mirror.lihnidos.org/GNU/savannah/xforms/

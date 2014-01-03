@@ -1,0 +1,18 @@
+diff -Naur a/amor-4.11.1/src/amor.desktop b/amor-4.11.1/src/amor.desktop
+--- a/amor-4.11.1/src/amor.desktop	2013-07-10 01:43:42.000000000 +0200
++++ b/amor-4.11.1/src/amor.desktop	2013-08-19 14:51:19.767683044 +0200
+@@ -137,4 +137,4 @@
+ GenericName[zh_TW]=畫面擷取程式
+ Terminal=false
+ X-DBUS-StartupType=Unique
+-Categories=Qt;KDE;Game;Amusement;
++Categories=Qt;KDE;Game;Amusement;X-UHU-Menu/Tools/Toys;
+diff -Naur a/kteatime-4.11.1/src/kteatime.desktop b/kteatime-4.11.1/src/kteatime.desktop
+--- a/kteatime-4.11.1/src/kteatime.desktop	2013-07-10 01:43:45.000000000 +0200
++++ b/kteatime-4.11.1/src/kteatime.desktop	2013-08-19 14:51:45.203682374 +0200
+@@ -138,4 +138,4 @@
+ X-DocPath=kteatime/index.html
+ X-KDE-StartupNotify=true
+ X-DBUS-StartupType=Multi
+-Categories=Qt;KDE;Utility;
++Categories=Qt;KDE;Utility;X-UHU-Menu/Tools/Toys;

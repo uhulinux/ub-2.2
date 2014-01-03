@@ -1,0 +1,19 @@
+diff -Naur orig/doc/makefile patched/doc/makefile
+--- orig/doc/makefile	2013-12-07 14:12:14.000000000 +0100
++++ patched/doc/makefile	2013-12-08 21:15:55.453939684 +0100
+@@ -12,14 +12,11 @@
+ 
+ doc: manpages debiandoc
+ 
+-examples/sources.list: ../vendor/current/sources.list
+-	ln -sf $(shell readlink -f $^) $@
+-
+ apt-vendor.ent: ../vendor/current/apt-vendor.ent
+ 	ln -sf $(shell readlink -f $^) $@
+ 
+ # Examples
+-SOURCE = examples/apt.conf examples/sources.list examples/configure-index examples/apt-https-method-example.conf
++SOURCE = examples/apt.conf examples/configure-index examples/apt-https-method-example.conf
+ TO = $(DOC)
+ TARGET = binary
+ include $(COPY_H)

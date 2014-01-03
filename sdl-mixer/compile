@@ -1,0 +1,24 @@
+#!/bin/sh -eux
+
+ub_compile \
+	--disable-dependency-tracking \
+	--disable-music-flac-shared \
+	--disable-music-fluidsynth-shared \
+	--disable-music-mod-shared \
+	--disable-music-mp3-shared \
+	--disable-music-ogg-shared \
+	--enable-wav music-wave \
+	--enable-vorbis \
+	--enable-music-ogg \
+	--enable-mikmod \
+	--enable-music-mod \
+	--enable-modplug \
+	--enable-music-mod-modplug \
+	--enable-flac \
+	--enable-music-flac \
+	--enable-smpeg \
+	--enable-music-mp3 \
+	--enable-mad \
+	--enable-music-mp3-mad-gpl \
+	--enable-timidity \
+	--enable-music-timidity-midi

@@ -1,0 +1,4 @@
+#!/bin/sh -eux
+ub_compile \
+	PACKAGE_NAME=fuse-emulator-utils \
+	 --with-libgcrypt \

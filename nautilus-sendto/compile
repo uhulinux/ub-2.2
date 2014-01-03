@@ -1,0 +1,4 @@
+#!/bin/sh -eux
+
+rm -v src/plugins/evolution/econtactentry-marshal.{c,h}
+ub_compile

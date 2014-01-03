@@ -1,0 +1,8 @@
+#!/bin/sh -eux
+installhely="$UB_INSTALLDIR"/usr/share/games/simutrans
+mkdir -p $installhely
+cp -r simutrans/{config,font,music,skin,text} $installhely/
+install -m755 -d "$installhely"
+install -Dm755 build/default/sim $UB_INSTALLDIR/usr/bin/simutrans
+chmod +x $UB_INSTALLDIR/usr/bin/simutrans
+install -Dm644 simutrans.png "$UB_INSTALLDIR/usr/share/pixmaps/simutrans.png"

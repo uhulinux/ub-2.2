@@ -1,0 +1,4 @@
+#!/bin/sh -eux
+
+echo "hu\n" >po/LINGUAS
+ub_compile

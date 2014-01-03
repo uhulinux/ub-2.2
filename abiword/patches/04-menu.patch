@@ -1,0 +1,20 @@
+diff -Naur ORIG/abiword.desktop UHU/abiword.desktop
+--- ORIG/abiword.desktop	2010-04-14 23:50:18.000000000 +0200
++++ UHU/abiword.desktop	2010-05-06 21:03:28.000000000 +0200
+@@ -3,13 +3,15 @@
+ Icon=abiword_48
+ Terminal=false
+ Type=Application
+-Categories=Office;WordProcessor;GNOME;GTK;X-Red-Hat-Base;
++Categories=GTK;GNOME;Office;WordProcessor;X-UHU-Menu/Tools/Word_Processors;
+ StartupNotify=true
+ X-Desktop-File-Install-Version=0.9
+ MimeType=application/x-abiword;text/x-abiword;text/x-xml-abiword;text/plain;application/msword;application/rtf;application/vnd.plain;application/xhtml+xml;text/html;application/x-crossmark;application/docbook+xml;application/x-t602;application/vnd.oasis.opendocument.text;application/vnd.oasis.opendocument.text-template;application/vnd.oasis.opendocument.text-web;application/vnd.sun.xml.writer;application/vnd.stardivision.writer;text/vnd.wap.wml;application/wordperfect6;application/wordperfect5.1;application/vnd.wordperfect;application/x-abicollab;
+ Name=AbiWord
+ GenericName=Word Processor
+ Comment=Compose, edit, and view documents
++GenericName[hu]=Szövegszerkesztő
++Comment[hu]=Szöveges dokumentumok készítése, szerkesztése, megjelenítése
+ Name[de]=Textverarbeitung
+ Comment[de]=AbiWord Textverarbeitung
+ Name[nb]=Tekstbehandling

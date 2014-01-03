@@ -1,0 +1,4 @@
+Az &ASUS &eeePC-k indítójának nyílt forrású klónja. A háttérképeket nem
+tartalmazza, mivel azok védettek. Bármilyen hátteret használhatsz, ezeket a
+/usr/share/lxlauncher/background könyvtárba kell bemásolni. Az ikonokat a
+/usr/share/lxlauncher/icons könyvtárba másolhatod.

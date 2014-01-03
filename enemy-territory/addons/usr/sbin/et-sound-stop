@@ -1,0 +1,4 @@
+#!/bin/sh
+
+/sbin/rmmod snd_pcm_mixer
+/sbin/rmmod snd_pcm_oss

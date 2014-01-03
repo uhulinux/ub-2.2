@@ -1,0 +1,12 @@
+diff -Naur ORIG/doc/Makefile UHU/doc/Makefile
+--- ORIG/doc/Makefile	2010-01-19 08:59:44.000000000 +0100
++++ UHU/doc/Makefile	2010-03-14 18:29:52.000000000 +0100
+@@ -12,7 +12,7 @@
+ html: $(HTML)
+ 
+ %: %.xml
+-	xmlto man $*.xml
++	xmlto man --skip-validation $*.xml
+ 
+ %.xml: %.txt
+ 	asciidoc -d manpage -b docbook $*.txt

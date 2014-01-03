@@ -1,0 +1,337 @@
+diff -Naur orig/src/account.c patched/src/account.c
+--- orig/src/account.c	2013-12-14 11:15:02.000000000 +0100
++++ patched/src/account.c	2013-12-14 13:04:33.265612917 +0100
+@@ -937,6 +937,7 @@
+ 	ACP_FASSIGN(sd_rmmail_on_download);
+ 	ACP_FASSIGN(enable_size_limit);
+ 	ACP_FASSIGN(size_limit);
++	ACP_FASSIGN(time_lapse);
+ 	ACP_FASSIGN(filter_on_recv);
+ 	ACP_FASSIGN(filterhook_on_recv);
+ 	ACP_FDUP(inbox);
+diff -Naur orig/src/inc.c patched/src/inc.c
+--- orig/src/inc.c	2013-12-14 11:15:02.000000000 +0100
++++ patched/src/inc.c	2013-12-14 13:10:33.816940689 +0100
+@@ -132,10 +132,13 @@
+ 					 PrefsAccount	*account);
+ 
+ static gint inc_spool_account(PrefsAccount *account);
+-static gint inc_all_spool(void);
++static gint inc_all_spool(gboolean autocheck);
+ static void inc_autocheck_timer_set_interval	(guint		 interval);
+ static gint inc_autocheck_func			(gpointer	 data);
+ 
++static void inc_acc_autocheck_timer_set_interval	(PrefsAccount *account, guint	 interval);
++static gint inc_acc_autocheck_func			(gpointer data);
++
+ static void inc_notify_cmd		(gint new_msgs, 
+  					 gboolean notify);
+ 
+@@ -348,13 +351,15 @@
+ 	}
+ 	
+ 	/* check local folders */
+-	account_new_msgs = inc_all_spool();
++	account_new_msgs = inc_all_spool(autocheck);
+ 	if (account_new_msgs > 0)
+ 		new_msgs += account_new_msgs;
+ 
+ 	/* check IMAP4 / News folders */
+ 	for (list = account_get_list(); list != NULL; list = list->next) {
+ 		PrefsAccount *account = list->data;
++		if (0 != account->time_lapse && autocheck == TRUE)
++			continue;
+ 		if ((account->protocol == A_IMAP4 ||
+ 		     account->protocol == A_NNTP) && account->recv_at_getall) {
+ 			new_msgs += folderview_check_new(FOLDER(account->folder));
+@@ -366,6 +371,8 @@
+ 		IncSession *session;
+ 		PrefsAccount *account = list->data;
+ 
++		if (0 != account->time_lapse && autocheck == TRUE)
++			continue;
+ 		if (account->recv_at_getall) {
+ 			session = inc_session_new(account);
+ 			if (session)
+@@ -1334,7 +1341,7 @@
+ 	return result;
+ }
+ 
+-static gint inc_all_spool(void)
++static gint inc_all_spool(gboolean autocheck)
+ {
+ 	GList *list = NULL;
+ 	gint new_msgs = 0;
+@@ -1346,6 +1353,8 @@
+ 	for (; list != NULL; list = list->next) {
+ 		PrefsAccount *account = list->data;
+ 
++		if (0 != account->time_lapse && autocheck == TRUE)
++			continue;
+ 		if ((account->protocol == A_LOCAL) &&
+ 		    (account->recv_at_getall)) {
+ 			account_new_msgs = inc_spool_account(account);
+@@ -1466,9 +1475,40 @@
+ 	}
+ }
+ 
++static void inc_acc_autocheck_timer_set_interval(PrefsAccount *account, guint interval)
++{
++	inc_acc_autocheck_timer_remove(account);
++	if (prefs_common.autochk_newmail && autocheck_data
++	    && prefs_common.work_offline == FALSE ) {
++#if GLIB_CHECK_VERSION(2,14,0)
++		if (interval % 1000 == 0)
++			account->acc_autocheck_timer =
++				g_timeout_add_seconds(interval/1000, inc_acc_autocheck_func, account);
++		else
++#endif
++		account->acc_autocheck_timer = g_timeout_add
++			(interval, inc_acc_autocheck_func, account);
++		debug_print("added timer for account '%s' = %d\n", account->account_name, account->acc_autocheck_timer);
++	}
++}
++
+ void inc_autocheck_timer_set(void)
+ {
+ 	inc_autocheck_timer_set_interval(prefs_common.autochk_itv * 60000);
++
++	GList *list;
++	for (list = account_get_list(); list != NULL; list = list->next) {
++		PrefsAccount *account = list->data;
++		if (0 != account->time_lapse && !account->acc_autocheck_timer) {
++			inc_acc_autocheck_timer_set(account);
++		}
++	}
++}
++
++void inc_acc_autocheck_timer_set(PrefsAccount *account)
++{
++	if(0 != account->time_lapse)
++		inc_acc_autocheck_timer_set_interval(account, account->time_lapse * 60000);
+ }
+ 
+ void inc_autocheck_timer_remove(void)
+@@ -1480,6 +1520,15 @@
+ 	}
+ }
+ 
++void inc_acc_autocheck_timer_remove(PrefsAccount *account)
++{
++	if (account->acc_autocheck_timer) {
++		debug_print("removed timer for account '%s' = %d\n", account->account_name, account->acc_autocheck_timer);
++		g_source_remove(account->acc_autocheck_timer);
++		account->acc_autocheck_timer = 0;
++	}
++}
++
+ static gint inc_autocheck_func(gpointer data)
+ {
+ 	MainWindow *mainwin = (MainWindow *)data;
+@@ -1495,6 +1544,53 @@
+ 	return FALSE;
+ }
+ 
++static gint inc_acc_autocheck_func(gpointer data)
++{
++	PrefsAccount *account = data;
++	
++	if (inc_lock_count) {
++		debug_print("autocheck is locked.\n");
++		inc_acc_autocheck_timer_set_interval(account, 1000);
++		return FALSE;
++	}
++
++	gint new_msgs;
++
++	if (inc_lock_count) return 0;
++
++	if (prefs_common.work_offline && 
++	    !inc_offline_should_override(TRUE,
++		_("Claws Mail needs network access in order "
++		  "to get mails.")))
++		return 0;
++
++	inc_acc_autocheck_timer_remove(account);
++	main_window_lock(autocheck_data);
++
++	new_msgs = inc_account_mail_real(autocheck_data, account);
++
++	inc_finished(autocheck_data, new_msgs > 0, FALSE);
++	main_window_unlock(autocheck_data);
++	inc_acc_autocheck_timer_set(account);
++
++	inc_update_stats(new_msgs);
++	inc_notify_cmd(new_msgs, prefs_common.newmail_notify_auto);
++
++	return FALSE;
++}
++
++void inc_all_account_spec_timer_check_mail(void )
++{
++	/* this function is called once at startup to check for mails */
++	GList *list;
++	for (list = account_get_list(); list != NULL; list = list->next) {
++		PrefsAccount *account = list->data;
++		if (0 != account->time_lapse) {
++			inc_acc_autocheck_func(account);
++		}
++	}
++}
++
+ gboolean inc_offline_should_override(gboolean force_ask, const gchar *msg)
+ {
+ 	static time_t overridden_yes = 0;
+diff -Naur orig/src/inc.h patched/src/inc.h
+--- orig/src/inc.h	2013-12-14 11:15:02.000000000 +0100
++++ patched/src/inc.h	2013-12-14 13:04:33.269612959 +0100
+@@ -109,6 +109,9 @@
+ void inc_autocheck_timer_init	(MainWindow	*mainwin);
+ void inc_autocheck_timer_set	(void);
+ void inc_autocheck_timer_remove	(void);
++void inc_all_account_spec_timer_check_mail(void);
++void inc_acc_autocheck_timer_set	(PrefsAccount	*account);
++void inc_acc_autocheck_timer_remove	(PrefsAccount	*account);
+ gboolean inc_offline_should_override(gboolean force_ask, const gchar *msg);
+ 
+ #endif /* __INC_H__ */
+diff -Naur orig/src/main.c patched/src/main.c
+--- orig/src/main.c	2013-12-14 11:15:02.000000000 +0100
++++ patched/src/main.c	2013-12-14 13:04:33.269612959 +0100
+@@ -313,6 +313,11 @@
+ 	inc_all_account_mail(static_mainwindow, autochk, 
+ 			prefs_common.newmail_notify_manu);
+ 
++	/* Accounts using a specific timer need to be checked separately
++	 * at startup
++	 */
++	inc_all_account_spec_timer_check_mail();
++	
+ 	if (sc_starting) {
+ 		sc_starting = FALSE;
+ 		main_window_set_menu_sensitive(static_mainwindow);
+diff -Naur orig/src/prefs_account.c patched/src/prefs_account.c
+--- orig/src/prefs_account.c	2013-12-14 11:15:01.000000000 +0100
++++ patched/src/prefs_account.c	2013-12-14 13:04:33.281613070 +0100
+@@ -143,6 +143,8 @@
+ 	GtkWidget *local_inbox_entry;
+ 	GtkWidget *local_inbox_btn;
+ 
++	GtkWidget *spinbtn_autochk;
++
+ 	GtkWidget *filter_on_recv_checkbtn;
+ 	GtkWidget *filterhook_on_recv_checkbtn;
+ 	GtkWidget *recvatgetall_checkbtn;
+@@ -464,6 +466,10 @@
+ 	 &receive_page.size_limit_spinbtn,
+ 	 prefs_set_data_from_spinbtn, prefs_set_spinbtn},
+ 
++	{"time_lapse", "0", &tmp_ac_prefs.time_lapse, P_INT,
++	 &receive_page.spinbtn_autochk,
++	 prefs_set_data_from_spinbtn, prefs_set_spinbtn},
++
+ 	{"filter_on_receive", "TRUE", &tmp_ac_prefs.filter_on_recv, P_BOOL,
+ 	 &receive_page.filter_on_recv_checkbtn,
+ 	 prefs_set_data_from_toggle, prefs_set_toggle},
+@@ -1597,6 +1603,52 @@
+ 	gtk_widget_show (hbox1);
+ 	gtk_box_pack_start (GTK_BOX (vbox2), hbox1, FALSE, FALSE, 4);
+ 
++	/* Auto-checking */
++	GtkWidget *frame;
++	GtkWidget *vbox4;
++	GtkWidget *hbox_autochk_label;
++	GtkWidget *hbox_autochk;
++	GtkWidget *spinbtn_autochk;
++	GtkAdjustment *spinbtn_autochk_adj;
++	GtkWidget *label_autochk0;
++	GtkWidget *label_autochk1;
++	GtkWidget *label_autochk2;
++	GtkWidget *hbox_spc2;
++	
++	vbox4 = gtkut_get_options_frame(vbox1, &frame, _("Automatic checking"));	
++	
++	hbox_autochk_label = gtk_hbox_new (FALSE, 8);
++	gtk_widget_show (hbox_autochk_label);
++	gtk_box_pack_start (GTK_BOX (vbox4), hbox_autochk_label, FALSE, FALSE, 0);
++
++	label_autochk0 = gtk_label_new(_("If non-zero, use the specified frequency for this account"));
++	gtk_widget_show(label_autochk0);
++	gtk_box_pack_start( GTK_BOX(hbox_autochk_label), label_autochk0, FALSE, FALSE, 0);
++	
++	hbox_autochk = gtk_hbox_new (FALSE, 8);
++	gtk_widget_show (hbox_autochk);
++	gtk_box_pack_start (GTK_BOX (vbox4), hbox_autochk, FALSE, FALSE, 0);
++
++	hbox_spc2 = gtk_hbox_new (FALSE, 0);
++	gtk_widget_show (hbox_spc2);
++	gtk_box_pack_start (GTK_BOX (hbox_autochk), hbox_spc2, FALSE, FALSE, 0);
++	gtk_widget_set_size_request (hbox_spc2, 12, -1);
++
++	label_autochk1 = gtk_label_new (_("Check for new mail every"));
++	gtk_widget_show (label_autochk1);
++	gtk_box_pack_start (GTK_BOX (hbox_autochk), label_autochk1, FALSE, FALSE, 0);
++
++	spinbtn_autochk_adj = GTK_ADJUSTMENT( gtk_adjustment_new (5, 0, 100, 1, 10, 0));
++	spinbtn_autochk = gtk_spin_button_new (spinbtn_autochk_adj, 1, 0);
++	gtk_widget_show (spinbtn_autochk);
++	gtk_box_pack_start (GTK_BOX (hbox_autochk), spinbtn_autochk, FALSE, FALSE, 0);
++	gtk_widget_set_size_request (spinbtn_autochk, 64, -1);
++	gtk_spin_button_set_numeric (GTK_SPIN_BUTTON (spinbtn_autochk), TRUE);
++
++	label_autochk2 = gtk_label_new (_("minute(s)"));
++	gtk_widget_show (label_autochk2);
++	gtk_box_pack_start (GTK_BOX (hbox_autochk), label_autochk2, FALSE, FALSE, 0);
++
+ 	PACK_CHECK_BUTTON (vbox1, filter_on_recv_checkbtn,
+ 			   _("Filter messages on receiving"));
+ 
+@@ -1618,6 +1670,7 @@
+ 	page->leave_hour_spinbtn         = leave_hour_spinbtn;
+ 	page->size_limit_checkbtn        = size_limit_checkbtn;
+ 	page->size_limit_spinbtn         = size_limit_spinbtn;
++	page->spinbtn_autochk            = spinbtn_autochk;
+ 	page->filter_on_recv_checkbtn    = filter_on_recv_checkbtn;
+ 	page->filterhook_on_recv_checkbtn = filterhook_on_recv_checkbtn;
+ 	page->inbox_label              = inbox_label;
+@@ -2926,6 +2979,20 @@
+ static gint prefs_receive_apply(void)
+ {
+ 	prefs_set_data_from_dialog(receive_param);
++
++	/* reset the timer */
++	GList *list;
++	for (list = account_get_list(); list != NULL; list = list->next) {
++		PrefsAccount *account = list->data;
++		if(account->account_id == tmp_ac_prefs.account_id)
++		{
++			account->time_lapse = tmp_ac_prefs.time_lapse;
++			inc_acc_autocheck_timer_remove(account);
++			inc_acc_autocheck_timer_set(account);
++			break;
++		}
++	}
++	
+ 	return 0;
+ }
+ 
+@@ -3445,6 +3512,7 @@
+ 
+ 	ac_prefs->privacy_prefs = g_hash_table_new(g_str_hash, g_str_equal);
+ 
++	ac_prefs->acc_autocheck_timer = 0;
+ 	return ac_prefs;
+ }
+ 
+diff -Naur orig/src/prefs_account.h patched/src/prefs_account.h
+--- orig/src/prefs_account.h	2013-12-14 11:15:02.000000000 +0100
++++ patched/src/prefs_account.h	2013-12-14 13:04:33.281613070 +0100
+@@ -97,6 +97,8 @@
+ 	gboolean sd_rmmail_on_download;
+ 	gboolean enable_size_limit;
+ 	gint size_limit;
++	gint time_lapse;
++	guint acc_autocheck_timer;
+ 	gboolean filter_on_recv;
+ 	gboolean filterhook_on_recv;
+ 	gchar *inbox;

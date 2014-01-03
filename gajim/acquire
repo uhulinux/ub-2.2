@@ -1,0 +1,5 @@
+#!/usr/bin/env dl
+
+gajim-${UB_VERSION}.tar.bz2 gajim-${UB_VERSION}/
+    http://gajim.org/downloads/${UB_VERSION_HEAD2}/
+

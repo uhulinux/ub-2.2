@@ -1,0 +1,12 @@
+diff -Naur orig/npapi/Makefile.in patched/npapi/Makefile.in
+--- orig/npapi/Makefile.in	2013-04-12 13:43:45.000000000 +0200
++++ patched/npapi/Makefile.in	2013-07-30 04:46:56.401056766 +0200
+@@ -413,7 +413,7 @@
+ CLEANFILES = $(BUILT_SOURCES) npapi-sdk/npapi.h \
+ 	npapi-sdk/npfunctions.h npapi-sdk/npruntime.h \
+ 	npapi-sdk/nptypes.h $(am__append_13)
+-npvlcdir = $(libdir)/mozilla/plugins
++npvlcdir = $(libdir)/firefox/plugins
+ AM_CPPFLAGS = $(LIBVLC_CFLAGS) -Inpapi-sdk $(MOZILLA_CFLAGS) \
+ 	$(am__append_1) $(am__append_3) $(am__append_7) \
+ 	$(am__append_11)

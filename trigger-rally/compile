@@ -1,0 +1,5 @@
+#!/bin/sh -eux
+./autogen.sh
+adatdir=/usr/share/games/trigger-rally/trigger-${UB_VERSION_MAJOR}.${UB_VERSION_MINOR}.${UB_VERSION_MICRO}-data
+ub_configure --datadir="$adatdir"
+jam -qa

@@ -1,0 +1,9 @@
+[Desktop Entry]
+Version=1.1
+Type=Application
+Name=Westbang
+Icon=westbang
+Exec=westbang
+Terminal=false
+StartupNotify=true
+Categories=X-UHU-Menu/Games/Action;

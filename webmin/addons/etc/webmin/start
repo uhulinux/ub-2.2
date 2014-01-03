@@ -1,0 +1,11 @@
+#!/bin/sh
+echo Webmin szerver indítása
+trap '' 1
+LANG=
+export LANG
+#PERLIO=:raw
+unset PERLIO
+export PERLIO
+PERLLIB=/usr/lib/webmin
+export PERLLIB
+exec '/usr/lib/webmin/miniserv.pl' /etc/webmin/miniserv.conf

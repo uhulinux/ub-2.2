@@ -1,0 +1,4 @@
+#!/usr/bin/env dl
+
+v${UB_VERSION}.tar.gz	mate-themes-extras-2-${UB_VERSION}/
+	https://github.com/NiceandGently/mate-themes-extras-2/archive/

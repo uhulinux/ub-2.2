@@ -1,0 +1,11 @@
+diff -Naur orig/configure.ac mod/configure.ac
+--- orig/configure.ac	2012-03-16 19:48:30.000000000 +0100
++++ mod/configure.ac	2012-04-05 22:47:36.000000000 +0200
+@@ -155,6 +155,7 @@
+ fi
+ 
+ dnl Qt
++RCC="/usr/lib/qt4/bin/rcc"
+ AC_ARG_VAR([RCC], [rcc command])
+ AC_ARG_VAR([MOC], [moc command])
+ PKG_CHECK_MODULES([libqtopengl], [QtOpenGL >= 4.6], [HAVE_LIBQTOPENGL=1], [HAVE_LIBQTOPENGL=0])

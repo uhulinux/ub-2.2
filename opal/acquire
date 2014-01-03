@@ -1,0 +1,7 @@
+#!/usr/bin/env dl
+
+#opalvopip.tar.gz v3_10/
+#http://opalvoip.svn.sourceforge.net/viewvc/opalvoip/opal/branches/v3\_10/?view=tar
+
+opal-${UB_VERSION}.tar.xz opal-${UB_VERSION}/
+	ftp://ftp.gnome.org/pub/GNOME/sources/opal/${UB_VERSION_HEAD2}/

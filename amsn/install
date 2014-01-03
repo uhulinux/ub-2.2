@@ -1,0 +1,12 @@
+#!/bin/sh -eux
+
+# no need for Python this way
+chmod -x lang/missing.py
+
+ub_install
+
+celdir="$UB_INSTALLDIR"/usr/share/icons
+mkdir -p "$celdir"
+cp -r desktop-icons "$celdir"/hicolor
+rm -rf "$UB_INSTALLDIR"/usr/share/amsn/desktop-icons
+ln -sf /usr/share/icons/hicolor/48x48/apps/amsn.png "$UB_INSTALLDIR"/usr/share/pixmaps/amsn.png

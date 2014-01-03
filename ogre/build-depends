@@ -1,0 +1,10 @@
+boost-dev
+cmake
+doxygen
+fontconfig-dev
+fonts-x.org-ttf
+freetype2-dev
+graphviz
+libxaw-dev
+libxrandr-dev
+mesa-dev

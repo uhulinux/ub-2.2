@@ -1,0 +1,5 @@
+#!/usr/bin/env dl
+
+soundconverter-${UB_VERSION}.tar.xz soundconverter-${UB_VERSION}/
+#	http://download.berlios.de/soundconverter/
+	https://launchpad.net/soundconverter/trunk/${UB_VERSION}/+download/

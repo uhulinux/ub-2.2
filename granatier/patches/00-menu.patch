@@ -1,0 +1,10 @@
+diff -Naur a/src/granatier.desktop b/src/granatier.desktop
+--- a/src/granatier.desktop	2013-01-23 23:05:02.000000000 +0100
++++ b/src/granatier.desktop	2013-02-10 21:45:43.261333413 +0100
+@@ -86,5 +86,5 @@
+ Icon=granatier
+ TryExec=granatier
+ Exec=granatier
+-Categories=Qt;KDE;Game;ArcadeGame;
++Categories=Qt;KDE;Game;ArcadeGame;X-UHU-Menu/Games/Arcade;
+ X-DocPath=granatier/index.html

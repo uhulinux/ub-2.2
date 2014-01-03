@@ -1,0 +1,12 @@
+diff -Naur orig/gtk/gtkfilechooserdefault.c patched/gtk/gtkfilechooserdefault.c
+--- orig/gtk/gtkfilechooserdefault.c	2012-11-10 19:56:28.000000000 +0100
++++ patched/gtk/gtkfilechooserdefault.c	2012-12-30 17:54:16.881906550 +0100
+@@ -6169,7 +6169,7 @@
+       switch (impl->reload_state)
+         {
+         case RELOAD_EMPTY:
+-	  recent_shortcut_handler (impl);
++	  home_folder_handler (impl);
+           break;
+         
+         case RELOAD_HAS_FOLDER:

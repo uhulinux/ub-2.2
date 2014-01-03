@@ -1,0 +1,4 @@
+#!/usr/bin/env dl
+
+qt-x11-free-${UB_VERSION}.tar.gz qt-x11-free-${UB_VERSION}/
+	http://download.qt-project.org/archive/qt/3/

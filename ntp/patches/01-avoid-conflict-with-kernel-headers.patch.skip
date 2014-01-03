@@ -1,0 +1,15 @@
+diff -Naur ntp-4.2.0.orig/include/ntp_config.h ntp-4.2.0/include/ntp_config.h
+--- ntp-4.2.0.orig/include/ntp_config.h	2003-09-09 17:42:31.000000000 +0200
++++ ntp-4.2.0/include/ntp_config.h	2005-10-24 21:38:13.000000000 +0200
+@@ -12,6 +12,11 @@
+ #endif /* not CONFIG_FILE */
+ 
+ /*
++ * Prevent CONFIG_ values from being overridden from linux/autoconf.h.
++ */
++#define _LINUX_CONFIG_H 1
++
++/*
+  * Types of entries we understand.
+  */
+ #define CONFIG_UNKNOWN		0

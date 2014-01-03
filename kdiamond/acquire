@@ -1,0 +1,5 @@
+#!/usr/bin/env dl
+
+kdiamond-${UB_VERSION}.tar.xz kdiamond-${UB_VERSION}/
+	ftp://ftp.kde.org/pub/kde/stable/${UB_VERSION}/src/
+

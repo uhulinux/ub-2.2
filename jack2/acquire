@@ -1,0 +1,4 @@
+#!/usr/bin/env dl
+
+jack-${UB_VERSION}.tar.bz2 jack-${UB_VERSION}/
+	    http://www.grame.fr/~letz/

@@ -1,0 +1,5 @@
+#!/bin/sh -eux
+
+mkdir -p "${UB_INSTALLDIR}"/usr/share/games/sauerbraten
+cp -r {data,packages} "${UB_INSTALLDIR}"/usr/share/games/sauerbraten/
+

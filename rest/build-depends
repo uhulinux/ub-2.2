@@ -1,0 +1,7 @@
+dbus-dev
+glib2-dev
+gobject-introspection-dev
+libgcrypt-dev
+libgnome-keyring-dev
+libsoup-gnome-dev
+sqlite-dev

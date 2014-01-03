@@ -1,0 +1,6 @@
+#!/bin/sh -eux
+
+cp contrib/sasc-ng/sasc-ng ${UB_INSTALLDIR}/usr/bin
+mkdir -p ${UB_INSTALLDIR}/lib/modules/`uname -r`/misc
+cp contrib/sasc-ng/dvbloopback.ko ${UB_INSTALLDIR}/lib/modules/`uname -r`/misc
+#install -m0644 contrib/sasc-ng/sc/PLUGINS/lib/* ${UB_INSTALLDIR}/usr/lib

@@ -1,0 +1,11 @@
+diff -Naur orig/thunar-volman-settings/thunar-volman-settings.desktop.in.in patched/thunar-volman-settings/thunar-volman-settings.desktop.in.in
+--- orig/thunar-volman-settings/thunar-volman-settings.desktop.in.in	2012-03-28 18:42:29.000000000 +0200
++++ patched/thunar-volman-settings/thunar-volman-settings.desktop.in.in	2012-04-08 21:38:05.330730474 +0200
+@@ -6,6 +6,6 @@
+ Terminal=false
+ StartupNotify=true
+ Type=Application
+-Categories=XFCE;GTK;Settings;DesktopSettings;X-XFCE-SettingsDialog;X-XFCE-HardwareSettings;
++Categories=XFCE;GTK;Settings;DesktopSettings;X-XFCE-SettingsDialog;X-XFCE-HardwareSettings;X-UHU-Menu/Settings;
+ 
+ # vi:set encoding=UTF-8:

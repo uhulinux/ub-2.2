@@ -1,0 +1,14 @@
+diff -urN qcad-2.0.5.0-1-community.src.orig/dxflib/Makefile.in qcad-2.0.5.0-1-community.src/dxflib/Makefile.in
+--- qcad-2.0.5.0-1-community.src.orig/dxflib/Makefile.in	2005-11-22 12:46:56.000000000 +0100
++++ qcad-2.0.5.0-1-community.src/dxflib/Makefile.in	2009-12-02 01:22:18.056971786 +0100
+@@ -8,8 +8,8 @@
+ #
+ # dxflib installation directories
+ #
+-LIBDIR = @prefix@/lib
+-INCDIR = @prefix@/include/dxflib
++LIBDIR = $(DESTDIR)/@prefix@/lib
++INCDIR = $(DESTDIR)/@prefix@/include/dxflib
+ 
+ #PREFIX ?= /usr
+ 

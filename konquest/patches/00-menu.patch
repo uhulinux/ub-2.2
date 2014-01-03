@@ -1,0 +1,9 @@
+diff -Naur a/konquest.desktop b/konquest.desktop
+--- a/konquest.desktop	2013-01-23 23:06:56.000000000 +0100
++++ b/konquest.desktop	2013-02-10 23:11:25.320637529 +0100
+@@ -132,4 +132,4 @@
+ X-DocPath=konquest/index.html
+ X-KDE-StartupNotify=true
+ X-DBUS-StartupType=Multi
+-Categories=Qt;KDE;Game;StrategyGame;
++Categories=Qt;KDE;Game;StrategyGame;X-UHU-Menu/Games/TacticStrategy;

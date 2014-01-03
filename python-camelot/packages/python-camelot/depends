@@ -1,0 +1,6 @@
+python-elixir
+python-jinja2
+python-sqlalchemy
+python-sqlalchemy-migrate
+python-xlrd
+python-xlwt

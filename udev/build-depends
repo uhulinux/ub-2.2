@@ -1,0 +1,9 @@
+acl-dev
+glib2-dev
+gobject-introspection-dev
+gperf
+libusb-compat-dev
+libusb-dev
+libv4l-dev
+pciutils-dev
+usbutils

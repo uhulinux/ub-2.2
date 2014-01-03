@@ -1,0 +1,16 @@
+diff -Naur sinthgunt-2.0.3-ori/setup.py sinthgunt-2.0.3/setup.py
+--- sinthgunt-2.0.3-ori/setup.py	2010-11-22 19:12:50.000000000 +0100
++++ sinthgunt-2.0.3/setup.py	2011-06-13 18:00:19.126739561 +0200
+@@ -19,9 +19,9 @@
+     package_data = {'sinthgunt': files},
+     scripts = ['sinthgunt','youtube-dl-sinthgunt'],
+     data_files=[
+-        ('/usr/share/sinthgunt',['share/sinthgunt.glade','share/presets.xml','share/logo.png','share/icon.png','README.txt','LICENSE.txt','sinthgunt.html']),
+-        ('/usr/share/applications',['share/sinthgunt.desktop']),
+-        ('/usr/share/pixmaps',['share/sinthgunt.png']),
++        ('./share/sinthgunt',['share/sinthgunt.glade','share/presets.xml','share/logo.png','share/icon.png','README.txt','LICENSE.txt','sinthgunt.html']),
++        ('./share/applications',['share/sinthgunt.desktop']),
++        ('./share/pixmaps',['share/sinthgunt.png']),
+         ]
+ )
+ 

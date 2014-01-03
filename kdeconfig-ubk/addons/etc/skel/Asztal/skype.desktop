@@ -1,0 +1,22 @@
+[Desktop Entry]
+Categories=Network;Application;X-UHU-Menu/Internet/Messengers;
+Comment[hu]=Skype Internet Telephony
+Comment=Skype Internet Telephony
+Encoding=UTF-8
+Exec=skype %U
+GenericName[hu]=
+GenericName=
+Icon=skype.png
+MimeType=
+Name[hu]=Skype
+Name=Skype
+Path=
+StartupNotify=true
+Terminal=false
+TerminalOptions=
+Type=Application
+X-DBUS-ServiceName=
+X-DBUS-StartupType=
+X-KDE-Protocols=skype
+X-KDE-SubstituteUID=false
+X-KDE-Username=

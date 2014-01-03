@@ -1,0 +1,63 @@
+diff -Naur gdm-2.19.6.orig/config/gdm.conf.in gdm-2.19.6/config/gdm.conf.in
+--- gdm-2.19.6.orig/config/gdm.conf.in	2007-08-15 20:14:56.000000000 +0200
++++ gdm-2.19.6/config/gdm.conf.in	2007-08-23 17:01:49.000000000 +0200
+@@ -397,7 +397,7 @@
+ # User ID's less than the MinimalUID value will not be included in the face
+ # browser or in the gdmselection list for Automatic/Timed login.  They will not
+ # be displayed regardless of the settings for Include and Exclude.
+-#MinimalUID=100
++#MinimalUID=1000
+ # Users listed in Include will be included in the face browser and in the
+ # gdmsetup selection list for Automatic/Timed login.  Users should be separated
+ # by commas.
+@@ -406,15 +406,15 @@
+ # gdmsetup selection list for Automatic/Timed login.  Excluded users will still
+ # be able to log in, but will have to type their username.  Users should be
+ # separated by commas.  
+-#Exclude=bin,daemon,adm,lp,sync,shutdown,halt,mail,news,uucp,operator,nobody,gdm,postgres,pvm,rpm,nfsnobody,pcap
+-# By default, an empty include list means display no users.  By setting
++#Exclude=bin,daemon,adm,lp,sync,shutdown,halt,mail,news,uucp,operator,nobody,gdm,postgres,pvm,rpm,nfsnobody,pcap,ftp,www,squid
++# If false, an empty include list means display no users.  By setting
+ # IncludeAll to true, the password file will be scanned and all users will be
+ # displayed except users excluded via the Exclude setting and user ID's less
+ # than MinimalUID.  Scanning the password file can be slow on systems with
+ # large numbers of users and this feature should not be used in such
+ # environments.  The setting of IncludeAll does nothing if Include is set to a
+ # non-empty value.
+-#IncludeAll=false
++#IncludeAll=true
+ # If user or user.png exists in this dir it will be used as his picture.
+ #GlobalFaceDir=@datadir@/pixmaps/faces/
+ 
+diff -Naur gdm-2.19.6.orig/daemon/gdm-daemon-config-entries.h gdm-2.19.6/daemon/gdm-daemon-config-entries.h
+--- gdm-2.19.6.orig/daemon/gdm-daemon-config-entries.h	2007-08-15 20:14:55.000000000 +0200
++++ gdm-2.19.6/daemon/gdm-daemon-config-entries.h	2007-08-23 17:00:51.000000000 +0200
+@@ -399,9 +399,9 @@
+ 
+ 	{ GDM_CONFIG_GROUP_GREETER, "Browser", GDM_CONFIG_VALUE_BOOL, "false", GDM_ID_BROWSER },
+ 	{ GDM_CONFIG_GROUP_GREETER, "Include", GDM_CONFIG_VALUE_STRING, "", GDM_ID_INCLUDE },
+-	{ GDM_CONFIG_GROUP_GREETER, "Exclude", GDM_CONFIG_VALUE_STRING, "bin,daemon,adm,lp,sync,shutdown,halt,mail,news,uucp,operator,nobody,gdm,postgres,pvm,rpm,nfsnobody,pcap", GDM_ID_EXCLUDE },
+-	{ GDM_CONFIG_GROUP_GREETER, "IncludeAll", GDM_CONFIG_VALUE_BOOL, "false", GDM_ID_INCLUDE_ALL },
+-	{ GDM_CONFIG_GROUP_GREETER, "MinimalUID", GDM_CONFIG_VALUE_INT, "100", GDM_ID_MINIMAL_UID },
++	{ GDM_CONFIG_GROUP_GREETER, "Exclude", GDM_CONFIG_VALUE_STRING, "bin,daemon,adm,lp,sync,shutdown,halt,mail,news,uucp,operator,nobody,gdm,postgres,pvm,rpm,nfsnobody,pcap,ftp,www,squid", GDM_ID_EXCLUDE },
++	{ GDM_CONFIG_GROUP_GREETER, "IncludeAll", GDM_CONFIG_VALUE_BOOL, "true", GDM_ID_INCLUDE_ALL },
++	{ GDM_CONFIG_GROUP_GREETER, "MinimalUID", GDM_CONFIG_VALUE_INT, "1000", GDM_ID_MINIMAL_UID },
+ 	{ GDM_CONFIG_GROUP_GREETER, "DefaultFace", GDM_CONFIG_VALUE_STRING, PIXMAPDIR "/nobody.png", GDM_ID_DEFAULT_FACE },
+ 	{ GDM_CONFIG_GROUP_GREETER, "GlobalFaceDir", GDM_CONFIG_VALUE_STRING, DATADIR "/pixmaps/faces/", GDM_ID_GLOBAL_FACE_DIR },
+ 	{ GDM_CONFIG_GROUP_GREETER, "LocaleFile", GDM_CONFIG_VALUE_STRING, GDMLOCALEDIR "/locale.alias", GDM_ID_LOCALE_FILE },
+diff -Naur gdm-2.19.6.orig/daemon/gdm-daemon-config-keys.h gdm-2.19.6/daemon/gdm-daemon-config-keys.h
+--- gdm-2.19.6.orig/daemon/gdm-daemon-config-keys.h	2007-08-15 20:14:55.000000000 +0200
++++ gdm-2.19.6/daemon/gdm-daemon-config-keys.h	2007-08-23 17:00:52.000000000 +0200
+@@ -132,9 +132,9 @@
+ #define GDM_KEY_GTK_THEMES_TO_ALLOW "gui/GtkThemesToAllow=all"
+ #define GDM_KEY_BROWSER "greeter/Browser=false"
+ #define GDM_KEY_INCLUDE "greeter/Include="
+-#define GDM_KEY_EXCLUDE "greeter/Exclude=bin,daemon,adm,lp,sync,shutdown,halt,mail,news,uucp,operator,nobody,gdm,postgres,pvm,rpm,nfsnobody,pcap"
+-#define GDM_KEY_INCLUDE_ALL "greeter/IncludeAll=false"
+-#define GDM_KEY_MINIMAL_UID "greeter/MinimalUID=100"
++#define GDM_KEY_EXCLUDE "greeter/Exclude=bin,daemon,adm,lp,sync,shutdown,halt,mail,news,uucp,operator,nobody,gdm,postgres,pvm,rpm,nfsnobody,pcap,ftp,www,squid"
++#define GDM_KEY_INCLUDE_ALL "greeter/IncludeAll=true"
++#define GDM_KEY_MINIMAL_UID "greeter/MinimalUID=1000"
+ #define GDM_KEY_DEFAULT_FACE "greeter/DefaultFace=" PIXMAPDIR "/nobody.png"
+ #define GDM_KEY_GLOBAL_FACE_DIR "greeter/GlobalFaceDir=" DATADIR "/pixmaps/faces/"
+ #define GDM_KEY_LOCALE_FILE "greeter/LocaleFile=" GDMLOCALEDIR "/locale.alias"

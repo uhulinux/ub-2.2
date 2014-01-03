@@ -1,0 +1,9 @@
+diff -Naur a/kspaceduel.desktop b/kspaceduel.desktop
+--- a/kspaceduel.desktop	2013-01-23 23:07:23.000000000 +0100
++++ b/kspaceduel.desktop	2013-02-10 23:30:26.295324879 +0100
+@@ -130,4 +130,4 @@
+ Terminal=false
+ X-KDE-StartupNotify=true
+ X-DBUS-StartupType=Multi
+-Categories=Qt;KDE;Game;ArcadeGame;
++Categories=Qt;KDE;Game;ArcadeGame;X-UHU-Menu/Games/Arcade;

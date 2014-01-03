@@ -1,0 +1,1 @@
+urllist http://download.ubk.hu/src/apt/ | splitver '^python-apt_([0-9.]+).tar.(gz|bz2)$' | sort -V | tail -n 1

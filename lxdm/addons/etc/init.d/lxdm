@@ -1,0 +1,8 @@
+#!/bin/sh
+
+. /etc/init.d/common
+
+DAEMON=/usr/sbin/lxdm-binary
+PIDFILE="/var/run/lxdm.pid"
+
+startstop "$@"

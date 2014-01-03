@@ -1,0 +1,6 @@
+#!/bin/sh -eux
+
+sed -i \
+	-e '/AM_CFLAGS/s:-Wall:-DNDEBUG -Wall:' \
+	pulse/Makefile.am
+ub_compile

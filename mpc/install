@@ -1,0 +1,5 @@
+#!/bin/sh -eux
+
+ub_install
+
+ln -sf libmpc.so.3 "$UB_INSTALLDIR"/usr/lib/libmpc.so.2

@@ -1,0 +1,4 @@
+#!/usr/bin/env dl
+
+kanyremote-${UB_VERSION}.tar.gz kanyremote-${UB_VERSION}/
+	http://sourceforge.net/projects/anyremote/files/kanyremote/${UB_VERSION}/kanyremote-${UB_VERSION}.tar.gz/download

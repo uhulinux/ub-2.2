@@ -1,0 +1,6 @@
+#!/bin/sh -eux
+
+make \
+	RO_GAME_DIR=/usr/share/games/mirrormagic \
+	RW_GAME_DIR=~/.mirrormagic \
+	sdl

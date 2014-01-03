@@ -1,0 +1,15 @@
+#!/bin/sh -eux
+
+cd Qt4Qt5
+
+mkdir -p "$UB_INSTALLDIR"/usr/lib/qt4/lib
+mkdir -p "$UB_INSTALLDIR"/usr/lib/qt4/include
+mkdir -p "$UB_INSTALLDIR"/usr/lib/qt4/include/Qsci
+mkdir -p "$UB_INSTALLDIR"/usr/share/doc/qscintilla
+mkdir -p "$UB_INSTALLDIR"/usr/lib/qt4/translations
+
+cp -a lib*.so* "$UB_INSTALLDIR"/usr/lib/qt4/lib
+cp *.h "$UB_INSTALLDIR"/usr/lib/qt4/include
+cp Qsci/*.h "$UB_INSTALLDIR"/usr/lib/qt4/include/Qsci
+cp -R ../doc/* "$UB_INSTALLDIR"/usr/share/doc/qscintilla
+cp *.qm "$UB_INSTALLDIR"/usr/lib/qt4/translations

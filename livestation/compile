@@ -1,0 +1,4 @@
+#!/bin/sh -eux
+
+chmod +x ./Livestation-$UB_VERSION-i386.run
+sh ./Livestation-$UB_VERSION-i386.run --noexec --target livestation

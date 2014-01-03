@@ -1,0 +1,4 @@
+#!/usr/bin/env dl
+
+google-earth-stable_current_i386.deb .
+  http://dl.google.com/earth/client/current/

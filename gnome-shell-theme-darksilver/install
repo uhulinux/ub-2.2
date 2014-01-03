@@ -1,0 +1,10 @@
+#!/bin/sh -eux
+ls
+rm "Darksilver - for GNOME 3.2.zip"
+unzip -x "Darksilver - for GNOME 3.4.zip"
+rm "Darksilver - for GNOME 3.4.zip"
+rm Darksilver/gnome-shell/{preview-darksilver.jpg,README}
+
+celdir="$UB_INSTALLDIR"/usr/share/themes
+mkdir -p "$celdir"
+cp -R Darksilver "$celdir"/

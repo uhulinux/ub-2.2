@@ -1,0 +1,820 @@
+diff -Naur orig/res/stories/holotzcastle/script/hu/level001.hcs mod/res/stories/holotzcastle/script/hu/level001.hcs
+--- orig/res/stories/holotzcastle/script/hu/level001.hcs	1970-01-01 01:00:00.000000000 +0100
++++ mod/res/stories/holotzcastle/script/hu/level001.hcs	2009-04-17 09:17:23.000000000 +0200
+@@ -0,0 +1,100 @@
++##########################################
++# Holotz's Castle story - Level 1
++# Ybelle and Ludar arrive to the castle
++##########################################
++{	
++	[ DIALOG main(0) text="Jajj!" txtAlign=5 speed=1 size=1 align=1 r=130 g=30 b=180 subtype=0 ]
++	[ DIALOG enemy(0) text="Jujj!" txtAlign=5 speed=1 size=2 align=1 r=20 g=200 b=20 subtype=0 ]
++	[ SOUND file="sound/HCMainTitle_Slow.wav" loops=-1 waitToEnd=0 ]
++}
++
++{
++	[ NARRATIVE text="Ybelle és Ludar." txtAlign=5 speed=1 size=3 align=7 r=128 g=20 b=20 subtype=0 ]
++}
++
++{
++	[ DIALOG main(0) text="Mi volt ez?" txtAlign=5 speed=1 size=1 align=0 r=130 g=30 b=180 subtype=0 ]
++	[ MOVE main(0) dir=6 amount=2 ]
++	[ MOVE enemy(0) dir=6 amount=3 ]
++}
++
++{
++	[ DIALOG enemy(0) text="Mondtam már:
++NE ÉRINTSD MEG A KÖVET!" txtAlign=5 speed=1 size=1 align=1 r=20 g=200 b=20 subtype=0 ]
++}
++
++{
++	[ DIALOG main(0) text="Jólvan, na..." txtAlign=5 speed=1 size=1 align=0 r=130 g=30 b=180 subtype=0 ]
++}
++
++{
++	[ DIALOG main(0) text="honnan tudtam volna, hogy
++mi fog történni?" txtAlign=5 speed=1 size=1 align=0 r=130 g=30 b=180 subtype=0 ]
++}
++
++{
++	[ DIALOG main(0) text="Hol vagyunk egyáltalán?" txtAlign=5 speed=1 size=2 align=0 r=130 g=30 b=180 subtype=0 ]
++}
++
++{
++	[ DIALOG enemy(0) text="Tessék? Fogalmam
++sincs!" txtAlign=5 speed=1 size=2 align=1 r=20 g=200 b=20 subtype=0 ]
++}
++
++{
++	[ DIALOG enemy(0) text="Ha nem tetted 
++volna azt, 
++amit nem lett volna 
++szabad..." txtAlign=5 speed=1 size=2 align=1 r=20 g=200 b=20 subtype=0 ]
++}
++
++{
++	[ DIALOG main(0) text="A fenébe is.." txtAlign=5 speed=1 size=1 align=1 r=130 g=30 b=180 subtype=1 ]
++	[ DIALOG enemy(0) text="A csudába..." txtAlign=5 speed=1 size=1 align=0 r=20 g=200 b=20 subtype=1 ]
++}
++
++{
++	[ DIALOG main(0) text="Meg kell találni
++a hazafelé 
++vezetö utat." txtAlign=5 speed=1 size=1 align=0 r=130 g=30 b=180 subtype=0 ]
++}
++
++{
++	[ DIALOG main(0) text="Utánam Ludar!" txtAlign=5 speed=1 size=1 align=0 r=130 g=30 b=180 subtype=0 ]
++}
++
++{
++	[ DIALOG enemy(0) text="Nem megyek. Te
++mindig rossz
++helyre vezetsz!" txtAlign=5 speed=1 size=2 align=1 r=20 g=200 b=20 subtype=0 ]
++}
++
++{
++	[ DIALOG enemy(0) text="Most pedig az lesz   
++amit én mondok!" txtAlign=5 speed=1 size=2 align=1 r=20 g=200 b=20 subtype=0 ]
++}
++
++{
++	[ DIALOG main(0) text="Hmmm..." txtAlign=5 speed=1 size=1 align=0 r=130 g=30 b=180 subtype=0 ]
++}
++
++{
++	[ DIALOG main(0) text="Jó, akkor 
++egyedül megyek..." txtAlign=5 speed=1 size=1 align=0 r=130 g=30 b=180 subtype=0 ]
++	[ MOVE main(0) dir=6 amount=5 ]
++}
++
++{
++	[ DIALOG enemy(0) text="???" txtAlign=5 speed=1 size=2 align=1 r=20 g=200 b=20 subtype=1 ]
++	[ MOVE main(0) dir=8 amount=3 ]
++}
++
++{
++	[ MOVE enemy(0) dir=6 amount=3 ]
++	[ DIALOG enemy(0) text="Héé... Ybelle!
++Várj meg!" txtAlign=5 speed=1 size=1 align=0 r=20 g=200 b=20 subtype=0 ]
++}
++
++{
++	[ MOVE main(0) dir=6 amount=3 ]
++}
+diff -Naur orig/res/stories/holotzcastle/script/hu/level002.hcs mod/res/stories/holotzcastle/script/hu/level002.hcs
+--- orig/res/stories/holotzcastle/script/hu/level002.hcs	1970-01-01 01:00:00.000000000 +0100
++++ mod/res/stories/holotzcastle/script/hu/level002.hcs	2007-10-25 23:28:53.000000000 +0200
+@@ -0,0 +1,35 @@
++##########################################
++# Holotz's Castle story - Level 2
++# Ybelle enters the castle
++##########################################
++{
++	[ DIALOG main(0) text="Neee!" txtAlign=4 speed=5 size=2 align=1 r=130 g=30 b=180 subtype=0 ]
++}
++
++{
++	[ DIALOG main(0) text="Ez fáj!" txtAlign=4 speed=2 size=1 align=1 r=130 g=30 b=180 subtype=1 ]
++}
++
++{
++	[ DIALOG main(0) text="LUDAR!" txtAlign=5 speed=1 size=2 align=1 r=130 g=30 b=180 subtype=0 ]
++}
++
++{
++	[ DIALOG main(0) text="Hmmm..." txtAlign=5 speed=1 size=2 align=1 r=130 g=30 b=180 subtype=1 ]
++}
++
++{
++	[ DIALOG main(0) text="...Úgy látszik, hogy
++nem hall engem." txtAlign=5 speed=1 size=1 align=1 r=130 g=30 b=180 subtype=0 ]
++}
++
++{
++	[ DIALOG main(0) text="Ejnye..." txtAlign=5 speed=1 size=1 align=1 r=130 g=30 b=180 subtype=0 ]
++	[ MOVE main(0) dir=6 amount=1 ]
++}
++
++{
++	[ MOVE main(0) dir=4 amount=1 ]
++	[ DIALOG main(0) text="Mit keresnek 
++itt ezek 
++a kulcsok?" txtAlign=5 speed=1 size=1 align=1 r=130 g=30 b=180 subtype=1 ]}
+diff -Naur orig/res/stories/holotzcastle/script/hu/level007.hcs mod/res/stories/holotzcastle/script/hu/level007.hcs
+--- orig/res/stories/holotzcastle/script/hu/level007.hcs	1970-01-01 01:00:00.000000000 +0100
++++ mod/res/stories/holotzcastle/script/hu/level007.hcs	2007-10-25 23:30:23.000000000 +0200
+@@ -0,0 +1,47 @@
++##########################################
++# Holotz's Castle story - Level 7
++# Ludar enters the castle
++##########################################
++{
++	[ DIALOG main(0) text="Héé... Ybelle,
++várj meg!" txtAlign=4 speed=2 size=1 align=1 r=20 g=200 b=20 subtype=0 ]
++	[ MOVE main(0) dir=6 amount=2 ]
++}
++
++{
++	[ MOVE main(0) dir=6 amount=1 ]
++	[ DIALOG main(0) text="Jaj, ne!" txtAlign=4 speed=5 size=1 align=0 r=20 g=200 b=20 subtype=0 ]
++}
++
++{
++	[ DIALOG main(0) text="Honnan került 
++ide ez a lyuk?" txtAlign=4 speed=1 size=2 align=0 r=20 g=200 b=20 subtype=0 ]
++}
++
++{
++	[ DIALOG main(0) text="Ybelle!" txtAlign=5 speed=1 size=3 align=0 r=20 g=200 b=20 subtype=0 ]
++}
++
++{
++	[ DIALOG main(0) text="Hmmm..." txtAlign=5 speed=1 size=1 align=0 r=20 g=200 b=20 subtype=1 ]
++}
++
++{
++	[ DIALOG main(0) text="Ez hülyeség!" txtAlign=5 speed=1 size=2 align=0 r=20 g=200 b=20 subtype=0 ]
++}
++
++{
++	[ DIALOG main(0) text="Nicsak!" txtAlign=5 speed=1 size=1 align=1 r=20 g=200 b=20 subtype=0 ]
++	[ MOVE main(0) dir=4 amount=1 ]
++}
++
++{
++	[ DIALOG main(0) text="Ezek olyan kövek, 
++mint amilyet
++Ybelle megfogott." txtAlign=5 speed=1 size=1 align=1 r=20 g=200 b=20 subtype=1 ]
++	[ MOVE main(0) dir=4 amount=1 ]
++}
++
++{
++	[ DIALOG main(0) text="Milyen egy fura hely!" txtAlign=5 speed=1 size=1 align=1 r=20 g=200 b=20 subtype=1 ]
++}
+diff -Naur orig/res/stories/holotzcastle/script/hu/level014.hcs mod/res/stories/holotzcastle/script/hu/level014.hcs
+--- orig/res/stories/holotzcastle/script/hu/level014.hcs	1970-01-01 01:00:00.000000000 +0100
++++ mod/res/stories/holotzcastle/script/hu/level014.hcs	2009-04-17 11:08:00.000000000 +0200
+@@ -0,0 +1,155 @@
++##########################################
++# Holotz's Castle story - Level 1
++# Ybelle finds the shoe maker
++##########################################
++
++{[ DIALOG main(0) text="?" txtAlign=5 speed=1 size=1 align=1 r=130 g=30 b=180 subtype=0 ]
++ [ SOUND file="sound/HCCredits_Slow.wav" loops=-1 waitToEnd=0 ]}
++
++{[ DIALOG main(0) text="Micsoda hely ez?" txtAlign=5 speed=1 size=1 align=1 r=130 g=30 b=180 subtype=0 ]}
++
++{[ NARRATIVE text="Cipészek" txtAlign=5 speed=1 size=3 align=7 r=128 g=20 b=20 subtype=0 ]
++ [ MOVE main(0) dir=6 amount=1 ]}
++
++{[ MOVE main(0) dir=2 amount=3 ]}
++
++{[ MOVE main(0) dir=6 amount=2 ]}
++
++{[ MOVE main(0) dir=9 amount=2 ]}
++
++{[ MOVE main(0) dir=6 amount=3 ]}
++
++{[ MOVE main(0) dir=9 amount=1 ]
++ [ DIALOG enemy(0) text="Jé, egy
++látogató!" txtAlign=5 speed=1 size=2 align=0 r=200 g=130 b=20 subtype=1 ]}
++
++{[ MOVE main(0) dir=9 amount=2 ]}
++
++{[ DIALOG main(0) text="Ez aztán egy
++fura alak!" txtAlign=5 speed=1 size=1 align=0 r=130 g=30 b=180 subtype=1 ]
++ [ DIALOG enemy(0) text="Ez aztán egy
++fura alak!" txtAlign=5 speed=1 size=1 align=1 r=200 g=130 b=20 subtype=1 ]
++}
++
++{[ DIALOG main(0) text="Ühüm... Helló?" txtAlign=5 speed=1 size=1 align=0 r=130 g=30 b=180 subtype=0 ]}
++
++{[ DIALOG enemy(0) text="Hmmm..." txtAlign=5 speed=1 size=1 align=0 r=200 g=130 b=20 subtype=0 ]}
++
++{[ DIALOG enemy(0) text="Azt hiszem, 
++hogy te..." txtAlign=5 speed=1 size=1 align=0 r=200 g=130 b=20 subtype=0 ]}
++
++{[ DIALOG enemy(0) text="...egy idegen 
++vagy." txtAlign=5 speed=1 size=1 align=0 r=200 g=130 b=20 subtype=0 ]}
++
++{[ DIALOG enemy(0) text="Hmmm..." txtAlign=5 speed=1 size=1 align=1 r=200 g=130 b=20 subtype=0 ]
++ [ DIALOG main(0) text="Mintha, 
++al akarna 
++szenderedni!" txtAlign=5 speed=1 size=1 align=0 r=130 g=30 b=180 subtype=1 ]}
++
++{[ DIALOG enemy(0) text="Te új 
++vagy itt,..." txtAlign=5 speed=1 size=0 align=0 r=200 g=130 b=20 subtype=0 ]}
++
++{[ DIALOG enemy(0) text="...most..." txtAlign=5 speed=1 size=1 align=0 r=200 g=130 b=20 subtype=0 ]}
++
++{[ DIALOG enemy(0) text="...érkezett?" txtAlign=5 speed=1 size=1 align=0 r=200 g=130 b=20 subtype=0 ]}
++
++{[ DIALOG main(0) text="Értem...
++azt mondod, idegen vagy?" txtAlign=5 speed=1 size=1 align=0 r=130 g=30 b=180 subtype=0 ]}
++
++{[ DIALOG main(0) text="Ja persze, 
++talán" txtAlign=5 speed=1 size=1 align=0 r=130 g=30 b=180 subtype=0 ]}
++
++{[ DIALOG main(0) text="Ki 
++vagy?" txtAlign=5 speed=1 size=1 align=0 r=130 g=30 b=180 subtype=0 ]}
++
++{[ DIALOG enemy(0) text="Én..." txtAlign=5 speed=1 size=1 align=0 r=200 g=130 b=20 subtype=0 ]}
++
++{[ DIALOG enemy(0) text="...vagyok a 
++cipök ura" txtAlign=5 speed=1 size=2 align=0 r=200 g=130 b=20 subtype=0 ]}
++
++{[ DIALOG enemy(0) text="Azt hiszem, hogy..." txtAlign=5 speed=1 size=1 align=0 r=200 g=130 b=20 subtype=0 ]}
++
++{[ DIALOG enemy(0) text="...te 
++..." txtAlign=5 speed=1 size=1 align=0 r=200 g=130 b=20 subtype=0 ]}
++
++{[ DIALOG enemy(0) text="...egy pár uj 
++cipöt szeretnél..." txtAlign=5 speed=1 size=1 align=0 r=200 g=130 b=20 subtype=0 ]}
++
++{[ DIALOG enemy(0) text="...igaz?" txtAlign=5 speed=1 size=1 align=0 r=200 g=130 b=20 subtype=0 ]}
++
++{[ DIALOG enemy(0) text="Nesze..." txtAlign=5 speed=1 size=1 align=1 r=200 g=130 b=20 subtype=0 ]
++	[ DIALOG main(0) text="Megkapom..." txtAlign=5 speed=1 size=1 align=0 r=130 g=30 b=180 subtype=0 ]}
++
++{[ DIALOG enemy(0) text="...ezt" txtAlign=5 speed=1 size=1 align=1 r=200 g=130 b=20 subtype=0 ]}
++
++{[ MOVE main(0) dir=6 amount=2 ]}
++{[ MOVE main(0) dir=4 amount=2 ]}
++
++{[ DIALOG enemy(0) text="Persze..." txtAlign=5 speed=1 size=1 align=0 r=200 g=130 b=20 subtype=0 ]}
++
++{[ DIALOG enemy(0) text="...biztosabb
++ebben..." txtAlign=5 speed=1 size=1 align=0 r=200 g=130 b=20 subtype=0 ]}
++
++{[ DIALOG enemy(0) text="...a
++járás..." txtAlign=5 speed=1 size=1 align=0 r=200 g=130 b=20 subtype=0 ]}
++
++{[ DIALOG main(0) text="Ismersz
++egy kivezetö
++utat?" txtAlign=5 speed=1 size=1 align=0 r=130 g=30 b=180 subtype=0 ]}
++
++{[ DIALOG enemy(0) text="Hmmm..." txtAlign=5 speed=1 size=1 align=0 r=200 g=130 b=20 subtype=0 ]}
++
++{[ DIALOG enemy(0) text="...nem" txtAlign=5 speed=1 size=1 align=0 r=200 g=130 b=20 subtype=0 ]}
++
++{[ DIALOG enemy(0) text="...csak
++Holotz..." txtAlign=5 speed=1 size=1 align=0 r=200 g=130 b=20 subtype=0 ]}
++
++{[ DIALOG enemy(0) text="...ismer" txtAlign=5 speed=1 size=1 align=0 r=200 g=130 b=20 subtype=0 ]}
++
++{[ DIALOG main(0) text="Holotz?" txtAlign=5 speed=1 size=1 align=0 r=130 g=30 b=180 subtype=0 ]}
++
++{[ DIALOG enemy(0) text="Igen..." txtAlign=5 speed=1 size=1 align=0 r=200 g=130 b=20 subtype=0 ]}
++
++{[ DIALOG enemy(0) text="Ö építette..." txtAlign=5 speed=1 size=1 align=0 r=200 g=130 b=20 subtype=0 ]}
++
++{[ DIALOG enemy(0) text="...ezt a
++kastélyt" txtAlign=5 speed=1 size=1 align=0 r=200 g=130 b=20 subtype=0 ]}
++
++{[ DIALOG main(0) text="Hol van ez a
++Holotz?" txtAlign=5 speed=1 size=1 align=0 r=130 g=30 b=180 subtype=0 ]}
++
++{[ DIALOG enemy(0) text="...te nem 
++találhatod meg" txtAlign=5 speed=1 size=1 align=0 r=200 g=130 b=20 subtype=0 ]}
++
++{[ DIALOG enemy(0) text="Ö..." txtAlign=5 speed=1 size=1 align=0 r=200 g=130 b=20 subtype=0 ]}
++
++{[ DIALOG enemy(0) text="...talál meg téged" txtAlign=5 speed=1 size=1 align=0 r=200 g=130 b=20 subtype=0 ]}
++
++{[ DIALOG enemy(0) text="De
++nekem..." txtAlign=5 speed=1 size=1 align=0 r=200 g=130 b=20 subtype=0 ]}
++
++{[ DIALOG enemy(0) text="...tovább" txtAlign=5 speed=1 size=1 align=0 r=200 g=130 b=20 subtype=0 ]}
++
++{[ DIALOG enemy(0) text="...kell dolgoznom" txtAlign=5 speed=1 size=1 align=0 r=200 g=130 b=20 subtype=0 ]}
++
++{[ DIALOG main(0) text="Dee...!" txtAlign=5 speed=1 size=1 align=0 r=130 g=30 b=180 subtype=0 ]
++ [ DIALOG enemy(0) text="nekem
++tudnom..." txtAlign=5 speed=1 size=1 align=1 r=200 g=130 b=20 subtype=0 ]}
++
++{[ DIALOG main(0) text="Hagyd csak,
++ez hülyeség." txtAlign=5 speed=1 size=1 align=0 r=130 g=30 b=180 subtype=1 ]}
++
++{[ DIALOG main(0) text="Akkor én megyek...
++Köszi
++a cipöt!" txtAlign=5 speed=1 size=1 align=0 r=130 g=30 b=180 subtype=0 ]
++[ MOVE main(0) dir=7 amount=2 ]}
++
++{[ MOVE main(0) dir=7 amount=2 ]}
++
++{[ DIALOG main(0) text="És most
++mi lesz?" txtAlign=5 speed=1 size=1 align=0 r=130 g=30 b=180 subtype=1 ]}
++
++{[ DIALOG main(0) text="Ejh, kit érdekel..." txtAlign=5 speed=1 size=1 align=0 r=130 g=30 b=180 subtype=1 ]
++ [ MOVE main(0) dir=4 amount=1 ]}
++
++{[ MOVE main(0) dir=2 amount=2 ]}
+diff -Naur orig/res/stories/holotzcastle/script/hu/level016.hcs mod/res/stories/holotzcastle/script/hu/level016.hcs
+--- orig/res/stories/holotzcastle/script/hu/level016.hcs	1970-01-01 01:00:00.000000000 +0100
++++ mod/res/stories/holotzcastle/script/hu/level016.hcs	2009-04-17 11:09:35.000000000 +0200
+@@ -0,0 +1,183 @@
++##########################################
++# Holotz's Castle story - Level 1
++# Ludar talks to the two flames
++##########################################
++
++{[ DIALOG main(0) text="Hopp!" txtAlign=5 speed=5 size=2 align=1 r=20 g=200 b=20 subtype=0 ]
++ [ SOUND file="sound/HCMainTitle_UltraSlow.wav" loops=-1 waitToEnd=0 ]}
++
++{[ DIALOG main(0) text="Jé, még
++egy szikla!" txtAlign=5 speed=1 size=1 align=1 r=20 g=200 b=20 subtype=0 ]
++ [ MOVE main(0) dir=6 amount=1 ]}
++
++{[ NARRATIVE text="A két lángnyelv" txtAlign=5 speed=1 size=3 align=7 r=128 g=20 b=20 subtype=0 ]
++ [ MOVE main(0) dir=6 amount=4 ]
++ [ DIALOG main(0) text="Még egy!" txtAlign=5 speed=1 size=1 align=1 r=20 g=200 b=20 subtype=0 ]}
++
++{[ DIALOG enemy(0) text="Állj!" txtAlign=5 speed=1 size=2 align=1 r=20 g=20 b=180 subtype=0 ]}
++
++{[ DIALOG main(0) text="???" txtAlign=5 speed=5 size=2 align=1 r=20 g=200 b=20 subtype=1 ]
++ [ MOVE main(0) dir=4 amount=1 ]}
++
++{[ DIALOG main(0) text="Van itt valaki?" txtAlign=5 speed=5 size=2 align=1 r=20 g=200 b=20 subtype=0 ]
++ [ MOVE main(0) dir=6 amount=4 ]}
++
++{[ DIALOG enemy(0) text="Azt mondtam
++ÁLLJ!" txtAlign=5 speed=1 size=3 align=1 r=20 g=20 b=180 subtype=0 ]}
++
++{[ MOVE main(0) dir=4 amount=4 ]
++ [ DIALOG main(0) text="Jé, egy beszélö
++lángnyelv!" txtAlign=5 speed=1 size=2 align=1 r=20 g=200 b=20 subtype=1 ]}
++
++{[ DIALOG enemy(0) text="Nem vagyok 
++beszélö lángnyelv!" txtAlign=5 speed=1 size=2 align=1 r=20 g=20 b=180 subtype=0 ]
++ [ DIALOG main(0) text="Oh!" txtAlign=5 speed=4 size=2 align=0 r=20 g=200 b=20 subtype=0 ]
++ [ MOVE main(0) dir=6 amount=2 ]}
++
++{[ DIALOG enemy(0) text="Szónokló
++lángnyelv vagyok!" txtAlign=5 speed=1 size=2 align=1 r=20 g=20 b=180 subtype=0 ]}
++
++{[ DIALOG main(0) text="Honnan tudod 
++a gondolataimat?" txtAlign=5 speed=5 size=2 align=1 r=20 g=200 b=20 subtype=0 ]}
++
++{[ DIALOG enemy(0) text="Mindent
++tudok!" txtAlign=5 speed=1 size=3 align=1 r=20 g=20 b=180 subtype=0 ]}
++
++{[ DIALOG enemy(1) text="Izé..." txtAlign=5 speed=1 size=3 align=1 r=200 g=20 b=60 subtype=0 ]}
++
++{[ DIALOG enemy(0) text="majdnem
++mindent" txtAlign=5 speed=1 size=1 align=0 r=20 g=20 b=180 subtype=0 ]}
++
++{[ DIALOG enemy(1) text="Gondolatokban
++olvasok..." txtAlign=5 speed=1 size=3 align=1 r=200 g=20 b=60 subtype=0 ]}
++
++{[ DIALOG enemy(1) text="És könyvekben..." txtAlign=5 speed=1 size=3 align=1 r=200 g=20 b=60 subtype=0 ]}
++
++{[ DIALOG enemy(1) text="...is" txtAlign=5 speed=1 size=3 align=1 r=200 g=20 b=60 subtype=0 ]}
++
++{[ DIALOG enemy(1) text="Jar, jar ,jar!" txtAlign=5 speed=1 size=3 align=1 r=200 g=20 b=60 subtype=0 ]
++ [ DIALOG enemy(0) text="Jur, jur ,jur!" txtAlign=5 speed=1 size=1 align=0 r=20 g=20 b=180 subtype=0 ]
++ [ DIALOG main(0) text="??!" txtAlign=5 speed=5 size=3 align=1 r=20 g=200 b=20 subtype=0 ]}
++
++{[ DIALOG enemy(1) text="Hogy kerültél
++ide?" txtAlign=5 speed=1 size=3 align=1 r=200 g=20 b=60 subtype=0 ]}
++
++{[ DIALOG enemy(0) text="Jól tudom..." txtAlign=5 speed=1 size=1 align=1 r=20 g=20 b=180 subtype=0 ]}
++
++{[ DIALOG main(0) text="Ohó, épp a
++gondolataimban olvasol!" txtAlign=5 speed=1 size=1 align=0 r=20 g=200 b=20 subtype=1 ]}
++
++{[ DIALOG enemy(0) text="A varázslatos  
++kapu
++mellett!" txtAlign=5 speed=1 size=1 align=1 r=20 g=20 b=180 subtype=0 ]}
++
++{[ DIALOG enemy(1) text="Jar, jar ,jar!" txtAlign=5 speed=1 size=1 align=1 r=200 g=20 b=60 subtype=0 ]
++ [ DIALOG enemy(0) text="Jur, jur ,jur!" txtAlign=5 speed=1 size=3 align=0 r=20 g=20 b=180 subtype=0 ]
++ [ DIALOG main(0) text="hmpfxs#@!" txtAlign=5 speed=5 size=1 align=1 r=20 g=200 b=20 subtype=1 ]
++ [ MOVE main(0) dir=6 amount=4 ]}
++
++{[ DIALOG enemy(1) text="Várj!
++Maradj!" txtAlign=5 speed=1 size=1 align=0 r=200 g=20 b=60 subtype=0 ]
++ [ MOVE main(0) dir=4 amount=5 ]}
++
++{[ DIALOG main(0) text="Nincs
++idöm 
++viccelni!" txtAlign=5 speed=5 size=1 align=0 r=20 g=200 b=20 subtype=0 ]
++ [ MOVE main(0) dir=6 amount=2 ]}
++
++{[ DIALOG enemy(0) text="Mit  
++akarsz?" txtAlign=5 speed=1 size=3 align=1 r=20 g=20 b=180 subtype=0 ]
++ [ MOVE main(0) dir=4 amount=3 ]}
++
++{[ DIALOG main(0) text="Meg akarom 
++találni Ybelle-t" txtAlign=5 speed=5 size=1 align=0 r=20 g=200 b=20 subtype=0 ]}
++
++{[ DIALOG main(0) text="Vissza kell
++mennünk 
++Lizarno 
++országába" txtAlign=5 speed=5 size=1 align=0 r=20 g=200 b=20 subtype=0 ]}
++
++{[ DIALOG enemy(0) text="Ejh...egy Lizarnói,
++de érdekes" txtAlign=5 speed=1 size=1 align=1 r=20 g=20 b=180 subtype=1 ]}
++
++{[ DIALOG enemy(1) text="Most már
++ezután
++a kastély" txtAlign=5 speed=1 size=1 align=0 r=200 g=20 b=60 subtype=0 ]}
++
++{[ DIALOG enemy(1) text="még veszélyesebb" txtAlign=5 speed=1 size=1 align=0 r=200 g=20 b=60 subtype=0 ]}
++
++{[ DIALOG enemy(1) text="de neked 
++nincs még elég
++varázseröd," txtAlign=5 speed=1 size=1 align=0 r=200 g=20 b=60 subtype=0 ]}
++
++{[ DIALOG enemy(1) text="hogy magasabb 
++síkra lépj" txtAlign=5 speed=1 size=1 align=0 r=200 g=20 b=60 subtype=0 ]}
++
++{[ DIALOG enemy(0) text="Igen,
++szükséged van..." txtAlign=5 speed=1 size=3 align=1 r=20 g=20 b=180 subtype=0 ]}
++
++{[ DIALOG enemy(1) text="egy pár
++cipöre!" txtAlign=5 speed=1 size=1 align=1 r=200 g=20 b=60 subtype=0 ]
++ [ DIALOG enemy(0) text="Egy pár
++cipöre!" txtAlign=5 speed=1 size=1 align=0 r=20 g=20 b=180 subtype=0 ]}
++
++{[ DIALOG main(0) text="Oh, ne keseríts
++el engem!" txtAlign=5 speed=5 size=1 align=0 r=20 g=200 b=20 subtype=0 ]
++ [ MOVE main(0) dir=4 amount=2 ]}
++
++{[ DIALOG enemy(0) text="Ezt csak
++a cipök uránál" txtAlign=5 speed=1 size=2 align=1 r=20 g=20 b=180 subtype=0 ]}
++
++{[ DIALOG enemy(0) text="kaphatod
++meg" txtAlign=5 speed=1 size=2 align=1 r=20 g=20 b=180 subtype=0 ]}
++
++{[ DIALOG main(0) text="Máshol 
++nem tudnék 
++egy pár cipöt szerezni?" txtAlign=5 speed=5 size=1 align=0 r=20 g=200 b=20 subtype=0 ]
++ [ MOVE main(0) dir=6 amount=2 ]}
++
++{[ DIALOG enemy(1) text="Dehogynem,
++hogyne" txtAlign=5 speed=1 size=2 align=0 r=200 g=20 b=60 subtype=0 ]}
++
++{[ DIALOG enemy(1) text="Cipöt a cipöboltból!" txtAlign=5 speed=1 size=2 align=1 r=200 g=20 b=60 subtype=0 ]
++ [ DIALOG enemy(0) text="Cipöt a cipöboltból!" txtAlign=5 speed=1 size=2 align=0 r=20 g=20 b=180 subtype=0 ]}
++
++{[ DIALOG enemy(1) text="Jar, jar ,jar!" txtAlign=5 speed=1 size=1 align=1 r=200 g=20 b=60 subtype=0 ]
++ [ DIALOG enemy(0) text="Jur, jur ,jur!" txtAlign=5 speed=1 size=2 align=0 r=20 g=20 b=180 subtype=0 ]
++ [ DIALOG main(0) text="De hisz ez
++borzasztó!" txtAlign=5 speed=5 size=1 align=1 r=20 g=200 b=20 subtype=1 ]
++ [ MOVE main(0) dir=6 amount=4 ]}
++
++{[ DIALOG enemy(1) text="Várj csak!" txtAlign=5 speed=1 size=1 align=0 r=200 g=20 b=60 subtype=0 ]
++ [ MOVE main(0) dir=4 amount=2 ]}
++
++{[ DIALOG enemy(1) text="Szerezhetsz
++még" txtAlign=5 speed=1 size=1 align=0 r=200 g=20 b=60 subtype=0 ]}
++
++{[ DIALOG enemy(1) text="a varázskapu
++mögötti
++helyröl is." txtAlign=5 speed=1 size=1 align=0 r=200 g=20 b=60 subtype=0 ]}
++
++{[ DIALOG enemy(0) text="De jobb, ha
++tudod," txtAlign=5 speed=1 size=2 align=1 r=20 g=20 b=180 subtype=0 ]}
++
++{[ DIALOG enemy(0) text="hogy onnan még senki
++élve vissza nem jött!" txtAlign=5 speed=1 size=2 align=1 r=20 g=20 b=180 subtype=0 ]}
++
++{[ DIALOG main(0) text="Oó!" txtAlign=5 speed=5 size=1 align=1 r=20 g=200 b=20 subtype=1 ]
++ [ MOVE main(0) dir=6 amount=2 ]}
++
++{[ DIALOG main(0) text="Hmm... mindegy, 
++meg kell próbálni" txtAlign=5 speed=5 size=1 align=0 r=20 g=200 b=20 subtype=0 ]
++ [ MOVE main(0) dir=4 amount=2 ]}
++
++{[ DIALOG main(0) text="Ej!, hisz 
++nem nyílik 
++a kapu" txtAlign=5 speed=5 size=1 align=0 r=20 g=200 b=20 subtype=0 ]
++ [ MOVE main(0) dir=4 amount=2 ]}
++
++{[ DIALOG main(0) text="Ez a szikla 
++túl magas!" txtAlign=5 speed=5 size=1 align=0 r=20 g=200 b=20 subtype=0 ]}
++
++{[ DIALOG enemy(1) text="Nos, miért nem
++használod ezt a létrát?" txtAlign=5 speed=1 size=1 align=0 r=200 g=20 b=60 subtype=0 ]}
+diff -Naur orig/res/stories/holotzcastle/script/hu/level019.hcs mod/res/stories/holotzcastle/script/hu/level019.hcs
+--- orig/res/stories/holotzcastle/script/hu/level019.hcs	1970-01-01 01:00:00.000000000 +0100
++++ mod/res/stories/holotzcastle/script/hu/level019.hcs	2007-10-26 09:21:55.000000000 +0200
+@@ -0,0 +1,31 @@
++##########################################
++# Holotz's Castle story - Level 19
++# Ybelle is captured
++##########################################
++
++{[ DIALOG main(0) text="AAAH!" txtAlign=5 speed=5 size=3 align=1 r=130 g=30 b=180 subtype=0 ]
++ [ SOUND file="sound/HCMainTitle_Fast.wav" loops=0 waitToEnd=0 ]}
++
++{[ MOVE enemy(0) dir=8 amount=4 ]
++ [ MOVE enemy(1) dir=8 amount=4 ]
++ [ MOVE enemy(2) dir=4 amount=2 ]
++ [ MOVE enemy(3) dir=6 amount=2 ]
++ [ MOVE enemy(4) dir=4 amount=5 ]
++ [ MOVE enemy(5) dir=6 amount=5 ]
++ [ DIALOG main(0) text="Oh, oh" txtAlign=5 speed=1 size=1 align=1 r=130 g=30 b=180 subtype=1 ]
++ [ DIALOG enemy(2) text="!" txtAlign=5 speed=1 size=2 align=1 r=200 g=20 b=20 subtype=1 ]
++ [ DIALOG enemy(3) text="!" txtAlign=5 speed=1 size=2 align=0 r=220 g=20 b=20 subtype=1 ]}
++
++{[ NARRATIVE text=" 
++   Folytatás...
++ " txtAlign=5 speed=1 size=3 align=5 r=128 g=20 b=20 subtype=0 ]
++ [ DIALOG main(0) text="??!" txtAlign=5 speed=3 size=3 align=1 r=130 g=30 b=180 subtype=0 ]
++ [ MOVE main(0) dir=5 amount=1 ]}
++
++{[ DIALOG main(0) text="Iiih!" txtAlign=5 speed=1 size=3 align=1 r=130 g=30 b=180 subtype=0 ]
++ [ MOVE main(0) dir=5 amount=2 ]}
++
++{[ DIALOG main(0) text="Ne hagyj itt!" txtAlign=5 speed=1 size=3 align=1 r=130 g=30 b=180 subtype=0 ]
++ [ MOVE main(0) dir=5 amount=2 ]}
++
++{[ WAIT millis=3000]}
+diff -Naur orig/res/stories/holotzcastle/script/hu/level020.hcs mod/res/stories/holotzcastle/script/hu/level020.hcs
+--- orig/res/stories/holotzcastle/script/hu/level020.hcs	1970-01-01 01:00:00.000000000 +0100
++++ mod/res/stories/holotzcastle/script/hu/level020.hcs	2009-04-17 11:33:47.000000000 +0200
+@@ -0,0 +1,83 @@
++##########################################
++# Holotz's Castle story - Level 20
++# Ybelle is captured (continued)
++##########################################
++
++{[ MOVE enemy(0) dir=8 amount=0 ]
++ [ MOVE enemy(1) dir=8 amount=0 ]
++ [ MOVE enemy(2) dir=4 amount=0 ]
++ [ MOVE enemy(3) dir=6 amount=0 ]
++ [ MOVE enemy(4) dir=4 amount=0 ]
++ [ MOVE enemy(5) dir=6 amount=0 ]}
++
++{[ WAIT millis=1000]}
++
++{[ DIALOG main(0) text="Állj, semmi 
++mozgás!" txtAlign=5 speed=5 size=3 align=1 r=130 g=30 b=180 subtype=0 ]
++ [ MOVE main(0) dir=4 amount=1 ]}
++
++{[ DIALOG enemy(0) text="Je je" txtAlign=5 speed=5 size=3 align=1 r=200 g=20 b=20 subtype=0 ]
++ [ DIALOG enemy(1) text="Hmmm" txtAlign=5 speed=5 size=3 align=0 r=200 g=20 b=20 subtype=0 ]}
++
++{[ DIALOG main(0) text="Figyelmeztetlek,
++veszélyes vagyok!" txtAlign=5 speed=5 size=3 align=1 r=130 g=30 b=180 subtype=0 ]
++ [ MOVE main(0) dir=6 amount=2 ]}
++
++{[ MOVE enemy(1) dir=4 amount=3 ]
++ [ DIALOG enemy(1) text="Nézd..." txtAlign=5 speed=5 size=3 align=1 r=200 g=20 b=20 subtype=0 ]}
++
++{[ MOVE enemy(1) dir=4 amount=1 ]
++ [ DIALOG enemy(5) text="Mi?" txtAlign=5 speed=5 size=3 align=1 r=200 g=20 b=20 subtype=0 ]}
++
++{[ DIALOG enemy(1) text="Szép a cipöje." txtAlign=5 speed=5 size=3 align=1 r=200 g=20 b=20 subtype=0 ]}
++
++{[ DIALOG enemy(5) text="Hmmm... 
++Holotz nem fog
++örülni ennek." txtAlign=5 speed=5 size=3 align=1 r=200 g=20 b=20 subtype=0 ]}
++
++{[ DIALOG main(0) text="Mit akarsz?" txtAlign=5 speed=5 size=3 align=1 r=130 g=30 b=180 subtype=0 ]}
++
++{[ MOVE enemy(5) dir=6 amount=4 ]
++ [ MOVE main(0) dir=6 amount=1 ]
++ [ DIALOG enemy(5) text="A kérdés..." txtAlign=5 speed=1 size=2 align=1 r=200 g=20 b=20 subtype=0 ]}
++
++{[ DIALOG enemy(5) text="Hogy kerülsz 
++ide?" txtAlign=5 speed=1 size=2 align=1 r=200 g=20 b=20 subtype=0 ]}
++
++{[ DIALOG main(0) text="Megfogtam egy 
++követ és..." txtAlign=5 speed=5 size=3 align=1 r=130 g=30 b=180 subtype=0 ]}
++
++{[ DIALOG enemy(5) text="és egy varázskapu
++nyílt ki, igaz?." txtAlign=5 speed=1 size=2 align=1 r=200 g=20 b=20 subtype=0 ]}
++
++{[ DIALOG main(0) text="Jól mondod!" txtAlign=5 speed=5 size=3 align=1 r=130 g=30 b=180 subtype=0 ]}
++
++{[ DIALOG enemy(5) text="Úgy látom, hogy
++Holotz embere." txtAlign=5 speed=1 size=2 align=0 r=200 g=20 b=20 subtype=1 ]}
++
++{[ DIALOG enemy(5) text="Hihetelen." txtAlign=5 speed=1 size=2 align=0 r=200 g=20 b=20 subtype=1 ]}
++
++{[ DIALOG enemy(5) text="Röhejes,hogy
++ikyen messzire
++jutottál..." txtAlign=5 speed=1 size=2 align=1 r=200 g=20 b=20 subtype=0 ]}
++
++{[ DIALOG enemy(4) text="Mit csináljunk
++vele?" txtAlign=5 speed=1 size=2 align=1 r=200 g=20 b=20 subtype=0 ]}
++
++{[ DIALOG enemy(5) text="Ahogy Holotz
++mondta..." txtAlign=5 speed=1 size=2 align=1 r=200 g=20 b=20 subtype=0 ]}
++
++{[ DIALOG enemy(5) text="...elküldjük
++Froj
++labirintusába." txtAlign=5 speed=1 size=2 align=1 r=200 g=20 b=20 subtype=0 ]}
++
++{[ DIALOG enemy(5) text="Legyen ott,
++míg Holotz eldönti,
++hogy mi legyen vele..." txtAlign=5 speed=1 size=2 align=1 r=200 g=20 b=20 subtype=0 ]}
++
++{[ DIALOG enemy(5) text="...hacsak
++meg ne találja a négy
++bolond testvér." txtAlign=5 speed=1 size=2 align=1 r=200 g=20 b=20 subtype=0 ]}
++
++{[ DIALOG enemy(1) text="Har, har!" txtAlign=5 speed=1 size=1 align=1 r=200 g=20 b=20 subtype=0 ]
++ [ DIALOG enemy(2) text="Hur, hur, hur!" txtAlign=5 speed=1 size=2 align=1 r=200 g=20 b=20 subtype=0 ]}
+diff -Naur orig/res/stories/holotzcastle/script/hu/level025.hcs mod/res/stories/holotzcastle/script/hu/level025.hcs
+--- orig/res/stories/holotzcastle/script/hu/level025.hcs	1970-01-01 01:00:00.000000000 +0100
++++ mod/res/stories/holotzcastle/script/hu/level025.hcs	2007-10-26 09:54:26.000000000 +0200
+@@ -0,0 +1,73 @@
++##########################################
++# Holotz's Castle story - Level 25
++# Holotz appears
++##########################################
++
++{	
++	[ SOUND file="sound/HCMainTitle_Slow.wav" loops=-1 waitToEnd=0 ]
++	[ NARRATIVE text="Holotz." txtAlign=5 speed=1 size=3 align=7 r=128 g=20 b=20 subtype=0 ]
++}
++
++{[ MOVE enemy(0) dir=9 amount=2 ]}
++
++{[ MOVE main(0) dir=4 amount=2 ]
++ [ DIALOG main(0) text="Hutazin
++nevében!..." txtAlign=5 speed=5 size=3 align=1 r=80 g=80 b=200 subtype=0 ]}
++
++{[ MOVE enemy(0) dir=9 amount=1 ]}
++{[ MOVE enemy(0) dir=9 amount=1 ]}
++
++{[ MOVE main(0) dir=6 amount=3 ]
++ [ DIALOG main(0) text="Varázskapu,
++nyílj ki!" txtAlign=5 speed=5 size=3 align=1 r=80 g=80 b=200 subtype=0 ]}
++
++{[ MOVE enemy(0) dir=9 amount=1 ]}
++
++{[ WAIT millis=3000 ]}
++
++{[ DIALOG main(0) text="Hmmm..." txtAlign=5 speed=5 size=3 align=1 r=80 g=80 b=200 subtype=0 ]}
++
++{[ MOVE main(0) dir=5 amount=1 ]
++ [ DIALOG main(0) text="Most sem
++sikerült!" txtAlign=5 speed=5 size=3 align=1 r=80 g=80 b=200 subtype=0 ]}
++
++{[ MOVE main(0) dir=4 amount=2 ]
++ [ MOVE enemy(0) dir=9 amount=1 ]
++ [ DIALOG main(0) text="Te!" txtAlign=5 speed=5 size=3 align=1 r=80 g=80 b=200 subtype=0 ]}
++
++{[ DIALOG main(0) text="Hol van
++Lizarnit?" txtAlign=5 speed=5 size=3 align=1 r=80 g=80 b=200 subtype=0 ]}
++
++{[ DIALOG enemy(0) text="Froj labirintusába
++küldtük, amint
++megparancsolták." txtAlign=5 speed=5 size=3 align=1 r=200 g=20 b=20 subtype=0 ]}
++
++{[ DIALOG main(0) text="Jól van!" txtAlign=5 speed=5 size=3 align=1 r=130 g=30 b=180 subtype=0 ]}
++
++{[ DIALOG enemy(0) text="De tudnod kell," txtAlign=5 speed=5 size=3 align=1 r=200 g=20 b=20 subtype=0 ]}
++
++{[ DIALOG enemy(0) text="hogy cipöje
++van, Uram!" txtAlign=5 speed=5 size=3 align=1 r=200 g=20 b=20 subtype=0 ]}
++
++{[ DIALOG main(0) text="Átkozott!" txtAlign=5 speed=5 size=3 align=1 r=130 g=30 b=180 subtype=0 ]}
++
++{[ DIALOG main(0) text="Átkozott!
++Miért nem 
++szóltál erröl!" txtAlign=5 speed=5 size=3 align=1 r=130 g=30 b=180 subtype=0 ]}
++
++{[ DIALOG enemy(0) text="Én..." txtAlign=5 speed=5 size=3 align=1 r=200 g=20 b=20 subtype=0 ]}
++
++{[ DIALOG main(0) text="Hiszen villámgyorsan
++elérik a tornyot!" txtAlign=5 speed=5 size=3 align=1 r=130 g=30 b=180 subtype=0 ]}
++
++{[ DIALOG main(0) text="Ide az összes 
++szörnnyel!" txtAlign=5 speed=5 size=3 align=1 r=130 g=30 b=180 subtype=0 ]}
++
++{[ DIALOG enemy(0) text="Igenis Uram!" txtAlign=5 speed=5 size=3 align=1 r=200 g=20 b=20 subtype=0 ]}
++
++{[ MOVE enemy(0) dir=7 amount=2 ]}
++
++{[ MOVE enemy(0) dir=7 amount=3 ]
++ [ DIALOG main(0) text="Ezeknek a Lizarniak
++szép meglepetést fogunk
++készíteni!" txtAlign=5 speed=5 size=3 align=1 r=130 g=30 b=180 subtype=0 ]}
+diff -Naur orig/res/stories/holotzcastle/script/hu/level030.hcs mod/res/stories/holotzcastle/script/hu/level030.hcs
+--- orig/res/stories/holotzcastle/script/hu/level030.hcs	1970-01-01 01:00:00.000000000 +0100
++++ mod/res/stories/holotzcastle/script/hu/level030.hcs	2007-10-26 10:08:30.000000000 +0200
+@@ -0,0 +1,36 @@
++##########################################
++# Holotz's Castle story - Level 30
++# Ybelle and Ludar met again
++##########################################
++
++{[ SOUND file="sound/HCCredits_Slow.wav" loops=-1 waitToEnd=0 ]}
++
++{[ MOVE main(0) dir=8 amount=6 ]
++ [ MOVE enemy(0) dir=8 amount=6 ]
++ [ MOVE enemy(1) dir=8 amount=6 ]
++ [ MOVE enemy(2) dir=8 amount=6 ]}
++
++{[ MOVE main(0) dir=6 amount=3 ]
++ [ MOVE enemy(0) dir=4 amount=3 ]
++ [ MOVE enemy(1) dir=8 amount=4 ]
++ [ MOVE enemy(2) dir=8 amount=4 ]}
++
++{[ MOVE main(0) dir=6 amount=4 ]
++ [ MOVE enemy(0) dir=4 amount=4 ]
++ [ MOVE enemy(1) dir=4 amount=3 ]
++ [ MOVE enemy(2) dir=6 amount=3 ]}
++
++{[ DIALOG main(0) text="Ludar!" txtAlign=5 speed=5 size=3 align=0 r=130 g=30 b=180 subtype=0 ]
++ [ DIALOG enemy(0) text="Ybelle!" txtAlign=5 speed=5 size=3 align=1 r=20 g=200 b=20 subtype=0 ]}
++
++{[ DIALOG main(0) text="Te vagy!" txtAlign=5 speed=5 size=3 align=0 r=130 g=30 b=180 subtype=0 ]
++ [ DIALOG enemy(0) text="Nem haltál meg!" txtAlign=5 speed=5 size=3 align=1 r=20 g=200 b=20 subtype=0 ]}
++
++{[ DIALOG enemy(0) text="Akkor, együtt
++mehetünk tovább!" txtAlign=5 speed=5 size=3 align=0 r=130 g=30 b=180 subtype=0 ]}
++
++{[ DIALOG enemy(0) text="Kövess
++a létrához!" txtAlign=5 speed=5 size=3 align=1 r=20 g=200 b=20 subtype=0 ]}
++
++{[ MOVE main(0) dir=8 amount=3 ]
++ [ MOVE enemy(0) dir=8 amount=3 ]}
+diff -Naur orig/res/stories/holotzcastle/script/hu/level032.hcs mod/res/stories/holotzcastle/script/hu/level032.hcs
+--- orig/res/stories/holotzcastle/script/hu/level032.hcs	1970-01-01 01:00:00.000000000 +0100
++++ mod/res/stories/holotzcastle/script/hu/level032.hcs	2007-10-26 10:10:28.000000000 +0200
+@@ -0,0 +1,20 @@
++##########################################
++# Holotz's Castle story - Level 32
++# Return to the land of Lizarno
++##########################################
++
++{[ DIALOG main(0) text="Aaah!" txtAlign=5 speed=1 size=1 align=1 r=130 g=30 b=180 subtype=0 ]
++ [ DIALOG enemy(0) text="Aah!" txtAlign=5 speed=1 size=2 align=1 r=20 g=200 b=20 subtype=0 ]
++ [ SOUND file="sound/HCCredits.wav" loops=-1 waitToEnd=0 ]}
++
++{[ DIALOG main(0) text="Itt van Lizarno!" txtAlign=5 speed=1 size=1 align=1 r=130 g=30 b=180 subtype=0 ]}
++
++{[ DIALOG enemy(0) text="Visszaértünk!" txtAlign=5 speed=1 size=1 align=1 r=130 g=30 b=180 subtype=0 ]}
++
++{[ DIALOG main(0) text="Te, nézd csak
++ezt a követ!" txtAlign=5 speed=1 size=1 align=1 r=130 g=30 b=180 subtype=0 ]
++ [ MOVE main(0) dir=4 amount=2 ]}
++
++{[ DIALOG enemy(0) text="Ne érj hozzá!" txtAlign=5 speed=1 size=1 align=1 r=130 g=30 b=180 subtype=0 ]}
++
++{[ MOVE main(0) dir=4 amount=2 ]}
+diff -Naur orig/res/stories/holotzcastle/script/hu/level033.hcs mod/res/stories/holotzcastle/script/hu/level033.hcs
+--- orig/res/stories/holotzcastle/script/hu/level033.hcs	1970-01-01 01:00:00.000000000 +0100
++++ mod/res/stories/holotzcastle/script/hu/level033.hcs	2007-10-26 10:10:49.000000000 +0200
+@@ -0,0 +1,13 @@
++##########################################
++# Holotz's Castle story - Level 33
++# The end
++##########################################
++
++{[ DIALOG enemy(0) text="Aah!" txtAlign=5 speed=1 size=2 align=1 r=20 g=200 b=20 subtype=0 ]
++ [ DIALOG main(0) text="Aaah!" txtAlign=5 speed=1 size=1 align=1 r=130 g=30 b=180 subtype=0 ]}
++
++{
++	[ NARRATIVE text="  
++  VÉGE
++  " txtAlign=5 speed=1 size=3 align=5 r=128 g=20 b=20 subtype=0 ]
++}

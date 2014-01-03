@@ -1,0 +1,17 @@
+diff -Naur orig/data/sol.desktop.in.in mod/data/sol.desktop.in.in
+--- orig/data/sol.desktop.in.in	2011-06-13 18:55:36.000000000 +0200
++++ mod/data/sol.desktop.in.in	2013-01-25 23:50:45.209154373 +0100
+@@ -1,11 +1,12 @@
+ [Desktop Entry]
+ _Name=AisleRiot Solitaire
+ _Comment=Play many different solitaire games
++_Comment[hu]=pasziánsz gyűjtemény
+ Exec=sol
+ Icon=gnome-aisleriot
+ Terminal=false
+ Type=Application
+-Categories=GNOME;GTK;Game;CardGame;
++Categories=GNOME;GTK;Game;CardGame;X-UHU-Menu/Games/Card;
+ X-GNOME-Bugzilla-Bugzilla=GNOME
+ X-GNOME-Bugzilla-Product=aisleriot
+ X-GNOME-Bugzilla-Component=Zwischenlager

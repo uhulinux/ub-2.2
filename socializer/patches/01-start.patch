@@ -1,0 +1,12 @@
+diff -Naur a/debian/opt/Socializer/Socializer.sh b/debian/opt/Socializer/Socializer.sh
+--- a/debian/opt/Socializer/Socializer.sh	2013-10-16 13:24:49.000000000 +0200
++++ b/debian/opt/Socializer/Socializer.sh	2013-12-25 23:06:21.645482088 +0100
+@@ -1,3 +1,5 @@
+-cd /opt/Socializer
+-export LD_LIBRARY_PATH=/opt/Socializer/
+-/opt/Socializer/Socializer
++#!/bin/bash
++
++cd /usr/share/socializer
++export LD_LIBRARY_PATH=/usr/share/socializer/
++/usr/share/socializer/Socializer

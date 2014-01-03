@@ -1,0 +1,58 @@
+diff -Naur orig/doc/Makefile patched/doc/Makefile
+--- orig/doc/Makefile	2008-09-27 12:31:23.000000000 +0200
++++ patched/doc/Makefile	2009-01-08 21:32:25.000000000 +0100
+@@ -1,5 +1,3 @@
+ all:
+-	gzip < wput.1 > wput.1.gz
+-	gzip < wdel.1 > wdel.1.gz
+ clean:
+-	rm -f wput.1.gz wdel.1.gz
++	rm -f wput.1 wdel.1
+diff -Naur orig/Makefile patched/Makefile
+--- orig/Makefile	2008-09-27 12:31:23.000000000 +0200
++++ patched/Makefile	2009-01-08 21:39:49.000000000 +0100
+@@ -19,9 +19,9 @@
+ 	mkdir -p $(bindir) 
+ 	mkdir -p $(mandir) 
+ 	install -m0755 wput $(bindir)
+-	install -m0644 doc/wput.1.gz $(mandir)
++	install -m0644 doc/wput.1 $(mandir)
+ 	ln -s $(bindir)/wput $(bindir)/wdel
+-	install -m0644 doc/wdel.1.gz $(mandir)
++	install -m0644 doc/wdel.1 $(mandir)
+ 	@echo "----------------"
+ 	@echo "Wput and Wdel installed. See 'wput/wdel -h' or 'man wput/wdel' for"
+ 	@echo "usage information."
+@@ -33,6 +33,6 @@
+ uninstall:
+ 	rm -f $(bindir)/wput
+ 	rm -f $(bindir)/wdel
+-	rm -f $(mandir)/wput.1.gz
+-	rm -f $(mandir)/wdel.1.gz
++	rm -f $(mandir)/wput.1
++	rm -f $(mandir)/wdel.1
+ 	
+diff -Naur orig/Makefile.in patched/Makefile.in
+--- orig/Makefile.in	2008-09-27 12:31:23.000000000 +0200
++++ patched/Makefile.in	2009-01-08 21:40:36.000000000 +0100
+@@ -19,9 +19,9 @@
+ 	mkdir -p $(bindir) 
+ 	mkdir -p $(mandir) 
+ 	install -m0755 wput $(bindir)
+-	install -m0644 doc/wput.1.gz $(mandir)
++	install -m0644 doc/wput.1 $(mandir)
+ 	ln -s $(bindir)/wput $(bindir)/wdel
+-	install -m0644 doc/wdel.1.gz $(mandir)
++	install -m0644 doc/wdel.1 $(mandir)
+ 	@echo "----------------"
+ 	@echo "Wput and Wdel installed. See 'wput/wdel -h' or 'man wput/wdel' for"
+ 	@echo "usage information."
+@@ -33,6 +33,6 @@
+ uninstall:
+ 	rm -f $(bindir)/wput
+ 	rm -f $(bindir)/wdel
+-	rm -f $(mandir)/wput.1.gz
+-	rm -f $(mandir)/wdel.1.gz
++	rm -f $(mandir)/wput.1
++	rm -f $(mandir)/wdel.1
+ 	

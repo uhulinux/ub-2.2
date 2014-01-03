@@ -1,0 +1,10 @@
+boost-dev
+cmake
+freeglut-dev
+glew
+gst-plugins-base-dev
+libxmu-dev
+mesa-dev
+openimageio-dev
+python-dev
+qt4-dev

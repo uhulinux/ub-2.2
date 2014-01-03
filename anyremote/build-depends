@@ -1,0 +1,9 @@
+bluez
+bluez-dev
+dbus-dev
+dbus-glib-dev
+glib2-dev
+libx11-dev
+libxcb-dev
+libxt-dev
+libxtst-dev

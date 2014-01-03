@@ -1,0 +1,155 @@
+diff -Naurdp a/extras/rule_generator/75-cd-aliases-generator.rules b/extras/rule_generator/75-cd-aliases-generator.rules
+--- a/extras/rule_generator/75-cd-aliases-generator.rules	2009-12-03 13:45:03.000000000 +0100
++++ b/extras/rule_generator/75-cd-aliases-generator.rules	2010-02-16 15:42:05.473629188 +0100
+@@ -4,6 +4,6 @@
+ ACTION=="add", SUBSYSTEM=="block", SUBSYSTEMS=="usb|ieee1394", ENV{ID_CDROM}=="?*", ENV{GENERATED}!="?*", \
+   PROGRAM="write_cd_rules by-id", SYMLINK+="%c", GOTO="persistent_cd_end"
+ 
+-ACTION=="add", SUBSYSTEM=="block", ENV{ID_CDROM}=="?*", ENV{GENERATED}!="?*", PROGRAM="write_cd_rules", SYMLINK+="%c"
++ACTION=="add", SUBSYSTEM=="block", ENV{ID_CDROM}=="?*", ENV{GENERATED}!="?*", IMPORT{program}="path_id %p", PROGRAM="write_cd_rules", SYMLINK+="%c"
+ 
+ LABEL="persistent_cd_end"
+diff -Naurdp a/extras/rule_generator/rule_generator.functions b/extras/rule_generator/rule_generator.functions
+--- a/extras/rule_generator/rule_generator.functions	2009-12-03 13:45:03.000000000 +0100
++++ b/extras/rule_generator/rule_generator.functions	2010-02-16 15:42:05.473629188 +0100
+@@ -57,7 +57,7 @@ unlock_rules_file() {
+ # Choose the real rules file if it is writeable or a temporary file if not.
+ # Both files should be checked later when looking for existing rules.
+ choose_rules_file() {
+-	local tmp_rules_file="/dev/.udev/tmp-rules--${RULES_FILE##*/}"
++	local tmp_rules_file="/dev/.udev/rules.d/${RULES_FILE##*/}"
+ 	[ -e "$RULES_FILE" -o -e "$tmp_rules_file" ] || PRINT_HEADER=1
+ 
+ 	if writeable ${RULES_FILE%/*}; then
+diff -Naurdp a/extras/rule_generator/write_cd_rules b/extras/rule_generator/write_cd_rules
+--- a/extras/rule_generator/write_cd_rules	2009-12-03 13:45:03.000000000 +0100
++++ b/extras/rule_generator/write_cd_rules	2010-02-16 15:42:05.473629188 +0100
+@@ -43,7 +43,7 @@ write_rule() {
+ 	fi
+ 
+ 	[ "$comment" ] && echo "# $comment"
+-	echo "$match, SYMLINK+=\"$link\", ENV{GENERATED}=\"1\""
++	echo "$match, SYMLINK+=\"$link\", ENV{GENERATED}=\"1\", GROUP=\"media\", MODE=\"0660\", OPTIONS=\"link_priority=-$((link_num+1))\""
+ 	} >> $RULES_FILE
+ 	SYMLINKS="$SYMLINKS $link"
+ }
+@@ -101,13 +101,13 @@ match="SUBSYSTEM==\"block\", ENV{ID_CDRO
+ 
+ comment="$ID_MODEL ($ID_PATH)"
+ 
+-	write_rule "$match" "cdrom$link_num" "$comment"
++	write_rule "$match" "cdrom$link_num cdrom cdroms/%k" "$comment"
+ [ "$ID_CDROM_CD_R" -o "$ID_CDROM_CD_RW" ] && \
+-	write_rule "$match" "cdrw$link_num"
++	write_rule "$match" "cdrw$link_num cdwriter"
+ [ "$ID_CDROM_DVD" ] && \
+-	write_rule "$match" "dvd$link_num"
++	write_rule "$match" "dvd$link_num dvd"
+ [ "$ID_CDROM_DVD_R" -o "$ID_CDROM_DVD_RW" -o "$ID_CDROM_DVD_RAM" ] && \
+-	write_rule "$match" "dvdrw$link_num"
++	write_rule "$match" "dvdrw$link_num dvdwriter"
+ echo >> $RULES_FILE
+ 
+ unlock_rules_file
+diff -Naurdp a/rules/rules.d/50-udev-default.rules b/rules/rules.d/50-udev-default.rules
+--- a/rules/rules.d/50-udev-default.rules	2010-01-21 14:21:42.000000000 +0100
++++ b/rules/rules.d/50-udev-default.rules	2010-02-16 15:43:32.996629106 +0100
+@@ -12,6 +12,11 @@ KERNEL=="console",		MODE="0600"
+ KERNEL=="vcs|vcs[0-9]*|vcsa|vcsa[0-9]*", GROUP="tty"
+ 
+ # serial
++ACTION=="add", KERNEL=="tty*", SUBSYSTEMS=="usb", ATTRS{bInterfaceClass}=="02", ATTRS{bInterfaceSubClass}=="02", SYMLINK+="modem"
++ACTION=="add", KERNEL=="tty*", SUBSYSTEMS=="usb", ATTRS{manufacturer}=="MODEX", ATTRS{product}=="AUDIOTEL", SYMLINK+="modem"
++ACTION=="add", KERNEL=="tty*", SUBSYSTEMS=="usb", ATTRS{manufacturer}=="AUDIOTEL", ATTRS{product}=="MODEX", SYMLINK+="modem"
++ACTION=="add", KERNEL=="tty*", SUBSYSTEMS=="usb", ATTRS{product}=="*USB Modem*", SYMLINK+="modem"
++ACTION=="add", KERNEL=="tty*", SUBSYSTEMS=="usb", ATTRS{bInterfaceNumber}=="00", DRIVERS=="option", SYMLINK+="modem"
+ KERNEL=="tty[A-Z]*[0-9]|pppox[0-9]*|ircomm[0-9]*|noz[0-9]*|rfcomm[0-9]*", GROUP="dialout"
+ KERNEL=="ppp",			MODE="0600"
+ KERNEL=="mwave",		GROUP="dialout"
+@@ -26,6 +31,8 @@ KERNEL=="mem|kmem|port|nvram",	GROUP="km
+ 
+ # input
+ KERNEL=="mouse*|mice|event*",	MODE="0640"
++KERNEL=="event*", DRIVERS=="usbtouchscreen", SYMLINK+="input/touchscreen input/touchscreen%n"
++KERNEL=="event*", DRIVERS=="appletouch", SYMLINK+="input/synaptics"
+ KERNEL=="ts[0-9]*|uinput",	MODE="0640"
+ KERNEL=="js[0-9]*",		MODE="0644"
+ 
+@@ -79,15 +86,15 @@ SUBSYSTEM=="block", GROUP="disk"
+-SUBSYSTEM=="block", KERNEL=="fd[0-9]", GROUP="floppy"
++SUBSYSTEM=="block", KERNEL=="fd[0-9]", GROUP="media"
+ 
+ # cdrom
+-SUBSYSTEM=="block", KERNEL=="sr[0-9]*", SYMLINK+="scd%n", GROUP="cdrom"
+-SUBSYSTEM=="scsi_generic", SUBSYSTEMS=="scsi", ATTRS{type}=="4|5", GROUP="cdrom"
+-KERNEL=="pktcdvd[0-9]*", GROUP="cdrom"
+-KERNEL=="pktcdvd", GROUP="cdrom"
++SUBSYSTEM=="block", KERNEL=="sr[0-9]*", SYMLINK+="scd%n", GROUP="media"
++SUBSYSTEM=="scsi_generic", SUBSYSTEMS=="scsi", ATTRS{type}=="4|5", GROUP="media"
++KERNEL=="pktcdvd[0-9]*", GROUP="media"
++KERNEL=="pktcdvd", GROUP="media"
+ 
+ # tape
+-KERNEL=="ht[0-9]*|nht[0-9]*", GROUP="tape"
+-KERNEL=="pt[0-9]*|npt[0-9]*|pht[0-9]*", GROUP="tape"
+-SUBSYSTEM=="scsi_generic|scsi_tape", SUBSYSTEMS=="scsi", ATTRS{type}=="1|8", GROUP="tape"
++KERNEL=="ht[0-9]*|nht[0-9]*", GROUP="media"
++KERNEL=="pt[0-9]*|npt[0-9]*|pht[0-9]*", GROUP="media"
++SUBSYSTEM=="scsi_generic|scsi_tape", SUBSYSTEMS=="scsi", ATTRS{type}=="1|8", GROUP="media"
+ 
+ # block-related
+ KERNEL=="sch[0-9]*", GROUP="disk"
+@@ -99,6 +106,10 @@ SUBSYSTEM=="raw", KERNEL=="raw[0-9]*", G
+ SUBSYSTEM=="aoe", GROUP="disk", MODE="0220"
+ SUBSYSTEM=="aoe", KERNEL=="err", MODE="0440"
+ 
++KERNEL=="sg[0-9]*", ATTRS{type}!="3|6", GROUP="media", MODE="0660"
++KERNEL=="sg[0-9]*", ATTRS{type}=="3", GROUP="media", MODE="0660"
++KERNEL=="sg[0-9]*", ATTRS{type}=="6", GROUP="media", MODE="0660", SYMLINK+="scanner"
++
+ # network
+ KERNEL=="tun",			MODE="0666"
+ KERNEL=="rfkill",		MODE="0644"
+diff -Naurdp a/rules/rules.d/60-persistent-storage.rules b/rules/rules.d/60-persistent-storage.rules
+--- a/rules/rules.d/60-persistent-storage.rules	2009-12-08 18:43:09.000000000 +0100
++++ b/rules/rules.d/60-persistent-storage.rules	2010-02-16 15:42:05.473629188 +0100
+@@ -62,9 +62,12 @@ KERNEL!="sr*", IMPORT{program}="/sbin/bl
+ # watch for future changes
+ KERNEL!="sr*", OPTIONS+="watch"
+ 
+-# by-label/by-uuid links (filesystem metadata)
+-ENV{ID_FS_USAGE}=="filesystem|other|crypto", ENV{ID_FS_UUID_ENC}=="?*", SYMLINK+="disk/by-uuid/$env{ID_FS_UUID_ENC}"
+-ENV{ID_FS_USAGE}=="filesystem|other", ENV{ID_FS_LABEL_ENC}=="?*", SYMLINK+="disk/by-label/$env{ID_FS_LABEL_ENC}"
++# by-label/by-uuid/by-type (filesystem properties)
++ENV{ID_FS_USAGE}=="filesystem|other|raid|crypto", ENV{ID_FS_UUID_ENC}=="?*", SYMLINK+="disk/by-uuid/$env{ID_FS_UUID_ENC}"
++ENV{ID_FS_USAGE}=="filesystem|other|raid", ENV{ID_FS_LABEL_ENC}=="?*", SYMLINK+="disk/by-label/$env{ID_FS_LABEL_ENC}"
++ENV{ID_FS_USAGE}=="filesystem|other|raid|crypto", ENV{ID_FS_TYPE}=="?*", SYMLINK+="disk/by-type/$env{ID_FS_TYPE}/%k"
++
++KERNEL=="dm-[0-9]*", ACTION=="add", PROGRAM="/sbin/dmsetup info -c --noopencount --noheadings -o name -j %M -m %m", SYMLINK+="disk/by-name/%c"
+ 
+ # by-id (World Wide Name)
+ ENV{DEVTYPE}=="disk", ENV{ID_WWN_WITH_EXTENSION}=="?*", SYMLINK+="disk/by-id/wwn-$env{ID_WWN_WITH_EXTENSION}"
+diff -Naurdp a/rules/rules.d/80-drivers.rules b/rules/rules.d/80-drivers.rules
+--- a/rules/rules.d/80-drivers.rules	2009-12-03 13:45:03.000000000 +0100
++++ b/rules/rules.d/80-drivers.rules	2010-02-16 15:42:05.473629188 +0100
+@@ -8,6 +8,11 @@ SUBSYSTEM=="tifm", ENV{TIFM_CARD_TYPE}==
+ SUBSYSTEM=="memstick", RUN+="/sbin/modprobe -b --all ms_block mspro_block"
+ SUBSYSTEM=="i2o", RUN+="/sbin/modprobe -b i2o_block"
+ SUBSYSTEM=="scsi", ENV{DEVTYPE}=="scsi_device", TEST!="[module/sg]", RUN+="/sbin/modprobe -b sg"
++SUBSYSTEM=="scsi", ENV{DEVTYPE}=="scsi_device", TEST!="[module/sd_mod]", ATTRS{type}=="0|7|14", RUN+="/sbin/modprobe sd_mod"
++SUBSYSTEM=="scsi", ENV{DEVTYPE}=="scsi_device", TEST!="[module/sr_mod]", ATTRS{type}=="[45]", RUN+="/sbin/modprobe sr_mod"
++SUBSYSTEM=="scsi", ENV{DEVTYPE}=="scsi_device", TEST!="[module/osst]", ATTRS{type}=="1", ATTRS{vendor}=="On[sS]tream", ATTRS{model}!="ADR*", RUN+="/sbin/modprobe osst"
++SUBSYSTEM=="scsi", ENV{DEVTYPE}=="scsi_device", TEST!="[module/st]", ATTRS{type}=="1", ATTRS{vendor}=="On[sS]tream", ATTRS{model}=="ADR*", RUN+="/sbin/modprobe st"
++SUBSYSTEM=="scsi", ENV{DEVTYPE}=="scsi_device", TEST!="[module/st]", ATTRS{type}=="1", ATTRS{vendor}!="On[sS]tream", RUN+="/sbin/modprobe st"
+ SUBSYSTEM=="module", KERNEL=="parport_pc", RUN+="/sbin/modprobe -b ppdev"
+ 
+ LABEL="drivers_end"
+diff -Naurd a/extras/floppy/60-floppy.rules b/extras/floppy/60-floppy.rules
+--- a/extras/floppy/60-floppy.rules	2010-01-11 11:54:30.000000000 +0100
++++ b/extras/floppy/60-floppy.rules	2010-02-17 17:15:39.474191740 +0100
+@@ -1,4 +1,4 @@
+ # do not edit this file, it will be overwritten on update
+ 
+ SUBSYSTEM=="block", KERNEL=="fd[0-9]", ACTION=="add", ATTRS{cmos}=="?*", ENV{CMOS_TYPE}="$attr{cmos}", \
+-  RUN+="create_floppy_devices -c -t $env{CMOS_TYPE} -m %M -M 0660 -G floppy $root/%k"
++  RUN+="create_floppy_devices -c -t $env{CMOS_TYPE} -m %M -M 0660 -G media $root/%k"

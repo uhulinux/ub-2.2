@@ -1,0 +1,8 @@
+#!/bin/sh
+
+. /etc/init.d/common
+
+DAEMON=/usr/sbin/nmbd
+PIDFILE="/var/run/nmbd.pid"
+
+startstop "$@"

@@ -1,0 +1,8 @@
+#!/bin/sh -eux
+livedir="$UB_INSTALLDIR"/usr/share/livestation
+mkdir -p $livedir/lib
+mkdir -p "$UB_INSTALLDIR"/usr/bin
+cp -r livestation/i386/{lib,plugins,qt.conf,Livestation.bin,Livestation} $livedir
+ln -s $livedir/Livestation "$UB_INSTALLDIR"/usr/bin/livestation
+cp -r livestation/i386/lib/lib* $livedir/lib
+#ln -s /usr/lib/qt4/lib/libQtSvg.so.4.6.2 $livedir/lib/libQtSvg.so.4

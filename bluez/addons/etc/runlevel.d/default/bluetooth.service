@@ -1,0 +1,9 @@
+Summary=Bluetooth Manager
+Summary[hu]=Bluetooth kezelő
+Description=Bluetooth Manager
+Description[hu]=Bluetooth kezelő
+MsgDesc=Bluetooth Manager
+MsgDesc[hu]=Bluetooth kezelő
+Script=/etc/init.d/bluetooth
+SupportsReload=yes
+Runlevels=345

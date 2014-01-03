@@ -1,0 +1,9 @@
+#!/bin/sh
+
+. /etc/init.d/common
+
+DAEMON=/usr/sbin/lircd
+PIDFILE="/var/run/lirc/lircd.pid"
+/usr/sbin/lircd --device=/dev/lirc0 --permission=0666
+
+startstop "$@"

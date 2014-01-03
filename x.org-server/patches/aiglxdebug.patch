@@ -1,0 +1,36 @@
+diff -Naur orig/glx/glxdri2.c patched/glx/glxdri2.c
+--- orig/glx/glxdri2.c	2012-05-17 19:09:02.000000000 +0200
++++ patched/glx/glxdri2.c	2012-06-19 18:36:21.395721910 +0200
+@@ -722,7 +722,7 @@
+                                           &screen->driConfigs, screen);
+ 
+     if (screen->driScreen == NULL) {
+-        LogMessage(X_ERROR, "AIGLX error: Calling driver entry point failed\n");
++        LogMessage(X_ERROR, "AIGLX error: Calling driver entry point failed (dri2)\n");
+         goto handle_error;
+     }
+ 
+diff -Naur orig/glx/glxdri.c patched/glx/glxdri.c
+--- orig/glx/glxdri.c	2012-05-17 19:09:02.000000000 +0200
++++ patched/glx/glxdri.c	2012-06-19 18:36:04.440961634 +0200
+@@ -1090,7 +1090,7 @@
+                                             &screen->driConfigs, screen);
+ 
+     if (screen->driScreen == NULL) {
+-        LogMessage(X_ERROR, "AIGLX error: Calling driver entry point failed\n");
++        LogMessage(X_ERROR, "AIGLX error: Calling driver entry point failed (legacy)\n");
+         goto handle_error;
+     }
+ 
+diff -Naur orig/glx/glxdriswrast.c patched/glx/glxdriswrast.c
+--- orig/glx/glxdriswrast.c	2012-05-17 19:09:02.000000000 +0200
++++ patched/glx/glxdriswrast.c	2012-06-19 18:36:57.649071078 +0200
+@@ -450,7 +450,7 @@
+                                             &screen->driConfigs, screen);
+ 
+     if (screen->driScreen == NULL) {
+-        LogMessage(X_ERROR, "AIGLX error: Calling driver entry point failed\n");
++        LogMessage(X_ERROR, "AIGLX error: Calling driver entry point failed (swrast)\n");
+         goto handle_error;
+     }
+ 

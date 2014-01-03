@@ -1,0 +1,6 @@
+#!/usr/bin/env dl
+
+caffeine-${UB_VERSION}.tar.gz caffeine-${UB_VERSION}/
+	http://launchpad.net/caffeine/${UB_VERSION_HEAD2}/${UB_VERSION}/+download/
+
+

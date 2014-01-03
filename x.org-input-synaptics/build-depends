@@ -1,0 +1,6 @@
+libx11-dev
+libxext-dev
+libxi-dev
+libxtst-dev
+mtdev-dev
+x.org-server-dev

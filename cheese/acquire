@@ -1,0 +1,4 @@
+#!/usr/bin/env dl
+
+cheese_${UB_VERSION}.orig.tar.xz cheese-${UB_VERSION}/
+	http://ftp.de.debian.org/debian/pool/main/c/cheese/

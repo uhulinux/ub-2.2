@@ -1,0 +1,8 @@
+--- gnome-dvb-daemon/data/gnome-dvb-control.desktop.in.in.orig	2011-10-27 18:31:18.000000000 +0200
++++ gnome-dvb-daemon/data/gnome-dvb-control.desktop.in.in	2011-10-27 18:32:46.000000000 +0200
+@@ -7,4 +7,4 @@
+ StartupNotify=false
+ Terminal=false
+ Type=Application
+-Categories=GNOME;GTK;AudioVideo;TV;Recorder;
++Categories=GNOME;GTK;AudioVideo;TV;Recorder;X-UHU-Menu/Multimedia/TVRadio;

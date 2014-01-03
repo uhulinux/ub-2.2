@@ -1,0 +1,205 @@
+diff -Naur orig/po/hu.po patched/po/hu.po
+--- orig/po/hu.po	2013-03-31 12:28:51.000000000 +0200
++++ patched/po/hu.po	2013-07-19 20:52:15.296017512 +0200
+@@ -3,23 +3,24 @@
+ # This file is distributed under the same license as the PACKAGE package.
+ # 
+ # Translators:
+-# Gabor Kelemen <kelemeng at mate dot hu>, 2005, 2006, 2007, 2008, 2009, 2010.
+-# Gergely Nagy <greg at mate dot hu>, 2004.
+-# Laszlo Dvornik <dvornikl at mailbox dot hu>, 2004.
+-# Mate ORY <orymate at gmail d0t com>, 2006.
++# Gabor Kelemen <kelemeng at mate dot hu>, 2005-2010
++# Gergely Nagy <greg at mate dot hu>, 2004
++# Laszlo Dvornik <dvornikl at mailbox dot hu>, 2004
++# Mate ORY <orymate at gmail d0t com>, 2006
++# Rezső Páder <rezso@rezso.net>, 2013
+ msgid ""
+ msgstr ""
+ "Project-Id-Version: MATE Desktop Environment\n"
+ "Report-Msgid-Bugs-To: https://github.com/mate-desktop/\n"
+ "POT-Creation-Date: 2012-07-03 15:24+0200\n"
+-"PO-Revision-Date: 2012-07-03 13:25+0000\n"
+-"Last-Translator: Stefano Karapetsas <stefano@karapetsas.com>\n"
+-"Language-Team: LANGUAGE <LL@li.org>\n"
++"PO-Revision-Date: 2013-07-12 08:46+0000\n"
++"Last-Translator: Rezső Páder <rezso@rezso.net>\n"
++"Language-Team: Hungarian (http://www.transifex.com/projects/p/MATE/language/hu/)\n"
+ "MIME-Version: 1.0\n"
+ "Content-Type: text/plain; charset=UTF-8\n"
+ "Content-Transfer-Encoding: 8bit\n"
+ "Language: hu\n"
+-"Plural-Forms: nplurals=2; plural=(n != 1)\n"
++"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+ 
+ #. TRANSLATORS: This is the label for an keyring created without a label
+ #: ../daemon/dbus/gkd-secret-change.c:78 ../daemon/dbus/gkd-secret-create.c:79
+@@ -138,7 +139,7 @@
+ 
+ #: ../egg/egg-oid.c:46
+ msgid "Email Address"
+-msgstr ""
++msgstr "E-mail cím"
+ 
+ #: ../egg/egg-oid.c:54
+ msgid "Date of Birth"
+@@ -288,15 +289,15 @@
+ 
+ #: ../gcr/gcr-certificate-renderer.c:339
+ msgid "Identity"
+-msgstr ""
++msgstr "Személyazonosság"
+ 
+ #: ../gcr/gcr-certificate-renderer.c:343
+ msgid "Verified by"
+-msgstr ""
++msgstr "Ellenőrizte:"
+ 
+ #: ../gcr/gcr-certificate-renderer.c:350
+ msgid "Expires"
+-msgstr ""
++msgstr "Lejár"
+ 
+ #. The subject
+ #: ../gcr/gcr-certificate-renderer.c:360
+@@ -366,7 +367,7 @@
+ 
+ #: ../gcr/gcr-import-dialog.ui.h:1
+ msgid "Import Certificates and Keys"
+-msgstr ""
++msgstr "Tanúsítványok és kulcsok importálása"
+ 
+ #: ../gcr/gcr-import-dialog.ui.h:2
+ msgid "Password:"
+@@ -462,15 +463,15 @@
+ 
+ #: ../gcr/gcr-key-renderer.c:69
+ msgid "Key"
+-msgstr ""
++msgstr "Kulcs"
+ 
+ #: ../gcr/gcr-key-renderer.c:260
+ msgid "Private RSA Key"
+-msgstr ""
++msgstr "Privát RSA kulcs"
+ 
+ #: ../gcr/gcr-key-renderer.c:262
+ msgid "Private DSA Key"
+-msgstr ""
++msgstr "Privát DSA kulcs"
+ 
+ #: ../gcr/gcr-key-renderer.c:264 ../gcr/gcr-parser.c:198
+ msgid "Private Key"
+@@ -478,31 +479,31 @@
+ 
+ #: ../gcr/gcr-key-renderer.c:267 ../gcr/gcr-key-renderer.c:269
+ msgid "Public DSA Key"
+-msgstr ""
++msgstr "Publikus DSA kulcs"
+ 
+ #: ../gcr/gcr-key-renderer.c:278
+ #, c-format
+ msgid "%d bit"
+ msgid_plural "%d bits"
+-msgstr[0] ""
+-msgstr[1] ""
++msgstr[0] "%d bit"
++msgstr[1] "%d bit"
+ 
+ #: ../gcr/gcr-key-renderer.c:279
+ msgid "Strength"
+-msgstr ""
++msgstr "Erősség"
+ 
+ #: ../gcr/gcr-key-renderer.c:292
+ msgid "Algorithm"
+-msgstr ""
++msgstr "Algoritmus"
+ 
+ #: ../gcr/gcr-key-renderer.c:299
+ msgid "Size"
+-msgstr ""
++msgstr "Méret"
+ 
+ #. TODO: We need to have consistent key fingerprints.
+ #: ../gcr/gcr-key-renderer.c:303
+ msgid "Fingerprint"
+-msgstr ""
++msgstr "Ujjlenyomat"
+ 
+ #: ../gcr/gcr-parser.c:1569
+ msgid "Unrecognized or unsupported data."
+@@ -522,7 +523,7 @@
+ #: ../gcr/gcr-trust.c:420
+ #, c-format
+ msgid "Couldn't find a place to store the pinned certificate"
+-msgstr ""
++msgstr "Nem található tárolási hely a rögzített tanúsítványhoz"
+ 
+ #: ../gck/gck-uri.c:124 ../gck/gck-uri.c:181 ../gck/gck-uri.c:216
+ #: ../gck/gck-uri.c:248
+@@ -532,7 +533,7 @@
+ 
+ #: ../gck/gck-uri.c:287
+ msgid "The URI does not have the 'pkcs11' scheme."
+-msgstr ""
++msgstr "Az URI nem rendelkezik a „pkcs11” sémával."
+ 
+ #: ../gck/gck-misc.c:101
+ msgid "Insufficient memory available"
+@@ -592,7 +593,7 @@
+ 
+ #: ../gck/gck-misc.c:129
+ msgid "Insufficient memory available on the device"
+-msgstr ""
++msgstr "Nem érhető el elegendő memória az eszközön"
+ 
+ #: ../gck/gck-misc.c:131
+ msgid "The device was removed or unplugged"
+@@ -628,7 +629,7 @@
+ 
+ #: ../gck/gck-misc.c:147
+ msgid "The key is different than before"
+-msgstr ""
++msgstr "A kulcs megváltozott"
+ 
+ #: ../gck/gck-misc.c:149
+ msgid "A key is needed"
+@@ -636,7 +637,7 @@
+ 
+ #: ../gck/gck-misc.c:151
+ msgid "Cannot include the key in the digest"
+-msgstr ""
++msgstr "A kivonatba nem vehető fel a kulcs"
+ 
+ #: ../gck/gck-misc.c:153
+ msgid "This operation cannot be done with this key"
+@@ -780,7 +781,7 @@
+ 
+ #: ../gck/gck-misc.c:223
+ msgid "Too many users of different types are logged in"
+-msgstr ""
++msgstr "Túl sok eltérő típusú felhasználó jelentkezett be"
+ 
+ #: ../gck/gck-misc.c:225
+ msgid "Cannot import an invalid key"
+@@ -999,16 +1000,16 @@
+ #: ../tool/gkr-tool.c:102
+ #, c-format
+ msgid "usage: mate-keyring command [options]\n"
+-msgstr ""
++msgstr "használat: mate-keyring parancs [opciók]\n"
+ 
+ #: ../tool/gkr-tool.c:104
+ msgid "commands: "
+-msgstr ""
++msgstr "parancsok:"
+ 
+ #. Translators: keep same length as translated message "commands: "
+ #: ../tool/gkr-tool.c:108
+ msgid "          "
+-msgstr ""
++msgstr "          "
+ 
+ #: ../ui/gku-prompt-tool.c:597
+ msgid "Store passwords unencrypted?"

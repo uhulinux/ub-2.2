@@ -1,0 +1,44 @@
+#!/bin/bash
+if [ ! $1 ] ; then
+echo legalább 1 paraméter kell !
+echo A lehetséges paraméterek:
+echo wolf3d-shareware-v11
+echo wolf3d-shareware-v12
+echo wolf3d-shareware-v14
+echo wolf3d-full-apogee-v11
+echo wolf3d-full-gt-id-activision-v14
+echo spear-demo
+echo spear-full
+exit 1
+fi
+
+if ! test "$1" = "wolf3d-shareware-v11"\
+	-o "$1" = "wolf3d-shareware-v12"\
+	-o "$1" = "wolf3d-shareware-v14"\
+	-o "$1" = "wolf3d-full-apogee-v11"\
+	-o "$1" = "wolf3d-full-gt-id-activision-v14"\
+	-o "$1" = "spear-demo"\
+	-o "$1" = "spear-full"
+	then
+	echo helytelen paraméter
+	exit 1
+fi
+
+
+#if [ ! -d ~/.wolf4sdl/"$1" ]
+#then
+#	mkdir -p ~/.wolf4sdl/"$1"
+#	ln -sf -t ~/.wolf4sdl/"$1" /usr/share/games/wolf4sdl/"$1"/*
+#fi
+
+cd /usr/share/games/wolf4sdl/"$1"/
+if ! test -e vgahead.*
+then
+	echo a /usr/share/games/wolf4sdl/"$1"/ alá kell másolni 
+	echo kisbetűsen az ID cég adatfájljait a használathoz
+	echo
+	echo Nyomj entert a kilépéshez!
+	read x
+	exit 1
+fi
+./wolf4sdl $2 $3 $4 $5 $6

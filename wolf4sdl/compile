@@ -1,0 +1,58 @@
+#!/bin/sh -eux
+echo compiling Wolf3d Full v1.4 GT/ID/Activision...
+make
+mv wolf3d wolf3d-full-gt-id-activision-v14.bin
+make clean
+
+cp version.h version.bak
+sed 's|//#define SPEAR|#define SPEAR|g' -i version.h
+
+echo compiling speardemo...
+make
+mv wolf3d spear-demo.bin
+make clean
+
+sed 's|#define SPEARDEMO|//#define SPEARDEMO|g' -i version.h
+
+echo compiling spear-full..
+make
+mv wolf3d spear-full.bin
+make clean
+
+cp -a version.bak version.h
+sed 's|#define GOODTIMES|//#define GOODTIMES|g' -i version.h
+sed 's|//#define APOGEE_1_1|#define APOGEE_1_1|g' -i version.h
+
+echo compiling Wolf3d Full v1.1 Apogee
+make
+mv wolf3d wolf3d-full-apogee-v11.bin
+make clean
+
+sed 's|//#define UPLOAD|#define UPLOAD|g' -i version.h
+
+echo compiling Wolf3d Shareware v1.1 ..
+make
+mv wolf3d wolf3d-shareware-v11.bin
+make clean
+
+sed 's|#define APOGEE_1_1|//#define APOGEE_1_1|g' -i version.h
+
+echo compiling Wolf3d Shareware v1.4 ..
+make
+mv wolf3d wolf3d-shareware-v14.bin
+make clean
+
+sed 's|//#define APOGEE_1_2|#define APOGEE_1_2|g' -i version.h
+
+echo compiling Wolf3d Shareware v1.2 ..
+make
+mv wolf3d wolf3d-shareware-v12.bin
+make clean
+
+#sed 's|#define APOGEE_1_2|//#define APOGEE_1_2|g' -i version.h
+#sed 's|//#define APOGEE_1_0|#define APOGEE_1_0|g' -i version.h
+#sed 's|#define CARMACIZED|//#define CARMACIZED|g' -i version.h
+
+#echo compiling Wolf3d Shareware v1.0 ..
+#make
+#mv wolf3d wolf3d-shareware-v10.bin

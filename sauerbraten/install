@@ -1,0 +1,17 @@
+#!/bin/sh -eux
+
+
+LIBEXECDIR="${UB_INSTALLDIR}"/usr/libexec
+DATADIR="${UB_INSTALLDIR}"/usr/share/games/sauerbraten
+STATEDIR=/var
+PIXMAPSDIR="${UB_INSTALLDIR}"/usr/share/pixmaps
+
+mkdir -p $DATADIR
+mkdir -p $LIBEXECDIR
+mkdir -p $PIXMAPSDIR
+
+cp src/sauer_client $LIBEXECDIR/
+cp src/sauer_server $LIBEXECDIR/
+cp src/sauer_master $LIBEXECDIR/
+cp data/cube.png $PIXMAPSDIR/sauerbraten.png
+

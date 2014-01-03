@@ -1,0 +1,9 @@
+diff -urN gnome-disk-utility-2.28.0.orig/data/palimpsest.desktop.in gnome-disk-utility-2.28.0/data/palimpsest.desktop.in
+--- gnome-disk-utility-2.28.0.orig/data/palimpsest.desktop.in	2009-09-11 17:48:29.000000000 +0200
++++ gnome-disk-utility-2.28.0/data/palimpsest.desktop.in	2009-09-30 21:23:36.000000000 +0200
+@@ -7,4 +7,4 @@
+ Type=Application
+ StartupNotify=true
+ X-GNOME-DocPath=palimpsest/palimpsest.xml
+-Categories=GNOME;GTK;Utility;HardwareSettings;
++Categories=GTK;GNOME;System;X-UHU-Menu/Tools/Utilities;

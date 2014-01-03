@@ -1,0 +1,32 @@
+diff -Naur orig/operations/external/ff-load.c patched/operations/external/ff-load.c
+--- orig/operations/external/ff-load.c	2012-04-01 13:17:57.000000000 +0200
++++ patched/operations/external/ff-load.c	2013-03-31 17:55:18.368478762 +0200
+@@ -271,7 +271,7 @@
+       gint err;
+ 
+       ff_cleanup (o);
+-      err = av_open_input_file (&p->ic, o->path, NULL, 0, NULL);
++	   err = avformat_open_input (&p->ic, o->path, NULL, NULL);
+       if (err < 0)
+         {
+           print_error (o->path, err);
+diff -Naur orig/operations/workshop/external/ff-save.c patched/operations/workshop/external/ff-save.c
+--- orig/operations/workshop/external/ff-save.c	2012-03-29 22:05:50.000000000 +0200
++++ patched/operations/workshop/external/ff-save.c	2013-03-31 17:57:37.329761333 +0200
+@@ -775,14 +775,14 @@
+       return -1;
+     }
+ 
+-  dump_format (p->oc, 0, self->path, 1);
++  av_dump_format (p->oc, 0, self->path, 1);
+ 
+   if (p->video_st)
+     open_video (p, p->oc, p->video_st);
+   if (p->audio_st)
+     open_audio (p, p->oc, p->audio_st);
+ 
+-  if (url_fopen (&p->oc->pb, self->path, URL_WRONLY) < 0)
++  if (url_fopen (&p->oc->pb, self->path, AVIO_FLAG_WRITE) < 0)
+     {
+       fprintf (stderr, "couldn't open '%s'\n", self->path);
+       return -1;

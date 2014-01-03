@@ -1,0 +1,12 @@
+diff -Naurd a/config/gdm.conf-custom.in b/config/gdm.conf-custom.in
+--- a/config/gdm.conf-custom.in	2007-10-15 23:43:04.000000000 +0200
++++ b/config/gdm.conf-custom.in	2007-10-26 19:30:30.000000000 +0200
+@@ -53,6 +53,8 @@
+ # Have fun!
+ 
+ [daemon]
++AutomaticLoginEnable=false
++AutomaticLogin=
+ 
+ [security]
+ 

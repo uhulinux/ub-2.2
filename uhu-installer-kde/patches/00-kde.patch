@@ -1,0 +1,83 @@
+diff -Naur uhu-installer-2.2.44-ori/hu.po uhu-installer-2.2.44/hu.po
+--- uhu-installer-2.2.44-ori/hu.po	2010-09-06 17:08:25.000000000 +0200
++++ uhu-installer-2.2.44/hu.po	2013-04-10 18:11:22.000000000 +0200
+@@ -269,8 +269,8 @@
+ msgstr "Frissítés"
+ 
+ #: uhu-installer.glade:368
+-msgid "Partitioning with GParted"
+-msgstr "Particionálás GParteddel"
++msgid "Partitioning with KDE Partition Manager"
++msgstr "Particionálás KDE partíció szerkesztővel"
+ 
+ #: uhu-installer.glade:387
+ msgid "_Partitioning"
+diff -Naur uhu-installer-2.2.44-ori/uhu-installer uhu-installer-2.2.44/uhu-installer
+--- uhu-installer-2.2.44-ori/uhu-installer	2010-09-06 18:01:38.000000000 +0200
++++ uhu-installer-2.2.44/uhu-installer	2013-04-13 17:23:40.748539624 +0200
+@@ -401,7 +401,7 @@
+ sub on_gparted_clicked {
+ 	w('window')->set_sensitive(FALSE);
+ 	_fork(sub {
+-		_system("gparted");
++		_system("partitionmanager");
+ 	}, sub {
+ 		my ($ret) = @_;
+ 		debug "fisished";
+@@ -843,7 +843,7 @@
+ 					system 'losetup', '-d', "/dev/$_";
+ 				}
+ 				# remove uhu-installer desktop icon
+-				system 'rm', '/home/uhu/Desktop/uhu-installer.desktop';
++				system 'rm', '/home/uhu/Asztal/uhu-installer.desktop';
+ 			}
+ 		};
+ 		
+@@ -1070,6 +1070,7 @@
+ 				_system "mount", "--bind", "/sys/", "/mnt/sys/";
+ 				_system "chroot", "/mnt", "userdel", "-fr", "uhu";
+ 				_system "chroot", "/mnt", "useradd", "-m", w('username')->get_text, "-c", w('fullname')->get_text;
++				_system "chroot", "/mnt", "usermod", "-a", "-G", "audio,media,tty,video", w('username')->get_text;
+ 				_system("chroot /mnt bash -c \"echo 'root:".w('rootpass1')->get_text."' | chpasswd -m\"");
+ 				_system("chroot /mnt bash -c \"echo '".w('username')->get_text.":".w('userpass1')->get_text."' | chpasswd -m\"");
+ 				_system 'sed', '-r', '-e', 's/^AutomaticLogin=.*/AutomaticLogin='.w('username')->get_text.'/', '-i', '/etc/gdm/custom.conf';
+diff -Naur uhu-installer-2.2.44-ori/uhu-installer.desktop uhu-installer-2.2.44/uhu-installer.desktop
+--- uhu-installer-2.2.44-ori/uhu-installer.desktop	2010-04-13 17:19:07.000000000 +0200
++++ uhu-installer-2.2.44/uhu-installer.desktop	2013-04-10 18:11:22.000000000 +0200
+@@ -1,9 +1,9 @@
+ [Desktop Entry]
+ Encoding=UTF-8
+-Name=UHU Installer
+-Name[hu]=UHU Telepítő
++Name=UHU-Linux Installer
++Name[hu]=UHU-Linux Telepítő
+ Exec=uhu-installer
+ Terminal=false
+-Icon=/usr/share/pixmaps/uhucc.png
++Icon=system-software-update
+ Type=Application
+ Categories=X-UHU-Menu/Settings;
+diff -Naur uhu-installer-2.2.44-ori/uhu-installer.glade uhu-installer-2.2.44/uhu-installer.glade
+--- uhu-installer-2.2.44-ori/uhu-installer.glade	2010-09-06 17:08:25.000000000 +0200
++++ uhu-installer-2.2.44/uhu-installer.glade	2013-04-10 18:11:22.000000000 +0200
+@@ -365,7 +365,7 @@
+                                 <property name="visible">True</property>
+                                 <property name="can_focus">True</property>
+                                 <property name="receives_default">True</property>
+-                                <property name="tooltip" translatable="yes">Partitioning with GParted</property>
++                                <property name="tooltip" translatable="yes">Partitioning with KDE Partition Manager</property>
+                                 <property name="response_id">0</property>
+                                 <signal name="clicked" handler="on_gparted_clicked"/>
+                                 <child>
+diff -Naur uhu-installer-2.2.44-ori/uhu-installer.pot uhu-installer-2.2.44/uhu-installer.pot
+--- uhu-installer-2.2.44-ori/uhu-installer.pot	2010-09-06 17:08:25.000000000 +0200
++++ uhu-installer-2.2.44/uhu-installer.pot	2013-04-10 18:11:22.000000000 +0200
+@@ -243,7 +243,7 @@
+ msgstr ""
+ 
+ #: uhu-installer.glade:368
+-msgid "Partitioning with GParted"
++msgid "Partitioning with KDE Partition Manager"
+ msgstr ""
+ 
+ #: uhu-installer.glade:387

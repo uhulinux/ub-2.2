@@ -1,0 +1,4 @@
+#!/usr/bin/env dl
+
+clementine-${UB_VERSION}.tar.gz clementine-${UB_VERSION}/
+	http://clementine-player.googlecode.com/files/

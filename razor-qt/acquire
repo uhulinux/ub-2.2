@@ -1,0 +1,5 @@
+#!/usr/bin/env dl
+
+razorqt-${UB_VERSION}.tar.bz2 razorqt-${UB_VERSION}/
+	http://razor-qt.org/downloads/
+

@@ -1,0 +1,66 @@
+diff -Naur gnome-terminal-2.14.2.orig/src/gnome-terminal.schemas.in gnome-terminal-2.14.2/src/gnome-terminal.schemas.in
+--- gnome-terminal-2.14.2.orig/src/gnome-terminal.schemas.in	2006-01-28 04:21:31.000000000 +0100
++++ gnome-terminal-2.14.2/src/gnome-terminal.schemas.in	2006-06-16 16:46:26.000000000 +0200
+@@ -44,7 +44,7 @@
+       <applyto>/apps/gnome-terminal/global/use_mnemonics</applyto>
+       <owner>gnome-terminal</owner>
+       <type>bool</type>
+-      <default>true</default>
++      <default>false</default>
+       <locale name="C">
+          <short>Whether the menubar has access keys</short>
+          <long>
+@@ -60,7 +60,7 @@
+       <applyto>/apps/gnome-terminal/global/use_menu_accelerators</applyto>
+       <owner>gnome-terminal</owner>
+       <type>bool</type>
+-      <default>true</default>
++      <default>false</default>
+       <locale name="C">
+          <short>Whether the standard GTK shortcut for menubar access is enabled</short>
+          <long>
+@@ -774,7 +774,7 @@
+       <applyto>/apps/gnome-terminal/keybindings/full_screen</applyto>
+       <owner>gnome-terminal</owner>
+       <type>string</type>
+-      <default>F11</default>
++      <default>disabled</default>
+       <locale name="C">
+          <short>Keyboard shortcut to toggle full screen mode</short>
+          <long>
+@@ -1142,7 +1142,7 @@
+       <applyto>/apps/gnome-terminal/keybindings/help</applyto>
+       <owner>gnome-terminal</owner>
+       <type>string</type>
+-      <default>F1</default>
++      <default>disabled</default>
+       <locale name="C">
+          <short>Keyboard shortcut to launch help</short>
+          <long>
+@@ -1159,7 +1159,7 @@
+       <applyto>/apps/gnome-terminal/keybindings/zoom_in</applyto>
+       <owner>gnome-terminal</owner>
+       <type>string</type>
+-      <default>&lt;Ctrl&gt;plus</default>
++      <default>disabled</default>
+       <locale name="C">
+          <short>Keyboard shortcut to make font larger</short>
+          <long>
+@@ -1176,7 +1176,7 @@
+       <applyto>/apps/gnome-terminal/keybindings/zoom_out</applyto>
+       <owner>gnome-terminal</owner>
+       <type>string</type>
+-      <default>&lt;Ctrl&gt;minus</default>
++      <default>disabled</default>
+       <locale name="C">
+          <short>Keyboard shortcut to make font smaller</short>
+          <long>
+@@ -1193,7 +1193,7 @@
+       <applyto>/apps/gnome-terminal/keybindings/zoom_normal</applyto>
+       <owner>gnome-terminal</owner>
+       <type>string</type>
+-      <default>&lt;Ctrl&gt;0</default>
++      <default>disabled</default>
+       <locale name="C">
+          <short>Keyboard shortcut to make font normal-size</short>
+          <long>

@@ -1,0 +1,13 @@
+alsa-lib
+cmake
+doxygen
+file-dev
+libstatgrab-dev
+libxcomposite-dev
+libxcursor-dev
+policykit-dev
+polkit-dev
+polkit-qt-1-dev
+pulseaudio-dev
+qt4-dev
+udev-dev

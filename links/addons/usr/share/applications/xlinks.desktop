@@ -1,0 +1,10 @@
+[Desktop Entry]
+Encoding=UTF-8
+Type=Application
+Name=XLinks
+Comment=Graphical variant of Links
+Comment[hu]=A Links grafikus változata
+Exec=xlinks
+Icon=links_32x32.xpm
+Terminal=false
+Categories=X-UHU-Menu/Internet/Browsers;

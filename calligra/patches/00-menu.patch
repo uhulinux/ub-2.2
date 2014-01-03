@@ -1,0 +1,91 @@
+diff -Naur calligra-2.6.90-orig/braindump/data/braindump.desktop calligra-2.6.90/braindump/data/braindump.desktop
+--- calligra-2.6.90-orig/braindump/data/braindump.desktop	2013-04-30 08:48:23.000000000 +0200
++++ calligra-2.6.90/braindump/data/braindump.desktop	2013-05-09 08:42:01.000000000 +0200
+@@ -1,5 +1,5 @@
+ [Desktop Entry]
+-Categories=Qt;KDE;Office;
++Categories=Qt;KDE;Office;X-UHU-Menu/Tools/Organizer;
+ Comment=
+ Exec=braindump %u
+ GenericName=Notes and idea gathering
+diff -Naur calligra-2.6.90-orig/flow/part/flow.desktop calligra-2.6.90/flow/part/flow.desktop
+--- calligra-2.6.90-orig/flow/part/flow.desktop	2013-04-30 08:48:23.000000000 +0200
++++ calligra-2.6.90/flow/part/flow.desktop	2013-05-09 08:42:47.000000000 +0200
+@@ -99,4 +99,4 @@
+ X-KDE-StartupNotify=true
+ X-DBUS-StartupType=Multi
+ X-DBUS-ServiceName=org.calligra.flow
+-Categories=Qt;KDE;Office;
++Categories=Qt;KDE;Office;X-UHU-Menu/Tools/Utilities;
+diff -Naur calligra-2.6.90-orig/karbon/data/karbon.desktop calligra-2.6.90/karbon/data/karbon.desktop
+--- calligra-2.6.90-orig/karbon/data/karbon.desktop	2013-04-30 08:48:23.000000000 +0200
++++ calligra-2.6.90/karbon/data/karbon.desktop	2013-05-09 08:43:18.000000000 +0200
+@@ -95,7 +95,7 @@
+ Icon=calligrakarbon
+ X-KDE-NativeMimeType=application/vnd.oasis.opendocument.graphics
+ X-Calligra-DefaultMimeTypes=application/vnd.oasis.opendocument.graphics,application/x-karbon,image/x-eps,application/postscript,image/svg+xml,image/svg+xml-compressed,image/x-wmf,application/pdf,
+-Categories=Qt;KDE;Graphics;Office;
++Categories=Qt;KDE;Graphics;Office;X-UHU-Menu/Graphics/Vectors;
+ Comment=Create scalable vector drawings
+ Comment[bg]=Създаване на векторни графики
+ Comment[bs]=Kreiraj vektorski crtež koji se može skalirati
+diff -Naur calligra-2.6.90-orig/kexi/kexi.desktop calligra-2.6.90/kexi/kexi.desktop
+--- calligra-2.6.90-orig/kexi/kexi.desktop	2013-04-30 08:48:23.000000000 +0200
++++ calligra-2.6.90/kexi/kexi.desktop	2013-05-09 08:43:42.000000000 +0200
+@@ -170,4 +170,4 @@
+ X-DocPath=kexi/index.html
+ X-KDE-NativeMimeType=application/x-kexiproject-sqlite
+ X-KDE-NOTKoDocumentEmbeddable=true
+-Categories=Qt;KDE;Office;
++Categories=Qt;KDE;Office;X-UHU-Menu/Tools/Databases;
+diff -Naur calligra-2.6.90-orig/krita/krita.desktop calligra-2.6.90/krita/krita.desktop
+--- calligra-2.6.90-orig/krita/krita.desktop	2013-04-30 08:48:24.000000000 +0200
++++ calligra-2.6.90/krita/krita.desktop	2013-05-09 08:43:59.000000000 +0200
+@@ -118,7 +118,7 @@
+ Comment[x-test]=xxDigital Paintingxx
+ Type=Application
+ Icon=calligrakrita
+-Categories=Qt;KDE;Graphics;
++Categories=Qt;KDE;Graphics;X-UHU-Menu/Graphics/Bitmaps;
+ X-KDE-ServiceTypes=Calligra/Application
+ X-Calligra-DefaultMimeTypes=application/x-krita
+ X-KDE-NativeMimeType=application/x-krita
+diff -Naur calligra-2.6.90-orig/plan/plan.desktop calligra-2.6.90/plan/plan.desktop
+--- calligra-2.6.90-orig/plan/plan.desktop	2013-04-30 08:48:25.000000000 +0200
++++ calligra-2.6.90/plan/plan.desktop	2013-05-09 08:44:25.000000000 +0200
+@@ -98,6 +98,6 @@
+ X-Calligra-DefaultMimeTypes=application/x-vnd.kde.plan
+ X-KDE-NativeMimeType=application/x-vnd.kde.plan
+ X-DocPath=http://userbase.kde.org/Plan/Manual
+-Categories=Qt;KDE;Office;
++Categories=Qt;KDE;Office;X-UHU-Menu/Tools/Organizer;
+ X-KDE-StartupNotify=true
+ X-KDE-NOTKoDocumentEmbeddable=true
+diff -Naur calligra-2.6.90-orig/sheets/sheets.desktop calligra-2.6.90/sheets/sheets.desktop
+--- calligra-2.6.90-orig/sheets/sheets.desktop	2013-04-30 08:48:25.000000000 +0200
++++ calligra-2.6.90/sheets/sheets.desktop	2013-05-09 08:44:54.000000000 +0200
+@@ -118,4 +118,4 @@
+ X-DBUS-ServiceName=org.calligra.sheets
+ X-DocPath=sheets/index.html
+ X-KDE-StartupNotify=true
+-Categories=Qt;KDE;Office;
++Categories=Qt;KDE;Office;X-UHU-Menu/Tools/Spreadsheets;
+diff -Naur calligra-2.6.90-orig/stage/app/stage.desktop calligra-2.6.90/stage/app/stage.desktop
+--- calligra-2.6.90-orig/stage/app/stage.desktop	2013-04-30 08:48:25.000000000 +0200
++++ calligra-2.6.90/stage/app/stage.desktop	2013-05-09 08:45:27.000000000 +0200
+@@ -125,4 +125,4 @@
+ X-DBUS-ServiceName=org.calligra.stage
+ X-DocPath=stage/index.html
+ X-KDE-StartupNotify=true
+-Categories=Qt;KDE;Office;
++Categories=Qt;KDE;Office;X-UHU-Menu/Tools/Presentations;
+diff -Naur calligra-2.6.90-orig/words/app/words.desktop calligra-2.6.90/words/app/words.desktop
+--- calligra-2.6.90-orig/words/app/words.desktop	2013-04-30 08:48:25.000000000 +0200
++++ calligra-2.6.90/words/app/words.desktop	2013-05-09 08:46:15.000000000 +0200
+@@ -126,5 +126,5 @@
+ X-KDE-StartupNotify=true
+ X-DBUS-StartupType=Multi
+ X-DBUS-ServiceName=org.calligra.words
+-Categories=Qt;KDE;Office;
++Categories=Qt;KDE;Office;X-UHU-Menu/Tools/Word_Processors;
+ InitialPreference=4

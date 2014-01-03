@@ -1,0 +1,4 @@
+#!/usr/bin/env dl
+
+gcalctool-${UB_VERSION}.tar.xz gcalctool-${UB_VERSION}/
+	ftp://ftp.gnome.org/pub/GNOME/sources/gcalctool/${UB_VERSION_HEAD2}/

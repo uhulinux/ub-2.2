@@ -1,0 +1,135 @@
+diff -Naur orig/tidy/__init__.py patched/tidy/__init__.py
+--- orig/tidy/__init__.py	2007-11-16 14:33:37.000000000 +0100
++++ patched/tidy/__init__.py	2007-11-16 15:18:40.000000000 +0100
+@@ -1,4 +1,5 @@
+-"""The Tidy wrapper.
++# -- Modified by Zoran Isailovski to re-gain py22 compatibility, watch for mark @byZI
++"""The Tidy wrapper
+ I am the main interface to TidyLib. This package supports processing HTML with
+ Tidy, with all the options that the tidy command line supports.
+ 
+@@ -31,7 +32,14 @@
+ try:
+     dict(x=1)
+ except TypeError:
+-    raise ImportError("Python 2.3 or later is required to import this library.")
++    #byZI: replaced "raise..." with code below to re-gain py22 compatibility
++    ##raise ImportError("Python 2.3 or later is required to import this library.")
++    def mkdict(arg=(), **kwargs):
++        d = dict(arg)
++        d.update(kwargs)
++        return d
++else: 
++    mkdict = dict
+ 
+ __all__ = ['error', 'lib']
+ 
+diff -Naur orig/tidy/lib.py patched/tidy/lib.py
+--- orig/tidy/lib.py	2007-11-16 14:48:43.000000000 +0100
++++ patched/tidy/lib.py	2007-11-16 15:18:53.000000000 +0100
+@@ -1,16 +1,22 @@
++# -- Modified by Zoran Isailovski to re-gain py22 compatibility, watch for mark @byZI
+ from __future__ import generators
+ 
+ import sys
+ import os.path
+-from itertools import count
++##from itertools import count
+ packagedir = os.path.dirname(__file__)
++from tidy import mkdict
+ 
+-# look for ctypes in the system path, then try looking for a private ctypes
+-# distribution
++# look for ctypes in the system path, then try looking for a private ctypes distribution
+ try:
+     import ctypes
+ except ImportError:
+-    private_ctypes = os.path.join(packagedir, 'pvt_ctypes')
++    ##private_ctypes = os.path.join(packagedir, 'pvt_ctypes')
++    #@BEGIN byZI: adjusted, so that version-specific private ctypes distributions can be used
++    private_ctypes = os.path.join(packagedir, 'pvt_ctypes-%s' % sys.version[:3])
++    import warnings
++    warnings.warn('Package ctypes not found; trying private ctypes distribution in %r' % private_ctypes, stacklevel=0)
++    #@END byZI
+     sys.path.insert(0, private_ctypes)
+     sys.path.insert(0, os.path.join(private_ctypes, 'ctypes.zip'))
+     import ctypes
+@@ -88,7 +94,8 @@
+             self.col = None
+         # TODO - parse emacs mode
+     def __str__(self):
+-        severities = dict(W='Warning', E='Error', C='Config')
++        #@byZI: replaced dict(...) by mkdict(...) to re-gain py22 compatibility
++        severities = mkdict(W='Warning', E='Error', C='Config')
+         try:
+             if self.line:
+                 return "line %d col %d - %s: %s" % (self.line, self.col,
+diff -Naur orig/tidy/pvt_ctypes/README.ctypes patched/tidy/pvt_ctypes/README.ctypes
+--- orig/tidy/pvt_ctypes/README.ctypes	2007-11-16 14:33:37.000000000 +0100
++++ patched/tidy/pvt_ctypes/README.ctypes	1970-01-01 01:00:00.000000000 +0100
+@@ -1,24 +0,0 @@
+-** This notice applies only to the version of ctypes packaged with the Windows
+-binary package.  These files are found in the pvt_ctypes directory. 
+-See the file LICENSE for information about uTidyLib. **
+-
+-	   Copyright (c) 2000, 2001, 2002, 2003 Thomas Heller
+-
+-Permission is hereby granted, free of charge, to any person obtaining
+-a copy of this software and associated documentation files (the
+-"Software"), to deal in the Software without restriction, including
+-without limitation the rights to use, copy, modify, merge, publish,
+-distribute, sublicense, and/or sell copies of the Software, and to
+-permit persons to whom the Software is furnished to do so, subject to
+-the following conditions:
+-
+-The above copyright notice and this permission notice shall be
+-included in all copies or substantial portions of the Software.
+-
+-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND,
+-EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
+-MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND
+-NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE
+-LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION
+-OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION
+-WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+diff -Naur orig/tidy/pvt_ctypes-2.2/README.ctypes patched/tidy/pvt_ctypes-2.2/README.ctypes
+--- orig/tidy/pvt_ctypes-2.2/README.ctypes	1970-01-01 01:00:00.000000000 +0100
++++ patched/tidy/pvt_ctypes-2.2/README.ctypes	2007-11-16 14:33:37.000000000 +0100
+@@ -0,0 +1,24 @@
++** This notice applies only to the version of ctypes packaged with the Windows
++binary package.  These files are found in the pvt_ctypes directory. 
++See the file LICENSE for information about uTidyLib. **
++
++	   Copyright (c) 2000, 2001, 2002, 2003 Thomas Heller
++
++Permission is hereby granted, free of charge, to any person obtaining
++a copy of this software and associated documentation files (the
++"Software"), to deal in the Software without restriction, including
++without limitation the rights to use, copy, modify, merge, publish,
++distribute, sublicense, and/or sell copies of the Software, and to
++permit persons to whom the Software is furnished to do so, subject to
++the following conditions:
++
++The above copyright notice and this permission notice shall be
++included in all copies or substantial portions of the Software.
++
++THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND,
++EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
++MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND
++NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE
++LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION
++OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION
++WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+diff -Naur orig/tidy/test_tidy.py patched/tidy/test_tidy.py
+--- orig/tidy/test_tidy.py	2007-11-16 14:33:37.000000000 +0100
++++ patched/tidy/test_tidy.py	2007-11-16 15:18:53.000000000 +0100
+@@ -47,7 +47,8 @@
+             str(getattr(doc, 'errors'))
+             self.assertEquals(doc1.errors[0].line, 1)
+     def test_options(self):
+-        options = dict(add_xml_decl=1, show_errors=1, newline='CR', 
++        #@byZI: replaced dict(...) by mkdict(...) to re-gain py22 compatibility
++        options = mkdict(add_xml_decl=1, show_errors=1, newline='CR', 
+                        output_xhtml=1)
+         doc1 = tidy.parseString(self.input1, **options)
+         found = re.search('//<![[]CDATA[[]\W+1>2\W+//]]>', str(doc1),

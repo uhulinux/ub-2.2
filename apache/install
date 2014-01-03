@@ -1,0 +1,8 @@
+#!/bin/sh -eux
+
+ub_install
+
+cp -alvu build/. "$UB_INSTALLDIR"/usr/lib/apache/build/
+mv "$UB_INSTALLDIR"/etc/apache/httpd.conf "$UB_INSTALLDIR"/etc/apache/main.conf
+mv "$UB_INSTALLDIR"/usr/sbin/htpasswd "$UB_INSTALLDIR"/usr/bin/
+rm -Rf "$UB_INSTALLDIR"/usr/lib/apache/build/{aix,pkg,rpm,win32}

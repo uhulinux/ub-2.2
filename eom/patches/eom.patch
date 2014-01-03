@@ -1,0 +1,74 @@
+diff -Naur orig/configure patched/configure
+--- orig/configure	2013-12-31 15:54:51.000000000 +0100
++++ patched/configure	2013-12-31 21:23:20.954169941 +0100
+@@ -589,7 +589,7 @@
+ 
+ # Identity of this package.
+ PACKAGE_NAME='eom'
+-PACKAGE_TARNAME='mate-image-viewer'
++PACKAGE_TARNAME='eom'
+ PACKAGE_VERSION='1.6.2'
+ PACKAGE_STRING='eom 1.6.2'
+ PACKAGE_BUGREPORT='http://www.mate-desktop.org'
+@@ -1561,7 +1561,7 @@
+   --localedir=DIR         locale-dependent data [DATAROOTDIR/locale]
+   --mandir=DIR            man documentation [DATAROOTDIR/man]
+   --docdir=DIR            documentation root
+-                          [DATAROOTDIR/doc/mate-image-viewer]
++                          [DATAROOTDIR/doc/eom]
+   --htmldir=DIR           html documentation [DOCDIR]
+   --dvidir=DIR            dvi documentation [DOCDIR]
+   --pdfdir=DIR            pdf documentation [DOCDIR]
+@@ -2987,7 +2987,7 @@
+ 
+ 
+ # Define the identity of the package.
+- PACKAGE='mate-image-viewer'
++ PACKAGE='eom'
+  VERSION='1.6.2'
+ 
+ 
+diff -Naur orig/configure.ac patched/configure.ac
+--- orig/configure.ac	2013-12-31 15:54:47.000000000 +0100
++++ patched/configure.ac	2013-12-31 21:21:01.872886272 +0100
+@@ -6,7 +6,7 @@
+ m4_define(eom_micro_version, 2)
+ m4_define(eom_version, eom_major_version.eom_minor_version.eom_micro_version)
+ 
+-AC_INIT([eom], eom_version, [http://www.mate-desktop.org], [mate-image-viewer])
++AC_INIT([eom], eom_version, [http://www.mate-desktop.org], [eom])
+ AM_INIT_AUTOMAKE([1.9 foreign no-dist-gzip dist-xz])
+ 
+ # Support silencing the build output if supported (automake-1.11+)
+diff -Naur orig/man/eom.1 patched/man/eom.1
+--- orig/man/eom.1	2013-12-31 15:54:47.000000000 +0100
++++ patched/man/eom.1	2013-12-31 21:21:01.872886272 +0100
+@@ -1,5 +1,5 @@
+ .\"
+-.\" mate-image-viewer manual page.
++.\" eom manual page.
+ .\" (C) 2013 Scott Balneaves (sbalneav@mate-desktop.org)
+ .\"
+ .TH EOM 1 "MATE"
+@@ -25,4 +25,4 @@
+ Start a new instance instead of reusing an existing one.
+ .SH BUGS
+ If you find bugs in the \fIeom\fP program, please report
+-these on https://github.com/mate-desktop/mate-image-viewer/issues.
++these on https://github.com/mate-desktop/eom/issues.
+diff -Naur orig/src/main.c patched/src/main.c
+--- orig/src/main.c	2013-12-31 15:54:47.000000000 +0100
++++ patched/src/main.c	2013-12-31 21:21:01.884886376 +0100
+@@ -188,9 +188,9 @@
+ 	if (!g_thread_supported ())
+ 		g_thread_init (NULL);
+ 
+-	bindtextdomain (PACKAGE, EOM_LOCALE_DIR);
+-	bind_textdomain_codeset (PACKAGE, "UTF-8");
+-	textdomain (PACKAGE);
++	bindtextdomain (GETTEXT_PACKAGE, EOM_LOCALE_DIR);
++	bind_textdomain_codeset (GETTEXT_PACKAGE, "UTF-8");
++	textdomain (GETTEXT_PACKAGE);
+ 
+ 	gtk_rc_parse (EOM_DATA_DIR G_DIR_SEPARATOR_S "gtkrc");
+ 

@@ -1,0 +1,9 @@
+diff -Naur a/kolf.desktop b/kolf.desktop
+--- a/kolf.desktop	2013-01-23 23:06:51.000000000 +0100
++++ b/kolf.desktop	2013-02-10 23:07:11.814702486 +0100
+@@ -139,4 +139,4 @@
+ GenericName[x-test]=xxMiniature Golfxx
+ GenericName[zh_CN]=微型高尔夫
+ GenericName[zh_TW]=迷你高爾夫
+-Categories=Qt;KDE;Game;ArcadeGame;
++Categories=Qt;KDE;Game;ArcadeGame;X-UHU-Menu/Games/Arcade;

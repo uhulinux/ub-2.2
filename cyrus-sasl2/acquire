@@ -1,0 +1,7 @@
+#!/usr/bin/env dl
+
+cyrus-sasl-${UB_VERSION}.tar.gz cyrus-sasl-${UB_VERSION}/
+	ftp://ftp.andrew.cmu.edu/pub/cyrus-mail/
+	ftp://ftp.andrew.cmu.edu/pub/cyrus-mail/OLD-VERSIONS/sasl/
+	http://ftp.andrew.cmu.edu/pub/cyrus-mail/
+	http://ftp.andrew.cmu.edu/pub/cyrus-mail/OLD-VERSIONS/sasl/

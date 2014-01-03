@@ -1,0 +1,1 @@
+sflist linuxwacom xf86-input-wacom | parsever | sort -V | tail -n 1

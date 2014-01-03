@@ -1,0 +1,10 @@
+Summary=USB Multiplex Daemon
+Summary[hu]=USB Multiplex démon
+Description=USB Multiplex Daemon. This bit of software is in charge of talking to your iPhone or iPod Touch over USB and coordinating access to its services by other applications.
+Description[hu]=iPhone vagy iPod készüléket teszi elérhetővé USB porton keresztül.
+MsgDesc=USB Multiplex Daemon
+MsgDesc[hu]=USB Multiplex démon
+Script=/etc/init.d/usbmuxd
+SupportsReload=yes
+Runlevels=2345
+Sequence=20

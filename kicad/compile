@@ -1,0 +1,5 @@
+#!/bin/sh -eux
+
+ub_compile \
+	-DKICAD_STABLE_VERSION=ON \
+	-DBUILD_GITHUB_PLUGIN=OFF

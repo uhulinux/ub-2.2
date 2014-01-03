@@ -1,0 +1,1 @@
+sflist xml-copy-editor xmlcopyeditor-linux | sort -V | tail -n 1

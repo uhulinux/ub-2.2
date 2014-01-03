@@ -1,0 +1,7 @@
+#!/bin/sh -eux
+
+cd acetoneiso
+qmake-qt4 \
+	-unix -o Makefile acetoneiso.pro
+make \
+	INSTALL_ROOT="$UB_INSTALLDIR"

@@ -1,0 +1,9 @@
+diff -Naur a/kreversi.desktop b/kreversi.desktop
+--- a/kreversi.desktop	2013-07-10 01:32:23.000000000 +0200
++++ b/kreversi.desktop	2013-08-19 13:32:34.699807630 +0200
+@@ -139,4 +139,4 @@
+ Icon=kreversi
+ X-KDE-StartupNotify=true
+ X-DBUS-StartupType=Multi
+-Categories=Qt;KDE;Game;BoardGame;
++Categories=Qt;KDE;Game;BoardGame;X-UHU-Menu/Games/Board;

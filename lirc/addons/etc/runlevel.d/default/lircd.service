@@ -1,0 +1,8 @@
+Summary=lirc daemon
+Summary[hu]=lirc démon
+Description=
+Description[hu]=
+Script=/etc/init.d/lircd
+SupportsReload=no
+Runlevels=
+Sequence=12

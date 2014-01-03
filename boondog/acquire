@@ -1,0 +1,3 @@
+#!/usr/bin/env dl
+boondog.v.${UB_VERSION}.zip	boondog.v.${UB_VERSION}/
+	http://www.bazosoft.com/_downloads/

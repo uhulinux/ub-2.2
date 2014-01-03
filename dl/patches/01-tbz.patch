@@ -1,0 +1,12 @@
+diff -Naur orig/src/dl patched/src/dl
+--- orig/src/dl	2011-12-21 13:53:05.000000000 +0100
++++ patched/src/dl	2011-12-21 13:53:11.000000000 +0100
+@@ -25,7 +25,7 @@
+ 		*.[tT][aA][rR].[gG][zZ]|*.[tT][gG][zZ]|*.[tT][aA][rR].[zZ])
+ 			tar --use-compress-program=gzip -x -v --force-local -h -f "$file" -- "$@"
+ 			;;
+-		*.[tT][aA][rR].[bB][zZ]2|*.[tT][bB][zZ]2)
++		*.[tT][aA][rR].[bB][zZ]2|*.[tT][bB][zZ]2|*.[tT][bB][zZ])
+ 			tar --use-compress-program=bzip2 -x -v --force-local -h -f "$file" -- "$@"
+ 			;;
+ 		*.[tT][aA][rR].[lL][zZ][mM][aA])

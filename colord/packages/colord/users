@@ -1,0 +1,1 @@
+colord    230  230  -d /var/lib/colord -s /bin/sh

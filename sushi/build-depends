@@ -1,0 +1,17 @@
+clutter-gst-dev
+clutter-gtk-dev
+evince-dev
+freetype2-dev
+gdk-pixbuf-dev
+gettext
+gjs-dev
+glib2-dev
+gobject-introspection-dev
+gst-plugins-base-dev
+gstreamer-dev
+gtk3-dev
+gtksourceview-dev
+icu-dev
+intltool
+libmusicbrainz3-dev
+webkitgtk3-dev

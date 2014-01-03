@@ -1,0 +1,122 @@
+diff -Naur orig/desktop-themes/GreenLaguna/gtk-3.0/gtk-widgets.css mod/desktop-themes/GreenLaguna/gtk-3.0/gtk-widgets.css
+--- orig/desktop-themes/GreenLaguna/gtk-3.0/gtk-widgets.css	2013-06-09 22:16:36.000000000 +0200
++++ mod/desktop-themes/GreenLaguna/gtk-3.0/gtk-widgets.css	2013-06-21 16:58:14.000000000 +0200
+@@ -123,7 +123,7 @@
+ 	border-radius: 3px;
+ 	border-width: 0px;
+ 	border-style: solid;
+-	text-shadow: 0 1px @theme_bg_color;
++	text-shadow: 0 1 @theme_bg_color;
+ 
+ 	color: @theme_fg_color;
+ 	background-image: linear-gradient(to bottom,
+@@ -356,12 +356,7 @@
+ 	                                  alpha(@progressbar_pattern, 0.15) 50%,
+ 	                                  alpha(@progressbar_pattern, 0.15) 75%,
+ 	                                  transparent 75%,
+-	                                  transparent),
+-	                  linear-gradient(to bottom,
+-	                                  @progressbar_background_a,
+-	                                  shade(@progressbar_background_a, 0.82) 35%,
+-	                                  @progressbar_background_b 36%,
+-	                                  shade(@progressbar_background_a, 0.98));
++	                                  transparent);
+ }
+ 
+ progressbar.vertical {
+@@ -373,12 +368,7 @@
+ 	                                  alpha(@progressbar_pattern, 0.15) 50%,
+ 	                                  alpha(@progressbar_pattern, 0.15) 75%,
+ 	                                  transparent 75%,
+-	                                  transparent),
+-	                  linear-gradient(to right,
+-	                                  @progressbar_background_a,
+-	                                  shade(@progressbar_background_a, 0.82) 35%,
+-	                                  @progressbar_background_b 36%,
+-	                                  shade(@progressbar_background_a, 0.98));
++	                                  transparent);
+ }
+ 
+ GtkProgressBar.progressbar {
+@@ -1437,8 +1427,8 @@
+ 	                                  @osd_button_bg_b 68%,
+ 	                                  @osd_button_bg_c);
+ 	color: @osd_button_fg;
+-	text-shadow: 0 -1px @osd_button_shadow;
+-	icon-shadow: 0 -1px @osd_button_shadow;
++	text-shadow: 0 -1 @osd_button_shadow;
++	icon-shadow: 0 -1 @osd_button_shadow;
+ }
+ 
+ .osd .button,
+@@ -1488,7 +1478,7 @@
+ 
+ .osd.toolbar {
+ 	color: @osd_fg;
+-	text-shadow: 0 1px @osd_text_shadow;
++	text-shadow: 0 1 @osd_text_shadow;
+ 
+ 	padding: 10px;
+ 	border-style: none;
+@@ -1506,13 +1496,13 @@
+ 	padding: 4px;
+ 	border-width: 1px 0;
+ 	border-radius: 0;
+-	box-shadow: inset -1px 0 @osd_button_inset;
++	box-shadow: inset -1 0 @osd_button_inset;
+ }
+ 
+ .osd.toolbar .button:first-child {
+ 	border-radius: 5px 0 0 5px;
+ 	border-width: 1px 0 1px 1px;
+-	box-shadow: inset -1px 0 @osd_button_inset;
++	box-shadow: inset -1 0 @osd_button_inset;
+ }
+ 
+ .osd.toolbar .button:last-child {
+@@ -1600,11 +1590,11 @@
+ 	border-style: none;
+ 	padding: 5px 8px;
+ 	border-radius: 5px;
+-	box-shadow: inset 0 2px 1px alpha(black, 0.2),
+-	            inset 1px 1px 1px alpha(black, 0.3),
++	box-shadow: inset 0 2 1 alpha(black, 0.2),
++	            inset 1 1 1 alpha(black, 0.3),
+ 
+-	            inset 0 -2px 1px alpha(white, 0.4),
+-	            inset -1px -1px 1px alpha(white, 0.6);
++	            inset 0 -2 1 alpha(white, 0.4),
++	            inset -1 -1 1 alpha(white, 0.6);
+ }
+ 
+ GtkAssistant .sidebar {
+@@ -1660,10 +1650,7 @@
+ 	border-style: solid;
+ 	padding: 2px;
+ 	color: shade(@switch_slider_color, 0.8);
+-	background-image: url("assets/switch-slider-grip.svg"),
+-	                  linear-gradient(to bottom,
+-	                                  @button_gradient_color_a,
+-	                                  @switch_slider_color);
++	background-image: url("assets/switch-slider-grip.svg");
+ 	background-repeat: no-repeat;
+ 	background-position: center;
+ }
+@@ -1928,7 +1915,7 @@
+ 	                                  @app_notification_c);
+ 
+ 	color: @theme_text_color;
+-	text-shadow: 0 1px white;
++	text-shadow: 0 1 white;
+ }
+ 
+ /*************
+@@ -2418,7 +2405,7 @@
+ .nautilus-desktop.nautilus-canvas-item,
+ .nemo-desktop.nautilus-canvas-item {
+ 	color: @theme_bg_color;
+-	text-shadow: 1px 1px black;
++	text-shadow: 1 1 black;
+ }
+ 
+ .nautilus-desktop.nautilus-canvas-item:active,

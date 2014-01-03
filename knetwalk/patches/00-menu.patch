@@ -1,0 +1,9 @@
+diff -Naur a/src/knetwalk.desktop b/src/knetwalk.desktop
+--- a/src/knetwalk.desktop	2013-01-23 23:06:40.000000000 +0100
++++ b/src/knetwalk.desktop	2013-02-10 23:04:13.665019467 +0100
+@@ -108,4 +108,4 @@
+ Terminal=false
+ Icon=knetwalk
+ X-KDE-StartupNotify=true
+-Categories=Qt;KDE;Game;StrategyGame;
++Categories=Qt;KDE;Game;StrategyGame;X-UHU-Menu/Games/TacticStrategy;

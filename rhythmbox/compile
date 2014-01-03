@@ -1,0 +1,25 @@
+#!/bin/sh -eux
+
+rm -v lib/rb-marshal.{c,h}
+export GST_INSPECT=/bin/true
+ub_compile \
+	--enable-vala \
+	--enable-mmkeys \
+	--disable-more-warnings \
+	--disable-schemas-compile \
+	--disable-static \
+	--without-hal \
+	--enable-daap \
+	--enable-libnotify \
+	--enable-lirc \
+	--enable-nsplugin \
+	--enable-python \
+	--enable-grilo\
+	--with-cdr \
+	--with-brasero \
+	--with-daap \
+	--with-mdns \
+	--with-avahi \
+	--with-gnome-keyring \
+	--with-html \
+	--with-webkit

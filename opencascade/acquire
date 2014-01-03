@@ -1,0 +1,4 @@
+#!/usr/bin/env dl
+
+OpenCASCADE${UB_VERSION//./}.tgz . 
+	http://files.opencascade.com/OCCT/OCC_${UB_VERSION}_release/

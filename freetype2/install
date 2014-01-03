@@ -1,0 +1,9 @@
+#!/bin/sh -eux
+
+ub_install
+
+cd ft2demos-${UB_VERSION}
+	cp bin/.libs/ft* "$UB_INSTALLDIR"/usr/bin
+cd ..
+
+ln -s libfreetype.so.6.10.2 "$UB_INSTALLDIR"/usr/lib/libfreetype.so.6.4.0

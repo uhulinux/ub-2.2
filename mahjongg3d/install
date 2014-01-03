@@ -1,0 +1,5 @@
+#!/bin/sh -eux
+make -f Makefile.doit \
+	PREFIX="$UB_INSTALLDIR"/usr \
+	GAMEDATA_PREFIX="$UB_INSTALLDIR"/usr/share/games \
+	install

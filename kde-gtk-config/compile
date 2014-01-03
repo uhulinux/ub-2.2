@@ -1,0 +1,4 @@
+#!/bin/sh -eux
+
+sed -i 's|add_subdirectory(gtk3proxies)|# add_subdirectory(gtk3proxies)|' CMakeLists.txt
+ub_compile

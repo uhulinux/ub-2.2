@@ -1,0 +1,10 @@
+diff -Naur a/kollision.desktop b/kollision.desktop
+--- a/kollision.desktop	2013-07-10 01:30:23.000000000 +0200
++++ b/kollision.desktop	2013-08-19 13:28:52.143813497 +0200
+@@ -97,5 +97,5 @@
+ Comment[zh_CN]=一个简单的躲避球游戏
+ Comment[zh_TW]=簡單的閃躲球遊戲
+ Terminal=false
+-Categories=Qt;KDE;Game;ArcadeGame;
++Categories=Qt;KDE;Game;ArcadeGame;X-UHU-Menu/Games/Arcade;
+ X-DocPath=kollision/index.html

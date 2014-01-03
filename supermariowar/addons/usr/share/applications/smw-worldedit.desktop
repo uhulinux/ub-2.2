@@ -1,0 +1,8 @@
+[Desktop Entry]
+Encoding=UTF-8
+Categories=X-UHU-Menu/Games/Action/smw;
+Exec=smw-worldetit
+Icon=smw-worldedit
+Name=smw Worldeditor
+Name[hu]=smw térképszerkesztő
+Type=Application

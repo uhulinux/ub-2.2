@@ -1,0 +1,4 @@
+#!/bin/sh -eux
+
+ub_compile \
+	--with-plugins=batt,cpu,cpufreq,deskno,kbled,netstatus,thermal,volume,volumealsa,xkb

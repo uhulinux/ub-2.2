@@ -1,0 +1,17 @@
+#!/usr/bin/env dl
+
+vdr-plugin-skinpearlhd-${UB_VERSION}.tar.gz vdr-plugin-skinpearlhd-${UB_VERSION}/
+  git://projects.vdr-developer.org/vdr-plugin-skinpearlhd.git@${UB_VERSION}
+#  http://projects.vdr-developer.org/git/vdr-plugin-skinpearlhd.git/snapshot/
+
+PearlHD(native)-Accessibility.theme
+http://projects.vdr-developer.org/projects/plg-skinpearlhd/repository/revisions/master/raw/themes/
+
+PearlHD(native)-Beige.theme
+http://projects.vdr-developer.org/projects/plg-skinpearlhd/repository/revisions/master/raw/themes/
+
+PearlHD(native)-Blue.theme
+http://projects.vdr-developer.org/projects/plg-skinpearlhd/repository/revisions/master/raw/themes/
+
+PearlHD(native)-White.theme
+http://projects.vdr-developer.org/projects/plg-skinpearlhd/repository/revisions/master/raw/themes/

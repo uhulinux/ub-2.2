@@ -1,0 +1,11 @@
+alsa-lib-dev
+cyrus-sasl2
+expat-dev
+ffmpeg-dev
+libv4l-dev
+openldap-dev
+openssl-dev
+pulseaudio-dev
+sdl-dev
+unixodbc-dev
+x264-dev

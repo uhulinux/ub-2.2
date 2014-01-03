@@ -1,0 +1,11 @@
+#!/usr/bin/env dl
+
+linux-${UB_VERSION/~/-}.tar.xz linux-${UB_VERSION/~/-}/
+	ftp://ftp.kernel.org/pub/linux/kernel/v3.0/
+	ftp://ftp.kernel.org/pub/linux/kernel/v3.0/testing/
+
+cloop_2.639-2.tar.gz cloop-2.639/cloop.c :drivers/block/
+	http://debian-knoppix.alioth.debian.org/packages/cloop/
+
+cloop_2.639-2.tar.gz cloop-2.639/cloop.h :drivers/block/
+	http://debian-knoppix.alioth.debian.org/packages/cloop/

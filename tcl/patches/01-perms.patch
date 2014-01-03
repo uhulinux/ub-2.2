@@ -1,0 +1,12 @@
+diff -Naur tcl8.5.14-orig/unix/Makefile.in tcl8.5.14/unix/Makefile.in
+--- tcl8.5.14-orig/unix/Makefile.in	2013-04-01 20:36:35.000000000 +0200
++++ tcl8.5.14/unix/Makefile.in	2013-05-08 20:03:35.285418523 +0200
+@@ -719,7 +719,7 @@
+ 	    done;
+ 	@echo "Installing $(LIB_FILE) to $(DLL_INSTALL_DIR)/"
+ 	@@INSTALL_LIB@
+-	@chmod 555 "$(DLL_INSTALL_DIR)"/$(LIB_FILE)
++	@chmod 755 "$(DLL_INSTALL_DIR)"/$(LIB_FILE)
+ 	@echo "Installing ${TCL_EXE} as $(BIN_INSTALL_DIR)/tclsh$(VERSION)@EXEEXT@"
+ 	@$(INSTALL_PROGRAM) ${TCL_EXE} "$(BIN_INSTALL_DIR)"/tclsh$(VERSION)@EXEEXT@
+ 	@echo "Installing tclConfig.sh to $(CONFIG_INSTALL_DIR)/"

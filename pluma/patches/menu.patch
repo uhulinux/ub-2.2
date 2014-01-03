@@ -1,0 +1,12 @@
+diff -Naur orig/data/pluma.desktop.in.in patched/data/pluma.desktop.in.in
+--- orig/data/pluma.desktop.in.in	2013-04-02 16:02:23.000000000 +0200
++++ patched/data/pluma.desktop.in.in	2013-04-04 22:24:20.506566829 +0200
+@@ -8,7 +8,7 @@
+ StartupNotify=true
+ MimeType=text/plain;
+ Icon=accessories-text-editor
+-Categories=GTK;Utility;TextEditor;
++Categories=GTK;Utility;TextEditor;X-UHU-Menu/Tools/Editors;
+ X-MATE-DocPath=pluma/pluma.xml
+ _X-MATE-FullName=pluma Text Editor
+ X-MATE-Bugzilla-Bugzilla=MATE

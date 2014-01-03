@@ -1,0 +1,11 @@
+desktop-file-utils
+icon-theme-hicolor
+libjpeg-dev
+libpng-dev
+librsvg2-dev
+libtiff-dev
+libx11-dev
+libxext-dev
+perl
+poppler-glib-dev
+xterm

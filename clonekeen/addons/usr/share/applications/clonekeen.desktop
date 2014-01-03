@@ -1,0 +1,11 @@
+[Desktop Entry]
+Encoding=UTF-8
+Type=Application
+Name=CloneKeen
+Name[hu]=Keen parancsnok
+GenericName=Adventure Game
+Comment=A Commander Keen clone
+Comment[hu]=Commander Keen klón
+Exec=clonekeen
+Icon=clonekeen
+Categories=X-UHU-Menu/Games/Action;

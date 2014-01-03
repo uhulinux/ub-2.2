@@ -1,0 +1,12 @@
+alsa-lib-dev
+alsa-oss-dev
+cmake
+dbus-dev
+doxygen
+jack-dev
+ladspa-dev
+libsndfile-dev
+libvorbis-dev
+portaudio-dev
+pulseaudio-dev
+readline-dev

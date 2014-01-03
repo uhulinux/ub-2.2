@@ -1,0 +1,5 @@
+#!/bin/sh -eux
+
+ub_install
+mkdir -p $UB_INSTALLDIR/usr/share/pixmaps
+cp $UB_SRCDIR/sources/dvbcut.svg* $UB_INSTALLDIR/usr/share/pixmaps/dvbcut.svg

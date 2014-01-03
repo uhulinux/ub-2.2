@@ -1,0 +1,13 @@
+curl-dev
+dbus-dev
+gmime-dev
+gobject-introspection-dev
+intltool
+libarchive-dev
+libgnome-keyring-dev
+libquvi-dev
+libsoup-gnome-dev
+libxml2-dev
+lua-dev
+openssl-dev
+sqlite-dev

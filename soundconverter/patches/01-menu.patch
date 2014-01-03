@@ -1,0 +1,39 @@
+diff -Naur soundconverter-1.5.4-orig/data/soundconverter.desktop soundconverter-1.5.4/data/soundconverter.desktop
+--- soundconverter-1.5.4-orig/data/soundconverter.desktop	2011-01-06 21:47:24.000000000 +0100
++++ soundconverter-1.5.4/data/soundconverter.desktop	2011-03-19 19:15:20.462963406 +0100
+@@ -18,7 +18,7 @@
+ Name[gl]=Sound Converter
+ Name[he]=ממיר סאונד
+ Name[hi]=दवानी बदलनेवला
+-Name[hu]=Hangkonvertáló
++Name[hu]=Sound Converter
+ Name[it]=Sound Converter
+ Name[ja]=サウンド変換
+ Name[ms]=Penukar Audio
+@@ -117,5 +117,5 @@
+ Terminal=false
+ Type=Application
+ StartupNotify=true
+-Categories=GNOME;GTK;AudioVideo;
++Categories=GNOME;GTK;AudioVideo;X-UHU-Menu/Multimedia/Mixers;
+ 
+diff -Naur soundconverter-1.5.4-orig/data/soundconverter.desktop.in soundconverter-1.5.4/data/soundconverter.desktop.in
+--- soundconverter-1.5.4-orig/data/soundconverter.desktop.in	2011-01-06 21:47:24.000000000 +0100
++++ soundconverter-1.5.4/data/soundconverter.desktop.in	2011-03-19 19:16:09.954589883 +0100
+@@ -9,5 +9,5 @@
+ Terminal=false
+ Type=Application
+ StartupNotify=true
+-Categories=GNOME;GTK;AudioVideo;
++Categories=GNOME;GTK;AudioVideo;X-UHU-Menu/Multimedia/Mixers;
+ 
+diff -Naur soundconverter-1.5.4-orig/data/soundconverter.desktop.in.in soundconverter-1.5.4/data/soundconverter.desktop.in.in
+--- soundconverter-1.5.4-orig/data/soundconverter.desktop.in.in	2010-06-24 22:56:15.000000000 +0200
++++ soundconverter-1.5.4/data/soundconverter.desktop.in.in	2011-03-19 19:16:21.794589530 +0100
+@@ -9,5 +9,5 @@
+ Terminal=false
+ Type=Application
+ StartupNotify=true
+-Categories=GNOME;GTK;AudioVideo;
++Categories=GNOME;GTK;AudioVideo;X-UHU-Menu/Multimedia/Mixers;
+ 

@@ -1,0 +1,5 @@
+#!/usr/bin/env dl
+
+kMancala-${UB_VERSION}.tar.bz2 kMancala-${UB_VERSION}/
+	http://horinek.net/~dal/
+

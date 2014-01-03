@@ -1,0 +1,73 @@
+diff -Naur orig/configure.ac patched/configure.ac
+--- orig/configure.ac	2013-08-06 20:44:01.000000000 +0200
++++ patched/configure.ac	2013-10-27 20:17:31.542936787 +0100
+@@ -20,7 +20,6 @@
+ AM_SILENT_RULES([yes])
+ AC_CONFIG_HEADERS([config.h])
+ 
+-AC_PATH_PROG(MATECONFTOOL, mateconftool-2)
+ IT_PROG_INTLTOOL([0.35.0])
+ 
+ AC_DISABLE_STATIC
+@@ -64,18 +63,11 @@
+ 	glib-2.0 >= 2.13.0
+ 	gio-2.0 >= 2.16.0
+ 	gtk+-2.0 >= 2.13.0
+-	mateconf-2.0 >= 1.1.0
+ 	gtksourceview-2.0 >= 2.9.1
+ 	pluma >= 1.2.0
+ ])
+ 
+ # ================================================================
+-# MateConf related settings
+-# ================================================================
+-
+-AM_MATECONF_SOURCE_2
+-
+-# ================================================================
+ # Plugins
+ # ================================================================
+ 
+@@ -85,13 +77,13 @@
+ 
+ AC_MSG_CHECKING([which plugins to build])
+ 
+-ALL_PLUGINS="bookmarks showtabbar charmap drawspaces wordcompletion"
+-USEFUL_PLUGINS="bookmarks showtabbar charmap drawspaces wordcompletion"
+-DEFAULT_PLUGINS="bookmarks showtabbar charmap drawspaces wordcompletion"
+-
+-PYTHON_ALL_PLUGINS="bracketcompletion codecomment colorpicker commander joinlines multiedit textsize sessionsaver smartspaces terminal synctex"
+-PYTHON_USEFUL_PLUGINS="bracketcompletion codecomment colorpicker commander joinlines multiedit textsize sessionsaver smartspaces terminal synctex"
+-PYTHON_DEFAULT_PLUGINS="bracketcompletion codecomment colorpicker commander joinlines multiedit textsize sessionsaver smartspaces terminal synctex"
++ALL_PLUGINS="bookmarks charmap wordcompletion"
++USEFUL_PLUGINS="bookmarks charmap wordcompletion"
++DEFAULT_PLUGINS="bookmarks charmap wordcompletion"
++
++PYTHON_ALL_PLUGINS="bracketcompletion codecomment colorpicker commander joinlines multiedit textsize sessionsaver smartspaces synctex"
++PYTHON_USEFUL_PLUGINS="bracketcompletion codecomment colorpicker commander joinlines multiedit textsize sessionsaver smartspaces synctex"
++PYTHON_DEFAULT_PLUGINS="bracketcompletion codecomment colorpicker commander joinlines multiedit textsize sessionsaver smartspaces synctex"
+ 
+ DIST_PLUGINS="$ALL_PLUGINS $PYTHON_ALL_PLUGINS"
+ 
+@@ -454,8 +446,6 @@
+ plugins/commander/commander/commands/Makefile
+ plugins/commander/modules/Makefile
+ plugins/commander/modules/find/Makefile
+-plugins/drawspaces/Makefile
+-plugins/drawspaces/drawspaces.pluma-plugin.desktop.in
+ plugins/joinlines/Makefile
+ plugins/joinlines/joinlines.pluma-plugin.desktop.in
+ plugins/multiedit/Makefile
+@@ -466,12 +456,8 @@
+ plugins/textsize/textsize.pluma-plugin.desktop.in
+ plugins/sessionsaver/Makefile
+ plugins/sessionsaver/sessionsaver.pluma-plugin.desktop.in
+-plugins/showtabbar/Makefile
+-plugins/showtabbar/showtabbar.pluma-plugin.desktop.in
+ plugins/smartspaces/Makefile
+ plugins/smartspaces/smartspaces.pluma-plugin.desktop.in
+-plugins/terminal/Makefile
+-plugins/terminal/terminal.pluma-plugin.desktop.in
+ plugins/wordcompletion/Makefile
+ plugins/wordcompletion/wordcompletion.pluma-plugin.desktop.in
+ plugins/synctex/Makefile

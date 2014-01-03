@@ -1,0 +1,14 @@
+--- a/gxine.desktop.in
++++ b/gxine.desktop.in
+@@ -14,5 +14,5 @@
+ Terminal=false
+ Type=Application
+ StartupNotify=true
+-Categories=AudioVideo;GTK;Player;TV;
+-MimeType=x-content/video-dvd;x-content/audio-cdda;x-content/video-vcd;x-content/video-svcd;
+\ No newline at end of file
++GenericName[hu]=Videólejátszó
++Comment[hu]=Film- és zenelejátszó, digitális TV-néző
++Categories=AudioVideo;Video;GTK;Player;TV;X-UHU-Menu/Multimedia/VideoPlayers;
++MimeType=x-content/video-dvd;x-content/audio-cdda;x-content/video-vcd;x-content/video-svcd;
+\ No newline at end of file

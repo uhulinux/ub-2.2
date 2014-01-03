@@ -1,0 +1,4 @@
+#!/usr/bin/env dl
+
+gst-python-${UB_VERSION}.tar.xz gst-python-${UB_VERSION}/
+	ftp://ftp.gnome.org/pub/GNOME/sources/gst-python/${UB_VERSION_HEAD2}/

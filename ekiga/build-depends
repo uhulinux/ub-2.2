@@ -1,0 +1,17 @@
+avahi-dev
+boost-dev
+docbook-dtds
+evolution-data-server-dev
+gnome-doc-utils
+gtk2-dev
+icon-theme-gnome
+intltool
+libnotify-dev
+libsigc++-dev
+libv4l-dev
+libxv-dev
+opal-dev
+openldap-dev
+ptlib-dev
+rarian-dev
+sdl-dev

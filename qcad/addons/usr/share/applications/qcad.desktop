@@ -1,0 +1,10 @@
+[Desktop Entry]
+Name=Qcad
+Name[hu]=Qcad
+Comment=CAD program
+Comment[hu]=CAD program
+Exec=qcad
+Icon=/usr/share/qcad/xpm/qcad.xpm
+Terminal=0
+Type=Application
+Categories=Application;Graphics;X-UHU-Menu/Graphics;

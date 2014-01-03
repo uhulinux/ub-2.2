@@ -1,0 +1,12 @@
+#!/bin/sh -eux
+#cp $UB_SRCDIR/patches/gnome-autogen.sh.skip gnome-autogen.sh
+#chmod +x gnome-autogen.sh
+#./autogen.sh
+ub_compile \
+	--enable-compile-warnings=maximum \
+	--disable-jhbuild-wrapper-script \
+	--with-ca-certificates=/usr/lib/certs/ca-certificates.crt \
+		BROWSER_PLUGIN_DIR=/usr/lib/nsbrowser/plugins
+
+
+		

@@ -1,0 +1,5 @@
+#!/usr/bin/env dl
+
+silicon_${UB_VERSION}_source.tar.gz silicon-empire/
+	http://getsilicon.org/download/
+

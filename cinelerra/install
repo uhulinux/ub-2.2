@@ -1,0 +1,5 @@
+#!/bin/sh -eux
+
+ub_install
+cp -R bin ${UB_INSTALLDIR}/usr/lib/cinelerra
+ln -s /usr/lib/cinelerra/cinelerra ${UB_INSTALLDIR}/usr/bin/cinelerra

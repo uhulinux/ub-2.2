@@ -1,0 +1,72 @@
+diff -Naurd xf86-input-mouse-1.0.3.1/src/mouse.c x/src/mouse.c
+--- xf86-input-mouse-1.0.3.1/src/mouse.c	2005-12-15 01:21:33.000000000 +0100
++++ x/src/mouse.c	2006-04-24 20:33:39.000000000 +0200
+@@ -1471,7 +1471,7 @@
+ 	     */
+ 	    dz = (signed char)(pBuf[3] | ((pBuf[3] & 0x08) ? 0xf8 : 0));
+ 	    if ((pBuf[3] & 0xf8) && ((pBuf[3] & 0xf8) != 0xf8)) {
+-		if (pMse->autoProbe) {
++		if (pMse->autoProbe) {
+ 		    SetMouseProto(pMse, PROT_EXPPS2);
+ 		    xf86Msg(X_INFO,
+ 			    "Mouse autoprobe: Changing protocol to %s\n",
+@@ -1484,20 +1484,20 @@
+ 	    break;
+ 
+ 	case PROT_EXPPS2:	/* IntelliMouse Explorer PS/2 */
+-	    if (pMse->autoProbe && (pBuf[3] & 0xC0)) {
+-		SetMouseProto(pMse, PROT_IMPS2);
+-		xf86Msg(X_INFO,"Mouse autoprobe: Changing protocol to %s\n",
+-			pMse->protocol); 
+-		goto REDO_INTERPRET;
+-	    }
+ 	    buttons = (pBuf[0] & 0x04) >> 1 |       /* Middle */
+ 		      (pBuf[0] & 0x02) >> 1 |       /* Right */
+-		      (pBuf[0] & 0x01) << 2 |       /* Left */
+-		      (pBuf[3] & 0x10) >> 1 |       /* button 4 */
+-		      (pBuf[3] & 0x20) >> 1;        /* button 5 */
++		      (pBuf[0] & 0x01) << 2 ;       /* Left */
+ 	    dx = (pBuf[0] & 0x10) ?    pBuf[1]-256  :  pBuf[1];
+ 	    dy = (pBuf[0] & 0x20) ?  -(pBuf[2]-256) : -pBuf[2];
+-	    dz = (pBuf[3] & 0x08) ? (pBuf[3] & 0x0f) - 16 : (pBuf[3] & 0x0f);
++	    if (pBuf[3] & 0x40) { /* IntelliMouse Explorer 4.0 wheel 1 */
++		dw = (pBuf[3] & 0x08) ? (pBuf[3] & 0x3f) - 64 : (pBuf[3] & 0x3f);
++	    } else if (pBuf[3] & 0x20) { /* IntelliMouse Explorer 4.0 wheel 2 */
++		dz = (pBuf[3] & 0x08) ? (pBuf[3] & 0x3f) - 64 : (pBuf[3] & 0x3f);
++	    } else {
++		dz = (pBuf[3] & 0x08) ? (pBuf[3] & 0x0f) - 16 : (pBuf[3] & 0x0f);
++		buttons |= (pBuf[3] & 0x10) >> 1;        /* button 4 */
++		buttons |= (pBuf[3] & 0x20) >> 1;        /* button 5 */
++	    }
+ 	    break;
+ 
+ 	case PROT_MMPS2:	/* MouseMan+ PS/2 */
+@@ -2360,13 +2360,13 @@
+     default:	/* buttons */
+ 	buttons &= ~(pMse->negativeZ | pMse->positiveZ
+ 		   | pMse->negativeW | pMse->positiveW);
+-	if (dw < 0 || dz < -1)
++	if (dw < 0)
+ 	    zbutton = pMse->negativeW;
+-	else if (dz < 0)
++	if (dz < 0)
+ 	    zbutton = pMse->negativeZ;
+-	else if (dw > 0 || dz > 1)
++	if (dw > 0)
+ 	    zbutton = pMse->positiveW;
+-	else if (dz > 0)
++	if (dz > 0)
+ 	    zbutton = pMse->positiveZ;
+ 	buttons |= zbutton;
+ 	dz = 0;
+@@ -2775,7 +2775,9 @@
+ 	case PROT_EXPPS2:		/* IntelliMouse Explorer */
+ 	{
+ 	    static unsigned char seq[] = { 243, 200, 243, 100, 243, 80,
+-					   243, 200, 243, 200, 243, 80 };
++					   243, 200, 243, 200, 243, 80,
++					   243, 200, 243,  80, 243, 40,
++					   243, 200, 243, 200, 243, 60 };
+ 	
+ 	    param = seq;
+ 	    paramlen = sizeof(seq);

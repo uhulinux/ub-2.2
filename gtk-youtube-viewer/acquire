@@ -1,0 +1,5 @@
+#!/usr/bin/env dl
+
+gtk-youtube-viewer-${UB_VERSION}.tar.gz \
+  youtube-viewer-gtk-youtube-viewer-${UB_VERSION}/WWW-YoutubeViewer/
+  git://github.com/trizen/youtube-viewer.git@gtk-youtube-viewer-${UB_VERSION}

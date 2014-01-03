@@ -1,0 +1,5 @@
+#!/bin/sh -eux
+
+UB_CONFIGURE_NO_DISABLE_STATIC=yes \
+ub_compile \
+	--without-ffmpeg

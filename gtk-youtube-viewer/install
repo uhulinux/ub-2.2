@@ -1,0 +1,4 @@
+#!/bin/sh -eux
+
+./Build install --install_path script=/usr/bin
+cp ${UB_INSTALLDIR}/usr/share/gtk-youtube-viewer/icons/gtk-youtube-viewer.png ${UB_INSTALLDIR}/usr/share/pixmaps/youtube.png

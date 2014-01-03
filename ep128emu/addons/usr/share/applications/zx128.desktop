@@ -1,0 +1,11 @@
+[Desktop Entry]
+Encoding=UTF-8
+Type=Application
+Name=zx128emu
+GenericName=zx128emu
+GenericName[hu]=zx128
+Comment=zx128 emulator
+Comment[hu]=zx128 emulátor
+Exec=padsp ep128emu -zx
+Icon=zx128emu
+Categories=X-UHU-Menu/Tools/Emulators/Ep128;

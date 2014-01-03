@@ -1,0 +1,19 @@
+#!/bin/sh -eux
+
+cd unix
+ub_compile \
+	--with-installed-zlib
+
+if false; then # does not compile, use x11vnc instead
+patch -N -p0 <xc.patch || true
+
+{ echo; cat /usr/lib/X11/config/host.def; } >>xc/config/cf/host.def
+
+cd xc
+make World
+cd ..
+fi
+
+cd ../java
+chmod -x logo150x150.gif
+PATH="$PATH:/usr/lib/java/bin" make JAVAC=javac

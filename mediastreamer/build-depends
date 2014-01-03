@@ -1,0 +1,10 @@
+dbus-dev
+ffmpeg-dev
+intltool
+jack-dev
+libortp-dev
+libsamplerate-dev
+libv4l-dev
+libx11-dev
+libxv-dev
+speex-dev

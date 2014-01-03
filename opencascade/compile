@@ -1,0 +1,13 @@
+#!/bin/sh -eux
+cd ros
+	sed -e "/^AM_C_PROTOTYPES$/d" \
+		-e "s/AM_CONFIG_HEADER/AC_CONFIG_HEADERS/" \
+		-i configure.*
+export CPLUS_INCLUDE_PATH=/usr/include/FTGL:/usr/include/freetype2
+export CASROOT="../ros"
+  ./build_configure
+ub_compile \
+	--disable-debug \
+	--enable-production \
+	--with-java-include=/usr/lib/java/include \
+	--prefix=/usr/share/opencascade

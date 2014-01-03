@@ -1,0 +1,4 @@
+#!/usr/bin/env dl
+
+sinthgunt-${UB_VERSION}.tar.gz sinthgunt-${UB_VERSION}/
+	http://sinthgunt.googlecode.com/files/

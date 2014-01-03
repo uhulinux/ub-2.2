@@ -1,0 +1,8 @@
+#!/bin/sh -eux
+
+ub_install
+
+mv "$UB_INSTALLDIR"/usr/share/man/man5/fonts{-,.}conf.5
+rm -r "$UB_INSTALLDIR"/usr/share/doc/fontconfig
+ln -s /etc/fonts/conf.avail/70-no-bitmaps.conf "$UB_INSTALLDIR"/etc/fonts/conf.d/
+rm "$UB_INSTALLDIR"/etc/fonts/conf.d/65-fonts-persian.conf

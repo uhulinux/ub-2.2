@@ -1,0 +1,11 @@
+[Desktop Entry]
+Version=1.0
+Type=Application
+Name=vifm
+GenericName=file manager
+TryExec=vifm
+Exec=vifm
+Icon=vifm
+Terminal=true
+StartupNotify=false
+Categories=System;FileTools;GTK;FileManager;X-UHU-Menu/Tools/File_Managers;

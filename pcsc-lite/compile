@@ -1,0 +1,8 @@
+#!/bin/sh -eux
+
+ub_compile \
+	--enable-runpid=/var/run/pcscd/pid \
+	--enable-ipcdir=/var/run/pcscd \
+	--enable-scf \
+	--enable-usb \
+	--disable-libhal

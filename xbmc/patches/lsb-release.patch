@@ -1,0 +1,11 @@
+diff -Naur orig/xbmc/utils/SystemInfo.cpp mod/xbmc/utils/SystemInfo.cpp
+--- orig/xbmc/utils/SystemInfo.cpp	2013-05-03 07:57:41.000000000 +0200
++++ mod/xbmc/utils/SystemInfo.cpp	2013-07-29 11:54:37.000000000 +0200
+@@ -586,6 +586,7 @@
+                                         "/etc/slackware-version",
+                                         "/etc/arch-release",
+                                         "/etc/buildroot-release",
++                                        "/etc/uhu-release",
+                                         NULL };
+   CStdString result("");
+ 

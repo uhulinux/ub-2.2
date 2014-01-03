@@ -1,0 +1,1 @@
+urllist http://download.tuxfamily.org/gsf/source/ | splitver '^gsatfinder-sounds-en-([0-9.]+).tar.bz2$'

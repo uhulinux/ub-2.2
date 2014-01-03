@@ -1,0 +1,5 @@
+#!/usr/bin/env dl
+
+killbots-${UB_VERSION}.tar.xz killbots-${UB_VERSION}/
+	ftp://ftp.kde.org/pub/kde/stable/${UB_VERSION}/src/
+

@@ -1,0 +1,12 @@
+diff -Naurdp a/tools/sane-config.in b/tools/sane-config.in
+--- a/tools/sane-config.in	2009-03-05 02:54:33.000000000 +0100
++++ b/tools/sane-config.in	2010-02-16 02:01:04.136969675 +0100
+@@ -7,7 +7,7 @@
+ PACKAGE="@PACKAGE@"
+ scriptname="sane-config"
+ 
+-LINKER_RPATH="@LINKER_RPATH@"
++LINKER_RPATH=""
+ 
+ prefix="@prefix@"
+ exec_prefix="@exec_prefix@"

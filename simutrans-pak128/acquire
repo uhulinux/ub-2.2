@@ -1,0 +1,4 @@
+#!/usr/bin/env dl
+pak128-2.1.0--${UB_VERSION_MAJOR}.${UB_VERSION_MINOR}.zip .
+  http://downloads.sourceforge.net/project/simutrans/pak128/pak128%20for%20${UB_VERSION_MAJOR}-${UB_VERSION_MINOR}/
+#pak128-1.4.6--102.2.zip

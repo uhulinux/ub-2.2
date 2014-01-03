@@ -1,0 +1,36 @@
+#!/bin/sh -eux
+for i in\
+	wolf3d-shareware-v11\
+	wolf3d-shareware-v12\
+	wolf3d-shareware-v14\
+	wolf3d-full-apogee-v11\
+	wolf3d-full-gt-id-activision-v14\
+	spear-demo\
+	spear-full
+do
+#illető könyvtár
+install -d -m 777 "$UB_INSTALLDIR"/usr/share/games/wolf4sdl/"$i"
+#illető bináris
+install -m 755 "$i".bin "$UB_INSTALLDIR"/usr/share/games/wolf4sdl/"$i"/wolf4sdl
+#illető teliképes desktop
+desktop="$UB_INSTALLDIR"/usr/share/applications/"$i".desktop
+echo '[Desktop Entry]' >>"$desktop"
+echo 'Encoding=UTF-8' >>"$desktop"
+echo 'Type=Application' >>"$desktop"
+echo 'Name='"$i" >>"$desktop"
+echo 'Exec=wolf4sdl '"$i" >>"$desktop"
+echo 'Icon=wolf3d' >>"$desktop"
+echo 'Terminal=true' >>"$desktop"
+echo 'Categories=X-UHU-Menu/Games/Action/Wolf4sdl;' >>"$desktop"
+#illető ablakos desktop
+desktop="$UB_INSTALLDIR"/usr/share/applications/"$i"-windowed.desktop
+echo '[Desktop Entry]' >>"$desktop"
+echo 'Encoding=UTF-8' >>"$desktop"
+echo 'Type=Application' >>"$desktop"
+echo 'Name='"$i"'-windowed' >>"$desktop"
+echo 'Name[hu]='"$i"'-ablakos' >>"$desktop"
+echo 'Exec=wolf4sdl '"$i"' --windowed' >>"$desktop"
+echo 'Terminal=true' >>"$desktop"
+echo 'Icon=wolf3d' >>"$desktop"
+echo 'Categories=X-UHU-Menu/Games/Action/Wolf4sdl;' >>"$desktop"
+done

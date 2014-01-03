@@ -1,0 +1,1 @@
+urllist https://github.com/clementine-player/Clementine/tags   | splitver '^([0-9.]+).tar.gz$' | sort -V | tail -n 1

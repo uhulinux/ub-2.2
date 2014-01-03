@@ -1,0 +1,16 @@
+diff -Naur orig/res/help/hu/help.txt mod/res/help/hu/help.txt
+--- orig/res/help/hu/help.txt	1970-01-01 01:00:00.000000000 +0100
++++ mod/res/help/hu/help.txt	2009-04-17 08:57:01.000000000 +0200
+@@ -0,0 +1,12 @@
++Ybelle és Ludar egy rejtélyes kastélyba
++kerültek. Minden varázslatos tárgyat össze
++kell szedniük az adott teremben, hogy
++tovább mehessenek...
++ 
++Irányítás:
++ 
++Nyilak - a játékos mozgatása
++Space - Párbeszéd kihagyása
++Enter - A teljes beszélgetés kihagyása
++F1 (Játék közben) - Segítség..
++ESC - Segítség vége

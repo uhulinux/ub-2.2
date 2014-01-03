@@ -1,0 +1,10 @@
+	/usr/bin/nmapfe
+	/usr/bin/xnmap
+	/usr/bin/zenmap
+	/usr/lib/python*
+	/usr/share/applications
+	/usr/share/man/**/nmapfe.1
+	/usr/share/man/**/xnmap.1
+	/usr/share/man/**/zenmap.1
+	/usr/share/pixmaps
+	/usr/share/zenmap

@@ -1,0 +1,1 @@
+urllist http://www.packagekit.org/releases/ | splitver '^PackageKit-([0-9.]+).tar.xz$' | sort -V | tail -n 1

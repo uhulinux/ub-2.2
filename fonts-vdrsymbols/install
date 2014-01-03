@@ -1,0 +1,12 @@
+#!/bin/sh -eux
+
+tar xvzf vdrsymbols-ttf-20100612.tgz
+cd vdrsymbols 
+mkdir -p "$UB_INSTALLDIR"/usr/share/fonts/TTF
+cp -a *.ttf "$UB_INSTALLDIR"/usr/share/fonts/TTF/
+mkfontscale "$UB_INSTALLDIR"/usr/share/fonts/TTF
+sed 1d \
+  <"$UB_INSTALLDIR"/usr/share/fonts/TTF/fonts.scale \
+  >"$UB_INSTALLDIR"/usr/share/fonts/TTF/fonts.scale.vdrsymbols
+rm "$UB_INSTALLDIR"/usr/share/fonts/TTF/fonts.scale
+cp -a "$UB_INSTALLDIR"/usr/share/fonts/TTF/fonts.{scale,dir}.vdrsymbols

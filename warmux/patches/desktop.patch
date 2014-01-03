@@ -1,0 +1,11 @@
+diff -Naur orig/data/warmux.desktop mod/data/warmux.desktop
+--- orig/data/warmux.desktop	2011-04-28 21:04:38.000000000 +0200
++++ mod/data/warmux.desktop	2012-10-03 23:12:49.000000000 +0200
+@@ -17,5 +17,6 @@
+ Comment[pl]=Gra 2D, w której zabawne postacie używają zabawnego uzbojenia
+ Comment[ro]=Un joc în 2D în care personaje amuzante lansează arme amuzante
+ Comment[tr]=Sevimli karakterlerin sevimli silahlar kullandığı 2B bir oyun
+-Categories=Game;ArcadeGame;
++Comment[hu]=Kétdimenziós játék bolondos alakokkal és fegyverekkel
++Categories=Game;ArcadeGame;X-UHU-Menu/Games/Arcade;
+ GenericName[fr_FR]=Arcade Game

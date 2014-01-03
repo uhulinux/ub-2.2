@@ -1,0 +1,4 @@
+#!/usr/bin/env dl
+
+lxlauncher-${UB_VERSION}.tar.gz lxlauncher-${UB_VERSION}/
+	http://downloads.sourceforge.net/project/lxde/LXLauncher%20%28for%20Asus%20EeePC%29/LXLauncher%20${UB_VERSION}/

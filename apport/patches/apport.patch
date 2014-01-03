@@ -1,0 +1,12 @@
+diff -Naur orig/po/hu.po patched/po/hu.po
+--- orig/po/hu.po	2010-06-24 15:35:01.000000000 +0200
++++ patched/po/hu.po	2013-07-29 12:03:18.241555586 +0200
+@@ -752,7 +752,7 @@
+ #: ../gtk/apport-gtk-mime.desktop.in.h:2 ../kde/apport-kde.desktop.in.h:2
+ #: ../gtk/apport-gtk.desktop.in.h:2 ../kde/apport-kde-mime.desktop.in.h:2
+ msgid "Report a problem..."
+-msgstr "Hiba jelentése…"
++msgstr "Apport hibajelentő"
+ 
+ #: ../bin/apport-unpack.py:23
+ #, python-format

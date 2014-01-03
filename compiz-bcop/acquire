@@ -1,0 +1,4 @@
+#!/usr/bin/env dl
+
+compiz-bcop-${UB_VERSION}.tar.gz compiz-bcop-${UB_VERSION}/
+	http://releases.compiz.org/components/compiz-bcop/

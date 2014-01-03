@@ -1,0 +1,4 @@
+#!/usr/bin/env dl
+
+motion-${UB_VERSION}.tar.gz motion-${UB_VERSION}/
+	http://downloads.sourceforge.net/motion/

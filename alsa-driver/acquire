@@ -1,0 +1,4 @@
+#!/usr/bin/env dl
+
+alsa-driver-${UB_VERSION/~/}.tar.bz2 alsa-driver-${UB_VERSION/~/}/
+	ftp://ftp.alsa-project.org/pub/driver/

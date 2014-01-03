@@ -1,0 +1,16 @@
+avahi-dev
+curl-dev
+gmime-dev
+gnome-doc-utils
+gnome-keyring-dev
+grilo-dev
+gst-plugins-base-dev
+json-glib-dev
+libarchive-dev
+libdmapsharing-dev
+libgdata-dev
+liboauth-dev
+libquvi-dev
+libsoup-gnome-dev
+lua-dev
+totem-plparser-dev

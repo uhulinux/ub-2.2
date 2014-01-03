@@ -1,0 +1,8 @@
+#!/bin/sh -eux
+
+rpm2cpio ia_ora-gnome-$UB_VERSION-3.src.rpm | cpio -dimv
+tar xf ia_ora-gnome-$UB_VERSION.tar.bz2
+cd ia_ora-gnome-$UB_VERSION
+./configure --prefix=/usr \
+PACKAGE_NAME='gtk2-theme-ia_ora'
+make -j2

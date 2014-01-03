@@ -1,0 +1,9 @@
+diff -Naur orig/data/gtkpod.desktop.in patched/data/gtkpod.desktop.in
+--- orig/data/gtkpod.desktop.in	2010-08-01 16:02:42.000000000 +0200
++++ patched/data/gtkpod.desktop.in	2011-02-28 17:09:02.000000000 +0100
+@@ -6,4 +6,4 @@
+ Icon=gtkpod
+ Terminal=false
+ Type=Application
+-Categories=GTK;AudioVideo;
++Categories=GTK;AudioVideo;X-UHU-Menu/Multimedia/More;

@@ -1,0 +1,24 @@
+diff -Naur orig/schemas/org.mate.interface.gschema.xml.in.in patched/schemas/org.mate.interface.gschema.xml.in.in
+--- orig/schemas/org.mate.interface.gschema.xml.in.in	2013-04-01 02:27:50.000000000 +0200
++++ patched/schemas/org.mate.interface.gschema.xml.in.in	2013-04-15 16:42:25.615066333 +0200
+@@ -66,7 +66,7 @@
+       <_description>Icon theme to use for the panel, caja etc.</_description>
+     </key>
+     <key name="gtk-theme" type="s">
+-      <default>'Menta'</default>
++      <default>'GreenLaguna'</default>
+       <_summary>Gtk+ Theme</_summary>
+       <_description>Basename of the default theme used by gtk+.</_description>
+     </key>
+diff -Naur orig/schemas/org.mate.peripherals-mouse.gschema.xml.in.in patched/schemas/org.mate.peripherals-mouse.gschema.xml.in.in
+--- orig/schemas/org.mate.peripherals-mouse.gschema.xml.in.in	2013-04-01 02:27:50.000000000 +0200
++++ patched/schemas/org.mate.peripherals-mouse.gschema.xml.in.in	2013-04-15 16:41:19.182453176 +0200
+@@ -41,7 +41,7 @@
+       <_description>Font name of the cursor. If unset, the default font is used. This value is only propagated to the X server start of each session, so changing it mid-session won't have an effect until the next time you log in.</_description>
+     </key>
+     <key name="cursor-theme" type="s">
+-      <default>''</default>
++      <default>'MATE'</default>
+       <_summary>Cursor theme</_summary>
+       <_description>Cursor theme name. Used only by Xservers that support Xcursor, such as XFree86 4.3 and later.</_description>
+     </key>

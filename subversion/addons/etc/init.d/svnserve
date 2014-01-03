@@ -1,0 +1,8 @@
+#!/bin/sh
+
+. /etc/init.d/common
+
+DAEMON=/usr/bin/svnserve
+DAEMONARGS=(-d -r /srv/svn)
+
+startstop "$@"

@@ -1,0 +1,8 @@
+Summary=Packagekit
+Summary[hu]=Csomagkezelő
+Description=Packagekit daemon
+Description[hu]=Csomagkezelő démon
+Script=/etc/init.d/packagekit
+SupportsReload=yes
+Runlevels=2345
+Sequence=20

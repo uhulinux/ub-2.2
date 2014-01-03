@@ -1,0 +1,5 @@
+#!/usr/bin/env dl
+
+OpenSceneGraph-${UB_VERSION}.zip OpenSceneGraph-${UB_VERSION}/
+	http://www.openscenegraph.org/downloads/stable_releases/OpenSceneGraph-${UB_VERSION}/source/
+

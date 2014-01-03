@@ -1,0 +1,12 @@
+#!/bin/sh -eux
+
+rm -f po/*.gmo
+
+autoreconf -vif
+
+ub_compile \
+    --enable-crash-dialog \
+    --disable-gtk3 \
+    --disable-ldap \
+    --disable-jpilot
+

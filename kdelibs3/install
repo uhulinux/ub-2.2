@@ -1,0 +1,76 @@
+#!/bin/sh -eux
+
+export QTDIR=/usr/lib/qt
+ub_install
+
+## why?
+#rm "$UB_INSTALLDIR"/usr/share/mimelnk/text/x-pascal.desktop
+
+## shipped by icon-theme-hicolor
+rm "$UB_INSTALLDIR"/usr/share/icons/hicolor/index.theme
+
+## shipped by kde4
+rm -rf "$UB_INSTALLDIR"/usr/share/icons/hicolor
+rm -f "$UB_INSTALLDIR"/usr/share/locale/all_languages
+rm -rf "$UB_INSTALLDIR"/usr/share/config/colors
+
+## shipped by uhu-menu
+rm "$UB_INSTALLDIR"/etc/xdg/menus/applications.menu
+
+## shipped by mplayerplug-in
+rm "$UB_INSTALLDIR"/usr/share/mimelnk/application/x-mplayer2.desktop
+
+## delete unneeded, conflicting binaries
+rm "$UB_INSTALLDIR"/usr/bin/{checkXML,kunittestmodrunner,ksvgtopng}
+
+## from Fedora
+rm -f "$UB_INSTALLDIR"/usr/share/config/kdebug.areas
+rm -f "$UB_INSTALLDIR"/usr/share/config/kdebugrc
+rm -f "$UB_INSTALLDIR"/usr/share/config/ui/ui_standards.rc
+rm -f "$UB_INSTALLDIR"/usr/share/doc/HTML/en/common/1.png
+rm -f "$UB_INSTALLDIR"/usr/share/doc/HTML/en/common/10.png
+rm -f "$UB_INSTALLDIR"/usr/share/doc/HTML/en/common/2.png
+rm -f "$UB_INSTALLDIR"/usr/share/doc/HTML/en/common/3.png
+rm -f "$UB_INSTALLDIR"/usr/share/doc/HTML/en/common/4.png
+rm -f "$UB_INSTALLDIR"/usr/share/doc/HTML/en/common/5.png
+rm -f "$UB_INSTALLDIR"/usr/share/doc/HTML/en/common/6.png
+rm -f "$UB_INSTALLDIR"/usr/share/doc/HTML/en/common/7.png
+rm -f "$UB_INSTALLDIR"/usr/share/doc/HTML/en/common/8.png
+rm -f "$UB_INSTALLDIR"/usr/share/doc/HTML/en/common/9.png
+rm -f "$UB_INSTALLDIR"/usr/share/doc/HTML/en/common/artistic-license.html
+rm -f "$UB_INSTALLDIR"/usr/share/doc/HTML/en/common/bottom-left.png
+rm -f "$UB_INSTALLDIR"/usr/share/doc/HTML/en/common/bottom-middle.png
+rm -f "$UB_INSTALLDIR"/usr/share/doc/HTML/en/common/bottom-right.png
+rm -f "$UB_INSTALLDIR"/usr/share/doc/HTML/en/common/bsd-license.html
+rm -f "$UB_INSTALLDIR"/usr/share/doc/HTML/en/common/doxygen.css
+rm -f "$UB_INSTALLDIR"/usr/share/doc/HTML/en/common/favicon.ico
+rm -f "$UB_INSTALLDIR"/usr/share/doc/HTML/en/common/fdl-license
+rm -f "$UB_INSTALLDIR"/usr/share/doc/HTML/en/common/fdl-license.html
+rm -f "$UB_INSTALLDIR"/usr/share/doc/HTML/en/common/fdl-notice.html
+rm -f "$UB_INSTALLDIR"/usr/share/doc/HTML/en/common/footer.html
+rm -f "$UB_INSTALLDIR"/usr/share/doc/HTML/en/common/gpl-license
+rm -f "$UB_INSTALLDIR"/usr/share/doc/HTML/en/common/gpl-license.html
+rm -f "$UB_INSTALLDIR"/usr/share/doc/HTML/en/common/header.html
+rm -f "$UB_INSTALLDIR"/usr/share/doc/HTML/en/common/kde-default.css
+rm -f "$UB_INSTALLDIR"/usr/share/doc/HTML/en/common/kde_logo_bg.png
+rm -f "$UB_INSTALLDIR"/usr/share/doc/HTML/en/common/lgpl-license
+rm -f "$UB_INSTALLDIR"/usr/share/doc/HTML/en/common/lgpl-license.html
+rm -f "$UB_INSTALLDIR"/usr/share/doc/HTML/en/common/mainfooter.html
+rm -f "$UB_INSTALLDIR"/usr/share/doc/HTML/en/common/mainheader.html
+rm -f "$UB_INSTALLDIR"/usr/share/doc/HTML/en/common/qpl-license.html
+rm -f "$UB_INSTALLDIR"/usr/share/doc/HTML/en/common/top-left.png
+rm -f "$UB_INSTALLDIR"/usr/share/doc/HTML/en/common/top-middle.png
+rm -f "$UB_INSTALLDIR"/usr/share/doc/HTML/en/common/top-right-konqueror.png
+rm -f "$UB_INSTALLDIR"/usr/share/doc/HTML/en/common/top-right.jpg
+rm -f "$UB_INSTALLDIR"/usr/share/doc/HTML/en/common/x11-license.html
+rm -f "$UB_INSTALLDIR"/usr/share/doc/HTML/en/common/xml.dcl
+rm -rf "$UB_INSTALLDIR"/usr/share/locale/all_languages
+rm -rf "$UB_INSTALLDIR"/usr/share/autostart/
+rm -f "$UB_INSTALLDIR"/usr/share/config/ksslcalist
+rm -f "$UB_INSTALLDIR"/usr/bin/preparetips
+rm -f "$UB_INSTALLDIR"/usr/bin/kmailservice
+rm -f "$UB_INSTALLDIR"/usr/bin/ktelnetservice
+rm -f "$UB_INSTALLDIR"/usr/share/config/katesyntaxhighlightingrc
+rm -f "$UB_INSTALLDIR"/usr/bin/kconfig_compiler
+rm -f "$UB_INSTALLDIR"/usr/bin/makekdewidgets
+rm -Rf "$UB_INSTALLDIR"/usr/share/applications

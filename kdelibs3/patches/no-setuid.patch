@@ -1,0 +1,30 @@
+diff -Naur kdelibs-3.5.0.orig/kdecore/Makefile.in kdelibs-3.5.0/kdecore/Makefile.in
+--- kdelibs-3.5.0.orig/kdecore/Makefile.in	2005-11-10 11:34:38.000000000 +0100
++++ kdelibs-3.5.0/kdecore/Makefile.in	2005-11-17 14:24:30.000000000 +0100
+@@ -1548,13 +1548,6 @@
+ parser: kentities.gperf
+ 	cd $(srcdir) && gperf -a -L "ANSI-C" -E -C -c -o -t -k '*' -Nkde_findEntity -D -Hhash_Entity -Wwordlist_Entity -s 2 kentities.gperf > kentities.c
+ 
+-# kgrantpty needs to be installed setuid root
+-install-exec-hook:
+-	@(chown 0 $(DESTDIR)$(bindir)/kgrantpty && chmod 4755 $(DESTDIR)$(bindir)/kgrantpty) || echo "Please make kgrantpty setuid root" >&2
+-	@echo ""
+-	@echo "kgrantpty is by default installed with a set SETUID root bit!"
+-	@echo "This is needed for konsole, etc. to ensure that they can't be eavesdropped."
+-	@echo ""
+ apidox-am-yes:
+ 	@if test \! -d "$(top_srcdir)/doc/common/" && test -z "$$DOXDATA" ; then \
+ 		export DOXDATA=$(kde_libs_htmldir)/en/common ; \
+diff -Naur kdelibs-3.5.0.orig/kio/misc/kpac/Makefile.in kdelibs-3.5.0/kio/misc/kpac/Makefile.in
+--- kdelibs-3.5.0.orig/kio/misc/kpac/Makefile.in	2005-11-10 11:34:44.000000000 +0100
++++ kdelibs-3.5.0/kio/misc/kpac/Makefile.in	2005-11-17 14:25:34.000000000 +0100
+@@ -965,9 +965,6 @@
+ 	uninstall-info-am uninstall-kde_moduleLTLIBRARIES \
+ 	uninstall-proxyscoutdataDATA uninstall-servicesDATA
+ 
+-
+-install-exec-local:
+-	@(chown root $(DESTDIR)$(bindir)/kpac_dhcp_helper && chmod 4755 $(DESTDIR)$(bindir)/kpac_dhcp_helper) || echo "Please make kpac_dhcp_helper setuid root"
+ # Tell versions [3.59,3.63) of GNU make to not export all variables.
+ # Otherwise a system limit (for SysV at least) may be exceeded.
+ .NOEXPORT:

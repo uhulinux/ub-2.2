@@ -1,0 +1,7 @@
+libdrm-dev
+libpciaccess-dev
+libx11-dev
+libxext-dev
+libxfixes-dev
+mesa-dev
+udev-dev

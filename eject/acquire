@@ -1,0 +1,8 @@
+#!/usr/bin/env dl
+
+eject-${UB_VERSION}.tar.bz2 eject/
+	ftp://mirrors.kernel.org/slackware/slackware-13.1/source/a/eject/
+#	http://ca.geocities.com/jefftranter@rogers.com/
+#	ftp://ftp.ibiblio.org/pub/Linux/utils/disk-management/
+#	http://www.ibiblio.org/pub/Linux/utils/disk-management/
+#	http://metalab.unc.edu/pub/Linux/utils/disk-management/

@@ -1,0 +1,4 @@
+#!/bin/sh -eux
+
+make INSTALL_ROOT=${UB_INSTALLDIR} install
+mv ${UB_INSTALLDIR}/usr/share/applnk/Internet/scythia.desktop ${UB_INSTALLDIR}/usr/share/applications/scythia.desktop

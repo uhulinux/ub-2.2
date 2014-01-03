@@ -1,0 +1,17 @@
+avahi-dev
+docbook-dtds
+gcr-dev
+gnome-doc-utils
+gnome-keyring-dev
+gobject-introspection-dev
+gpg
+gpgme-dev
+gtk3-dev
+intltool
+libassuan-dev
+libsm-dev
+libsoup-dev
+openldap-dev
+openssh
+openssh-common
+python-dev

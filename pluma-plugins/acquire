@@ -1,0 +1,4 @@
+#!/usr/bin/env dl
+
+mate-text-editor-plugins-${UB_VERSION}.tar.gz	mate-text-editor-plugins-mate-text-editor-plugins-${UB_VERSION}/
+	https://github.com/cygwinports/mate-text-editor-plugins/archive/

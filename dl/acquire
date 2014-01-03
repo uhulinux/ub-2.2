@@ -1,0 +1,4 @@
+#!/usr/bin/env dl
+
+dl-${UB_VERSION/1.6/1.5}.tar.gz dl-${UB_VERSION/1.6/1.5}/
+	ftp://ftp.uhulinux.hu/pub/sources/dl/

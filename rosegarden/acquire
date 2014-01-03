@@ -1,0 +1,4 @@
+#!/usr/bin/env dl
+
+rosegarden-${UB_VERSION}.tar.bz2 rosegarden-${UB_VERSION}/
+	http://downloads.sourceforge.net/rosegarden/

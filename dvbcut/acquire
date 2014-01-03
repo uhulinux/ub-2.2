@@ -1,0 +1,6 @@
+#!/usr/bin/env dl
+dvbcut-${UB_VERSION}.tar.gz dvbcut-${UB_VERSION}/
+	http://www.mr511.de/dvbcut/
+
+dvbcut.svg?revision=168
+  http://dvbcut.svn.sourceforge.net/viewvc/dvbcut/trunk/dvbcut.svg?revision=168

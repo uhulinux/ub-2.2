@@ -1,0 +1,59 @@
+diff -Naurdp a/sql/mysqld.cc b/sql/mysqld.cc
+--- a/sql/mysqld.cc	2008-08-04 14:20:07.000000000 +0200
++++ b/sql/mysqld.cc	2008-11-13 00:20:59.000000000 +0100
+@@ -13,6 +13,8 @@
+    along with this program; if not, write to the Free Software
+    Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA */
+ 
++#include <sys/types.h>
++#include <sys/wait.h>
+ #include "mysql_priv.h"
+ #include <m_ctype.h>
+ #include <my_dir.h>
+@@ -3623,6 +3625,34 @@ int main(int argc, char **argv)
+   MY_INIT(argv[0]);		// init my_sys library & pthreads
+   /* ^^^  Nothing should be before this line! */
+ 
++  pid_t pid;
++  int pipefd[2];
++  char buf[1];
++  int status;
++
++  if (getenv("_MYSQL_FORK")) {
++    if (pipe(pipefd) < 0)
++      exit(1);
++    pid = fork();
++    if (pid > 0) {
++      close(pipefd[1]);
++      if (read(pipefd[0], &buf, 1) != 1) {
++        waitpid(pid, &status, 0);
++	if (WIFEXITED(status))
++	  exit(WEXITSTATUS(status));
++	else if (WIFSIGNALED(status))
++	  exit(128 + WTERMSIG(status));
++	else
++	  exit(1);
++      }
++      exit(0);
++    } else if (pid == 0) {
++      close(pipefd[0]);
++    } else if (pid < 0) {
++      exit(1);
++    }
++  }
++
+   /* Set signal used to kill MySQL */
+ #if defined(SIGUSR2)
+   thr_kill_signal= thd_lib_detected == THD_LIB_LT ? SIGINT : SIGUSR2;
+@@ -3834,6 +3864,11 @@ we force server id to 2, but this MySQL 
+   create_shutdown_thread();
+   create_maintenance_thread();
+ 
++  if (getenv("_MYSQL_FORK")) {
++    write(pipefd[1], "p", 1);
++    close(pipefd[1]);
++  }
++
+   sql_print_information(ER(ER_STARTUP),my_progname,server_version,
+                         ((unix_sock == INVALID_SOCKET) ? (char*) ""
+                                                        : mysqld_unix_port),

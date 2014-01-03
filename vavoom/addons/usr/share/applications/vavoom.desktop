@@ -1,0 +1,8 @@
+[Desktop Entry]
+Version=1.1
+Type=Application
+Name=Vavoom Launcher
+Name[hu]=Vavoom indító
+Icon=vavoom
+Exec=vlaunch
+Categories=X-UHU-Menu/Games/Action;

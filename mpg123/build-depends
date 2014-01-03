@@ -1,0 +1,5 @@
+alsa-lib-dev
+jack-dev
+libsamplerate-dev
+openal-dev
+sdl-dev

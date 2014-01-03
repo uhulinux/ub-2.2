@@ -1,0 +1,12 @@
+diff -Naur gdm-2.14.0.orig/daemon/slave.c gdm-2.14.0/daemon/slave.c
+--- gdm-2.14.0.orig/daemon/slave.c	2006-03-06 22:40:26.000000000 +0100
++++ gdm-2.14.0/daemon/slave.c	2006-03-16 20:52:18.000000000 +0100
+@@ -3218,7 +3218,7 @@
+ 			     seteuid (pwent->pw_uid) == 0) {
+ 			/* unlink to be anal */
+ 			VE_IGNORE_EINTR (g_unlink (filename));
+-			VE_IGNORE_EINTR (logfd = open (filename, O_EXCL|O_CREAT|O_TRUNC|O_WRONLY, 0644));
++			VE_IGNORE_EINTR (logfd = open (filename, O_EXCL|O_CREAT|O_TRUNC|O_WRONLY, 0600));
+ 		}
+ 		NEVER_FAILS_root_set_euid_egid (old, oldg);
+ 

@@ -1,0 +1,27 @@
+#!/bin/sh -eux
+
+ub_compile \
+	--enable-icon-mapping \
+	--enable-Adwaita-Cupertino-SL \
+	--enable-AmbianceBlue \
+	--enable-Ambiance-Xfce-LXDE-MATE \
+	--enable-ANewStartBlood \
+	--enable-Cologne \
+	--enable-drakfire-dream-black \
+	--enable-RadianceBlue \
+	--enable-Radiance-Xfce-LXDE-MATE \
+	--enable-Sonar \
+	--enable-SonarBlue \
+	--enable-Zukitwo \
+	--enable-Zukitwo-Dark \
+	--enable-Zukitwo-Dust \
+	--enable-Zukitwo-Brave \
+	--enable-Zukitwo-Colors \
+	--enable-Zukitwo-Human \
+	--enable-Zukitwo-Illustrious \
+	--enable-Zukitwo-Noble \
+	--enable-Zukitwo-Wine \
+	--enable-Zukitwo-Wise
+#	--enable-GnomishDark \
+#	--enable-Sonar-Icons
+

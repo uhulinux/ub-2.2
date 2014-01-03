@@ -1,0 +1,15 @@
+diff -Naur orig/gtknetcat.desktop mod/gtknetcat.desktop
+--- orig/gtknetcat.desktop	2008-07-07 07:32:28.000000000 +0200
++++ mod/gtknetcat.desktop	2008-07-08 06:48:24.000000000 +0200
+@@ -1,8 +1,10 @@
+ [Desktop Entry]
+ Name=GtkNetCat
+ Comment=Inter-computer direct file transmission via netcat
++Name[hu]=GtkNetCat
++Comment[hu]=Inter-computer direct file transmission via netcat
+ Icon=
+ Exec=gtknetcat
+ Terminal=false
+ Type=Application
+-Categories=Network;Utility;
++Categories=X-UHU-Menu/Tools/Utilities;Network;Utility;

@@ -1,0 +1,8 @@
+[Desktop Entry]
+Encoding=UTF-8
+Type=Application
+Name=QT Linguist
+Comment=QT Translation tool
+Comment[hu]=QT fordításkészítő
+Exec=linguist
+Categories=X-UHU-Menu/Development/Translation;

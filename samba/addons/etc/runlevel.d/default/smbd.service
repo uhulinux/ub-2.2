@@ -1,0 +1,10 @@
+Summary=SMB Server
+Summary[hu]=SMB-szerver
+Description=Server to provide SMB/CIFS services to clients. Part of the Samba suite.
+Description[hu]=Kliensek számára SMB/CIFS szolgáltatást nyújtó szerver. A Samba programcsomag része.
+MsgDesc=Samba Server
+MsgDesc[hu]=Samba szerver
+Script=/etc/init.d/smbd
+SupportsReload=yes
+Runlevels=
+Sequence=20

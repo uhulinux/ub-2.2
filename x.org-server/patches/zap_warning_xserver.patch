@@ -1,0 +1,101 @@
+diff -Naur orig/hw/xfree86/common/xf86Config.c patched/hw/xfree86/common/xf86Config.c
+--- orig/hw/xfree86/common/xf86Config.c	2012-05-17 19:09:03.000000000 +0200
++++ patched/hw/xfree86/common/xf86Config.c	2012-06-19 18:53:05.454305566 +0200
+@@ -685,6 +685,7 @@
+     FLAG_NOTRAPSIGNALS,
+     FLAG_DONTVTSWITCH,
+     FLAG_DONTZAP,
++    FLAG_ZAPWARNING,
+     FLAG_DONTZOOM,
+     FLAG_DISABLEVIDMODE,
+     FLAG_ALLOWNONLOCAL,
+@@ -721,6 +722,8 @@
+      {0}, FALSE},
+     {FLAG_DONTZAP, "DontZap", OPTV_BOOLEAN,
+      {0}, FALSE},
++    {FLAG_ZAPWARNING, "ZapWarning", OPTV_BOOLEAN,
++     {0}, FALSE },
+     {FLAG_DONTZOOM, "DontZoom", OPTV_BOOLEAN,
+      {0}, FALSE},
+     {FLAG_DISABLEVIDMODE, "DisableVidModeExtension", OPTV_BOOLEAN,
+@@ -807,6 +810,7 @@
+     xf86GetOptValBool(FlagOptions, FLAG_NOTRAPSIGNALS, &xf86Info.notrapSignals);
+     xf86GetOptValBool(FlagOptions, FLAG_DONTVTSWITCH, &xf86Info.dontVTSwitch);
+     xf86GetOptValBool(FlagOptions, FLAG_DONTZAP, &xf86Info.dontZap);
++    xf86GetOptValBool(FlagOptions, FLAG_ZAPWARNING, &xf86Info.ZapWarning);
+     xf86GetOptValBool(FlagOptions, FLAG_DONTZOOM, &xf86Info.dontZoom);
+ 
+     xf86GetOptValBool(FlagOptions, FLAG_IGNORE_ABI, &xf86Info.ignoreABI);
+diff -Naur orig/hw/xfree86/common/xf86Events.c patched/hw/xfree86/common/xf86Events.c
+--- orig/hw/xfree86/common/xf86Events.c	2012-05-17 19:09:03.000000000 +0200
++++ patched/hw/xfree86/common/xf86Events.c	2012-06-19 18:56:38.698713218 +0200
+@@ -179,12 +179,26 @@
+     DebugF("ProcessActionEvent(%d,%x)\n", (int) action, arg);
+     switch (action) {
+     case ACTION_TERMINATE:
+-        if (!xf86Info.dontZap) {
++	if (xf86Info.dontZap)
++	    break;
++
++ 	if (xf86Info.ZapWarning) {
++	    static struct timeval LastZap = { 0, 0};
++	    struct timeval NewZap;
++
++	    gettimeofday(&NewZap, NULL);
++
++	    if ((NewZap.tv_sec - LastZap.tv_sec) >= 2) {
++		xf86OSRingBell(30, 1000, 50);
++		LastZap = NewZap;
++		break;
++	    }
++	}
++
+ #ifdef XFreeXDGA
+-            DGAShutdown();
++        DGAShutdown();
+ #endif
+-            GiveUp(0);
+-        }
++        GiveUp(0);
+         break;
+     case ACTION_NEXT_MODE:
+         if (!xf86Info.dontZoom)
+diff -Naur orig/hw/xfree86/common/xf86Globals.c patched/hw/xfree86/common/xf86Globals.c
+--- orig/hw/xfree86/common/xf86Globals.c	2012-05-17 19:09:03.000000000 +0200
++++ patched/hw/xfree86/common/xf86Globals.c	2012-06-19 18:58:14.843683132 +0200
+@@ -104,6 +104,7 @@
+     .autoVTSwitch = TRUE,
+     .ShareVTs = FALSE,
+     .dontZap = FALSE,
++    .ZapWarning = TRUE,
+     .dontZoom = FALSE,
+     .notrapSignals = FALSE,
+     .caughtSignal = FALSE,
+diff -Naur orig/hw/xfree86/common/xf86Privstr.h patched/hw/xfree86/common/xf86Privstr.h
+--- orig/hw/xfree86/common/xf86Privstr.h	2012-05-17 19:09:03.000000000 +0200
++++ patched/hw/xfree86/common/xf86Privstr.h	2012-06-19 18:57:43.477976578 +0200
+@@ -68,6 +68,7 @@
+     Bool autoVTSwitch;
+     Bool ShareVTs;
+     Bool dontZap;
++    Bool ZapWarning;
+     Bool dontZoom;
+     Bool notrapSignals;         /* don't exit cleanly - die at fault */
+     Bool caughtSignal;
+diff -Naur orig/hw/xfree86/man/xorg.conf.man patched/hw/xfree86/man/xorg.conf.man
+--- orig/hw/xfree86/man/xorg.conf.man	2012-05-17 19:09:03.000000000 +0200
++++ patched/hw/xfree86/man/xorg.conf.man	2012-06-19 19:05:48.350522898 +0200
+@@ -534,6 +534,13 @@
+ This action is normally used to terminate the __xservername__ server.
+ When this option is enabled, the action has no effect.
+ Default: off.
++.BI "Option \*qZapWarning\*q  \*q" boolean \*q
++This warns the user audibly when the
++.B Ctrl+Alt+Backspace
++sequence is pressed for the first time but still terminates the __xservername__
++server when this key-sequence is pressed again shortly after.
++Default: on.
++TP 7
+ .TP 7
+ .BI "Option \*qDontZoom\*q  \*q" boolean \*q
+ This disallows the use of the

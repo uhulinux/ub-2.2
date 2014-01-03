@@ -1,0 +1,11 @@
+atk
+cairo
+fontconfig
+freetype2
+gtk2
+libjpeg
+libxft
+libxv
+mesa
+pango
+zvbi

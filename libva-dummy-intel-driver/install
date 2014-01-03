@@ -1,0 +1,5 @@
+#!/bin/sh -eux
+dridir=$UB_INSTALLDIR/usr/lib/dri
+mkdir -p $dridir
+cd $dridir
+ln -s dummy_drv_video.so i965_drv_video.so

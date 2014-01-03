@@ -1,0 +1,16 @@
+diff -Naur orig/test/desktop/sudoku.desktop mod/test/desktop/sudoku.desktop
+--- orig/test/desktop/sudoku.desktop	2008-03-16 13:20:30.000000000 +0100
++++ mod/test/desktop/sudoku.desktop	2009-04-02 08:47:21.000000000 +0200
+@@ -1,9 +1,11 @@
+ [Desktop Entry]
++Encoding=UTF-8
+ Name=Sudoku
+ Comment=Suduku Number Game
++Comment[hu]=Sudoku szám kirakó
+ TryExec=sudoku
+ Exec=sudoku
+ Icon=sudoku
+ Terminal=false
+ Type=Application
+-Categories=Game;LogicGame;
++Categories=Game;LogicGame;X-UHU-Menu/Games/Board;

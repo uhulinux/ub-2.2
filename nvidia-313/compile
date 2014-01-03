@@ -1,0 +1,18 @@
+#!/bin/bash -eux
+
+#előkészület
+KVER="$(ls -1 /lib/modules|grep i386)"
+forras="NVIDIA-Linux-x86-${UB_VERSION}"
+moduldir="$UB_COMPILEDIR/lib/modules/"$KVER"/kernel/drivers"
+mkdir -p $moduldir
+#kicsomagolás és belépés
+unmakeself $forras.run
+patch -i "$UB_SRCDIR"/patches/menu.patch.skip
+cd kernel
+make SYSSRC=/usr/src/linux KERNEL_UNAME="$KVER" MODULE_ROOT=$moduldir module
+#akdályok leküzdése a telepítéshez
+patch -i "$UB_SRCDIR"/patches/skip-sanity-check.patch.skip
+#elkészült modul telepítése
+make SYSSRC=/usr/src/linux KERNEL_UNAME="$KVER" MODULE_ROOT=$moduldir module-install
+#ez minek? De legyen..
+make clean

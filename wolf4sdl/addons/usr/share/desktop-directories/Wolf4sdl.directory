@@ -1,0 +1,8 @@
+[Desktop Entry]
+Encoding=UTF-8
+Type=Directory
+Comment=Play Wolfenstein using the SDL engine
+Name=Wolf-Spear Engine
+Name[hu]=Wolf-Spear motor
+Icon=wolf3d
+Categories=X-UHU-Menu/Games/Action/Wolf4sdl;

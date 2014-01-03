@@ -1,0 +1,8 @@
+--- gnome-dvb-daemon/data/gnome-dvb-setup.desktop.in.in.orig	2011-10-27 18:31:31.000000000 +0200
++++ gnome-dvb-daemon/data/gnome-dvb-setup.desktop.in.in	2011-10-27 18:33:12.000000000 +0200
+@@ -7,4 +7,4 @@
+ StartupNotify=false
+ Terminal=false
+ Type=Application
+-Categories=GNOME;GTK;AudioVideo;TV;HardwareSettings;
++Categories=GNOME;GTK;AudioVideo;TV;HardwareSettings;X-UHU-Menu/Settings;

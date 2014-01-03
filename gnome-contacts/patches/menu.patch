@@ -1,0 +1,10 @@
+diff -Naur orig/data/gnome-contacts.desktop.in.in mod/data/gnome-contacts.desktop.in.in
+--- orig/data/gnome-contacts.desktop.in.in	2012-02-27 10:27:58.000000000 +0100
++++ mod/data/gnome-contacts.desktop.in.in	2013-02-15 18:17:59.000000000 +0100
+@@ -5,5 +5,5 @@
+ Terminal=false
+ Type=Application
+ StartupNotify=true
+-Categories=GNOME;GTK;Utility;
++Categories=GNOME;GTK;Utility;X-UHU-Menu/Tools/Utilities;
+ OnlyShowIn=GNOME;Unity;

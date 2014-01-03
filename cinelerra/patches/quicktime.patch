@@ -1,0 +1,25 @@
+diff -Naur orig/cinelerra/Makefile mod/cinelerra/Makefile
+--- orig/cinelerra/Makefile	2013-03-10 11:47:22.000000000 +0100
++++ mod/cinelerra/Makefile	2013-12-04 23:18:53.000000000 +0100
+@@ -396,7 +396,8 @@
+ 	-lpng \
+ 	-lz \
+ 	-ldl \
+-	-lbz2
++	-lbz2 \
++	-lva
+ 
+ #	-lXxf86vm \
+ 
+diff -Naur orig/quicktime/thirdparty/faac-1.24/frontend/main.c mod/quicktime/thirdparty/faac-1.24/frontend/main.c
+--- orig/quicktime/thirdparty/faac-1.24/frontend/main.c	2008-05-31 11:25:30.000000000 +0200
++++ mod/quicktime/thirdparty/faac-1.24/frontend/main.c	2013-12-04 23:22:29.000000000 +0100
+@@ -30,7 +30,7 @@
+ #endif
+ 
+ #ifdef HAVE_LIBMP4V2
+-# include <mp4.h>
++# include <mp4v2/mp4v2.h>
+ #endif
+ 
+ #define DEFAULT_TNS     1

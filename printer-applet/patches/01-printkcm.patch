@@ -1,0 +1,13 @@
+diff -Naur a/printer-manager-kcm/PrintKCM.cpp b/printer-manager-kcm/PrintKCM.cpp
+--- a/printer-manager-kcm/PrintKCM.cpp	2013-05-28 21:30:34.000000000 +0200
++++ b/printer-manager-kcm/PrintKCM.cpp	2013-07-20 13:05:49.588450251 +0200
+@@ -362,8 +362,7 @@
+     KCupsRequest *request = qobject_cast<KCupsRequest *>(sender());
+     if (request->hasError()) {
+         if (request->error() == IPP_SERVICE_UNAVAILABLE ||
+-            request->error() == IPP_INTERNAL_ERROR ||
+-            request->error() == IPP_AUTHENTICATION_CANCELED) {
++            request->error() == IPP_INTERNAL_ERROR ) {
+             // Server is restarting, or auth was canceled, update the settings in one second
+             QTimer::singleShot(1000, this, SLOT(update()));
+         } else {

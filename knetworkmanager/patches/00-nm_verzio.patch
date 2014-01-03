@@ -1,0 +1,24 @@
+diff -Naur a/CMakeLists.txt b/CMakeLists.txt
+--- a/CMakeLists.txt	2013-06-15 16:57:25.000000000 +0200
++++ b/CMakeLists.txt	2013-08-19 22:47:47.692862695 +0200
+@@ -1,7 +1,7 @@
+ project(plasma-networkmanagement)
+ 
+ option(INSTALL_KNM_AUTOSTART "Install the autostart file for knetworkmanager. Warning: This prevents the plasmoid from working properly")
+-set (MINIMUM_NM_VERSION_REQUIRED "0.9.8")
++set (MINIMUM_NM_VERSION_REQUIRED "0.9.4")
+ 
+ find_package(KDE4 REQUIRED)
+ include (KDE4Defaults)
+diff -Naur a/libs/ui/802-11-wireless.ui b/libs/ui/802-11-wireless.ui
+--- a/libs/ui/802-11-wireless.ui	2013-06-15 16:37:35.000000000 +0200
++++ b/libs/ui/802-11-wireless.ui	2013-08-19 22:47:02.496861317 +0200
+@@ -70,7 +70,7 @@
+       <string>Operating mode of the wireless network</string>
+      </property>
+      <property name="whatsThis">
+-      <string>Infrastructure mode is the most common setting.  To form a peer-to-peer wireless network with another computer when there is no infrastructure, choose Ap-mode (requires NetworkManager >= 0.9.8 and a suitable wifi driver) or Ad-hoc. Also read https://bugs.kde.org/show_bug.cgi?id=311705.</string>
++      <string>Infrastructure mode is the most common setting.  To form a peer-to-peer wireless network with another computer when there is no infrastructure, choose Ap-mode (requires NetworkManager >= 0.9.4 and a suitable wifi driver) or Ad-hoc. Also read https://bugs.kde.org/show_bug.cgi?id=311705.</string>
+      </property>
+      <item>
+       <property name="text">

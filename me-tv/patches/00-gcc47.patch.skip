@@ -1,0 +1,24 @@
+diff -Naur a/common/common.cc b/common/common.cc
+--- a/common/common.cc	2012-03-19 23:05:41.000000000 +0100
++++ b/common/common.cc	2013-05-25 19:38:36.258340205 +0200
+@@ -21,6 +21,8 @@
+ #include "../common/common.h"
+ #include "../common/i18n.h"
+ #include "../common/exception.h"
++#include <glibmm.h>
++#include <unistd.h>
+ 
+ void replace_text(Glib::ustring& text, const Glib::ustring& from, const Glib::ustring& to)
+ {
+diff -Naur a/server/thread.cc b/server/thread.cc
+--- a/server/thread.cc	2012-03-19 23:05:41.000000000 +0100
++++ b/server/thread.cc	2013-05-25 19:39:30.258338781 +0200
+@@ -56,7 +56,7 @@
+ 	while (!started)
+ 	{
+ 		g_debug("Waiting for '%s' to start", name.c_str());
+-		usleep(1000);
++		Glib::usleep(1000);
+ 	}
+ 	g_debug("Thread '%s' started", name.c_str());
+ }

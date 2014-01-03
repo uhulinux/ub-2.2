@@ -1,0 +1,5 @@
+#!/usr/bin/env dl
+
+ytalk-${UB_VERSION}-src-11.00.tar.gz ytalk-${UB_VERSION}/
+	ftp://ftp.connect.org.uk/hpux/Networking/Misc/ytalk-${UB_VERSION}/
+

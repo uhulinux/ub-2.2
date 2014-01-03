@@ -1,0 +1,8 @@
+#!/bin/sh -eux
+cat configure | tr -d '\r' >configur
+rm configure
+mv configur configure
+chmod +x configure
+rm README.html
+cp "SMW 1.8 Readme.htm" README.html
+ub_compile

@@ -1,0 +1,12 @@
+diff -Naur orig/data/gnome-search-tool.desktop mod/data/gnome-search-tool.desktop
+--- orig/data/gnome-search-tool.desktop	2012-09-25 14:29:09.000000000 +0200
++++ mod/data/gnome-search-tool.desktop	2013-06-17 18:02:08.000000000 +0200
+@@ -162,7 +162,7 @@
+ Terminal=false
+ Type=Application
+ StartupNotify=true
+-Categories=GNOME;GTK;Utility;Core;
++Categories=GNOME;GTK;Utility;Core;X-UHU-Menu/Tools/Utilities;
+ NotShowIn=KDE;
+ X-GNOME-DocPath=gnome-search-tool/gnome-search-tool.xml
+ X-GNOME-Bugzilla-Bugzilla=GNOME

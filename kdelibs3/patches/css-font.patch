@@ -1,0 +1,21 @@
+diff -urN kdelibs-3.5.8.orig/doc/common/kde-default.css kdelibs-3.5.8/doc/common/kde-default.css
+--- kdelibs-3.5.8.orig/doc/common/kde-default.css	2007-10-08 11:51:56.000000000 +0200
++++ kdelibs-3.5.8/doc/common/kde-default.css	2007-10-17 12:08:53.000000000 +0200
+@@ -32,7 +32,7 @@
+ body {
+   background: white none;
+   color: black;
+-  font-family: sans-serif;
++  font-family: "Nimbus Sans L", sans-serif;
+   padding: 0 15px 0 0;
+   margin: 0; 
+ }
+@@ -217,7 +217,7 @@
+     } */
+ 
+ p, h1, h2, h3, h4, h5, h6, td, th { 
+-  font-family: sans-serif;
++  font-family: "Nimbus Sans L", sans-serif;
+ }
+ 
+ /* Visual cues for GUI elements etc in the text */

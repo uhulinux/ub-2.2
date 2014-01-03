@@ -1,0 +1,49 @@
+##!/bin/bash -eux
+KVER="$(ls -1 /lib/modules|grep i386)"
+#célkönyvtárak
+#libek
+cellibdir="$UB_INSTALLDIR"/usr/lib
+#xmodul
+xmoduldir="$cellibdir"/xorg/modules
+#desktop
+desktopdir="$UB_INSTALLDIR"/usr/share/applications
+#kézikönyv
+mandir="$UB_INSTALLDIR"/usr/share/man/man1/
+#pixmap
+pixmapdir="$UB_INSTALLDIR"/usr/share/pixmaps/
+licensdir=$UB_INSTALLDIR/usr/share/licenses/nvidia-96xx/
+#könyvtárgyártás
+mkdir -p "$cellibdir"/nvidia \
+	"$xmoduldir"/{drivers,extensions} \
+	"$desktopdir" \
+	"$mandir" \
+	"$pixmapdir" \
+	"$licensdir"
+# installált kernel modul a csomagba
+mv lib $UB_INSTALLDIR/
+# utils csomag kézi installálása
+cd NVIDIA-Linux-x86-"${UB_VERSION}-pkg1"/usr
+# biztonságba helyezés a régi módon
+cp X11R6/lib/modules/extensions/libglx.so.$UB_VERSION $cellibdir/nvidia/
+install lib/{libGLcore,libGL,libnvidia-cfg,tls/libnvidia-tls}.so.${UB_VERSION} $cellibdir/
+install -m644 share/man/man1/* $mandir/
+rm $mandir/nvidia-installer.1.gz
+install X11R6/lib/libXv* $cellibdir/
+mv share/applications/nvidia-settings.desktop $desktopdir/
+install -m644 share/pixmaps/nvidia-settings.png $pixmapdir/
+cp X11R6/lib/modules/drivers/nvidia_drv.so $xmoduldir/drivers
+install -m755 bin/nvidia-{settings,xconfig,bug-report.sh} $UB_INSTALLDIR/usr/bin/
+install -m644 ../LICENSE $licensdir/
+cd $cellibdir
+#ezeket majd az ldconfig megcsinálja
+#ln -s libGL.so.$UB_VERSION libGL.so
+#ln -s libGL.so.$UB_VERSION libGL.so.1
+ln -s libGLcore.so.$UB_VERSION libGLcore.so.1
+ln -s libnvidia-cfg.so.$UB_VERSION libnvidia-cfg.so.1
+ln -s libnvidia-tls.so.$UB_VERSION libnvidia-tls.so.1
+ln -s libXvMCNVIDIA.so.$UB_VERSION libXvMCNVIDIA_dynamic.so.1
+
+# ez meg a problémás, nem lehet megtenni az x.odrg-server libglx.so ütközése folytán
+#	cd $xmoduldir/extensions
+#	ln -s libglx.so.$UBVERSION libglx.so
+

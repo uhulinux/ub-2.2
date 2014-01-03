@@ -1,0 +1,9 @@
+diff -Naur kmid-2.4.0-ori/src/kmid.desktop kmid-2.4.0/src/kmid.desktop
+--- kmid-2.4.0-ori/src/kmid.desktop	2010-08-02 09:02:10.000000000 +0200
++++ kmid-2.4.0/src/kmid.desktop	2013-04-23 18:08:27.300619066 +0200
+@@ -80,4 +80,4 @@
+ GenericName[x-test]=xxA KDE4 MIDI/Karaoke Playerxx
+ GenericName[zh_CN]=KDE4 MIDI/Karaoke 播放器
+ Terminal=false
+-Categories=Qt;KDE;AudioVideo;X-KDE-More;Audio;Music;Midi;Player;
++Categories=Qt;KDE;AudioVideo;X-KDE-More;Audio;Music;Midi;Player;X-UHU-Menu/Multimedia/MusicPlayers;

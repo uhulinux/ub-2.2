@@ -1,0 +1,49 @@
+From 8a662d1b7949cf4aba35ae39b404ce06141fea51 Mon Sep 17 00:00:00 2001
+From: Nils Philippsen <nils@redhat.com>
+Date: Fri, 16 Sep 2011 13:18:10 +0200
+Subject: [PATCH] patch: epson-stylus-sx125
+
+Squashed commit of the following:
+
+commit 77cf6ab6058cdb539c8c6bb8cd447a1233a4e7f6
+Author: Nils Philippsen <nils@redhat.com>
+Date:   Fri Sep 16 13:12:30 2011 +0200
+
+    epson2: add USB id for Epson Stylus SX125
+---
+ backend/epson_usb.c          |    1 +
+ doc/descriptions/epson2.desc |    6 ++++++
+ 2 files changed, 7 insertions(+), 0 deletions(-)
+
+diff --git a/backend/epson_usb.c b/backend/epson_usb.c
+index be80326..848ef63 100644
+--- a/backend/epson_usb.c
++++ b/backend/epson_usb.c
+@@ -81,6 +81,7 @@ SANE_Word sanei_epson_usb_product_ids[] = {
+   0x851, /* Stylus NX410 Series, Stylus SX410 Series, Stylus TX410 Series */
+   0x854, /* ME OFFICE 650FN Series, Stylus Office BX310FN Series, Stylus Office TX510FN Series, WorkForce 310 Series */
+   0x856, /* PX-502A, Stylus NX510 Series, Stylus SX510W Series, Stylus TX550W Series */
++  0x85c, /* Stylus SX125 */
+   0				/* last entry - this is used for devices that are specified 
+ 				   in the config file as "usb <vendor> <product>" */
+ };
+diff --git a/doc/descriptions/epson2.desc b/doc/descriptions/epson2.desc
+index da3bdd9..8451afa 100644
+--- a/doc/descriptions/epson2.desc
++++ b/doc/descriptions/epson2.desc
+@@ -1875,6 +1875,12 @@
+ :status     :good
+ :comment    "all-in-one<br>overseas version of the PX-402A"
+ 
++:model      "Stylus SX125"
++:interface  "USB"
++:usbid      "0x04b8" "0x085c"
++:status     :untested
++:comment    "all-in-one"
++
+ :model      "Stylus SX200"
+ :interface  "USB"
+ :usbid      "0x04b8" "0x0849"
+-- 
+1.7.6.1
+

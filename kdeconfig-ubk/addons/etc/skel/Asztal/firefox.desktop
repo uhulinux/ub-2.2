@@ -1,0 +1,21 @@
+[Desktop Entry]
+Categories=X-UHU-Menu/Internet/Browsers;
+Comment[hu]=A világháló böngészése
+Comment=A világháló böngészése
+Encoding=UTF-8
+Exec=firefox %u
+GenericName[hu]=Webböngésző
+GenericName=Webböngésző
+Icon=firefox
+MimeType=text/html;application/xml;application/xhtml+xml;
+Name[hu]=Firefox
+Name=Firefox
+Path=
+StartupNotify=true
+Terminal=false
+TerminalOptions=
+Type=Application
+X-DBUS-ServiceName=
+X-DBUS-StartupType=
+X-KDE-SubstituteUID=false
+X-KDE-Username=

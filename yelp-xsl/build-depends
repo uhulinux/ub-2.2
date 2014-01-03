@@ -1,0 +1,6 @@
+gettext
+intltool
+itstool
+libxml2
+libxslt-dev
+python-dev

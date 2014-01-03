@@ -1,0 +1,5 @@
+#!/usr/bin/env dl
+
+107645-kaudiocreator-${UB_VERSION}.tar.bz2 kaudiocreator-${UB_VERSION}/
+	http://kde-apps.org/CONTENT/content-files/
+

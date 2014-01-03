@@ -1,0 +1,12 @@
+diff -Naur orig/src/vigra_impex/jpeg.cxx mod/src/vigra_impex/jpeg.cxx
+--- orig/src/vigra_impex/jpeg.cxx	2009-12-20 16:32:28.000000000 +0100
++++ mod/src/vigra_impex/jpeg.cxx	2012-10-08 21:07:39.000000000 +0200
+@@ -418,7 +418,7 @@
+             info.comp_info[i].v_samp_factor = 1;
+         }
+ #ifdef C_ARITH_CODING_SUPPORTED
+-        info.arith_code = TRUE;
++        info.arith_code = FALSE;
+ #endif
+ #ifdef ENTROPY_OPT_SUPPORTED
+         info.optimize_coding = TRUE;

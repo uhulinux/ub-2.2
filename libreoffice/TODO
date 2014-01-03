@@ -1,0 +1,16 @@
+--with-system-icu (icu >= 4.6)
+--with-system-postgresql (libpq >= 9.0)
+
+Telepathy support
+gstreamer-1.0
+
+---------
+new:
+--without-system-harfbuzz \
+--without-system-libmwaw \
+--without-system-libodfgen \
+
+removed:
+--disable-build-mozab \
+--enable-mathmldtd \
+

@@ -1,0 +1,12 @@
+diff -Naur orig/dpkg-deb/build.c patched/dpkg-deb/build.c
+--- orig/dpkg-deb/build.c	2013-12-08 20:42:12.000000000 +0100
++++ patched/dpkg-deb/build.c	2013-12-08 20:43:47.084141475 +0100
+@@ -501,7 +501,7 @@
+       ohshite(_("failed to chdir to `%.255s'"), dir);
+     if (chdir(BUILDCONTROLDIR))
+       ohshite(_("failed to chdir to `%.255s'"), ".../DEBIAN");
+-    execlp(TAR, "tar", "-cf", "-", "--format=gnu", ".", NULL);
++    execlp(TAR, "tar", "-cf", "-", "--format=gnu", "--owner=0", "--group=0", ".", NULL);
+     ohshite(_("unable to execute %s (%s)"), "tar -cf", TAR);
+   }
+   close(p1[1]);

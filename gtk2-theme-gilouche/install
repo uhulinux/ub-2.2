@@ -1,0 +1,13 @@
+#!/bin/sh -eux
+
+rpm2cpio gtk2-metatheme-gilouche-${UB_VERSION}-28.3.src.rpm | cpio -dimv
+tar xf metacity-theme-greygilouche.tar.bz2
+tar xf metatheme-gilouche-11.1.2.tar.bz2
+tar xf metatheme-synchronicity.tar.bz2
+mkdir ${UB_INSTALLDIR}/usr/share/themes
+mv GreyGilouche ${UB_INSTALLDIR}/usr/share/themes
+mv Synchronicity ${UB_INSTALLDIR}/usr/share/themes
+cd metatheme-gilouche-${UB_VERSION}
+./configure --prefix=/usr
+make -j2
+ub_install

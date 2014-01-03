@@ -1,0 +1,5 @@
+#!/usr/bin/env dl
+
+trojita-${UB_VERSION}.tar.bz2 trojita-${UB_VERSION}/
+	http://sourceforge.net/projects/trojita/files/src/
+

@@ -1,0 +1,10 @@
+cmake
+curl-dev
+gtk2-dev
+gtkglext-dev
+jasper-dev
+librsvg2-dev
+openal-dev
+openexr-dev
+poppler-glib-dev
+sdl-dev

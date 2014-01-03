@@ -1,0 +1,47 @@
+diff -Naur a/misc/hotot-gtk2.desktop.in.in b/misc/hotot-gtk2.desktop.in.in
+--- a/misc/hotot-gtk2.desktop.in.in	2013-05-07 14:25:18.000000000 +0200
++++ b/misc/hotot-gtk2.desktop.in.in	2013-07-07 17:02:42.496209940 +0200
+@@ -6,5 +6,5 @@
+ _Comment=Lightweight Twitter client based on Gtk2 and WebKit
+ Exec=@HOTOT_BIN_NAME@
+ Icon=hotot
+-Categories=GTK;GNOME;Network;
++Categories=GTK;GNOME;Network;X-UHU-Menu/Internet/Messengers;
+ X-GNOME-Gettext-Domain=hotot
+diff -Naur a/misc/hotot-gtk3.desktop.in.in b/misc/hotot-gtk3.desktop.in.in
+--- a/misc/hotot-gtk3.desktop.in.in	2013-05-07 14:25:18.000000000 +0200
++++ b/misc/hotot-gtk3.desktop.in.in	2013-07-07 17:02:54.380209991 +0200
+@@ -6,5 +6,5 @@
+ _Comment=Lightweight Twitter client based on Gtk3 and WebKit
+ Exec=@HOTOT_BIN_NAME@
+ Icon=hotot
+-Categories=GTK;GNOME;Network;
++Categories=GTK;GNOME;Network;X-UHU-Menu/Internet/Messengers;
+ X-GNOME-Gettext-Domain=hotot
+diff -Naur a/misc/hotot-kde.desktop.in.in b/misc/hotot-kde.desktop.in.in
+--- a/misc/hotot-kde.desktop.in.in	2013-05-07 14:25:18.000000000 +0200
++++ b/misc/hotot-kde.desktop.in.in	2013-07-07 17:03:05.852210039 +0200
+@@ -5,4 +5,4 @@
+ _Comment=Lightweight Twitter client based on Qt and WebKit
+ Exec=@HOTOT_QT_BIN@
+ Icon=hotot
+-Categories=Qt;Network;InstantMessaging;
++Categories=Qt;Network;InstantMessaging;X-UHU-Menu/Internet/Messengers;
+diff -Naur a/misc/hotot-qt5.desktop.in.in b/misc/hotot-qt5.desktop.in.in
+--- a/misc/hotot-qt5.desktop.in.in	2013-05-07 14:25:18.000000000 +0200
++++ b/misc/hotot-qt5.desktop.in.in	2013-07-07 17:03:27.596210130 +0200
+@@ -5,4 +5,4 @@
+ _Comment=Lightweight Twitter client based on Qt5 and WebKit
+ Exec=@HOTOT_QT_BIN@
+ Icon=hotot
+-Categories=Qt;Network;InstantMessaging;
++Categories=Qt;Network;InstantMessaging;X-UHU-Menu/Internet/Messengers;
+diff -Naur a/misc/hotot-qt.desktop.in.in b/misc/hotot-qt.desktop.in.in
+--- a/misc/hotot-qt.desktop.in.in	2013-05-07 14:25:18.000000000 +0200
++++ b/misc/hotot-qt.desktop.in.in	2013-07-07 17:03:16.436210084 +0200
+@@ -5,4 +5,4 @@
+ _Comment=Lightweight Twitter client based on Qt and WebKit
+ Exec=@HOTOT_QT_BIN@
+ Icon=hotot
+-Categories=Qt;Network;InstantMessaging;
++Categories=Qt;Network;InstantMessaging;X-UHU-Menu/Internet/Messengers;

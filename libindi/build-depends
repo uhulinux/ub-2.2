@@ -1,0 +1,5 @@
+cmake
+libcfitsio-dev
+libfli
+libnova-dev
+libusb-compat-dev

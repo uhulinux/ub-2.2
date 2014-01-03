@@ -1,0 +1,20 @@
+diff -Naur orig/zmore.in patched/zmore.in
+--- orig/zmore.in	2012-01-01 09:53:58.000000000 +0100
++++ patched/zmore.in	2012-10-11 18:24:06.862705964 +0200
+@@ -70,7 +70,7 @@
+         --v*) exec echo "$version";;
+         esac
+ 
+-        < "$FILE" || continue
++        if test -e $FILE || test -e $FILE.gz; then
+         if test $FIRST -eq 0; then
+                 echo $n1 "--More--(Next file: $FILE)$n2"
+                 stty $cb -echo 2>/dev/null
+@@ -88,5 +88,7 @@
+         if test -t 1; then
+                 FIRST=0
+         fi
++        else < $FILE                                                                                                       
++        fi 
+     done
+ fi

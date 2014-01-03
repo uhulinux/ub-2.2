@@ -1,0 +1,5 @@
+#!/usr/bin/env dl
+
+tv-fonts-${UB_VERSION}.tar.xz tv-fonts-${UB_VERSION}/
+#	http://dl.bytesex.org/releases/tv-fonts/
+

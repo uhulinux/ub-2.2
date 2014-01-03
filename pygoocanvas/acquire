@@ -1,0 +1,4 @@
+#!/usr/bin/env dl
+
+pygoocanvas-${UB_VERSION}.tar.gz pygoocanvas-${UB_VERSION}/
+	ftp://ftp.gnome.org/pub/GNOME/sources/pygoocanvas/${UB_VERSION_HEAD2}/

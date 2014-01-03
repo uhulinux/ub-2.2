@@ -1,0 +1,7 @@
+#!/bin/sh -eux
+
+rm -f opt/google/earth/free/google-earth
+mv opt/google $UB_INSTALLDIR/usr/lib
+cp $UB_INSTALLDIR/usr/lib/google/earth/free/product_logo_48.png $UB_INSTALLDIR/usr/share/pixmaps/google-earth.png
+ln -s $UB_INSTALLDIR/lib/ld-2.11.2.so $UB_INSTALLDIR/lib/ld-lsb.so.3
+ln -s /usr/lib/google/earth/free/googleearth $UB_INSTALLDIR/usr/lib/google/earth/free/google-earth

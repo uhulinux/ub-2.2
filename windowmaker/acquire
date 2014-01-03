@@ -1,0 +1,4 @@
+#!/usr/bin/env dl
+
+WindowMaker-${UB_VERSION}.tar.gz WindowMaker-${UB_VERSION}/
+	http://windowmaker.org/pub/source/release/

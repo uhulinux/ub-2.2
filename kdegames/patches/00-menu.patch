@@ -1,0 +1,373 @@
+diff -Naur kdegames-4.9.4-ori/bomber/src/bomber.desktop kdegames-4.9.4/bomber/src/bomber.desktop
+--- kdegames-4.9.4-ori/bomber/src/bomber.desktop	2012-11-30 09:01:34.000000000 +0100
++++ kdegames-4.9.4/bomber/src/bomber.desktop	2012-12-18 02:05:10.176425168 +0100
+@@ -102,6 +102,6 @@
+ GenericName[x-test]=xxArcade Bombing Gamexx
+ GenericName[zh_CN]=街机上的投弹游戏
+ GenericName[zh_TW]=大型遊戲機的戰鬥機遊戲
+-Categories=Qt;KDE;Game;ArcadeGame;
++Categories=Qt;KDE;Game;ArcadeGame;X-UHU-Menu/Games/Arcade;
+ X-DocPath=bomber/index.html
+ X-DBUS-StartupType=Multi
+diff -Naur kdegames-4.9.4-ori/bovo/bovo.desktop kdegames-4.9.4/bovo/bovo.desktop
+--- kdegames-4.9.4-ori/bovo/bovo.desktop	2012-11-30 09:01:38.000000000 +0100
++++ kdegames-4.9.4/bovo/bovo.desktop	2012-12-18 02:05:34.328425904 +0100
+@@ -117,4 +117,4 @@
+ Terminal=false
+ X-KDE-StartupNotify=true
+ X-DBUS-StartupType=Multi
+-Categories=Qt;KDE;Game;BoardGame;
++Categories=Qt;KDE;Game;BoardGame;X-UHU-Menu/Games/Board;
+diff -Naur kdegames-4.9.4-ori/granatier/src/granatier.desktop kdegames-4.9.4/granatier/src/granatier.desktop
+--- kdegames-4.9.4-ori/granatier/src/granatier.desktop	2012-11-30 09:01:49.000000000 +0100
++++ kdegames-4.9.4/granatier/src/granatier.desktop	2012-12-18 02:06:05.912426867 +0100
+@@ -86,5 +86,5 @@
+ Icon=granatier
+ TryExec=granatier
+ Exec=granatier
+-Categories=Qt;KDE;Game;ArcadeGame;
++Categories=Qt;KDE;Game;ArcadeGame;X-UHU-Menu/Games/Arcade;
+ X-DocPath=granatier/index.html
+diff -Naur kdegames-4.9.4-ori/kajongg/kajongg.desktop kdegames-4.9.4/kajongg/kajongg.desktop
+--- kdegames-4.9.4-ori/kajongg/kajongg.desktop	2012-11-30 09:03:02.000000000 +0100
++++ kdegames-4.9.4/kajongg/kajongg.desktop	2012-12-18 02:07:14.908428971 +0100
+@@ -128,7 +128,7 @@
+ TryExec=kajongg
+ Exec=kajongg
+ Icon=kajongg
+-Categories=Qt;KDE;Game;BoardGame;
++Categories=Qt;KDE;Game;BoardGame;X-UHU-Menu/Games/Board;
+ X-KDE-StartupNotify=true
+ X-DBUS-StartupType=Multi
+ X-DocPath=kajongg/index.html
+diff -Naur kdegames-4.9.4-ori/kapman/kapman.desktop kdegames-4.9.4/kapman/kapman.desktop
+--- kdegames-4.9.4-ori/kapman/kapman.desktop	2012-11-30 09:03:17.000000000 +0100
++++ kdegames-4.9.4/kapman/kapman.desktop	2012-12-18 02:07:45.780429912 +0100
+@@ -143,5 +143,5 @@
+ Icon=kapman
+ TryExec=kapman
+ Exec=kapman
+-Categories=Qt;KDE;Game;ArcadeGame;
++Categories=Qt;KDE;Game;ArcadeGame;X-UHU-Menu/Games/Arcade;
+ X-DocPath=kapman/index.html
+diff -Naur kdegames-4.9.4-ori/katomic/katomic.desktop kdegames-4.9.4/katomic/katomic.desktop
+--- kdegames-4.9.4-ori/katomic/katomic.desktop	2012-11-30 09:03:34.000000000 +0100
++++ kdegames-4.9.4/katomic/katomic.desktop	2012-12-18 02:08:12.352430722 +0100
+@@ -136,4 +136,4 @@
+ GenericName[zh_TW]=倉庫番(sokoban)式的智力遊戲
+ X-KDE-StartupNotify=true
+ X-DBUS-StartupType=Multi
+-Categories=Qt;KDE;Game;StrategyGame;
++Categories=Qt;KDE;Game;StrategyGame;X-UHU-Menu/Games/TacticStrategy;
+diff -Naur kdegames-4.9.4-ori/kblackbox/kblackbox.desktop kdegames-4.9.4/kblackbox/kblackbox.desktop
+--- kdegames-4.9.4-ori/kblackbox/kblackbox.desktop	2012-11-30 09:03:42.000000000 +0100
++++ kdegames-4.9.4/kblackbox/kblackbox.desktop	2012-12-18 02:08:59.444432158 +0100
+@@ -136,4 +136,4 @@
+ Terminal=false
+ X-KDE-StartupNotify=true
+ X-DBUS-StartupType=Multi
+-Categories=Qt;KDE;Game;BoardGame;
++Categories=Qt;KDE;Game;BoardGame;X-UHU-Menu/Games/Board;
+diff -Naur kdegames-4.9.4-ori/kblocks/kblocks.desktop kdegames-4.9.4/kblocks/kblocks.desktop
+--- kdegames-4.9.4-ori/kblocks/kblocks.desktop	2012-11-30 09:04:04.000000000 +0100
++++ kdegames-4.9.4/kblocks/kblocks.desktop	2012-12-18 02:10:00.364434016 +0100
+@@ -99,4 +99,4 @@
+ GenericName[zh_TW]=類似俄羅斯方塊遊戲
+ X-KDE-StartupNotify=true
+ X-DBUS-StartupType=Multi
+-Categories=Qt;KDE;Game;ArcadeGame;
++Categories=Qt;KDE;Game;ArcadeGame;X-UHU-Menu/Games/Arcade;
+diff -Naur kdegames-4.9.4-ori/kbounce/kbounce.desktop kdegames-4.9.4/kbounce/kbounce.desktop
+--- kdegames-4.9.4-ori/kbounce/kbounce.desktop	2012-11-30 09:04:14.000000000 +0100
++++ kdegames-4.9.4/kbounce/kbounce.desktop	2012-12-18 02:10:21.316434653 +0100
+@@ -124,4 +124,4 @@
+ GenericName[zh_CN]=弹球游戏
+ GenericName[zh_TW]=彈力球遊戲
+ X-DBUS-StartupType=Multi
+-Categories=Qt;KDE;Game;ArcadeGame;
++Categories=Qt;KDE;Game;ArcadeGame;X-UHU-Menu/Games/Arcade;
+diff -Naur kdegames-4.9.4-ori/kbreakout/kbreakout.desktop kdegames-4.9.4/kbreakout/kbreakout.desktop
+--- kdegames-4.9.4-ori/kbreakout/kbreakout.desktop	2012-11-30 09:04:35.000000000 +0100
++++ kdegames-4.9.4/kbreakout/kbreakout.desktop	2012-12-18 02:10:43.076435322 +0100
+@@ -103,4 +103,4 @@
+ GenericName[zh_TW]=打磚塊遊戲
+ X-KDE-StartupNotify=true
+ X-DBUS-StartupType=Multi
+-Categories=Qt;KDE;Game;ArcadeGame;
++Categories=Qt;KDE;Game;ArcadeGame;X-UHU-Menu/Games/Arcade;
+diff -Naur kdegames-4.9.4-ori/kdiamond/src/kdiamond.desktop kdegames-4.9.4/kdiamond/src/kdiamond.desktop
+--- kdegames-4.9.4-ori/kdiamond/src/kdiamond.desktop	2012-11-30 09:05:17.000000000 +0100
++++ kdegames-4.9.4/kdiamond/src/kdiamond.desktop	2012-12-18 02:11:29.292436727 +0100
+@@ -102,5 +102,5 @@
+ Terminal=false
+ Icon=kdiamond
+ X-KDE-StartupNotify=true
+-Categories=Qt;KDE;Game;LogicGame;
++Categories=Qt;KDE;Game;LogicGame;X-UHU-Menu/Games/TacticStrategy;
+ X-DocPath=kdiamond/index.html
+diff -Naur kdegames-4.9.4-ori/kfourinline/kfourinline.desktop kdegames-4.9.4/kfourinline/kfourinline.desktop
+--- kdegames-4.9.4-ori/kfourinline/kfourinline.desktop	2012-11-30 09:05:37.000000000 +0100
++++ kdegames-4.9.4/kfourinline/kfourinline.desktop	2012-12-18 02:11:58.808437627 +0100
+@@ -106,4 +106,4 @@
+ Terminal=false
+ Type=Application
+ X-DocPath=kfourinline/index.html
+-Categories=Qt;KDE;Game;BoardGame;
++Categories=Qt;KDE;Game;BoardGame;X-UHU-Menu/Games/Board;
+diff -Naur kdegames-4.9.4-ori/kgoldrunner/src/KGoldrunner.desktop kdegames-4.9.4/kgoldrunner/src/KGoldrunner.desktop
+--- kdegames-4.9.4-ori/kgoldrunner/src/KGoldrunner.desktop	2012-11-30 09:06:29.000000000 +0100
++++ kdegames-4.9.4/kgoldrunner/src/KGoldrunner.desktop	2012-12-18 02:14:09.900441624 +0100
+@@ -172,5 +172,5 @@
+ Comment[zh_CN]=一个结合动作与解谜的游戏
+ Comment[zh_TW]= 一個動作和解謎的遊戲
+ Terminal=false
+-Categories=Qt;KDE;Game;ArcadeGame;
++Categories=Qt;KDE;Game;ArcadeGame;X-UHU-Menu/Games/Arcade;
+ X-DBUS-StartupType=Multi
+diff -Naur kdegames-4.9.4-ori/kigo/src/gui/kigo.desktop kdegames-4.9.4/kigo/src/gui/kigo.desktop
+--- kdegames-4.9.4-ori/kigo/src/gui/kigo.desktop	2012-11-30 09:06:49.000000000 +0100
++++ kdegames-4.9.4/kigo/src/gui/kigo.desktop	2012-12-18 02:14:35.764442413 +0100
+@@ -3,7 +3,7 @@
+ Icon=kigo
+ Exec=kigo %i -caption "%c"
+ Terminal=false
+-Categories=Qt;KDE;Game;BoardGame;
++Categories=Qt;KDE;Game;BoardGame;X-UHU-Menu/Games/Board;
+ MimeType=application/x-go-sgf;
+ 
+ Name=Kigo
+diff -Naur kdegames-4.9.4-ori/killbots/killbots.desktop kdegames-4.9.4/killbots/killbots.desktop
+--- kdegames-4.9.4-ori/killbots/killbots.desktop	2012-11-30 09:07:16.000000000 +0100
++++ kdegames-4.9.4/killbots/killbots.desktop	2012-12-18 02:15:17.676443690 +0100
+@@ -51,4 +51,4 @@
+ Type=Application
+ X-DocPath=killbots/index.html
+ Terminal=false
+-Categories=Qt;KDE;Game;StrategyGame;
++Categories=Qt;KDE;Game;StrategyGame;X-UHU-Menu/Games/TacticStrategy;
+diff -Naur kdegames-4.9.4-ori/kiriki/src/kiriki.desktop kdegames-4.9.4/kiriki/src/kiriki.desktop
+--- kdegames-4.9.4-ori/kiriki/src/kiriki.desktop	2012-11-30 09:07:20.000000000 +0100
++++ kdegames-4.9.4/kiriki/src/kiriki.desktop	2012-12-18 02:29:47.632470215 +0100
+@@ -108,4 +108,4 @@
+ GenericName[zh_TW]=類似 Yahtzee 的骰子遊戲
+ X-KDE-StartupNotify=true
+ X-DBUS-StartupType=Multi
+-Categories=Qt;KDE;Game;BoardGame;
++Categories=Qt;KDE;Game;BoardGame;X-UHU-Menu/Games/Board;
+diff -Naur kdegames-4.9.4-ori/kjumpingcube/kjumpingcube.desktop kdegames-4.9.4/kjumpingcube/kjumpingcube.desktop
+--- kdegames-4.9.4-ori/kjumpingcube/kjumpingcube.desktop	2012-11-30 09:07:24.000000000 +0100
++++ kdegames-4.9.4/kjumpingcube/kjumpingcube.desktop	2012-12-18 02:30:12.280470968 +0100
+@@ -118,4 +118,4 @@
+ Terminal=false
+ X-KDE-StartupNotify=true
+ X-DBUS-StartupType=Multi
+-Categories=Qt;KDE;Game;StrategyGame;
++Categories=Qt;KDE;Game;StrategyGame;X-UHU-Menu/Games/TacticStrategy;
+diff -Naur kdegames-4.9.4-ori/klickety/klickety.desktop kdegames-4.9.4/klickety/klickety.desktop
+--- kdegames-4.9.4-ori/klickety/klickety.desktop	2012-11-30 09:07:29.000000000 +0100
++++ kdegames-4.9.4/klickety/klickety.desktop	2012-12-18 02:31:32.436473412 +0100
+@@ -116,5 +116,5 @@
+ Comment=
+ X-KDE-StartupNotify=true
+ X-DBUS-StartupType=Multi
+-Categories=Qt;KDE;Game;StrategyGame;
++Categories=Qt;KDE;Game;StrategyGame;X-UHU-Menu/Games/TacticStrategy;
+ X-DocPath=klickety/index.html
+diff -Naur kdegames-4.9.4-ori/klines/klines.desktop kdegames-4.9.4/klines/klines.desktop
+--- kdegames-4.9.4-ori/klines/klines.desktop	2012-11-30 09:07:42.000000000 +0100
++++ kdegames-4.9.4/klines/klines.desktop	2012-12-18 02:32:00.548474269 +0100
+@@ -143,4 +143,4 @@
+ Name[zh_CN]=Kolor Lines
+ Name[zh_TW]=Kolor Lines 彩色線條
+ X-DBUS-StartupType=Multi
+-Categories=Qt;KDE;Game;StrategyGame;
++Categories=Qt;KDE;Game;StrategyGame;X-UHU-Menu/Games/TacticStrategy;
+diff -Naur kdegames-4.9.4-ori/kmahjongg/kmahjongg.desktop kdegames-4.9.4/kmahjongg/kmahjongg.desktop
+--- kdegames-4.9.4-ori/kmahjongg/kmahjongg.desktop	2012-11-30 09:08:13.000000000 +0100
++++ kdegames-4.9.4/kmahjongg/kmahjongg.desktop	2012-12-18 02:32:41.640475522 +0100
+@@ -125,4 +125,4 @@
+ X-KDE-StartupNotify=true
+ X-DBUS-StartupType=Multi
+ X-DocPath=kmahjongg/index.html
+-Categories=Qt;KDE;Game;BoardGame;
++Categories=Qt;KDE;Game;BoardGame;X-UHU-Menu/Games/Board;
+diff -Naur kdegames-4.9.4-ori/kmines/data/kmines.desktop kdegames-4.9.4/kmines/data/kmines.desktop
+--- kdegames-4.9.4-ori/kmines/data/kmines.desktop	2012-11-30 09:08:28.000000000 +0100
++++ kdegames-4.9.4/kmines/data/kmines.desktop	2012-12-18 02:33:09.184476362 +0100
+@@ -136,4 +136,4 @@
+ GenericName[zh_TW]=類似踩地雷的遊戲
+ X-KDE-StartupNotify=true
+ X-DBUS-StartupType=Multi
+-Categories=Qt;KDE;Game;StrategyGame;
++Categories=Qt;KDE;Game;StrategyGame;X-UHU-Menu/Games/TacticStrategy;
+diff -Naur kdegames-4.9.4-ori/knavalbattle/src/kbattleship.desktop kdegames-4.9.4/knavalbattle/src/kbattleship.desktop
+--- kdegames-4.9.4-ori/knavalbattle/src/kbattleship.desktop	2012-11-30 09:08:50.000000000 +0100
++++ kdegames-4.9.4/knavalbattle/src/kbattleship.desktop	2012-12-18 02:08:31.012431291 +0100
+@@ -86,4 +86,4 @@
+ GenericName[zh_TW]=擊沉船隻的遊戲
+ Terminal=false
+ X-DBUS-StartupType=Multi
+-Categories=Qt;KDE;Game;StrategyGame;
++Categories=Qt;KDE;Game;StrategyGame;X-UHU-Menu/Games/TacticStrategy;
+diff -Naur kdegames-4.9.4-ori/knetwalk/src/knetwalk.desktop kdegames-4.9.4/knetwalk/src/knetwalk.desktop
+--- kdegames-4.9.4-ori/knetwalk/src/knetwalk.desktop	2012-11-30 09:09:05.000000000 +0100
++++ kdegames-4.9.4/knetwalk/src/knetwalk.desktop	2012-12-18 02:33:35.780477173 +0100
+@@ -108,4 +108,4 @@
+ Terminal=false
+ Icon=knetwalk
+ X-KDE-StartupNotify=true
+-Categories=Qt;KDE;Game;StrategyGame;
++Categories=Qt;KDE;Game;StrategyGame;X-UHU-Menu/Games/TacticStrategy;
+diff -Naur kdegames-4.9.4-ori/kolf/kolf.desktop kdegames-4.9.4/kolf/kolf.desktop
+--- kdegames-4.9.4-ori/kolf/kolf.desktop	2012-11-30 09:09:57.000000000 +0100
++++ kdegames-4.9.4/kolf/kolf.desktop	2012-12-18 02:34:12.596478295 +0100
+@@ -139,4 +139,4 @@
+ GenericName[x-test]=xxMiniature Golfxx
+ GenericName[zh_CN]=微型高尔夫
+ GenericName[zh_TW]=迷你高爾夫
+-Categories=Qt;KDE;Game;ArcadeGame;
++Categories=Qt;KDE;Game;ArcadeGame;X-UHU-Menu/Games/Arcade;
+diff -Naur kdegames-4.9.4-ori/kollision/kollision.desktop kdegames-4.9.4/kollision/kollision.desktop
+--- kdegames-4.9.4-ori/kollision/kollision.desktop	2012-11-30 09:10:02.000000000 +0100
++++ kdegames-4.9.4/kollision/kollision.desktop	2012-12-18 02:34:30.476478840 +0100
+@@ -95,5 +95,5 @@
+ Comment[zh_CN]=一个简单的躲避球游戏
+ Comment[zh_TW]=簡單的閃躲球遊戲
+ Terminal=false
+-Categories=Qt;KDE;Game;ArcadeGame;
++Categories=Qt;KDE;Game;ArcadeGame;X-UHU-Menu/Games/Arcade;
+ X-DocPath=kollision/index.html
+diff -Naur kdegames-4.9.4-ori/konquest/konquest.desktop kdegames-4.9.4/konquest/konquest.desktop
+--- kdegames-4.9.4-ori/konquest/konquest.desktop	2012-11-30 09:10:09.000000000 +0100
++++ kdegames-4.9.4/konquest/konquest.desktop	2012-12-18 02:34:54.292479567 +0100
+@@ -132,4 +132,4 @@
+ X-DocPath=konquest/index.html
+ X-KDE-StartupNotify=true
+ X-DBUS-StartupType=Multi
+-Categories=Qt;KDE;Game;StrategyGame;
++Categories=Qt;KDE;Game;StrategyGame;X-UHU-Menu/Games/TacticStrategy;
+diff -Naur kdegames-4.9.4-ori/kpat/kpat.desktop kdegames-4.9.4/kpat/kpat.desktop
+--- kdegames-4.9.4-ori/kpat/kpat.desktop	2012-11-30 09:11:17.000000000 +0100
++++ kdegames-4.9.4/kpat/kpat.desktop	2012-12-18 02:35:21.496480396 +0100
+@@ -118,5 +118,5 @@
+ GenericName[zh_CN]=考验耐心的牌类游戏
+ GenericName[zh_TW]=單人玩的紙牌遊戲
+ X-DBUS-StartupType=Multi
+-Categories=Qt;KDE;Game;CardGame;
++Categories=Qt;KDE;Game;CardGame;X-UHU-Menu/Games/Card;
+ MimeType=application/vnd.kde.kpatience.savedstate;
+diff -Naur kdegames-4.9.4-ori/kreversi/kreversi.desktop kdegames-4.9.4/kreversi/kreversi.desktop
+--- kdegames-4.9.4-ori/kreversi/kreversi.desktop	2012-11-30 09:11:23.000000000 +0100
++++ kdegames-4.9.4/kreversi/kreversi.desktop	2012-12-18 02:35:50.632481284 +0100
+@@ -137,4 +137,4 @@
+ Icon=kreversi
+ X-KDE-StartupNotify=true
+ X-DBUS-StartupType=Multi
+-Categories=Qt;KDE;Game;BoardGame;
++Categories=Qt;KDE;Game;BoardGame;X-UHU-Menu/Games/Board;
+diff -Naur kdegames-4.9.4-ori/kshisen/kshisen.desktop kdegames-4.9.4/kshisen/kshisen.desktop
+--- kdegames-4.9.4-ori/kshisen/kshisen.desktop	2012-11-30 09:11:28.000000000 +0100
++++ kdegames-4.9.4/kshisen/kshisen.desktop	2012-12-18 02:36:46.960483002 +0100
+@@ -131,4 +131,4 @@
+ Icon=kshisen
+ X-KDE-StartupNotify=true
+ X-DBUS-StartupType=Multi
+-Categories=Qt;KDE;Game;BoardGame;
++Categories=Qt;KDE;Game;BoardGame;X-UHU-Menu/Games/Board;
+diff -Naur kdegames-4.9.4-ori/ksirk/ksirk/ksirk.desktop kdegames-4.9.4/ksirk/ksirk/ksirk.desktop
+--- kdegames-4.9.4-ori/ksirk/ksirk/ksirk.desktop	2012-11-30 09:11:48.000000000 +0100
++++ kdegames-4.9.4/ksirk/ksirk/ksirk.desktop	2012-12-18 02:37:37.940484555 +0100
+@@ -99,6 +99,6 @@
+ GenericName[x-test]=xxWorld Domination Strategy Gamexx
+ GenericName[zh_CN]=世界支配战略游戏
+ GenericName[zh_TW]=征服世界戰略遊戲
+-Categories=Qt;KDE;Game;StrategyGame;
++Categories=Qt;KDE;Game;StrategyGame;X-UHU-Menu/Games/TacticStrategy;
+ X-KDE-StartupNotify=true
+ X-DBUS-StartupType=Multi
+diff -Naur kdegames-4.9.4-ori/ksnakeduel/kdesnake.desktop kdegames-4.9.4/ksnakeduel/kdesnake.desktop
+--- kdegames-4.9.4-ori/ksnakeduel/kdesnake.desktop	2012-11-30 09:11:55.000000000 +0100
++++ kdegames-4.9.4/ksnakeduel/kdesnake.desktop	2012-12-18 02:41:54.824492389 +0100
+@@ -92,4 +92,4 @@
+ Name[zh_TW]=KSnake
+ X-KDE-StartupNotify=true
+ X-DCOP-ServiceType=Multi
+-Categories=Qt;KDE;Game;ArcadeGame;
++Categories=Qt;KDE;Game;ArcadeGame;X-UHU-Menu/Games/Arcade;
+diff -Naur kdegames-4.9.4-ori/ksnakeduel/ktron.desktop kdegames-4.9.4/ksnakeduel/ktron.desktop
+--- kdegames-4.9.4-ori/ksnakeduel/ktron.desktop	2012-11-30 09:11:55.000000000 +0100
++++ kdegames-4.9.4/ksnakeduel/ktron.desktop	2012-12-18 02:42:15.860493029 +0100
+@@ -45,4 +45,4 @@
+ Name[zh_TW]=KSnakeDuel
+ X-KDE-StartupNotify=true
+ X-DCOP-ServiceType=Multi
+-Categories=Qt;KDE;Game;ArcadeGame;
++Categories=Qt;KDE;Game;ArcadeGame;X-UHU-Menu/Games/Arcade;
+diff -Naur kdegames-4.9.4-ori/kspaceduel/kspaceduel.desktop kdegames-4.9.4/kspaceduel/kspaceduel.desktop
+--- kdegames-4.9.4-ori/kspaceduel/kspaceduel.desktop	2012-11-30 09:12:00.000000000 +0100
++++ kdegames-4.9.4/kspaceduel/kspaceduel.desktop	2012-12-18 02:39:28.288487921 +0100
+@@ -130,4 +130,4 @@
+ Terminal=false
+ X-KDE-StartupNotify=true
+ X-DBUS-StartupType=Multi
+-Categories=Qt;KDE;Game;ArcadeGame;
++Categories=Qt;KDE;Game;ArcadeGame;X-UHU-Menu/Games/Arcade;
+diff -Naur kdegames-4.9.4-ori/ksquares/src/ksquares.desktop kdegames-4.9.4/ksquares/src/ksquares.desktop
+--- kdegames-4.9.4-ori/ksquares/src/ksquares.desktop	2012-11-30 09:12:04.000000000 +0100
++++ kdegames-4.9.4/ksquares/src/ksquares.desktop	2012-12-18 02:40:29.968489802 +0100
+@@ -106,4 +106,4 @@
+ GenericName[zh_CN]=通过点连接创建方形
+ GenericName[zh_TW]=將點連起來組成方塊
+ Terminal=false
+-Categories=Game;BoardGame;Qt;KDE;
++Categories=Game;BoardGame;Qt;KDE;X-UHU-Menu/Games/Board;
+diff -Naur kdegames-4.9.4-ori/ksudoku/src/gui/ksudoku.desktop kdegames-4.9.4/ksudoku/src/gui/ksudoku.desktop
+--- kdegames-4.9.4-ori/ksudoku/src/gui/ksudoku.desktop	2012-11-30 09:12:13.000000000 +0100
++++ kdegames-4.9.4/ksudoku/src/gui/ksudoku.desktop	2012-12-18 02:41:19.072491299 +0100
+@@ -154,4 +154,4 @@
+ Comment[zh_CN]=KSudoku，KDE 下的增强型数独游戏
+ Comment[zh_TW]=KDE Sudoku 遊戲，以及其變化
+ Terminal=false
+-Categories=Qt;KDE;Game;LogicGame;
++Categories=Qt;KDE;Game;LogicGame;X-UHU-Menu/Games/TacticStrategy;
+diff -Naur kdegames-4.9.4-ori/ktuberling/ktuberling.desktop kdegames-4.9.4/ktuberling/ktuberling.desktop
+--- kdegames-4.9.4-ori/ktuberling/ktuberling.desktop	2012-11-30 09:12:57.000000000 +0100
++++ kdegames-4.9.4/ktuberling/ktuberling.desktop	2012-12-18 02:42:47.680494001 +0100
+@@ -125,4 +125,4 @@
+ MimeType=application/x-tuberling;
+ X-KDE-StartupNotify=true
+ X-DBUS-StartupType=Multi
+-Categories=Qt;KDE;Game;KidsGame;
++Categories=Qt;KDE;Game;KidsGame;X-UHU-Menu/Games/Kidsgames;
+diff -Naur kdegames-4.9.4-ori/kubrick/src/kubrick.desktop kdegames-4.9.4/kubrick/src/kubrick.desktop
+--- kdegames-4.9.4-ori/kubrick/src/kubrick.desktop	2012-11-30 09:13:01.000000000 +0100
++++ kdegames-4.9.4/kubrick/src/kubrick.desktop	2012-12-18 02:43:59.352496186 +0100
+@@ -53,7 +53,7 @@
+ Exec=kubrick
+ Icon=kubrick
+ Type=Application
+-Categories=Qt;KDE;Game;LogicGame;
++Categories=Qt;KDE;Game;LogicGame;X-UHU-Menu/Games/TacticStrategy;
+ GenericName=3-D Game based on Rubik's Cube
+ GenericName[ast]=Un xuegu 3D basáu nel cubu de Rubik
+ GenericName[bs]=3-D igra bazirana na Rubikovoj kocki
+diff -Naur kdegames-4.9.4-ori/lskat/lskat.desktop kdegames-4.9.4/lskat/lskat.desktop
+--- kdegames-4.9.4-ori/lskat/lskat.desktop	2012-11-30 09:15:37.000000000 +0100
++++ kdegames-4.9.4/lskat/lskat.desktop	2012-12-18 02:44:24.368496949 +0100
+@@ -131,4 +131,4 @@
+ Terminal=false
+ Type=Application
+ X-DocPath=lskat/index.html
+-Categories=Qt;KDE;Game;CardGame;
++Categories=Qt;KDE;Game;CardGame;X-UHU-Menu/Games/Card;
+diff -Naur kdegames-4.9.4-ori/palapeli/src/palapeli.desktop kdegames-4.9.4/palapeli/src/palapeli.desktop
+--- kdegames-4.9.4-ori/palapeli/src/palapeli.desktop	2012-11-30 09:19:36.000000000 +0100
++++ kdegames-4.9.4/palapeli/src/palapeli.desktop	2012-12-18 02:45:07.776498272 +0100
+@@ -89,6 +89,6 @@
+ Terminal=false
+ Icon=palapeli
+ X-KDE-StartupNotify=true
+-Categories=Qt;KDE;Game;LogicGame;
++Categories=Qt;KDE;Game;LogicGame;X-UHU-Menu/Games/TacticStrategy;
+ MimeType=application/x-palapeli-puzzle;
+ X-DocPath=palapeli/index.html

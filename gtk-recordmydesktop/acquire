@@ -1,0 +1,4 @@
+#!/usr/bin/env dl
+
+gtk-recordmydesktop-${UB_VERSION}.tar.gz gtk-recordmydesktop-${UB_VERSION}/
+	  http://sourceforge.net/projects/recordmydesktop/files/gtk-recordMyDesktop/${UB_VERSION}/gtk-recordmydesktop-${UB_VERSION}.tar.gz/download

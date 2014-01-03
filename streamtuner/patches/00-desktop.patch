@@ -1,0 +1,9 @@
+--- streamtuner-0.99.99.orig/data/streamtuner.desktop.in	2004-07-23 20:04:08.000000000 +0200
++++ streamtuner-0.99.99/data/streamtuner.desktop.in	2006-10-07 14:53:56.000000000 +0200
+@@ -8,5 +8,5 @@
+ TryExec=streamtuner
+ Exec=streamtuner
+ Terminal=false
+-Categories=Application;AudioVideo;GTK;Tuner;
++Categories=Application;AudioVideo;GTK;Tuner;X-UHU-Menu/Multimedia/TVRadio;
+ StartupNotify=true

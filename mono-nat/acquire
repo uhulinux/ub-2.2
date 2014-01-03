@@ -1,0 +1,4 @@
+#!/usr/bin/env dl
+
+mono-nat-${UB_VERSION}.tar.gz mono-nat-${UB_VERSION}/
+	http://projects.qnetp.net/attachments/download/22/

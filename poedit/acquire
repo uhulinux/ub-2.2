@@ -1,0 +1,4 @@
+#!/usr/bin/env dl
+
+poedit-${UB_VERSION}.tar.gz poedit-${UB_VERSION}/
+	http://downloads.sourceforge.net/poedit/

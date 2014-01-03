@@ -1,0 +1,5 @@
+#!/bin/sh -eux
+
+ub_compile \
+	--with-polkit-1 \
+	--without-udev-rules

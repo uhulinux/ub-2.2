@@ -1,0 +1,5 @@
+#!/usr/bin/env dl
+
+mpd-${UB_VERSION}.tar.xz mpd-${UB_VERSION}/
+	http://www.musicpd.org/download/mpd/${UB_VERSION_HEAD2}/
+

@@ -1,0 +1,6 @@
+#!/bin/sh -eux
+
+tar xvzf 99113-kde4-oxygen-rmx.tar.gz
+mkdir ${UB_INSTALLDIR}/usr/share/themes
+mv kde4-oxygen-rmx ${UB_INSTALLDIR}/usr/share/themes
+

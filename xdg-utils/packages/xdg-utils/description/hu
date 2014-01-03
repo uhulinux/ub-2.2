@@ -1,0 +1,7 @@
+&xdg-desktop-menu: &desktop menü bejegyzések telepítése
+&xdg-desktop-icon: ikonok telepítése a &desktop-ra
+&xdg-icon-resource: ikontémák telepítése
+&xdg-mime: fájltípus kezelési információk lekérdezése, és új fájltípusok leírásának telepítése
+&xdg-open: fájl vagy URL megnyitása az alapértelmezett böngészővel
+&xdg-email: e-mail küldése az alapértelmezett levelezőprogrammal
+&xdg-screensaver: képernyővédő kezelése

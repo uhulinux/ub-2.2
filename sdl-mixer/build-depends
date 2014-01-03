@@ -1,0 +1,10 @@
+audiofile-dev
+esound-dev
+flac-dev
+libmikmod-dev
+libmodplug-dev
+libogg-dev
+libvorbis-dev
+sdl-dev
+smpeg-dev
+timidity

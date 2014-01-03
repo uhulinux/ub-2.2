@@ -1,0 +1,14 @@
+dbus-glib-dev
+enchant-dev
+geoclue-dev
+gnome-js-common
+gobject-introspection-dev
+gst-plugins-base-dev
+gtk3-dev
+intltool
+libjpeg-dev
+libxslt-dev
+libxt-dev
+mpfr-dev
+sqlite-dev
+webkitgtk3-dev

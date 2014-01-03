@@ -1,0 +1,36 @@
+diff -Naur orig/data/pysol.desktop mod/data/pysol.desktop
+--- orig/data/pysol.desktop	2008-06-06 08:58:50.000000000 +0200
++++ mod/data/pysol.desktop	2012-12-17 21:22:51.000000000 +0100
+@@ -1,8 +1,10 @@
+ [Desktop Entry]
+ Encoding=UTF-8
+ Name=PySol Fan Club Edition
++Name[hu]=PySolFC
++Comment[hu]=Pasziánsz
+ Exec=pysol.py
+ Terminal=false
+ Type=Application
+-Categories=Game;CardGame;
+-Icon=/usr/share/icons/pysol01.png
++Categories=Game;CardGame;X-UHU-Menu/Games/Card;
++Icon=/usr/share/pixmaps/pysol01.png
+diff -Naur orig/setup.py mod/setup.py
+--- orig/setup.py	2008-06-06 08:58:55.000000000 +0200
++++ mod/setup.py	2012-12-17 21:21:16.000000000 +0100
+@@ -41,14 +41,14 @@
+ 
+ if os.name == 'posix':
+     data_files.append(('share/pixmaps', ['data/pysol.xbm', 'data/pysol.xpm']))
+-    data_files.append(('share/icons',
++    data_files.append(('share/pixmaps',
+                        ['data/images/misc/pysol01.png',
+                         'data/images/misc/pysol02.png',]))
+     for l in ('ru', 'ru_RU'):
+         data_files.append(('share/locale/%s/LC_MESSAGES' % l,
+                            ['locale/%s/LC_MESSAGES/pysol.mo' % l]))
+     data_files.append((data_dir, ['data/pysolfc.glade']))
+-    data_files.append(('share/applications', ['data/pysol.desktop']))
++###    data_files.append(('share/applications', ['data/pysol.desktop']))
+ 
+ ##from pprint import pprint; pprint(data_files)
+ ##import sys; sys.exit()

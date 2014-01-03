@@ -1,0 +1,4 @@
+#!/bin/sh -eux
+
+scons
+scons prefix=${UB_INSTALLDIR}/usr install

@@ -1,0 +1,15 @@
+samba_server=/usr/local/samba/bin/smbd
+samba_status_program=/usr/local/samba/bin/smbstatus
+name_server=/usr/local/samba/bin/nmbd
+run_from_inetd=0
+text_lists=0
+smb_passwd=/usr/local/samba/private/smbpasswd
+net=/usr/local/samba/bin/net
+list_printers_command=lpc status | grep "[A-z0-9]:" | sed -e 's/://g'
+smbgroupedit=/usr/local/samba/bin/smbgroupedit
+swat_path=/usr/local/samba/bin/swat
+samba_password_program=/usr/local/samba/bin/smbpasswd
+sort_mode=0
+pdbedit=/usr/local/samba/bin/pdbedit
+dont_convert=-499
+smb_conf=/usr/local/samba/lib/smb.conf

@@ -1,0 +1,12 @@
+diff -Naur orig/_src/path.cpp mod/_src/path.cpp
+--- orig/_src/path.cpp	2008-06-29 00:52:30.000000000 +0200
++++ mod/_src/path.cpp	2011-05-13 23:48:05.000000000 +0200
+@@ -1,6 +1,8 @@
+ #include <string>
+ #include <iostream>
+ #include <sys/stat.h>
++#include <cstring>
++#include <cstdlib>
+ 
+ #ifdef _WIN32
+ 	#ifdef _XBOX

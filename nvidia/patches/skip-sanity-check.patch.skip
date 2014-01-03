@@ -1,0 +1,25 @@
+diff -Naur orig/kernel/Makefile mod/kernel/Makefile
+--- orig/kernel/Makefile	2013-04-26 05:42:13.000000000 +0200
++++ mod/kernel/Makefile	2013-05-05 14:52:25.000000000 +0200
+@@ -27,7 +27,7 @@
+ # Christian Zander (zander@mail.minion.de) (enhancements)
+ #
+ 
+-.PHONY: all install suser-sanity-check rmmod-sanity-check build-sanity-checks \
++.PHONY: all install build-sanity-checks \
+ module module-sign module-install package-install clean print-module-filename \
+ conftest-compile-test
+ 
+@@ -307,10 +307,10 @@
+ # sufficient privileges. Rebuild the module dependency file.
+ #
+ 
+-module-install: suser-sanity-check module
++module-install: module
+ 	@mkdir -p $(MODULE_ROOT)/video; \
+ 	install -m 0664 -o root -g root $(MODULE_OBJECT) $(MODULE_ROOT)/video; \
+-	PATH="$(PATH):/bin:/sbin" depmod -a
++	PATH="$(PATH):/bin:/sbin" true
+ 
+ #
+ # This target builds, then installs, then creates device nodes and inserts

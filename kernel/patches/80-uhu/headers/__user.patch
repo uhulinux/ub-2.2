@@ -1,0 +1,496 @@
+diff -Naurdp a/include/linux/aio.h b/include/linux/aio.h
+--- a/include/linux/aio.h	2012-04-16 03:28:29.000000000 +0200
++++ b/include/linux/aio.h	2012-04-16 14:28:21.625649427 +0200
+@@ -9,6 +9,8 @@
+ 
+ #include <linux/atomic.h>
+ 
++#include <linux/compiler.h>
++
+ #define AIO_MAXSEGS		4
+ #define AIO_KIOGRP_NR_ATOMIC	8
+ 
+diff -Naurdp a/include/linux/atmdev.h b/include/linux/atmdev.h
+--- a/include/linux/atmdev.h	2012-04-16 03:28:29.000000000 +0200
++++ b/include/linux/atmdev.h	2012-04-16 14:28:21.625649427 +0200
+@@ -10,6 +10,7 @@
+ #include <linux/atmapi.h>
+ #include <linux/atm.h>
+ #include <linux/atmioc.h>
++#include <linux/compiler.h>
+ 
+ 
+ #define ESI_LEN		6
+diff -Naurdp a/include/linux/atm.h b/include/linux/atm.h
+--- a/include/linux/atm.h	2012-04-16 03:28:29.000000000 +0200
++++ b/include/linux/atm.h	2012-04-16 14:28:21.625649427 +0200
+@@ -11,6 +11,8 @@
+ #ifndef _LINUX_ATM_H
+ #define _LINUX_ATM_H
+ 
++#include <linux/compiler.h>
++
+ /*
+  * BEGIN_xx and END_xx markers are used for automatic generation of
+  * documentation. Do not change them.
+diff -Naurdp a/include/linux/binfmts.h b/include/linux/binfmts.h
+--- a/include/linux/binfmts.h	2012-04-16 03:28:29.000000000 +0200
++++ b/include/linux/binfmts.h	2012-04-16 14:28:21.625649427 +0200
+@@ -2,6 +2,7 @@
+ #define _LINUX_BINFMTS_H
+ 
+ #include <linux/capability.h>
++#include <linux/compiler.h>
+ 
+ struct pt_regs;
+ 
+diff -Naurdp a/include/linux/blkdev.h b/include/linux/blkdev.h
+--- a/include/linux/blkdev.h	2012-04-16 03:28:29.000000000 +0200
++++ b/include/linux/blkdev.h	2012-04-16 14:28:21.625649427 +0200
+@@ -20,6 +20,7 @@
+ #include <linux/smp.h>
+ 
+ #include <asm/scatterlist.h>
++#include <linux/compiler.h>
+ 
+ struct module;
+ struct scsi_ioctl_command;
+diff -Naurdp a/include/linux/blkpg.h b/include/linux/blkpg.h
+--- a/include/linux/blkpg.h	2012-04-16 03:28:29.000000000 +0200
++++ b/include/linux/blkpg.h	2012-04-16 14:28:21.625649427 +0200
+@@ -1,6 +1,8 @@
+ #ifndef _LINUX_BLKPG_H
+ #define _LINUX_BLKPG_H
+ 
++#include <linux/compiler.h>
++
+ /*
+  * Partition table and disk geometry handling
+  *
+diff -Naurdp a/include/linux/capi.h b/include/linux/capi.h
+--- a/include/linux/capi.h	2012-04-16 03:28:29.000000000 +0200
++++ b/include/linux/capi.h	2012-04-16 14:28:21.629648694 +0200
+@@ -17,6 +17,7 @@
+ #ifndef __KERNEL__
+ #include <linux/kernelcapi.h>
+ #endif
++#include <linux/compiler.h>
+ 
+ /*
+  * CAPI_REGISTER
+diff -Naurdp a/include/linux/cciss_ioctl.h b/include/linux/cciss_ioctl.h
+--- a/include/linux/cciss_ioctl.h	2012-04-16 03:28:29.000000000 +0200
++++ b/include/linux/cciss_ioctl.h	2012-04-16 14:28:21.629648694 +0200
+@@ -3,6 +3,7 @@
+ 
+ #include <linux/types.h>
+ #include <linux/ioctl.h>
++#include <linux/compiler.h>
+ #include <linux/cciss_defs.h>
+ 
+ #define CCISS_IOC_MAGIC 'B'
+diff -Naurdp a/include/linux/cdrom.h b/include/linux/cdrom.h
+--- a/include/linux/cdrom.h	2012-04-16 03:28:29.000000000 +0200
++++ b/include/linux/cdrom.h	2012-04-16 14:28:21.629648694 +0200
+@@ -13,6 +13,7 @@
+ 
+ #include <linux/types.h>
+ #include <asm/byteorder.h>
++#include <linux/compiler.h>
+ 
+ /*******************************************************
+  * As of Linux 2.1.x, all Linux CD-ROM application programs will use this 
+diff -Naurdp a/include/linux/coda.h b/include/linux/coda.h
+--- a/include/linux/coda.h	2012-04-16 03:28:29.000000000 +0200
++++ b/include/linux/coda.h	2012-04-16 14:28:21.629648694 +0200
+@@ -59,6 +59,7 @@ Mellon the rights to redistribute these
+ #ifndef _CODA_HEADER_
+ #define _CODA_HEADER_
+ 
++#include <linux/compiler.h>
+ 
+ /* Catch new _KERNEL defn for NetBSD and DJGPP/__CYGWIN32__ */
+ #if defined(__NetBSD__) || \
+diff -Naurdp a/include/linux/compat.h b/include/linux/compat.h
+--- a/include/linux/compat.h	2012-04-16 03:28:29.000000000 +0200
++++ b/include/linux/compat.h	2012-04-16 14:28:21.629648694 +0200
+@@ -7,6 +7,7 @@
+ 
+ #ifdef CONFIG_COMPAT
+ 
++#include <linux/compiler.h>
+ #include <linux/stat.h>
+ #include <linux/param.h>	/* for HZ */
+ #include <linux/sem.h>
+diff -Naurdp a/include/linux/cyclades.h b/include/linux/cyclades.h
+--- a/include/linux/cyclades.h	2012-04-16 03:28:29.000000000 +0200
++++ b/include/linux/cyclades.h	2012-04-16 14:28:21.629648694 +0200
+@@ -69,6 +69,8 @@
+ 
+ #include <linux/types.h>
+ 
++#include <linux/compiler.h>
++
+ struct cyclades_monitor {
+         unsigned long           int_count;
+         unsigned long           char_count;
+diff -Naurdp a/include/linux/fs.h b/include/linux/fs.h
+--- a/include/linux/fs.h	2012-04-16 03:28:29.000000000 +0200
++++ b/include/linux/fs.h	2012-04-16 14:28:21.629648694 +0200
+@@ -8,6 +8,7 @@
+ 
+ #include <linux/limits.h>
+ #include <linux/ioctl.h>
++#include <linux/compiler.h>
+ #include <linux/blk_types.h>
+ #include <linux/types.h>
+ 
+diff -Naurdp a/include/linux/hugetlb.h b/include/linux/hugetlb.h
+--- a/include/linux/hugetlb.h	2012-04-16 03:28:29.000000000 +0200
++++ b/include/linux/hugetlb.h	2012-04-16 14:28:21.629648694 +0200
+@@ -13,6 +13,7 @@ struct user_struct;
+ #include <linux/mempolicy.h>
+ #include <linux/shm.h>
+ #include <asm/tlbflush.h>
++#include <linux/compiler.h>
+ 
+ struct hugepage_subpool {
+ 	spinlock_t lock;
+diff -Naurdp a/include/linux/if_bridge.h b/include/linux/if_bridge.h
+--- a/include/linux/if_bridge.h	2012-04-16 03:28:29.000000000 +0200
++++ b/include/linux/if_bridge.h	2012-04-16 14:28:21.629648694 +0200
+@@ -14,6 +14,7 @@
+ #define _LINUX_IF_BRIDGE_H
+ 
+ #include <linux/types.h>
++#include <linux/compiler.h>
+ 
+ #define SYSFS_BRIDGE_ATTR	"bridge"
+ #define SYSFS_BRIDGE_FDB	"brforward"
+diff -Naurdp a/include/linux/if_frad.h b/include/linux/if_frad.h
+--- a/include/linux/if_frad.h	2012-04-16 03:28:29.000000000 +0200
++++ b/include/linux/if_frad.h	2012-04-16 14:28:21.629648694 +0200
+@@ -25,6 +25,7 @@
+ #define _FRAD_H_
+ 
+ #include <linux/if.h>
++#include <linux/compiler.h>
+ 
+ /* Structures and constants associated with the DLCI device driver */
+ 
+diff -Naurdp a/include/linux/if_vlan.h b/include/linux/if_vlan.h
+--- a/include/linux/if_vlan.h	2012-04-16 03:28:29.000000000 +0200
++++ b/include/linux/if_vlan.h	2012-04-16 14:28:21.629648694 +0200
+@@ -13,6 +13,8 @@
+ #ifndef _LINUX_IF_VLAN_H_
+ #define _LINUX_IF_VLAN_H_
+ 
++#include <linux/compiler.h>
++
+ #ifdef __KERNEL__
+ #include <linux/netdevice.h>
+ #include <linux/etherdevice.h>
+diff -Naurdp a/include/linux/igmp.h b/include/linux/igmp.h
+--- a/include/linux/igmp.h	2012-04-16 03:28:29.000000000 +0200
++++ b/include/linux/igmp.h	2012-04-16 14:28:21.629648694 +0200
+@@ -18,6 +18,7 @@
+ 
+ #include <linux/types.h>
+ #include <asm/byteorder.h>
++#include <linux/compiler.h>
+ 
+ /*
+  *	IGMP protocol structures
+diff -Naurdp a/include/linux/inetdevice.h b/include/linux/inetdevice.h
+--- a/include/linux/inetdevice.h	2012-04-16 03:28:29.000000000 +0200
++++ b/include/linux/inetdevice.h	2012-04-16 14:28:21.629648694 +0200
+@@ -1,6 +1,8 @@
+ #ifndef _LINUX_INETDEVICE_H
+ #define _LINUX_INETDEVICE_H
+ 
++#include <linux/compiler.h>
++
+ #ifdef __KERNEL__
+ 
+ #include <linux/bitmap.h>
+diff -Naurdp a/include/linux/ixjuser.h b/include/linux/ixjuser.h
+--- a/include/linux/ixjuser.h	2012-04-16 03:28:29.000000000 +0200
++++ b/include/linux/ixjuser.h	2012-04-16 14:28:21.629648694 +0200
+@@ -43,6 +43,7 @@
+  *****************************************************************************/
+ 
+ #include <linux/telephony.h>
++#include <linux/compiler.h>
+ 
+ 
+ /******************************************************************************
+diff -Naurdp a/include/linux/mmzone.h b/include/linux/mmzone.h
+--- a/include/linux/mmzone.h	2012-04-16 03:28:29.000000000 +0200
++++ b/include/linux/mmzone.h	2012-04-16 14:28:21.629648694 +0200
+@@ -18,6 +18,7 @@
+ #include <generated/bounds.h>
+ #include <linux/atomic.h>
+ #include <asm/page.h>
++#include <linux/compiler.h>
+ 
+ /* Free memory management - zoned buddy allocator.  */
+ #ifndef CONFIG_FORCE_MAX_ZONEORDER
+diff -Naurdp a/include/linux/mroute.h b/include/linux/mroute.h
+--- a/include/linux/mroute.h	2012-04-16 03:28:29.000000000 +0200
++++ b/include/linux/mroute.h	2012-04-16 14:28:21.629648694 +0200
+@@ -1,6 +1,7 @@
+ #ifndef __LINUX_MROUTE_H
+ #define __LINUX_MROUTE_H
+ 
++#include <linux/compiler.h>
+ #include <linux/sockios.h>
+ #include <linux/types.h>
+ #ifdef __KERNEL__
+diff -Naurdp a/include/linux/namei.h b/include/linux/namei.h
+--- a/include/linux/namei.h	2012-04-16 03:28:29.000000000 +0200
++++ b/include/linux/namei.h	2012-04-16 14:28:21.633647961 +0200
+@@ -4,6 +4,7 @@
+ #include <linux/dcache.h>
+ #include <linux/linkage.h>
+ #include <linux/path.h>
++#include <linux/compiler.h>
+ 
+ struct vfsmount;
+ 
+diff -Naurdp a/include/linux/netdevice.h b/include/linux/netdevice.h
+--- a/include/linux/netdevice.h	2012-04-16 03:28:29.000000000 +0200
++++ b/include/linux/netdevice.h	2012-04-16 14:28:21.633647961 +0200
+@@ -29,6 +29,7 @@
+ #include <linux/if_ether.h>
+ #include <linux/if_packet.h>
+ #include <linux/if_link.h>
++#include <linux/compiler.h>
+ 
+ #ifdef __KERNEL__
+ #include <linux/pm_qos.h>
+diff -Naurdp a/include/linux/netfilter.h b/include/linux/netfilter.h
+--- a/include/linux/netfilter.h	2012-04-16 03:28:29.000000000 +0200
++++ b/include/linux/netfilter.h	2012-04-16 14:28:21.633647961 +0200
+@@ -1,6 +1,8 @@
+ #ifndef __LINUX_NETFILTER_H
+ #define __LINUX_NETFILTER_H
+ 
++#include <linux/compiler.h>
++
+ #ifdef __KERNEL__
+ #include <linux/init.h>
+ #include <linux/skbuff.h>
+diff -Naurdp a/include/linux/net.h b/include/linux/net.h
+--- a/include/linux/net.h	2012-04-16 03:28:29.000000000 +0200
++++ b/include/linux/net.h	2012-04-16 14:28:21.633647961 +0200
+@@ -20,6 +20,7 @@
+ 
+ #include <linux/socket.h>
+ #include <asm/socket.h>
++#include <linux/compiler.h>
+ 
+ #define NPROTO		AF_MAX
+ 
+diff -Naurdp a/include/linux/nfs_fs.h b/include/linux/nfs_fs.h
+--- a/include/linux/nfs_fs.h	2012-04-16 03:28:29.000000000 +0200
++++ b/include/linux/nfs_fs.h	2012-04-16 14:28:21.633647961 +0200
+@@ -25,6 +25,8 @@
+ #define NFS_DEF_ACDIRMIN	(30)
+ #define NFS_DEF_ACDIRMAX	(60)
+ 
++#include <linux/compiler.h>
++
+ /*
+  * When flushing a cluster of dirty pages, there can be different
+  * strategies:
+diff -Naurdp a/include/linux/oprofile.h b/include/linux/oprofile.h
+--- a/include/linux/oprofile.h	2012-04-16 03:28:29.000000000 +0200
++++ b/include/linux/oprofile.h	2012-04-16 14:28:21.633647961 +0200
+@@ -19,6 +19,7 @@
+ #include <linux/errno.h>
+ #include <linux/printk.h>
+ #include <linux/atomic.h>
++#include <linux/compiler.h>
+  
+ /* Each escaped entry is prefixed by ESCAPE_CODE
+  * then one of the following codes, then the
+diff -Naurdp a/include/linux/poll.h b/include/linux/poll.h
+--- a/include/linux/poll.h	2012-04-16 03:28:29.000000000 +0200
++++ b/include/linux/poll.h	2012-04-16 14:28:21.633647961 +0200
+@@ -2,6 +2,7 @@
+ #define _LINUX_POLL_H
+ 
+ #include <asm/poll.h>
++#include <linux/compiler.h>
+ 
+ #ifdef __KERNEL__
+ 
+diff -Naurdp a/include/linux/proc_fs.h b/include/linux/proc_fs.h
+--- a/include/linux/proc_fs.h	2012-04-16 03:28:29.000000000 +0200
++++ b/include/linux/proc_fs.h	2012-04-16 14:28:21.633647961 +0200
+@@ -6,6 +6,7 @@
+ #include <linux/spinlock.h>
+ #include <linux/magic.h>
+ #include <linux/atomic.h>
++#include <linux/compiler.h>
+ 
+ struct net;
+ struct completion;
+diff -Naurdp a/include/linux/sdla.h b/include/linux/sdla.h
+--- a/include/linux/sdla.h	2012-04-16 03:28:29.000000000 +0200
++++ b/include/linux/sdla.h	2012-04-16 14:28:21.633647961 +0200
+@@ -23,6 +23,8 @@
+ #ifndef SDLA_H
+ #define SDLA_H
+ 
++#include <linux/compiler.h>
++
+ /* adapter type */
+ #define SDLA_TYPES
+ #define SDLA_S502A			5020
+diff -Naurdp a/include/linux/security.h b/include/linux/security.h
+--- a/include/linux/security.h	2012-04-16 03:28:29.000000000 +0200
++++ b/include/linux/security.h	2012-04-16 14:48:30.739824208 +0200
+@@ -26,6 +26,7 @@
+ #include <linux/capability.h>
+ #include <linux/slab.h>
+ #include <linux/err.h>
++#include <linux/compiler.h>
+ 
+ struct linux_binprm;
+ struct cred;
+diff -Naurdp a/include/linux/selection.h b/include/linux/selection.h
+--- a/include/linux/selection.h	2012-04-16 03:28:29.000000000 +0200
++++ b/include/linux/selection.h	2012-04-16 14:28:21.633647961 +0200
+@@ -9,6 +9,7 @@
+ 
+ #include <linux/tiocl.h>
+ #include <linux/vt_buffer.h>
++#include <linux/compiler.h>
+ 
+ struct tty_struct;
+ 
+diff -Naurdp a/include/linux/sem.h b/include/linux/sem.h
+--- a/include/linux/sem.h	2012-04-16 03:28:29.000000000 +0200
++++ b/include/linux/sem.h	2012-04-16 14:28:21.633647961 +0200
+@@ -2,6 +2,7 @@
+ #define _LINUX_SEM_H
+ 
+ #include <linux/ipc.h>
++#include <linux/compiler.h>
+ 
+ /* semop flags */
+ #define SEM_UNDO        0x1000  /* undo the operation on exit */
+diff -Naurdp a/include/linux/signal.h b/include/linux/signal.h
+--- a/include/linux/signal.h	2012-04-16 03:28:29.000000000 +0200
++++ b/include/linux/signal.h	2012-04-16 14:28:21.637647227 +0200
+@@ -3,6 +3,7 @@
+ 
+ #include <asm/signal.h>
+ #include <asm/siginfo.h>
++#include <linux/compiler.h>
+ 
+ #ifdef __KERNEL__
+ #include <linux/list.h>
+diff -Naurdp a/include/linux/syscalls.h b/include/linux/syscalls.h
+--- a/include/linux/syscalls.h	2012-04-16 03:28:29.000000000 +0200
++++ b/include/linux/syscalls.h	2012-04-16 14:28:21.637647227 +0200
+@@ -11,6 +11,8 @@
+ #ifndef _LINUX_SYSCALLS_H
+ #define _LINUX_SYSCALLS_H
+ 
++#include <linux/compiler.h>
++
+ struct epoll_event;
+ struct iattr;
+ struct inode;
+diff -Naurdp a/include/linux/time.h b/include/linux/time.h
+--- a/include/linux/time.h	2012-04-16 03:28:29.000000000 +0200
++++ b/include/linux/time.h	2012-04-16 14:28:21.637647227 +0200
+@@ -2,6 +2,7 @@
+ #define _LINUX_TIME_H
+ 
+ #include <linux/types.h>
++#include <linux/compiler.h>
+ 
+ #ifdef __KERNEL__
+ # include <linux/cache.h>
+diff -Naurdp a/include/linux/tty_driver.h b/include/linux/tty_driver.h
+--- a/include/linux/tty_driver.h	2012-04-16 03:28:29.000000000 +0200
++++ b/include/linux/tty_driver.h	2012-04-16 14:28:21.637647227 +0200
+@@ -241,6 +241,7 @@
+ #include <linux/list.h>
+ #include <linux/cdev.h>
+ #include <linux/termios.h>
++#include <linux/compiler.h>
+ 
+ struct tty_struct;
+ struct tty_driver;
+diff -Naurdp a/include/linux/tty_ldisc.h b/include/linux/tty_ldisc.h
+--- a/include/linux/tty_ldisc.h	2012-04-16 03:28:29.000000000 +0200
++++ b/include/linux/tty_ldisc.h	2012-04-16 14:28:21.637647227 +0200
+@@ -110,6 +110,7 @@
+ #include <linux/fs.h>
+ #include <linux/wait.h>
+ #include <linux/pps_kernel.h>
++#include <linux/compiler.h>
+ 
+ struct tty_ldisc_ops {
+ 	int	magic;
+diff -Naurdp a/include/linux/usbdevice_fs.h b/include/linux/usbdevice_fs.h
+--- a/include/linux/usbdevice_fs.h	2012-04-16 03:28:29.000000000 +0200
++++ b/include/linux/usbdevice_fs.h	2012-04-16 14:28:21.637647227 +0200
+@@ -31,6 +31,7 @@
+ 
+ #include <linux/types.h>
+ #include <linux/magic.h>
++#include <linux/compiler.h>
+ 
+ /* --------------------------------------------------------------------- */
+ 
+diff -Naurdp a/include/linux/vt_kern.h b/include/linux/vt_kern.h
+--- a/include/linux/vt_kern.h	2012-04-16 03:28:29.000000000 +0200
++++ b/include/linux/vt_kern.h	2012-04-16 14:28:21.637647227 +0200
+@@ -14,6 +14,7 @@
+ #include <linux/mm.h>
+ #include <linux/consolemap.h>
+ #include <linux/notifier.h>
++#include <linux/compiler.h>
+ 
+ /*
+  * Presently, a lot of graphics programs do not restore the contents of
+diff -Naurdp a/include/linux/wireless.h b/include/linux/wireless.h
+--- a/include/linux/wireless.h	2012-04-16 03:28:29.000000000 +0200
++++ b/include/linux/wireless.h	2012-04-16 14:28:21.637647227 +0200
+@@ -10,6 +10,8 @@
+ #ifndef _LINUX_WIRELESS_H
+ #define _LINUX_WIRELESS_H
+ 
++#include <linux/compiler.h>
++
+ /************************** DOCUMENTATION **************************/
+ /*
+  * Initial APIs (1996 -> onward) :
+diff -Naurdp a/include/linux/writeback.h b/include/linux/writeback.h
+--- a/include/linux/writeback.h	2012-04-16 03:28:29.000000000 +0200
++++ b/include/linux/writeback.h	2012-04-16 14:28:21.637647227 +0200
+@@ -25,6 +25,8 @@ DECLARE_PER_CPU(int, dirty_throttle_leak
+ #define DIRTY_SCOPE		8
+ #define DIRTY_FULL_SCOPE	(DIRTY_SCOPE / 2)
+ 
++#include <linux/compiler.h>
++
+ struct backing_dev_info;
+ 
+ /*
+diff -Naurdp a/include/scsi/sg.h b/include/scsi/sg.h
+--- a/include/scsi/sg.h	2012-04-16 03:28:29.000000000 +0200
++++ b/include/scsi/sg.h	2012-04-16 14:28:21.637647227 +0200
+@@ -82,6 +82,7 @@ typedef struct sg_iovec /* same structur
+     size_t iov_len;             /* Length in bytes  */
+ } sg_iovec_t;
+ 
++#include <linux/compiler.h>
+ 
+ typedef struct sg_io_hdr
+ {

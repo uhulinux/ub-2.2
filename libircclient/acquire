@@ -1,0 +1,5 @@
+#!/usr/bin/env dl
+
+libircclient-${UB_VERSION}.tar.gz libircclient-${UB_VERSION}/
+	http://downloads.sourceforge.net/project/libircclient/libircclient/${UB_VERSION}/
+

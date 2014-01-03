@@ -1,0 +1,6 @@
+#!/bin/sh -eux
+
+tar zxvf 129008-Faenza-Cupertino.tar.gz
+mkdir ${UB_INSTALLDIR}/usr/share/icons
+mv Faenza-Cupertino ${UB_INSTALLDIR}/usr/share/icons
+

@@ -1,0 +1,4 @@
+cyrus-sasl2
+krb5-dev
+openldap
+openssl-dev

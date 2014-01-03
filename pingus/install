@@ -1,0 +1,3 @@
+#!/bin/sh -eux
+
+./install.sh "$UB_INSTALLDIR"/usr

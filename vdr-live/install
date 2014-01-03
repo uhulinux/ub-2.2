@@ -1,0 +1,5 @@
+#!/bin/sh -eux
+
+ub_install
+mkdir -p $UB_INSTALLDIR/usr/share/vdr/plugins
+ln -s $UB_INSTALLDIR/var/vdr/config/plugins/live $UB_INSTALLDIR/usr/share/vdr/plugins/live

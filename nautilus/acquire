@@ -1,0 +1,5 @@
+#!/usr/bin/env dl
+
+nautilus_${UB_VERSION}.orig.tar.xz nautilus-${UB_VERSION}/
+	http://ftp.de.debian.org/debian/pool/main/n/nautilus/
+	ftp://ftp.gnome.org/pub/GNOME/sources/nautilus/${UB_VERSION_HEAD2}/

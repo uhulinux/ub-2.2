@@ -1,0 +1,10 @@
+Summary=D-BUS Messaging Subsystem
+Summary[hu]=D-BUS üzenetküldő alrendszer
+Description=D-BUS is a system for sending messages between applications. It is used both for the systemwide message bus service, and as a per-user-login-session messaging facility.
+Description[hu]=A D-BUS egy alkalmazások közötti üzenetküldő rendszer. Egyaránt alkalmas rendszer és munkafolyamat szinten is működni.
+MsgDesc=D-BUS Messaging Subsystem
+MsgDesc[hu]=D-BUS üzenetküldő alrendszer
+Script=/etc/init.d/dbus
+SupportsReload=yes
+Runlevels=2345
+Sequence=08

@@ -1,0 +1,4 @@
+#!/bin/sh -eux
+cd build/compile
+make DESTDIR="$UB_INSTALLDIR" install
+rm -r "$UB_INSTALLDIR"/usr/share/widelands/{ChangeLog,COPYING,CREDITS,VERSION}

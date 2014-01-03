@@ -1,0 +1,16 @@
+#!/bin/sh -eux
+plugin=osdadjust
+mkdir vdr
+cp -r /usr/src/vdr/* vdr/
+rm -r vdr/PLUGINS/src
+mkdir -p vdr/PLUGINS/src
+cp -r "$plugin" vdr/PLUGINS/src/"$plugin"
+cd vdr
+make CONFDIR=/var/vdr/config \
+	LOCDIR=/usr/share/locale \
+	MANDIR="$UB_INSTALLDIR"/usr/share/man \
+	BINDIR=/usr/bin \
+	VIDEODIR=/var/vdr/video \
+	PLUGINLIBDIR=/usr/lib/vdr \
+	DVBDIR=/usr/include/linux/dvb \
+  plugins

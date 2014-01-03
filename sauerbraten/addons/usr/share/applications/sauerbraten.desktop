@@ -1,0 +1,9 @@
+[Desktop Entry]
+Version=1.0
+Encoding=UTF-8
+Exec=sauer-client
+Type=Application
+Categories=Game;ActionGame;X-UHU-Menu/Games/Action;
+Name=Sauerbraten
+StartupNotify=true
+Icon=sauerbraten

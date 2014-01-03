@@ -1,0 +1,11 @@
+diff -Naur a/src/palapeli.desktop b/src/palapeli.desktop
+--- a/src/palapeli.desktop	2013-01-23 23:08:28.000000000 +0100
++++ b/src/palapeli.desktop	2013-02-10 23:56:48.500645805 +0100
+@@ -90,6 +90,6 @@
+ Terminal=false
+ Icon=palapeli
+ X-KDE-StartupNotify=true
+-Categories=Qt;KDE;Game;LogicGame;
++Categories=Qt;KDE;Game;LogicGame;X-UHU-Menu/Games/TacticStrategy;
+ MimeType=application/x-palapeli-puzzle;
+ X-DocPath=palapeli/index.html

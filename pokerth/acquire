@@ -1,0 +1,5 @@
+#!/usr/bin/env dl
+
+PokerTH-${UB_VERSION}-src.tar.bz2 PokerTH-${UB_VERSION}-src/
+	https://sourceforge.net/projects/pokerth/files/pokerth/${UB_VERSION_HEAD2}/
+

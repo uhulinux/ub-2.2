@@ -1,0 +1,10 @@
+[Desktop Entry]
+Encoding=UTF-8
+Type=Application
+Name=Mutt
+Comment=Terminal mail client
+Comment[hu]=Karakteres levelező kliens
+Exec=mutt
+Terminal=true
+Categories=X-UHU-Menu/Internet/Email;
+X-UHU-Major=-1

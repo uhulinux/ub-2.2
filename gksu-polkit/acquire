@@ -1,0 +1,7 @@
+#!/usr/bin/env dl
+
+gksu-polkit_${UB_VERSION}.orig.tar.gz gksu-polkit-${UB_VERSION}/
+	http://ftp.debian.org/debian/pool/main/g/gksu-polkit/
+	ftp://ftp.archive.egr.msu.edu/debian/pool/main/g/gksu-polkit/
+	ftp://ftp.pl.debian.org/pub/debian/pool/main/g/gksu-polkit/
+	https://launchpad.net/ubuntu/+archive/primary/+files/

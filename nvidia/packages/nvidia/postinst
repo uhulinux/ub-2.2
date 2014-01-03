@@ -1,0 +1,7 @@
+#!/bin/sh
+
+ldconfig
+ln -sf /usr/lib/nvidia/libglx.so.* /usr/lib/xorg/modules/extensions/libglx.so
+if [ ! -f /etc/X11/xorg.conf ];  then
+	/usr/bin/nvidia-xconfig
+fi

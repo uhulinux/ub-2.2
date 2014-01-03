@@ -1,0 +1,11 @@
+diff -Naur orig/skype.desktop patched/skype.desktop
+--- orig/skype.desktop	2012-11-01 09:21:42.000000000 +0100
++++ patched/skype.desktop	2012-11-15 20:47:10.652911486 +0100
+@@ -6,6 +6,6 @@
+ Terminal=false
+ Type=Application
+ Encoding=UTF-8
+-Categories=Network;Application;
++Categories=Network;Application;X-UHU-Menu/Internet/Messengers;
+ MimeType=x-scheme-handler/skype;
+ X-KDE-Protocols=skype

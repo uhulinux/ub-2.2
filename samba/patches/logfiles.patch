@@ -1,0 +1,72 @@
+diff -Naurdp samba-3.3.3.orig/source3/lib/popt_common.c samba-3.3.3/source3/lib/popt_common.c
+--- samba-3.3.3.orig/source3/lib/popt_common.c	2009-04-01 13:48:54.000000000 +0200
++++ samba-3.3.3/source3/lib/popt_common.c	2009-04-16 15:48:59.000000000 +0200
+@@ -50,7 +50,7 @@ static void set_logfile(poptContext con,
+ 	else
+ 		pname++;
+ 
+-	if (asprintf(&lfile, "%s/log.%s", arg, pname) < 0) {
++	if (asprintf(&lfile, "%s/%s.log", arg, pname) < 0) {
+ 		return;
+ 	}
+ 	lp_set_logfile(lfile);
+diff -Naurdp samba-3.3.3.orig/source3/nmbd/nmbd.c samba-3.3.3/source3/nmbd/nmbd.c
+--- samba-3.3.3.orig/source3/nmbd/nmbd.c	2009-04-01 13:48:54.000000000 +0200
++++ samba-3.3.3/source3/nmbd/nmbd.c	2009-04-16 15:50:13.000000000 +0200
+@@ -804,7 +804,7 @@ static bool open_sockets(bool isdaemon, 
+ 	
+ 	if (!override_logfile) {
+ 		char *lfile = NULL;
+-		if (asprintf(&lfile, "%s/log.nmbd", get_dyn_LOGFILEBASE()) < 0) {
++		if (asprintf(&lfile, "%s/nmbd.log", get_dyn_LOGFILEBASE()) < 0) {
+ 			exit(1);
+ 		}
+ 		lp_set_logfile(lfile);
+diff -Naurdp samba-3.3.3.orig/source3/winbindd/winbindd.c samba-3.3.3/source3/winbindd/winbindd.c
+--- samba-3.3.3.orig/source3/winbindd/winbindd.c	2009-04-01 13:48:54.000000000 +0200
++++ samba-3.3.3/source3/winbindd/winbindd.c	2009-04-16 15:59:45.000000000 +0200
+@@ -1113,7 +1113,7 @@ int main(int argc, char **argv, char **e
+ 
+ 	if (!override_logfile) {
+ 		char *lfile = NULL;
+-		if (asprintf(&lfile,"%s/log.winbindd",
++		if (asprintf(&lfile,"%s/winbindd.log",
+ 				get_dyn_LOGFILEBASE()) > 0) {
+ 			lp_set_logfile(lfile);
+ 			SAFE_FREE(lfile);
+diff -Naurdp samba-3.3.3.orig/source3/winbindd/winbindd_domain.c samba-3.3.3/source3/winbindd/winbindd_domain.c
+--- samba-3.3.3.orig/source3/winbindd/winbindd_domain.c	2009-04-01 13:48:54.000000000 +0200
++++ samba-3.3.3/source3/winbindd/winbindd_domain.c	2009-04-16 15:55:15.000000000 +0200
+@@ -31,7 +31,7 @@ void setup_domain_child(struct winbindd_
+ 			struct winbindd_child *child)
+ {
+ 	setup_child(child, domain_dispatch_table,
+-		    "log.wb", domain->name);
++		    "wb.log", domain->name);
+ 
+ 	child->domain = domain;
+ }
+diff -Naurdp samba-3.3.3.orig/source3/winbindd/winbindd_idmap.c samba-3.3.3/source3/winbindd/winbindd_idmap.c
+--- samba-3.3.3.orig/source3/winbindd/winbindd_idmap.c	2009-04-01 13:48:54.000000000 +0200
++++ samba-3.3.3/source3/winbindd/winbindd_idmap.c	2009-04-16 15:55:44.000000000 +0200
+@@ -46,7 +46,7 @@ void init_idmap_child(void)
+ {
+ 	setup_child(&static_idmap_child,
+ 		    idmap_dispatch_table,
+-		    "log.winbindd", "idmap");
++		    "winbindd.log", "idmap");
+ }
+ 
+ struct winbindd_child *idmap_child(void)
+diff -Naurdp samba-3.3.3.orig/source3/winbindd/winbindd_locator.c samba-3.3.3/source3/winbindd/winbindd_locator.c
+--- samba-3.3.3.orig/source3/winbindd/winbindd_locator.c	2009-04-01 13:48:54.000000000 +0200
++++ samba-3.3.3/source3/winbindd/winbindd_locator.c	2009-04-16 15:54:20.000000000 +0200
+@@ -35,7 +35,7 @@ void init_locator_child(void)
+ {
+ 	setup_child(&static_locator_child,
+ 		    locator_dispatch_table,
+-		    "log.winbindd", "locator");
++		    "winbindd.log", "locator");
+ }
+ 
+ struct winbindd_child *locator_child(void)

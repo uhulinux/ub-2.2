@@ -1,0 +1,8 @@
+#!/bin/sh -eux
+
+cp -a src/xitk/xine-toolkit/README doc/README.xitk
+ub_compile \
+	--disable-lirc \
+  --enable-vdr-keys \
+  --without-aalib \
+  --without-fb

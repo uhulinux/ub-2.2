@@ -1,0 +1,12 @@
+diff -Naur a/data/desktop/rosegarden.desktop b/data/desktop/rosegarden.desktop
+--- a/data/desktop/rosegarden.desktop	2013-04-01 13:57:54.000000000 +0200
++++ b/data/desktop/rosegarden.desktop	2013-05-25 22:36:13.050000244 +0200
+@@ -1,7 +1,7 @@
+ [Desktop Entry]
+ Encoding=UTF-8
+ Type=Application
+-Categories=AudioVideo;Audio;Midi;Sequencer;X-SuSE-Sequencer;X-Red-Hat-Base;
++Categories=AudioVideo;Audio;Midi;Sequencer;X-SuSE-Sequencer;X-Red-Hat-Base;X-UHU-Menu/Multimedia/SoundEdit;
+ Exec=rosegarden %f
+ MimeType=audio/x-rosegarden-composition;audio/x-rosegarden-device;audio/x-rosegarden-project;audio/x-rosegarden-template;audio/x-wav;audio/midi;audio/ogg;audio/mp3;audio/x-flac;
+ X-KDE-NativeMimeType=audio/x-rosegarden-composition

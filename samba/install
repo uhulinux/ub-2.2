@@ -1,0 +1,18 @@
+#!/bin/sh -eux
+
+cd source3
+
+ub_install
+cd ..
+
+ln -sf system-auth "$UB_INSTALLDIR"/etc/pam.d/samba
+
+touch "$UB_INSTALLDIR"/etc/samba/smbpasswd
+
+install -m 755 nsswitch/libnss_winbind.so "$UB_INSTALLDIR"/lib/libnss_winbind.so.2
+install -m 755 nsswitch/libnss_wins.so    "$UB_INSTALLDIR"/lib/libnss_wins.so.2
+
+mkdir -p "$UB_INSTALLDIR"/usr/lib/cups/backend
+ln -s ../../../bin/smbspool "$UB_INSTALLDIR"/usr/lib/cups/backend/smb
+
+cd ..

@@ -1,0 +1,4 @@
+#!/bin/bash
+
+cd /usr/share/games/sauerbraten
+/usr/libexec/sauer_server -k/usr/share/games/sauerbraten -q/VAR

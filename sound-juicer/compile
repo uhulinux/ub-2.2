@@ -1,0 +1,4 @@
+#!/bin/sh -eux
+sed -e "s|\(gstinspect=\).*|\1$(type -P true)|" \
+		-i configure
+ub_compile

@@ -1,0 +1,12 @@
+diff -Naur kmplayer-0.11.3d-ori/src/kmplayer.desktop kmplayer-0.11.3d/src/kmplayer.desktop
+--- kmplayer-0.11.3d-ori/src/kmplayer.desktop	2012-06-10 14:35:46.000000000 +0200
++++ kmplayer-0.11.3d/src/kmplayer.desktop	2013-01-12 17:53:00.037496408 +0100
+@@ -104,7 +104,7 @@
+ Name[zh_TW]=KMPlayer
+ MimeType=application/ogg;application/smil;application/vnd.ms-asf;application/vnd.rn-realmedia;application/x-kmplayer;application/x-mplayer2;application/x-ogg;application/xspf+xml;audio/basic;audio/m3u;audio/mp4;audio/mpeg;audio/mpegurl;audio/vnd.rn-realaudio;audio/vorbis;audio/x-aiff;audio/x-flac;audio/x-m3u;audio/x-matroska;audio/x-mp2;audio/x-mp3;audio/x-mpegurl;audio/x-ms-asx;audio/x-ms-wma;audio/x-musepack;audio/x-mod;audio/x-oggflac;audio/x-pn-realaudio;audio/x-scpls;audio/x-speex;audio/x-vorbis;audio/x-wav;video/avi;video/flv;video/mediaplayer;video/mp4;video/mpeg;video/quicktime;video/vnd.rn-realvideo;video/webm;video/x-avi;video/x-flic;video/x-matroska;video/x-ms-asf;video/x-flv;video/x-msvideo;video/x-ms-wmp;video/x-ms-wmv;video/x-ogm;video/x-theora;x-scheme-handler/mms;x-scheme-handler/pnm;x-scheme-handler/rtspt;x-scheme-handler/rtspu;
+ InitialPreference=7
+-Categories=Qt;KDE;AudioVideo;Player;
++Categories=Qt;KDE;AudioVideo;Player;X-UHU-Menu/Multimedia/VideoPlayers;
+ GenericName=Media Player
+ GenericName[be]=Медыяпрайгравальнік
+ GenericName[bg]=Медия плеър

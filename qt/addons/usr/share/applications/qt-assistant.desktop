@@ -1,0 +1,8 @@
+[Desktop Entry]
+Encoding=UTF-8
+Type=Application
+Name=QT Assistant
+Comment=QT Documentation Assistant
+Comment[hu]=QT dokumentációs segéd
+Exec=assistant
+Categories=X-UHU-Menu/Documentation;

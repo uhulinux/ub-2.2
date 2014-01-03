@@ -1,0 +1,9 @@
+diff -Naur a/bovo.desktop b/bovo.desktop
+--- a/bovo.desktop	2013-01-23 23:04:57.000000000 +0100
++++ b/bovo.desktop	2013-02-10 21:42:06.303640552 +0100
+@@ -117,4 +117,4 @@
+ Terminal=false
+ X-KDE-StartupNotify=true
+ X-DBUS-StartupType=Multi
+-Categories=Qt;KDE;Game;BoardGame;
++Categories=Qt;KDE;Game;BoardGame;X-UHU-Menu/Games/Board;

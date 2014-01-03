@@ -1,0 +1,20 @@
+diff -urN mkvtoolnix-4.4.0.orig/share/desktop/mkvinfo.desktop mkvtoolnix-4.4.0/share/desktop/mkvinfo.desktop
+--- mkvtoolnix-4.4.0.orig/share/desktop/mkvinfo.desktop	2010-10-31 15:42:16.000000000 +0100
++++ mkvtoolnix-4.4.0/share/desktop/mkvinfo.desktop	2010-11-23 12:17:13.489404001 +0100
+@@ -9,5 +9,5 @@
+ Exec=mkvinfo -g
+ Terminal=false
+ MimeType=video/x-matroska;audio/x-matroska;
+-Categories=AudioVideo;AudioVideoEditing;
++Categories=AudioVideo;AudioVideoEditing;X-UHU-Menu/Multimedia/VideoEdit;
+ InitialPreference=-1
+diff -urN mkvtoolnix-4.4.0.orig/share/desktop/mkvmergeGUI.desktop mkvtoolnix-4.4.0/share/desktop/mkvmergeGUI.desktop
+--- mkvtoolnix-4.4.0.orig/share/desktop/mkvmergeGUI.desktop	2010-10-31 15:42:16.000000000 +0100
++++ mkvtoolnix-4.4.0/share/desktop/mkvmergeGUI.desktop	2010-11-23 12:17:20.750410538 +0100
+@@ -10,5 +10,5 @@
+ Exec=mmg
+ Terminal=false
+ MimeType=application/x-mmg-settings;video/x-matroska;audio/x-matroska;
+-Categories=GNOME;AudioVideo;AudioVideoEditing;
++Categories=GNOME;AudioVideo;AudioVideoEditing;X-UHU-Menu/Multimedia/VideoEdit;
+ InitialPreference=-5

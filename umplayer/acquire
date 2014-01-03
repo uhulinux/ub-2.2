@@ -1,0 +1,4 @@
+#!/usr/bin/env dl
+
+umplayer-${UB_VERSION}-by-the-smplayer-team.tar.bz2 umplayer-${UB_VERSION}-by-the-smplayer-team/
+	http://sourceforge.net/projects/smplayer/files/UMPlayer/${UB_VERSION}/

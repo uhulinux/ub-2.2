@@ -1,0 +1,5 @@
+dhcp-client
+iproute2
+modemmanager
+net-tools
+wpasupplicant

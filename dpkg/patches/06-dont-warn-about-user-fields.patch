@@ -1,0 +1,17 @@
+diff -Naur orig/dpkg-deb/build.c patched/dpkg-deb/build.c
+--- orig/dpkg-deb/build.c	2013-12-07 07:51:18.000000000 +0100
++++ patched/dpkg-deb/build.c	2013-12-08 20:36:59.064375588 +0100
+@@ -391,13 +391,6 @@
+   if (pkg->priority == pri_other)
+     warning(_("'%s' contains user-defined Priority value '%s'"),
+             controlfile, pkg->otherpriority);
+-  for (field = pkg->available.arbs; field; field = field->next) {
+-    if (known_arbitrary_field(field))
+-      continue;
+-
+-    warning(_("'%s' contains user-defined field '%s'"), controlfile,
+-            field->name);
+-  }
+ 
+   free(controlfile);
+ 

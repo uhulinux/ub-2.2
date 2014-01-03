@@ -1,0 +1,26 @@
+#!/usr/bin/env dl
+
+kdenetwork-filesharing-${UB_VERSION}.tar.xz .
+	ftp://ftp.kde.org/pub/kde/stable/${UB_VERSION}/src/
+	
+kdenetwork-strigi-analyzers-${UB_VERSION}.tar.xz .
+	ftp://ftp.kde.org/pub/kde/stable/${UB_VERSION}/src/
+
+kopete-${UB_VERSION}.tar.xz .
+	ftp://ftp.kde.org/pub/kde/stable/${UB_VERSION}/src/
+	
+kppp-${UB_VERSION}.tar.xz .
+	ftp://ftp.kde.org/pub/kde/stable/${UB_VERSION}/src/
+	
+krdc-${UB_VERSION}.tar.xz .
+	ftp://ftp.kde.org/pub/kde/stable/${UB_VERSION}/src/
+	
+krfb-${UB_VERSION}.tar.xz .
+	ftp://ftp.kde.org/pub/kde/stable/${UB_VERSION}/src/
+	
+kdnssd-${UB_VERSION}.tar.xz .
+	ftp://ftp.kde.org/pub/kde/stable/${UB_VERSION}/src/
+	
+kget-${UB_VERSION}.tar.xz .
+	ftp://ftp.kde.org/pub/kde/stable/${UB_VERSION}/src/
+

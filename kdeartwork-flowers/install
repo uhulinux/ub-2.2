@@ -1,0 +1,8 @@
+#!/bin/sh -eux
+
+mkdir -p "$UB_INSTALLDIR"/usr/share/kdm/themes
+mkdir -p "$UB_INSTALLDIR"/usr/share/ksplash/Themes
+mkdir -p "$UB_INSTALLDIR"/usr/share/wallpapers
+mv Flowers-kdm "$UB_INSTALLDIR"/usr/share/kdm/themes/Flowers
+mv Flowers-Splash "$UB_INSTALLDIR"/usr/share/ksplash/Themes/Flowers
+mv Flowers-Wallpaper "$UB_INSTALLDIR"/usr/share/wallpapers/Flowers

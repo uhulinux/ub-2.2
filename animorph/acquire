@@ -1,0 +1,4 @@
+#!/usr/bin/env dl
+
+animorph-$UB_VERSION.tar.gz animorph-$UB_VERSION/
+	http://sourceforge.net/projects/makehuman/files/MakeHuman%20Source/MakeHuman_091/

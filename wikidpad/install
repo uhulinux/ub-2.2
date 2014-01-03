@@ -1,0 +1,4 @@
+#!/bin/sh -eux
+celdir=$UB_INSTALLDIR/usr/lib/wikidpad
+mkdir -p $celdir
+cp -r * $celdir/

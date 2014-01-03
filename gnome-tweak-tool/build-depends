@@ -1,0 +1,6 @@
+gconf2-dev
+gnome-doc-utils
+gsettings-desktop-schemas
+intltool
+pygobject-dev
+python-dev

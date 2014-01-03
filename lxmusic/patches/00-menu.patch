@@ -1,0 +1,18 @@
+diff -Naur lxmusic-0.4.5-ori/data/lxmusic.desktop lxmusic-0.4.5/data/lxmusic.desktop
+--- lxmusic-0.4.5-ori/data/lxmusic.desktop	2012-05-20 17:38:22.000000000 +0200
++++ lxmusic-0.4.5/data/lxmusic.desktop	2013-05-12 00:38:10.374215801 +0200
+@@ -1,4 +1,5 @@
+ [Desktop Entry]
++Version=1.1
+ Type=Application
+ Name=Music Player
+ Name[af]=Musiekspeler
+@@ -120,7 +121,7 @@
+ Comment[vi]=Phát tập tin âm nhạc của bạn một cách dễ dàng
+ Comment[zh_CN]=轻松播放您的音乐文件
+ Comment[zh_TW]=簡易播放音樂檔案
+-Categories=AudioVideo;Audio;Player;GTK;
++Categories=AudioVideo;Audio;Player;GTK;X-UHU-Menu/Multimedia/MusicPlayers;
+ Icon=lxmusic
+ Exec=lxmusic
+ Terminal=false

@@ -1,0 +1,4 @@
+#!/usr/bin/env dl
+
+kile-${UB_VERSION}.tar.bz2 kile-${UB_VERSION}/
+	http://downloads.sourceforge.net/project/kile/stable/kile-${UB_VERSION}/

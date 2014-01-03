@@ -1,0 +1,12 @@
+[Desktop Entry]
+Name=Avidemux
+Comment=Video Editor
+Comment[hu]=Videó szerkesztő
+GenericName[hu]=Videó szerkesztő
+Exec=avidemux3_qt4
+MimeType=video/mpeg;video/quicktime;video/x-msvideo;video/x-anim;audio/x-mp3;audio/x-mp2;
+Icon=/usr/share/avidemux6/avidemux_icon.png
+Terminal=false
+Type=Application
+OnlyShowIn=KDE;
+Categories=Application;AudioVideo;X-UHU-Menu/Multimedia/VideoEdit;

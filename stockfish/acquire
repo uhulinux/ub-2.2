@@ -1,0 +1,4 @@
+#!/usr/bin/env dl
+
+stockfish_${UB_VERSION}.orig.tar.gz stockfish-${UB_VERSION}/
+	http://ftp.de.debian.org/debian/pool/main/s/stockfish/

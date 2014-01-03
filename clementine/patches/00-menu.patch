@@ -1,0 +1,21 @@
+diff -Naur orig/dist/clementine.desktop mod/dist/clementine.desktop
+--- orig/dist/clementine.desktop	2013-08-04 10:01:38.000000000 +0200
++++ mod/dist/clementine.desktop	2013-12-15 16:27:59.435484523 +0100
+@@ -5,14 +5,16 @@
+ GenericName=Clementine Music Player
+ GenericName[pl]=Odtwarzacz muzyki Clementine
+ GenericName[pt]=Reprodutor de músicas Clementine
++GenericName[hu]=Clementine zenelejátszó
+ Comment=Plays music and last.fm streams
+ Comment[pl]=Odtwarzanie muzyki i strumieni last.fm
+ Comment[pt]=Reprodução de músicas e emissões last.fm
++Comment[hu]=Zene és last.fmlejátszó
+ Exec=clementine %U
+ TryExec=clementine
+ Icon=application-x-clementine
+ Terminal=false
+-Categories=AudioVideo;Player;Qt;
++Categories=AudioVideo;Player;Qt;X-UHU-Menu/Multimedia/MusicPlayers;
+ StartupNotify=false
+ MimeType=application/ogg;application/x-ogg;application/x-ogm-audio;audio/aac;audio/mp4;audio/mpeg;audio/mpegurl;audio/ogg;audio/vnd.rn-realaudio;audio/vorbis;audio/x-flac;audio/x-mp3;audio/x-mpeg;audio/x-mpegurl;audio/x-ms-wma;audio/x-musepack;audio/x-oggflac;audio/x-pn-realaudio;audio/x-scpls;audio/x-speex;audio/x-vorbis;audio/x-vorbis+ogg;audio/x-wav;video/x-ms-asf;x-content/audio-player;x-scheme-handler/zune;x-scheme-handler/itpc;x-scheme-handler/itms;x-scheme-handler/feed;
+ X-Ayatana-Desktop-Shortcuts=Play;Pause;Stop;Previous;Next;

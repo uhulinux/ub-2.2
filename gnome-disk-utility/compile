@@ -1,0 +1,10 @@
+#!/bin/sh -eux
+
+sed -e '/printf/s:nautilus:xdg-open:' \
+	-i src/palimpsest/gdu-section-volumes.c
+intltoolize --force --copy --automake
+autoreconf
+ub_compile \
+	--enable-nautilus \
+	--enable-remote-access \
+	--enable-gnome-keyring

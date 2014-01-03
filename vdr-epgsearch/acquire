@@ -1,0 +1,8 @@
+#!/usr/bin/env dl
+
+vdr-epgsearch-${UB_VERSION}.tgz epgsearch-${UB_VERSION}/
+	http://winni.vdr-developer.org/epgsearch/downloads/
+	http://winni.vdr-developer.org/epgsearch/downloads/beta/
+
+#vdr-epgsearch-${UB_VERSION}.tgz vdr-plugin-epgsearch-/
+#  git://projects.vdr-developer.org/vdr-plugin-epgsearch.git@

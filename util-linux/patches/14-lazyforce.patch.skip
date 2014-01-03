@@ -1,0 +1,12 @@
+diff -Naurd a/mount/umount.c b/mount/umount.c
+--- a/mount/umount.c	2004-09-28 13:56:31.000000000 +0200
++++ b/mount/umount.c	2006-07-25 15:20:51.000000000 +0200
+@@ -270,7 +270,7 @@
+  
+ 	umnt_err = umnt_err2 = 0;
+ 	if (lazy) {
+-		res = umount2 (node, MNT_DETACH);
++		res = umount2 (node, MNT_DETACH|(force?MNT_FORCE:0));
+ 		if (res < 0)
+ 			umnt_err = errno;
+ 		goto writemtab;

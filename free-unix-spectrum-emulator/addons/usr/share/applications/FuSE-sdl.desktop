@@ -1,0 +1,9 @@
+[Desktop Entry]
+Encoding=UTF-8
+Type=Application
+Name=FuSE-sdl
+GenericName=Free Unix Spectrum Emulator
+GenericName[hu]=Spectrum emulátor
+Exec=fuse-sdl
+Categories=X-UHU-Menu/Tools/Emulators;
+Icon=FuSE-sdl

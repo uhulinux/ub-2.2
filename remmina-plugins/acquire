@@ -1,0 +1,4 @@
+#!/usr/bin/env dl
+
+remmina-plugins-"$UB_VERSION".tar.gz remmina-plugins-"$UB_VERSION"/
+	http://sourceforge.net/projects/remmina/files/"$UB_VERSION_HEAD2"/remmina-plugins-"$UB_VERSION".tar.gz/download

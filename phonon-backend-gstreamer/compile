@@ -1,0 +1,4 @@
+#!/bin/sh -eux
+
+ub_compile \
+	-DPLUGIN_INSTALL_DIR=/usr/lib/qt4/

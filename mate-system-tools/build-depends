@@ -1,0 +1,11 @@
+caja-dev
+dbus-glib-dev
+gtk2-dev
+intltool
+liboobs-dev
+libxslt-dev
+mate-common
+mate-doc-utils
+mate-polkit-dev
+system-tools-backends
+wireless-tools-dev

@@ -1,0 +1,5 @@
+#!/usr/bin/env dl
+
+kollision-${UB_VERSION}.tar.xz kollision-${UB_VERSION}/
+	ftp://ftp.kde.org/pub/kde/stable/${UB_VERSION}/src/
+

@@ -1,0 +1,14 @@
+diff -Naur orig/src/names.c patched/src/names.c
+--- orig/src/names.c	2013-11-17 16:25:28.000000000 +0100
++++ patched/src/names.c	2014-01-03 20:04:30.079435635 +0100
+@@ -1199,10 +1199,6 @@
+ 
+       if (name->found_count || name->directory)
+ 	continue;
+-      if (name->matching_flags & EXCLUDE_WILDCARDS)
+-	/* NOTE: EXCLUDE_ANCHORED is not relevant here */
+-	/* FIXME: just skip regexps for now */
+-	continue;
+       chdir_do (name->change_dir);
+ 
+       if (name->name[0] == 0)

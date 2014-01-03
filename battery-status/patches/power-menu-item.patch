@@ -1,0 +1,28 @@
+diff -Naur orig/battery-status patched/battery-status
+--- orig/battery-status	2010-05-26 01:27:27.000000000 +0200
++++ patched/battery-status	2012-07-08 21:29:16.227570799 +0200
+@@ -143,6 +143,7 @@
+ 		def init_packages(self):
+ 			"""Detect packages"""
+ 			dist = ""
++			self.package_power = False
+ 			# detect current distribution
+ 			try:
+ 				# to get distroname in a python 2.6 way
+@@ -182,7 +183,6 @@
+ 						self.package_session = True
+ 					matches = transaction.dbMatch()
+ 					matches.pattern('name', rpm.RPMMIRE_GLOB, "gnome-power-manager-extra")
+-					self.package_power = False
+ 					for match in matches:
+ 						self.package_power = True
+ 					matches = transaction.dbMatch()
+@@ -390,7 +390,7 @@
+ 			"""Update main menu items and its state"""
+ 			# update Power Modes and its separator according to current preferences
+ 			if (item == "sleep" or item == "session" or item == "cpufreq"):
+-				if self.option_sleep or self.option_session or not self.option_cpufreq or not self.package_cpufreq or self.cpufreq_error or not self.option_power:
++				if self.option_sleep or self.option_session or not self.option_cpufreq or not self.package_cpufreq or self.cpufreq_error or self.option_power:
+ 					self.power_separator.hide()
+ 				else:
+ 					self.power_separator.show()

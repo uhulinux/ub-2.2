@@ -1,0 +1,6 @@
+#!/bin/sh -eux
+
+ub_install
+
+# theese files is shipped in nautilus package
+rm -rf "$UB_INSTALLDIR"/usr/lib/nautilus/extensions-3.0/libnautilus-sendto.{so,la}

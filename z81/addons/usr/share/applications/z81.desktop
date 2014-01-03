@@ -1,0 +1,14 @@
+[Desktop Entry]
+Version=1.1
+Type=Application
+Name=z81
+Neme[hu]=ZX81
+GenericName=zx81 emulator
+GenericName[hu]=zx81 emulátor
+Comment=Sinclair ZX81 emulator
+Comment[hu]=a jó öreg zx81 számítógép emulátora
+Icon=/usr/lib/z81/xz81.xpm
+Exec=xz81
+Terminal=false
+StartupNotify=true
+Categories=X-UHU-Menu/Tools/Emulators;

@@ -1,0 +1,4 @@
+#!/usr/bin/env dl
+
+emesene-${UB_VERSION}.tar.gz emesene-v${UB_VERSION}/
+	git://github.com/emesene/emesene.git@v${UB_VERSION}

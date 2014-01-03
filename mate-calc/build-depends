@@ -1,0 +1,6 @@
+bison
+gtk2-dev
+intltool
+libxml2-dev
+mate-common
+mate-doc-utils

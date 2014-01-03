@@ -1,0 +1,20 @@
+diff -Naur lmms-0.4.8-orig/data/lmms.desktop lmms-0.4.8/data/lmms.desktop
+--- lmms-0.4.8-orig/data/lmms.desktop	2010-09-03 00:27:37.000000000 +0200
++++ lmms-0.4.8/data/lmms.desktop	2010-10-26 14:43:41.428628500 +0200
+@@ -1,13 +1,15 @@
+ [Desktop Entry]
+ Name=Linux MultiMedia Studio
++Name[hu]=Linux Multimédia Stúdió
+ GenericName=music production suite
+ GenericName[ca]=Programari de producció musical
+ GenericName[de]=Software zur Musik-Produktion
++GenericName[hu]=Zeneszerkesztő program
+ Comment=easy music production for everyone!
+ Comment[ca]=Producció fàcil de música per a tothom!
+ Icon=lmms
+ Exec=lmms
+ Terminal=false
+ Type=Application
+-Categories=Qt;AudioVideo;Audio;Midi;
++Categories=Qt;AudioVideo;Audio;Midi;X-UHU-Menu/Multimedia/SoundEdit;
+ MimeType=application/x-lmms-project;

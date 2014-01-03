@@ -1,0 +1,5 @@
+#!/bin/sh -eux
+
+sed -i -e '/AM_INIT_AUTOMAKE/s:-Werror ::' configure.ac 
+autoreconf
+ub_compile

@@ -1,0 +1,4 @@
+#!/usr/bin/env dl
+
+alacarte-${UB_VERSION}.tar.gz alacarte-${UB_VERSION}/
+      http://linux.softpedia.com/get/Desktop-Environment/Tools/Alacarte-14607.shtml

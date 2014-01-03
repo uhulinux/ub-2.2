@@ -1,0 +1,9 @@
+diff -Naur a/src/kraft.desktop b/src/kraft.desktop
+--- a/src/kraft.desktop	2013-10-11 22:10:10.000000000 +0200
++++ b/src/kraft.desktop	2013-10-12 12:09:05.919372593 +0200
+@@ -26,4 +26,4 @@
+ Name[ug]=Kraft
+ Name[uk]=Kraft
+ Name[x-test]=xxKraftxx
+-Categories=Office;Finance;Database;
++Categories=Office;Finance;Database;X-UHU-Menu/Tools/Databases;

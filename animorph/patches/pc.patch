@@ -1,0 +1,18 @@
+diff -Naur orig/animorph.pc.in patched/animorph.pc.in
+--- orig/animorph.pc.in	2007-11-25 10:34:59.000000000 +0100
++++ patched/animorph.pc.in	2012-12-17 23:03:22.314436719 +0100
+@@ -1,13 +1,11 @@
+ prefix=@prefix@
+ exec_prefix=@prefix@
+-libdir=@exec_prefix@/lib
++libdir=@prefix@/lib
+ includedir=@prefix@/include
+ 
+ Name: @PACKAGE@
+ Description: 3D Animation and Morph Library
+ Version: @VERSION@
+-Requires: 
+-Conflicts: 
+ Libs: -L${libdir} -lanimorph
+ Cflags: -I${includedir}
+ 

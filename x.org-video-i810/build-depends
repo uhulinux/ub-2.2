@@ -1,0 +1,6 @@
+libdrm-dev
+libxrender-dev
+libxvmc-dev
+mesa-dev
+x.org-server-dev
+xcb-util-dev

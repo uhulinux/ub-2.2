@@ -1,0 +1,23 @@
+#!/bin/sh -eux
+
+rpm2cpio gtk2-metatheme-sonar-11.3.0-53.1.src.rpm | cpio -dimv
+tar xf icon-theme-sonar-11.3.1.tar.bz2
+cd icon-theme-sonar-11.3.1
+cd 16x16/places
+rm start-here.png
+ln -s /usr/share/icons/UHU/16x16/apps/uhu-yellow.png start-here.png
+cd ../../22x22/places
+rm start-here.png
+ln -s /usr/share/icons/UHU/22x22/apps/uhu-yellow.png start-here.png
+cd ../../24x24/places
+rm start-here.png
+ln -s /usr/share/icons/UHU/24x24/apps/uhu-yellow.png start-here.png
+cd ../../32x32/places
+rm start-here.png
+ln -s /usr/share/icons/UHU/32x32/apps/uhu-yellow.png start-here.png
+cd ../../48x48/places
+rm start-here.png
+ln -s /usr/share/icons/UHU/48x48/apps/uhu-yellow.png start-here.png
+cd ../../
+./configure --prefix=/usr
+make -j2

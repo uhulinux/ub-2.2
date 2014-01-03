@@ -1,0 +1,61 @@
+#!/bin/sh -eux
+
+mkdir ${UB_INSTALLDIR}/usr/share/icons
+mv nouveGnome ${UB_INSTALLDIR}/usr/share/icons
+cd ${UB_INSTALLDIR}/usr/share/icons/nouveGnome
+rm AUTHORS GPL README
+for i in 16x16 22x22 24x24 32x32; do
+cp /usr/share/icons/gnome/$i/categories/applications-accessories.png $i/categories/icon-applications.png
+cp /usr/share/icons/gnome/$i/categories/applications-other.png $i/categories/icon-development.png
+cp /usr/share/icons/gnome/$i/categories/applications-games.png $i/categories/icon-games.png
+cp /usr/share/icons/gnome/$i/categories/applications-graphics.png $i/categories/icon-gfx.png
+cp /usr/share/icons/gnome/$i/categories/applications-internet.png $i/categories/stock-panel-internet.png
+cp /usr/share/icons/gnome/$i/categories/applications-multimedia.png $i/categories/icon-media.png
+cp /usr/share/icons/gnome/$i/mimetypes/x-office-address-book.png $i/categories/icon-documentation.png
+cp /usr/share/icons/gnome/$i/categories/applications-system.png $i/categories/package_edutainment.png
+cp /usr/share/icons/gnome/$i/categories/preferences-desktop.png $i/categories/icon-configuration.png
+cp /usr/share/icons/gnome/$i/apps/accessories-calculator.png $i/categories/icon-accessories.png
+cp /usr/share/icons/gnome/$i/devices/computer.png $i/categories/icon-computer.png
+cp /usr/share/icons/gnome/$i/apps/system-file-manager.png $i/categories/icon-filemanager.png
+cp /usr/share/icons/gnome/$i/apps/accessories-text-editor.png $i/categories/icon-notepad.png
+cp /usr/share/icons/gnome/$i/status/network-idle.png $i/categories/icon-network.png
+cp /usr/share/icons/gnome/$i/status/network-error.png $i/categories/icon-network-firewall.png
+cp /usr/share/icons/gnome/$i/status/network-transmit.png $i/categories/icon-network-system.png
+cp /usr/share/icons/gnome/$i/actions/document-print.png $i/categories/stock-print.png
+cp /usr/share/icons/gnome/$i/mimetypes/text-html.png $i/categories/icon-html.png
+cp /usr/share/icons/gnome/$i/apps/utilities-system-monitor.png $i/categories/icon-monitor.png
+cp /usr/share/icons/gnome/$i/apps/accessories-character-map.png $i/categories/icon-launcher.png
+cp /usr/share/icons/gnome/$i/apps/accessories-calculator.png $i/categories/icon-calculator.png
+cp /usr/share/icons/gnome/$i/mimetypes/x-office-calendar.png $i/categories/icon-date.png
+cp /usr/share/icons/gnome/$i/mimetypes/x-office-calendar.png $i/categories/icon-datetime.png
+cp /usr/share/icons/gnome/$i/mimetypes/x-office-document.png $i/categories/icon-office.png
+cp /usr/share/icons/gnome/$i/mimetypes/x-office-address-book.png $i/categories/stock-book.png
+cp /usr/share/icons/gnome/$i/mimetypes/x-office-document.png $i/categories/icon-office-wordprocessor.png
+cp /usr/share/icons/gnome/$i/mimetypes/x-office-presentation.png $i/categories/icon-office-presentation.png
+cp /usr/share/icons/gnome/$i/mimetypes/x-office-spreadsheet.png $i/categories/icon-office-spreadsheet.png
+cp /usr/share/icons/gnome/$i/apps/utilities-terminal.png $i/categories/icon-terminal.png
+cp /usr/share/icons/gnome/$i/apps/preferences-desktop-locale.png $i/categories/stock-convert.png
+cp /usr/share/icons/gnome/$i/apps/accessories-text-editor.png $i/categories/file-devel.png
+cp /usr/share/icons/gnome/$i/devices/camera-photo.png $i/categories/stock-panel-screenshot.png
+cp /usr/share/icons/Tango/$i/apps/internet-news-reader.png $i/categories/news.png
+cp /usr/share/icons/gnome/$i/categories/stock_internet.png $i/categories/icon-web-browser.png
+cp /usr/share/icons/gnome/$i/actions/view-refresh.png $i/categories/icon-update.png
+cp /usr/share/icons/gnome/$i/emblems/emblem-mail.png $i/categories/icon-email.png
+cp /usr/share/icons/Tango/$i/apps/internet-group-chat.png $i/categories/icon-instantmessage.png
+cp /usr/share/icons/gnome/$i/emotes/face-monkey.png $i/categories/package_games_arcade.png
+cp /usr/share/icons/gnome/$i/mimetypes/application-x-executable.png $i/categories/package_games_board.png
+cp /usr/share/icons/gnome/$i/emblems/emblem-favorite.png $i/categories/package_games_card.png
+cp /usr/share/icons/gnome/$i/actions/go-home.png $i/categories/package_games_strategy.png
+cp /usr/share/icons/gnome/$i/emotes/face-angel.png $i/categories/package_toys.png
+cp /usr/share/icons/gnome/$i/devices/media-optical.png $i/categories/cd.png
+cp /usr/share/icons/gnome/$i/devices/audio-card.png $i/categories/icon-mixer.png
+cp /usr/share/icons/gnome/$i/status/audio-volume-high.png $i/categories/icon-sound.png
+cp /usr/share/icons/gnome/$i/mimetypes/video-x-generic.png $i/categories/emblem-video.png
+cp /usr/share/icons/gnome/$i/apps/utilities-system-monitor.png $i/categories/icon-television.png
+cp /usr/share/icons/gnome/$i/apps/preferences-desktop-locale.png $i/categories/edu_languages.png
+cp /usr/share/icons/gnome/$i/apps/accessories-calculator.png $i/categories/edu_mathematics.png
+cp /usr/share/icons/gnome/$i/categories/applications-other.png $i/categories/edu_miscellaneous.png
+cp /usr/share/icons/gnome/$i/categories/applications-science.png $i/categories/edu_science.png
+cp /usr/share/icons/gnome/$i/mimetypes/x-office-address-book.png $i/categories/icon-logbook.png
+cp /usr/share/icons/gnome/$i/categories/applications-games.png $i/categories/package_games.png
+done

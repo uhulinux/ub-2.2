@@ -1,0 +1,4 @@
+#!/usr/bin/env dl
+
+atunes-${UB_VERSION}-bin.tar.gz .
+	http://sourceforge.net/projects/atunes/files/atunes/aTunes%20${UB_VERSION}/

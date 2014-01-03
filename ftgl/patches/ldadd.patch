@@ -1,0 +1,75 @@
+diff -Naur orig/demo/Makefile.am patched/demo/Makefile.am
+--- orig/demo/Makefile.am	2008-06-02 03:10:10.000000000 +0200
++++ patched/demo/Makefile.am	2012-12-18 05:59:14.697110140 +0100
+@@ -10,14 +10,14 @@
+     $(NULL)
+ simple_CXXFLAGS = $(FT2_CFLAGS) $(GL_CFLAGS)
+ simple_LDFLAGS = $(FT2_LIBS) $(GLUT_LIBS)
+-simple_LDADD = ../src/libftgl.la
++simple_LDADD = ../src/libftgl.la -lGL -lGLU -lm
+ 
+ c_demo_SOURCES = \
+     c-demo.c \
+     $(NULL)
+ c_demo_CFLAGS = $(FT2_CFLAGS) $(GL_CFLAGS)
+ c_demo_LDFLAGS = $(FT2_LIBS) $(GLUT_LIBS)
+-c_demo_LDADD = ../src/libftgl.la
++c_demo_LDADD = ../src/libftgl.la -lGL -lGLU -lm
+ 
+ FTGLDemo_SOURCES = \
+ 	FTGLDemo.cpp \
+@@ -28,7 +28,7 @@
+ 	$(NULL)
+ FTGLDemo_CXXFLAGS = $(FT2_CFLAGS) $(GL_CFLAGS)
+ FTGLDemo_LDFLAGS = $(FT2_LIBS) $(GLUT_LIBS)
+-FTGLDemo_LDADD = ../src/libftgl.la
++FTGLDemo_LDADD = ../src/libftgl.la -lGL -lGLU -lm
+ 
+ FTGLMFontDemo_SOURCES = \
+ 	FTGLMFontDemo.cpp \
+@@ -39,6 +39,6 @@
+ 	$(NULL)
+ FTGLMFontDemo_CXXFLAGS = $(FT2_CFLAGS) $(GL_CFLAGS)
+ FTGLMFontDemo_LDFLAGS = $(FT2_LIBS) $(GLUT_LIBS)
+-FTGLMFontDemo_LDADD = ../src/libftgl.la
++FTGLMFontDemo_LDADD = ../src/libftgl.la -lGL -lGLU -lm
+ 
+ NULL =
+diff -Naur orig/demo/Makefile.in patched/demo/Makefile.in
+--- orig/demo/Makefile.in	2008-06-12 16:33:01.000000000 +0200
++++ patched/demo/Makefile.in	2012-12-18 06:01:04.341653629 +0100
+@@ -243,14 +243,14 @@
+ 
+ simple_CXXFLAGS = $(FT2_CFLAGS) $(GL_CFLAGS)
+ simple_LDFLAGS = $(FT2_LIBS) $(GLUT_LIBS)
+-simple_LDADD = ../src/libftgl.la
++simple_LDADD = ../src/libftgl.la -lGL -lGLU -lm
+ c_demo_SOURCES = \
+     c-demo.c \
+     $(NULL)
+ 
+ c_demo_CFLAGS = $(FT2_CFLAGS) $(GL_CFLAGS)
+ c_demo_LDFLAGS = $(FT2_LIBS) $(GLUT_LIBS)
+-c_demo_LDADD = ../src/libftgl.la
++c_demo_LDADD = ../src/libftgl.la -lGL -lGLU -lm
+ FTGLDemo_SOURCES = \
+ 	FTGLDemo.cpp \
+ 	tb.c \
+@@ -261,7 +261,7 @@
+ 
+ FTGLDemo_CXXFLAGS = $(FT2_CFLAGS) $(GL_CFLAGS)
+ FTGLDemo_LDFLAGS = $(FT2_LIBS) $(GLUT_LIBS)
+-FTGLDemo_LDADD = ../src/libftgl.la
++FTGLDemo_LDADD = ../src/libftgl.la -lGL -lGLU -lm
+ FTGLMFontDemo_SOURCES = \
+ 	FTGLMFontDemo.cpp \
+ 	tb.c \
+@@ -272,7 +272,7 @@
+ 
+ FTGLMFontDemo_CXXFLAGS = $(FT2_CFLAGS) $(GL_CFLAGS)
+ FTGLMFontDemo_LDFLAGS = $(FT2_LIBS) $(GLUT_LIBS)
+-FTGLMFontDemo_LDADD = ../src/libftgl.la
++FTGLMFontDemo_LDADD = ../src/libftgl.la -lGL -lGLU -lm
+ NULL = 
+ all: all-am
+ 

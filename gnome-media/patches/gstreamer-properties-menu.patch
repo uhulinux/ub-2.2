@@ -1,0 +1,14 @@
+diff -Naur orig/gstreamer-properties/gstreamer-properties.desktop.in.in mod/gstreamer-properties/gstreamer-properties.desktop.in.in
+--- orig/gstreamer-properties/gstreamer-properties.desktop.in.in	2012-03-28 12:50:00.000000000 +0200
++++ mod/gstreamer-properties/gstreamer-properties.desktop.in.in	2013-02-13 19:26:17.000000000 +0100
+@@ -5,9 +5,8 @@
+ Icon=gstreamer-properties
+ StartupNotify=true
+ Terminal=false
+-NoDisplay=true
+ Type=Application
+-Categories=GNOME;GTK;Settings;HardwareSettings;
++Categories=GNOME;GTK;Settings;HardwareSettings;X-UHU-Menu/Settings;
+ X-GNOME-Bugzilla-Bugzilla=GNOME
+ X-GNOME-Bugzilla-Product=gnome-media
+ X-GNOME-Bugzilla-Component=gstreamer-properties

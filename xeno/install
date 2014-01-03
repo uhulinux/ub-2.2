@@ -1,0 +1,6 @@
+#!/bin/sh -eux
+celdir="$UB_INSTALLDIR"/usr/share/games/xeno
+install -d -m755 "$celdir"/ai
+install -m 755 xeno "$celdir"/xeno
+install -m 644 ai/libai_comp?.so "$celdir"/ai
+cp -r res "$celdir"/

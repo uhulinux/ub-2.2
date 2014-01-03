@@ -1,0 +1,12 @@
+diff -Naur orig/schemas/org.mate.applications-browser.gschema.xml.in.in patched/schemas/org.mate.applications-browser.gschema.xml.in.in
+--- orig/schemas/org.mate.applications-browser.gschema.xml.in.in	2013-04-01 02:27:50.000000000 +0200
++++ patched/schemas/org.mate.applications-browser.gschema.xml.in.in	2013-04-15 16:45:12.252604341 +0200
+@@ -1,7 +1,7 @@
+ <schemalist gettext-domain="@GETTEXT_PACKAGE@">
+   <schema id="org.mate.applications-browser" path="/org/mate/desktop/applications/browser/">
+     <key name="exec" type="s">
+-      <default>'mozilla'</default>
++      <default>'firefox'</default>
+       <_summary>Default browser</_summary>
+       <_description>Default browser for all URLs.</_description>
+     </key>

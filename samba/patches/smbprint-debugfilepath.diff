@@ -1,0 +1,22 @@
+Author: Lars Mueller <lmuelle at SuSE dot de>
+
+--- samba-3.0.4/examples/printing/smbprint
++++ samba-3.0.4/examples/printing/smbprint	2004-05-27 12:13:09
+@@ -54,7 +54,7 @@
+ #smbclient=/usr/pkg/bin/smbclient
+ # Assume that smbclient will be in the same place as smbprint
+ 
+-smbclient="`dirname $0`/smbclient"
++smbclient="/usr/bin/smbclient"
+ 
+ #
+ # The last parameter to the filter is the accounting file name.
+@@ -109,7 +109,7 @@
+ ## and set the permissions to be rwx for owner only
+ ##
+ 
+-debugfile="/tmp/smb-print/logfile"
++debugfile="/var/log/samba/smb-print.log"
+ logdir=`dirname $debugfile`
+ if [ ! -d $logdir ]; then 
+ 	mkdir -m 0700 $logdir

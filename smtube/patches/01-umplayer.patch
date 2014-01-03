@@ -1,0 +1,11 @@
+diff -Naur a/src/players.cpp b/src/players.cpp
+--- a/src/players.cpp	2013-01-12 01:03:31.000000000 +0100
++++ b/src/players.cpp	2013-06-09 22:26:43.050339375 +0200
+@@ -54,6 +54,7 @@
+ 	list.push_back( Player("Dragon Player", "dragon", false) );
+ 	list.push_back( Player("Totem", "totem", false) );
+ 	list.push_back( Player("GNOME-MPlayer", "gnome-mplayer", false) );
++	list.push_back( Player("UMPlayer", "umplayer", false) );
+ 
+ 	curr = 0;
+ }

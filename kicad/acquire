@@ -1,0 +1,11 @@
+#!/usr/bin/env dl
+
+kicad_${UB_VERSION}.orig.tar.gz kicad-${UB_VERSION}.orig/
+	http://ftp.debian.org/debian/pool/main/k/kicad/
+	https://launchpad.net/ubuntu/trusty/+source/kicad/${UB_VERSION}-2/+files/
+
+#boost_1_54_0.tar.gz :/.downloads-by-cmake
+#	http://downloads.sourceforge.net/project/boost/boost/1.54.0/
+	
+#openssl-cmake-1.0.1e-src.tar.gz :/.downloads-by-cmake
+#	http://launchpad.net/openssl-cmake/1.0.1e/1.0.1e-1/+download/

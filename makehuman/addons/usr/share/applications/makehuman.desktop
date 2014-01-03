@@ -1,0 +1,12 @@
+[Desktop Entry]
+Version=0.9
+Type=Application
+Name=MakeHuman
+Comment=Generate 3d humanoid models
+Comment[hu]=3 dimenziós emberi test modellező
+Exec=makehuman
+Icon=makehuman
+Terminal=false
+Categories=X-UHU-Menu/Graphics;
+StartupNotify=true
+

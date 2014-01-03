@@ -1,0 +1,132 @@
+diff -Naur acetoneiso_2.3-orig/acetoneiso/sources/burn_iso_2_cd.cpp acetoneiso_2.3/acetoneiso/sources/burn_iso_2_cd.cpp
+--- acetoneiso_2.3-orig/acetoneiso/sources/burn_iso_2_cd.cpp	2010-11-15 02:34:50.000000000 +0100
++++ acetoneiso_2.3/acetoneiso/sources/burn_iso_2_cd.cpp	2011-06-16 18:17:58.807909453 +0200
+@@ -18,8 +18,18 @@
+ #include <QCoreApplication>
+ #include <QByteArray>
+ #include <QUrl>
++#ifdef Q_WS_X11
++#include "/usr/include/phonon/mediaobject.h"
++#include "/usr/include/phonon/audiooutput.h" 
++#include "/usr/include/phonon/volumeslider.h"
++#include "/usr/include/phonon/seekslider.h"
++#endif
++#ifdef Q_WS_WIN
+ #include <Phonon/MediaObject>
+ #include <Phonon/AudioOutput>
++#include <Phonon/VolumeSlider>
++#include <Phonon/SeekSlider>
++#endif
+ #include <QProcess>
+ #include <QDBusConnection>
+ #include <QDBusInterface>
+diff -Naur acetoneiso_2.3-orig/acetoneiso/sources/burn_iso_2_cd.h acetoneiso_2.3/acetoneiso/sources/burn_iso_2_cd.h
+--- acetoneiso_2.3-orig/acetoneiso/sources/burn_iso_2_cd.h	2010-11-15 02:34:50.000000000 +0100
++++ acetoneiso_2.3/acetoneiso/sources/burn_iso_2_cd.h	2011-06-16 18:17:05.856409656 +0200
+@@ -20,8 +20,18 @@
+ #define BURN_ISO2CD_H
+ #include <QFile>
+ #include <QUrl>
++#ifdef Q_WS_X11
++#include "/usr/include/phonon/mediaobject.h"
++#include "/usr/include/phonon/audiooutput.h" 
++#include "/usr/include/phonon/volumeslider.h"
++#include "/usr/include/phonon/seekslider.h"
++#endif
++#ifdef Q_WS_WIN
+ #include <Phonon/MediaObject>
+ #include <Phonon/AudioOutput>
++#include <Phonon/VolumeSlider>
++#include <Phonon/SeekSlider>
++#endif
+ #include <QProcess>
+ #include <QByteArray>
+ #include <QDialog>
+diff -Naur acetoneiso_2.3-orig/acetoneiso/sources/burn_iso_2_dvd.cpp acetoneiso_2.3/acetoneiso/sources/burn_iso_2_dvd.cpp
+--- acetoneiso_2.3-orig/acetoneiso/sources/burn_iso_2_dvd.cpp	2010-11-15 02:34:50.000000000 +0100
++++ acetoneiso_2.3/acetoneiso/sources/burn_iso_2_dvd.cpp	2011-06-16 19:14:10.080409521 +0200
+@@ -24,8 +24,18 @@
+ #include <fcntl.h>
+ #include <iostream>
+ #include <QDebug>
++#ifdef Q_WS_X11
++#include "/usr/include/phonon/mediaobject.h"
++#include "/usr/include/phonon/audiooutput.h" 
++#include "/usr/include/phonon/volumeslider.h"
++#include "/usr/include/phonon/seekslider.h"
++#endif
++#ifdef Q_WS_WIN
+ #include <Phonon/MediaObject>
+ #include <Phonon/AudioOutput>
++#include <Phonon/VolumeSlider>
++#include <Phonon/SeekSlider>
++#endif
+ #include "burn_iso_2_dvd.h"
+ 
+ 
+diff -Naur acetoneiso_2.3-orig/acetoneiso/sources/erase_cd.cpp acetoneiso_2.3/acetoneiso/sources/erase_cd.cpp
+--- acetoneiso_2.3-orig/acetoneiso/sources/erase_cd.cpp	2010-11-11 19:20:36.000000000 +0100
++++ acetoneiso_2.3/acetoneiso/sources/erase_cd.cpp	2011-06-16 18:10:23.932409655 +0200
+@@ -16,8 +16,18 @@
+ #include <QtGui>
+ #include <QCoreApplication>
+ #include <QByteArray>
++#ifdef Q_WS_X11
++#include "/usr/include/phonon/mediaobject.h"
++#include "/usr/include/phonon/audiooutput.h" 
++#include "/usr/include/phonon/volumeslider.h"
++#include "/usr/include/phonon/seekslider.h"
++#endif
++#ifdef Q_WS_WIN
+ #include <Phonon/MediaObject>
+ #include <Phonon/AudioOutput>
++#include <Phonon/VolumeSlider>
++#include <Phonon/SeekSlider>
++#endif
+ #include <QProcess>
+ #include <QDBusConnection>
+ #include <QDBusInterface>
+diff -Naur acetoneiso_2.3-orig/acetoneiso/sources/erase_cd.h acetoneiso_2.3/acetoneiso/sources/erase_cd.h
+--- acetoneiso_2.3-orig/acetoneiso/sources/erase_cd.h	2009-10-30 02:42:39.000000000 +0100
++++ acetoneiso_2.3/acetoneiso/sources/erase_cd.h	2011-06-16 18:07:34.648034922 +0200
+@@ -18,8 +18,18 @@
+ #ifndef ERASE_CD_H
+ #define ERASE_CD_H
+ #include <QFile>
++#ifdef Q_WS_X11
++#include "/usr/include/phonon/mediaobject.h"
++#include "/usr/include/phonon/audiooutput.h" 
++#include "/usr/include/phonon/volumeslider.h"
++#include "/usr/include/phonon/seekslider.h"
++#endif
++#ifdef Q_WS_WIN
+ #include <Phonon/MediaObject>
+ #include <Phonon/AudioOutput>
++#include <Phonon/VolumeSlider>
++#include <Phonon/SeekSlider>
++#endif
+ #include <QProcess>
+ #include <QByteArray>
+ #include <QDialog>
+diff -Naur acetoneiso_2.3-orig/acetoneiso/sources/erase_dvd.cpp acetoneiso_2.3/acetoneiso/sources/erase_dvd.cpp
+--- acetoneiso_2.3-orig/acetoneiso/sources/erase_dvd.cpp	2010-11-11 19:20:36.000000000 +0100
++++ acetoneiso_2.3/acetoneiso/sources/erase_dvd.cpp	2011-06-16 18:27:45.675909440 +0200
+@@ -24,8 +24,18 @@
+ #include <fcntl.h>
+ #include <iostream>
+ #include <QDebug>
++#ifdef Q_WS_X11
++#include "/usr/include/phonon/mediaobject.h"
++#include "/usr/include/phonon/audiooutput.h" 
++#include "/usr/include/phonon/volumeslider.h"
++#include "/usr/include/phonon/seekslider.h"
++#endif
++#ifdef Q_WS_WIN
+ #include <Phonon/MediaObject>
+ #include <Phonon/AudioOutput>
++#include <Phonon/VolumeSlider>
++#include <Phonon/SeekSlider>
++#endif
+ #include "erase_dvd.h"
+ 
+ /*

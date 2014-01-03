@@ -1,0 +1,5 @@
+#!/usr/bin/env dl
+
+scythia_${UB_VERSION}-2-src.tar.gz scythia/
+	http://scythia.free.fr/wp-content/
+

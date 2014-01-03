@@ -1,0 +1,5 @@
+#!/usr/bin/env dl
+
+nautilus-sendto_${UB_VERSION}.orig.tar.xz nautilus-sendto-${UB_VERSION}/
+	http://ftp.de.debian.org/debian/pool/main/n/nautilus-sendto/
+	ftp://ftp.gnome.org/pub/GNOME/sources/nautilus-sendto/${UB_VERSION_HEAD2}/

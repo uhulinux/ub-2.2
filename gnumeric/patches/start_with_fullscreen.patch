@@ -1,0 +1,39 @@
+diff -Naur orig/schemas/gnumeric-general.schemas.in patched/schemas/gnumeric-general.schemas.in
+--- orig/schemas/gnumeric-general.schemas.in	2010-09-29 00:41:04.000000000 +0200
++++ patched/schemas/gnumeric-general.schemas.in	2013-01-30 11:25:58.470031069 +0100
+@@ -343,7 +343,7 @@
+         <applyto>/apps/gnumeric/core/gui/window/x</applyto>
+         <owner>Gnumeric</owner>
+         <type>float</type>
+-	<default>0.75</default>
++	<default>1.00</default>
+         <locale name="C">
+         <short>Default Horizontal Window Size</short>
+         <long>This number (between 0.25 and 1.00) gives the horizontal fraction of the screen size covered by the default window.</long>
+@@ -354,7 +354,7 @@
+         <applyto>/apps/gnumeric/core/gui/window/y</applyto>
+         <owner>Gnumeric</owner>
+         <type>float</type>
+-	<default>0.75</default>
++	<default>1.00</default>
+         <locale name="C">
+         <short>Default Vertical Window Size</short>
+         <long>This number (between 0.25 and 1.00) gives the vertical fraction of the screen size covered by the default window.</long>
+diff -Naur orig/schemas/org.gnome.gnumeric.gschema.xml.in.in patched/schemas/org.gnome.gnumeric.gschema.xml.in.in
+--- orig/schemas/org.gnome.gnumeric.gschema.xml.in.in	2011-03-04 13:58:56.000000000 +0100
++++ patched/schemas/org.gnome.gnumeric.gschema.xml.in.in	2013-01-30 11:27:06.046654769 +0100
+@@ -188,12 +188,12 @@
+   </schema>
+   <schema gettext-domain="@GETTEXT_PACKAGE@" id="org.gnome.gnumeric.core.gui.window" path="/apps/gnumeric/core/gui/window/">
+     <key name="x" type="d">
+-      <default>0.75</default>
++      <default>1.00</default>
+       <_summary>Default Horizontal Window Size</_summary>
+       <_description>This number (between 0.25 and 1.00) gives the horizontal fraction of the screen size covered by the default window.</_description>
+     </key>
+     <key name="y" type="d">
+-      <default>0.75</default>
++      <default>1.00</default>
+       <_summary>Default Vertical Window Size</_summary>
+       <_description>This number (between 0.25 and 1.00) gives the vertical fraction of the screen size covered by the default window.</_description>
+     </key>

@@ -1,0 +1,6 @@
+#!/bin/sh -eux
+
+ub_install
+
+install -m 644 cdw.conf "$UB_INSTALLDIR"/etc/cdw.conf
+install -m 644 cdw.colors "$UB_INSTALLDIR"/etc/cdw.colors

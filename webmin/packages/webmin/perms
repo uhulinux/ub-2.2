@@ -1,0 +1,5 @@
+root      root       755  /etc/webmin/reload
+root      root       755  /etc/webmin/restart
+root      root       755  /etc/webmin/start
+root      root       755  /etc/webmin/stop
+root      root       755  /usr/lib/webmin/miniserv.pl

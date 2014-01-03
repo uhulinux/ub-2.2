@@ -1,0 +1,5 @@
+#!/bin/sh -eux
+
+mkdir -p "$UB_INSTALLDIR"/usr/share/pixmaps
+cp GamCat/gamcat.png "$UB_INSTALLDIR"/usr/share/pixmaps
+ub_install

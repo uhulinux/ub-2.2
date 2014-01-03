@@ -1,0 +1,9 @@
+glew-dev
+gst-plugins-base-dev
+gtk2-dev
+liboil-dev
+libpng-dev
+libsm-dev
+libx11-dev
+mesa-dev
+python-dev

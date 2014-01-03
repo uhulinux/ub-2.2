@@ -1,0 +1,4 @@
+#!/usr/bin/env dl
+
+gxine-${UB_VERSION}.tar.bz2 gxine-${UB_VERSION}/
+	http://download.sourceforge.net/xine/

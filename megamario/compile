@@ -1,0 +1,4 @@
+#!/bin/sh -eux
+
+#sed -i "s_mp3music/_/usr/share/megamario/sfx/&_" src/{functions,main}.cpp
+make PREFIX=/usr

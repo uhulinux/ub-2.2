@@ -1,0 +1,5 @@
+#!/bin/sh -eux
+
+mkdir -p "$UB_INSTALLDIR"/usr/lib/chessx/bin
+mkdir -p "$UB_INSTALLDIR"/usr/lib/chessx/data
+cp -a {bin,data} "$UB_INSTALLDIR"/usr/lib/chessx/

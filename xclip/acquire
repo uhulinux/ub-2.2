@@ -1,0 +1,4 @@
+#!/usr/bin/env dl
+
+xclip-${UB_VERSION}.tar.gz xclip-${UB_VERSION}/
+	http://downloads.sourceforge.net/sourceforge/xclip/

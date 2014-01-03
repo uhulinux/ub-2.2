@@ -1,0 +1,32 @@
+diff -Naur a/configure b/configure
+--- a/configure	2012-12-30 15:34:20.000000000 +0100
++++ b/configure	2013-07-24 15:29:40.592127715 +0200
+@@ -18,11 +18,11 @@
+ #      along with this program. If not, see <http://www.gnu.org/licenses/>.
+ 
+ 
+-prefix=/usr/local
++prefix=/usr
+ cflags='-mtune=native -O3'
+ libpath='lib'
+ privmethod='none'
+-toolkit='gtk2'
++toolkit='gtk3'
+ libalsa=1
+ libpulse=1
+ liboss=1
+@@ -199,11 +199,13 @@
+ [Desktop Entry]
+ Name=GSatfinder
+ GenericName=GSF software satfinder
++GenericName[hu]=Műhold kereső
+ Comment=Tune satellite antenna
++Comment[hu]=Műholdvevő antenna beállító
+ Exec=$prefix/bin/gsfgui
+ Icon=$prefix/share/pixmaps/gsf.png
+ Terminal=false
+ Type=Application
+-Categories=System;Monitor;" > resources/gsatfinder.desktop
++Categories=System;Monitor;X-UHU-Menu/Tools/Utilities;" > resources/gsatfinder.desktop
+ echo done
+ 

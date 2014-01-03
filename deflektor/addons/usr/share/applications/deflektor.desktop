@@ -1,0 +1,9 @@
+[Desktop Entry]
+Version=1.1
+Type=Application
+Name=deflektor
+Icon=deflektor
+Exec=deflektor
+Terminal=false
+StartupNotify=true
+Categories=X-UHU-Menu/Games/TacticStrategy;

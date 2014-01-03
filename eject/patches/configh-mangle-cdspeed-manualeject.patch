@@ -1,0 +1,372 @@
+diff -Naur orig/configure.in patched/configure.in
+--- orig/configure.in	2006-06-04 03:58:18.000000000 +0200
++++ patched/configure.in	2008-11-04 22:38:29.000000000 +0100
+@@ -20,6 +20,7 @@
+ AM_CONDITIONAL(USE_NLS, test "x$use_nls" != "xno")
+ 
+ dnl Checks for header files.
++AC_CONFIG_HEADERS(config.h)
+ AC_HEADER_STDC
+ AC_HEADER_SYS_WAIT
+ AC_CHECK_HEADERS(fcntl.h sys/ioctl.h unistd.h)
+diff -Naur orig/eject.1 patched/eject.1
+--- orig/eject.1	2005-12-11 01:21:06.000000000 +0100
++++ patched/eject.1	2008-11-04 22:38:29.000000000 +0100
+@@ -17,6 +17,8 @@
+ .br
+ eject [\-vn] \-c slot [<name>]
+ .br
++eject [\-vn] \-i on|off|1|0 [<name>]
++.br
+ eject [\-vn] \-t [<name>]
+ .br
+ eject [\-vn] \-T [<name>]
+@@ -83,6 +85,13 @@
+ the changer is referred to as 0, not 1.
+ 
+ .TP 0.5i
++.B \-i on|1|off|0
++This option controls locking of the hardware eject button. When
++enabled, the drive will not be ejected when the button is pressed.
++This is useful when you are carrying a laptop in a bag or case and
++don't want it to eject if the button is inadvertently pressed.
++
++.TP 0.5i
+ .B \-t
+ With this option the drive is given a CD-ROM tray close command. Not
+ all devices support this command.
+@@ -121,8 +130,8 @@
+ .B \-r
+ This option specifies that the drive should be ejected using a
+ CDROM eject command.
+-.TP 0.5i
+ 
++.TP 0.5i
+ .B \-s
+ This option specifies that the drive should be ejected using
+ SCSI commands.
+@@ -145,7 +154,7 @@
+ .TP 0.5i
+ .B \-m
+ This option allows eject to work with device drivers which automatically
+-mount removable media and therefore must be always mount()ed.
++mount removable media and therefore must be always mount(1)ed.
+ The option tells eject to not try to unmount the given device,
+ even if it is mounted according to /etc/mtab or /proc/mounts.
+ 
+diff -Naur orig/eject.c patched/eject.c
+--- orig/eject.c	2006-02-11 02:54:38.000000000 +0100
++++ patched/eject.c	2008-11-04 22:40:40.000000000 +0100
+@@ -30,6 +30,7 @@
+  *
+  */
+ 
++#include "config.h"
+ #include "i18n.h"
+ 
+ #ifndef DEFAULTDEVICE
+@@ -116,6 +117,7 @@
+ int f_option = 0;
+ int h_option = 0;
+ int n_option = 0;
++int i_option = 0;
+ int q_option = 0;
+ int r_option = 0;
+ int s_option = 0;
+@@ -129,6 +131,7 @@
+ int a_arg = 0;
+ int c_arg = 0;
+ int x_arg = 0;
++int i_arg = 0;
+ static char *programName; /* used in error messages */
+ 
+ /*
+@@ -151,7 +154,6 @@
+ /* Display command usage on standard error and exit. */
+ static void usage()
+ {
+-//    perror(_("%s: device is `%s'\n"));
+ 	fprintf(stderr,_(
+ "Eject version %s by Jeff Tranter (tranter@pobox.com)\n"
+ "Usage:\n"
+@@ -163,6 +165,7 @@
+ "  eject [-vn] -c <slot> [<name>]	-- switch discs on a CD-ROM changer\n"
+ "  eject [-vn] -t [<name>]		-- close tray\n"
+ "  eject [-vn] -T [<name>]		-- toggle tray\n"
++"  eject [-vn] -i on|off|1|0 [<name>]	-- toggle manual eject protection on/off\n"
+ "  eject [-vn] -x <speed> [<name>]	-- set CD-ROM max speed\n"
+ "  eject [-vn] -X [<name>]		-- list CD-ROM available speeds\n"
+ "Options:\n"
+@@ -214,7 +217,7 @@
+ /* Handle command line options. */
+ static void parse_args(int argc, char **argv, char **device)
+ {
+-	const char *flags = "a:c:x:dfhnqrstTXvVpm";
++	const char *flags = "a:c:x:i:dfhnqrstTXvVpm";
+ #ifdef GETOPTLONG
+ 	static struct option long_options[] =
+ 	{
+@@ -223,6 +226,7 @@
+ 		{"default",	no_argument,	   NULL, 'd'},
+ 		{"auto",	required_argument, NULL, 'a'},
+ 		{"changerslot", required_argument, NULL, 'c'},
++		{"manualeject",	required_argument, NULL, 'i'},
+ 		{"trayclose",	no_argument,	   NULL, 't'},
+ 		{"traytoggle",	no_argument,	   NULL, 'T'},
+ 		{"cdspeed",	required_argument, NULL, 'x'},
+@@ -297,6 +301,21 @@
+ 			  usage();
+ 			  exit(0);
+ 			  break;
++		  case 'i':
++			  i_option = 1;
++			  if (!strcmp(optarg, "0"))
++				  i_arg = 0;
++			  else if (!strcmp(optarg, "off"))
++				  i_arg = 0;
++			  else if (!strcmp(optarg, "1"))
++				  i_arg = 1;
++			  else if (!strcmp(optarg, "on"))
++				  i_arg = 1;
++			  else {
++				  fprintf(stderr, _("%s: invalid argument to -i option\n"), programName);
++				  exit(1);
++			  }
++			  break;
+ 		  case 'm':
+ 			  m_option = 1;
+ 			  break;
+@@ -370,6 +389,30 @@
+ 
+ 
+ /*
++ * Linux mangles spaces in mount points by changing them to an octal string
++ * of '\040'.  So lets scan the mount point and fix it up by replacing all
++ * occurrences of '\0##' with the ASCII value of 0##.  Requires a writable
++ * string as input as we mangle in place.  Some of this was taken from the
++ * util-linux package.
++ */
++#define octalify(a) ((a) & 7)
++#define tooctal(s) (64*octalify(s[1]) + 8*octalify(s[2]) + octalify(s[3]))
++#define isoctal(a) (((a) & ~7) == '0')
++static char *DeMangleMount(char *s)
++{
++	char *tmp = s;
++	while ((tmp = strchr(tmp, '\\')) != NULL) {
++		if (isoctal(tmp[1]) && isoctal(tmp[2]) && isoctal(tmp[3])) {
++			tmp[0] = tooctal(tmp);
++			memmove(tmp+1, tmp+4, strlen(tmp)-3);
++		}
++		++tmp;
++	}
++	return s;
++}
++
++
++/*
+  * Given name, such as foo, see if any of the following exist:
+  *
+  * foo (if foo starts with '.' or '/')
+@@ -458,6 +501,30 @@
+ }
+ 
+ 
++/*
++ * Stops CDROM from opening on manual eject pressing the button.
++ * This can be useful when you carry your laptop
++ * in your bag while it's on and no CD inserted in it's drive.
++ * Implemented as found in Documentation/ioctl/cdrom.txt
++ *
++ * TODO: Maybe we should check this also:
++ * EDRIVE_CANT_DO_THIS   Door lock function not supported.
++ * EBUSY                 Attempt to unlock when multiple users
++ *                       have the drive open and not CAP_SYS_ADMIN
++ */
++static void ManualEject(int fd, int onOff)
++{
++	if (ioctl(fd, CDROM_LOCKDOOR, onOff) < 0) {
++		perror("ioctl on CDROM_LOCKDOOR");
++        } else {
++            if (onOff)
++	        printf("CD-Drive may NOT be ejected with device button\n");
++            else
++                printf("CD-Drive may be ejected with device button\n");
++        }
++}
++
++
+ /* Set or clear auto-eject mode. */
+ static void AutoEject(int fd, int onOff)
+ {
+@@ -543,10 +610,11 @@
+ 
+ #ifdef CDROMCLOSETRAY
+ 
+-	/* Try to open the CDROM tray and measure the time therefor
+-	 * needed.  In my experience the function needs less than 0.05
++	/* Try to open the CDROM tray and measure the time needed.
++	 * In my experience the function needs less than 0.05
+ 	 * seconds if the tray was already open, and at least 1.5 seconds
+-	 * if it was closed.  */
++	 * if it was closed.
++	 */
+ 	gettimeofday(&time_start, NULL);
+ 	
+ 	/* Send the CDROMEJECT command to the device. */
+@@ -581,13 +649,64 @@
+  */
+ static void SelectSpeedCdrom(int fd, int speed)
+ {
+-	int status;
++        unsigned long rw_size;
++        unsigned char buffer[28];
++        struct cdrom_generic_command cgc;
++        struct request_sense sense;
+ 
+ #ifdef CDROM_SELECT_SPEED
+-	status = ioctl(fd, CDROM_SELECT_SPEED, speed);
+-	if (status != 0) {
+-		fprintf(stderr, _("%s: CD-ROM select speed command failed: %s\n"), programName, strerror(errno));
+-		exit(1);
++        memset(&cgc, 0, sizeof(cgc));
++        memset(&sense, 0, sizeof(sense));
++        memset(&buffer, 0, sizeof(buffer));
++
++        /* SET STREAMING command */
++        cgc.cmd[0] = 0xB6;
++        /* parameter list length: 28 bytes */
++        cgc.cmd[10] = 28;
++
++        cgc.sense = &sense;
++        cgc.buffer = buffer;
++        cgc.buflen = sizeof(buffer);
++        cgc.data_direction = CGC_DATA_WRITE;
++        cgc.quiet = 1;
++
++        if(speed == 0) {
++          /* set Restore Drive Defaults */
++          buffer[0] = 4;
++        }
++
++        buffer[8] = 0xFF;
++        buffer[9] = 0xFF;
++        buffer[10] = 0xFF;
++        buffer[11] = 0xFF;
++
++        rw_size = 177 * speed;
++
++        /* read size */
++        buffer[12] = (rw_size >> 24) & 0xFF;
++        buffer[13] = (rw_size >> 16) & 0xFF;
++        buffer[14] = (rw_size >> 8) & 0xFF;
++        buffer[15] = rw_size & 0xFF;
++
++        /* read time: 1 second */
++        buffer[18] = 0x03;
++        buffer[19] = 0xE8;
++
++        /* write size */
++        buffer[20] = (rw_size >> 24) & 0xFF;
++        buffer[21] = (rw_size >> 16) & 0xFF;
++        buffer[22] = (rw_size >> 8) & 0xFF;
++        buffer[23] = rw_size & 0xFF;
++
++        /* write time: 1 second */
++        buffer[26] = 0x03;
++        buffer[27] = 0xE8;
++
++        if(ioctl(fd, CDROM_SEND_PACKET, &cgc) != 0) {
++                if(ioctl(fd, CDROM_SELECT_SPEED, speed) != 0) {
++		        fprintf(stderr, _("%s: CD-ROM select speed command failed: %s\n"), programName, strerror(errno));
++		        exit(1);
++                }
+ 	}
+ #else
+     fprintf(stderr, _("%s: CD-ROM select speed command not supported by this kernel\n"), programName);
+@@ -721,7 +840,7 @@
+ 	io_hdr.dxfer_len = 0;
+ 	io_hdr.dxferp = inqBuff;
+ 	io_hdr.sbp = sense_buffer;
+-	io_hdr.timeout = 2000;
++	io_hdr.timeout = 10000;
+ 
+ 	io_hdr.cmdp = allowRmBlk;
+ 	status = ioctl(fd, SG_IO, (void *)&io_hdr);
+@@ -813,10 +932,17 @@
+ }
+ 
+ 
+-/* Open a device file. */
++/* Open a device file. Try opening first read/write, and if that fails then read only. */
+ static int OpenDevice(const char *fullName)
+ {
+-	int fd = open(fullName, O_RDONLY|O_NONBLOCK);
++	int fd;
++
++	fd = open(fullName, O_RDWR|O_NONBLOCK);
++	if (fd != -1) {
++		return fd;
++	}
++
++	fd = open(fullName, O_RDONLY|O_NONBLOCK);
+ 	if (fd == -1) {
+ 		fprintf(stderr, _("%s: unable to open `%s'\n"), programName, fullName);
+ 		exit(1);
+@@ -876,8 +1002,8 @@
+ 			if (((strcmp(s1, name) == 0) || (strcmp(s2, name) == 0)) ||
+ 				((maj != -1) && (maj == mtabmaj) && (min == mtabmin))) {
+ 				FCLOSE(fp);
+-				*deviceName = strdup(s1);
+-				*mountName = strdup(s2);
++				*deviceName = DeMangleMount(strdup(s1));
++				*mountName = DeMangleMount(strdup(s2));
+ 				return 1;
+ 			}
+ 		}
+@@ -903,13 +1029,9 @@
+ 	int rc;
+ 
+ 	fp = fopen("/etc/fstab", "r");
++
++	/* /etc/fstab may be unreadable in some situations due to passwords in the file. */
+ 	if (fp == NULL) {
+-/*
+- * /etc/fstab may be unreadable in some situations due to passwords in the
+- * file.
+- */
+-/*		fprintf(stderr, _("%s: unable to open /etc/fstab: %s\n"), programName, strerror(errno));
+-		exit(1);*/
+ 		if (v_option) {
+ 			printf( _("%s: unable to open /etc/fstab: %s\n"), programName, strerror(errno));
+ 		}
+@@ -919,9 +1041,14 @@
+ 	while (fgets(line, sizeof(line), fp) != 0) {
+ 		rc = sscanf(line, "%1023s %1023s", s1, s2);
+ 		if (rc >= 2 && s1[0] != '#' && strcmp(s2, name) == 0) {
++			if (strncasecmp(s1, "UUID=", 5) == 0) {
++				char *realDeviceName = malloc(strlen(s1) + 32);
++				sprintf(realDeviceName, "/dev/disk/by-uuid/%s", s1 + 5);
++				strncpy(s1, realDeviceName, sizeof(s2)-1);
++			}
+ 			FCLOSE(fp);
+-			*deviceName = strdup(s1);
+-			*mountName = strdup(s2);
++			*deviceName = DeMangleMount(strdup(s1));
++			*mountName = DeMangleMount(strdup(s2));
+ 			return 1;
+ 		}
+ 	}
+@@ -1193,6 +1320,13 @@
+ 		exit(0);
+ 	}
+ 
++	/* handle -i option */
++	if (i_option) {
++		fd = OpenDevice(deviceName);
++		ManualEject(fd, i_arg);
++		exit(0);
++	}
++
+ 	/* handle -a option */
+ 	if (a_option) {
+ 		if (v_option) {

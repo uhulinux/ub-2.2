@@ -1,0 +1,12 @@
+diff -Naur orig/data/baobab.desktop.in.in mod/data/baobab.desktop.in.in
+--- orig/data/baobab.desktop.in.in	2012-06-19 21:51:25.000000000 +0200
++++ mod/data/baobab.desktop.in.in	2013-06-18 13:10:21.000000000 +0200
+@@ -7,7 +7,7 @@
+ Terminal=false
+ Type=Application
+ StartupNotify=true
+-Categories=GTK;GNOME;System;Filesystem;
++Categories=GTK;GNOME;System;Filesystem;X-UHU-Menu/Tools/Utilities;
+ NotShowIn=KDE;
+ X-GNOME-Bugzilla-Bugzilla=GNOME
+ X-GNOME-Bugzilla-Product=gnome-utils

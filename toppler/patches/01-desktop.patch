@@ -1,0 +1,19 @@
+--- $UB_COMPILEDIR"/toppler.desktop.in	2007-08-03 15:14:31.000000000 +0200
++++ $UB_COMPILEDIR"/toppler.desktop.in	2007-08-03 15:16:59.000000000 +0200
+@@ -1,12 +1,13 @@
+ [Desktop Entry]
+ Encoding=UTF-8
+-Categories=Application;Game;ArcadeGame;
++Categories=Application;Game;ArcadeGame;X-UHU-Menu/Games/Arcade;
+ X-Desktop-File-Install-Version=0.2
+ Name=@FULLNAME@
+ Comment=A clone of the 'Nebulus' game on old 8 and 16 bit machines.
+ Comment[de]=Klon des alten Spiels 'Nebulus'
++Comment[hu]=A jó öreg spectrum 'Nebulus'
+ Comment[cs]=Klon hry 'Nebulus' z dob 8 a 16 bitovÃœch poÄÃ­taÄÅ¯.
+-Icon=@prefix@/pixmaps/@PACKAGE@.xpm
+-Exec=@prefix@/bin/toppler
++Icon=toppler
++Exec=toppler
+ Terminal=0
+ Type=Application

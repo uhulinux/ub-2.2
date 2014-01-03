@@ -1,0 +1,19 @@
+diff -Naurdp a/configure b/configure
+--- a/configure	2013-02-10 13:53:20.345366946 +0100
++++ b/configure	2013-02-10 13:54:50.205362933 +0100
+@@ -13637,13 +13637,13 @@ $as_echo_n "checking path to sudo_noexec
+ # Check whether --with-noexec was given.
+ if test "${with_noexec+set}" = set; then :
+   withval=$with_noexec; case $with_noexec in
+-    yes)	with_noexec="$libexecdir/sudo_noexec$_shrext"
++    yes)	with_noexec="$libdir/sudo_noexec$_shrext"
+ 		;;
+     no)		;;
+     *)		;;
+ esac
+ else
+-  with_noexec="$libexecdir/sudo_noexec$_shrext"
++  with_noexec="$libdir/sudo_noexec$_shrext"
+ fi
+ 
+ { $as_echo "$as_me:${as_lineno-$LINENO}: result: $with_noexec" >&5

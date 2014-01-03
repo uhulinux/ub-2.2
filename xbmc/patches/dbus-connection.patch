@@ -1,0 +1,33 @@
+diff -Naur orig/xbmc/linux/DBusMessage.cpp mod/xbmc/linux/DBusMessage.cpp
+--- orig/xbmc/linux/DBusMessage.cpp	2013-05-03 07:57:41.000000000 +0200
++++ mod/xbmc/linux/DBusMessage.cpp	2013-07-29 13:51:05.000000000 +0200
+@@ -131,7 +131,7 @@
+     if (m_reply)
+       dbus_message_unref(m_reply);
+ 
+-    m_reply = dbus_connection_send_with_reply_and_block(con, m_message, -1, error);
++    m_reply = dbus_connection_send_with_reply_and_block(con, m_message, 3000, error);
+   }
+ 
+   return m_reply;
+diff -Naur orig/xbmc/linux/HALManager.cpp mod/xbmc/linux/HALManager.cpp
+--- orig/xbmc/linux/HALManager.cpp	2013-05-03 07:57:41.000000000 +0200
++++ mod/xbmc/linux/HALManager.cpp	2013-07-29 13:51:05.000000000 +0200
+@@ -642,7 +642,7 @@
+     else
+     {
+       DBusMessage *reply;
+-      reply = dbus_connection_send_with_reply_and_block(connection, msg, -1, &error); //The reply timout might be bad to have as -1
++      reply = dbus_connection_send_with_reply_and_block(connection, msg, 3000, &error); //The reply timout might be bad to have as -1
+       if (dbus_error_is_set(&error))
+       {
+         CLog::Log(LOGERROR, "DBus: %s - %s", error.name, error.message);
+@@ -723,7 +723,7 @@
+     else
+     {
+       DBusMessage *reply;
+-      reply = dbus_connection_send_with_reply_and_block(connection, msg, -1, &error); //The reply timout might be bad to have as -1
++      reply = dbus_connection_send_with_reply_and_block(connection, msg, 3000, &error); //The reply timout might be bad to have as -1
+       if (dbus_error_is_set(&error))
+       {
+         CLog::Log(LOGERROR, "DBus: %s - %s", error.name, error.message);

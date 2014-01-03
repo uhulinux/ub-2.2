@@ -1,0 +1,6 @@
+#!/usr/bin/env dl
+
+ppsei-${UB_VERSION}.src.tgz ppsei-${UB_VERSION}/
+	http://downloads.sourceforge.net/project/ppsei/ppsei/${UB_VERSION}/
+
+

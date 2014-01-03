@@ -1,0 +1,15 @@
+diff -Naurd orig/Makefile.in mod/Makefile.in
+--- orig/Makefile.in	2010-01-07 20:19:16.000000000 +0100
++++ mod/Makefile.in	2010-01-08 17:57:14.000000000 +0100
+@@ -965,11 +965,6 @@
+ 	tests/urgent.c
+ 
+ dist_doc_DATA = \
+-	COMPLIANCE \
+-	README \
+-	AUTHORS \
+-	CHANGELOG \
+-	COPYING \
+ 	data/rc.xsd \
+ 	data/menu.xsd \
+ 	doc/rc-mouse-focus.xml

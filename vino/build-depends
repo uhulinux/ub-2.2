@@ -1,0 +1,13 @@
+avahi-dev
+gnutls-dev
+gtk3-dev
+intltool
+libgcrypt-dev
+libgnome-keyring-dev
+libjpeg-dev
+libnotify-dev
+libsm-dev
+libsoup-gnome-dev
+libxtst-dev
+networkmanager-dev
+telepathy-glib-dev

@@ -1,0 +1,12 @@
+Summary=MySQL Server
+Summary[hu]=MySQL szerver
+Description=MySQL database server.
+Description[hu]=MySQL adatbázis-szerver.
+MsgDesc=MySQL Database Server
+MsgDesc[hu]=MySQL adatbázis-szerver
+Script=/etc/init.d/mysqld
+SupportsReload=yes
+Runlevels=
+Sequence=20
+UID=42
+GID=42

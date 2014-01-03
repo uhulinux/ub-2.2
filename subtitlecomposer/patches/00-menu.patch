@@ -1,0 +1,22 @@
+diff -Naur a/src/main/subtitlecomposer.desktop b/src/main/subtitlecomposer.desktop
+--- a/src/main/subtitlecomposer.desktop	2013-11-25 05:44:52.000000000 +0100
++++ b/src/main/subtitlecomposer.desktop	2013-12-26 17:33:35.106042316 +0100
+@@ -3,14 +3,17 @@
+ Name=Subtitle Composer
+ Name[es]=Subtitle Composer
+ Name[fr]=Subtitle Composer
++Name[hu]=Subtitle Composer
+ GenericName=Subtitle Editor
+ GenericName[es]=Editor de subtítulos
+ GenericName[fr]=Éditeur de sous-titres
++GenericName[hu]=Felirat szerkesztő
+ Comment=KDE subtitle editor
+ Comment[es]=Editor de subtítulos para KDE
+ Comment[fr]=Éditeur de sous-titres pour KDE
++Comment[hu]=KDE felirat szerkesztő
+ Icon=subtitlecomposer
+ Exec=subtitlecomposer %f -caption "%c"
+ MimeType=text/x-ssa;text/x-ass;text/x-microdvd;text/x-mpsub;application/x-subrip;text/x-subviewer;text/x-mplsub;text/x-tmplayer;text/x-tmplayer+;
+ Terminal=false
+-Categories=Qt;KDE;AudioVideo;
++Categories=Qt;KDE;AudioVideo;X-UHU-Menu/Multimedia/VideoEdit;

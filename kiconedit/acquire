@@ -1,0 +1,5 @@
+#!/usr/bin/env dl
+
+kiconedit-${UB_VERSION}.tar.bz2 kiconedit-${UB_VERSION}/
+	http://pkgs.fedoraproject.org/repo/pkgs/kiconedit/kiconedit-${UB_VERSION}.tar.bz2/f2db6aff093cea2fcefceb3eb02a94c3/
+

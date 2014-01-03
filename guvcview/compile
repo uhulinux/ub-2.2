@@ -1,0 +1,9 @@
+#!/bin/sh -eux
+
+LDFLAGS+=-lrt
+export LDFLAGS
+ub_compile \
+	--enable-pulse \
+	--disable-debian-menu \
+	--disable-desktop \
+

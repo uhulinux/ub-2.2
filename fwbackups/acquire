@@ -1,0 +1,4 @@
+#!/usr/bin/env dl
+
+fwbackups-"$UB_VERSION".tar.bz2 fwbackups-"$UB_VERSION"/
+	http://downloads.diffingo.com/fwbackups/

@@ -1,0 +1,4 @@
+#!/usr/bin/env dl
+
+shared-color-profiles-${UB_VERSION}.tar.gz shared-color-profiles-${UB_VERSION}/
+	http://people.freedesktop.org/~hughsient/releases/

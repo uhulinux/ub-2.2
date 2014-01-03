@@ -1,0 +1,10 @@
+#!/bin/sh -eux
+
+ub_compile \
+	--with-gtk=2.0 \
+	--enable-ssh-agent \
+	--enable-gpg-agent \
+	--enable-pam \
+	--with-pam-dir=/lib/security \
+	--without-root-certs
+

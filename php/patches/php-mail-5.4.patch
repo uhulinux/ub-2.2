@@ -1,0 +1,27 @@
+diff -Naur orig/ext/standard/mail.c patched/ext/standard/mail.c
+--- orig/ext/standard/mail.c	2012-05-08 07:22:56.000000000 +0200
++++ patched/ext/standard/mail.c	2012-05-10 21:44:03.126320560 +0200
+@@ -21,6 +21,8 @@
+ #include <stdlib.h>
+ #include <ctype.h>
+ #include <stdio.h>
++#include <syslog.h>
++#include <string.h>
+ #include "php.h"
+ #include "ext/standard/info.h"
+ #include "ext/standard/php_string.h"
+@@ -307,8 +309,12 @@
+ 			MAIL_RET(0);
+ 		}
+ #endif
+-		fprintf(sendmail, "To: %s\n", to);
+-		fprintf(sendmail, "Subject: %s\n", subject);
++		if ((to != NULL) && (strlen(to)!=0)) {
++			fprintf(sendmail, "To: %s\n", to);
++		}
++		if ((subject != NULL) && (strlen(subject)!=0)) {
++			fprintf(sendmail, "Subject: %s\n", subject);
++		}
+ 		if (hdr != NULL) {
+ 			fprintf(sendmail, "%s\n", hdr);
+ 		}

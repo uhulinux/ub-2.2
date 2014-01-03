@@ -1,0 +1,1 @@
+urllist http://www.azzit.de/dotconf/download/v1.0/ | splitver '^dotconf-([0-9.]+).tar.gz' | sort -V | tail -n 1

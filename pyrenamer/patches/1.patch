@@ -1,0 +1,12 @@
+diff -Naur orig/data/pyrenamer.desktop.in.in.in patched/data/pyrenamer.desktop.in.in.in
+--- orig/data/pyrenamer.desktop.in.in.in	2007-08-08 23:07:45.000000000 +0200
++++ patched/data/pyrenamer.desktop.in.in.in	2008-08-28 16:20:19.000000000 +0200
+@@ -2,7 +2,7 @@
+ Encoding=UTF-8
+ _Name=pyRenamer
+ _Comment=Mass rename files
+-Exec=@BINDIR@/pyrenamer
++Exec=pyrenamer
+ Icon=@RESOURCEDIR@/pyrenamer.png
+ Terminal=false
+ Type=Application

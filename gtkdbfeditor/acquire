@@ -1,0 +1,4 @@
+#!/usr/bin/env dl
+
+gtkdbfeditor-${UB_VERSION}.tar.gz gtkdbfeditor-${UB_VERSION}/
+      http://downloads.sourceforge.net/gtkdbfeditor/

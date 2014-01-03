@@ -1,0 +1,11 @@
+--- ORIG/bleachbit.desktop	2010-05-27 05:10:07.000000000 +0200
++++ UHU/bleachbit.desktop	2010-07-28 10:59:57.000000000 +0200
+@@ -73,7 +73,7 @@
+ TryExec=bleachbit
+ Exec=bleachbit
+ Icon=bleachbit
+-Categories=GTK;System;
++Categories=GTK;System;X-UHU-Menu/Tools/Utilities;
+ Encoding=UTF-8
+ StartupNotify=true
+ 

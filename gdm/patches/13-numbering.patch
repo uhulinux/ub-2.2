@@ -1,0 +1,12 @@
+diff -Naur gdm-2.14.0.orig/gui/greeter/greeter_session.c gdm-2.14.0/gui/greeter/greeter_session.c
+--- gdm-2.14.0.orig/gui/greeter/greeter_session.c	2006-02-11 02:33:59.000000000 +0100
++++ gdm-2.14.0/gui/greeter/greeter_session.c	2006-03-16 21:07:08.000000000 +0100
+@@ -295,7 +295,7 @@
+ 	   (strcmp (file, GDM_SESSION_FAILSAFE_XTERM) != 0))
+ 		label = g_strdup_printf ("_%d. %s", num, session->name);
+ 	else
+-		label = g_strdup (session->name);
++		label = g_strdup_printf ("%d. %s", num, session->name);
+ 	num++;
+  
+ 	radio = gtk_radio_button_new_with_mnemonic (session_group, label);

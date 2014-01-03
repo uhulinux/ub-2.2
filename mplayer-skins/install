@@ -1,0 +1,4 @@
+#!/bin/sh -eux
+
+mkdir -p "$UB_INSTALLDIR"/usr/share/mplayer
+cp -al skins "$UB_INSTALLDIR"/usr/share/mplayer/

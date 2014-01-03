@@ -1,0 +1,6 @@
+diff -Naur orig/res/messages/hu/messages.txt mod/res/messages/hu/messages.txt
+--- orig/res/messages/hu/messages.txt	1970-01-01 01:00:00.000000000 +0100
++++ mod/res/messages/hu/messages.txt	2007-10-25 09:31:17.000000000 +0200
+@@ -0,0 +1,2 @@
++Nincs tovább
++Ejnye...

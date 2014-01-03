@@ -1,0 +1,33 @@
+diff -Naur a/pokerth.desktop b/pokerth.desktop
+--- a/pokerth.desktop	2013-04-07 14:04:26.919209172 +0200
++++ b/pokerth.desktop	2013-06-01 14:04:14.585844029 +0200
+@@ -4,6 +4,7 @@
+ Name[de]=PokerTH
+ Name[es]=PokerTH
+ Name[fr]=PokerTH
++Name[hu]=PokerTH
+ Name[it]=PokerTH
+ Name[nl]=PokerTH
+ Name[pl]=PokerTH
+@@ -17,6 +18,7 @@
+ GenericName[de]=Pokerspiel
+ GenericName[es]=Juego de Poker
+ GenericName[fr]=Jeu de Poker
++GenericName[hu]=Póker kártyajáték
+ GenericName[it]=Gioco di Poker
+ GenericName[nl]=Pokerspel
+ GenericName[pl]=Gra w poker
+@@ -30,6 +32,7 @@
+ Comment[de]=Texas Hold'em Spiel
+ Comment[es]=Juego de Texas Hold'em
+ Comment[fr]=Jeu de Texas Hold'em
++Comment[hu]=Texasi póker
+ Comment[it]=Gioco di Poker alla Texano
+ Comment[nl]=Texas Hold'em-spel
+ Comment[pl]=Gra w teksański klincz
+@@ -44,4 +47,4 @@
+ Type=Application
+ X-DCOP-ServiceType=Multi
+ X-KDE-StartupNotify=true
+-Categories=Qt;Game;CardGame;
++Categories=Qt;Game;CardGame;X-UHU-Menu/Games/Card;

@@ -1,0 +1,7 @@
+#!/usr/bin/env dl
+
+atlas${UB_VERSION}.tar.bz2 ATLAS/
+	http://downloads.sourceforge.net/project/math-atlas/Stable/${UB_VERSION}/
+
+atlas-${UB_VERSION}-8.fc19.src.rpm PPRO32.tgz :CONFIG/ARCHS
+	ftp://rpmfind.net/linux/fedora/linux/development/rawhide/source/SRPMS/a/

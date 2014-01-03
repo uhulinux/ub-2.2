@@ -1,0 +1,4 @@
+#!/bin/sh -eux
+
+cp -R  antenna-dtv-${UB_VERSION} ${UB_INSTALLDIR}/usr/lib/antenna-dtv
+ln -s ${UB_INSTALLDIR}/usr/lib/antenna-dtv/data/antenna_icon.png ${UB_INSTALLDIR}/usr/share/pixmaps/antenna-dtv.png

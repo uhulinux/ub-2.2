@@ -1,0 +1,8 @@
+#!/bin/sh -eux
+make \
+  BIND=$UB_INSTALLDIR/usr/bin/ \
+  install
+mkdir -p $UB_INSTALLDIR/usr/share/scan-s2
+convmv -r --notest -f iso-8859-1 -t UTF-8 dvb-t/* 
+cp -r dvb-s dvb-c dvb-t $UB_INSTALLDIR/usr/share/scan-s2/ 
+

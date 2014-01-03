@@ -1,0 +1,10 @@
+diff -Naur gnome-tweak-tool-3.4.0.1-ori/data/gnome-tweak-tool.desktop.in gnome-tweak-tool-3.4.0.1/data/gnome-tweak-tool.desktop.in
+--- gnome-tweak-tool-3.4.0.1-ori/data/gnome-tweak-tool.desktop.in	2012-03-13 15:06:02.000000000 +0100
++++ gnome-tweak-tool-3.4.0.1/data/gnome-tweak-tool.desktop.in	2013-01-21 16:50:27.687788162 +0100
+@@ -6,5 +6,5 @@
+ Terminal=false
+ Type=Application
+ StartupNotify=true
+-Categories=GNOME;GTK;Utility;
++Categories=GNOME;GTK;Utility;X-UHU-Menu/Settings;
+ OnlyShowIn=GNOME;Unity;

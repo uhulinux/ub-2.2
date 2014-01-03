@@ -1,0 +1,14 @@
+adns
+geoip
+gnutls-dev
+gtk2-dev
+krb5-dev
+libcap-dev
+libpcap-dev
+libsmi-dev
+libtasn1-dev
+libxslt-dev
+lua-dev
+openssl-dev
+pcre-dev
+portaudio-dev

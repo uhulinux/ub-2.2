@@ -1,0 +1,12 @@
+diff -Naur orig/data/org.gnome.settings-daemon.plugins.color.gschema.xml.in.in mod/data/org.gnome.settings-daemon.plugins.color.gschema.xml.in.in
+--- orig/data/org.gnome.settings-daemon.plugins.color.gschema.xml.in.in	2011-10-17 19:36:56.000000000 +0200
++++ mod/data/org.gnome.settings-daemon.plugins.color.gschema.xml.in.in	2013-02-07 09:34:08.000000000 +0100
+@@ -1,7 +1,7 @@
+ <schemalist>
+   <schema gettext-domain="@GETTEXT_PACKAGE@" id="org.gnome.settings-daemon.plugins.color" path="/org/gnome/settings-daemon/plugins/color/">
+     <key name="active" type="b">
+-      <default>true</default>
++      <default>false</default>
+       <_summary>Activation of this plugin</_summary>
+       <_description>Whether this plugin would be activated by gnome-settings-daemon or not</_description>
+     </key>

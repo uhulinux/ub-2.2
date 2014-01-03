@@ -1,0 +1,10 @@
+[Desktop Entry]
+Encoding=UTF-8
+Type=Application
+Exec=mc
+Name=Midnight Commander
+Comment=Two-panel console file manager
+Comment[hu]=Kétpaneles karakteres fájlkezelő
+Terminal=true
+Categories=X-UHU-Menu/Tools/File_Managers;
+X-UHU-Major=-1

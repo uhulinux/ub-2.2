@@ -1,0 +1,10 @@
+gnome2-panel-dev
+gtk2-dev
+gtkglarea-dev
+gtksourceview-dev
+gtkspell-dev
+libglade2-dev
+libgnomecanvas2-dev
+libgnomeui2-dev
+librsvg2-dev
+ocaml

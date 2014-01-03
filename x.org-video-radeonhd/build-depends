@@ -1,0 +1,4 @@
+libdrm-dev
+mesa-dev
+pciutils-dev
+x.org-server-dev

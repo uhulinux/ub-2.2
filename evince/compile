@@ -1,0 +1,6 @@
+#!/bin/sh -eux
+
+sed -e 's/gnome-icon-theme >= $GNOME_ICON_THEME_REQUIRED//g' \
+	-i configure
+ub_compile \
+	--enable-introspection

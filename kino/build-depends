@@ -1,0 +1,17 @@
+alsa-lib-dev
+ffmpeg-dev
+gtk+-dev
+intltool
+libavc1394-dev
+libdv-dev
+libglade2-dev
+libgnomeui2-dev
+libice-dev
+libquicktime-dev
+libraw1394-dev
+libsamplerate-dev
+libsm-dev
+libv4l-dev
+libxext-dev
+libxml2-dev
+libxv-dev

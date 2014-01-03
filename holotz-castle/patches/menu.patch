@@ -1,0 +1,28 @@
+diff -Naur orig/res/menu/hu/menu.txt mod/res/menu/hu/menu.txt
+--- orig/res/menu/hu/menu.txt	1970-01-01 01:00:00.000000000 +0100
++++ mod/res/menu/hu/menu.txt	2009-04-17 09:09:22.000000000 +0200
+@@ -0,0 +1,24 @@
++FOLYTATÁS
++ÚJ JÁTÉK
++SEGÍTSÉG
++BEÁLLÍTÁS
++KÉP
++FELBONTÁS
++SZÍNSZÁM
++KÉPERNYÖ
++ABLAKOS
++TELI KÉP
++EREDETIRE
++HANG
++BE
++KI
++NEHÉZSÉG
++GYERMETEG
++KÖNNYÜ
++KÖZEPES
++NEHÉZ
++NYELV
++TÖLTÉS
++MENTÉS
++LAZÍTÁS
++VÉGE

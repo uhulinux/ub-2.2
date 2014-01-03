@@ -1,0 +1,47 @@
+--- ORIG/qed	2003-12-20 00:42:26.000000000 +0100
++++ UHU/qed	2011-09-10 18:32:51.748000070 +0200
+@@ -348,7 +348,7 @@
+ 
+ sub save_virtual_console {
+     undef $/; # enable "slurp" mode (not conflict with "\n")
+-    open (VCSA,"/dev/vcsa0") || die "can't open /dev/vcsa0";
++    open (VCSA,"/dev/vcsa") || die "can't open /dev/vcsa";
+     ${$_[0]} = <VCSA>;
+     close(VCSA);
+     $/ = "\n"; # restore record separator
+@@ -359,7 +359,7 @@
+ ############################################################
+ 
+ sub reload_virtual_console {
+-    open (VCSA,">/dev/vcsa0") || die "can't open /dev/vcsa0";
++    open (VCSA,">/dev/vcsa") || die "can't open /dev/vcsa";
+     print VCSA ${$_[0]};
+     close(VCSA);
+ }
+@@ -370,7 +370,7 @@
+ 
+ sub drag {
+     reload_virtual_console(\$new_vcsa);                    
+-    open (VCSA,">/dev/vcsa0") || die "can't open /dev/vcsa0";
++    open (VCSA,">/dev/vcsa") || die "can't open /dev/vcsa";
+     $koo = (($_[1]-1)*$conx+($_[0]-1)+2)*2+1;
+     seek(VCSA,$koo,0);
+     print VCSA (chr(127) ^ substr($new_vcsa,$koo,1));
+@@ -504,7 +504,7 @@
+ 
+ sub vcout {
+     my($this_page, $max_page, $center, $free_place);
+-    open (VCS,">/dev/vcsa0") || die "Error: /dev/vcsa0 not exists!";
++    open (VCS,">/dev/vcsa") || die "Error: /dev/vcsa not exists!";
+     print VCS substr($vcsa,0,4);
+     vcpage($_[0], 0, $cony);
+     $free_place = $cony - $. - 1;
+@@ -539,7 +539,7 @@
+ ############################################################
+ 
+ sub print_color_line {
+-    open (VCS,">/dev/vcsa0") || die "Error: /dev/vcsa0 not exists!";
++    open (VCS,">/dev/vcsa") || die "Error: /dev/vcsa not exists!";
+     seek(VCS,(($_[1]-1)*$conx+($_[0]-1)+2)*2,0);
+     print VCS join($_[3],split(//,$_[2])) . $_[3];
+     close VCS;    

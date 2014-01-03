@@ -1,0 +1,16 @@
+diff -Naur nautilus-dropbox-0.7.0-ori/data/dropbox.desktop nautilus-dropbox-0.7.0/data/dropbox.desktop
+--- nautilus-dropbox-0.7.0-ori/data/dropbox.desktop	2010-04-09 01:21:32.000000000 +0200
++++ nautilus-dropbox-0.7.0/data/dropbox.desktop	2011-11-01 11:26:48.848248622 +0100
+@@ -1,10 +1,11 @@
+ [Desktop Entry]
+ Name=Dropbox
+ GenericName=File Synchronizer
++GenericName[hu]=Fájl megosztás
+ Comment=Sync your files across computers and to the web
+ Exec=dropbox start -i
+ Terminal=false
+ Type=Application
+ Icon=dropbox
+-Categories=Network;FileTransfer;
++Categories=X-UHU-Menu/Internet/Tools;
+ StartupNotify=false

@@ -1,0 +1,7 @@
+#!/bin/sh -eux
+
+./configure --sysconfdir=/etc \
+--libdir=/usr/lib \
+--docdir=/usr/share/doc \
+--prefix=/usr
+make -j2

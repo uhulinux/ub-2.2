@@ -1,0 +1,11 @@
+diff -Naur orig/gst/rtpjitterbuffer/async_jitter_queue.h patched/gst/rtpjitterbuffer/async_jitter_queue.h
+--- orig/gst/rtpjitterbuffer/async_jitter_queue.h	2008-08-06 20:29:09.000000000 +0200
++++ patched/gst/rtpjitterbuffer/async_jitter_queue.h	2012-09-27 22:07:33.578372992 +0200
+@@ -36,7 +36,6 @@
+ #define __ASYNCJITTERQUEUE_H__
+ 
+ #include <glib.h>
+-#include <glib/gthread.h>
+ 
+ G_BEGIN_DECLS
+ 

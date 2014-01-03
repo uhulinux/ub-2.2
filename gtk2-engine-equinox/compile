@@ -1,0 +1,5 @@
+#!/bin/sh -eux
+
+sed -i 's|#include <glib/gtimer.h>|#include <glib.h>|' src/animation.c
+ub_compile --enable-animation
+

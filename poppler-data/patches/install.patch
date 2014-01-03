@@ -1,0 +1,12 @@
+diff -Naurd a/Makefile b/Makefile
+--- a/Makefile	2007-12-12 20:43:21.000000000 +0100
++++ b/Makefile	2008-09-11 12:20:44.000000000 +0200
+@@ -1,7 +1,7 @@
+ PACKAGE    = poppler-data
+ VERSION    = 0.2.0
+ distdir    = $(PACKAGE)-$(VERSION)
+-prefix     = /usr/local
++prefix     = /usr
+ datadir    = $(prefix)/share
+ pkgdatadir = $(datadir)/poppler
+ 

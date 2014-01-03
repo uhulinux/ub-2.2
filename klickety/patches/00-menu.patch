@@ -1,0 +1,19 @@
+diff -Naur a/klickety.desktop b/klickety.desktop
+--- a/klickety.desktop	2013-01-23 23:06:15.000000000 +0100
++++ b/klickety.desktop	2013-02-10 22:45:33.512191260 +0100
+@@ -116,5 +116,5 @@
+ Comment=
+ X-KDE-StartupNotify=true
+ X-DBUS-StartupType=Multi
+-Categories=Qt;KDE;Game;StrategyGame;
++Categories=Qt;KDE;Game;StrategyGame;X-UHU-Menu/Games/TacticStrategy;
+ X-DocPath=klickety/index.html
+diff -Naur a/ksame.desktop b/ksame.desktop
+--- a/ksame.desktop	2013-01-23 23:06:15.000000000 +0100
++++ b/ksame.desktop	2013-02-10 22:45:50.586435721 +0100
+@@ -144,4 +144,4 @@
+ Icon=ksame
+ X-KDE-StartupNotify=true
+ X-DBUS-StartupType=Multi
+-Categories=Qt;KDE;Game;StrategyGame;
++Categories=Qt;KDE;Game;StrategyGame;X-UHU-Menu/Games/TacticStrategy;

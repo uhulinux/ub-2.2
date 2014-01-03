@@ -1,0 +1,4 @@
+#!/usr/bin/env dl
+
+gnome-alsamixer-${UB_VERSION}.tar.gz gnome-alsamixer-${UB_VERSION}/
+	ftp://ftp.archlinux.org/other/gnome-alsamixer/

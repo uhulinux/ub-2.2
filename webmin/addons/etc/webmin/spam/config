@@ -1,0 +1,8 @@
+procmailrc=/etc/procmailrc
+procmail_cmd=*
+processes=spamd amavisd
+sa_learn=sa-learn
+spamassassin=spamassassin
+warn_procmail=1
+call_spam=1
+local_cf=/etc/mail/spamassassin/local.cf

@@ -1,0 +1,9 @@
+#!/bin/sh
+
+. /etc/init.d/common
+
+DAEMON=/usr/sbin/usbmuxd
+PIDFILE="/var/run/usbmux.pid"
+
+startstop "$@"
+

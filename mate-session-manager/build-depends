@@ -1,0 +1,9 @@
+dbus-glib-dev
+gtk2-dev
+intltool
+libsm-dev
+libxslt-dev
+libxtst-dev
+mate-common
+upower-dev
+x.org-xtrans-dev

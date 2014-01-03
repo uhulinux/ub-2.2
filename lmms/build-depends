@@ -1,0 +1,17 @@
+alsa-lib-dev
+cmake
+fftw3-dev
+fltk2
+fluidsynth-dev
+glibc-dev
+jack-dev
+libsamplerate-dev
+libsndfile-dev
+libvorbis-dev
+libxft-dev
+portaudio-dev
+pulseaudio-dev
+qt4-dev
+sdl-dev
+wine
+wine-dev

@@ -1,0 +1,15 @@
+boost-dev
+clanlib-dev
+guile
+hermes-dev
+libjpeg-dev
+libmikmod-dev
+libogg-dev
+libpng-dev
+libvorbis-dev
+libx11-dev
+libxml2-dev
+scons
+sdl-dev
+sdl-image-dev
+sdl-mixer-dev

@@ -1,0 +1,7 @@
+#!/bin/sh -eux
+
+mkdir -p "$UB_INSTALLDIR"/usr/share/applications
+mkdir -p "$UB_INSTALLDIR"/usr/share/pixmaps
+ub_install
+cp xt7-player/xt7-player.desktop "$UB_INSTALLDIR"/usr/share/applications
+cp xt7-player/xt7-player.png "$UB_INSTALLDIR"/usr/share/pixmaps

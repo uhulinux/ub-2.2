@@ -1,0 +1,1 @@
+urllist http://ftp.de.debian.org/debian/pool/main/h/holotz-castle/ | splitver '^holotz-castle_([0-9.]+).orig.tar.gz$' | sort -V | tail -n 1

@@ -1,0 +1,31 @@
+#!/bin/sh -eux
+
+ub_install \
+	EXTRAS+=extras/{{ata,cdrom,edd,path,scsi,usb,volume}_id,firmware,floppy,rule_generator}
+
+mkdir -p "$UB_INSTALLDIR"/lib/udev/rules.d/
+cp -v rules/packages/*.rules "$UB_INSTALLDIR"/lib/udev/rules.d/
+
+for i in udev{monitor,trigger,settle,control}; do
+	ln -s udevadm "$UB_INSTALLDIR"/sbin/"$i"
+done
+
+for i in udev{info,test}; do
+	ln -s ../sbin/udevadm "$UB_INSTALLDIR"/bin/"$i"
+done
+
+for i in {ata,cdrom,edd,path,scsi,usb}_id; do
+	ln -s ../lib/udev/"$i" "$UB_INSTALLDIR"/sbin/"$i"
+done
+
+for file in "$UB_INSTALLDIR"/lib/udev/rules.d/*.rules; do
+	for group in dialout uucp kmem disk floppy; do
+		sed -e "s/GROUP=\"$group\"/GROUP=\"media\"/g" -i "$file"
+	done
+done
+
+# collision with mdadm 3.0
+rm -f "$UB_INSTALLDIR"/lib/udev/rules.d/64-md-raid.rules
+
+cp udev/udev.pc "$UB_INSTALLDIR"/lib/pkgconfig/udev.pc
+

@@ -1,0 +1,10 @@
+alsa-lib-dev
+bluez-dev
+chrpath
+gdb
+gst-plugins-bad-dev
+gst-plugins-base-dev
+libxv-dev
+networkmanager-dev
+qt4-dev
+udev-dev

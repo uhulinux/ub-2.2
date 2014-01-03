@@ -1,0 +1,11 @@
+diff -Naur orig/libindicate/indicator.c patched/libindicate/indicator.c
+--- orig/libindicate/indicator.c	2011-01-14 22:29:40.000000000 +0100
++++ patched/libindicate/indicator.c	2013-03-02 20:08:08.431860976 +0100
+@@ -28,7 +28,6 @@
+ */
+ 
+ #include "glib.h"
+-#include "glib/gmessages.h"
+ #include "indicator.h"
+ #include "server.h"
+ 

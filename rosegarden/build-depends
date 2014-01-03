@@ -1,0 +1,13 @@
+alsa-lib-dev
+dssi
+fftw3-dev
+imake
+jack-dev
+ladspa-dev
+liblo-dev
+liblrdf-dev
+libsamplerate-dev
+libsndfile-dev
+libxml2-dev
+qt4-dev
+raptor2-dev

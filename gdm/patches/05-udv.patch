@@ -1,0 +1,20 @@
+diff -Naur gdm-2.19.6.orig/config/gdm.conf.in gdm-2.19.6/config/gdm.conf.in
+--- gdm-2.19.6.orig/config/gdm.conf.in	2007-08-15 20:14:56.000000000 +0200
++++ gdm-2.19.6/config/gdm.conf.in	2007-08-27 16:41:56.000000000 +0200
+@@ -454,10 +454,12 @@
+ # utf-8 Note to distributors, if you wish to have a different Welcome string
+ # and wish to have this translated you can have entries such as
+ # "Welcome[cs]=Vitejte na %n".
+-DefaultWelcome=true
+-DefaultRemoteWelcome=true
+-#Welcome=Welcome
+-#RemoteWelcome=Welcome to %n
++DefaultWelcome=false
++DefaultRemoteWelcome=false
++Welcome=Welcome
++RemoteWelcome=Welcome to %n
++Welcome[hu]=Üdvözli az UHU-Linux!
++RemoteWelcome[hu]=Üdvözli az UHU-Linux (%n)!
+ 
+ # Xinerama screen we use to display the greeter on.  Not for true multihead,
+ # currently only works for Xinerama.

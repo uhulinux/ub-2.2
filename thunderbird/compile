@@ -1,0 +1,37 @@
+#!/bin/sh -eux
+
+mkdir -p mozilla/js/src/.deps
+
+export SHELL=/bin/bash
+export LDFLAGS="-Wl,-rpath,/usr/lib/thunderbird/ -Wl,--no-keep-memory"
+
+ub_compile \
+	--enable-application=mail \
+	--enable-official-branding \
+	--without-system-jpeg \
+	--with-system-zlib \
+	--with-pthreads \
+	--with-system-nss \
+	--with-system-nspr \
+	--enable-system-cairo \
+	--enable-system-huspell \
+	--enable-system-sqlite \
+	--enable-gio \
+	--enable-pango \
+	--enable-svg \
+	--enable-canvas \
+	--enable-xinerama \
+	--enable-startup-notification \
+	--enable-libxul \
+	--disable-webrtc \
+	--disable-gconf \
+	--disable-gnomeui \
+	--disable-gnomevfs \
+	--disable-installer \
+	--disable-updater \
+	--disable-crashreporter \
+	--disable-tests \
+	--disable-mochitest \
+	--enable-default-toolkit=cairo-gtk2 \
+	--disable-necko-wifi
+

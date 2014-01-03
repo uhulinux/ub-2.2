@@ -1,0 +1,6 @@
+#!/usr/bin/env dl
+
+battery-status_${UB_VERSION}.tar.gz battery-status-${UB_VERSION}/
+	http://launchpad.net/battery-status/0.x/${UB_VERSION}/+download/
+
+

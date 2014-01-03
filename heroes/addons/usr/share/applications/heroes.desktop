@@ -1,0 +1,10 @@
+[Desktop Entry]
+Version=1.1
+Type=Application
+Name=Heroes
+Icon=heroes-1.xpm
+Exec=heroes -F
+Tryexec=padsp heroes
+Terminal=false
+StartupNotify=true
+Categories=X-UHU-Menu/Games/Arcade;

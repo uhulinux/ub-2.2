@@ -1,0 +1,5 @@
+#!/usr/bin/env dl
+
+mate-file-manager-open-terminal-${UB_VERSION}.tar.xz	mate-file-manager-open-terminal-${UB_VERSION}/
+	http://pub.mate-desktop.org/releases/${UB_VERSION_HEAD2}/
+

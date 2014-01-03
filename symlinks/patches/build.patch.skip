@@ -1,0 +1,18 @@
+diff -Naur orig/Makefile patched/Makefile
+--- orig/Makefile	1994-11-28 00:13:31.000000000 +0100
++++ patched/Makefile	2012-10-01 03:02:38.223086676 +0200
+@@ -3,11 +3,11 @@
+ all: symlinks
+ 
+ symlinks: symlinks.c
+-	gcc -Wall -Wstrict-prototypes -O2 -N -s -o symlinks symlinks.c
++	gcc -Wall -Wstrict-prototypes -O2 -o symlinks symlinks.c
+  
+ install: all symlinks.8
+-	install -m 755 -o root -g root symlinks /usr/local/bin
+-	install -m 644 -o root -g root symlinks.8 /usr/local/man/man8
++	install -m 755 -o root -g root symlinks ${UB_INSTALLDIR}/usr/sbin
++	install -m 644 -o root -g root symlinks.8 ${UB_INSTALLDIR}/usr/share/man/man8
+ 
+ clean:
+ 	rm -f symlinks *.o core

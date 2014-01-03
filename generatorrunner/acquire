@@ -1,0 +1,4 @@
+#!/usr/bin/env dl
+
+generatorrunner-${UB_VERSION}.tar.bz2 generatorrunner-${UB_VERSION}/
+	https://distfiles.macports.org/generatorrunner/

@@ -1,0 +1,12 @@
+diff -Naur orig/src/Global.h mod/src/Global.h
+--- orig/src/Global.h	2007-03-07 10:34:56.000000000 +0100
++++ mod/src/Global.h	2011-05-14 18:43:13.390250900 +0200
+@@ -213,7 +213,7 @@
+ extern cGamepad *Gamepad;
+ 
+ #ifndef MAX_PATH
+-#define MAX_PATH PATH_MAX
++#define MAX_PATH 255
+ #endif
+ 
+ #ifndef DATADIR

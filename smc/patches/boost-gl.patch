@@ -1,0 +1,91 @@
+diff -Naur orig/configure patched/configure
+--- orig/configure	2009-08-17 18:00:45.000000000 +0200
++++ patched/configure	2010-02-10 17:04:21.000000000 +0100
+@@ -3377,13 +3377,13 @@
+ # Check for the Boost Filesystem library
+ 
+ 
+-{ $as_echo "$as_me:$LINENO: checking for main in -lboost_filesystem" >&5
+-$as_echo_n "checking for main in -lboost_filesystem... " >&6; }
+-if test "${ac_cv_lib_boost_filesystem_main+set}" = set; then
++{ $as_echo "$as_me:$LINENO: checking for main in -lboost_filesystem-mt" >&5
++$as_echo_n "checking for main in -lboost_filesystem-mt... " >&6; }
++if test "${ac_cv_lib_boost_filesystem-mt_main+set}" = set; then
+   $as_echo_n "(cached) " >&6
+ else
+   ac_check_lib_save_LIBS=$LIBS
+-LIBS="-lboost_filesystem  $LIBS"
++LIBS="-lboost_filesystem-mt  $LIBS"
+ cat >conftest.$ac_ext <<_ACEOF
+ /* confdefs.h.  */
+ _ACEOF
+@@ -3434,14 +3434,14 @@
+       conftest$ac_exeext conftest.$ac_ext
+ LIBS=$ac_check_lib_save_LIBS
+ fi
+-{ $as_echo "$as_me:$LINENO: result: $ac_cv_lib_boost_filesystem_main" >&5
++{ $as_echo "$as_me:$LINENO: result: $ac_cv_lib_boost_filesystem-mt_main" >&5
+ $as_echo "$ac_cv_lib_boost_filesystem_main" >&6; }
+ if test "x$ac_cv_lib_boost_filesystem_main" = x""yes; then
+   cat >>confdefs.h <<_ACEOF
+ #define HAVE_LIBBOOST_FILESYSTEM 1
+ _ACEOF
+ 
+-  LIBS="-lboost_filesystem $LIBS"
++  LIBS="-lboost_filesystem-mt $LIBS"
+ 
+ else
+   { { $as_echo "$as_me:$LINENO: error: Unable to find Boost Filesystem library" >&5
+@@ -3518,17 +3518,12 @@
+ fi
+ { $as_echo "$as_me:$LINENO: result: $ac_cv_lib_GL_main" >&5
+ $as_echo "$ac_cv_lib_GL_main" >&6; }
+-if test "x$ac_cv_lib_GL_main" = x""yes; then
+   cat >>confdefs.h <<_ACEOF
+ #define HAVE_LIBGL 1
+ _ACEOF
+ 
+   LIBS="-lGL $LIBS"
+ 
+-else
+-  has_gl=no
+-fi
+-
+ 
+ { $as_echo "$as_me:$LINENO: checking for main in -lGLU" >&5
+ $as_echo_n "checking for main in -lGLU... " >&6; }
+@@ -3589,22 +3584,12 @@
+ fi
+ { $as_echo "$as_me:$LINENO: result: $ac_cv_lib_GLU_main" >&5
+ $as_echo "$ac_cv_lib_GLU_main" >&6; }
+-if test "x$ac_cv_lib_GLU_main" = x""yes; then
+   cat >>confdefs.h <<_ACEOF
+ #define HAVE_LIBGLU 1
+ _ACEOF
+ 
+   LIBS="-lGLU $LIBS"
+ 
+-else
+-  has_glu=no
+-fi
+-
+-  if test "x$has_gl" = "xno" -o "x$has_glu" = "xno"; then
+-	  { { $as_echo "$as_me:$LINENO: error: Unable to find the OpenGL library" >&5
+-$as_echo "$as_me: error: Unable to find the OpenGL library" >&2;}
+-   { (exit 1); exit 1; }; }
+-  fi
+   ;;
+ esac
+ 
+diff -Naur orig/configure.ac patched/configure.ac
+--- orig/configure.ac	2009-08-17 15:59:00.000000000 +0200
++++ patched/configure.ac	2010-02-10 16:47:24.000000000 +0100
+@@ -12,7 +12,7 @@
+ ### Check for libraries ###
+ 
+ # Check for the Boost Filesystem library
+-AC_CHECK_LIB(boost_filesystem, main, ,
++AC_CHECK_LIB(boost_filesystem-mt, main, ,
+ 	AC_MSG_ERROR([Unable to find Boost Filesystem library]))
+ 
+ # Check for the OpenGL and GLU library

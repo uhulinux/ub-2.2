@@ -1,0 +1,354 @@
+diff -Naur orig/src/demos/copypix.c mod/src/demos/copypix.c
+--- orig/src/demos/copypix.c	2010-07-07 19:57:15.000000000 +0200
++++ mod/src/demos/copypix.c	2013-06-02 20:47:51.506885106 +0200
+@@ -14,7 +14,7 @@
+ 
+ #include "readtex.h"
+ 
+-#define IMAGE_FILE "../images/arch.rgb"
++#define IMAGE_FILE "/usr/share/mesa-demos/arch.rgb"
+ 
+ static int ImgWidth, ImgHeight;
+ static GLenum ImgFormat;
+diff -Naur orig/src/demos/dissolve.c mod/src/demos/dissolve.c
+--- orig/src/demos/dissolve.c	2010-07-07 19:57:15.000000000 +0200
++++ mod/src/demos/dissolve.c	2013-06-02 20:48:17.515277889 +0200
+@@ -14,8 +14,8 @@
+ #include <GL/glut.h>
+ #include "readtex.h"
+ 
+-#define FILE1 "../images/bw.rgb"
+-#define FILE2 "../images/arch.rgb"
++#define FILE1 "/usr/share/mesa-demos/bw.rgb"
++#define FILE2 "/usr/share/mesa-demos/arch.rgb"
+ 
+ 
+ static int Win;
+diff -Naur orig/src/demos/drawpix.c mod/src/demos/drawpix.c
+--- orig/src/demos/drawpix.c	2010-07-07 19:57:15.000000000 +0200
++++ mod/src/demos/drawpix.c	2013-06-02 20:48:36.311561755 +0200
+@@ -13,7 +13,7 @@
+ 
+ #include "readtex.h"
+ 
+-#define IMAGE_FILE "../images/girl.rgb"
++#define IMAGE_FILE "/usr/share/mesa-demos/girl.rgb"
+ 
+ static int ImgWidth, ImgHeight;
+ static GLenum ImgFormat;
+diff -Naur orig/src/demos/engine.c mod/src/demos/engine.c
+--- orig/src/demos/engine.c	2010-07-07 19:57:15.000000000 +0200
++++ mod/src/demos/engine.c	2013-06-02 20:48:55.271848097 +0200
+@@ -21,7 +21,7 @@
+ 
+ #define DEG_TO_RAD(DEG)  ((DEG) * M_PI / 180.0)
+ 
+-#define TEXTURE_FILE "../images/reflect.rgb"
++#define TEXTURE_FILE "/usr/share/mesa-demos/reflect.rgb"
+ 
+ /* Target engine speed: */
+ const int RPM = 100.0;
+diff -Naur orig/src/demos/fbo_firecube.c mod/src/demos/fbo_firecube.c
+--- orig/src/demos/fbo_firecube.c	2010-07-07 19:57:15.000000000 +0200
++++ mod/src/demos/fbo_firecube.c	2013-06-02 20:50:32.253312734 +0200
+@@ -674,7 +674,7 @@
+    glBindTexture(GL_TEXTURE_2D, groundid);
+ 
+    glPixelStorei(GL_UNPACK_ALIGNMENT, 4);
+-   if (!LoadRGBMipmaps("../images/s128.rgb", GL_RGB)) {
++   if (!LoadRGBMipmaps("/usr/share/mesa-demos/s128.rgb", GL_RGB)) {
+       fprintf(stderr, "Error reading a texture.\n");
+       exit(-1);
+    }
+@@ -696,7 +696,7 @@
+ 	 int w, h;
+ 	 GLenum format;
+ 	 int x, y;
+-	 GLubyte *image = LoadRGBImage("../images/tree3.rgb", &w, &h, &format);
++	 GLubyte *image = LoadRGBImage("/usr/share/mesa-demos/tree3.rgb", &w, &h, &format);
+ 
+ 	 if (!image) {
+ 	    fprintf(stderr, "Error reading a texture.\n");
+@@ -722,7 +722,7 @@
+ 	 }
+       }
+    else {
+-      if (!LoadRGBMipmaps("../images/tree2.rgba", GL_RGBA)) {
++      if (!LoadRGBMipmaps("/usr/share/mesa-demos/tree2.rgba", GL_RGBA)) {
+ 	 fprintf(stderr, "Error reading a texture.\n");
+ 	 exit(-1);
+       }
+diff -Naur orig/src/demos/fire.c mod/src/demos/fire.c
+--- orig/src/demos/fire.c	2010-07-07 19:57:15.000000000 +0200
++++ mod/src/demos/fire.c	2013-06-02 20:51:22.722074924 +0200
+@@ -625,7 +625,7 @@
+    glBindTexture(GL_TEXTURE_2D, groundid);
+ 
+    glPixelStorei(GL_UNPACK_ALIGNMENT, 4);
+-   if (!LoadRGBMipmaps("../images/s128.rgb", GL_RGB)) {
++   if (!LoadRGBMipmaps("/usr/share/mesa-demos/s128.rgb", GL_RGB)) {
+       fprintf(stderr, "Error reading a texture.\n");
+       exit(-1);
+    }
+@@ -647,7 +647,7 @@
+       int w, h;
+       GLenum format;
+       int x, y;
+-      GLubyte *image = LoadRGBImage("../images/tree3.rgb", &w, &h, &format);
++      GLubyte *image = LoadRGBImage("/usr/share/mesa-demos/tree3.rgb", &w, &h, &format);
+ 
+       if (!image) {
+ 	 fprintf(stderr, "Error reading a texture.\n");
+@@ -673,7 +673,7 @@
+       }
+    }
+    else {
+-      if (!LoadRGBMipmaps("../images/tree2.rgba", GL_RGBA)) {
++      if (!LoadRGBMipmaps("/usr/share/mesa-demos/tree2.rgba", GL_RGBA)) {
+ 	 fprintf(stderr, "Error reading a texture.\n");
+ 	 exit(-1);
+       }
+diff -Naur orig/src/demos/geartrain.c mod/src/demos/geartrain.c
+--- orig/src/demos/geartrain.c	2010-07-07 19:57:15.000000000 +0200
++++ mod/src/demos/geartrain.c	2013-06-02 21:17:11.765468923 +0200
+@@ -1068,7 +1068,7 @@
+       exit (1);
+ 
+     if (argc < 2)
+-       file = "geartrain.dat";
++       file = "/usr/share/mesa-demos/geartrain.dat";
+     else
+        file = argv[1];
+ 
+diff -Naur orig/src/demos/gloss.c mod/src/demos/gloss.c
+--- orig/src/demos/gloss.c	2010-07-07 19:57:15.000000000 +0200
++++ mod/src/demos/gloss.c	2013-06-02 20:51:48.778468434 +0200
+@@ -29,8 +29,8 @@
+ #include "trackball.h"
+ 
+ 
+-#define SPECULAR_TEXTURE_FILE "../images/reflect.rgb"
+-#define BASE_TEXTURE_FILE "../images/tile.rgb"
++#define SPECULAR_TEXTURE_FILE "/usr/share/mesa-demos/reflect.rgb"
++#define BASE_TEXTURE_FILE "/usr/share/mesa-demos/tile.rgb"
+ 
+ /* Menu items */
+ #define DO_SPEC_TEXTURE 1
+diff -Naur orig/src/demos/ipers.c mod/src/demos/ipers.c
+--- orig/src/demos/ipers.c	2010-07-07 19:57:15.000000000 +0200
++++ mod/src/demos/ipers.c	2013-06-02 20:53:41.552171567 +0200
+@@ -150,7 +150,7 @@
+    glGenTextures(1, &t1id);
+    glBindTexture(GL_TEXTURE_2D, t1id);
+ 
+-   if (!LoadRGBMipmaps("../images/bw.rgb", 3)) {
++   if (!LoadRGBMipmaps("/usr/share/mesa-demos/bw.rgb", 3)) {
+       fprintf(stderr, "Error reading a texture.\n");
+       exit(-1);
+    }
+diff -Naur orig/src/demos/isosurf.c mod/src/demos/isosurf.c
+--- orig/src/demos/isosurf.c	2010-07-07 19:57:15.000000000 +0200
++++ mod/src/demos/isosurf.c	2013-06-02 21:14:32.775067816 +0200
+@@ -36,7 +36,7 @@
+ #include "GL/glut.h"
+ 
+ #include "readtex.h"
+-#define TEXTURE_FILE "../images/reflect.rgb"
++#define TEXTURE_FILE "/usr/share/mesa-demos/reflect.rgb"
+ 
+ #define LIT		0x00000001
+ #define UNLIT		0x00000002
+@@ -1060,7 +1060,7 @@
+    if (arg_mode & QUIT)
+       exit(0);
+ 
+-   read_surface( "isosurf.dat" );
++   read_surface( "/usr/share/mesa-demos/isosurf.dat" );
+ 
+    glutInitWindowSize(400, 400);
+    glutInit( &argc, argv);
+diff -Naur orig/src/demos/lodbias.c mod/src/demos/lodbias.c
+--- orig/src/demos/lodbias.c	2010-07-07 19:57:15.000000000 +0200
++++ mod/src/demos/lodbias.c	2013-06-02 20:54:03.984510345 +0200
+@@ -36,7 +36,7 @@
+ 
+ #include "readtex.h"
+ 
+-#define TEXTURE_FILE "../images/girl.rgb"
++#define TEXTURE_FILE "/usr/share/mesa-demos/girl.rgb"
+ 
+ static GLfloat Xrot = 0, Yrot = -30, Zrot = 0;
+ static GLboolean Anim = GL_TRUE;
+diff -Naur orig/src/demos/multiarb.c mod/src/demos/multiarb.c
+--- orig/src/demos/multiarb.c	2010-07-07 19:57:15.000000000 +0200
++++ mod/src/demos/multiarb.c	2013-06-02 20:54:25.536835834 +0200
+@@ -19,8 +19,8 @@
+ 
+ #include "readtex.h"
+ 
+-#define TEXTURE_1_FILE "../images/girl.rgb"
+-#define TEXTURE_2_FILE "../images/reflect.rgb"
++#define TEXTURE_1_FILE "/usr/share/mesa-demos/girl.rgb"
++#define TEXTURE_2_FILE "/usr/share/mesa-demos/reflect.rgb"
+ 
+ #define TEX0 1
+ #define TEX7 8
+diff -Naur orig/src/demos/projtex.c mod/src/demos/projtex.c
+--- orig/src/demos/projtex.c	2010-07-07 19:57:15.000000000 +0200
++++ mod/src/demos/projtex.c	2013-06-02 20:55:15.501590412 +0200
+@@ -51,10 +51,10 @@
+ GLboolean linearFilter = GL_TRUE;
+ 
+ char *texFilename[MAX_TEX] = {
+-   "../images/girl.rgb",
+-   "../images/tile.rgb",
+-   "../images/bw.rgb",
+-   "../images/reflect.rgb"
++   "/usr/share/mesa-demos/girl.rgb",
++   "/usr/share/mesa-demos/tile.rgb",
++   "/usr/share/mesa-demos/bw.rgb",
++   "/usr/share/mesa-demos/reflect.rgb"
+ };
+ 
+ 
+diff -Naur orig/src/demos/readpix.c mod/src/demos/readpix.c
+--- orig/src/demos/readpix.c	2010-07-07 19:57:15.000000000 +0200
++++ mod/src/demos/readpix.c	2013-06-02 20:55:53.894170226 +0200
+@@ -14,7 +14,7 @@
+ 
+ #include "readtex.h"
+ 
+-#define IMAGE_FILE "../images/girl.rgb"
++#define IMAGE_FILE "/usr/share/mesa-demos/girl.rgb"
+ 
+ static int ImgWidth, ImgHeight;
+ static int WinWidth, WinHeight;
+diff -Naur orig/src/demos/reflect.c mod/src/demos/reflect.c
+--- orig/src/demos/reflect.c	2010-07-07 19:57:15.000000000 +0200
++++ mod/src/demos/reflect.c	2013-06-02 20:56:13.082460012 +0200
+@@ -37,7 +37,7 @@
+ 
+ 
+ #define DEG2RAD (3.14159/180.0)
+-#define TABLE_TEXTURE "../images/tile.rgb"
++#define TABLE_TEXTURE "/usr/share/mesa-demos/tile.rgb"
+ #define MAX_OBJECTS 2
+ #define INIT_WIDTH 400
+ #define INIT_HEIGHT 300
+diff -Naur orig/src/demos/teapot.c mod/src/demos/teapot.c
+--- orig/src/demos/teapot.c	2010-07-07 19:57:15.000000000 +0200
++++ mod/src/demos/teapot.c	2013-06-02 20:56:46.346962379 +0200
+@@ -502,7 +502,7 @@
+   glBindTexture(GL_TEXTURE_2D,t1id);
+ 
+   glPixelStorei(GL_UNPACK_ALIGNMENT,4);
+-  if (!LoadRGBMipmaps("../images/tile.rgb", GL_RGB)) {
++  if (!LoadRGBMipmaps("/usr/share/mesa-demos/tile.rgb", GL_RGB)) {
+     fprintf(stderr,"Error reading a texture.\n");
+     exit(-1);
+   }
+@@ -525,7 +525,7 @@
+   glPixelTransferf(GL_BLUE_SCALE, 0.75);
+   glPixelTransferf(GL_BLUE_BIAS, 0.25);
+ 
+-  if (!LoadRGBMipmaps("../images/bw.rgb", GL_RGB)) {
++  if (!LoadRGBMipmaps("/usr/share/mesa-demos/bw.rgb", GL_RGB)) {
+     fprintf(stderr,"Error reading a texture.\n");
+     exit(-1);
+   }
+diff -Naur orig/src/demos/terrain.c mod/src/demos/terrain.c
+--- orig/src/demos/terrain.c	2010-07-07 19:57:15.000000000 +0200
++++ mod/src/demos/terrain.c	2013-06-02 21:18:23.106546332 +0200
+@@ -562,7 +562,7 @@
+    GLenum gluerr;
+    size_t result;
+ 
+-   if ((FilePic = fopen("terrain.dat", "r")) == NULL) {
++   if ((FilePic = fopen("/usr/share/mesa-demos/terrain.dat", "r")) == NULL) {
+       fprintf(stderr, "Error loading terrain.dat\n");
+       exit(-1);
+    }
+diff -Naur orig/src/demos/texcyl.c mod/src/demos/texcyl.c
+--- orig/src/demos/texcyl.c	2010-07-07 19:57:15.000000000 +0200
++++ mod/src/demos/texcyl.c	2013-06-02 20:57:02.075199912 +0200
+@@ -17,7 +17,7 @@
+ 
+ #include "readtex.h"
+ 
+-#define TEXTURE_FILE "../images/reflect.rgb"
++#define TEXTURE_FILE "/usr/share/mesa-demos/reflect.rgb"
+ 
+ #define LIT 1
+ #define TEXTURED 2
+diff -Naur orig/src/demos/textures.c mod/src/demos/textures.c
+--- orig/src/demos/textures.c	2010-07-07 19:57:15.000000000 +0200
++++ mod/src/demos/textures.c	2013-06-02 20:57:51.371944401 +0200
+@@ -32,10 +32,10 @@
+ static float TexAspect[MAX_TEXTURES];
+ 
+ static const char *DefaultFiles[] = {
+-   "../images/arch.rgb",
+-   "../images/reflect.rgb",
+-   "../images/tree2.rgba",
+-   "../images/tile.rgb"
++   "/usr/share/mesa-demos/arch.rgb",
++   "/usr/share/mesa-demos/reflect.rgb",
++   "/usr/share/mesa-demos/tree2.rgba",
++   "/usr/share/mesa-demos/tile.rgb"
+ };
+ 
+ 
+diff -Naur orig/src/demos/tunnel2.c mod/src/demos/tunnel2.c
+--- orig/src/demos/tunnel2.c	2010-07-07 19:57:15.000000000 +0200
++++ mod/src/demos/tunnel2.c	2013-06-02 20:58:28.832510138 +0200
+@@ -73,7 +73,7 @@
+    glGenTextures(1, &t1id);
+    glBindTexture(GL_TEXTURE_2D, t1id);
+ 
+-   if (!LoadRGBMipmaps("../images/tile.rgb", GL_RGB)) {
++   if (!LoadRGBMipmaps("/usr/share/mesa-demos/tile.rgb", GL_RGB)) {
+       fprintf(stderr, "Error reading a texture.\n");
+       exit(-1);
+    }
+@@ -88,7 +88,7 @@
+    glGenTextures(1, &t2id);
+    glBindTexture(GL_TEXTURE_2D, t2id);
+ 
+-   if (!LoadRGBMipmaps("../images/bw.rgb", GL_RGB)) {
++   if (!LoadRGBMipmaps("/usr/share/mesa-demos/bw.rgb", GL_RGB)) {
+       fprintf(stderr, "Error reading a texture.\n");
+       exit(-1);
+    }
+diff -Naur orig/src/demos/tunnel.c mod/src/demos/tunnel.c
+--- orig/src/demos/tunnel.c	2010-07-07 19:57:15.000000000 +0200
++++ mod/src/demos/tunnel.c	2013-06-02 20:58:56.528928417 +0200
+@@ -75,7 +75,7 @@
+    glGenTextures(1, &t1id);
+    glBindTexture(GL_TEXTURE_2D, t1id);
+ 
+-   if (!LoadRGBMipmaps("../images/tile.rgb", GL_RGB)) {
++   if (!LoadRGBMipmaps("/usr/share/mesa-demos/tile.rgb", GL_RGB)) {
+       fprintf(stderr, "Error reading a texture.\n");
+       exit(-1);
+    }
+@@ -90,7 +90,7 @@
+    glGenTextures(1, &t2id);
+    glBindTexture(GL_TEXTURE_2D, t2id);
+ 
+-   if (!LoadRGBMipmaps("../images/bw.rgb", GL_RGB)) {
++   if (!LoadRGBMipmaps("/usr/share/mesa-demos/bw.rgb", GL_RGB)) {
+       fprintf(stderr, "Error reading a texture.\n");
+       exit(-1);
+    }
+diff -Naur orig/src/demos/winpos.c mod/src/demos/winpos.c
+--- orig/src/demos/winpos.c	2010-07-07 19:57:15.000000000 +0200
++++ mod/src/demos/winpos.c	2013-06-02 20:59:15.265211375 +0200
+@@ -16,7 +16,7 @@
+ 
+ #include "readtex.h"
+ 
+-#define IMAGE_FILE "../images/girl.rgb"
++#define IMAGE_FILE "/usr/share/mesa-demos/girl.rgb"
+ 
+ 
+ #ifndef M_PI

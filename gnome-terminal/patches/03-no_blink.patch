@@ -1,0 +1,12 @@
+diff -urN gnome-terminal-2.2.1.orig/src/gnome-terminal.schemas.in gnome-terminal-2.2.1/src/gnome-terminal.schemas.in
+--- gnome-terminal-2.2.1.orig/src/gnome-terminal.schemas.in	2003-03-20 16:47:58.000000000 +0100
++++ gnome-terminal-2.2.1/src/gnome-terminal.schemas.in	2003-03-20 16:48:37.000000000 +0100
+@@ -118,7 +118,7 @@
+       <applyto>/apps/gnome-terminal/profiles/Default/cursor_blink</applyto>
+       <owner>gnome-terminal</owner>
+       <type>bool</type>
+-      <default>true</default>
++      <default>false</default>
+       <locale name="C">
+          <short>Whether to blink the cursor</short>
+          <long>

@@ -1,0 +1,5 @@
+#!/bin/sh -eux
+
+cd src/swig/python
+./build
+

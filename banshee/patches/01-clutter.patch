@@ -1,0 +1,12 @@
+diff -Naur banshee-2.6.1-ori/libbanshee/clutter-gst-video-sink.c banshee-2.6.1/libbanshee/clutter-gst-video-sink.c
+--- banshee-2.6.1-ori/libbanshee/clutter-gst-video-sink.c	2013-04-16 22:03:29.000000000 +0200
++++ banshee-2.6.1/libbanshee/clutter-gst-video-sink.c	2013-04-20 02:21:39.537444431 +0200
+@@ -779,7 +779,7 @@
+   /* get the features */
+   gl_extensions = (const gchar*) glGetString (GL_EXTENSIONS);
+ 
+-  glGetIntegerv (CGL_MAX_COMBINED_TEXTURE_IMAGE_UNITS, &nb_texture_units);
++  glGetIntegerv (GL_MAX_COMBINED_TEXTURE_IMAGE_UNITS, &nb_texture_units);
+ 
+   if (nb_texture_units >= 3)
+     features |= CLUTTER_GST_MULTI_TEXTURE;

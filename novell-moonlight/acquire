@@ -1,0 +1,4 @@
+#!/usr/bin/env dl
+
+novell-moonlight-$UB_VERSION-i586.xpi .
+	http://www.go-mono.com/moonlight/downloads/$UB_VERSION/

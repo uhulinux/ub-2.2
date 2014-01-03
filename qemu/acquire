@@ -1,0 +1,4 @@
+#!/usr/bin/env dl
+
+qemu-${UB_VERSION}.tar.gz qemu-${UB_VERSION}/
+	http://download.savannah.gnu.org/releases/qemu/

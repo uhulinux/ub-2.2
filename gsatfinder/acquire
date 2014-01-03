@@ -1,0 +1,14 @@
+#!/usr/bin/env dl
+
+gsatfinder-${UB_VERSION}.tar.bz2 gsatfinder-${UB_VERSION}/
+http://download.tuxfamily.org/gsf/source/
+
+#gsatfinder-sounds-en-1.2.tar.bz2
+#http://download.tuxfamily.org/gsf/source/
+
+#gsf-sounds-nl-1.1.tar.bz2
+#http://download.tuxfamily.org/gsf/source/
+
+#gsf-sounds-ru-1.1.tar.bz2
+#http://download.tuxfamily.org/gsf/source/
+	

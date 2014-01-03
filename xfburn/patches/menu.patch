@@ -1,0 +1,22 @@
+diff -Naur orig/xfburn.desktop.in patched/xfburn.desktop.in
+--- orig/xfburn.desktop.in	2009-08-13 01:12:26.000000000 +0200
++++ patched/xfburn.desktop.in	2013-02-25 11:22:35.220998688 +0100
+@@ -6,15 +6,15 @@
+ Exec=xfburn
+ TryExec=xfburn
+ Icon=media-cdrom
+-MimeType=application/x-cd-image
++MimeType=application/x-cd-image;
+ Terminal=false
+-Categories=X-XFCE;GTK;DiscBurning;Archiving;AudioVideo;
++Categories=X-XFCE;GTK;DiscBurning;Archiving;AudioVideo;Utility;X-UHU-Menu/Multimedia/CDwriters;
+ StartupNotify=true
+ 
+ Actions=BurnImage;
+ 
+ [Desktop Action BurnImage]
+-MimeType=application/x-cd-image
++MimeType=application/x-cd-image;
+ Icon=media-cdrom
+ Exec=xfburn -i %f
+ _Name=Burn Image (xfburn)

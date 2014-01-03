@@ -1,0 +1,4 @@
+#!/usr/bin/env dl
+
+libkdegames-${UB_VERSION}.tar.xz libkdegames-${UB_VERSION}/
+	ftp://ftp.kde.org/pub/kde/stable/${UB_VERSION}/src/

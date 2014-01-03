@@ -1,0 +1,2 @@
+minor=$(sflist poedit poedit | sort -V | tail -n 1)
+sflist poedit poedit/"$minor" | splitver '^poedit-([0-9.]+).tar.gz$' | sort -V | tail -n 1

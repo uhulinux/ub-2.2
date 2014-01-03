@@ -1,0 +1,15 @@
+dbus-dev
+gettext
+glib2-dev
+gobject-introspection-dev
+intltool
+lcms2-dev
+libgusb-dev
+libieee1284-dev
+libnetsnmp-dev
+libxslt-dev
+polkit-dev
+sane-backends-dev
+sqlite-dev
+udev-dev
+vala-dev

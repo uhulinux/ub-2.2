@@ -1,0 +1,5 @@
+#!/usr/bin/env dl
+
+smokingcessationapplet-${UB_VERSION}.tar.bz2 smokingcessationapplet-${UB_VERSION}/
+    http://downloads.sourceforge.net/project/scapplet/Smoking%20Cessation%20Applet/${UB_VERSION}/
+

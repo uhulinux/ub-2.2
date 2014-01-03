@@ -1,0 +1,13 @@
+#!/bin/sh
+
+. /etc/init.d/common
+
+DAEMON=/usr/sbin/NetworkManager
+PIDFILE="/var/run/NetworkManager.pid"
+
+function _wait() {
+	sleep 1
+	nm-online -xq || true
+}
+
+startstop "$@"

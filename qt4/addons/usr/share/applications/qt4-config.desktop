@@ -1,0 +1,7 @@
+[Desktop Entry]
+Encoding=UTF-8
+Type=Application
+Name=QT4 Configuration
+Name[hu]=QT4-beállító
+Exec=qt4config
+Categories=X-UHU-Menu/Settings;

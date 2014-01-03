@@ -1,0 +1,11 @@
+[Desktop Entry]
+Encoding=UTF-8
+Type=Application
+Name=cpc464emu
+GenericName=cpc464emu
+GenericName[hu]=cpc464emu
+Comment=cpc464 emulator
+Comment[hu]=cpc464 emulátor
+Exec=padsp ep128emu -cpc
+Icon=cpc464emu
+Categories=X-UHU-Menu/Tools/Emulators/Ep128;

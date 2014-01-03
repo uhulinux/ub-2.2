@@ -1,0 +1,5 @@
+#!/usr/bin/env dl
+
+142680-backgammon_${UB_VERSION}.tar.gz backgammon/
+	http://kde-apps.org/CONTENT/content-files/
+

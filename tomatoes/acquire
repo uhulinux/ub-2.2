@@ -1,0 +1,6 @@
+#!/usr/bin/env dl
+tomatoes-linux-src-${UB_VERSION}.tar.bz2 tomatoes-${UB_VERSION}/
+	http://downloads.sourceforge.net/tomatoes/
+
+tomatoes-linux-${UB_VERSION_MAJOR}.5.tar.bz2 tomatoes-${UB_VERSION_MAJOR}.5/
+	http://downloads.sourceforge.net/tomatoes/

@@ -1,0 +1,63 @@
+diff -Naur gnome-applets-2.4.2.orig/gweather/gweather.schemas.in gnome-applets-2.4.2/gweather/gweather.schemas.in
+--- gnome-applets-2.4.2.orig/libgweather/gweather.schemas.in	2003-07-25 03:28:54.000000000 +0200
++++ gnome-applets-2.4.2/libgweather/gweather.schemas.in	2004-02-27 16:29:53.000000000 +0100
+@@ -54,7 +54,7 @@
+ 	<key>/schemas/apps/gweather/prefs/location0</key>
+ 	<owner>gweather-applet-2</owner>
+ 	<type>string</type>
+-	<default>Pittsburgh</default>
++	<default>Budapest</default>
+ 	<locale name="C">
+ 		<short>weather location information.</short>
+ 		<long>weather location information.</long>
+@@ -64,7 +64,7 @@
+ 	<key>/schemas/apps/gweather/prefs/location1</key>
+ 	<owner>gweather-applet-2</owner>
+ 	<type>string</type>
+-	<default>KPIT</default>
++	<default>LHBP</default>
+ 	<locale name="C">
+ 		<short>weather location information.</short>
+ 		<long>weather location information.</long>
+@@ -74,7 +74,7 @@
+ 	<key>/schemas/apps/gweather/prefs/location2</key>
+ 	<owner>gweather-applet-2</owner>
+ 	<type>string</type>
+-	<default>PAZ021</default>
++	<default>------</default>
+ 	<locale name="C">
+ 		<short>weather location information.</short>
+ 		<long>weather location information.</long>
+@@ -84,7 +84,7 @@
+ 	<key>/schemas/apps/gweather/prefs/location3</key>
+ 	<owner>gweather-applet-2</owner>
+ 	<type>string</type>
+-	<default>pit</default>
++	<default>---</default>
+ 	<locale name="C">
+ 		<short>weather location information.</short>
+ 		<long>weather location information.</long>
+diff -Naur gnome-applets-2.4.2.orig/gweather/weather.c gnome-applets-2.4.2/gweather/weather.c
+--- gnome-applets-2.4.2.orig/libgweather/weather.c	2003-10-08 21:49:24.000000000 +0200
++++ gnome-applets-2.4.2/libgweather/weather.c	2004-02-27 16:27:22.000000000 +0100
+@@ -86,16 +86,16 @@
+     
+     name = panel_applet_gconf_get_string(applet, "location0", NULL);
+     if (!name)
+-    	name = g_strdup ("Pittsburgh");
++    	name = g_strdup ("Budapest");
+     code = panel_applet_gconf_get_string(applet, "location1", NULL);
+     if (!code)
+-    	code = g_strdup ("KPIT");
++    	code = g_strdup ("LHBP");
+     zone = panel_applet_gconf_get_string(applet, "location2", NULL);
+     if (!zone)
+-    	zone = g_strdup ("PAZ021");
++    	zone = g_strdup ("------");
+     radar = panel_applet_gconf_get_string(applet, "location3", NULL);
+     if (!radar)
+-        radar = g_strdup ("pit");
++        radar = g_strdup ("---");
+         
+     location = weather_location_new(name, code, zone, radar);
+     g_free (name);

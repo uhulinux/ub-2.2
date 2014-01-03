@@ -1,0 +1,9 @@
+enchant-dev
+gst-plugins-base-dev
+gst-plugins-good
+gstreamermm-dev
+gtkglextmm-dev
+gtkmm2-dev
+intltool
+iso-codes
+libxml++2-dev

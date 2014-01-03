@@ -1,0 +1,4 @@
+#!/usr/bin/env dl
+
+ndiswrapper-1.58.tar.gz ndiswrapper-1.58/
+	http://sourceforge.net/projects/ndiswrapper/files/stable/

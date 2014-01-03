@@ -1,0 +1,13 @@
+diff -Naur orig/include/linux/types.h patched/include/linux/types.h
+--- orig/include/linux/types.h	2012-09-19 16:05:26.000000000 +0200
++++ patched/include/linux/types.h	2012-10-05 21:09:35.304182510 +0200
+@@ -9,9 +9,6 @@
+ #define DECLARE_BITMAP(name,bits) \
+ 	unsigned long name[BITS_TO_LONGS(bits)]
+ #else
+-#ifndef __EXPORTED_HEADERS__
+-#warning "Attempt to use kernel headers from user space, see http://kernelnewbies.org/KernelHeaders"
+-#endif /* __EXPORTED_HEADERS__ */
+ #endif
+ 
+ #include <linux/posix_types.h>

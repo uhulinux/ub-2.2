@@ -1,0 +1,23 @@
+diff -Naur mypaint-0.9.1-ori/desktop/mypaint.desktop mypaint-0.9.1/desktop/mypaint.desktop
+--- mypaint-0.9.1-ori/desktop/mypaint.desktop	2011-03-04 15:44:59.000000000 +0100
++++ mypaint-0.9.1/desktop/mypaint.desktop	2011-05-16 01:16:19.814353038 +0200
+@@ -5,16 +5,18 @@
+ TryExec=mypaint
+ Exec=mypaint %f
+ Comment=Painting program for digital artists
++Comment[hu]=Festő program digitális művészeknek
+ Comment[ro]=Software de artă plastică digitală
+ Comment[fr]=Logiciel de peinture numérique pour artistes
+ Comment[zh_CN]=艺术家的电脑绘画
+ Comment[zh_TW]=藝術家的电脑绘画
+ Comment[zh_HK]=藝術家的电脑绘画
+ GenericName=Raster Graphics Editor
++GenericName[hu]=Raszter grafika szerkesztő
+ GenericName[fr]=Éditeur d'Image Matricielle
+ MimeType=image/openraster;image/png;image/jpeg;
+ Type=Application
+ Icon=mypaint
+ StartupNotify=true
+-Categories=Graphics;GTK;2DGraphics;RasterGraphics;
++Categories=Graphics;GTK;2DGraphics;RasterGraphics;X-UHU-Menu/Graphics/More;
+ Terminal=false

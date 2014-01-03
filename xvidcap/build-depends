@@ -1,0 +1,10 @@
+intltool
+libglade2-dev
+liblame-dev
+libxml2-dev
+libxmu-dev
+perl-xml-parser
+pygtk-dev
+python-dev
+sdl-dev
+x.org-proto-dev

@@ -1,0 +1,14 @@
+diff -Naur orig/Makefile mod/Makefile
+--- $UB_COMPILEDIR/Makefile	2004-02-29 05:52:00.000000000 +0100
++++ $UB_COMPILEDIR/Makefile	2007-10-19 14:43:55.000000000 +0200
+@@ -5,8 +5,8 @@
+ STRIP=		strip
+ 
+ 
+-CFLAGS =	-Wall -Wno-switch -march=pentium -mcpu=pentium -DDEBUG \
+-		-DDATA_PREFIX=\"data/\" -DFILE_SEPARATOR=\"/\" -DARGS \
++CFLAGS =	-Wall -Wno-switch -march=pentium -DDEBUG \
++		-DDATA_PREFIX=\"/usr/share/games/vorton/data/\" -DFILE_SEPARATOR=\"/\" -DARGS \
+ 		-Isrc -Isrc/SDL_flic -Isrc/SFont `sdl-config --cflags` \
+ 		-ffast-math -fno-common -ffreestanding -fno-builtin \
+ 		-fno-exceptions -fstrict-aliasing -O3 \

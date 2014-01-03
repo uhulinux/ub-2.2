@@ -1,0 +1,12 @@
+diff -Naurd orig/backend/serial.c mod/backend/serial.c
+--- orig/backend/serial.c	2009-03-30 21:18:43.000000000 +0200
++++ mod/backend/serial.c	2009-08-29 07:15:44.000000000 +0200
+@@ -751,7 +751,7 @@
+ #  endif /* TIOCGSERIAL */
+ 
+ 
+-  for (i = 0; i < 100; i ++)
++  for (i = 0; i < 4; i ++)
+   {
+     sprintf(device, "/dev/ttyS%d", i);
+ 

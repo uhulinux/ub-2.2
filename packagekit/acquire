@@ -1,0 +1,4 @@
+#!/usr/bin/env dl
+
+PackageKit-${UB_VERSION}.tar.gz PackageKit-${UB_VERSION}/
+	http://www.packagekit.org/releases/

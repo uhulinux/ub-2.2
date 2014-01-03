@@ -1,0 +1,5 @@
+#!/usr/bin/env dl
+
+klickety-${UB_VERSION}.tar.xz klickety-${UB_VERSION}/
+	ftp://ftp.kde.org/pub/kde/stable/${UB_VERSION}/src/
+

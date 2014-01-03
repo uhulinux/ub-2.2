@@ -1,0 +1,15 @@
+[Desktop Entry]
+Version=1.1
+Type=Application
+Name=Alien8
+Neme[hu]=Alien8
+GenericName=
+GenericName[hu]=
+Comment=
+Comment[hu]=
+Icon=Alien8
+Exec=Alien8
+Terminal=false
+StartupNotify=true
+Categories=X-UHU-Menu/Games/Action;
+

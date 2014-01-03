@@ -1,0 +1,17 @@
+diff -Naur orig/fluid/fluid.desktop mod/fluid/fluid.desktop
+--- orig/fluid/fluid.desktop	2008-03-16 13:07:41.000000000 +0100
++++ mod/fluid/fluid.desktop	2009-04-02 08:44:04.000000000 +0200
+@@ -1,10 +1,11 @@
+ [Desktop Entry]
+ Name=FLUID
+ Comment=FLTK GUI Designer
++Comment[hu]=FLTK szerkesztő
+ TryExec=fluid
+-Exec=cd %D && fluid %F
++Exec=fluid %F
+ Icon=fluid
+ Terminal=false
+ Type=Application
+ MimeType=application/x-fluid
+-Categories=Development;GUIDesigner;
++Categories=X-UHU-Menu/Development/Programming;

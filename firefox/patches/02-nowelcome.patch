@@ -1,0 +1,19 @@
+diff -Naur orig/browser/components/nsBrowserContentHandler.js patched/browser/components/nsBrowserContentHandler.js
+--- orig/browser/components/nsBrowserContentHandler.js	2013-07-30 20:40:45.000000000 +0200
++++ patched/browser/components/nsBrowserContentHandler.js	2013-08-06 07:46:52.915962585 +0200
+@@ -563,7 +563,6 @@
+         switch (override) {
+           case OVERRIDE_NEW_PROFILE:
+             // New profile.
+-            overridePage = Services.urlFormatter.formatURLPref("startup.homepage_welcome_url");
+             break;
+           case OVERRIDE_NEW_MSTONE:
+             // Check whether we have a session to restore. If we do, we assume
+@@ -571,7 +570,6 @@
+             var ss = Components.classes["@mozilla.org/browser/sessionstartup;1"]
+                                .getService(Components.interfaces.nsISessionStartup);
+             haveUpdateSession = ss.doRestore();
+-            overridePage = Services.urlFormatter.formatURLPref("startup.homepage_override_url");
+             if (prefb.prefHasUserValue("app.update.postupdate"))
+               overridePage = getPostUpdateOverridePage(overridePage);
+ 

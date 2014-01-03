@@ -1,0 +1,14 @@
+dbus-glib-dev
+desktop-file-utils
+gettext
+glib2-dev
+gtk-doc
+gtk2-dev
+gtk3-dev
+intltool
+libxslt-dev
+menu-cache-dev
+shared-mime-info
+udev-dev
+udisks
+vala

@@ -1,0 +1,10 @@
+diff -urN udev-145.orig/udev/udev.pc.in udev-145/udev/udev.pc.in
+--- udev-145.orig/udev/udev.pc.in	2009-06-19 18:53:46.000000000 +0200
++++ udev-145/udev/udev.pc.in	2009-09-25 01:09:01.000000000 +0200
+@@ -1,5 +1,6 @@
+ Name: udev
+ Description: udev
+ Version: @VERSION@
++exec_prefix=@prefix@
+ 
+ udevdir=@libexecdir@

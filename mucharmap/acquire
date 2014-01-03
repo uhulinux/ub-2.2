@@ -1,0 +1,7 @@
+#!/usr/bin/env dl
+
+mate-character-map-${UB_VERSION}.tar.xz	mate-character-map-${UB_VERSION}/
+	http://pub.mate-desktop.org/releases/${UB_VERSION_HEAD2}/
+
+# mate-character-map-${UB_VERSION/~/-}.tar.gz	mate-character-map-${UB_VERSION/~/-}/
+#	git://github.com/mate-desktop/mate-character-map.git@${UB_VERSION/~/-}

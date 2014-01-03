@@ -1,0 +1,12 @@
+diff -Naur kdelibs-3.5.0.orig/mimetypes/application/x-shockwave-flash.desktop kdelibs-3.5.0/mimetypes/application/x-shockwave-flash.desktop
+--- kdelibs-3.5.0.orig/mimetypes/application/x-shockwave-flash.desktop	2005-11-08 23:39:13.000000000 +0100
++++ kdelibs-3.5.0/mimetypes/application/x-shockwave-flash.desktop	2005-11-15 19:00:05.000000000 +0100
+@@ -3,7 +3,7 @@
+ Type=MimeType
+ MimeType=application/x-shockwave-flash
+ Icon=multimedia
+-Patterns=*.swf
++Patterns=*.swf;*.SWF;
+ Comment=Shockwave Flash Media
+ Comment[ar]=ملف Shockwave Flash
+ Comment[az]=Shockwave Flash Mediyası

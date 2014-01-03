@@ -1,0 +1,5 @@
+#!/usr/bin/env dl
+
+gmock-${UB_VERSION}.zip gmock-${UB_VERSION}/
+	http://googlemock.googlecode.com/files/
+

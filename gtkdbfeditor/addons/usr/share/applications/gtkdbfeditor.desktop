@@ -1,0 +1,9 @@
+[Desktop Entry]
+Encoding=UTF-8
+Name=GtkDbfEditor
+Comment=GTK DBF Editor is a simple editor for DBF files
+Comment[hu]=dBase/xBase adatbázisfájl szerkesztő
+Exec=gtkdbfeditor %u
+Icon=/usr/share/pixmaps/db.png
+Type=Application
+Categories=GTK;Utility;X-UHU-Menu/Tools/Databases;

@@ -1,0 +1,4 @@
+#!/usr/bin/env dl
+
+XML-Fast-${UB_VERSION}.tar.gz XML-Fast-${UB_VERSION}/
+	http://search.cpan.org/CPAN/authors/id/M/MO/MONS/

@@ -1,0 +1,18 @@
+diff -Naur remmina-0.9.2-orig/desktop/remmina.desktop.in remmina-0.9.2/desktop/remmina.desktop.in
+--- remmina-0.9.2-orig/desktop/remmina.desktop.in	2010-01-02 04:34:33.000000000 +0100
++++ remmina-0.9.2/desktop/remmina.desktop.in	2011-01-15 20:04:17.967450173 +0100
+@@ -1,6 +1,7 @@
+ [Desktop Entry]
+ Version=1.0
+ _Name=Remmina Remote Desktop Client
++Name[hu]=Remmina távoli asztal kliens
+ _Comment=Connect to remote desktops
+ TryExec=remmina
+ Exec=remmina
+@@ -8,5 +9,4 @@
+ Terminal=false
+ Type=Application
+ Actions=
+-Categories=GTK;GNOME;X-GNOME-NetworkSettings;Network;
+-
++Categories=GTK;GNOME;X-GNOME-NetworkSettings;Network;X-UHU-Menu/Internet/Tools;

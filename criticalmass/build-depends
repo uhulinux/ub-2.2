@@ -1,0 +1,7 @@
+curl-dev
+mesa-dev
+pango-dev
+sdl-dev
+sdl-image-dev
+sdl-mixer-dev
+zlib-dev

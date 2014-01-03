@@ -1,0 +1,6 @@
+#!/bin/sh -eux
+
+export USE_WEBGL=true
+
+/usr/lib/qt4/bin/qmake QUPZILLA_PREFIX=/usr/
+make

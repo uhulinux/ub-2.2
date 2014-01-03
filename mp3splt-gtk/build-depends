@@ -1,0 +1,5 @@
+dbus-glib-dev
+gst-plugins-base-dev
+gstreamer-dev
+gtk2-dev
+libmp3splt-dev

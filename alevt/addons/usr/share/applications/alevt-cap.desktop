@@ -1,0 +1,9 @@
+[Desktop Entry]
+Name=AleVT Capture
+Comment=X11 Teletext captor
+Comment[hu]=X11 DVB Teletext felvevő
+Exec=TeletextDVB-capture.sh
+Icon=mini-alevt
+Terminal=false
+Type=Application
+Categories=Application;AudioVideo;X-UHU-Menu/Multimedia/TVRadio;

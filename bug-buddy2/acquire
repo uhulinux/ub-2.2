@@ -1,0 +1,4 @@
+#!/usr/bin/env dl
+
+bug-buddy-${UB_VERSION}.tar.gz bug-buddy-${UB_VERSION}/
+	ftp://ftp.gnome.org/pub/GNOME/sources/bug-buddy/${UB_VERSION_HEAD2}/

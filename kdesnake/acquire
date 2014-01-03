@@ -1,0 +1,5 @@
+#!/usr/bin/env dl
+
+ksnakeduel-${UB_VERSION}.tar.xz ksnakeduel-${UB_VERSION}/
+	ftp://ftp.kde.org/pub/kde/stable/${UB_VERSION}/src/
+

@@ -1,0 +1,224 @@
+diff -Naur orig/doc/uhubuild.sgml patched/doc/uhubuild.sgml
+--- orig/doc/uhubuild.sgml	2013-08-13 18:23:19.107202665 +0200
++++ patched/doc/uhubuild.sgml	2013-08-13 18:26:17.904852918 +0200
+@@ -637,6 +637,17 @@
+ 
+ 	Konfig fájlok, soronként egy. A bevezető / jel opcionális.
+ 
++  <tag/conflicts [?]/
++
++	A csomag control fájljának Conflicts opcióját hozza létre az itt
++	felsorolt értékekkel. Soronként egy csomagnév. A szokásos operátorok
++	használhatók, melyeknek ha üres a jobb oldala, akkor az adott csomag
++	éppen telepített verziója kerül oda. Például:
++	<itemize>
++		<item><tt>coreutils</tt>
++		<item><tt>qt &gt;=</tt>
++	</itemize>
++
+   <tag/depends [?]/
+ 
+ 	A csomag control fájljának Depends opciója egészül ki az itt
+@@ -698,6 +709,17 @@
+ 	itt felsorolt könyvtárain belül is találja meg a libeket. Például a
+ 	qt csomag készítésekor ide kell írni, hogy /usr/lib/qt/lib.
+ 
++  <tag/obsoletes [?]/
++
++	A csomag control fájljának Obsoletes opciója készül el az itt
++	felsorolt értékekkel. Soronként egy csomagnév. A szokásos operátorok
++	használhatók, melyeknek ha üres a jobb oldala, akkor az adott csomag
++	éppen telepített verziója kerül oda. Például:
++	<itemize>
++		<item><tt>coreutils</tt>
++		<item><tt>qt &gt;=</tt>
++	</itemize>
++
+   <tag/options [?]/
+ 
+ 	A konkrét csomag tartalmát befolyásoló kulcsszavakat írhatunk ide,
+@@ -751,6 +773,30 @@
+ 	Ha required, akkor automatikusan Essential is lesz a csomag.
+ 	Ezen értékek jelentéséről a dokumentáció során még szólunk.
+ 
++  <tag/provides [?]/
++
++	A csomag control fájljának Provides opciója készül el az itt
++	felsorolt értékekkel. Soronként egy csomagnév. A szokásos operátorok
++	használhatók, melyeknek ha üres a jobb oldala, akkor az adott csomag
++	éppen telepített verziója kerül oda. Például:
++	<itemize>
++		<item><tt>coreutils</tt>
++		<item><tt>qt &gt;=</tt>
++	</itemize>
++	
++  <tag/replaces [?]/
++
++	A csomag control fájljának Replaces opciója készül el az itt
++	felsorolt értékekkel. Egyben a Conflicts opciót is beállítja
++	ugyanezen csomagokra, így felülírás helyett cserél.
++	Soronként egy csomagnév. A szokásos operátorok használhatók,
++	melyeknek ha üres a jobb oldala, akkor az adott csomag
++	éppen telepített verziója kerül oda. Például:
++	<itemize>
++		<item><tt>coreutils</tt>
++		<item><tt>qt &gt;=</tt>
++	</itemize>
++
+   <tag/section [!]/
+ 
+ 	A csomag section mezője.
+diff -Naur orig/src/steps/control patched/src/steps/control
+--- orig/src/steps/control	2010-09-07 17:13:50.000000000 +0200
++++ patched/src/steps/control	2013-08-13 18:29:29.414620484 +0200
+@@ -34,6 +34,50 @@
+ 			echo
+ 		fi
+ 
++		if [ -s "$UB_SRCDIR/packages/$pkg/conflicts" ]; then
++			sep=''
++			echo -n "Conflicts:"
++			while read -r line; do
++				echo -n "$sep" "$line"
++				sep=','
++			done < "$UB_SRCDIR/packages/$pkg/conflicts"
++			echo
++		fi
++		if [ -s "$UB_SRCDIR/packages/$pkg/replaces" ]; then
++			sep=''
++			echo -n "Conflicts:"
++			while read -r line; do
++				echo -n "$sep" "$line"
++				sep=','
++			done < "$UB_SRCDIR/packages/$pkg/replaces"
++			echo
++			sep=''
++			echo -n "Replaces:"
++			while read -r line; do
++				echo -n "$sep" "$line"
++				sep=','
++			done < "$UB_SRCDIR/packages/$pkg/replaces"
++			echo
++		fi
++		if [ -s "$UB_SRCDIR/packages/$pkg/obsoletes" ]; then
++			sep=''
++			echo -n "Obsoletes:"
++			while read -r line; do
++				echo -n "$sep" "$line"
++				sep=','
++			done < "$UB_SRCDIR/packages/$pkg/obsoletes"
++			echo
++		fi
++		if [ -s "$UB_SRCDIR/packages/$pkg/provides" ]; then
++			sep=''
++			echo -n "Provides:"
++			while read -r line; do
++				echo -n "$sep" "$line"
++				sep=','
++			done < "$UB_SRCDIR/packages/$pkg/provides"
++			echo
++		fi
++		
+ 		echo "Distribution: ${UB_DISTRIBUTION/ dev/ 2.3}"
+ 		if [ -f "$UB_SRCDIR/vendor" ]; then
+ 			echo "Vendor: $(cat "$UB_SRCDIR/vendor")"
+diff -Naur orig/src/uhubuild-check patched/src/uhubuild-check
+--- orig/src/uhubuild-check	2013-04-05 18:33:38.000000000 +0200
++++ patched/src/uhubuild-check	2013-08-13 18:36:35.118549593 +0200
+@@ -240,10 +240,10 @@
+ 
+ for file in packages/*/*; do
+ 	case "${file##*/}" in
+-	  categories|conffiles|depends|dirs |\
+-	  excludes  |files    |groups |options|perms   |\
+-	  postinst |postrm |prerm  |priority|\
+-	  section  |users  |\
++	  categories|conffiles|conflicts|depends|dirs |\
++	  excludes|files|groups|obsoletes|options|perms|\
++	  postinst |postrm |prerm  |priority|provides|\
++	  replaces|section  |users  |\
+ 	  keep-old-timestamps|suid_wrapper|libpath)
+ 		must_be_file "$file"
+ 		;;
+@@ -592,6 +592,19 @@
+ 		fi
+ 	fi
+ 
++	#############################
++	### packages/*/conflicts ###
++	#############################
++	if [ -f $pkg/conflicts ]; then
++		pp < $pkg/conflicts
++	fi > $UHUBUILD_SRC2DIR/$pkg/conflicts.tmp
++	if ! has_macro $UHUBUILD_SRC2DIR/$pkg/conflicts.tmp; then
++		reformat 0 < $UHUBUILD_SRC2DIR/$pkg/conflicts.tmp | sort -u > $UHUBUILD_SRC2DIR/$pkg/conflicts
++		rm $UHUBUILD_SRC2DIR/$pkg/conflicts.tmp
++	else
++		mv $UHUBUILD_SRC2DIR/$pkg/conflicts.tmp $UHUBUILD_SRC2DIR/$pkg/conflicts
++	fi
++
+ 	##########################
+ 	### packages/*/depends ###
+ 	##########################
+@@ -697,6 +710,19 @@
+ 		mv $UHUBUILD_SRC2DIR/$pkg/libpath.tmp $UHUBUILD_SRC2DIR/$pkg/libpath
+ 	fi
+ 
++	#############################
++	### packages/*/obsoletes ###
++	#############################
++	if [ -f $pkg/obsoletes ]; then
++		pp < $pkg/obsoletes
++	fi > $UHUBUILD_SRC2DIR/$pkg/obsoletes.tmp
++	if ! has_macro $UHUBUILD_SRC2DIR/$pkg/obsoletes.tmp; then
++		reformat 0 < $UHUBUILD_SRC2DIR/$pkg/obsoletes.tmp | sort -u > $UHUBUILD_SRC2DIR/$pkg/obsoletes
++		rm $UHUBUILD_SRC2DIR/$pkg/obsoletes.tmp
++	else
++		mv $UHUBUILD_SRC2DIR/$pkg/obsoletes.tmp $UHUBUILD_SRC2DIR/$pkg/obsoletes
++	fi
++
+ 	##########################
+ 	### packages/*/options ###
+ 	##########################
+@@ -789,6 +815,32 @@
+ 		echo "optional" >"$UHUBUILD_SRC2DIR"/"$pkg"/priority
+ 	fi
+ 
++	#############################
++	### packages/*/provides ###
++	#############################
++	if [ -f $pkg/provides ]; then
++		pp < $pkg/provides
++	fi > $UHUBUILD_SRC2DIR/$pkg/provides.tmp
++	if ! has_macro $UHUBUILD_SRC2DIR/$pkg/provides.tmp; then
++		reformat 0 < $UHUBUILD_SRC2DIR/$pkg/provides.tmp | sort -u > $UHUBUILD_SRC2DIR/$pkg/provides
++		rm $UHUBUILD_SRC2DIR/$pkg/provides.tmp
++	else
++		mv $UHUBUILD_SRC2DIR/$pkg/provides.tmp $UHUBUILD_SRC2DIR/$pkg/provides
++	fi
++
++	#############################
++	### packages/*/replaces ###
++	#############################
++	if [ -f $pkg/replaces ]; then
++		pp < $pkg/replaces
++	fi > $UHUBUILD_SRC2DIR/$pkg/replaces.tmp
++	if ! has_macro $UHUBUILD_SRC2DIR/$pkg/replaces.tmp; then
++		reformat 0 < $UHUBUILD_SRC2DIR/$pkg/replaces.tmp | sort -u > $UHUBUILD_SRC2DIR/$pkg/replaces
++		rm $UHUBUILD_SRC2DIR/$pkg/replaces.tmp
++	else
++		mv $UHUBUILD_SRC2DIR/$pkg/replaces.tmp $UHUBUILD_SRC2DIR/$pkg/replaces
++	fi
++
+ 	##########################
+ 	### packages/*/section ###
+ 	##########################
+@@ -973,7 +1025,7 @@
+ 
+ 	# Esetleges fölösleges (0 méretű) fájlok törlése
+ 	for f in acquire build-depends compile doc install options \
+-	  packages/*/{{description,words}/hu,depends,perms,conffiles,categories,options,suid_wrapper,users,groups}; do
++	  packages/*/{{description,words}/hu,depends,perms,conffiles,categories,options,suid_wrapper,users,groups,conflicts,obsoletes,provides,replaces}; do
+ 		if [ -f "$f" -a ! -s "$f" ]; then
+ 			rm -f "$f"
+ 		fi

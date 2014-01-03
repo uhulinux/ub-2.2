@@ -1,0 +1,24 @@
+diff -Naur orig/src/Makefile.am patched/src/Makefile.am
+--- orig/src/Makefile.am	2013-07-22 16:00:46.000000000 +0200
++++ patched/src/Makefile.am	2013-12-01 15:35:55.102716797 +0100
+@@ -113,7 +113,7 @@
+ 
+ guvcview_LDFLAGS = $(LIBINTL)
+ 
+-guvcview_LDADD = $(DEPS_LIBS) $(EXTRA_LIBS) $(PTHREAD_LIBS)
++guvcview_LDADD = $(DEPS_LIBS) $(EXTRA_LIBS) $(PTHREAD_LIBS) -lrt
+ 
+ localedir = $(datadir)/locale
+ DEFS = -DLOCALEDIR=\"$(localedir)\" @DEFS@
+diff -Naur orig/src/Makefile.in patched/src/Makefile.in
+--- orig/src/Makefile.in	2013-07-22 18:36:59.000000000 +0200
++++ patched/src/Makefile.in	2013-12-01 15:36:17.778926083 +0100
+@@ -343,7 +343,7 @@
+ 	video_tab.c
+ 
+ guvcview_LDFLAGS = $(LIBINTL)
+-guvcview_LDADD = $(DEPS_LIBS) $(EXTRA_LIBS) $(PTHREAD_LIBS)
++guvcview_LDADD = $(DEPS_LIBS) $(EXTRA_LIBS) $(PTHREAD_LIBS) -lrt
+ all: all-am
+ 
+ .SUFFIXES:

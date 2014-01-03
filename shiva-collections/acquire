@@ -1,0 +1,4 @@
+#!/usr/bin/env dl
+
+shiva-collections-"$UB_VERSION".tar.bz2 shiva-collections-"$UB_VERSION"/
+	http://download.opengtl.org/

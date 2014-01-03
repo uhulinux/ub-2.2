@@ -1,0 +1,7 @@
+special=hourly
+over=1
+clear=0
+sched=1
+user=root
+type=3
+dir=/srv/www/webalizer-ftp

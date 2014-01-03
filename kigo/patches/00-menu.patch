@@ -1,0 +1,12 @@
+diff -Naur a/src/gui/kigo.desktop b/src/gui/kigo.desktop
+--- a/src/gui/kigo.desktop	2013-01-23 23:06:03.000000000 +0100
++++ b/src/gui/kigo.desktop	2013-02-10 22:36:24.400649771 +0100
+@@ -3,7 +3,7 @@
+ Icon=kigo
+ Exec=kigo %i -caption "%c"
+ Terminal=false
+-Categories=Qt;KDE;Game;BoardGame;
++Categories=Qt;KDE;Game;BoardGame;X-UHU-Menu/Games/Board;
+ MimeType=application/x-go-sgf;
+ 
+ Name=Kigo

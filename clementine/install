@@ -1,0 +1,4 @@
+#!/bin/sh -eux
+
+ln -s ${UB_INSTALLDIR}/usr/share/icons/hicolor/64x64/apps/application-x-clementine.png ${UB_INSTALLDIR}/usr/share/pixmaps/application-x-clementine.png
+ub_install

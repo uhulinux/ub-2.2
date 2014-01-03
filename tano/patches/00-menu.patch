@@ -1,0 +1,19 @@
+diff -Naur tano-1.2.1-ori/tano.desktop tano-1.2.1/tano.desktop
+--- tano-1.2.1-ori/tano.desktop	2013-01-19 19:03:40.000000000 +0100
++++ tano-1.2.1/tano.desktop	2013-04-26 20:20:40.642753519 +0200
+@@ -2,12 +2,14 @@
+ Encoding=UTF-8
+ Name=Tano
+ GenericName=Tano IP TV Player
++GenericName[hu]=Tano IP TV lejátszó
+ GenericName[sl]=Tano IP TV Predvajalnik
+ Comment=Internet TV player
++Comment[hu]=Internetes TV lejátszó
+ Comment[sl]=Predvajalnik spletne televizije
+ Exec=tano
+ Icon=tano
+ Terminal=false
+ Type=Application
+-Categories=Application;AudioVideo;
++Categories=Application;AudioVideo;X-UHU-Menu/Multimedia/TVRadio;
+ StartupNotify=true

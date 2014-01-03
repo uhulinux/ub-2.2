@@ -1,0 +1,9 @@
+diff -Naur a/killbots.desktop b/killbots.desktop
+--- a/killbots.desktop	2013-01-23 23:06:09.000000000 +0100
++++ b/killbots.desktop	2013-02-10 22:39:20.686524422 +0100
+@@ -52,4 +52,4 @@
+ Type=Application
+ X-DocPath=killbots/index.html
+ Terminal=false
+-Categories=Qt;KDE;Game;StrategyGame;
++Categories=Qt;KDE;Game;StrategyGame;X-UHU-Menu/Games/TacticStrategy;

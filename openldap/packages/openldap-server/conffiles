@@ -1,0 +1,9 @@
+/etc/openldap/schema/corba.schema
+/etc/openldap/schema/core.schema
+/etc/openldap/schema/cosine.schema
+/etc/openldap/schema/inetorgperson.schema
+/etc/openldap/schema/java.schema
+/etc/openldap/schema/misc.schema
+/etc/openldap/schema/nis.schema
+/etc/openldap/schema/openldap.schema
+/etc/openldap/slapd.conf

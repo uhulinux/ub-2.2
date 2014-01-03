@@ -1,0 +1,5 @@
+#!/usr/bin/env dl
+
+palapeli-${UB_VERSION}.tar.xz palapeli-${UB_VERSION}/
+	ftp://ftp.kde.org/pub/kde/stable/${UB_VERSION}/src/
+

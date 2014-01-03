@@ -1,0 +1,9 @@
+diff -Naur orig/gpa.desktop patched/gpa.desktop
+--- orig/gpa.desktop	2005-10-06 17:16:01.000000000 +0200
++++ patched/gpa.desktop	2009-01-03 18:18:23.000000000 +0100
+@@ -6,4 +6,4 @@
+ Terminal=false
+ Encoding=UTF-8
+ Type=Application
+-Categories=GTK;Application;Security;Utility;
++Categories=GTK;Application;Security;Utility;X-UHU-Menu/Tools/Utilities;

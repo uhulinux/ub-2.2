@@ -1,0 +1,15 @@
+#!/bin/sh -eux
+
+ub_compile \
+	--with-gtkspell \
+	--with-ssl \
+	--with-canberra \
+	--with-gss \
+	--with-ldap \
+	--enable-pcre \
+	--with-sqlite \
+	--with-unique \
+	--with-gtksourceview \
+	--with-compface \
+	--with-html-widget=webkit \
+	--with-gpgme

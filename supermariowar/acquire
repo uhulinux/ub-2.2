@@ -1,0 +1,4 @@
+#!/usr/bin/env dl
+smw-${UB_VERSION}-src.zip	smw-${UB_VERSION}-src/
+  http://chirno.dorino.net/smw/
+

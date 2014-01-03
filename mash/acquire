@@ -1,0 +1,4 @@
+#!/usr/bin/env dl
+
+mash-${UB_VERSION}.tar.xz mash-${UB_VERSION}/
+	https://github.com/downloads/clutter-project/mash/

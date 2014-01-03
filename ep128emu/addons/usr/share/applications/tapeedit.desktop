@@ -1,0 +1,11 @@
+[Desktop Entry]
+Encoding=UTF-8
+Type=Application
+Name=tapeedit
+GenericName=zx128emu
+GenericName[hu]=zx128
+Comment=ep128 tape editor
+Comment[hu]=ep128 szalag szerkesztő
+Exec=tapeedit
+Icon=tapeedit
+Categories=X-UHU-Menu/Tools/Emulators/Ep128;

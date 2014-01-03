@@ -1,0 +1,9 @@
+#!/bin/sh -eux
+
+make INSTALL_ROOT=${UB_INSTALLDIR} install
+install -Dm755 Socializer ${UB_INSTALLDIR}/usr/share/socializer/Socializer
+cp -R  Themes ${UB_INSTALLDIR}/usr/share/socializer
+install -Dm644 debian/usr/share/man/man1/socializer.1 ${UB_INSTALLDIR}/usr/share/man/man1/socializer.1
+install -Dm644 debian/opt/Socializer/Socializer.png ${UB_INSTALLDIR}/usr/share/pixmaps/Socializer.png
+install -Dm644 debian/opt/Socializer/Socializer.sh ${UB_INSTALLDIR}/usr/bin/Socializer.sh
+cp -R debian/usr ${UB_INSTALLDIR}

@@ -1,0 +1,5 @@
+#!/usr/bin/env dl
+
+bogofilter-${UB_VERSION}.tar.bz2 bogofilter-${UB_VERSION}/
+	http://sourceforge.net/projects/bogofilter/files/bogofilter-stable/bogofilter-1.2.2/
+

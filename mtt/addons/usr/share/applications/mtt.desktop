@@ -1,0 +1,9 @@
+[Desktop Entry]
+Name=mtt Teletext
+Comment=mtt - Teletext Browser for X
+Comment[hu]=mtt - X teletext böngésző
+Exec=mtt
+Icon=mtt
+Categories=GNOME;GTK;AudioVideo;X-UHU-Menu/Multimedia/TVRadio;
+Terminal=false
+Type=Application

@@ -1,0 +1,17 @@
+avahi-dev
+dbus-glib-dev
+docbook2man
+intltool
+libcanberra-dev
+libmatekeyring-dev
+libnotify-dev
+libsm-dev
+libunique-dev
+libxslt-dev
+mate-common
+mate-doc-utils
+mate-panel-dev
+openssl-dev
+pyxml
+upower-dev
+xmlto

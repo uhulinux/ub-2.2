@@ -1,0 +1,19 @@
+diff -Naur orig/src/main.c patched/src/main.c
+--- orig/src/main.c	2009-08-13 19:46:57.000000000 +0200
++++ patched/src/main.c	2010-09-13 09:45:43.000000000 +0200
+@@ -419,13 +419,13 @@
+ 	
+ 	hbox = gtk_hbox_new(FALSE, 2);
+ 	price_per_pack_adj = GTK_ADJUSTMENT(
+-		gtk_adjustment_new(price_per_pack, 0.1, 100.0, 0.1, 0.1, 0.0));
++		gtk_adjustment_new(price_per_pack, 0.1, 1000.0, 0.1, 0.1, 0.0));
+ 	price_per_pack_spin = gtk_spin_button_new(price_per_pack_adj, 0.1, 2);
+ 	gtk_spin_button_set_numeric(GTK_SPIN_BUTTON(price_per_pack_spin), TRUE);
+ 	gtk_box_pack_start(GTK_BOX(hbox), price_per_pack_spin, FALSE, FALSE, 0);
+ 	
+ 	currency_entry = gtk_entry_new();
+-	gtk_entry_set_text(GTK_ENTRY(currency_entry), "€");
++	gtk_entry_set_text(GTK_ENTRY(currency_entry), currency?currency:"€");
+ 	gtk_entry_set_width_chars(GTK_ENTRY(currency_entry), 3);
+ 	gtk_box_pack_start(GTK_BOX(hbox), currency_entry, FALSE, FALSE, 0);
+ 

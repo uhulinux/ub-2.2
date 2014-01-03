@@ -1,0 +1,8 @@
+#!/usr/bin/env dl
+
+MesaLib-${UB_VERSION/~/-}.tar.bz2 Mesa-${UB_VERSION%~*}/
+	ftp://ftp.freedesktop.org/pub/mesa/${UB_VERSION%~*}/
+
+freeglut-2.8.1.tar.gz freeglut-2.8.1/ :/freeglut
+	http://download.sourceforge.net/freeglut/
+

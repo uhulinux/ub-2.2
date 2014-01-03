@@ -1,0 +1,4 @@
+#!/usr/bin/env dl
+
+gnome-hearts-${UB_VERSION}.tar.gz gnome-hearts-${UB_VERSION}/
+	http://www.jejik.com/files/gnome-hearts/

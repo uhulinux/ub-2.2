@@ -1,0 +1,12 @@
+diff -Naur ORIG/src/supertux/main.cpp UHU/src/supertux/main.cpp
+--- ORIG/src/supertux/main.cpp	2010-03-01 13:40:58.000000000 +0100
++++ UHU/src/supertux/main.cpp	2010-03-25 19:52:28.000000000 +0100
+@@ -201,7 +201,7 @@
+ 
+   if(!sourcedir) {
+     std::string datadir = PHYSFS_getBaseDir();
+-    datadir = datadir.substr(0, datadir.rfind(INSTALL_SUBDIR_BIN));
++    datadir = "/usr";
+     datadir += "/" INSTALL_SUBDIR_SHARE;
+ #ifdef ENABLE_BINRELOC
+ 

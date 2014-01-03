@@ -1,0 +1,8 @@
+#!/bin/bash
+
+chmod -R 777 /etc/camdir
+chmod 666 /etc/camdir/cardclient.conf
+chmod 666 /etc/camdir/cardslot.conf
+depmod -a
+modprobe dvbloopback
+

@@ -1,0 +1,11 @@
+--- libpst/Makefile.in.orig	2012-04-28 16:15:50.000000000 +0200
++++ libpst/Makefile.in	2012-04-28 16:16:16.000000000 +0200
+@@ -269,7 +269,7 @@
+ top_srcdir = @top_srcdir@
+ ACLOCAL_AMFLAGS = -I m4
+ SUBDIRS = src python man html debian
+-html_DATA = AUTHORS COPYING ChangeLog NEWS README
++html_DATA = 
+ CLEANFILES = xml/libpst xml/Makefile
+ EXTRA_DIST = config.rpath Doxyfile libpst.html.tar.gz libpst.spec $(wildcard xml/M*) $(wildcard xml/h*) $(wildcard xml/lib*)
+ @STATIC_TOOLS_FALSE@pkgconfigdir = $(libdir)/pkgconfig

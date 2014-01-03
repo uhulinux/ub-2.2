@@ -1,0 +1,9 @@
+diff -Naur a/kblocks.desktop b/kblocks.desktop
+--- a/kblocks.desktop	2013-01-23 23:05:31.000000000 +0100
++++ b/kblocks.desktop	2013-02-10 22:09:09.200777633 +0100
+@@ -101,4 +101,4 @@
+ GenericName[zh_TW]=類似俄羅斯方塊遊戲
+ X-KDE-StartupNotify=true
+ X-DBUS-StartupType=Multi
+-Categories=Qt;KDE;Game;ArcadeGame;
++Categories=Qt;KDE;Game;ArcadeGame;X-UHU-Menu/Games/Arcade;

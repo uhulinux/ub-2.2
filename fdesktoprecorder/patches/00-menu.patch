@@ -1,0 +1,17 @@
+diff -Naur a/desktop/fdesktoprecorder.desktop b/desktop/fdesktoprecorder.desktop
+--- a/desktop/fdesktoprecorder.desktop	2013-08-19 20:39:57.000000000 +0200
++++ b/desktop/fdesktoprecorder.desktop	2013-08-20 11:57:50.045438897 +0200
+@@ -6,10 +6,12 @@
+ Type=Application
+ 
+ GenericName[da]=Optag dit skrivebord
++GenericName[hu]=Videó az asztalról
+ GenericName=Record your desktop
+ 
+ Name[da]=FDesktopRecorder
++Name[hu]=FDesktopRecorder
+ Name=FDesktopRecorder
+-Categories=Qt;KDE;Utility;X-KDE-Utilities-Desktop;
++Categories=Qt;KDE;Utility;X-KDE-Utilities-Desktop;X-UHU-Menu/Multimedia/VideoEdit;
+ 
+ X-Desktop-File-Install-Version=0.18

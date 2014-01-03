@@ -1,0 +1,9 @@
+diff -Naur a/src/kiriki.desktop b/src/kiriki.desktop
+--- a/src/kiriki.desktop	2013-01-23 23:06:11.000000000 +0100
++++ b/src/kiriki.desktop	2013-02-10 22:41:19.654292403 +0100
+@@ -109,4 +109,4 @@
+ GenericName[zh_TW]=類似 Yahtzee 的骰子遊戲
+ X-KDE-StartupNotify=true
+ X-DBUS-StartupType=Multi
+-Categories=Qt;KDE;Game;BoardGame;
++Categories=Qt;KDE;Game;BoardGame;X-UHU-Menu/Games/Board;

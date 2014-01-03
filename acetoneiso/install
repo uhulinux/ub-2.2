@@ -1,0 +1,6 @@
+#!/bin/sh -eux
+
+cd "$UB_COMPILEDIR"/acetoneiso
+make \
+	INSTALL_ROOT=${UB_INSTALLDIR} \
+	install

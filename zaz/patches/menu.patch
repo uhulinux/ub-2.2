@@ -1,0 +1,11 @@
+diff -Naur ORIG/extra/zaz.desktop UHU/extra/zaz.desktop
+--- ORIG/extra/zaz.desktop	2010-05-01 00:06:55.000000000 +0200
++++ UHU/extra/zaz.desktop	2010-05-09 12:41:24.000000000 +0200
+@@ -9,6 +9,6 @@
+ GenericName[tr]=Top Yok Etme Oyunu
+ TryExec=zaz
+ Exec=zaz
+-Categories=Game;LogicGame;
++Categories=Game;LogicGame;X-UHU-Menu/Games/TacticStrategy;
+ Icon=zaz
+ MimeType=

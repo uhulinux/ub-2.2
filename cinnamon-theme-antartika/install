@@ -1,0 +1,5 @@
+#!/bin/sh -eux
+
+mkdir -p $UB_INSTALLDIR/usr/share/themes/AnTaRtIkA
+rm $UB_COMPILEDIR/AnTaRtIkA/cinnamon/preview.jpg
+cp -r $UB_COMPILEDIR/AnTaRtIkA/cinnamon $UB_INSTALLDIR/usr/share/themes/AnTaRtIkA/

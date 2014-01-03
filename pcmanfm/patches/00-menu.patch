@@ -1,0 +1,36 @@
+diff -Naur a/data/pcmanfm.desktop b/data/pcmanfm.desktop
+--- a/data/pcmanfm.desktop	2012-10-31 20:42:31.000000000 +0100
++++ b/data/pcmanfm.desktop	2013-05-12 01:00:54.541996671 +0200
+@@ -1,4 +1,5 @@
+ [Desktop Entry]
++Version=1.1
+ Type=Application
+ Icon=system-file-manager
+ Name=File Manager PCManFM
+@@ -132,7 +133,7 @@
+ Comment[vi]=Xem hệ thống tập tin và quản lý dữ liệu
+ Comment[zh_CN]=浏览文件系统和管理文件
+ Comment[zh_TW]=瀏覽檔案系統及管理檔案
+-Categories=FileManager;Utility;Core;GTK;
++Categories=FileManager;Utility;Core;GTK;X-UHU-Menu/Tools/File_Managers;
+ Exec=pcmanfm %U
+ StartupNotify=true
+ Terminal=false
+diff -Naur a/data/pcmanfm-desktop-pref.desktop b/data/pcmanfm-desktop-pref.desktop
+--- a/data/pcmanfm-desktop-pref.desktop	2012-10-31 20:42:31.000000000 +0100
++++ b/data/pcmanfm-desktop-pref.desktop	2013-05-12 01:00:51.658293080 +0200
+@@ -1,4 +1,5 @@
+ [Desktop Entry]
++Version=1.1
+ Type=Application
+ Icon=user-desktop
+ Name=Desktop Preferences
+@@ -92,7 +93,7 @@
+ Comment[vi]=Thay đổi ảnh nền và trạng thái của bộ quản lý màn hình nền
+ Comment[zh_CN]=更改桌面壁纸和桌面管理器行为
+ Comment[zh_TW]=變更桌面管現程式的桌布及行為
+-Categories=Settings;GTK;DesktopSettings;X-LXDE-Settings;
++Categories=Settings;GTK;DesktopSettings;X-LXDE-Settings;X-UHU-Menu/Settings;
+ Exec=pcmanfm --desktop-pref
+ StartupNotify=true
+ Terminal=false

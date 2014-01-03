@@ -1,0 +1,22 @@
+#!/usr/bin/env dl
+
+# There's a conflicting file and we need the VNC version,
+# so we extract X.Org first.
+
+X11R6.9.0-src1.tar.gz xc/ :unix/xc
+	ftp://ftp.x.org/pub/X11R6.9.0/src/
+	http://xorg.freedesktop.org/releases/X11R6.9.0/src/
+
+X11R6.9.0-src2.tar.gz xc/ :unix/xc
+	ftp://ftp.x.org/pub/X11R6.9.0/src/
+	http://xorg.freedesktop.org/releases/X11R6.9.0/src/
+
+X11R6.9.0-src3.tar.gz xc/ :unix/xc
+	ftp://ftp.x.org/pub/X11R6.9.0/src/
+	http://xorg.freedesktop.org/releases/X11R6.9.0/src/
+
+vnc-${UB_VERSION//./_}-unixsrc.tar.gz vnc-${UB_VERSION//./_}-unixsrc/
+	ftp://ftp.uhulinux.hu/pub/sources/vnc/
+
+vnc-4_1-javasrc.tar.gz vnc-4_1-javasrc/java/ :java
+	ftp://ftp.uhulinux.hu/pub/sources/vnc/

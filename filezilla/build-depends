@@ -1,0 +1,8 @@
+dbus-dev
+gnutls-dev
+gtk2-dev
+libidn-dev
+sqlite-dev
+tinyxml
+wxwidgets-dev
+xdg-utils

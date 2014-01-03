@@ -1,0 +1,9 @@
+gst-plugins-base-dev
+gst-python
+gst-python-dev
+gstreamer-dev
+gupnp-igd-dev
+libnice-dev
+pygtk-dev
+python-dev
+util-linux-dev

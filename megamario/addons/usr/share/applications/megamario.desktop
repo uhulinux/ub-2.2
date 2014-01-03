@@ -1,0 +1,10 @@
+[Desktop Entry]
+Encoding=UTF-8
+Categories=X-UHU-Menu/Games/Action;
+Exec=megamario
+Icon=megamario
+Type=Application
+Name=megamario
+GenericName=Mario Bros clone
+GenericName[hu]=Mario Bros klón
+StartupNotify=false

@@ -1,0 +1,23 @@
+#!/bin/sh -eux
+
+#cp /usr/share/aclocal/libgcrypt.m4 ./
+
+#autoheader
+#aclocal
+#autoconf
+	echo mount-archive.desktop.in >> po/POTFILES.in
+	echo mount-archive.desktop.in.in >> po/POTFILES.in
+
+ub_compile \
+	--disable-bash-completion \
+	--disable-hal \
+	--enable-archive \
+	--enable-archive \
+	--enable-avahi \
+	--enable-bluetooth obexftp \
+	--enable-bluray \
+	--enable-cdda \
+	--enable-fuse \
+	--enable-gdu \
+	--enable-gphoto2 \
+	--enable-udisks

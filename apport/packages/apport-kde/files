@@ -1,0 +1,8 @@
+	/usr/bin/apport-kde
+	/usr/share/applications/apport-kde*
+	/usr/share/apport/apport-kde
+	/usr/share/apport/bugreport.ui
+	/usr/share/apport/choices.ui
+	/usr/share/apport/error.ui
+	/usr/share/apport/progress.ui
+	/usr/share/apport/userpass.ui

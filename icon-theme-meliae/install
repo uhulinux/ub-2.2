@@ -1,0 +1,66 @@
+#!/bin/sh -eux
+
+mkdir ${UB_INSTALLDIR}/usr/share/icons
+mv MeliaeSVG ${UB_INSTALLDIR}/usr/share/icons
+cd ${UB_INSTALLDIR}/usr/share/icons/MeliaeSVG/apps/48
+ln -s firefox-3.5.svg firefox.svg
+cd ${UB_INSTALLDIR}/usr/share/icons/MeliaeSVG/places/48
+mv start-here.svg start-here-ori.svg
+ln -s start-here-uhu.svg start-here.svg
+cd ${UB_INSTALLDIR}/usr/share/icons/MeliaeSVG
+rm AUTHORS COPYING CREDITS index.theme
+mkdir -p 48x48/categories
+convert -background none devices/48/media-optical.svg 48x48/categories/cd.png
+convert -background none devices/48/media-optical.svg 48x48/categories/cdrom_mount.png
+convert -background none apps/48/preferences-desktop-locale.svg 48x48/categories/edu_languages.png
+convert -background none categories/48/applications-accessories.svg 48x48/categories/edu_mathematics.png
+convert -background none categories/48/applications-other.svg 48x48/categories/edu_miscellaneous.png
+convert -background none categories/48/applications-science.svg 48x48/categories/edu_science.png
+convert -background none categories/48/applications-multimedia.svg 48x48/categories/emblem-video.png
+convert -background none categories/48/applications-development.svg 48x48/categories/file-devel.png
+convert -background none apps/48/accessories-calculator.svg 48x48/categories/icon-accessories.png
+convert -background none categories/48/applications-accessories.svg 48x48/categories/icon-applications.png
+convert -background none apps/48/accessories-calculator.svg 48x48/categories/icon-calculator.png
+convert -background none devices/48/computer.svg 48x48/categories/icon-computer.png
+convert -background none apps/48/gconf-editor.svg 48x48/categories/icon-configuration.png
+convert -background none mimetypes/48/x-office-calendar.svg 48x48/categories/icon-date.png
+convert -background none mimetypes/48/x-office-calendar.svg 48x48/categories/icon-datetime.png
+convert -background none categories/48/applications-development.svg 48x48/categories/icon-development.png
+convert -background none apps/48/addressbook.svg 48x48/categories/icon-documentation.png
+convert -background none apps/48/evolution.svg 48x48/categories/icon-email.png
+convert -background none apps/48/nautilus.svg 48x48/categories/icon-filemanager.png
+convert -background none categories/48/applications-games.svg 48x48/categories/icon-games.png
+convert -background none categories/48/applications-graphics.svg 48x48/categories/icon-gfx.png
+convert -background none mimetypes/48/text-html.svg 48x48/categories/icon-html.png
+convert -background none apps/48/system-users.svg 48x48/categories/icon-instantmessage.png
+convert -background none apps/48/accessories-character-map.svg 48x48/categories/icon-launcher.png
+convert -background none apps/48/addressbook.svg 48x48/categories/icon-logbook.png
+convert -background none categories/48/applications-multimedia.svg 48x48/categories/icon-media.png
+convert -background none devices/48/audio-card.svg 48x48/categories/icon-mixer.png
+convert -background none devices/48/video-display.svg 48x48/categories/icon-monitor.png
+convert -background none apps/48/xscreensaver.svg 48x48/categories/icon-network-firewall.png
+convert -background none apps/48/gnome-nettool.svg 48x48/categories/icon-network.png
+convert -background none apps/48/vinagre.svg 48x48/categories/icon-network-system.png
+convert -background none apps/48/accessories-text-editor.svg 48x48/categories/icon-notepad.png
+convert -background none apps/48/openoffice.svg 48x48/categories/icon-office.png
+convert -background none apps/48/ooo-impress.svg 48x48/categories/icon-office-presentation.png
+convert -background none apps/48/ooo-calc.svg 48x48/categories/icon-office-spreadsheet.png
+convert -background none apps/48/ooo-writer.svg 48x48/categories/icon-office-wordprocessor.png
+convert -background none apps/48/preferences-desktop-sound.svg 48x48/categories/icon-sound.png
+convert -background none apps/48/preferences-desktop-screensaver.svg 48x48/categories/icon-television.png
+convert -background none apps/48/utilities-terminal.svg 48x48/categories/icon-terminal.png
+convert -background none actions/48/insert-link.svg 48x48/categories/icon-update.png
+convert -background none apps/48/web-browser.svg 48x48/categories/icon-web-browser.png
+convert -background none apps/48/internet-feed-reader.svg 48x48/categories/news.png
+convert -background none emblems/48/emblem-desktop.svg 48x48/categories/package_edutainment.png
+convert -background none categories/48/applications-games.svg 48x48/categories/package_games_arcade.png
+convert -background none categories/48/applications-games.svg 48x48/categories/package_games_board.png
+convert -background none categories/48/applications-games.svg 48x48/categories/package_games_card.png
+convert -background none categories/48/applications-games.svg 48x48/categories/package_games.png
+convert -background none categories/48/applications-games.svg 48x48/categories/package_games_strategy.png
+convert -background none categories/48/applications-games.svg 48x48/categories/package_toys.png
+convert -background none apps/48/addressbook.svg 48x48/categories/stock-book.png
+convert -background none apps/48/preferences-desktop-locale.svg 48x48/categories/stock-convert.png
+convert -background none categories/48/applications-internet.svg 48x48/categories/stock-panel-internet.png
+convert -background none devices/48/camera.svg 48x48/categories/stock-panel-screenshot.png
+convert -background none devices/48/printer.svg 48x48/categories/stock-print.png

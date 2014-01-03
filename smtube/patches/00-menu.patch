@@ -1,0 +1,20 @@
+diff -Naur a/smtube.desktop b/smtube.desktop
+--- a/smtube.desktop	2012-05-28 03:42:26.000000000 +0200
++++ b/smtube.desktop	2013-05-21 15:19:39.554505579 +0200
+@@ -5,6 +5,7 @@
+ Comment[ja]=YouTube からビデオを検索およびダウンロードします
+ Comment[pt]=Procurar e transferir vídeos do YouTube
+ Comment[eu]=YouTubeko bideoak bilatzea eta jeistea ahalbidetzen du
++Comment[hu]=YouTube videó kereső és letöltő
+ Comment[zh_CN]=搜索和下载 YouTube 视频
+ GenericName=Youtube Browser
+ GenericName[es]=Buscar vídeos en YouTube
+@@ -17,6 +18,7 @@
+ Name[ja]=SMPlayer - YouTube ブラウザー
+ Name[pt]=SMPlayer - Explorador YouTube
+ Name[eu]=SMPlayer - YouTube Bilatzailea
++Name[hu]=SMPlayer - YouTube kereső
+ Name[zh_CN]=SMPlayer - YouTube 浏览器
+ Type=Application
+-Categories=Qt;KDE;AudioVideo;Player;Video;
++Categories=Qt;KDE;AudioVideo;Player;Video;X-UHU-Menu/Multimedia/VideoPlayers;

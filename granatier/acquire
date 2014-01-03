@@ -1,0 +1,5 @@
+#!/usr/bin/env dl
+
+granatier-${UB_VERSION}.tar.xz granatier-${UB_VERSION}/
+	ftp://ftp.kde.org/pub/kde/stable/${UB_VERSION}/src/
+

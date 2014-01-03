@@ -1,0 +1,24 @@
+diff -Naur orig/minitube.desktop mod/minitube.desktop
+--- orig/minitube.desktop	2013-09-23 11:30:27.000000000 +0200
++++ mod/minitube.desktop	2013-11-27 22:37:56.000000000 +0100
+@@ -6,17 +6,19 @@
+ Comment[gl]=Vexa os vídeos de YouTube
+ Comment[it]=Guarda i video di YouTube
+ Comment[tr]=YouTube videoları izleyin
++Comment[hu]=Yuutube videó néző
+ GenericName=YouTube app
+ GenericName[en]=YouTube app
+ GenericName[es]=Cliente de YouTube
+ GenericName[gl]=Cliente de YouTube
+ GenericName[it]=Applicazione per YouTube
+ GenericName[tr]=YouTube istemcisi
++GenericName[hu]=YouTube alkalmazás
+ Exec=minitube
+ Terminal=false
+ Type=Application
+ Icon=minitube
+-Categories=Qt;AudioVideo;Video;Player;
++Categories=Qt;AudioVideo;Video;Player;X-UHU-Menu/Multimedia/VideoPlayers;
+ StartupNotify=true
+ Actions=TogglePlaying;Next;Previous;
+ 

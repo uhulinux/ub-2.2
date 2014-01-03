@@ -1,0 +1,11 @@
+-----------------------------------------------------------------------------
+-- The following OPTIONAL packages could NOT be located on your system.
+-- Consider installing them to enable more features from this software.
+-----------------------------------------------------------------------------
+   * Vc  <http://code.compeng.uni-frankfurt.de/projects/vc>
+     Portable, zero-overhead SIMD library for C++
+     Required by the Krita for vectorization
+   * XBase  <http://linux.techass.com/projects/xdb>
+     XBase compatible C++ class library
+     Required by Kexi XBase driver
+ 

@@ -1,0 +1,7 @@
+[Desktop Entry]
+Encoding=UTF-8
+Type=Application
+Name=QT Configuration
+Name[hu]=QT-beállító
+Exec=qtconfig
+Categories=X-UHU-Menu/Settings;

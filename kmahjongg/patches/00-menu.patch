@@ -1,0 +1,9 @@
+diff -Naur a/kmahjongg.desktop b/kmahjongg.desktop
+--- a/kmahjongg.desktop	2013-01-23 23:06:26.000000000 +0100
++++ b/kmahjongg.desktop	2013-02-10 22:50:30.741630745 +0100
+@@ -125,4 +125,4 @@
+ X-KDE-StartupNotify=true
+ X-DBUS-StartupType=Multi
+ X-DocPath=kmahjongg/index.html
+-Categories=Qt;KDE;Game;BoardGame;
++Categories=Qt;KDE;Game;BoardGame;X-UHU-Menu/Games/Board;

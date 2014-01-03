@@ -1,0 +1,5 @@
+#!/bin/sh -eux
+
+ub_install
+cp generate_theme.sh "$UB_INSTALLDIR"/var/vdr/config/themes/generate_flat_theme.sh
+chmod +x "$UB_INSTALLDIR"/var/vdr/config/themes/generate_flat_theme.sh

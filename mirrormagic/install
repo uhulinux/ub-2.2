@@ -1,0 +1,7 @@
+#!/bin/sh -eux
+
+# copy main files
+install -dm755 "${UB_INSTALLDIR}/usr/share/games/mirrormagic"
+cp -r graphics levels music scores sounds "${UB_INSTALLDIR}/usr/share/games/mirrormagic/"
+# install exec-file
+install -D -m755 "mirrormagic" "${UB_INSTALLDIR}/usr/bin/"

@@ -1,0 +1,12 @@
+diff -Naur gdm-2.14.0.orig/po/hu.po gdm-2.14.0/po/hu.po
+--- gdm-2.14.0.orig/po/hu.po	2006-03-02 16:34:20.000000000 +0100
++++ gdm-2.14.0/po/hu.po	2006-05-24 17:54:30.000000000 +0200
+@@ -3695,7 +3695,7 @@
+ 
+ #: ../gui/greeter/greeter_system.c:282
+ msgid "Shut _down the computer"
+-msgstr "_Leállítás"
++msgstr "A számítógép _leállítása"
+ 
+ #: ../gui/greeter/greeter_system.c:285
+ msgid "Shut Down your computer so that you may turn it off."

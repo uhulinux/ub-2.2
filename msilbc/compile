@@ -1,0 +1,7 @@
+#!/bin/sh -eux
+
+export ILBC_CFLAGS=-I/usr/include/ilbc
+export ILBC_LIBS="-L/usr/lib -lilbc"
+
+ub_compile \
+	--with-gsm

@@ -1,0 +1,4 @@
+#!/usr/bin/env dl
+
+compizconfig-backend-gconf-${UB_VERSION}.tar.gz compizconfig-backend-gconf-${UB_VERSION}/
+	http://releases.compiz.org/components/compizconfig-backend-gconf/

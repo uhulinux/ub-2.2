@@ -1,0 +1,13 @@
+#!/bin/sh -eux
+
+export LDFLAGS="-ldl"
+ub_compile \
+	--enable-argb \
+	--enable-curl \
+	--enable-ibm \
+	--enable-imlib2 \
+	--enable-mpd \
+	--enable-rss \
+	--enable-weather-xoap \
+	--enable-wlan \
+	--enable-x11

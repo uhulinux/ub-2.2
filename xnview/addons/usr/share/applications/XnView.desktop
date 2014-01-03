@@ -1,0 +1,10 @@
+[Desktop Entry]
+Encoding=UTF-8
+Terminal=0
+Exec=xnview
+Icon=/usr/share/pixmaps/xnview.png
+Type=Application
+Categories=Graphics;;X-UHU-Menu/Graphics;
+StartupNotify=true
+Name=XnView Multi Platform
+GenericName=XnViewMP

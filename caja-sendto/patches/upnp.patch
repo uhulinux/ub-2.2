@@ -1,0 +1,13 @@
+diff -Naur orig/src/plugins/upnp/Makefile.am patched/src/plugins/upnp/Makefile.am
+--- orig/src/plugins/upnp/Makefile.am	2012-07-12 20:37:01.000000000 +0200
++++ patched/src/plugins/upnp/Makefile.am	2012-09-27 19:34:00.692688725 +0200
+@@ -8,6 +8,9 @@
+         -I$(top_builddir)                       \
+         $(CAJA_SENDTO_CFLAGS)               \
+ 	$(UPNP_CFLAGS)				\
++	-I/usr/include/gssdp-1.0		\
++	-I/usr/include/libsoup-2.4		\
++	-I/usr/include/libxml2			\
+ 	$(DISABLE_DEPRECATED)			\
+ 	$(WARN_CFLAGS)
+ 

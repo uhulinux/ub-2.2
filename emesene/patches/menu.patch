@@ -1,0 +1,12 @@
+diff -Naur orig/emesene/data/share/applications/emesene.desktop mod/emesene/data/share/applications/emesene.desktop
+--- orig/emesene/data/share/applications/emesene.desktop	2013-06-24 18:31:10.000000000 +0200
++++ mod/emesene/data/share/applications/emesene.desktop	2013-06-24 18:55:45.000000000 +0200
+@@ -42,7 +42,7 @@
+ Terminal=false
+ StartupNotify=true
+ Type=Application
+-Categories=Network;InstantMessaging;
++Categories=Network;InstantMessaging;X-UHU-Menu/Internet/Messengers;
+ X-MessagingMenu-UsesChatSection=true;
+ X-Ayatana-Desktop-Shortcuts=NewInstance;
+ 

@@ -1,0 +1,4 @@
+#!/bin/sh -eux
+make depsclean && make deps
+make clean
+GAMEDIR=/usr/bin ub_compile

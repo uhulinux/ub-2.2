@@ -1,0 +1,8 @@
+#!/bin/sh -eux
+
+autoreconf -vif
+ub_compile \
+	--with-lavc \
+	--without-mpc \
+	--without-cdda
+#

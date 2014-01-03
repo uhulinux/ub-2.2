@@ -1,0 +1,4 @@
+#!/bin/sh -eux
+
+mkdir -p $UB_INSTALLDIR/usr/share/themes/AnTaRtIkA
+cp -r $UB_COMPILEDIR/AnTaRtIkA/gnome-shell $UB_INSTALLDIR/usr/share/themes/AnTaRtIkA/

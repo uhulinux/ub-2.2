@@ -1,0 +1,4 @@
+#!/bin/sh -eux
+
+./configure --enable-ipv6 --enable-openssl --enable-shared --prefix=/usr
+make

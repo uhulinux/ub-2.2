@@ -1,0 +1,11 @@
+#!/bin/sh -eux
+
+ub_install
+
+cd ${UB_INSTALLDIR}/usr/lib
+ln -s libpoppler.so.25 libpoppler.so.5
+ln -s libpoppler.so.25.0.0 libpoppler.so.5.0.0
+ln -s libpoppler-glib.so.8 libpoppler-glib.so.4
+ln -s libpoppler-glib.so.8.4.0 libpoppler-glib.so.4.0.0
+ln -s libpoppler-qt4.so.4 libpoppler-qt4.so.3
+ln -s libpoppler-qt4.so.4.0.0 libpoppler-qt4.so.3.2.0

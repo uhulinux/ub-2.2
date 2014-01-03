@@ -1,0 +1,11 @@
+dbus-glib-dev
+gnome-desktop-dev
+gnome-doc-utils
+gsettings-desktop-schemas
+gtk3-dev
+intltool
+libgnomekbd-dev
+libsm-dev
+libxkbfile-dev
+libxscrnsaver-dev
+libxxf86vm-dev

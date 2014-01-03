@@ -1,0 +1,5 @@
+#!/usr/bin/env dl
+
+shntool-${UB_VERSION}.tar.gz shntool-${UB_VERSION}/
+	http://www.etree.org/shnutils/shntool/dist/src/
+

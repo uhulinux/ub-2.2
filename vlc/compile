@@ -1,0 +1,17 @@
+#!/bin/sh -eux
+
+# jack >= 1.9.7
+
+ub_compile \
+	--disable-png \
+	--enable-gnomevfs \
+	--enable-flac \
+	--enable-faad \
+	--enable-svg \
+	--enable-aa \
+	--disable-jack \
+	--enable-lirc \
+	--enable-libva \
+	--enable-x264 \
+	--enable-xvideo \
+	--enable-v4l2 \

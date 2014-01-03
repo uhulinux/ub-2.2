@@ -1,0 +1,9 @@
+	/usr/bin/blocks
+	/usr/bin/checkers
+	/usr/bin/sudoku
+	/usr/share/applications/blocks.desktop
+	/usr/share/applications/checkers.desktop
+	/usr/share/applications/sudoku.desktop
+	/usr/share/icons/hicolor/128x128
+	/usr/share/icons/hicolor/32x32
+	/usr/share/man/man6

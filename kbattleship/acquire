@@ -1,0 +1,5 @@
+#!/usr/bin/env dl
+
+knavalbattle-${UB_VERSION}.tar.xz knavalbattle-${UB_VERSION}/
+	ftp://ftp.kde.org/pub/kde/stable/${UB_VERSION}/src/
+

@@ -1,0 +1,8 @@
+#!/bin/sh -eux
+
+mkdir -p "$UB_INSTALLDIR"/usr/share/kdm/themes
+mkdir -p "$UB_INSTALLDIR"/usr/share/ksplash/Themes
+mkdir -p "$UB_INSTALLDIR"/usr/share/wallpapers
+mv Eclips-kdm "$UB_INSTALLDIR"/usr/share/kdm/themes/Eclips
+mv Eclips-Splash "$UB_INSTALLDIR"/usr/share/ksplash/Themes/Eclips
+mv Eclips-Wallpaper "$UB_INSTALLDIR"/usr/share/wallpapers/Eclips

@@ -1,0 +1,4 @@
+#!/usr/bin/env dl
+
+sane-backends-${UB_VERSION}.tar.gz sane-backends-${UB_VERSION}/
+	ftp://ftp2.sane-project.org/pub/sane/old-ftp.sane-project.org/sane-backends-${UB_VERSION}/

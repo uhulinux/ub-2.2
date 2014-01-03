@@ -1,0 +1,5 @@
+#!/bin/bash
+
+if [[ -e /dev/.udev ]]; then
+	udevadm control --reload-rules
+fi

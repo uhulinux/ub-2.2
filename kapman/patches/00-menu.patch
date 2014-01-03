@@ -1,0 +1,10 @@
+diff -Naur a/kapman.desktop b/kapman.desktop
+--- a/kapman.desktop	2013-01-23 23:05:20.000000000 +0100
++++ b/kapman.desktop	2013-02-10 21:53:33.856947747 +0100
+@@ -143,5 +143,5 @@
+ Icon=kapman
+ TryExec=kapman
+ Exec=kapman
+-Categories=Qt;KDE;Game;ArcadeGame;
++Categories=Qt;KDE;Game;ArcadeGame;X-UHU-Menu/Games/Arcade;
+ X-DocPath=kapman/index.html

@@ -1,0 +1,5 @@
+	/usr/share/dvb/atsc
+	/usr/share/dvb/av7110_loadkeys
+	/usr/share/dvb/dvb-c
+	/usr/share/dvb/dvb-s
+	/usr/share/dvb/dvb-t

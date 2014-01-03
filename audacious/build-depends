@@ -1,0 +1,6 @@
+dbus-glib-dev
+gtk3-dev
+libguess-dev
+libmcs-dev
+libmowgli-dev
+libsm-dev

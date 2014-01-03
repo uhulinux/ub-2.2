@@ -1,0 +1,4 @@
+#!/usr/bin/env dl
+
+gnome-shell-frippery-${UB_VERSION}.tgz .local/
+	http://intgat.tigress.co.uk/rmy/extensions/

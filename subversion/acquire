@@ -1,0 +1,4 @@
+#!/usr/bin/env dl
+
+subversion-${UB_VERSION}.tar.gz subversion-${UB_VERSION}/
+	http://subversion.tigris.org/downloads/

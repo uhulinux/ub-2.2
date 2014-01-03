@@ -1,0 +1,5 @@
+#!/usr/bin/env dl
+
+klines-${UB_VERSION}.tar.xz klines-${UB_VERSION}/
+	ftp://ftp.kde.org/pub/kde/stable/${UB_VERSION}/src/
+

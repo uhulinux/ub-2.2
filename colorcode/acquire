@@ -1,0 +1,5 @@
+#!/usr/bin/env dl
+
+ColorCode-${UB_VERSION}.tar.gz ColorCode-${UB_VERSION}/
+	http://colorcode.laebisch.com/download/
+

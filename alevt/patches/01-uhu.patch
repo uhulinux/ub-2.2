@@ -1,0 +1,24 @@
+diff -Naur alevt-1.6.3-ori/Makefile alevt-1.6.3/Makefile
+--- alevt-1.6.3-ori/Makefile	2012-03-07 01:35:26.000000000 +0100
++++ alevt-1.6.3/Makefile	2013-04-27 16:36:08.609347985 +0200
+@@ -75,13 +75,13 @@
+ # anything below this line is just for me!
+ 
+ install: all
+-	install -m 0755 alevt		/usr/local/bin
+-	install -m 0755 alevt-date	/usr/local/bin
+-	install -m 0755 alevt-cap	/usr/local/bin
+-	install -m 0644 alevt.1x	/usr/local/man/man1
+-	install -m 0644 alevt-date.1	/usr/local/man/man1
+-	install -m 0644 alevt-cap.1	/usr/local/man/man1
+-	install -m 0644 contrib/mini-alevt.xpm /usr/include/X11/pixmaps
++	install -m 0755 alevt		${UB_INSTALLDIR}/usr/bin
++	install -m 0755 alevt-date	${UB_INSTALLDIR}/usr/bin
++	install -m 0755 alevt-cap	${UB_INSTALLDIR}/usr/bin
++	install -m 0644 alevt.1x	${UB_INSTALLDIR}/usr/share/man/man1
++	install -m 0644 alevt-date.1	${UB_INSTALLDIR}/usr/share/man/man1
++	install -m 0644 alevt-cap.1	${UB_INSTALLDIR}/usr/share/man/man1
++	install -m 0644 contrib/mini-alevt.xpm ${UB_INSTALLDIR}/usr/share/pixmaps
+ 
+ depend:
+ 	makedepend -Y -- $(CFLAGS_none) -- *.c 2>/dev/null

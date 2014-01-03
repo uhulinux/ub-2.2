@@ -1,0 +1,5 @@
+cairo-dev
+dbus-glib-dev
+glib2-dev
+gobject-introspection-dev
+js-dev

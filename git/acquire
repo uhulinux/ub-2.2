@@ -1,0 +1,10 @@
+#!/usr/bin/env dl
+
+git-${UB_VERSION}.tar.gz git-${UB_VERSION}/
+	http://git-core.googlecode.com/files/
+
+git-htmldocs-${UB_VERSION}.tar.gz . :docs
+	http://git-core.googlecode.com/files/
+
+git-manpages-${UB_VERSION}.tar.gz . :man
+	http://git-core.googlecode.com/files/

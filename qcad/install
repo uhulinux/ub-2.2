@@ -1,0 +1,14 @@
+#!/bin/sh -eux
+
+for i in fparser dxflib qcadcmd qcadlib qcadactions qcadguiqt; do
+	cd "$i"
+	ub_install
+	cd ..
+done
+
+cd qcad
+
+mkdir -p "$UB_INSTALLDIR"/usr/share/qcad
+cp -ar fonts patterns qm "$UB_INSTALLDIR"/usr/share/qcad/
+
+install -m 755 qcad "$UB_INSTALLDIR"/usr/bin/

@@ -1,0 +1,5 @@
+#!/usr/bin/env dl
+
+tano_${UB_VERSION}_src.tar.gz tano-${UB_VERSION}/
+	http://download.tano.si/tano/${UB_VERSION}/
+

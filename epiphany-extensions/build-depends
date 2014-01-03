@@ -1,0 +1,16 @@
+dbus-glib-dev
+docbook-dtds
+enchant-dev
+epiphany
+epiphany-dev
+geoclue-dev
+gnome-doc-utils
+gst-plugins-base-dev
+gtk3-dev
+intltool
+libjpeg-dev
+libxslt-dev
+libxt-dev
+opensp-dev
+python-dev
+sqlite-dev

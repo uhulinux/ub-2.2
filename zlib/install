@@ -1,0 +1,14 @@
+#!/bin/sh -eux
+
+# install shared lib
+ub_install
+
+# install static lib
+ub_install \
+	LIBS=libz.a \
+	libdir=/usr/lib
+
+# move zlib.so to /usr/lib
+rm "$UB_INSTALLDIR"/lib/libz.so
+ln -s ../../lib/libz.so."$UB_VERSION" "$UB_INSTALLDIR"/usr/lib/libz.so
+ln -s ../../lib/libz.so."$UB_VERSION" "$UB_INSTALLDIR"/usr/lib/zlib.so

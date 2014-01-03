@@ -1,0 +1,11 @@
+enchant-dev
+evolution-data-server-dev
+gnome-common
+gnome-keyring-dev
+gpgme-dev
+gtkspell3-dev
+intltool
+libassuan-dev
+libcryptui-dev
+libgpg-error-dev
+xdg-utils

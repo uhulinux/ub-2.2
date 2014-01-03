@@ -1,0 +1,6 @@
+#!/bin/sh -eux
+mv "BLACK-TRANSPARENT by Saurav Majumder (2)" black-transparent
+rm black-transparent/gnome-shell/preview.png
+celdir="$UB_INSTALLDIR"/usr/share/themes/
+mkdir -p "$celdir"
+cp -R black-transparent "$celdir"/

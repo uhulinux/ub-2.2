@@ -1,0 +1,18 @@
+http://bugzilla.gnome.org/show_bug.cgi?id=163811
+
+diff -Naur gdm-2.14.0.orig/daemon/server.c gdm-2.14.0/daemon/server.c
+--- gdm-2.14.0.orig/daemon/server.c	2006-01-19 00:32:50.000000000 +0100
++++ gdm-2.14.0/daemon/server.c	2006-03-16 21:13:18.000000000 +0100
+@@ -103,12 +103,10 @@
+ 	if ( ! ve_string_empty (disp->authfile)) {
+ 		VE_IGNORE_EINTR (g_unlink (disp->authfile));
+ 	}
+-	g_free (disp->authfile);
+ 	disp->authfile = NULL;
+ 	if ( ! ve_string_empty (disp->authfile_gdm)) {
+ 		VE_IGNORE_EINTR (g_unlink (disp->authfile_gdm));
+ 	}
+-	g_free (disp->authfile_gdm);
+ 	disp->authfile_gdm = NULL;
+ }
+ 

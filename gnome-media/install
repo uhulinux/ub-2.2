@@ -1,0 +1,5 @@
+#!/bin/sh -eux
+
+ub_install
+#gnome-control-centerben is meglévő hangmintafájlok törlése
+rm -Rf $UB_INSTALLDIR/usr/share/sounds

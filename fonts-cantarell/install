@@ -1,0 +1,9 @@
+#!/bin/sh -eux
+
+ub_install
+
+fontdir="${UB_INSTALLDIR}"/etc/fonts/conf.d
+mkdir -p $fontdir
+
+ln -s ../conf.avail/21-cantarell-hinting.conf "$fontdir"
+ln -s ../conf.avail/31-cantarell.conf "$fontdir"

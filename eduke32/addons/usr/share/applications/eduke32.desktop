@@ -1,0 +1,12 @@
+[Desktop Entry]
+Version=1.1
+Type=Application
+Name=EDuke32
+Comment=Advanced Duke Nukem 3D engine
+Comment[hu]=Turbósított Duke Nukem 3D
+Icon=eduke32
+Exec=eduke32
+Terminal=false
+StartupNotify=false
+Categories=X-UHU-Menu/Games/Action;
+

@@ -1,0 +1,8 @@
+[Desktop Entry]
+Name=Cytadela
+Exec=cytadela
+Icon=/usr/share/games/cytadela/icons/cytadela.png
+Type=Application
+Comment=
+Comment[hu]=Klasszikus Atari FPS játék felújítás
+Categories=Game;ActionGame;X-UHU-Menu/Games/Action;

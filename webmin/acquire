@@ -1,0 +1,6 @@
+#!/usr/bin/env dl
+
+#webmin-${UB_VERSION}-minimal.tar.gz webmin-${UB_VERSION}/
+webmin-${UB_VERSION}.tar.gz webmin-${UB_VERSION}/
+	http://www.webmin.com/
+	http://prdownloads.sourceforge.net/webadmin/

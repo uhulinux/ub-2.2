@@ -1,0 +1,24 @@
+diff -Naurd gtkpod-0.99.14.orig/doc/figures/Makefile.in gtkpod-0.99.14/doc/figures/Makefile.in
+--- gtkpod-0.99.14.orig/doc/figures/Makefile.in	2009-01-19 01:00:02.000000000 +0100
++++ gtkpod-0.99.14/doc/figures/Makefile.in	2009-03-07 19:14:34.000000000 +0100
+@@ -212,7 +212,7 @@
+ target_alias = @target_alias@
+ top_builddir = @top_builddir@
+ top_srcdir = @top_srcdir@
+-figuresdir = $(pkgdatadir)/doc/figures
++figuresdir = $(datadir)/doc/@PACKAGE@/figures
+ figures_DATA = \
+ 	add-folders.png \
+ 	cover-fullsize.png \
+diff -Naurd gtkpod-0.99.14.orig/doc/Makefile.in gtkpod-0.99.14/doc/Makefile.in
+--- gtkpod-0.99.14.orig/doc/Makefile.in	2009-01-19 01:00:02.000000000 +0100
++++ gtkpod-0.99.14/doc/Makefile.in	2009-03-07 19:11:51.000000000 +0100
+@@ -194,7 +194,7 @@
+ builddir = @builddir@
+ datadir = @datadir@
+ datarootdir = @datarootdir@
+-docdir = $(pkgdatadir)/doc
++docdir = $(datadir)/doc/@PACKAGE@
+ dvidir = @dvidir@
+ exec_prefix = @exec_prefix@
+ host = @host@

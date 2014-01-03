@@ -1,0 +1,10 @@
+diff -Naur orig/data/gajim.desktop.in.in patched/data/gajim.desktop.in.in
+--- orig/data/gajim.desktop.in.in	2012-10-30 17:47:08.000000000 +0100
++++ patched/data/gajim.desktop.in.in	2012-12-02 13:48:24.999159504 +0100
+@@ -1,5 +1,5 @@
+ [Desktop Entry]
+-Categories=Network;InstantMessaging;GTK;GNOME;
++Categories=Network;InstantMessaging;GTK;GNOME;X-UHU-Menu/Internet/Messengers;
+ _Name=Gajim
+ _GenericName=Jabber IM Client
+ _Comment=A GTK+ Jabber client

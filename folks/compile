@@ -1,0 +1,8 @@
+#!/bin/sh -eux
+
+ub_compile \
+	--enable-vala \
+	--enable-import-tool \
+	--disable-docs \
+	--disable-fatal-warnings \
+	--disable-Werror

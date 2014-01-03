@@ -1,0 +1,7 @@
+#!/usr/bin/env dl
+
+prison-${UB_VERSION}.tar.gz prison-${UB_VERSION}/
+	http://mirror.kde.hu/stable/prison/${UB_VERSION}/src/
+	http://mirror.kde.hu/unstable/prison/${UB_VERSION}/src/
+	ftp://ftp.kde.org/pub/kde/stable/prison/${UB_VERSION}/src/
+	ftp://ftp.kde.org/pub/kde/unstable/prison/${UB_VERSION}/src/

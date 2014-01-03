@@ -1,0 +1,13 @@
+[Desktop Entry]
+Encoding=UTF-8
+Name=Seamonkey
+Comment=Web Browser
+Comment[hu]=A világháló böngészése
+Exec=seamonkey
+Icon=seamonkey
+Terminal=0
+Type=Application
+GenericName=Web Browser
+GenericName[hu]=Webböngésző
+Categories=X-UHU-Menu/Internet/Browsers;
+MimeType=text/html;text/xml;application/xhtml+xml;

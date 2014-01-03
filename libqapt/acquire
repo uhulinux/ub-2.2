@@ -1,0 +1,5 @@
+#!/usr/bin/env dl
+
+libqapt-${UB_VERSION}.tar.bz2 libqapt-${UB_VERSION}/
+	ftp://ftp.kde.org/pub/kde/stable/libqapt/${UB_VERSION}/src/
+

@@ -1,0 +1,12 @@
+diff -Naur gnome-applets-2.14.0.orig/libgweather/gweather.schemas.in gnome-applets-2.14.0/libgweather/gweather.schemas.in
+--- gnome-applets-2.14.0.orig/libgweather/gweather.schemas.in	2006-02-12 08:19:50.000000000 +0100
++++ gnome-applets-2.14.0/libgweather/gweather.schemas.in	2006-03-16 17:38:37.000000000 +0100
+@@ -25,7 +25,7 @@
+ 	<key>/schemas/apps/gweather/prefs/enable_metric</key>
+ 	<owner>gweather-applet-2</owner>
+ 	<type>bool</type>
+-	<default>false</default>
++	<default>true</default>
+ 	<locale name="C">
+ 		<short>Use metric units</short>
+ 		<long>Use metric units instead of english units.</long>

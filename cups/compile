@@ -1,0 +1,6 @@
+#!/bin/sh -eux
+
+ub_compile \
+	--exec_prefix=/usr \
+	--disable-pam \
+	--enable-raw-printing

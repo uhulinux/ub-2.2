@@ -1,0 +1,10 @@
+boost-dev
+glew
+libice
+libsm
+libx11
+libxi
+libxmu
+mesa
+sdl
+sdl-image

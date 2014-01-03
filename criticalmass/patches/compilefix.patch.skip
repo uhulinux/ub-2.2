@@ -1,0 +1,83 @@
+diff -Naur orig/tinyxml/tinyxml.cpp mod/tinyxml/tinyxml.cpp
+--- orig/tinyxml/tinyxml.cpp	2003-03-03 03:34:58.000000000 +0100
++++ mod/tinyxml/tinyxml.cpp	2010-10-26 23:13:36.000000000 +0200
+@@ -22,8 +22,10 @@
+ */
+ 
+ #include "tinyxml.h"
+-
+-
++#include <stdio.h>
++#include <stdlib.h>
++#include <string.h>
++#include <cstring>
+ TiXmlNode::TiXmlNode( NodeType _type )
+ {
+ 	parent = 0;
+diff -Naur orig/tinyxml/tinyxmlparser.cpp mod/tinyxml/tinyxmlparser.cpp
+--- orig/tinyxml/tinyxmlparser.cpp	2003-03-03 03:34:58.000000000 +0100
++++ mod/tinyxml/tinyxmlparser.cpp	2010-10-26 23:16:40.000000000 +0200
+@@ -24,6 +24,7 @@
+ 
+ #include "tinyxml.h"
+ #include <ctype.h>
++#include <string.h>
+ 
+ const char* TiXmlBase::SkipWhiteSpace( const char* p )
+ {
+diff -Naur orig/utils/ResourceManager.cpp mod/utils/ResourceManager.cpp
+--- orig/utils/ResourceManager.cpp	2005-01-02 03:59:29.000000000 +0100
++++ mod/utils/ResourceManager.cpp	2010-10-26 23:23:29.000000000 +0200
+@@ -15,6 +15,7 @@
+ #include <iomanip>
+ #include <sys/types.h>
+ #include <sys/stat.h>
++#include <string.h>
+ 
+ #include <Trace.hpp>
+ #include <ResourceManager.hpp>
+diff -Naur orig/utils/Value.cpp mod/utils/Value.cpp
+--- orig/utils/Value.cpp	2003-03-03 03:32:13.000000000 +0100
++++ mod/utils/Value.cpp	2010-10-26 23:25:38.000000000 +0200
+@@ -13,6 +13,7 @@
+ // FOR A PARTICULAR PURPOSE. See the GNU General Public License for more details
+ //
+ #include <Value.hpp>
++#include <string.h>
+ 
+ #ifndef snprintf
+ #define snprintf(a,b,c,d) sprintf((a),(c),(d))
+diff -Naur orig/utils/Value.hpp mod/utils/Value.hpp
+--- orig/utils/Value.hpp	2004-12-18 03:41:24.000000000 +0100
++++ mod/utils/Value.hpp	2010-10-26 23:28:14.000000000 +0200
+@@ -17,7 +17,7 @@
+ 
+ #include <stdio.h>
+ #include <string>
+-
++#include <stdlib.h>
+ #include <Trace.hpp>
+ 
+ using std::string;
+diff -Naur orig/utils/zStreamBufferImplZLib.cpp mod/utils/zStreamBufferImplZLib.cpp
+--- orig/utils/zStreamBufferImplZLib.cpp	2005-07-31 22:06:14.000000000 +0200
++++ mod/utils/zStreamBufferImplZLib.cpp	2010-10-26 23:33:25.000000000 +0200
+@@ -14,6 +14,7 @@
+ //
+ #include <Trace.hpp>
+ #include <zStreamBufferImplZLib.hpp>
++#include <cstdlib>
+ 
+ bool ziStreamBufferImplZLib::init( void)
+ {
+diff -Naur orig/utils/zStream.cpp mod/utils/zStream.cpp
+--- orig/utils/zStream.cpp	2005-07-31 22:06:14.000000000 +0200
++++ mod/utils/zStream.cpp	2010-10-26 23:31:40.000000000 +0200
+@@ -17,6 +17,7 @@
+ #include <zStream.hpp>
+ #include <zStreamBufferImplLZMA.hpp>
+ #include <zStreamBufferImplZLib.hpp>
++#include <cstdlib>
+ 
+ ofstream &operator<<( ofstream &outfile, Uint32 i)
+ {       

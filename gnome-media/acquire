@@ -1,0 +1,4 @@
+#!/usr/bin/env dl
+
+gnome-media-${UB_VERSION}.tar.xz gnome-media-${UB_VERSION}/
+	ftp://ftp.gnome.org/pub/GNOME/sources/gnome-media/${UB_VERSION_HEAD2}/

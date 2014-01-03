@@ -1,0 +1,319 @@
+diff -Naur orig/ffmpeg.c patched/ffmpeg.c
+--- orig/ffmpeg.c	2012-06-05 22:48:37.000000000 +0200
++++ patched/ffmpeg.c	2012-12-16 16:53:57.590304988 +0100
+@@ -79,175 +79,6 @@
+ /* This is the trailer used to end mpeg1 videos. */
+ static unsigned char mpeg1_trailer[] = {0x00, 0x00, 0x01, 0xb7};
+ 
+-/**
+- * file_open_append
+- *      Append version of the file open function used in libavformat when opening
+- *      an ordinary file. The original file open function truncates an existing
+- *      file, but this version appends to it instead.
+- *
+- *  Returns 0 on success and AVERROR(ENOENT) on error.
+- *
+- */
+-static int file_open_append(URLContext *h, const char *filename, int flags)
+-{
+-    const char *colon;
+-    const char *mode;
+-    FILE *fh;
+-    size_t bufsize = 0;
+-
+-    /* Skip past the protocol part of filename. */
+-    colon = strchr(filename, ':');
+-
+-    if (colon)
+-        filename = colon + 1;
+-
+-
+-    if (flags & URL_RDWR) {
+-        mode = "ab+";
+-        bufsize = BUFSIZE_1MEG;
+-    } else if (flags & URL_WRONLY) {
+-        mode = "ab";
+-        bufsize = BUFSIZE_1MEG;
+-    } else {
+-        mode = "rb";
+-    }
+-
+-    fh = myfopen(filename, mode, bufsize);
+-    if (fh == NULL)
+-        return AVERROR(ENOENT);
+-
+-    h->priv_data = (void *)fh;
+-    return 0;
+-}
+-
+-/*
+- * URLProtocol entry for the append file protocol, which we use for mpeg1 videos
+- * in order to get append behavior with url_fopen.
+- *
+- * Libavformat uses protocols for achieving flexibility when handling files
+- * and other resources. A call to url_fopen will eventually be redirected to
+- * a protocol-specific open function.
+- *
+- * The remaining functions (for writing, seeking etc.) are set in ffmpeg_init.
+- */
+-URLProtocol mpeg1_file_protocol = {
+-    .name     = APPEND_PROTO,
+-    .url_open = file_open_append
+-};
+-
+-
+-#ifdef HAVE_FFMPEG_NEW
+-
+-/* file_procotol has been removed from avio.h */
+-#ifdef FFMPEG_NEW_INCLUDES
+-#include <libavutil/avstring.h>
+-#else
+-#include "avstring.h"
+-#endif
+-
+-/**
+- * file_open
+- *
+- */
+-static int file_open(URLContext *h, const char *filename, int flags)
+-{
+-    const char *mode;
+-    FILE *fh;
+-    size_t bufsize = 0;
+-
+-    av_strstart(filename, "file:", &filename);
+-
+-    if (flags & URL_RDWR) {
+-        mode = "wb+";
+-        bufsize = BUFSIZE_1MEG;
+-    } else if (flags & URL_WRONLY) {
+-        mode = "wb";
+-        bufsize = BUFSIZE_1MEG;
+-    } else {
+-        mode = "rb";
+-    }
+-    fh = myfopen(filename, mode, bufsize);
+-    if (fh == NULL)
+-        return AVERROR(ENOENT);
+-    h->priv_data = (void *)fh;
+-    return 0;
+-}
+-
+-/**
+- * file_read
+- */
+-static int file_read(URLContext *h, unsigned char *buf, int size)
+-{
+-    FILE *fh = (FILE *)h->priv_data;
+-    return fread(buf, 1, size, fh);
+-}
+-
+-/**
+- * file_write
+- */
+-static int file_write(URLContext *h, unsigned char *buf, int size)
+-{
+-    FILE *fh = (FILE *)h->priv_data;
+-    return fwrite(buf, 1, size, fh);
+-}
+-
+-/**
+- * file_seek
+- */
+-static int64_t file_seek(URLContext *h, int64_t pos, int whence)
+-{
+-    FILE *fh = (FILE *)h->priv_data;
+-    if (fseek(fh, pos, whence))
+-        return -1;
+-    return ftell(fh);
+-}
+-
+-/**
+- * file_close
+- */
+-static int file_close(URLContext *h)
+-{
+-    FILE *fh = (FILE *)h->priv_data;
+-    return myfclose(fh);
+-}
+-
+-URLProtocol file_protocol = {
+-    "file",
+-    file_open,
+-    file_read,
+-    file_write,
+-    file_seek,
+-    file_close,
+-#if LIBAVFORMAT_BUILD >= (52<<16 | 31<<8)
+-    NULL,
+-    NULL,
+-    NULL,
+-#endif
+-};
+-
+-#endif
+-
+-
+-/**
+- * mpeg1_write_trailer
+- *      We set AVOutputFormat->write_trailer to this function for mpeg1. That way,
+- *      the mpeg1 video gets a proper trailer when it is closed.
+- *
+- *  Returns 0
+- *
+- */
+-static int mpeg1_write_trailer(AVFormatContext *s)
+-{
+-#if LIBAVFORMAT_BUILD >= (52<<16)
+-    put_buffer(s->pb, mpeg1_trailer, 4);
+-    put_flush_packet(s->pb);
+-#else
+-    put_buffer(&s->pb, mpeg1_trailer, 4);
+-    put_flush_packet(&s->pb);
+-#endif /* LIBAVFORMAT_BUILD >= (52<<16) */
+-
+-    return 0; /* success */
+-}
+ 
+ /**
+  * ffmpeg_init
+@@ -267,23 +98,6 @@
+     av_log_set_callback((void *)ffmpeg_avcodec_log);
+ #endif
+ 
+-    /*
+-     * Copy the functions to use for the append file protocol from the standard
+-     * file protocol.
+-     */
+-    mpeg1_file_protocol.url_read  = file_protocol.url_read;
+-    mpeg1_file_protocol.url_write = file_protocol.url_write;
+-    mpeg1_file_protocol.url_seek  = file_protocol.url_seek;
+-    mpeg1_file_protocol.url_close = file_protocol.url_close;
+-
+-/* Register the append file protocol. */
+-#ifdef have_av_register_protocol2
+-    av_register_protocol2(&mpeg1_file_protocol, sizeof(mpeg1_file_protocol));
+-#elif defined have_av_register_protocol        
+-    av_register_protocol(&mpeg1_file_protocol);
+-#else
+-#   warning av_register_protocolXXX missing
+-#endif
+ }
+ 
+ /**
+@@ -322,8 +136,6 @@
+         of = av_guess_format("mpeg1video", NULL, NULL);
+ #endif 
+         /* But we want the trailer to be correctly written. */
+-        if (of)
+-            of->write_trailer = mpeg1_write_trailer;
+ 
+ #ifdef FFMPEG_NO_NONSTD_MPEG1
+     } else if (strcmp(codec, "mpeg1") == 0) {
+@@ -537,12 +349,12 @@
+     }
+ 
+     /* Set the output parameters (must be done even if no parameters). */
+-    if (av_set_parameters(ffmpeg->oc, NULL) < 0) {
+-        MOTION_LOG(ERR, TYPE_ENCODER, NO_ERRNO, "%s: av_set_parameters error:"
+-                   " Invalid output format parameters");
+-        ffmpeg_cleanups(ffmpeg);
+-        return NULL;
+-    }
++//     if (av_set_parameters(ffmpeg->oc, NULL) < 0) {
++//         MOTION_LOG(ERR, TYPE_ENCODER, NO_ERRNO, "%s: av_set_parameters error:"
++//                    " Invalid output format parameters");
++//         ffmpeg_cleanups(ffmpeg);
++//         return NULL;
++//     }
+ 
+     /* Dump the format settings.  This shows how the various streams relate to each other. */
+     //dump_format(ffmpeg->oc, 0, filename, 1);
+@@ -620,14 +432,14 @@
+ 
+         /*
+          * Use append file protocol for mpeg1, to get the append behavior from
+-         * url_fopen, but no protocol (=> default) for other codecs.
++         * avio_open, but no protocol (=> default) for other codecs.
+          */
+         if (is_mpeg1)
+             snprintf(file_proto, sizeof(file_proto), APPEND_PROTO ":%s", filename);
+         else
+             snprintf(file_proto, sizeof(file_proto), "%s", filename);
+ 
+-        if (url_fopen(&ffmpeg->oc->pb, file_proto, URL_WRONLY) < 0) {
++        if (avio_open(&ffmpeg->oc->pb, file_proto, AVIO_FLAG_WRITE) < 0) {
+             /* Path did not exist? */
+             if (errno == ENOENT) {
+                 /* Create path for file (don't use file_proto)... */
+@@ -637,8 +449,8 @@
+                 }
+ 
+                 /* And retry opening the file (use file_proto). */
+-                if (url_fopen(&ffmpeg->oc->pb, file_proto, URL_WRONLY) < 0) {
+-                    MOTION_LOG(ERR, TYPE_ENCODER, SHOW_ERRNO, "%s: url_fopen -"
++                if (avio_open(&ffmpeg->oc->pb, file_proto, AVIO_FLAG_WRITE) < 0) {
++                    MOTION_LOG(ERR, TYPE_ENCODER, SHOW_ERRNO, "%s: avio_open -"
+                                " error opening file %s", filename);
+                     ffmpeg_cleanups(ffmpeg);
+                     return NULL;
+@@ -646,7 +458,7 @@
+                 /* Permission denied */
+             } else if (errno ==  EACCES) {
+                 MOTION_LOG(ERR, TYPE_ENCODER, SHOW_ERRNO,
+-                           "%s: url_fopen - error opening file %s"
++                           "%s: avio_open - error opening file %s"
+                            " ... check access rights to target directory",
+                            filename);
+                 ffmpeg_cleanups(ffmpeg);
+@@ -661,7 +473,7 @@
+     }
+ 
+     /* Write the stream header, if any. */
+-    av_write_header(ffmpeg->oc);
++    avformat_write_header(ffmpeg->oc, NULL);
+ 
+     return ffmpeg;
+ }
+@@ -696,7 +508,7 @@
+ /*
+         if (!(ffmpeg->oc->oformat->flags & AVFMT_NOFILE)) {
+             // close the output file
+-            if (ffmpeg->oc->pb) url_fclose(&ffmpeg->oc->pb);
++            if (ffmpeg->oc->pb) avio_close(&ffmpeg->oc->pb);
+         }
+ */
+     /* Free the stream */
+@@ -738,9 +550,9 @@
+     if (!(ffmpeg->oc->oformat->flags & AVFMT_NOFILE)) {
+         /* Close the output file. */
+ #if LIBAVFORMAT_BUILD >= (52<<16)
+-        url_fclose(ffmpeg->oc->pb);
++        avio_close(ffmpeg->oc->pb);
+ #else
+-        url_fclose(&ffmpeg->oc->pb);
++        avio_close(&ffmpeg->oc->pb);
+ #endif /* LIBAVFORMAT_BUILD >= (52<<16) */
+     }
+ 
+@@ -968,3 +780,4 @@
+ }
+ 
+ #endif /* HAVE_FFMPEG */
++
+diff -Naur orig/ffmpeg.h patched/ffmpeg.h
+--- orig/ffmpeg.h	2012-06-05 22:48:37.000000000 +0200
++++ patched/ffmpeg.h	2012-12-16 16:54:34.970490352 +0100
+@@ -6,6 +6,7 @@
+ 
+ #ifdef FFMPEG_NEW_INCLUDES
+ #include <libavformat/avformat.h>
++#include <libavformat/avio.h>
+ #else
+ #include <avformat.h>
+ #endif
+@@ -96,3 +97,4 @@
+ void ffmpeg_avcodec_log(void *, int, const char *, va_list);
+ 
+ #endif /* _INCLUDE_FFMPEG_H_ */
++

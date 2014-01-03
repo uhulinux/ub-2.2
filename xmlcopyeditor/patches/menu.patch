@@ -1,0 +1,16 @@
+diff -Naur orig/src/xmlcopyeditor.desktop mod/src/xmlcopyeditor.desktop
+--- orig/src/xmlcopyeditor.desktop	2013-10-31 16:41:28.000000000 +0100
++++ mod/src/xmlcopyeditor.desktop	2013-11-02 17:32:15.000000000 +0100
+@@ -2,9 +2,10 @@
+ Type=Application
+ Name=XML Copy Editor
+ GenericName=XML Editor
++GenericName[hu]=XML szerkesztő
+ Comment=Edit XML documents
+ Exec=xmlcopyeditor %U
+-Icon=xmlcopyeditor.png
++Icon=xmlcopyeditor
+ Terminal=false
+ MimeType=text/xml;
+-Categories=Application;Development;TextEditor;
++Categories=Application;Development;TextEditor;X-UHU-Menu/Tools/Editors;

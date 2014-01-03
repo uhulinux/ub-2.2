@@ -1,0 +1,5 @@
+#!/usr/bin/env dl
+
+python-Levenshtein-${UB_VERSION}.tar.bz2 python-Levenshtein-${UB_VERSION}/
+	http://downloads.sourceforge.net/project/translate/python-Levenshtein/${UB_VERSION}/
+

@@ -1,0 +1,5 @@
+#!/usr/bin/env dl
+
+kblocks-${UB_VERSION}.tar.xz kblocks-${UB_VERSION}/
+	ftp://ftp.kde.org/pub/kde/stable/${UB_VERSION}/src/
+

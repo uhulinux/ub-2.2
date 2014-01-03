@@ -1,0 +1,30 @@
+diff -urN eject-2.1.4.orig/eject.c eject-2.1.4/eject.c
+--- eject-2.1.4.orig/eject.c	2005-12-11 00:45:56.000000000 +0100
++++ eject-2.1.4/eject.c	2006-03-30 17:38:24.000000000 +0200
+@@ -780,9 +780,15 @@
+ static void Unmount(const char *fullName)
+ {
+ 	int status;
++	int fd;
+ 
+ 	switch (fork()) {
+ 	  case 0: /* child */
++		  fd = open("/dev/null", O_WRONLY);
++		  if (fd != 2) {
++			  dup2(fd, 2);
++			  close(2);
++		  }
+ 		  setuid(getuid()); /* reduce likelyhood of security holes when running setuid */
+ 		  if(p_option) {
+ 			  execlp("pumount", "pumount", fullName, "-n", NULL);
+@@ -804,10 +810,6 @@
+ 			  fprintf(stderr, _("%s: unmount of `%s' did not exit normally\n"), programName, fullName);
+ 			  exit(1);
+ 		  }
+-		  if (WEXITSTATUS(status) != 0) {
+-			  fprintf(stderr, _("%s: unmount of `%s' failed\n"), programName, fullName);
+-			  exit(1);
+-		  }
+ 		  break;
+ 	}
+ }

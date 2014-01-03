@@ -1,0 +1,11 @@
+diff -Naur orig/ristretto.desktop.in patched/ristretto.desktop.in
+--- orig/ristretto.desktop.in	2008-10-21 14:07:12.000000000 +0200
++++ patched/ristretto.desktop.in	2010-02-14 19:20:31.000000000 +0100
+@@ -8,6 +8,6 @@
+ Terminal=false
+ Type=Application
+ X-MultipleArgs=false
+-Categories=GTK;Graphics;Viewer;
++Categories=GTK;Graphics;Viewer;X-UHU-Menu/Graphics;
+ StartupNotify=true
+ MimeType=image/png;image/gif;image/jpeg;image/bmp;image/x-ico;image/x-pixmap;image/tiff;

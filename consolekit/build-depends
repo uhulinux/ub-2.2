@@ -1,0 +1,4 @@
+dbus-glib-dev
+eggdbus-dev
+gtk2-dev
+polkit-dev

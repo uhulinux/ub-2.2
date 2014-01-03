@@ -1,0 +1,12 @@
+diff -Naur orig/data/mcm-import.desktop.in patched/data/mcm-import.desktop.in
+--- orig/data/mcm-import.desktop.in	2013-05-23 17:31:36.000000000 +0200
++++ patched/data/mcm-import.desktop.in	2013-10-28 16:09:23.787854651 +0100
+@@ -2,7 +2,7 @@
+ _Name=ICC Profile Installer
+ _Comment=Install ICC profiles
+ Categories=System;
+-Exec=/usr/bin/mcm-import %F
++Exec=mcm-import %F
+ Terminal=false
+ Type=Application
+ OnlyShowIn=MATE;

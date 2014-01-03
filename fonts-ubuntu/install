@@ -1,0 +1,12 @@
+#!/bin/sh -eux
+
+tar xvzf ubuntu-font-family-sources_0.70.1.orig.tar.gz
+cd ubuntu-font-family-sources-0.70.1 
+mkdir -p "$UB_INSTALLDIR"/usr/share/fonts/TTF
+cp -a *.ttf "$UB_INSTALLDIR"/usr/share/fonts/TTF/
+mkfontscale "$UB_INSTALLDIR"/usr/share/fonts/TTF
+sed 1d \
+  <"$UB_INSTALLDIR"/usr/share/fonts/TTF/fonts.scale \
+  >"$UB_INSTALLDIR"/usr/share/fonts/TTF/fonts.scale.ubuntu
+rm "$UB_INSTALLDIR"/usr/share/fonts/TTF/fonts.scale
+cp -a "$UB_INSTALLDIR"/usr/share/fonts/TTF/fonts.{scale,dir}.ubuntu

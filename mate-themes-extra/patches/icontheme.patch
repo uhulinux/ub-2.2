@@ -1,0 +1,58 @@
+diff -Naur orig/desktop-themes/AmbianceBlue/index.theme.in patched/desktop-themes/AmbianceBlue/index.theme.in
+--- orig/desktop-themes/AmbianceBlue/index.theme.in	2013-03-10 00:06:06.000000000 +0100
++++ patched/desktop-themes/AmbianceBlue/index.theme.in	2013-10-28 03:44:40.798561901 +0100
+@@ -7,7 +7,7 @@
+ [X-GNOME-Metatheme]
+ GtkTheme=AmbianceBlue
+ MetacityTheme=AmbianceBlue
+-IconTheme=elementary-mono-dark
++IconTheme=Faenza-Ambiance
+ CursorTheme=dmz
+ ButtonLayout=:minimize,maximize,close
+ 
+diff -Naur orig/desktop-themes/Ambiance-Xfce-LXDE-MATE/index.theme.in patched/desktop-themes/Ambiance-Xfce-LXDE-MATE/index.theme.in
+--- orig/desktop-themes/Ambiance-Xfce-LXDE-MATE/index.theme.in	2013-03-10 00:06:06.000000000 +0100
++++ patched/desktop-themes/Ambiance-Xfce-LXDE-MATE/index.theme.in	2013-10-28 03:46:02.379314864 +0100
+@@ -9,7 +9,7 @@
+ [X-GNOME-Metatheme]
+ GtkTheme=Ambiance-Xfce-LXDE-MATE
+ MetacityTheme=Ambiance-Xfce-LXDE-MATE
+-IconTheme=elementary-mono-dark
++IconTheme=Faenza-Ambiance
+ CursorTheme=dmz
+ ButtonLayout=:minimize,maximize,close
+ 
+diff -Naur orig/desktop-themes/drakfire-dream-black/index.theme.in patched/desktop-themes/drakfire-dream-black/index.theme.in
+--- orig/desktop-themes/drakfire-dream-black/index.theme.in	2013-03-10 00:06:06.000000000 +0100
++++ patched/desktop-themes/drakfire-dream-black/index.theme.in	2013-10-28 03:46:56.719816403 +0100
+@@ -7,5 +7,5 @@
+ [X-GNOME-Metatheme]
+ GtkTheme=drakfire-dream-black
+ MetacityTheme=drakfire-dream-black
+-IconTheme=Humanity
++IconTheme=Faenza
+ CursorTheme=Adwaita
+diff -Naur orig/desktop-themes/RadianceBlue/index.theme.in patched/desktop-themes/RadianceBlue/index.theme.in
+--- orig/desktop-themes/RadianceBlue/index.theme.in	2013-03-10 00:06:06.000000000 +0100
++++ patched/desktop-themes/RadianceBlue/index.theme.in	2013-10-28 03:34:04.312687346 +0100
+@@ -7,7 +7,7 @@
+ [X-GNOME-Metatheme]
+ GtkTheme=RadianceBlue
+ MetacityTheme=RadianceBlue
+-IconTheme=elementary-mono-dark
++IconTheme=Faenza-Radiance
+ CursorTheme=dmz
+ ButtonLayout=:minimize,maximize,close
+ 
+diff -Naur orig/desktop-themes/Radiance-Xfce-LXDE-MATE/index.theme.in patched/desktop-themes/Radiance-Xfce-LXDE-MATE/index.theme.in
+--- orig/desktop-themes/Radiance-Xfce-LXDE-MATE/index.theme.in	2013-03-10 00:06:06.000000000 +0100
++++ patched/desktop-themes/Radiance-Xfce-LXDE-MATE/index.theme.in	2013-10-28 03:34:26.796894870 +0100
+@@ -9,7 +9,7 @@
+ [X-GNOME-Metatheme]
+ GtkTheme=Radiance-Xfce-LXDE-MATE
+ MetacityTheme=Radiance-Xfce-LXDE-MATE
+-IconTheme=elementary-mono-dark
++IconTheme=Faenza-Radiance
+ CursorTheme=dmz
+ ButtonLayout=:minimize,maximize,close
+ 

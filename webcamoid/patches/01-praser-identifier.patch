@@ -1,0 +1,11 @@
+diff -Naur a/Qb/Plugins/Bin/parser/parser.y b/Qb/Plugins/Bin/parser/parser.y
+--- a/Qb/Plugins/Bin/parser/parser.y	2013-12-27 01:39:02.507829573 +0100
++++ b/Qb/Plugins/Bin/parser/parser.y	2013-12-27 01:44:23.175821119 +0100
+@@ -36,7 +36,6 @@
+ }
+ 
+ %error-verbose
+-%define parse.lac full
+ %locations
+ %parse-param {Pipeline *pipelineDescription}
+ 

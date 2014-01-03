@@ -1,0 +1,12 @@
+[Desktop Entry]
+Type=Application
+Version=1.0
+Encoding=UTF-8
+Name=cave9
+GenericName=Underground navigation
+Comment[hu]=földalatti járatban repülés
+Icon=/usr/share/cave9/icon.png
+Exec=cave9
+Terminal=false
+StartupNotify=false
+Categories=Game;ArcadeGame;X-UHU-Menu/Games/Arcade;

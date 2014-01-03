@@ -1,0 +1,4 @@
+#!/bin/sh -eux
+
+#ub_install
+make GLEW_DEST="${UB_INSTALLDIR}/usr" install.all

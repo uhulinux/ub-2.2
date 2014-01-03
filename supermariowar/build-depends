@@ -1,0 +1,6 @@
+imagemagick
+pango-dev
+sdl-dev
+sdl-image-dev
+sdl-mixer-dev
+zlib

@@ -1,0 +1,4 @@
+#!/usr/bin/env dl
+
+gst-plugins-farsight-${UB_VERSION}.tar.gz gst-plugins-farsight-${UB_VERSION}/
+	http://freedesktop.org/software/farstream/releases/obsolete/gst-plugins-farsight/

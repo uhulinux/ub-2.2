@@ -1,0 +1,14 @@
+#!/bin/sh -eux
+
+mkdir -p ${UB_INSTALLDIR}/usr/share/desktoptheme
+mkdir -p ${UB_INSTALLDIR}/usr/share/kdm/themes
+mkdir -p ${UB_INSTALLDIR}/usr/share/ksplash/Themes
+mkdir -p ${UB_INSTALLDIR}/usr/share/color-schemes
+cp Caledonia.colors ${UB_INSTALLDIR}/usr/share/color-schemes
+tar -xf Caledonia-KDM.tar.gz -C ${UB_INSTALLDIR}/usr/share/kdm/themes
+tar -xf 143576-Caledonia-KSplash.tar.gz -C ${UB_INSTALLDIR}/usr/share/ksplash/Themes
+tar -xf Caledonia.tar.gz -C ${UB_INSTALLDIR}/usr/share/desktoptheme
+tar -xf Caledonia_Official_Wallpaper_Collection.tar.gz
+rm Caledonia_Official_Wallpaper_Collection/README
+mv Caledonia_Official_Wallpaper_Collection ${UB_INSTALLDIR}/usr/share/wallpapers
+rm -f ${UB_INSTALLDIR}/usr/share/kdm/themes/Caledonia-KDM/branding.png

@@ -1,0 +1,24 @@
+diff -Naur orig/Makefile.am patched/Makefile.am
+--- orig/Makefile.am	2013-08-19 18:57:25.000000000 +0200
++++ patched/Makefile.am	2013-12-27 21:22:49.071217792 +0100
+@@ -249,7 +249,7 @@
+ 			client/main.c
+ 
+ client_connmanctl_LDADD = gdbus/libgdbus-internal.la @DBUS_LIBS@ @GLIB_LIBS@ \
+-				-lreadline -ldl
++				-lreadline -lncurses -ldl
+ endif
+ 
+ noinst_PROGRAMS += unit/test-pbkdf2-sha1 unit/test-prf-sha1 unit/test-ippool
+diff -Naur orig/Makefile.in patched/Makefile.in
+--- orig/Makefile.in	2013-12-05 08:12:54.000000000 +0100
++++ patched/Makefile.in	2013-12-27 21:21:48.542659129 +0100
+@@ -1249,7 +1249,7 @@
+ @CLIENT_TRUE@			client/main.c
+ 
+ @CLIENT_TRUE@client_connmanctl_LDADD = gdbus/libgdbus-internal.la @DBUS_LIBS@ @GLIB_LIBS@ \
+-@CLIENT_TRUE@				-lreadline -ldl
++@CLIENT_TRUE@	-lreadline -lncurses -ldl
+ 
+ unit_test_pbkdf2_sha1_SOURCES = unit/test-pbkdf2-sha1.c \
+ 				src/shared/sha1.h src/shared/sha1.c

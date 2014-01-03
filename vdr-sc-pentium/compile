@@ -1,0 +1,19 @@
+#!/bin/sh -eux
+mkdir vdr
+cp -r /usr/src/vdr/* vdr/
+rm -r vdr/PLUGINS/src
+mkdir -p vdr/PLUGINS/src
+mv sc vdr/PLUGINS/src/
+cd vdr/PLUGINS/src/sc/
+#ls
+#sed -i "s/pentium/pentium4/" Makefile
+#sed -i "s/PARALLEL_32_INT/PARALLEL_64_MMX/" Makefile
+cd ../../..
+make  CONFDIR=/var/vdr/config \
+	LOCDIR=/usr/share/locale \
+	MANDIR="$UB_INSTALLDIR"/usr/share/man \
+	BINDIR=/usr/bin \
+	VIDEODIR=/var/vdr/video \
+	PLUGINLIBDIR=/usr/lib/vdr \
+  plugins
+#	VDRDIR=/usr

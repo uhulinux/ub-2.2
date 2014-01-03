@@ -1,0 +1,11 @@
+clutter-dev
+gconf2-dev
+gnome-doc-utils
+gobject-introspection-dev
+gsettings-desktop-schemas
+gtk3-dev
+intltool
+libcanberra-dev
+startup-notification-dev
+xcb-util-dev
+zenity

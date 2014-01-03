@@ -1,0 +1,9 @@
+diff -Naur orig/src/amarok.desktop patched/src/amarok.desktop
+--- orig/src/amarok.desktop	2012-08-11 11:09:36.000000000 +0200
++++ patched/src/amarok.desktop	2012-12-26 13:16:23.619525906 +0100
+@@ -219,4 +219,4 @@
+ X-KDE-Keywords[zh_TW]=music,podcast
+ X-KDE-Protocols=http
+ Terminal=false
+-Categories=Qt;KDE;AudioVideo;Audio;Player;
++Categories=Qt;KDE;AudioVideo;Audio;Player;X-UHU-Menu/Multimedia/MusicPlayers;

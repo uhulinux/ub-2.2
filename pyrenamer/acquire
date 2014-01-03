@@ -1,0 +1,4 @@
+#!/usr/bin/env dl
+
+pyrenamer-${UB_VERSION}.tar.gz pyrenamer-${UB_VERSION}/
+    http://www.infinicode.org/code/pyrenamer/

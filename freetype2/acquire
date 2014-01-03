@@ -1,0 +1,9 @@
+#!/usr/bin/env dl
+
+freetype-${UB_VERSION}.tar.bz2 freetype-${UB_VERSION}/
+	http://savannah.nongnu.org/download/freetype/
+	http://downloads.sourceforge.net/freetype/
+
+ft2demos-${UB_VERSION}.tar.bz2 .
+	http://savannah.nongnu.org/download/freetype/
+	http://downloads.sourceforge.net/freetype/

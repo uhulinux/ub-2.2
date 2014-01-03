@@ -1,0 +1,10 @@
+gtk2-dev
+intltool
+libcanberra-dev
+libgtop2-dev
+libsm-dev
+mate-common
+mate-dialogs
+mate-doc-utils
+startup-notification-dev
+xcb-util-dev

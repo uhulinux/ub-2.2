@@ -1,0 +1,90 @@
+diff -Naurd a/sound/usb/pcm.c b/sound/usb/pcm.c
+--- a/sound/usb/pcm.c	2012-07-09 21:22:26.000000000 +0200
++++ b/sound/usb/pcm.c	2012-07-09 21:24:44.522720692 +0200
+@@ -354,17 +354,21 @@
+ 		    (get_endpoint(alts, 1)->bLength >= USB_DT_ENDPOINT_AUDIO_SIZE &&
+ 		     get_endpoint(alts, 1)->bSynchAddress != 0 &&
+ 		     !implicit_fb)) {
+-			snd_printk(KERN_ERR "%d:%d:%d : invalid synch pipe\n",
+-				   dev->devnum, fmt->iface, fmt->altsetting);
++			snd_printk(KERN_ERR "%d:%d:%d : invalid sync pipe. bmAttributes %02x, bLength %d, bSynchAddress %02x\n",
++				   dev->devnum, fmt->iface, fmt->altsetting,
++				   get_endpoint(alts, 1)->bmAttributes,
++				   get_endpoint(alts, 1)->bLength,
++				   get_endpoint(alts, 1)->bSynchAddress);
+ 			return -EINVAL;
+ 		}
+ 		ep = get_endpoint(alts, 1)->bEndpointAddress;
+-		if (get_endpoint(alts, 0)->bLength >= USB_DT_ENDPOINT_AUDIO_SIZE &&
++		if (!implicit_fb &&
++		    get_endpoint(alts, 0)->bLength >= USB_DT_ENDPOINT_AUDIO_SIZE &&
+ 		    (( is_playback && ep != (unsigned int)(get_endpoint(alts, 0)->bSynchAddress | USB_DIR_IN)) ||
+-		     (!is_playback && ep != (unsigned int)(get_endpoint(alts, 0)->bSynchAddress & ~USB_DIR_IN)) ||
+-		     ( is_playback && !implicit_fb))) {
+-			snd_printk(KERN_ERR "%d:%d:%d : invalid synch pipe\n",
+-				   dev->devnum, fmt->iface, fmt->altsetting);
++		     (!is_playback && ep != (unsigned int)(get_endpoint(alts, 0)->bSynchAddress & ~USB_DIR_IN)))) {
++			snd_printk(KERN_ERR "%d:%d:%d : invalid sync pipe. is_playback %d, ep %02x, bSynchAddress %02x\n",
++				   dev->devnum, fmt->iface, fmt->altsetting,
++				   is_playback, ep, get_endpoint(alts, 0)->bSynchAddress);
+ 			return -EINVAL;
+ 		}
+ 
+@@ -474,6 +478,11 @@
+ 		mutex_unlock(&subs->stream->chip->shutdown_mutex);
+ 	}
+ 
++	if (ret == 0) {
++		subs->interface = fmt->iface;
++		subs->altset_idx = fmt->altset_idx;
++	}
++
+ 	return ret;
+ }
+ 
+@@ -1126,20 +1135,24 @@
+ 	case SNDRV_PCM_TRIGGER_PAUSE_RELEASE:
+ 		subs->data_endpoint->prepare_data_urb = prepare_playback_urb;
+ 		subs->data_endpoint->retire_data_urb = retire_playback_urb;
++		subs->running = 1;
+ 		return 0;
+ 	case SNDRV_PCM_TRIGGER_STOP:
+ 		stop_endpoints(subs, 0, 0, 0);
++		subs->running = 0;
+ 		return 0;
+ 	case SNDRV_PCM_TRIGGER_PAUSE_PUSH:
+ 		subs->data_endpoint->prepare_data_urb = NULL;
+ 		subs->data_endpoint->retire_data_urb = NULL;
++		subs->running = 0;
+ 		return 0;
+ 	}
+ 
+ 	return -EINVAL;
+ }
+ 
+-int snd_usb_substream_capture_trigger(struct snd_pcm_substream *substream, int cmd)
++static int snd_usb_substream_capture_trigger(struct snd_pcm_substream *substream,
++					     int cmd)
+ {
+ 	int err;
+ 	struct snd_usb_substream *subs = substream->runtime->private_data;
+@@ -1151,15 +1164,19 @@
+ 			return err;
+ 
+ 		subs->data_endpoint->retire_data_urb = retire_capture_urb;
++		subs->running = 1;
+ 		return 0;
+ 	case SNDRV_PCM_TRIGGER_STOP:
+ 		stop_endpoints(subs, 0, 0, 0);
++		subs->running = 0;
+ 		return 0;
+ 	case SNDRV_PCM_TRIGGER_PAUSE_PUSH:
+ 		subs->data_endpoint->retire_data_urb = NULL;
++		subs->running = 0;
+ 		return 0;
+ 	case SNDRV_PCM_TRIGGER_PAUSE_RELEASE:
+ 		subs->data_endpoint->retire_data_urb = retire_capture_urb;
++		subs->running = 1;
+ 		return 0;
+ 	}
+ 

@@ -1,0 +1,7 @@
+#!/bin/sh -eux
+
+rm -Rf Flieder-theme/Wallpapers
+rm Flieder-theme/gnome-shell/preview.jpg
+celdir="$UB_INSTALLDIR"/usr/share/themes/
+mkdir -p "$celdir"
+cp -R Flieder-theme "$celdir"/

@@ -1,0 +1,10 @@
+#!/bin/sh -eux
+
+cd build/workspaces
+./update-workspaces.sh \
+      --with-system-enet \
+      --bindir=/usr/bin \
+      --libdir=/usr/lib \
+      --datadir=/usr/share/0ad/data
+cd gcc
+make CONFIG=Release -j3

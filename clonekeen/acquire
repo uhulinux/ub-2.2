@@ -1,0 +1,8 @@
+#!/usr/bin/env dl
+clonekeen-src-${UB_VERSION}.tar.gz	keen/
+  http://clonekeen.sourceforge.net/files/
+
+1keen131.zip  . :data
+  http://clonekeen.sourceforge.net/files/
+
+#http://clonekeen.sourceforge.net/files/clonekeen-src-84.tar.gz

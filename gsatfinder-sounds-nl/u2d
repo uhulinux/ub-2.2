@@ -1,0 +1,1 @@
+urllist http://download.tuxfamily.org/gsf/source/ | splitver '^gsf-sounds-nl-([0-9.]+).tar.bz2$'

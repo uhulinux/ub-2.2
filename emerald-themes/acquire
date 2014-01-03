@@ -1,0 +1,4 @@
+#!/usr/bin/env dl
+
+emerald-themes-${UB_VERSION}.tar.bz2 emerald-themes-${UB_VERSION}/
+	http://cgit.compiz.org/fusion/decorators/emerald-themes/snapshot/

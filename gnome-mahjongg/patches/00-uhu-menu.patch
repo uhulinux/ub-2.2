@@ -1,0 +1,11 @@
+--- a/data/mahjongg.desktop.in.in.orig	2013-02-28 20:43:48.000000000 +0100
++++ a/data/mahjongg.desktop.in.in	2013-02-28 20:45:17.000000000 +0100
+@@ -6,7 +6,7 @@
+ Icon=gnome-mahjongg
+ Terminal=false
+ Type=Application
+-Categories=GNOME;GTK;Game;BoardGame;
++Categories=GNOME;GTK;Game;BoardGame;X-UHU-Menu/Games/Board;
+ X-GNOME-Bugzilla-Bugzilla=GNOME
+ X-GNOME-Bugzilla-Product=gnome-games
+ X-GNOME-Bugzilla-Component=BugBuddyBugs

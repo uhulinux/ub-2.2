@@ -1,0 +1,30 @@
+diff -Naur a/kcron-4.11.1/src/kcm_cron.desktop b/kcron-4.11.1/src/kcm_cron.desktop
+--- a/kcron-4.11.1/src/kcm_cron.desktop	2013-07-10 01:43:51.000000000 +0200
++++ b/kcron-4.11.1/src/kcm_cron.desktop	2013-08-19 11:29:13.964002762 +0200
+@@ -167,4 +167,4 @@
+ X-KDE-Keywords[x-test]=xxcron,crontab,scheduled,tasks,task,schedule,vixiexx
+ X-KDE-Keywords[zh_CN]=cron,crontab,scheduled,tasks,task,schedule,vixie,计划,计划任务,任务
+ X-KDE-Keywords[zh_TW]=cron,crontab,scheduled,tasks,task,schedule,vixie
+-Categories=Qt;KDE;X-KDE-settings-system;
++Categories=Qt;KDE;X-KDE-settings-system;X-UHU-Menu/Settings;
+diff -Naur a/ksystemlog-4.11.1/src/ksystemlog.desktop b/ksystemlog-4.11.1/src/ksystemlog.desktop
+--- a/ksystemlog-4.11.1/src/ksystemlog.desktop	2013-07-10 01:43:55.000000000 +0200
++++ b/ksystemlog-4.11.1/src/ksystemlog.desktop	2013-08-19 11:25:17.712008991 +0200
+@@ -56,7 +56,7 @@
+ Name[x-test]=xxKSystemLogxx
+ Name[zh_CN]=KSystemLog
+ Name[zh_TW]=KSystemLog
+-Categories=Qt;KDE;System;Monitor;
++Categories=Qt;KDE;System;Monitor;X-UHU-Menu/Tools/Utilities;
+ X-KDE-SubstituteUID=true
+ Exec=ksystemlog %i -caption %c
+ Icon=utilities-log-viewer
+diff -Naur a/kuser-4.11.1/kuser.desktop b/kuser-4.11.1/kuser.desktop
+--- a/kuser-4.11.1/kuser.desktop	2013-07-10 01:43:58.000000000 +0200
++++ b/kuser-4.11.1/kuser.desktop	2013-08-19 11:25:45.872008248 +0200
+@@ -163,4 +163,4 @@
+ Terminal=false
+ X-KDE-StartupNotify=true
+ X-KDE-SubstituteUID=true
+-Categories=Qt;KDE;System;
++Categories=Qt;KDE;System;X-UHU-Menu/Settings;

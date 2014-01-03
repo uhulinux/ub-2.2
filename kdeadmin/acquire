@@ -1,0 +1,10 @@
+#!/usr/bin/env dl
+
+kuser-${UB_VERSION}.tar.xz .
+	ftp://ftp.kde.org/pub/kde/stable/${UB_VERSION}/src/
+
+ksystemlog-${UB_VERSION}.tar.xz .
+	ftp://ftp.kde.org/pub/kde/stable/${UB_VERSION}/src/
+	
+kcron-${UB_VERSION}.tar.xz .
+	ftp://ftp.kde.org/pub/kde/stable/${UB_VERSION}/src/

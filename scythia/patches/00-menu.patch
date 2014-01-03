@@ -1,0 +1,30 @@
+diff -Naur a/src/scythia.desktop b/src/scythia.desktop
+--- a/src/scythia.desktop	2007-06-29 20:55:23.000000000 +0200
++++ b/src/scythia.desktop	2013-06-05 17:06:13.076018009 +0200
+@@ -1,19 +1,19 @@
+ [Desktop Entry]
+ Comment=A simple FTP client
+ Comment[fr]=Un client FTP relativement simple
++Comment[hu]=Adatok FTP fel és letöltése
+ Encoding=UTF-8
+ Exec=scythia
+-GenericName=
+-GenericName[fr]=
++GenericName=FTP client
++GenericName[fr]=Client FTP
++GenericName[hu]=FTP kliens
+ Icon=scythia
+-MimeType=
+ Name=Scythia - FTP Client
+ Name[fr]=Scythia - Client FTP
+-Path=
++Name[hu]=Scythia - FTP kliens
+ StartupNotify=true
+ Terminal=false
+ TerminalOptions=
+ Type=Application
+-X-DCOP-ServiceType=
+-X-KDE-SubstituteUID=false
+-X-KDE-Username=
++Categories=Network;FileTransfer;X-UHU-Menu/Internet/Downloaders;
++Version=1.0

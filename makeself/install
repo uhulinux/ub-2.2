@@ -1,0 +1,11 @@
+#!/bin/sh -eux
+
+#ub_install
+mkdir -p ${UB_INSTALLDIR}/usr/share/doc/Packages/makeself/
+cd makeself-${UB_VERSION}
+install -m 755 makeself.sh makeself-header.sh ${UB_INSTALLDIR}/usr/bin/
+install -m 644 makeself.1 ${UB_INSTALLDIR}/usr/share/man/man1/
+install -m 644 COPYING README TODO ${UB_INSTALLDIR}/usr/share/doc/Packages/makeself/
+cd ${UB_INSTALLDIR}/usr/bin/
+ln -s makeself.sh makeself
+ln -s makeself-header.sh makeself-header

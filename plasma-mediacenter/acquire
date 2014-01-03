@@ -1,0 +1,5 @@
+#!/usr/bin/env dl
+
+plasma-mediacenter-${UB_VERSION}.tar.bz2 plasma-mediacenter/
+	ftp://ftp.kde.org/pub/kde/stable/plasma-mediacenter/${UB_VERSION}/src/
+

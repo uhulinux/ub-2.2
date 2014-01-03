@@ -1,0 +1,4 @@
+#!/usr/bin/env dl
+
+epiphany-extensions-${UB_VERSION}.tar.xz epiphany-extensions-${UB_VERSION}/
+	ftp://ftp.gnome.org/pub/GNOME/sources/epiphany-extensions/${UB_VERSION_HEAD2}/

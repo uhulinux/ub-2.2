@@ -1,0 +1,7 @@
+[Desktop Entry]
+Encoding=UTF-8
+Categories=X-UHU-Menu/Games/Action;
+Exec=SDLInvaders
+Icon=fighter
+Name=SDL Invaders
+Type=Application

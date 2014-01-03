@@ -1,0 +1,16 @@
+diff -Naur lxde-common-0.5.5-ori/LXDE.desktop.in lxde-common-0.5.5/LXDE.desktop.in
+--- lxde-common-0.5.5-ori/LXDE.desktop.in	2011-07-29 16:04:03.000000000 +0200
++++ lxde-common-0.5.5/LXDE.desktop.in	2013-05-12 09:59:46.227630423 +0200
+@@ -4,10 +4,11 @@
+ Name=LXDE
+ Comment=LXDE - Lightweight X11 desktop environment
+ Comment[de]=LXDE - Leichtgewichtige X11 Desktop-Umgebung
++Comment[hu]=LXDE - Pehelysúlyú X11 környezet
+ Comment[fi]=LXDE - kevyt X11-työpöytäympäristö
+ Comment[ja]=LXDE - 軽量な X11 デスクトップ環境
+ Comment[pt]=LXDE - Ambiente de trabalho X11 leve
+ Comment[zh_TW]=LXDE - 輕量級的 X11 桌面環境
+ Exec=@prefix@/bin/startlxde
+ # Icon=
+-Type=Application
++Type=XSession

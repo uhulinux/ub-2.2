@@ -1,0 +1,10 @@
+#!/usr/bin/env dl
+
+oolite-source-${UB_VERSION}.tar.bz2 oolite-source-${UB_VERSION}/
+	http://download.berlios.de/oolite-linux/
+
+firefox-4.0.source.js-only.tbz mozilla-2.0/js/ :deps/Cross-platform-deps/mozilla/
+	http://jens.ayton.se/oolite/deps/firefox-4.0.source.js-only.tbz
+
+firefox-4.0.source.js-only.tbz mozilla-2.0/nsprpub/ :deps/Cross-platform-deps/mozilla/
+	http://jens.ayton.se/oolite/deps/firefox-4.0.source.js-only.tbz

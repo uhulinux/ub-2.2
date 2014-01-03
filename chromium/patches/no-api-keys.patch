@@ -1,0 +1,26 @@
+diff -Naur orig/chrome/browser/ui/startup/startup_browser_creator_impl.cc patched/chrome/browser/ui/startup/startup_browser_creator_impl.cc
+--- orig/chrome/browser/ui/startup/startup_browser_creator_impl.cc	2013-11-08 07:40:41.000000000 +0100
++++ patched/chrome/browser/ui/startup/startup_browser_creator_impl.cc	2013-11-13 15:12:26.607612757 +0100
+@@ -63,8 +63,6 @@
+ #include "chrome/browser/ui/startup/autolaunch_prompt.h"
+ #include "chrome/browser/ui/startup/bad_flags_prompt.h"
+ #include "chrome/browser/ui/startup/default_browser_prompt.h"
+-#include "chrome/browser/ui/startup/google_api_keys_infobar_delegate.h"
+-#include "chrome/browser/ui/startup/obsolete_os_infobar_delegate.h"
+ #include "chrome/browser/ui/startup/session_crashed_infobar_delegate.h"
+ #include "chrome/browser/ui/startup/startup_browser_creator.h"
+ #include "chrome/browser/ui/tabs/pinned_tab_codec.h"
+@@ -875,13 +873,6 @@
+   // so we cannot add the info bars to the focused tabs here.
+   if (is_process_startup == chrome::startup::IS_PROCESS_STARTUP) {
+     chrome::ShowBadFlagsPrompt(browser);
+-    if (!command_line_.HasSwitch(switches::kTestType)) {
+-      GoogleApiKeysInfoBarDelegate::Create(InfoBarService::FromWebContents(
+-          browser->tab_strip_model()->GetActiveWebContents()));
+-    }
+-
+-    ObsoleteOSInfoBarDelegate::Create(InfoBarService::FromWebContents(
+-        browser->tab_strip_model()->GetActiveWebContents()));
+ 
+ #if !defined(OS_CHROMEOS)
+     if (!command_line_.HasSwitch(switches::kNoDefaultBrowserCheck)) {

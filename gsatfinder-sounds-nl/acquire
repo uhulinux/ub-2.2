@@ -1,0 +1,5 @@
+#!/usr/bin/env dl
+
+gsf-sounds-nl-${UB_VERSION}.tar.bz2 gsf-sounds-nl-${UB_VERSION}/
+http://download.tuxfamily.org/gsf/source/
+	

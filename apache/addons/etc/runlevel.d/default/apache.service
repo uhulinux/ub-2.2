@@ -1,0 +1,10 @@
+Summary=Apache Web Server
+Summary[hu]=Apache webszerver
+Description=Server providing access to web pages.
+Description[hu]=Weblapok kiszolgálását végző szerver.
+MsgDesc=Apache Web Server
+MsgDesc[hu]=Apache webszerver
+Script=/etc/init.d/apache
+SupportsReload=no
+Runlevels=
+Sequence=20

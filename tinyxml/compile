@@ -1,0 +1,17 @@
+#!/bin/sh -eux
+pkgname=tinyxml
+pkgver=$UB_VERSION
+
+ # Fix Makefile
+  sed -i \
+    -e '/^TINYXML_USE_STL/ s|=.*|=YES|' Makefile 
+#\
+ # sed -i -e "s|^RELEASE_CFLAGS.*|& ${CXXFLAGS} -fPIC|" Makefile
+
+#  make
+#  g++ -fPIC ${CXXFLAGS} -shared -o lib${pkgname}.so.0.$pkgver \
+ #     -Wl,-soname,lib${pkgname}.so.0 $(ls *.o | grep -v xmltest)
+
+make
+g++ -fPIC -Wall -Wno-unknown-pragmas -Wno-format -O3 -shared -o lib${pkgname}.so.0.$pkgver \
+     -Wl,-soname,lib${pkgname}.so.0 $(ls *.o | grep -v xmltest)

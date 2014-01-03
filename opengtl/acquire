@@ -1,0 +1,4 @@
+#!/usr/bin/env dl
+
+OpenGTL-${UB_VERSION}.tar.bz2 OpenGTL-${UB_VERSION}/
+	http://download.opengtl.org/

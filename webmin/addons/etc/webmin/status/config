@@ -1,0 +1,8 @@
+snmp_version=2
+index_status=1
+columns=2
+snmp_trap=1.3.6.1.4.1.10000.1.1
+pager_cmd=yaps
+output=0
+sort_mode=0
+subject_mode=0

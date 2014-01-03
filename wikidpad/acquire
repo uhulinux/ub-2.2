@@ -1,0 +1,5 @@
+#!/usr/bin/env dl
+
+WikidPad-${UB_VERSION}rc07_1-src.zip .
+	http://wikidpad.mbutscher.de/
+	http://download.sourceforge.net/wikidpad/${UB_VERSION}/

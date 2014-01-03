@@ -1,0 +1,8 @@
+[Desktop Entry]
+Encoding=UTF-8
+Type=Application
+Name=QT Designer
+Comment=QT Designer
+Comment[hu]=QT fejlesztőeszköz
+Exec=designer
+Categories=X-UHU-Menu/Development/Programming;

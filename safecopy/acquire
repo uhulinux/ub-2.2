@@ -1,0 +1,4 @@
+#!/usr/bin/env dl
+
+safecopy-"$UB_VERSION".tar.gz safecopy-"$UB_VERSION"/
+      http://downloads.sourceforge.net/safecopy/

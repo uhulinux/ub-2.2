@@ -1,0 +1,4 @@
+	/usr/lib/lib-org-w3c-dom.so.*
+	/usr/lib/lib-org-xml-sax.so.*
+	/usr/lib/libgcj.so.*
+	/usr/share/java/libgcj-*.jar

@@ -1,0 +1,12 @@
+#!/bin/sh -eux
+
+mkdir -p "$UB_INSTALLDIR"/usr/share/skype/
+cp -a lang "$UB_INSTALLDIR"/usr/share/skype/
+cp -a sounds "$UB_INSTALLDIR"/usr/share/skype/
+cp -a avatars "$UB_INSTALLDIR"/usr/share/skype/
+cp skype.desktop "$UB_INSTALLDIR"/usr/lib/applications
+cp icons/SkypeBlue_48x48.png "$UB_INSTALLDIR"/usr/share/pixmaps/skype.png
+cp skype "$UB_INSTALLDIR"/usr/bin/
+mkdir -p "$UB_INSTALLDIR"/etc/dbus-1/system.d/
+cp skype.conf "$UB_INSTALLDIR"/etc/dbus-1/system.d/
+ln -s /usr/lib/libtiffxx.so.3.9.2 "$UB_INSTALLDIR"/usr/lib/libtiff.so.4

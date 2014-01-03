@@ -1,0 +1,11 @@
+diff -urN kdelibs-3.1.1.orig/kio/kio/kdirwatch.cpp kdelibs-3.1.1/kio/kio/kdirwatch.cpp
+--- kdelibs-3.1.1.orig/kio/kio/kdirwatch.cpp	2003-03-02 20:02:24.000000000 +0100
++++ kdelibs-3.1.1/kio/kio/kdirwatch.cpp	2003-03-29 19:59:41.000000000 +0100
+@@ -1376,7 +1376,6 @@
+ 
+ void KDirWatch::setDirty( const QString & _file )
+ {
+-  kdDebug(7001) << name() << " emitting dirty " << _file << endl;
+   emit dirty( _file );
+ }
+ 

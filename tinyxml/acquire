@@ -1,0 +1,4 @@
+#!/usr/bin/env dl
+
+tinyxml_${UB_VERSION//./_}.zip tinyxml/
+	http://downloads.sourceforge.net/tinyxml/

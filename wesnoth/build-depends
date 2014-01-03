@@ -1,0 +1,17 @@
+boost-dev
+cmake
+dbus-dev
+fribidi-dev
+libogg-dev
+libsm-dev
+libvorbis-dev
+libxslt
+lua-dev
+pango-dev
+python-dev
+ruby
+sdl-dev
+sdl-image-dev
+sdl-mixer-dev
+sdl-net-dev
+sdl-ttf-dev

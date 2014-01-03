@@ -1,0 +1,13 @@
+cmake
+curl-dev
+dbus-dev
+dbus-glib-dev
+gtk2-dev
+gtk3-dev
+gtkglext-dev
+intltool
+libgsf-dev
+librsvg2-dev
+libxinerama-dev
+libxml2-dev
+libxtst-dev

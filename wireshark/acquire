@@ -1,0 +1,5 @@
+#!/usr/bin/env dl
+
+wireshark-${UB_VERSION}.tar.bz2 wireshark-${UB_VERSION}/
+	http://www.wireshark.org/download/src/
+	http://www.wireshark.org/download/src/all-versions/

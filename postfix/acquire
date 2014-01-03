@@ -1,0 +1,5 @@
+#!/usr/bin/env dl
+
+postfix-${UB_VERSION}.tar.gz postfix-${UB_VERSION}/
+	ftp://ftp.kfki.hu/pub/packages/mail/postfix/official/
+	ftp://ftp.porcupine.org/mirrors/postfix-release/official/

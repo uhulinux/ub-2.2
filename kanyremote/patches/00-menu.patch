@@ -1,0 +1,12 @@
+diff -Naur a/kanyremote.desktop b/kanyremote.desktop
+--- a/kanyremote.desktop	2013-08-12 18:55:27.000000000 +0200
++++ b/kanyremote.desktop	2013-08-20 10:30:07.937577641 +0200
+@@ -16,7 +16,7 @@
+ GenericName[ru]=Пульт управления по Bluetooth для KDE
+ GenericName[sk]=Bluetooth Diaľkové ovládanie KDE
+ GenericName[xx]=xxBluetooth Remote Control for KDExx
+-Categories=Utility;
++Categories=Utility;X-UHU-Menu/Tools/Utilities;
+ OnlyShowIn=KDE;
+ Comment=Bluetooth remote control for KDE
+ Comment[bg]=Bluetooth дистационно управление за KDE

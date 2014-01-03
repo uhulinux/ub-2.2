@@ -1,0 +1,11 @@
+#!/bin/sh -eux
+
+mkdir "$UB_INSTALLDIR"/usr/lib/qt4/
+mkdir "$UB_INSTALLDIR"/usr/lib/qt4/lib/
+ln -s /usr/lib/qt4/lib/libQtOpenGL.so "$UB_INSTALLDIR"/usr/lib/qt4/lib/libQtOpenGLXn.so.4
+rm -f xnview.sh
+rm -f xnview.png
+rm -f xnview_2.png
+rm -f XnView.desktop
+mkdir -p "$UB_INSTALLDIR"/usr/lib/xnview/
+cp -ar . "$UB_INSTALLDIR"/usr/lib/xnview/

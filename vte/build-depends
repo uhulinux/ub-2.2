@@ -1,0 +1,6 @@
+gnome-common
+gtk2-dev
+intltool
+pygobject-dev
+pygtk-dev
+python-dev

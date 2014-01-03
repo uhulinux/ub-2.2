@@ -1,0 +1,4 @@
+#!/usr/bin/env dl
+
+pyside-tools-${UB_VERSION}.tar.bz2 pyside-tools-${UB_VERSION}/
+	http://www.pyside.org/files/

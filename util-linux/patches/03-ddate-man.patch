@@ -1,0 +1,11 @@
+diff -urN util-linux-2.11z.orig/misc-utils/ddate.1 util-linux-2.11z/misc-utils/ddate.1
+--- util-linux-2.11z.orig/misc-utils/ddate.1	1999-07-09 04:56:38.000000000 +0200
++++ util-linux-2.11z/misc-utils/ddate.1	2003-04-03 22:52:16.000000000 +0200
+@@ -51,7 +51,6 @@
+ words "St. Tib's Day" if the current day is St. Tib's Day.
+ .IP %\.
+ Try it and see.
+-.bp
+ .SH EXAMPLES
+ .nf
+ % ddate

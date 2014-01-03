@@ -1,0 +1,21 @@
+[Desktop Entry]
+Categories=X-UHU-Menu/Internet/Email;
+Comment[hu]=E-mail kliens
+Comment=E-mail kliens
+Encoding=UTF-8
+Exec=thunderbird
+GenericName[hu]=E-mail kliens
+GenericName=E-mail kliens
+Icon=thunderbird
+MimeType=
+Name[hu]=Thunderbird
+Name=Thunderbird
+Path=
+StartupNotify=true
+Terminal=false
+TerminalOptions=
+Type=Application
+X-DBUS-ServiceName=
+X-DBUS-StartupType=
+X-KDE-SubstituteUID=false
+X-KDE-Username=

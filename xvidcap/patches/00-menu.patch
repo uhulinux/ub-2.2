@@ -1,0 +1,16 @@
+diff -Naur xvidcap-1.1.7-ori/xvidcap.desktop xvidcap-1.1.7/xvidcap.desktop
+--- xvidcap-1.1.7-ori/xvidcap.desktop	2006-09-19 08:55:21.000000000 +0200
++++ xvidcap-1.1.7/xvidcap.desktop	2011-03-02 15:10:25.553036125 +0100
+@@ -3,10 +3,11 @@
+ Encoding=UTF-8
+ Name=XVidCap Screen Capture
+ GenericName=X11 Screencam
++GenricName[hu]=X11 Képernyőkamera
+ Comment=X11 Screencam
+ Comment[de]=X11 Videoaufnahme
+ Icon=xvidcap.png
+ TryExec=xvidcap
+ Exec=xvidcap
+ Terminal=false
+-Categories=GTK;Application;AudioVideo;Video;
++Categories=GTK;Application;AudioVideo;Video;X-UHU-Menu/Multimedia/More;

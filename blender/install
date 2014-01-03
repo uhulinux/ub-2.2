@@ -1,0 +1,18 @@
+#!/bin/sh -eux
+
+ln -s /usr/lib/libtk8.5.so ${UB_INSTALLDIR}/usr/lib/libtk8.5.so.0
+ln -s /usr/lib/libtcl8.5.so ${UB_INSTALLDIR}/usr/lib/libtcl8.5.so.0
+ln -s /usr/lib/liblzma.so.0 ${UB_INSTALLDIR}/usr/lib/liblzma.so.2
+mkdir -p ${UB_INSTALLDIR}/usr/share/blender
+cp -R 2.68 ${UB_INSTALLDIR}/usr/share/blender
+cp -R lib ${UB_INSTALLDIR}/usr/share/blender
+cp blender ${UB_INSTALLDIR}/usr/share/blender
+cp blenderplayer ${UB_INSTALLDIR}/usr/share/blender
+mkdir -p "$UB_INSTALLDIR"/usr/share/icons/hicolor/{16x16,22x22,24x24,32x32,48x48,256x256,scalable}/apps
+cp icons/16x16/apps/blender.png    "$UB_INSTALLDIR"/usr/share/icons/hicolor/16x16/apps/
+cp icons/22x22/apps/blender.png    "$UB_INSTALLDIR"/usr/share/icons/hicolor/22x22/apps/
+cp icons/24x24/apps/blender.png    "$UB_INSTALLDIR"/usr/share/icons/hicolor/24x24/apps/
+cp icons/32x32/apps/blender.png    "$UB_INSTALLDIR"/usr/share/icons/hicolor/32x32/apps/
+cp icons/48x48/apps/blender.png    "$UB_INSTALLDIR"/usr/share/icons/hicolor/48x48/apps/
+cp icons/256x256/apps/blender.png    "$UB_INSTALLDIR"/usr/share/icons/hicolor/256x256/apps/
+cp icons/scalable/apps/blender.svg "$UB_INSTALLDIR"/usr/share/icons/hicolor/scalable/apps/

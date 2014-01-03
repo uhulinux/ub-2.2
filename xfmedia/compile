@@ -1,0 +1,7 @@
+#!/bin/sh -eux
+
+rm -f configure
+xdt-autogen
+ub_compile
+
+

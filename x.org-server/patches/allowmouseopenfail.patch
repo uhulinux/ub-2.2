@@ -1,0 +1,12 @@
+diff -Naur orig/hw/xfree86/common/xf86Globals.c patched/hw/xfree86/common/xf86Globals.c
+--- orig/hw/xfree86/common/xf86Globals.c	2012-05-17 19:09:03.000000000 +0200
++++ patched/hw/xfree86/common/xf86Globals.c	2012-06-19 18:41:19.945892042 +0200
+@@ -189,7 +189,7 @@
+ Bool xf86FlipPixels = FALSE;
+ Gamma xf86Gamma = { 0.0, 0.0, 0.0 };
+ 
+-Bool xf86AllowMouseOpenFail = FALSE;
++Bool xf86AllowMouseOpenFail = TRUE;
+ 
+ #ifdef XF86VIDMODE
+ Bool xf86VidModeDisabled = FALSE;

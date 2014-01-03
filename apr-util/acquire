@@ -1,0 +1,4 @@
+#!/usr/bin/env dl
+
+apr-util-${UB_VERSION}.tar.bz2 apr-util-${UB_VERSION}/
+	http://archive.apache.org/dist/apr/

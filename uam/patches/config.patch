@@ -1,0 +1,28 @@
+diff -Naur orig/uam.conf patched/uam.conf
+--- orig/uam.conf	2011-12-08 23:10:47.000000000 +0100
++++ patched/uam.conf	2013-01-08 09:48:56.858547402 +0100
+@@ -25,13 +25,13 @@
+ # GID and umask of mounted filesystems like VFAT or NTFS.
+ # Is used directly in MOUNT_OPTS configvar.
+ 
+-MOUNT_GROUP='plugdev'
++MOUNT_GROUP='999'
+ MOUNT_UMASK=07
+ MOUNT_FMASK=0117 # -x
+ 
+ # Options to pass to mount (default -- will be used if no specific defined).
+ 
+-MOUNT_OPTS='noatime'
++MOUNT_OPTS='noatime,rw,suid,dev,exec,auto'
+ 
+ # Options to pass to mount with a specific filesystem. For known ids, see udev's
+ # ${ID_FS_TYPE}. The suffixes MUST be uppercase (unless you have bash with
+@@ -130,7 +130,7 @@
+ 
+ # Notice user about (u)mounts using libnotify. This requires the sw-notify-send
+ # hack: x11-misc/sw-notify-send or http://github.com/mgorny/tinynotify-send/
+-HOOK_SW_NOTIFY=1
++HOOK_SW_NOTIFY=0
+ 
+ # Store additional (${MOUNT_GROUP}-readable) cache for uam-pmount helper.
+ # Disabled when unset.

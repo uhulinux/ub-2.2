@@ -1,0 +1,4 @@
+#!/bin/sh -eux
+
+mkdir -p ${UB_INSTALLDIR}/usr/share/channeleditor
+cp ChannelEditor_1.9.2.1.jar ${UB_INSTALLDIR}/usr/share/channeleditor

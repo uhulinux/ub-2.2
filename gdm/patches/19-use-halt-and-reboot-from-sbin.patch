@@ -1,0 +1,14 @@
+diff -urN gdm-2.20.1.orig/configure gdm-2.20.1/configure
+--- gdm-2.20.1.orig/configure	2007-10-15 23:55:40.000000000 +0200
++++ gdm-2.20.1/configure	2007-10-19 16:12:34.000000000 +0200
+@@ -33458,8 +33459,8 @@
+ 	;;
+ *)
+ 	HOST_GDM_USER_PATH="/bin:/usr/bin"
+-	HOST_HALT_COMMAND="/usr/bin/poweroff;/sbin/poweroff;/sbin/shutdown -h now;/usr/sbin/shutdown -h now"
+-	HOST_REBOOT_COMMAND="/usr/bin/reboot;/sbin/reboot;/sbin/shutdown -r now;/usr/sbin/shutdown -r now"
++	HOST_HALT_COMMAND="/sbin/init 0"
++	HOST_REBOOT_COMMAND="/sbin/init 6"
+ 	HOST_SUSPEND_COMMAND=""
+ 	HOST_XSESSION_SHELL=/bin/sh
+ 	HOST_SOUND_PROGRAM=/usr/bin/play

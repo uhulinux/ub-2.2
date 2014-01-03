@@ -1,0 +1,21 @@
+diff -Naur qt-x11-free-3.1.0.orig/tools/designer/designer/mainwindow.cpp qt-x11-free-3.1.0/tools/designer/designer/mainwindow.cpp
+--- qt-x11-free-3.1.0.orig/tools/designer/designer/mainwindow.cpp	2002-11-04 23:55:15.000000000 +0100
++++ qt-x11-free-3.1.0/tools/designer/designer/mainwindow.cpp	2002-11-16 20:20:37.000000000 +0100
+@@ -2031,7 +2031,7 @@
+     config.writeEntry( keybase + "Background/UsePixmap", backPix );
+     config.writeEntry( keybase + "Background/Color", (int)qworkspace->backgroundColor().rgb() );
+     if ( qworkspace->backgroundPixmap() )
+-	qworkspace->backgroundPixmap()->save( QDir::home().absPath() + "/.designer/" + "background.xpm", "PNG" );
++	qworkspace->backgroundPixmap()->save( QDir::home().absPath() + "/.designer/" + "background.png", "PNG" );
+ 
+     config.writeEntry( keybase + "Geometries/MainwindowX", x() );
+     config.writeEntry( keybase + "Geometries/MainwindowY", y() );
+@@ -2114,7 +2114,7 @@
+ 
+     bool ok;
+     bool readPreviousConfig = FALSE;
+-    QString backPixName( QDir::home().absPath() + "/.designer/" + "background.xpm" );
++    QString backPixName( QDir::home().absPath() + "/.designer/" + "background.png" );
+     restoreConfig = config.readBoolEntry( keybase + "RestoreWorkspace", TRUE, &ok );
+     if ( !ok ) {
+ 	keybase = DesignerApplication::oldSettingsKey();

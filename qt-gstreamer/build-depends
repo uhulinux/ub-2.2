@@ -1,0 +1,5 @@
+boost-dev
+cmake
+gst-plugins-base-dev
+libxcursor-dev
+qt4-dev

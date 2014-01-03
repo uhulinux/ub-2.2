@@ -1,0 +1,4 @@
+#!/usr/bin/env dl
+
+telepathy-butterfly-${UB_VERSION}.tar.gz telepathy-butterfly-${UB_VERSION}/
+	http://telepathy.freedesktop.org/releases/telepathy-butterfly/

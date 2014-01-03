@@ -1,0 +1,14 @@
+diff -Naur orig/quitcount.desktop patched/quitcount.desktop
+--- orig/quitcount.desktop	2010-06-21 09:51:49.000000000 +0200
++++ patched/quitcount.desktop	2010-11-05 14:49:04.000000000 +0100
+@@ -2,8 +2,9 @@
+ Name=QuitCount
+ Exec=quitcount
+ Icon=quitcount
+-Categories=Application;Utility;GTK;
++Categories=Application;Utility;GTK;X-UHU-Menu/Tools/More;
+ Comment=Simple counter showing your gains since you quit smoking
++Comment[hu]=Egyszerű számláló, amely megmutatja, mit nyertél a dohányzás abbahagyása óta
+ Terminal=false
+ Type=Application
+ StartupNotify=false

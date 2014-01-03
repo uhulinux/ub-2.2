@@ -1,0 +1,8 @@
+gettext
+glib2-dev
+libpng-dev
+pycairo-dev
+pygtk-dev
+python-numpy
+scons
+swig

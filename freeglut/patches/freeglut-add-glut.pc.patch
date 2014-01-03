@@ -1,0 +1,38 @@
+diff -Naur orig/freeglut/configure.ac patched/configure.ac
+--- orig/configure.ac	2011-09-28 03:37:26.000000000 +0200
++++ patched/configure.ac	2012-12-18 00:38:00.598593795 +0100
+@@ -119,5 +119,6 @@
+ 	progs/demos/spaceball/Makefile
+ 	progs/demos/subwin/Makefile
+ 	src/Makefile
++	glut.pc
+ ])
+ AC_OUTPUT
+diff -Naur orig/glut.pc.in patched/glut.pc.in
+--- orig/glut.pc.in	1970-01-01 01:00:00.000000000 +0100
++++ patched/glut.pc.in	2012-12-18 00:55:08.783692297 +0100
+@@ -0,0 +1,14 @@
++prefix=@prefix@
++exec_prefix=@exec_prefix@
++libdir=@libdir@
++includedir=@includedir@/GL
++
++Name: glut
++Description: A freely licensed alternative to the GLUT library
++Version: @VERSION@
++Requires: gl glu
++Requires.private: x11 xmu xi
++Libs: -L${libdir} -lglut
++Libs.private: -lm
++Cflags: -I${includedir}
++
+diff -Naur orig/Makefile.am patched/Makefile.am
+--- orig/Makefile.am	2009-04-05 15:13:31.000000000 +0200
++++ patched/Makefile.am	2012-12-18 00:38:00.598593795 +0100
+@@ -68,3 +68,6 @@
+ 
+ libtool: $(LIBTOOL_DEPS)
+ 	$(SHELL) ./config.status --recheck
++
++pkgconfigdir = $(libdir)/pkgconfig
++pkgconfig_DATA = glut.pc

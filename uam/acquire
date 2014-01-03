@@ -1,0 +1,5 @@
+#!/usr/bin/env dl
+
+uam-${UB_VERSION}.tar.bz2 uam-${UB_VERSION}/
+	https://bitbucket.org/mgorny/uam/downloads/
+

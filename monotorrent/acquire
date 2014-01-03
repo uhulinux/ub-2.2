@@ -1,0 +1,4 @@
+#!/usr/bin/env dl
+
+monotorrent-${UB_VERSION}.tar.gz monotorrent-${UB_VERSION}/
+	http://projects.qnetp.net/attachments/download/13/

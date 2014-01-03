@@ -1,0 +1,54 @@
+diff -Naur orig/bus/Makefile.am patched/bus/Makefile.am
+--- orig/bus/Makefile.am	2012-09-28 21:17:24.000000000 +0200
++++ patched/bus/Makefile.am	2013-02-08 17:03:14.050427967 +0100
+@@ -212,7 +212,7 @@
+ 	/bin/rm *.bb *.bbg *.da *.gcov || true
+ 
+ install-data-hook:
+-	$(mkinstalldirs) $(DESTDIR)$(localstatedir)/run/dbus
++	$(mkinstalldirs) $(DESTDIR)var/run/dbus
+ 	$(mkinstalldirs) $(DESTDIR)$(configdir)/system.d
+ 	$(mkinstalldirs) $(DESTDIR)$(configdir)/session.d
+ 	$(mkinstalldirs) $(DESTDIR)$(datadir)/dbus-1/services
+diff -Naur orig/bus/Makefile.in patched/bus/Makefile.in
+--- orig/bus/Makefile.in	2012-09-28 21:45:15.000000000 +0200
++++ patched/bus/Makefile.in	2013-02-08 17:03:37.266642260 +0100
+@@ -1510,7 +1510,7 @@
+ 	/bin/rm *.bb *.bbg *.da *.gcov || true
+ 
+ install-data-hook:
+-	$(mkinstalldirs) $(DESTDIR)$(localstatedir)/run/dbus
++	$(mkinstalldirs) $(DESTDIR)var/run/dbus
+ 	$(mkinstalldirs) $(DESTDIR)$(configdir)/system.d
+ 	$(mkinstalldirs) $(DESTDIR)$(configdir)/session.d
+ 	$(mkinstalldirs) $(DESTDIR)$(datadir)/dbus-1/services
+diff -Naur orig/bus/messagebus.in patched/bus/messagebus.in
+--- orig/bus/messagebus.in	2011-07-13 22:42:21.000000000 +0200
++++ patched/bus/messagebus.in	2013-02-08 17:02:07.305811928 +0100
+@@ -41,7 +41,7 @@
+     daemon --check $servicename $processname --system
+     RETVAL=$?
+     echo
+-    [ $RETVAL -eq 0 ] && touch @EXPANDED_LOCALSTATEDIR@/lock/subsys/$servicename
++    [ $RETVAL -eq 0 ] && touch /var/lock/subsys/$servicename
+ }
+ 
+ stop() {
+@@ -54,7 +54,7 @@
+     RETVAL=$?
+     echo
+     if [ $RETVAL -eq 0 ]; then
+-        rm -f @EXPANDED_LOCALSTATEDIR@/lock/subsys/$servicename
++        rm -f /var/lock/subsys/$servicename
+         rm -f @DBUS_SYSTEM_PID_FILE@
+     fi
+ }
+@@ -76,7 +76,7 @@
+         start
+         ;;
+     condrestart)
+-        if [ -f @EXPANDED_LOCALSTATEDIR@/lock/subsys/$servicename ]; then
++        if [ -f /var/lock/subsys/$servicename ]; then
+             stop
+             start
+         fi

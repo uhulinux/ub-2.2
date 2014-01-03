@@ -1,0 +1,13 @@
+Summary=Network Time Protocol Daemon
+Summary[hu]=Internetes pontos idő démon
+Description=Synchronize the system time via Internet.
+Description[en_GB]=Synchronise the system time via Internet.
+Description[hu]=A rendszer óráját állítja be az interneten futó időszerverekhez.
+MsgDesc=Time Synchronization
+MsgDesc[en_GB]=Time Synchronisation
+MsgDesc[hu]=Pontosidő-egyeztetés
+Script=/etc/init.d/ntpd
+SupportsReload=no
+Runlevels=2345
+Sequence=20
+Resources=udp/ntp

@@ -1,0 +1,7 @@
+#!/bin/sh -eux
+
+cd src
+cmake -DCMAKE_BUILD_TYPE=release \
+  -DCMAKE_INSTALL_PREFIX=/usr \
+  -DQT_QMAKE_EXECUTABLE=/usr/lib/qt4/bin/qmake
+make

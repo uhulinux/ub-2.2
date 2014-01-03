@@ -1,0 +1,4 @@
+#!/usr/bin/env dl
+
+cyrax-${UB_VERSION}.tar.gz cyrax-${UB_VERSION}/
+	http://pypi.python.org/packages/source/c/cyrax/

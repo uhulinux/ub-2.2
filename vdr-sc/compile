@@ -1,0 +1,13 @@
+#!/bin/sh -eux
+
+#cp $UB_SRCDIR/patches/ci.c.skip ci.c
+mkdir -p $UB_INSTALLDIR/usr/lib/vdr
+export PARALLEL=PARALLEL_64_MMX
+make USEFSH=1 \
+  VIDEODIR=/var/vdr/video \
+  CONFDIR=/var/vdr/config \
+  PREFIX=/usr \
+  MANDIR=/usr/share/man \
+  DESTDIR=$UB_INSTALLDIR \
+  INCDIR=/usr/include/vdr \
+

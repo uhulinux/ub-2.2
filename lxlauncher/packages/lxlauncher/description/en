@@ -1,0 +1,4 @@
+An open source clone of the &ASUS &eeePCs launcher. Not included the background
+images, because they aren't free. You can use any pictures, just copy it under
+/usr/share/lxlauncher/background. The tab icons can be placed in the
+/usr/share/lxlauncher/icons directory

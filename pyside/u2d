@@ -1,0 +1,1 @@
+urllist http://download.qt-project.org/official_releases/pyside/ | sed s/4\.8\+//g | splitver '^pyside-qt([0-9.]+).tar.bz2$' | sort -V | tail -n 1

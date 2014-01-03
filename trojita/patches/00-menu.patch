@@ -1,0 +1,10 @@
+diff -Naur a/src/Gui/trojita.desktop b/src/Gui/trojita.desktop
+--- a/src/Gui/trojita.desktop	2013-05-06 19:36:07.000000000 +0200
++++ b/src/Gui/trojita.desktop	2013-06-05 01:22:29.265111241 +0200
+@@ -58,5 +58,5 @@
+ Terminal=false
+ Type=Application
+ Icon=trojita
+-Categories=Qt;Office;Network;Email;
++Categories=Qt;Office;Network;Email;X-UHU-Menu/Internet/Email;
+ StartupNotify=true

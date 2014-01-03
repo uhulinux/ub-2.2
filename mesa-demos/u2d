@@ -1,0 +1,2 @@
+minor=$(urllist ftp://ftp.freedesktop.org/pub/mesa/demos/ | grep -E '^[0-9]+' | sort -V | tail -n 1) 
+urllist ftp://ftp.freedesktop.org/pub/mesa/demos/"$minor"/ | parsever | sort -V | tail -n 1

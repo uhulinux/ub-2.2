@@ -1,0 +1,6 @@
+#!/usr/bin/env dl
+
+apport-${UB_VERSION}.tar.gz apport-${UB_VERSION}/
+	https://launchpad.net/apport/trunk/${UB_VERSION}/+download/
+
+

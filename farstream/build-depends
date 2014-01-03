@@ -1,0 +1,10 @@
+gobject-introspection-dev
+gst-plugins-base-dev
+gst-python
+gst-python-dev
+gupnp-igd-dev
+libnice-dev
+pygobject-dev
+python-dev
+sqlite-dev
+util-linux-dev

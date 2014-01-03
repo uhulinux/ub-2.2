@@ -1,0 +1,4 @@
+#!/usr/bin/env dl
+
+dotconf-${UB_VERSION}.tar.gz dotconf-${UB_VERSION}/
+	http://www.azzit.de/dotconf/download/v1.0/

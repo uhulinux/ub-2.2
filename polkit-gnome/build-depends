@@ -1,0 +1,9 @@
+dbus-dev
+eggdbus-dev
+gnome-doc-utils
+gobject-introspection-dev
+gtk-doc
+gtk3-dev
+intltool
+libffi-dev
+polkit-dev

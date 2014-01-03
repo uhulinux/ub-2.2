@@ -1,0 +1,9 @@
+#!/bin/sh -eux
+
+unzip Meliae_SVG_Dark_v__1_2_by_sora_meliae.zip
+mkdir ${UB_INSTALLDIR}/usr/share/icons
+mv MeliaeSVG-Dark ${UB_INSTALLDIR}/usr/share/icons
+cd ${UB_INSTALLDIR}/usr/share/icons/MeliaeSVG-Dark
+rm AUTHORS
+rm COPYING
+rm CREDITS

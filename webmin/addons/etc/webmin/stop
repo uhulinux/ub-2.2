@@ -1,0 +1,4 @@
+#!/bin/sh
+echo Webmin szerver leállítása
+pidfile=`grep "^pidfile=" /etc/webmin/miniserv.conf | sed -e 's/pidfile=//g'`
+kill `cat $pidfile`

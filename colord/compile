@@ -1,0 +1,10 @@
+#!/bin/sh -eux
+
+autoreconf
+ub_compile \
+	--disable-examples \
+	--disable-static \
+	--enable-polkit \
+	--disable-volume-search \
+	--enable-gusb \
+	--with-daemon-user=colord

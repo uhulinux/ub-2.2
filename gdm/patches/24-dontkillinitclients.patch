@@ -1,0 +1,12 @@
+diff -Naurd a/config/gdm.conf.in b/config/gdm.conf.in
+--- a/config/gdm.conf.in	2008-01-06 21:47:20.000000000 +0100
++++ b/config/gdm.conf.in	2008-01-06 21:48:07.000000000 +0100
+@@ -104,7 +104,7 @@
+ 
+ # To try to kill all clients started at greeter time or in the Init script.
+ # does not always work, only if those clients have a window of their own.
+-#KillInitClients=true
++KillInitClients=false
+ LogDir=@logdir@
+ 
+ # Note that a post login script is run before a PreSession script.  It is run

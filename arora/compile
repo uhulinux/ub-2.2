@@ -1,0 +1,5 @@
+#!/bin/sh -eux
+
+/usr/lib/qt4/bin/qmake  PREFIX=/usr
+make
+

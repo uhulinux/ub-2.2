@@ -1,0 +1,8 @@
+Summary=web-based interface for system administration for Unix
+Summary[hu]=web-alapú rendszer adminisztrációs eszköz
+Description=Web-based interface for system administration for Unix.
+Description[hu]=A Webmin segítségével egy egyszerű böngészőből lehet konfigurálni a rendsz több szolgáltatását.
+Script=/etc/init.d/webmin
+SupportsReload=no
+Runlevels=
+Sequence=85

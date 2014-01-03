@@ -1,0 +1,6 @@
+doxygen
+libxau-dev
+libxdmcp-dev
+libxslt-dev
+python
+xcb-proto

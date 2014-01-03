@@ -1,0 +1,6 @@
+A játékhoz szükségesek az &ID cég megfelelő verziójú adat fájljai.
+Ezek kisbetűsen az &/usr/share/games/wolf4sdl/adottverzió könyvtárba másolandók,
+ahol feltelepítés után még csak az adott verzióhoz tartozó bináris található.
+A &wolf4sdl-shwdata-adottverzió.uhu csomag feltelepítésével az &adottverzió
+&shareware adatai a helyes helyre pakolódnak kisbetűsen és az &adottverzió menüpontból rögtön indítható.
+Ha az &adottverzió könyvtára hiányos, akkor terminálban hibajelzést kapunk.

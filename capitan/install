@@ -1,0 +1,6 @@
+#!/bin/sh -eux
+make DESTDIR="$UB_INSTALLDIR"/usr \
+	install
+mv "$UB_INSTALLDIR"/usr/games/capitan "$UB_INSTALLDIR"/usr/bin/
+rmdir "$UB_INSTALLDIR"/usr/games
+rm "$UB_INSTALLDIR"/usr/share/applications/capitan-doc.desktop

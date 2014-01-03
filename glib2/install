@@ -1,0 +1,16 @@
+#!/bin/sh -eux
+
+ub_install
+
+cd ${UB_INSTALLDIR}/usr/lib
+ln -s libgio-2.0.so.0.3400.3 libgio-2.0.so.0.2200.5
+ln -s libglib-2.0.so.0.3400.3 libglib-2.0.so.0.2200.5
+ln -s libgmodule-2.0.so.0.3400.3 libgmodule-2.0.so.0.2200.5
+ln -s libgobject-2.0.so.0.3400.3 libgobject-2.0.so.0.2200.5
+ln -s libgthread-2.0.so.0.3400.3 libgthread-2.0.so.0.2200.5
+
+ln -s libgio-2.0.so.0.3400.3 libgio-2.0.so.0.3200.0
+ln -s libglib-2.0.so.0.3400.3 libglib-2.0.so.0.3200.0
+ln -s libgmodule-2.0.so.0.3400.3 libgmodule-2.0.so.0.3200.0
+ln -s libgobject-2.0.so.0.3400.3 libgobject-2.0.so.0.3200.0
+ln -s libgthread-2.0.so.0.3400.3 libgthread-2.0.so.0.3200.0

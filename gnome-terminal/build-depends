@@ -1,0 +1,12 @@
+docbook-dtds
+gconf2-dev
+gnome-doc-utils
+gsettings-desktop-schemas
+gtk2-dev
+gtk3-dev
+intltool
+itstool
+libsm-dev
+python-dev
+rarian
+vte3-dev

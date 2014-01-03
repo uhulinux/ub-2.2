@@ -1,0 +1,18 @@
+#!/bin/sh -eux
+
+#ub_install
+msgfmt -c dcpp/po/hu.po -o dcpp/po/linuxdcpp.mo
+
+mkdir -p ${UB_INSTALLDIR}/usr/share/linuxdcpp && \
+	cp linuxdcpp ${UB_INSTALLDIR}/usr/share/linuxdcpp && \
+	cp -R glade ${UB_INSTALLDIR}/usr/share/linuxdcpp && \
+	mv icons/linuxdcpp.xpm ${UB_INSTALLDIR}/usr/share/pixmaps && \
+#	cp -R icons ${UB_INSTALLDIR}/usr/share/linuxdcpp
+	cp -R icons ${UB_INSTALLDIR}/usr/share/icons
+cp data/linuxdcpp.desktop ${UB_INSTALLDIR}/usr/share/applications
+cp data/linuxdcpp.1 ${UB_INSTALLDIR}/usr/share/man/man1
+
+mkdir -p ${UB_INSTALLDIR}/usr/share/locale/hu/LC_MESSAGES/
+cp dcpp/po/linuxdcpp.mo ${UB_INSTALLDIR}/usr/share/locale/hu/LC_MESSAGES/
+
+ln -s ${UB_INSTALLDIR}/usr/share/linuxdcpp/linuxdcpp ${UB_INSTALLDIR}/usr/bin/linuxdcpp

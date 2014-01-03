@@ -1,0 +1,11 @@
+--- gnome-panel.orig/po/hu.po	2011-04-04 18:09:04.000000000 +0200
++++ gnome-panel/po/hu.po	2011-04-09 21:42:21.000000000 +0200
+@@ -125,7 +125,7 @@
+ #. * instead of "May  1").
+ #: ../applets/clock/clock.c:459
+ msgid "%a %b %e"
+-msgstr "%b. %e., %a"
++msgstr "%B %-e., %A"
+ 
+ #. translators: reverse the order of these arguments
+ #. *              if the time should come before the

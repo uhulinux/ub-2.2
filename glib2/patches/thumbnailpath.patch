@@ -1,0 +1,25 @@
+diff -Naur orig/gio/glocalfileinfo.c patched/gio/glocalfileinfo.c
+--- orig/gio/glocalfileinfo.c	2012-11-26 17:52:48.000000000 +0100
++++ patched/gio/glocalfileinfo.c	2013-03-10 19:38:32.195695837 +0100
+@@ -1291,8 +1291,8 @@
+   basename = g_strconcat (g_checksum_get_string (checksum), ".png", NULL);
+   g_checksum_free (checksum);
+ 
+-  filename = g_build_filename (g_get_user_cache_dir (),
+-                               "thumbnails", "normal", basename,
++  filename = g_build_filename (g_get_home_dir (),
++                               ".thumbnails", "normal", basename,
+                                NULL);
+ 
+   if (g_file_test (filename, G_FILE_TEST_IS_REGULAR))
+@@ -1300,8 +1300,8 @@
+   else
+     {
+       g_free (filename);
+-      filename = g_build_filename (g_get_user_cache_dir (),
+-                                   "thumbnails", "fail",
++      filename = g_build_filename (g_get_home_dir (),
++                                   ".thumbnails", "fail",
+                                    "gnome-thumbnail-factory",
+                                    basename,
+                                    NULL);

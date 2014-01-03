@@ -1,0 +1,9 @@
+#!/bin/sh
+
+. /etc/init.d/common
+
+DAEMON=/usr/bin/spamd
+PIDFILE="/var/run/spamd.pid"
+DAEMONARGS=(-d -r "$PIDFILE")
+
+startstop "$@"

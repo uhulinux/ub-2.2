@@ -1,0 +1,20 @@
+diff -Naur orig/Makefile mod/Makefile
+--- orig/Makefile	2009-04-10 12:01:26.000000000 +0200
++++ mod/Makefile	2010-10-29 23:10:15.000000000 +0200
+@@ -67,9 +67,13 @@
+ 	@$(ECHO) " o Creating startup script $(STARTUP)"
+ 	@$(MD) "$(GAMEDIR)"
+ 	@$(ECHO) "#!/bin/sh" >"$(STARTUP)"
+-	@$(ECHO) "pulseaudio -k" >>"$(STARTUP)"
+-	@$(ECHO) "cd \"$(INSTDIR)\"; ./$(EXE); cd -" >>"$(STARTUP)"
+-	@$(ECHO) "pulseaudio -D" >>"$(STARTUP)"
++	@$(ECHO) "cd /usr/share/games/capitan" >>"$(STARTUP)"
++	@$(ECHO) "if [ -f /usr/bin/padsp ] ; then" >>"$(STARTUP)"
++	@$(ECHO) "padsp ./$(EXE)" >>"$(STARTUP)"
++	@$(ECHO) "else" >>"$(STARTUP)"
++	@$(ECHO) "./$(EXE)" >>"$(STARTUP)"
++	@$(ECHO) "fi" >>"$(STARTUP)"
++	@$(ECHO) "cd -" >>"$(STARTUP)"
+ 	@$(CHMOD) 755 "$(STARTUP)"
+ 	@$(ECHO) " o Creating application menu entry"
+ 	@$(MD) "$(ICNDIR)"

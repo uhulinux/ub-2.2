@@ -1,0 +1,17 @@
+diff -Naur openshot-1.2.2-orig/xdg/openshot.desktop openshot-1.2.2/xdg/openshot.desktop
+--- openshot-1.2.2-orig/xdg/openshot.desktop	2010-11-06 20:54:34.872908593 +0100
++++ openshot-1.2.2/xdg/openshot.desktop	2010-11-06 20:51:27.464956273 +0100
+@@ -2,11 +2,12 @@
+ Name=OpenShot Video Editor
+ X-GNOME-FullName=OpenShot Video Editor
+ Comment=Create and edit videos and movies
++Comment[hu]=Videó és film készítés, szerkesztés
+ Exec=openshot %F
+ Terminal=false
+ Type=Application
+ Icon=openshot
+-Categories=GNOME;GTK;AudioVideo;Video;AudioVideoEditing;
++Categories=GNOME;GTK;AudioVideo;Video;AudioVideoEditing;X-UHU-Menu/Multimedia/VideoEdit;
+ MimeType=application/vnd.openshot-project;
+ X-AppInstall-Package=openshot
+ X-Ubuntu-Gettext-Domain=OpenShot

@@ -1,0 +1,5 @@
+#!/usr/bin/env dl
+
+enblend-enfuse-${UB_VERSION}.tar.gz enblend-enfuse-${UB_VERSION}-753b534c819d/
+	http://download.sourceforge.net/enblend/
+#enblend-enfuse-4.0-753b534c819d

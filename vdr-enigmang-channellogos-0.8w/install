@@ -1,0 +1,4 @@
+#!/bin/sh -eux
+alapdir="$UB_INSTALLDIR"/var/vdr/config/plugins/skinenigmang
+mkdir -p "$alapdir"
+cp -r  hqlogos "$alapdir"/

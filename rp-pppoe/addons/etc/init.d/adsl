@@ -1,0 +1,17 @@
+#!/bin/sh
+
+. /etc/init.d/common
+
+case "$1" in
+	start)
+		echo -n "$MsgStart"
+		pppoe-start >/dev/null && echo "$OK" || echo "$ERR"
+		;;
+	stop)
+		echo -n "$MsgStop"
+		pppoe-stop >/dev/null 2>&1
+		echo "$OK"
+		;;
+esac
+
+exit 0

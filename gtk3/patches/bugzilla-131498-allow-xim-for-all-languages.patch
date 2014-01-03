@@ -1,0 +1,11 @@
+--- gtk+-2.10.1/modules/input/imxim.c
++++ gtk+-2.10.1/modules/input/imxim.c
+@@ -28,7 +28,7 @@
+   N_("X Input Method"),            /* Human readable name */
+   GETTEXT_PACKAGE,		   /* Translation domain */
+   GTK_LOCALEDIR,		   /* Dir for bindtextdomain (not strictly needed for "gtk+") */
+-  "ko:ja:th:zh"		           /* Languages for which this module is the default */
++  "*"		           /* Languages for which this module is the default */
+ };
+ 
+ static const GtkIMContextInfo *info_list[] = {

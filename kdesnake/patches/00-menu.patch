@@ -1,0 +1,18 @@
+diff -Naur a/kdesnake.desktop b/kdesnake.desktop
+--- a/kdesnake.desktop	2013-01-30 21:37:46.000000000 +0100
++++ b/kdesnake.desktop	2013-02-10 22:22:59.559401878 +0100
+@@ -94,4 +94,4 @@
+ Name[zh_TW]=KSnake
+ X-KDE-StartupNotify=true
+ X-DCOP-ServiceType=Multi
+-Categories=Qt;KDE;Game;ArcadeGame;
++Categories=Qt;KDE;Game;ArcadeGame;X-UHU-Menu/Games/Arcade;
+diff -Naur a/ktron.desktop b/ktron.desktop
+--- a/ktron.desktop	2013-01-23 23:07:21.000000000 +0100
++++ b/ktron.desktop	2013-02-10 22:22:45.736823088 +0100
+@@ -46,4 +46,4 @@
+ Name[zh_TW]=KSnakeDuel
+ X-KDE-StartupNotify=true
+ X-DCOP-ServiceType=Multi
+-Categories=Qt;KDE;Game;ArcadeGame;
++Categories=Qt;KDE;Game;ArcadeGame;X-UHU-Menu/Games/Arcade;

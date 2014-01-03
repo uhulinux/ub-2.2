@@ -1,0 +1,4 @@
+#!/usr/bin/env dl
+
+blobwars-${UB_VERSION_HEAD2}.tar.gz blobwars-${UB_VERSION_HEAD2}/
+	http://downloads.sourceforge.net/blobwars/

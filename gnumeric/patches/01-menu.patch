@@ -1,0 +1,11 @@
+--- gnumeric.orig/gnumeric.desktop.in	2008-08-29 21:13:52.000000000 +0200
++++ gnumeric/gnumeric.desktop.in	2009-04-03 20:00:57.000000000 +0200
+@@ -1,7 +1,7 @@
+ Icon=gnumeric
+ Terminal=false
+ Type=Application
+-Categories=Office;Spreadsheet;Science;Math;GNOME;GTK;
++Categories=GTK;GNOME;Office;Spreadsheet;Science;Math;X-UHU-Menu/Tools/Spreadsheets;
+ StartupNotify=true
+ X-GNOME-Bugzilla-Bugzilla=GNOME
+ X-GNOME-Bugzilla-Product=Gnumeric

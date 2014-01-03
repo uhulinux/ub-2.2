@@ -1,0 +1,10 @@
+Summary=Advanced System Logger
+Summary[hu]=Fejlett rendszernaplózó
+Description=Collects and writes system log messages.
+Description[hu]=A rendszer naplóüzeneteit gyűjti és rögzíti.
+MsgDesc=Advanced System Logger
+MsgDesc[hu]=Fejlett rendszernapló-író
+Script=/etc/init.d/syslog-ng
+SupportsReload=yes
+Runlevels=
+Sequence=03

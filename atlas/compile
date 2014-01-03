@@ -1,0 +1,20 @@
+#!/bin/sh -eux
+
+mkdir build
+cd build
+../configure -b 32 -D c -DWALL -Fa alg -fPIC \
+  --prefix=${UB_INSTALLDIR}/usr \
+  --incdir=${UB_INSTALLDIR}/usr/include
+make build
+sed -i 's#ARCH =.*#ARCH = PPRO32#' Make.inc
+sed -i 's#-DATL_SSE3 -DATL_SSE2 -DATL_SSE1##' Make.inc
+sed -i 's#-mfpmath=sse -msse3#-mfpmath=387#' Make.inc
+cd lib
+make shared
+make ptshared
+make cptshared
+make cshared
+cd ../
+make check
+make ptcheck
+make time

@@ -1,0 +1,11 @@
+dbus-glib-dev
+gtk-doc
+gtk2-dev
+intltool
+libsm-dev
+libunique-dev
+mate-common
+mate-doc-utils
+rarian-dev
+startup-notification-dev
+xcb-util-dev

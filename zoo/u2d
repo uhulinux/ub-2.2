@@ -1,0 +1,1 @@
+urllist ftp://ftp.metalab.unc.edu/pub/linux/utils/compress/ | splitver '^zoo-([0-9.]+)-[0-9].src.rpm$' | sort -V | tail -n 1 # -V | tail -n 1

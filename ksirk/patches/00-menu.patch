@@ -1,0 +1,11 @@
+diff -Naur a/ksirk/ksirk.desktop b/ksirk/ksirk.desktop
+--- a/ksirk/ksirk.desktop	2013-01-23 23:07:17.000000000 +0100
++++ b/ksirk/ksirk.desktop	2013-02-10 23:24:38.507083742 +0100
+@@ -99,6 +99,6 @@
+ GenericName[x-test]=xxWorld Domination Strategy Gamexx
+ GenericName[zh_CN]=世界支配战略游戏
+ GenericName[zh_TW]=征服世界戰略遊戲
+-Categories=Qt;KDE;Game;StrategyGame;
++Categories=Qt;KDE;Game;StrategyGame;X-UHU-Menu/Games/TacticStrategy;
+ X-KDE-StartupNotify=true
+ X-DBUS-StartupType=Multi

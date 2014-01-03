@@ -1,0 +1,12 @@
+diff -Naur a/style/animation.c b/style/animation.c
+--- a/style/animation.c	2010-12-05 23:19:11.000000000 +0100
++++ b/style/animation.c	2013-06-16 03:07:37.760873149 +0200
+@@ -10,7 +10,7 @@
+ 
+ /* #define CHECK_ANIMATION_TIME 0.5 */
+ 
+-#include <glib/gtimer.h>
++#include <glib.h>
+ 
+ struct _AnimationInfo {
+     GTimer *timer;

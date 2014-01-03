@@ -1,0 +1,11 @@
+diff -Naur kdelibs-3.3.2.orig/kdecore/kmountpoint.cpp kdelibs-3.3.2/kdecore/kmountpoint.cpp
+--- kdelibs-3.3.2.orig/kdecore/kmountpoint.cpp	2004-05-22 22:55:09.000000000 +0200
++++ kdelibs-3.3.2/kdecore/kmountpoint.cpp	2005-01-20 15:43:52.069035791 +0100
+@@ -330,6 +330,7 @@
+    STRUCT_MNTENT fe;
+    while (GETMNTENT(mnttab, fe))
+    {
++      if (!strcmp(FSNAME(fe), "rootfs")) continue;
+       KMountPoint *mp = new KMountPoint();
+       mp->m_mountedFrom = QFile::decodeName(FSNAME(fe));
+          

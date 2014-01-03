@@ -1,0 +1,12 @@
+alsa-lib-dev
+audiofile-dev
+esound-dev
+gnome-python
+gnome-python-dev
+gnome2-desktop
+gst-python-dev
+intltool
+libogg-dev
+libvorbis-dev
+pygtk-dev
+python-dev

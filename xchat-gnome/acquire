@@ -1,0 +1,4 @@
+#!/usr/bin/env dl
+
+XCHAT_GNOME_${UB_VERSION_MAJOR}_${UB_VERSION_MINOR}_${UB_VERSION_MICRO}.zip xchat-gnome-XCHAT_GNOME_${UB_VERSION_MAJOR}_${UB_VERSION_MINOR}_${UB_VERSION_MICRO}/
+	https://github.com/GNOME/xchat-gnome/archive/

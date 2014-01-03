@@ -1,0 +1,12 @@
+diff -Naur kamoso-2.0.2.orig/src/plugins/youtube/kipiplugin_youtube.desktop kamoso-2.0.2/src/plugins/youtube/kipiplugin_youtube.desktop
+--- kamoso-2.0.2.orig/src/plugins/youtube/kipiplugin_youtube.desktop	2011-05-25 01:34:42.000000000 +0300
++++ kamoso-2.0.2/src/plugins/youtube/kipiplugin_youtube.desktop	2012-12-30 21:10:31.798418296 +0200
+@@ -1,7 +1,7 @@
+ [Desktop Entry]
+ Type=Service
+ Exec=blubb
+-Icon=youtube
++Icon=kipiplugin_youtube
+ Comment=Upload videos directly to YouTube
+ Comment[cs]=Nahrát videa přímo na YouTube
+ Comment[da]=Upload videoer direkte til YouTube

@@ -1,0 +1,10 @@
+boost-dev
+gtk2-dev
+libglade2
+libglade2-dev
+libnotify-dev
+openssl
+openssl-dev
+scons
+zlib
+zlib-dev

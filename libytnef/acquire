@@ -1,0 +1,4 @@
+#!/usr/bin/env dl
+
+libytnef-${UB_VERSION}.tar.gz libytnef-${UB_VERSION}/
+    http://downloads.sourceforge.net/project/ytnef/libytnef/${UB_VERSION}/

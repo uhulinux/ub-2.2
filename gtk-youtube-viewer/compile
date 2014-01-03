@@ -1,0 +1,5 @@
+#!/bin/sh -eux
+
+    perl Build.PL --destdir "$UB_INSTALLDIR" --gtk-youtube-viewer
+    ./Build
+    ./Build test

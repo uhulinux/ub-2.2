@@ -1,0 +1,24 @@
+diff -Naurd a/libgphoto2_port/configure b/libgphoto2_port/configure
+--- a/libgphoto2_port/configure	2007-11-13 12:57:54.000000000 +0100
++++ b/libgphoto2_port/configure	2007-11-13 12:57:43.000000000 +0100
+@@ -20167,7 +20167,7 @@
+ AM_CPPFLAGS="$CPPFLAGS"
+ AM_CPPFLAGS="$AM_CPPFLAGS -I\$(top_srcdir)"
+ 
+-if test "x${udevscriptdir}" = "x"; then	udevscriptdir="\${libdir}/udev"; fi
++if test "x${udevscriptdir}" = "x"; then	udevscriptdir="/lib/udev"; fi
+ 
+ 
+ 
+diff -Naurd a/configure b/configure
+--- a/configure	2007-07-28 17:02:11.000000000 +0200
++++ b/configure	2007-11-20 11:23:59.000000000 +0100
+@@ -26108,7 +26108,7 @@
+ 
+ 
+ 
+-if test "x${udevscriptdir}" = "x"; then	udevscriptdir="\${libdir}/udev"; fi
++if test "x${udevscriptdir}" = "x"; then	udevscriptdir="/lib/udev"; fi
+ 
+ 
+ 

@@ -1,0 +1,4 @@
+#!/usr/bin/env dl
+
+kdenlive-${UB_VERSION}.tar.bz2 kdenlive-${UB_VERSION}/
+	http://download.kde.org/stable/kdenlive/${UB_VERSION}/src/

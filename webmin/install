@@ -1,0 +1,50 @@
+#!/bin/sh -eux
+
+mkdir -p "$UB_INSTALLDIR"/usr/lib/webmin
+cp -a * "$UB_INSTALLDIR"/usr/lib/webmin/
+
+# a felesleges és problémás fájlok törlése
+rm -rf "$UB_INSTALLDIR"/usr/lib/webmin/acl/Authen*
+#rm -f "$UB_INSTALLDIR"/usr/lib/webmin/setup.*
+rm -f "$UB_INSTALLDIR"/usr/lib/webmin/mount/freebsd*
+rm -f "$UB_INSTALLDIR"/usr/lib/webmin/webmin-gentoo-init
+
+# a felesleges és vagy rossz modulok törlése
+rm -rf "$UB_INSTALLDIR"/usr/lib/webmin/cfengine*
+rm -rf "$UB_INSTALLDIR"/usr/lib/webmin/cluster*
+rm -rf "$UB_INSTALLDIR"/usr/lib/webmin/mon*
+rm -rf "$UB_INSTALLDIR"/usr/lib/webmin/sentry*
+rm -rf "$UB_INSTALLDIR"/usr/lib/webmin/heartbeat*
+rm -rf "$UB_INSTALLDIR"/usr/lib/webmin/pserver*
+rm -rf "$UB_INSTALLDIR"/usr/lib/webmin/dovecot*
+rm -rf "$UB_INSTALLDIR"/usr/lib/webmin/jabber*
+rm -rf "$UB_INSTALLDIR"/usr/lib/webmin/majordomo*
+rm -rf "$UB_INSTALLDIR"/usr/lib/webmin/qmail*
+rm -rf "$UB_INSTALLDIR"/usr/lib/webmin/adsl*
+rm -rf "$UB_INSTALLDIR"/usr/lib/webmin/bandwidth*
+rm -rf "$UB_INSTALLDIR"/usr/lib/webmin/ipsec*
+rm -rf "$UB_INSTALLDIR"/usr/lib/webmin/pp*
+rm -rf "$UB_INSTALLDIR"/usr/lib/webmin/shorewall*
+rm -rf "$UB_INSTALLDIR"/usr/lib/webmin/vgetty*
+rm -rf "$UB_INSTALLDIR"/usr/lib/webmin/wuftpd*
+
+# átnézzük az összes perl fájlt
+cd "$UB_INSTALLDIR"/usr/lib/webmin/
+for i in $(find . -type f -name "*.pl"); do
+# lecsereljuk a rossz patht
+cat "$i" | sed s,/usr/local/bin/perl,/usr/bin/perl,g > atmeneti
+# átnevezzük az átmeneti fájlt az eredetire
+mv atmeneti "$i"
+done
+
+# átnézzük az összes cgi fájlt
+cd "$UB_INSTALLDIR"/usr/lib/webmin/
+for i in $(find . -type f -name "*.cgi"); do
+# lecsereljuk a rossz patht
+cat "$i" | sed s,/usr/local/bin/perl,/usr/bin/perl,g > atmeneti
+# átnevezzük az átmeneti fájlt az eredetire
+mv atmeneti "$i"
+done
+
+# linkek létrehozása
+#ln -s /sbin/runsript "${UB_INSTALLDIR}"/usr/bin/runsript

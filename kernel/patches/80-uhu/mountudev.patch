@@ -1,0 +1,47 @@
+diff -Naurdp a/init/do_mounts_initrd.c b/init/do_mounts_initrd.c
+--- a/init/do_mounts_initrd.c	2011-06-24 00:06:00.000000000 +0200
++++ b/init/do_mounts_initrd.c	2011-06-28 16:10:59.884582035 +0200
+@@ -58,6 +58,15 @@ static void __init handle_initrd(void)
+ 	 */
+ 	current->flags |= PF_FREEZER_SKIP;
+ 
++	mode_t old_umask;
++	old_umask = sys_umask(0);
++	sys_mount("none", "/dev", "ramfs", 0, NULL);
++	sys_mknod("/dev/null", 0666|S_IFCHR, 259);
++	sys_mknod("/dev/zero", 0666|S_IFCHR, 261);
++	sys_mknod("/dev/tty", 0666|S_IFCHR, 1280);
++	sys_mknod("/dev/console", 0600|S_IFCHR, 1281);
++	sys_umask(old_umask);
++
+ 	pid = kernel_thread(do_linuxrc, "/linuxrc", SIGCHLD);
+ 	if (pid > 0)
+ 		while (pid != sys_wait4(-1, NULL, 0, NULL))
+@@ -78,6 +87,7 @@ static void __init handle_initrd(void)
+ 		sys_chdir("/old");
+ 		return;
+ 	}
++	sys_umount("/dev", 0);
+ 
+ 	ROOT_DEV = new_decode_dev(real_root_dev);
+ 	mount_root();
+diff -Naurdp a/init/main.c b/init/main.c
+--- a/init/main.c	2011-06-24 00:06:00.000000000 +0200
++++ b/init/main.c	2011-06-28 16:12:27.654511142 +0200
+@@ -740,6 +740,16 @@ static noinline int init_post(void)
+ 	/* need to finish all async __init code before freeing the memory */
+ 	async_synchronize_full();
+ 	free_initmem();
++	
++	mode_t old_umask;
++	old_umask = sys_umask(0);
++	sys_mount("none", "/dev", "ramfs", 0, NULL);
++	sys_mknod("/dev/null", 0666|S_IFCHR, 259);
++	sys_mknod("/dev/zero", 0666|S_IFCHR, 261);
++	sys_mknod("/dev/tty", 0666|S_IFCHR, 1280);
++	sys_mknod("/dev/console", 0600|S_IFCHR, 1281);
++	sys_umask(old_umask);
++	
+ 	mark_rodata_ro();
+ 	system_state = SYSTEM_RUNNING;
+ 	numa_default_policy();

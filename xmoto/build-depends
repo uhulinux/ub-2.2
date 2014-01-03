@@ -1,0 +1,15 @@
+bzip2-dev
+curl-dev
+glfw
+libjpeg-dev
+libode-dev
+libpng-dev
+libxdg-basedir-dev
+lua-dev
+sdl-dev
+sdl-gfx
+sdl-mixer-dev
+sdl-net-dev
+sdl-ttf-dev
+sqlite-dev
+zlib-dev

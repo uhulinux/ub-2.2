@@ -1,0 +1,4 @@
+#!/bin/sh
+
+rm -f /usr/lib/xorg/modules/extensions/libglx.so
+ln -s /usr/lib/xorg/modules/extensions/libglx.xorg /usr/lib/xorg/modules/extensions/libglx.so

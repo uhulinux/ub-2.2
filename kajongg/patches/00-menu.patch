@@ -1,0 +1,12 @@
+diff -Naur a/kajongg.desktop b/kajongg.desktop
+--- a/kajongg.desktop	2013-01-23 23:05:14.000000000 +0100
++++ b/kajongg.desktop	2013-02-10 21:50:21.260750089 +0100
+@@ -131,7 +131,7 @@
+ TryExec=kajongg
+ Exec=kajongg
+ Icon=kajongg
+-Categories=Qt;KDE;Game;BoardGame;
++Categories=Qt;KDE;Game;BoardGame;X-UHU-Menu/Games/Board;
+ X-KDE-StartupNotify=true
+ X-DBUS-StartupType=Multi
+ X-DocPath=kajongg/index.html

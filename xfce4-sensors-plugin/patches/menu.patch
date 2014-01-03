@@ -1,0 +1,11 @@
+diff -Naur orig/src/xfce4-sensors.desktop.in patched/src/xfce4-sensors.desktop.in
+--- orig/src/xfce4-sensors.desktop.in	2012-05-14 17:55:47.000000000 +0200
++++ patched/src/xfce4-sensors.desktop.in	2013-03-29 18:30:58.244939078 +0100
+@@ -7,6 +7,6 @@
+ Exec=xfce4-sensors
+ Terminal=false
+ Type=Application
+-Categories=X-XFCE;Utility;System;Monitor;
++Categories=X-XFCE;Utility;System;Monitor;X-UHU-Menu/Tools/Utilities;
+ StartupNotify=true
+ 

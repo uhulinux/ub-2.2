@@ -1,0 +1,137 @@
+diff -Naurdp a/fdisk/cfdisk.c b/fdisk/cfdisk.c
+--- a/fdisk/cfdisk.c	2009-02-24 16:39:30.000000000 +0100
++++ b/fdisk/cfdisk.c	2009-03-26 17:25:39.000000000 +0100
+@@ -73,6 +73,7 @@
+ #elif defined(HAVE_NCURSES_NCURSES_H)
+ #include <ncurses/ncurses.h>
+ #endif
++#include <wchar.h>
+ #include <signal.h>
+ #include <math.h>
+ #include <string.h>
+@@ -338,6 +339,19 @@ int COMMAND_LINE_X = 5;
+ static void die_x(int ret);
+ static void draw_screen(void);
+ 
++static int
++strwidth (const char *s) {
++     wchar_t *wbuf;
++     size_t len;
++     int width;
++     len = mbstowcs(NULL, s, 0);
++     wbuf = malloc((sizeof (wchar_t)) * (len + 2));
++     mbstowcs(wbuf, s, len + 1);
++     width = wcswidth(wbuf, len);
++     free(wbuf);
++     return width;
++}
++
+ /* Guaranteed alloc */
+ static void *
+ xmalloc (size_t size) {
+@@ -500,7 +514,7 @@ print_warning(char *s) {
+     if (!curses_started) {
+ 	 fprintf(stderr, "%s\n", s);
+     } else {
+-	mvaddstr(WARNING_START, (COLS-strlen(s))/2, s);
++	mvaddstr(WARNING_START, (COLS-strwidth(s))/2, s);
+ 	putchar(BELL); /* CTRL-G */
+ 
+ 	warning_last_time = TRUE;
+@@ -516,13 +530,13 @@ fatal(char *s, int ret) {
+ 	 char *str = xmalloc(strlen(s) + strlen(err1) + strlen(err2) + 10);
+ 
+ 	 sprintf(str, "%s: %s", err1, s);
+-	 if (strlen(str) > COLS)
++	 if (strwidth(str) > COLS)
+ 	     str[COLS] = 0;
+-	 mvaddstr(WARNING_START, (COLS-strlen(str))/2, str);
++	 mvaddstr(WARNING_START, (COLS-strwidth(str))/2, str);
+ 	 sprintf(str, "%s", err2);
+-	 if (strlen(str) > COLS)
++	 if (strwidth(str) > COLS)
+ 	     str[COLS] = 0;
+-	 mvaddstr(WARNING_START+1, (COLS-strlen(str))/2, str);
++	 mvaddstr(WARNING_START+1, (COLS-strwidth(str))/2, str);
+ 	 putchar(BELL); /* CTRL-G */
+ 	 refresh();
+ 	 (void)getch();
+@@ -1135,8 +1149,9 @@ menuUpdate( int y, int x, struct MenuIte
+     move( y, x ); clrtoeol();
+ 
+     for( i = 0; menuItems[i].key; i++ ) {
+-        char buff[20];
++        char buff[50];
+         int lenName;
++        int widthName;
+ 	const char *mi;
+ 
+         /* Search next available button */
+@@ -1159,20 +1174,21 @@ menuUpdate( int y, int x, struct MenuIte
+ 	else
+ 		mi = "";
+         lenName = strlen( mi );
++        widthName = strwidth( mi );
+ #if 0
+         if(lenName > itemLength || lenName >= sizeof(buff))
+             print_warning(_("Menu item too long. Menu may look odd."));
+ #endif
+ 	if (lenName >= sizeof(buff)) {	/* truncate ridiculously long string */
+ 	    xstrncpy(buff, mi, sizeof(buff));
+-	} else if (lenName >= itemLength) {
++	} else if (widthName >= itemLength) {
+             snprintf(buff, sizeof(buff),
+ 		     (menuType & MENU_BUTTON) ? "[%s]" : "%s", mi);
+ 	} else {
+             snprintf(buff, sizeof(buff),
+ 		     (menuType & MENU_BUTTON) ? "[%*s%-*s]" : "%*s%-*s",
+-		     (itemLength - lenName) / 2, "",
+-		     (itemLength - lenName + 1) / 2 + lenName, mi);
++		     (itemLength - widthName) / 2, "",
++		     (itemLength - widthName + 1) / 2 + lenName, mi);
+ 	}
+         mvaddstr( y, x, buff );
+ 
+@@ -1204,7 +1220,7 @@ menuUpdate( int y, int x, struct MenuIte
+ 
+     /* Print the description of selected item */
+     mcd = _(menuItems[current].desc);
+-    mvaddstr( WARNING_START + 1, (COLUMNS - strlen( mcd )) / 2, mcd );
++    mvaddstr( WARNING_START + 1, (COLUMNS - strwidth( mcd )) / 2, mcd );
+     return y;
+ }
+ 
+@@ -2047,7 +2063,7 @@ print_p_info_entry(FILE *fp, partition_i
+     else if (p->id == FREE_SPACE && p->num == LOGICAL)
+ 	fp_printf(fp, _("   Logical"));
+     else
+-	fp_printf(fp, "%2d %-7.7s", p->num+1,
++	fp_printf(fp, "%2d %-7s", p->num+1,
+ 		  IS_LOGICAL(p->num) ? _("Logical") : _("Primary"));
+ 
+     fp_printf(fp, " ");
+@@ -2656,9 +2672,9 @@ draw_screen(void) {
+ 
+ 
+     snprintf(line, COLS+1, "cfdisk (%s)", PACKAGE_STRING);
+-    mvaddstr(HEADER_START, (COLS-strlen(line))/2, line);
++    mvaddstr(HEADER_START, (COLS-strwidth(line))/2, line);
+     snprintf(line, COLS+1, _("Disk Drive: %s"), disk_device);
+-    mvaddstr(HEADER_START+2, (COLS-strlen(line))/2, line);
++    mvaddstr(HEADER_START+2, (COLS-strwidth(line))/2, line);
+     {
+ 	    long long bytes = actual_size*(long long) SECTOR_SIZE;
+ 	    long long megabytes = bytes/(K*K);
+@@ -2670,10 +2686,10 @@ draw_screen(void) {
+ 		    sprintf(line, _("Size: %lld bytes, %lld.%lld GB"),
+ 			    bytes, megabytes/K, (10*megabytes/K)%10);
+     }
+-    mvaddstr(HEADER_START+3, (COLS-strlen(line))/2, line);
++    mvaddstr(HEADER_START+3, (COLS-strwidth(line))/2, line);
+     snprintf(line, COLS+1, _("Heads: %d   Sectors per Track: %d   Cylinders: %lld"),
+ 	    heads, sectors, cylinders);
+-    mvaddstr(HEADER_START+4, (COLS-strlen(line))/2, line);
++    mvaddstr(HEADER_START+4, (COLS-strwidth(line))/2, line);
+ 
+     mvaddstr(DISK_TABLE_START, NAME_START, _("Name"));
+     mvaddstr(DISK_TABLE_START, FLAGS_START, _("Flags"));

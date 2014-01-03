@@ -1,0 +1,37 @@
+diff -ur a/thirdparty/speech_tools/configure b/thirdparty/speech_tools/configure
+--- a/thirdparty/speech_tools/configure	2002-12-28 12:57:33.000000000 +0100
++++ b/thirdparty/speech_tools/configure	2013-08-03 23:17:51.473691310 +0200
+@@ -1015,14 +1015,14 @@
+ fi
+ 
+ 
+-echo $ac_n "checking for tputs in -ltermcap""... $ac_c" 1>&6
+-echo "configure:1020: checking for tputs in -ltermcap" >&5
++echo $ac_n "checking for tputs in -lncurses""... $ac_c" 1>&6
++echo "configure:1020: checking for tputs in -lncurses" >&5
+ ac_lib_var=`echo termcap'_'tputs | sed 'y%./+-%__p_%'`
+ if eval "test \"`echo '$''{'ac_cv_lib_$ac_lib_var'+set}'`\" = set"; then
+   echo $ac_n "(cached) $ac_c" 1>&6
+ else
+   ac_save_LIBS="$LIBS"
+-LIBS="-ltermcap  $LIBS"
++LIBS="-lncurses  $LIBS"
+ cat > conftest.$ac_ext <<EOF
+ #line 1028 "configure"
+ #include "confdefs.h"
+@@ -1050,13 +1050,13 @@
+ fi
+ if eval "test \"`echo '$ac_cv_lib_'$ac_lib_var`\" = yes"; then
+   echo "$ac_t""yes" 1>&6
+-  TERMCAPLIB=-ltermcap
++  TERMCAPLIB=-lncurses
+ else
+   echo "$ac_t""no" 1>&6
+ TERMCAPLIB=-lncurses
+ fi
+ 
+-if test "$TERMCAPLIB" != "-ltermcap"; then
++if test "$TERMCAPLIB" != "-lncurses"; then
+ 	echo $ac_n "checking for tputs in -lncurses""... $ac_c" 1>&6
+ echo "configure:1062: checking for tputs in -lncurses" >&5
+ ac_lib_var=`echo ncurses'_'tputs | sed 'y%./+-%__p_%'`

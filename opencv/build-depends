@@ -1,0 +1,16 @@
+cmake
+eigen2
+ffmpeg-dev
+gst-plugins-base-dev
+gstreamer-dev
+gtk2-dev
+jasper-dev
+latex2html
+libdc1394-dev
+libjpeg-dev
+libpng-dev
+libraw1394-dev
+libtiff-dev
+openexr-dev
+python-dev
+python-numpy

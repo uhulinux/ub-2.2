@@ -1,0 +1,24 @@
+diff -Naur orig/ptyx.h mod/ptyx.h
+--- orig/ptyx.h	2013-09-10 20:10:00.000000000 +0200
++++ mod/ptyx.h	2013-11-15 21:47:19.000000000 +0100
+@@ -2374,7 +2374,7 @@
+ #define	INWINDOW	01	/* the mouse is in one of the windows */
+ #define	FOCUS		02	/* one of the windows is the focus window */
+ 
+-#define MULTICLICKTIME 250	/* milliseconds */
++#define MULTICLICKTIME 400	/* milliseconds */
+ 
+ typedef struct {
+     const char *name;
+diff -Naur orig/xterm.man mod/xterm.man
+--- orig/xterm.man	2013-09-10 13:30:33.000000000 +0200
++++ mod/xterm.man	2013-11-15 21:48:39.000000000 +0100
+@@ -3276,7 +3276,7 @@
+ .B "multiClickTime (\fPclass\fB MultiClickTime)"
+ Specifies the maximum time in milliseconds between multi-click select
+ events.
+-The default is \*(``250\*('' milliseconds.
++The default is \*(``400\*('' milliseconds.
+ .TP 8
+ .B "multiScroll (\fPclass\fB MultiScroll)"
+ Specifies whether or not scrolling should be done asynchronously.

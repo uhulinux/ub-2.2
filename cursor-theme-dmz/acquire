@@ -1,0 +1,4 @@
+#!/usr/bin/env dl
+
+dmz-cursor-theme_${UB_VERSION}.tar.gz dmz-cursor-theme-${UB_VERSION}/
+	http://ftp.de.debian.org/debian/pool/main/d/dmz-cursor-theme/

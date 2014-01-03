@@ -1,0 +1,36 @@
+diff -Naur orig/data/nautilus.desktop mod/data/nautilus.desktop
+--- orig/data/nautilus.desktop	2012-05-14 21:41:29.000000000 +0200
++++ mod/data/nautilus.desktop	2013-02-27 22:47:52.000000000 +0100
+@@ -129,7 +129,7 @@
+ Type=Application
+ StartupNotify=true
+ OnlyShowIn=GNOME;Unity;
+-Categories=GNOME;GTK;Utility;Core;
++Categories=GNOME;GTK;Utility;Core;X-UHU-Menu/Tools/File_Managers;
+ MimeType=inode/directory;application/x-gnome-saved-search;
+ X-GNOME-Bugzilla-Bugzilla=GNOME
+ X-GNOME-Bugzilla-Product=nautilus
+diff -Naur orig/data/nautilus.desktop.in mod/data/nautilus.desktop.in
+--- orig/data/nautilus.desktop.in	2012-05-14 21:40:36.000000000 +0200
++++ mod/data/nautilus.desktop.in	2013-02-27 23:02:59.000000000 +0100
+@@ -7,7 +7,7 @@
+ Type=Application
+ StartupNotify=true
+ OnlyShowIn=GNOME;Unity;
+-Categories=GNOME;GTK;Utility;Core;
++Categories=GNOME;GTK;Utility;Core;X-UHU-Menu/Tools/File_Managers;
+ MimeType=inode/directory;application/x-gnome-saved-search;
+ X-GNOME-Bugzilla-Bugzilla=GNOME
+ X-GNOME-Bugzilla-Product=nautilus
+diff -Naur orig/data/nautilus.desktop.in.in mod/data/nautilus.desktop.in.in
+--- orig/data/nautilus.desktop.in.in	2012-05-08 06:28:08.000000000 +0200
++++ mod/data/nautilus.desktop.in.in	2013-02-27 23:03:27.000000000 +0100
+@@ -7,7 +7,7 @@
+ Type=Application
+ StartupNotify=true
+ OnlyShowIn=GNOME;Unity;
+-Categories=GNOME;GTK;Utility;Core;
++Categories=GNOME;GTK;Utility;Core;X-UHU-Menu/Tools/File_Managers;
+ MimeType=inode/directory;application/x-gnome-saved-search;
+ X-GNOME-Bugzilla-Bugzilla=GNOME
+ X-GNOME-Bugzilla-Product=nautilus

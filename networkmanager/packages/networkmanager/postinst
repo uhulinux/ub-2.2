@@ -1,0 +1,6 @@
+#!/bin/sh
+
+ujhost=`hostname`
+
+sed "s/localhost/$ujhost/g" -i /etc/NetworkManager/nm-system-settings.conf
+

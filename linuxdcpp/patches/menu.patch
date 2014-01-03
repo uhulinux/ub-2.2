@@ -1,0 +1,18 @@
+diff -Naur orig/data/linuxdcpp.desktop patched/data/linuxdcpp.desktop
+--- orig/data/linuxdcpp.desktop	2011-01-14 12:36:24.000000000 +0100
++++ patched/data/linuxdcpp.desktop	2011-01-14 21:02:18.000000000 +0100
+@@ -1,10 +1,12 @@
+ [Desktop Entry]
+ Name=LinuxDC++
+ GenericName=Direct Connect Client
++GenericName[hu]=DC kliens
+ Comment=A file-sharing client for the Direct Connect network
++Comment[hu]=Fájlmegosztó kliens a DC hálózathoz
+ TryExec=linuxdcpp
+ Exec=linuxdcpp
+-Icon=linuxdcpp
++Icon=linuxdcpp.xpm
+ Terminal=false
+ Type=Application
+-Categories=Network;P2P;FileTransfer;GTK
++Categories=Network;P2P;FileTransfer;GTK;X-UHU-Menu/Internet/Downloaders;

@@ -1,0 +1,21 @@
+diff -Naur gdm-2.8.0.5.orig/po/hu.po gdm-2.8.0.5/po/hu.po
+--- gdm-2.8.0.5.orig/po/hu.po	2005-10-02 09:26:45.000000000 +0200
++++ gdm-2.8.0.5/po/hu.po	2005-10-10 18:18:34.000000000 +0200
+@@ -2999,7 +2999,7 @@
+ 
+ #: ../gui/gdmlogin.c:2618 ../gui/greeter/greeter_item.c:157
+ msgid "%a %b %d, %H:%M"
+-msgstr "%Y. %B %-d., %A, %k.%M"
++msgstr "%Y. %B %-d., %A, %-k.%M"
+ 
+ #. Translators: You should translate time part as
+ #. %H:%M if your language does not have AM and PM
+@@ -3007,7 +3007,7 @@
+ #. 12-hour clock format
+ #: ../gui/gdmlogin.c:2624 ../gui/greeter/greeter_item.c:161
+ msgid "%a %b %d, %l:%M %p"
+-msgstr "%Y. %B %-d., %A, %l.%M %p"
++msgstr "%Y. %B %-d., %A, %-l.%M %p"
+ 
+ #: ../gui/gdmlogin.c:2673
+ msgid "Finger"

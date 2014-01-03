@@ -1,0 +1,13 @@
+------------------------------------------------------------------------
+r1758 | attus | 2013-12-02 22:46:47 +0100 (Mon, 02 Dec 2013) | 5 lines
+
+0.5~beta -> 0.6.0
+acquire, build-depends, homepage helyrehozva
+avult foltok, addonsok dobva
+magyar nyelvi folt, menu folt, u2d adva
+
+------------------------------------------------------------------------
+r226 | rezso | 2013-10-03 20:56:40 +0200 (Thu, 03 Oct 2013) | 1 line
+
+new package: extreme-tuxracer
+------------------------------------------------------------------------

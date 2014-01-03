@@ -1,0 +1,4 @@
+#!/bin/sh -eux
+
+ub_install
+ln -s ${UB_INSTALLDIR}/usr/share/icons/hicolor/48x48/apps/gnome-mplayer.png ${UB_INSTALLDIR}/usr/share/pixmaps/gnome-mplayer.png

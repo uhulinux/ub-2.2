@@ -1,0 +1,5 @@
+#!/usr/bin/env dl
+
+GamCat-${UB_VERSION}.tar.gz GamCat-${UB_VERSION}/
+	http://downloads.sourceforge.net/project/gamcat/gamcat-${UB_VERSION}/
+

@@ -1,0 +1,18 @@
+#!/bin/sh -eux
+./configure\
+	--prefix=/usr \
+	--sysconfdir=/etc \
+	--datadir=/usr/share/games \
+	--datarootdir=/usr/share \
+	--localedir=/usr/share/locale \
+	--docdir=/usr/share/doc/toppler \
+	--localstatedir=/var/games \
+	--mandir=/usr/share/man \
+	--infodir=/usr/share/info \
+	--enable-shared \
+
+ub_make \
+	docdir=/usr/share/doc \
+	pixmapsdir=/usr/share/pixmaps \
+	applicationsdir=/usr/share/applications\
+	localedir=/usr/share/locale

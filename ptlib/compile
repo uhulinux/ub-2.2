@@ -1,0 +1,25 @@
+#!/bin/sh -eux
+
+#ub_compile \
+#	--enable-appshare \
+#	--disable-avc \
+
+ub_compile \
+    --disable-minsize \
+	--enable-ansi-bool \
+	--enable-atomicity \
+	--disable-internalregex \
+	--disable-sunaudio \
+	--disable-bsdvideo \
+	--disable-appshare \
+	--disable-vfw \
+	--disable-samples \
+	--disable-avc \
+	--disable-mlib \
+	--enable-configfile \
+	--enable-pipechan \
+	--enable-resolver \
+	--enable-url \
+	--disable-v4l \
+	--enable-v4l2 \
+	--enable-ipv6

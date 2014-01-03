@@ -1,0 +1,12 @@
+diff -Naur orig/share/misc/hexchat.desktop patched/share/misc/hexchat.desktop
+--- orig/share/misc/hexchat.desktop	2013-09-12 00:18:19.000000000 +0200
++++ patched/share/misc/hexchat.desktop	2013-11-02 16:50:54.533473317 +0100
+@@ -25,7 +25,7 @@
+ Icon=hexchat
+ Terminal=false
+ Type=Application
+-Categories=GTK;Network;IRCClient;
++Categories=GTK;Network;IRCClient;X-UHU-Menu/Internet/Messengers;
+ StartupNotify=true
+ X-GNOME-UsesNotifications=true
+ MimeType=x-scheme-handler/irc;x-scheme-handler/ircs;

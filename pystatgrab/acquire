@@ -1,0 +1,4 @@
+#!/usr/bin/env dl
+
+pystatgrab-${UB_VERSION}.tar.gz pystatgrab-${UB_VERSION}/
+	ftp://ftp.uk.i-scream.org/pub/i-scream/pystatgrab/

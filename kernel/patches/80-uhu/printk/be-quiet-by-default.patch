@@ -1,0 +1,47 @@
+diff -Naurdp a/init/main.c b/init/main.c
+--- a/init/main.c	2012-04-16 14:48:33.787264196 +0200
++++ b/init/main.c	2012-04-16 14:48:33.979228921 +0200
+@@ -197,6 +197,14 @@ static int __init debug_kernel(char *str
+ 	return 0;
+ }
+ 
++static int __init verbose_kernel(char *str)
++{
++	if (*str)
++		return 0;
++	console_loglevel = 7;
++	return 1;
++}
++
+ static int __init quiet_kernel(char *str)
+ {
+ 	console_loglevel = 4;
+@@ -204,6 +212,7 @@ static int __init quiet_kernel(char *str
+ }
+ 
+ early_param("debug", debug_kernel);
++early_param("verbose", verbose_kernel);
+ early_param("quiet", quiet_kernel);
+ 
+ static int __init loglevel(char *str)
+diff -Naurdp a/kernel/printk.c b/kernel/printk.c
+--- a/kernel/printk.c	2012-04-16 03:28:29.000000000 +0200
++++ b/kernel/printk.c	2012-04-16 14:49:43.914377459 +0200
+@@ -61,7 +61,7 @@ void asmlinkage __attribute__((weak)) ea
+ 
+ /* We show everything that is MORE important than this.. */
+ #define MINIMUM_CONSOLE_LOGLEVEL 1 /* Minimum loglevel we let people use */
+-#define DEFAULT_CONSOLE_LOGLEVEL 7 /* anything MORE serious than KERN_DEBUG */
++#define DEFAULT_CONSOLE_LOGLEVEL 1
+ 
+ DECLARE_WAIT_QUEUE_HEAD(log_wait);
+ 
+@@ -547,7 +547,7 @@ static void _call_console_drivers(unsign
+ {
+ 	trace_console(&LOG_BUF(0), start, end, log_buf_len);
+ 
+-	if ((msg_log_level < console_loglevel || ignore_loglevel) &&
++	if ((msg_log_level < console_loglevel || ignore_loglevel || oops_in_progress) &&
+ 			console_drivers && start != end) {
+ 		if ((start & LOG_BUF_MASK) > (end & LOG_BUF_MASK)) {
+ 			/* wrapped write */

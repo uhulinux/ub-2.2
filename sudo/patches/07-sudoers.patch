@@ -1,0 +1,11 @@
+diff -Naur a/plugins/sudoers/sudoers.in b/plugins/sudoers/sudoers.in
+--- a/plugins/sudoers/sudoers.in	2012-09-18 15:56:30.000000000 +0200
++++ b/plugins/sudoers/sudoers.in	2013-07-21 12:13:38.849339364 +0200
+@@ -70,6 +70,7 @@
+ ## User privilege specification
+ ##
+ root ALL=(ALL) ALL
++%users ALL=(ALL) ALL
+ 
+ ## Uncomment to allow members of group wheel to execute any command
+ # %wheel ALL=(ALL) ALL

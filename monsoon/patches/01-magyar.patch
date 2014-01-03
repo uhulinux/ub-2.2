@@ -1,0 +1,12 @@
+diff -Naur monsoon-0.21-ori/Monsoon/AboutDialog.cs monsoon-0.21/Monsoon/AboutDialog.cs
+--- monsoon-0.21-ori/Monsoon/AboutDialog.cs	2009-04-20 21:12:34.000000000 +0200
++++ monsoon-0.21/Monsoon/AboutDialog.cs	2011-03-13 17:27:52.462253197 +0100
+@@ -58,7 +58,7 @@
+ 			
+ 			Version = Defines.Version;
+ 			this.TranslatorCredits = string.Format("{1}{0}{2}{0}{3}{0}{4}", Environment.NewLine,
+-			                                       _("Bulgarian - Ventsislav Mladenov"),
++			                                       _("Hungarian - Zsólya András"),
+ 			                                       _("Dutch - Freek de Kruijf"),
+ 			                                       _("French - Olivier Dufour"),
+ 			                                       _("German - Mirco Bauer <meebey@meebey.net>"),

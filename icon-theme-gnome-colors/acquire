@@ -1,0 +1,5 @@
+#!/usr/bin/env dl
+
+gnome-colors-${UB_VERSION}.tar.gz .
+	http://gnome-colors.googlecode.com/files/
+

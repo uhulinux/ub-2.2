@@ -1,0 +1,6 @@
+#!/usr/bin/env dl
+
+vdr-live-${UB_VERSION}.tar.gz live-${UB_VERSION}/
+	http://live.vdr-developer.org/downloads/
+#vdr-live-${UB_VERSION}.tar.gz vdr-plugin-live-master/
+#	git://projects.vdr-developer.org/vdr-plugin-live.git@master

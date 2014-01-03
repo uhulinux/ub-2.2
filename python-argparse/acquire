@@ -1,0 +1,4 @@
+#!/usr/bin/env dl
+
+argparse-${UB_VERSION}.tar.gz argparse-${UB_VERSION}/
+	http://argparse.googlecode.com/files/

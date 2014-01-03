@@ -1,0 +1,12 @@
+diff -Naurdp a/scripts/mysqld_safe.sh b/scripts/mysqld_safe.sh
+--- a/scripts/mysqld_safe.sh	2009-11-04 19:30:02.000000000 +0100
++++ b/scripts/mysqld_safe.sh	2009-12-03 18:14:42.614035361 +0100
+@@ -560,7 +560,7 @@ cmd="$cmd $args"
+ # Avoid 'nohup: ignoring input' warning
+ test -n "$NOHUP_NICENESS" && cmd="$cmd < /dev/null"
+ 
+-log_notice "Starting $MYSQLD daemon with databases from $DATADIR"
++#log_notice "Starting $MYSQLD daemon with databases from $DATADIR"
+ while true
+ do
+   rm -f $safe_mysql_unix_port "$pid_file"	# Some extra safety

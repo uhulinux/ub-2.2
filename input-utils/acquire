@@ -1,0 +1,4 @@
+#!/usr/bin/env dl
+
+input-${UB_VERSION}.tar.gz	input-${UB_VERSION}/
+      http://www.kraxel.org/releases/input/

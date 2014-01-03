@@ -1,0 +1,10 @@
+avahi-dev
+glib2-dev
+glibc-dev
+gnome2-panel-dev
+gtk2-dev
+intltool
+libgcrypt-dev
+libssh-dev
+libunique-dev
+vte-dev

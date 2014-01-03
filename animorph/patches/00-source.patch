@@ -1,0 +1,52 @@
+diff -Naur animorph-0.3-ori/include/animorph/BodySettings.h animorph-0.3/include/animorph/BodySettings.h
+--- animorph-0.3-ori/include/animorph/BodySettings.h	2007-12-02 23:30:40.000000000 +0100
++++ animorph-0.3/include/animorph/BodySettings.h	2011-04-08 22:38:18.768298025 +0200
+@@ -36,6 +36,9 @@
+ #include <fstream>
+ #include <map>
+ #include <vector>
++#include <cstring>
++#include <cstdlib>
++#include <stdint.h>
+ #include "FileReader.h"
+ #include "FileWriter.h"
+ 
+diff -Naur animorph-0.3-ori/include/animorph/FaceGroup.h animorph-0.3/include/animorph/FaceGroup.h
+--- animorph-0.3-ori/include/animorph/FaceGroup.h	2007-12-02 23:30:40.000000000 +0100
++++ animorph-0.3/include/animorph/FaceGroup.h	2011-04-08 22:38:36.040290024 +0200
+@@ -29,6 +29,9 @@
+ 
+ #include <map>
+ #include <ios>
++#include <cstring>
++#include <cstdlib>
++#include <stdint.h>
+ #include "Face.h"
+ #include "FaceVector.h"
+ #include "FileWriter.h"
+diff -Naur animorph-0.3-ori/include/animorph/Hotspot.h animorph-0.3/include/animorph/Hotspot.h
+--- animorph-0.3-ori/include/animorph/Hotspot.h	2007-11-25 10:34:57.000000000 +0100
++++ animorph-0.3/include/animorph/Hotspot.h	2011-04-08 22:38:52.912299214 +0200
+@@ -36,6 +36,9 @@
+ #include <vector>
+ #include <iostream>
+ #include <fstream>
++#include <cstring>
++#include <cstdlib>
++#include <stdint.h>
+ #include "FileReader.h"
+ 
+ namespace Animorph {
+diff -Naur animorph-0.3-ori/include/animorph/util.h animorph-0.3/include/animorph/util.h
+--- animorph-0.3-ori/include/animorph/util.h	2007-11-25 10:34:57.000000000 +0100
++++ animorph-0.3/include/animorph/util.h	2011-04-08 22:39:10.768298932 +0200
+@@ -37,6 +37,9 @@
+ #include <iomanip>
+ #include <vector>
+ #include <iostream>
++#include <cstring>
++#include <cstdlib>
++#include <stdint.h>
+ #include "Vector3.h"
+ #include "Vertex.h"
+ #include "VertexVector.h"

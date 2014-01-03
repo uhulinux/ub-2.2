@@ -1,0 +1,10 @@
+Summary=Printer Spooler
+Summary[hu]=Nyomtatókezelő
+Description=Manages print jobs.
+Description[hu]=A nyomtatási feladatokat kezeli.
+MsgDesc=Printer Spooler
+MsgDesc[hu]=Nyomtatókezelő
+Script=/etc/init.d/cupsd
+SupportsReload=yes
+Runlevels=2345
+Sequence=20

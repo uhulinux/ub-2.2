@@ -1,0 +1,13 @@
+[Desktop Entry]
+Comment=ZX Xeno
+Encoding=UTF-8
+Categories=X-UHU-Menu/Games/Arcade;
+Exec=xeno
+GenericName=Xeno
+GenericName[hu]=gomb pöckölő
+Icon=xeno
+MimeType=
+Name=Xeno
+StartupNotify=true
+Type=Application
+

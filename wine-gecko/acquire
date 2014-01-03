@@ -1,0 +1,7 @@
+#!/usr/bin/env dl
+
+wine_gecko-${UB_VERSION}-x86.msi
+#wine-mozilla-${UB_VERSION}-src.tar.bz2
+	http://download.sourceforge.net/wine/
+
+

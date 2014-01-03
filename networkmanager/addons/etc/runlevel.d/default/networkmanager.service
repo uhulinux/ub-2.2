@@ -1,0 +1,10 @@
+Summary=Network Manager
+Summary[hu]=Hálózatkezelő
+Description=Network connection manager and user applications
+Description[hu]=Hálózati kapcsolat kezelő és programok
+MsgDesc=Network Manager
+MsgDesc[hu]=Hálózatkezelő
+Script=/etc/init.d/networkmanager
+SupportsReload=no
+Runlevels=345
+Sequence=10

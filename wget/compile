@@ -1,0 +1,4 @@
+#!/bin/sh -eux
+
+#./bootstrap --gnulib-srcdir=lib --skip-po
+ub_compile

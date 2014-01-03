@@ -1,0 +1,4 @@
+#!/usr/bin/env dl
+
+v${UB_VERSION}.tar.gz mate-color-manager-${UB_VERSION}/
+	https://github.com/NiceandGently/mate-color-manager/archive/

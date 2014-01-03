@@ -1,0 +1,4 @@
+#!/usr/bin/env dl
+
+bwidget-"$UB_VERSION".tar.gz bwidget-"$UB_VERSION"/ :usr/lib/tcl8.5/bwidget
+	http://sourceforge.net/projects/tcllib/files/BWidget/"$UB_VERSION"/bwidget-"$UB_VERSION".tar.gz/download

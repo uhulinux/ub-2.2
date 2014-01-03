@@ -1,0 +1,3 @@
+#!/usr/bin/env dl
+warmux-${UB_VERSION}.tar.bz2 warmux-${UB_VERSION_HEAD2}/
+  http://download.gna.org/warmux/

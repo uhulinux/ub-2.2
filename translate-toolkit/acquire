@@ -1,0 +1,4 @@
+#!/usr/bin/env dl
+
+translate-toolkit-${UB_VERSION}.tar.bz2 translate-toolkit-${UB_VERSION}/
+    http://downloads.sourceforge.net/project/translate/Translate%20Toolkit/${UB_VERSION}/

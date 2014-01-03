@@ -1,0 +1,9 @@
+diff -Naur a/data/cairo-dock.desktop b/data/cairo-dock.desktop
+--- a/data/cairo-dock.desktop	2013-10-08 18:08:30.000000000 +0200
++++ b/data/cairo-dock.desktop	2013-10-13 17:46:58.812919243 +0200
+@@ -24,4 +24,4 @@
+ GenericName[sr@latin]=Док и справице површи са разним могућностима
+ GenericName[uk]=Багатоцільова панель та віжети.
+ 
+-Categories=System;
++Categories=System;X-UHU-Menu/Settings;

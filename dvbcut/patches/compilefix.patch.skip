@@ -1,0 +1,48 @@
+diff -Naur orig/src/buffer.cpp mod/src/buffer.cpp
+--- orig/src/buffer.cpp	2008-10-19 22:01:39.000000000 +0200
++++ mod/src/buffer.cpp	2010-07-08 16:12:45.000000000 +0200
+@@ -17,7 +17,7 @@
+ */
+ 
+ /* $Id: buffer.cpp 136 2008-10-19 20:01:38Z too-tired $ */
+-
++#include <stdio.h>
+ #include <sys/types.h>
+ #include <sys/stat.h>
+ #include <sys/mman.h>
+diff -Naur orig/src/main.cpp mod/src/main.cpp
+--- orig/src/main.cpp	2008-05-18 11:48:06.000000000 +0200
++++ mod/src/main.cpp	2010-07-08 16:16:48.000000000 +0200
+@@ -171,7 +171,7 @@
+       return 1;
+     }
+ 
+-    index::index idx(*mpg);
++    class index idx(*mpg);
+     int pics = idx.generate();
+     if (pics <= 0) {
+       fprintf(stderr, "%s: %s: %s\n", argv0, mpgfilename.c_str(),
+diff -Naur orig/src/mpegmuxer.cpp mod/src/mpegmuxer.cpp
+--- orig/src/mpegmuxer.cpp	2008-10-10 14:11:08.000000000 +0200
++++ mod/src/mpegmuxer.cpp	2010-07-08 16:13:11.000000000 +0200
+@@ -17,7 +17,7 @@
+ */
+ 
+ /* $Id: mpegmuxer.cpp 132 2008-10-10 12:11:08Z too-tired $ */
+-
++#include <stdio.h>
+ #include <cstdlib>
+ #include <cstring>
+ #include <strings.h>
+diff -Naur orig/src/mpgfile.h mod/src/mpgfile.h
+--- orig/src/mpgfile.h	2008-10-11 13:13:37.000000000 +0200
++++ mod/src/mpgfile.h	2010-07-08 16:15:33.000000000 +0200
+@@ -49,7 +49,7 @@
+   stream s[MAXAVSTREAMS];
+   int videostreams, audiostreams;
+   int initialoffset;
+-  index::index idx;
++  class index idx;
+   int pictures;
+ 
+   mpgfile(inbuffer &b, int initial_offset);

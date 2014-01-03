@@ -1,0 +1,3 @@
+#!/usr/bin/env dl
+mirrormagic-${UB_VERSION}.tar.gz mirrormagic-${UB_VERSION}/
+	http://www.artsoft.org/RELEASES/unix/mirrormagic/

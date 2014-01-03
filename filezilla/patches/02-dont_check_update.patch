@@ -1,0 +1,11 @@
+--- filezilla-3.5.3/src/interface/Options.cpp	2012-09-26 08:13:19.580357711 +0200
++++ filezilla-3.5.3.orig/src/interface/Options.cpp	2011-11-08 21:33:06.000000000 +0100
+@@ -108,7 +108,7 @@
+ 	{ "Last Server Path", string, _T(""), normal },
+ 	{ "Concurrent download limit", number, _T("0"), normal },
+ 	{ "Concurrent upload limit", number, _T("0"), normal },
+-	{ "Update Check", number, _T("1"), normal },
++	{ "Update Check", number, _T("0"), normal },
+ 	{ "Update Check Interval", number, _T("7"), normal },
+ 	{ "Last automatic update check", string, _T(""), normal },
+ 	{ "Update Check New Version", string, _T(""), normal },

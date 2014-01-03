@@ -1,0 +1,14 @@
+diff -Naur orig/data/valama.desktop mod/data/valama.desktop
+--- orig/data/valama.desktop	2013-06-10 14:52:55.000000000 +0200
++++ mod/data/valama.desktop	2013-06-10 15:05:39.000000000 +0200
+@@ -3,8 +3,9 @@
+ Name=Valama
+ GenericName=IDE
+ Comment=Create Vala projects.
++Comment[hu]=Vala integrált fejlesztő környezet
+ Icon=valama
+ Exec=valama
+ MimeType=application/x-valama;
+-Categories=GNOME;GTK;Development;IDE;
++Categories=GNOME;GTK;Development;IDE;X-UHU-Menu/Development/Programming;
+ Keywords=Vala;

@@ -1,0 +1,5 @@
+#!/usr/bin/env dl
+
+quazip-${UB_VERSION}.tar.gz quazip-${UB_VERSION}/
+	http://heanet.dl.sourceforge.net/project/quazip/quazip/${UB_VERSION}/
+

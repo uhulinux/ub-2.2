@@ -1,0 +1,7 @@
+#!/usr/bin/env dl
+pak96.comic_0-4-6_${UB_VERSION_MAJOR}-0.zip .
+  http://sourceforge.net/projects/simutrans/files/pak96.comic/pak96.comic%20for%20${UB_VERSION_MAJOR}-0/pak96.comic_0-4-6_${UB_VERSION_MAJOR}-0.zip/download
+#pak96.comic_0-4-6_102-0.zip
+#http://sourceforge.net/projects/$_pkgname/files/pak96.comic/pak96.comic%20for%20102-0/pak96.comic_0-4-6_102-0.zip/download
+#102.2.2
+#http://sourceforge.net/projects/simutrans/files/pak96.comic/pak96.comic%20for%20102-0/pak96.comic_0-4-6_102-0.zip/download

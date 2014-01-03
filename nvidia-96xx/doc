@@ -1,0 +1,5 @@
+NVIDIA-Linux-x86-"${UB_VERSION}"-pkg1/usr/share/doc/Copyrights
+NVIDIA-Linux-x86-"${UB_VERSION}"-pkg1/usr/share/doc/NVIDIA_Changelog
+NVIDIA-Linux-x86-"${UB_VERSION}"-pkg1/usr/share/doc/README.txt
+NVIDIA-Linux-x86-"${UB_VERSION}"-pkg1/usr/share/doc/XF86Config.sample
+NVIDIA-Linux-x86-"${UB_VERSION}"-pkg1/usr/share/doc/nvidia-settings-user-guide.txt

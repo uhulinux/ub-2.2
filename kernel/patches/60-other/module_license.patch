@@ -1,0 +1,26 @@
+diff -Naurdp a/drivers/staging/comedi/drivers/ni_atmio.c b/drivers/staging/comedi/drivers/ni_atmio.c
+--- a/drivers/staging/comedi/drivers/ni_atmio.c	2012-04-16 03:28:29.000000000 +0200
++++ b/drivers/staging/comedi/drivers/ni_atmio.c	2012-04-16 17:11:40.050721858 +0200
+@@ -537,3 +537,5 @@ static int ni_getboardtype(struct comedi
+ 
+ 	return -1;
+ }
++
++MODULE_LICENSE("GPL");
+diff -Naurdp a/net/nfc/nci/core.c b/net/nfc/nci/core.c
+--- a/net/nfc/nci/core.c	2012-04-16 03:28:29.000000000 +0200
++++ b/net/nfc/nci/core.c	2012-04-16 17:12:35.132612072 +0200
+@@ -34,6 +34,7 @@
+ #include <linux/sched.h>
+ #include <linux/bitops.h>
+ #include <linux/skbuff.h>
++#include <linux/module.h>
+ 
+ #include "../nfc.h"
+ #include <net/nfc/nci.h>
+@@ -877,3 +877,5 @@ static void nci_cmd_work(struct work_str
+ 			  jiffies + msecs_to_jiffies(NCI_CMD_TIMEOUT));
+ 	}
+ }
++
++MODULE_LICENSE("GPL");

@@ -1,0 +1,8 @@
+#!/bin/sh
+
+. /etc/init.d/common
+
+DAEMON=/usr/sbin/gdm-binary
+PIDFILE="/var/run/gdm.pid"
+
+startstop "$@"

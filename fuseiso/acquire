@@ -1,0 +1,5 @@
+#!/usr/bin/env dl
+
+fuseiso-"$UB_VERSION".tar.bz2 fuseiso-"$UB_VERSION"/
+	http://downloads.sourceforge.net/fuseiso/
+#	http://sourceforge.net/projects/fuseiso/files/fuseiso/"$UB_VERSION"/fuseiso-"$UB_VERSION".tar.bz2/download

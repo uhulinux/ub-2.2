@@ -1,0 +1,5 @@
+#!/usr/bin/env dl
+
+usbmuxd-${UB_VERSION}.tar.bz2 usbmuxd-${UB_VERSION}/
+	http://www.libimobiledevice.org/downloads/
+	http://marcansoft.com/uploads/usbmuxd/

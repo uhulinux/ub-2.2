@@ -1,0 +1,12 @@
+celt-dev
+expat-dev
+ffmpeg-dev
+libgsm-dev
+libtheora-dev
+openldap-dev
+openssl-dev
+ptlib-dev
+sdl-dev
+speex-dev
+swig
+x264-dev

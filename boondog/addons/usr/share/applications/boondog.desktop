@@ -1,0 +1,13 @@
+[Desktop Entry]
+Comment=
+Comment[hu]=mászkálós játék
+Encoding=UTF-8
+Categories=X-UHU-Menu/Games/Action;
+Exec=boondog
+GenericName=
+GenericName[hu]=boondog
+Icon=
+MimeType=
+Name=boondog
+Name[hu]=boondog
+Type=Application

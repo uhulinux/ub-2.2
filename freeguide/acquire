@@ -1,0 +1,4 @@
+#!/usr/bin/env dl
+
+freeguide-${UB_VERSION}.tar.gz freeguide-${UB_VERSION}/
+	http://sourceforge.net/projects/freeguide-tv/files/freeguide-source/${UB_VERSION}/

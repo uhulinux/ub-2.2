@@ -1,0 +1,7 @@
+#!/usr/bin/env dl
+
+amor-${UB_VERSION}.tar.xz .
+	ftp://ftp.kde.org/pub/kde/stable/${UB_VERSION}/src/
+	
+kteatime-${UB_VERSION}.tar.xz .
+	ftp://ftp.kde.org/pub/kde/stable/${UB_VERSION}/src/

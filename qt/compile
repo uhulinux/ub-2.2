@@ -1,0 +1,46 @@
+#!/bin/sh -eux
+
+export LD_LIBRARY_PATH="$(pwd)"/lib
+
+yes yes | ./configure \
+	-platform linux-g++ \
+	-prefix /usr/lib/qt \
+	-release            \
+	-qt-gif             \
+	-sm                 \
+	-system-zlib        \
+	-system-libjpeg     \
+	-qt-imgfmt-jpeg     \
+	-system-libpng      \
+	-qt-imgfmt-png      \
+	-system-libmng      \
+	-qt-imgfmt-mng      \
+	-thread             \
+	-no-nis             \
+	-cups               \
+	-largefile          \
+	-stl                \
+	-static             \
+	-shared             \
+	-no-g++-exceptions  \
+	-enable-styles      \
+	-enable-tools       \
+	-enable-kernel      \
+	-enable-widgets     \
+	-enable-dialogs     \
+	-enable-iconview    \
+	-enable-workspace   \
+	-enable-network     \
+	-enable-canvas      \
+	-enable-table       \
+	-enable-xml         \
+	-enable-opengl      \
+	-enable-sql         \
+	-plugin-sql-mysql -I/usr/include/mysql \
+	-plugin-sql-odbc    \
+	-plugin-sql-psql -I/usr/include/postgresql -I/usr/include/postgresql/server \
+	-xinerama           \
+	-xrender            \
+	-xft                \
+	-xkb
+ub_make -j3

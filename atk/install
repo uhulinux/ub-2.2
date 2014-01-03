@@ -1,0 +1,6 @@
+#!/bin/sh -eux
+
+ub_install
+
+cd ${UB_INSTALLDIR}/usr/lib
+ln -s libatk-1.0.so.0.20209.1 libatk-1.0.so.0.2809.1

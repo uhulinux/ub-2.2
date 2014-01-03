@@ -1,0 +1,7 @@
+#!/usr/bin/env dl
+xenom-${UB_VERSION}.tar.gz xenom-${UB_VERSION}/
+	http://downloads.sourceforge.net/xenom/
+
+
+
+

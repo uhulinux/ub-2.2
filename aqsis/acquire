@@ -1,0 +1,4 @@
+#!/usr/bin/env dl
+
+aqsis-$UB_VERSION.tar.gz aqsis-$UB_VERSION/
+	http://sourceforge.net/projects/aqsis/files/aqsis-source/$UB_VERSION/

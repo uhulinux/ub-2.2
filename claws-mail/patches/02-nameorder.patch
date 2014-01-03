@@ -1,0 +1,30 @@
+diff -Naur orig/src/editaddress.c patched/src/editaddress.c
+--- orig/src/editaddress.c	2013-03-19 07:31:04.000000000 +0100
++++ patched/src/editaddress.c	2013-05-06 19:21:20.989798044 +0200
+@@ -964,7 +964,9 @@
+ 	if (locale &&
+ 	    (!g_ascii_strncasecmp(locale, "ja", 2) ||
+ 	     !g_ascii_strncasecmp(locale, "ko", 2) ||
+-	     !g_ascii_strncasecmp(locale, "zh", 2))) {
++	     !g_ascii_strncasecmp(locale, "zh", 2) ||
++	     !g_ascii_strncasecmp(locale, "vi", 2) ||
++	     !g_ascii_strncasecmp(locale, "hu", 2))) {
+ 		ATTACH_ROW(_("Last Name"), entry_ln);
+ 		ATTACH_ROW(_("First Name"), entry_fn);
+ 	} else {
+diff -Naur orig/src/jpilot.c patched/src/jpilot.c
+--- orig/src/jpilot.c	2013-03-19 07:31:04.000000000 +0100
++++ patched/src/jpilot.c	2013-05-06 19:21:20.989798044 +0200
+@@ -1520,7 +1520,11 @@
+ 
+ 	cur_locale = conv_get_current_locale();
+ 
+-	if( g_ascii_strncasecmp( cur_locale, "ja", 2 ) == 0 ) {
++	if( g_ascii_strncasecmp( cur_locale, "ja", 2 ) == 0 ||
++		g_ascii_strncasecmp( cur_locale, "ko", 2 ) == 0 ||
++		g_ascii_strncasecmp( cur_locale, "zh", 2 ) == 0 ||
++		g_ascii_strncasecmp( cur_locale, "vi", 2 ) == 0 ||
++		g_ascii_strncasecmp( cur_locale, "hu", 2 ) == 0 ) {
+ 		name_order = FAMILY_FIRST;
+ 	}
+ 

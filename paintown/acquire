@@ -1,0 +1,5 @@
+#!/usr/bin/env dl
+
+paintown-${UB_VERSION}.tar.bz2 paintown-${UB_VERSION}/
+	http://downloads.sourceforge.net/sourceforge/paintown/
+	
