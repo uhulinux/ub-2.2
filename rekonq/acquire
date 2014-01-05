@@ -1,5 +1,5 @@
 #!/usr/bin/env dl
 
-rekonq-${UB_VERSION}.tar.bz2 rekonq-${UB_VERSION}/
+rekonq-${UB_VERSION}.tar.xz rekonq-${UB_VERSION}/
 	http://downloads.sourceforge.net/project/rekonq/2.0/
 
