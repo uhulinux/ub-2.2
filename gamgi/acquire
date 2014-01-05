@@ -1,0 +1,5 @@
+#!/usr/bin/env dl
+
+gamgi-all-${UB_VERSION}.tar.gz gamgi${UB_VERSION}/
+	http://www.gamgi.org/src/
+

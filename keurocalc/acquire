@@ -1,0 +1,5 @@
+#!/usr/bin/env dl
+
+keurocalc-${UB_VERSION}.tgz keurocalc-${UB_VERSION}/
+	http://opensource.bureau-cornavin.com/keurocalc/sources/
+

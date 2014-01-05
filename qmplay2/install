@@ -1,0 +1,3 @@
+#!/bin/sh -eux
+
+cp -R app/{bin,lib,share} ${UB_INSTALLDIR}/usr

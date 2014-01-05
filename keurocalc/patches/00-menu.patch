@@ -1,0 +1,12 @@
+diff -Naur a/keurocalc/keurocalc.desktop b/keurocalc/keurocalc.desktop
+--- a/keurocalc/keurocalc.desktop	2014-01-02 14:07:33.000000000 +0100
++++ b/keurocalc/keurocalc.desktop	2014-01-04 13:09:40.695947562 +0100
+@@ -4,7 +4,7 @@
+ Icon=keurocalc
+ X-DocPath=keurocalc/index.html
+ Terminal=false
+-Categories=Qt;KDE;Office;
++Categories=Qt;KDE;Office;X-UHU-Menu/Tools/Calculators;
+ Name=KEuroCalc
+ Name[be]=KEuroCalc
+ Name[bg]=KEuroCalc

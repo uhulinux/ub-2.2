@@ -1,0 +1,21 @@
+diff -Naur a/compile_unix b/compile_unix
+--- a/compile_unix	2013-10-24 01:57:14.000000000 +0200
++++ b/compile_unix	2014-01-03 03:22:07.562623089 +0100
+@@ -24,7 +24,7 @@
+ if hash lrelease-qt4 2> /dev/null; then
+ 	lrelease-qt4 QMPlay2.pro
+ else
+-	lrelease QMPlay2.pro
++	lrelease-qt5 QMPlay2.pro
+ fi
+ 
+ mkdir -p app/share/qmplay2/lang
+@@ -33,7 +33,7 @@
+ if hash qmake-qt4 2> /dev/null; then
+ 	QMAKE=qmake-qt4
+ else
+-	QMAKE=qmake
++	QMAKE=qmake-qt5
+ fi
+ 
+ if [ ! -z $1 ]; then

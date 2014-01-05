@@ -1,0 +1,8 @@
+#!/bin/sh -eux
+
+install -Dm 755 src/gamgi ${UB_INSTALLDIR}/usr/bin
+install -m 644 doc/icon/gamgi48.png ${UB_INSTALLDIR}/usr/share/pixmaps/gamgi.png
+install -dm 755 ${UB_INSTALLDIR}/usr/share/gamgi
+cp -af dat/* ${UB_INSTALLDIR}/usr/share/gamgi
+gzip doc/man/page
+cp doc/man/page.gz ${UB_INSTALLDIR}/usr/share/man/man1/gamgi.1.gz

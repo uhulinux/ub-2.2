@@ -1,0 +1,9 @@
+[Desktop Entry]
+Name=GAMGI
+Comment=Visualize and analyse atomic structures
+Exec=gamgi
+Icon=gamgi
+Terminal=false
+Type=Application
+StartupNotify=true
+Categories=Education;Science;Chemistry;X-UHU-Menu/Edutainment/Science;

@@ -1,0 +1,4 @@
+#!/bin/sh -eux
+
+make INSTALL_ROOT="$UB_INSTALLDIR" install
+install -Dm755 otter-browser "$UB_INSTALLDIR"/usr/bin

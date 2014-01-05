@@ -1,8 +1,8 @@
 diff -Naur a/linux/applications/qupzilla.desktop b/linux/applications/qupzilla.desktop
---- a/linux/applications/qupzilla.desktop	2013-05-10 12:10:45.000000000 +0200
-+++ b/linux/applications/qupzilla.desktop	2013-05-29 01:42:03.891501859 +0200
-@@ -6,7 +6,7 @@
- Name[fa]=کوپزیلا
+--- a/linux/applications/qupzilla.desktop	2014-01-01 20:55:33.000000000 +0100
++++ b/linux/applications/qupzilla.desktop	2014-01-05 06:19:28.369403416 +0100
+@@ -7,7 +7,7 @@
+ Name[ar]=كَبزيلّا
  Type=Application
  Icon=qupzilla
 -Categories=Network;WebBrowser;
@@ -10,19 +10,19 @@ diff -Naur a/linux/applications/qupzilla.desktop b/linux/applications/qupzilla.d
  Comment=A fast and secure web browser
  Comment[ca]=Un navegador ràpid i segur
  Comment[cs]=Rychlý a bezpečný webový prohlížeč
-@@ -14,6 +14,7 @@
- Comment[el]=Ένας γρήγορος και ασφαλής περιηγητής ιστού
+@@ -17,6 +17,7 @@
  Comment[es]=Un navegador web rápido y seguro
  Comment[fr]=Un navigateur Internet rapide et sûr
+ Comment[he]=דפדפן רשת מהיר ומאובטח
 +Comment[hu]=Egy biztonságos gyors webböngésző
  Comment[it]=Un browser web veloce e sicuro
  Comment[id]=Peramban web cepat dan aman
  Comment[ka]=სწრაფი და დაცული ვებ ბრაუზერი
-@@ -40,6 +41,7 @@
- GenericName[el]=Περιηγητής ιστού
- GenericName[es]=Navegador Web
- GenericName[fr]=Navigateur Internet
-+GenericName[hu]=Webböngésző
+@@ -47,6 +48,7 @@
  GenericName[id]=Peramban Web
  GenericName[it]=Browser Web
+ GenericName[he]=דפדפן רשת
++GenericName[hu]=Webböngésző
  GenericName[ka]=ვებ ბრაუზერი
+ GenericName[nl]=Webbrowser
+ GenericName[pl]=Przeglądarka Internetowa

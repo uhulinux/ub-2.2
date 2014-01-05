@@ -4,9 +4,10 @@ ln -s /usr/lib/libtk8.5.so ${UB_INSTALLDIR}/usr/lib/libtk8.5.so.0
 ln -s /usr/lib/libtcl8.5.so ${UB_INSTALLDIR}/usr/lib/libtcl8.5.so.0
 ln -s /usr/lib/liblzma.so.0 ${UB_INSTALLDIR}/usr/lib/liblzma.so.2
 mkdir -p ${UB_INSTALLDIR}/usr/share/blender
-cp -R 2.68 ${UB_INSTALLDIR}/usr/share/blender
+cp -R ${UB_VERSION} ${UB_INSTALLDIR}/usr/share/blender
 cp -R lib ${UB_INSTALLDIR}/usr/share/blender
 cp blender ${UB_INSTALLDIR}/usr/share/blender
+ln -s ${UB_INSTALLDIR}/usr/share/blender/blender ${UB_INSTALLDIR}/usr/bin/blender
 cp blenderplayer ${UB_INSTALLDIR}/usr/share/blender
 mkdir -p "$UB_INSTALLDIR"/usr/share/icons/hicolor/{16x16,22x22,24x24,32x32,48x48,256x256,scalable}/apps
 cp icons/16x16/apps/blender.png    "$UB_INSTALLDIR"/usr/share/icons/hicolor/16x16/apps/

@@ -1,0 +1,47 @@
+diff -Naur a/src/app/qmmp.desktop b/src/app/qmmp.desktop
+--- a/src/app/qmmp.desktop	2013-10-02 12:02:52.000000000 +0200
++++ b/src/app/qmmp.desktop	2013-10-06 20:03:56.175215247 +0200
+@@ -23,7 +23,7 @@
+ Icon=qmmp
+ Terminal=false
+ Type=Application
+-Categories=AudioVideo;Player;Audio;Qt;
++Categories=AudioVideo;Player;Audio;Qt;X-UHU-Menu/Multimedia/MusicPlayers;
+ MimeType=application/x-ogg;audio/mp3;audio/mpeg;audio/flac;audio/x-mp3;audio/x-mpeg;audio/x-ms-wma;audio/x-musepack;application/ogg;audio/x-vorbis+ogg;audio/x-scpls;audio/x-mpegurl;audio/x-it;audio/x-mod;audio/x-ape;application/x-cue;x-content/audio-cdda;audio/x-ffmpeg-shorten;
+ X-KDE-StartupNotify=false
+ Actions=Play;Pause;Stop;Previous;Next;
+diff -Naur a/src/app/qmmp_dir.desktop b/src/app/qmmp_dir.desktop
+--- a/src/app/qmmp_dir.desktop	2013-10-02 12:02:52.000000000 +0200
++++ b/src/app/qmmp_dir.desktop	2013-10-06 20:04:27.723216208 +0200
+@@ -24,6 +24,6 @@
+ Terminal=false
+ NoDisplay=true
+ Type=Application
+-Categories=AudioVideo;Player;Audio;Qt;
++Categories=AudioVideo;Player;Audio;Qt;X-UHU-Menu/Multimedia/MusicPlayers;
+ MimeType=inode/directory;
+ X-KDE-StartupNotify=false
+diff -Naur a/src/app/qmmp_enqueue.desktop b/src/app/qmmp_enqueue.desktop
+--- a/src/app/qmmp_enqueue.desktop	2013-10-02 12:02:52.000000000 +0200
++++ b/src/app/qmmp_enqueue.desktop	2013-10-06 20:04:40.575216601 +0200
+@@ -18,7 +18,7 @@
+ Comment[he]=הוסף קבצים אל רשימת הניגון של Qmmp
+ Exec=qmmp -e %F
+ Icon=qmmp
+-Categories=AudioVideo;Player;Audio;Qt;
++Categories=AudioVideo;Player;Audio;Qt;X-UHU-Menu/Multimedia/MusicPlayers;
+ MimeType=application/x-ogg;audio/mp3;audio/mpeg;audio/flac;audio/x-mp3;audio/x-mpeg;audio/x-ms-wma;audio/x-musepack;application/ogg;audio/x-vorbis+ogg;audio/x-scpls;audio/x-mpegurl;audio/x-it;audio/x-mod;audio/x-ape;application/x-cue;audio/x-ffmpeg-shorten;inode/directory;
+ Type=Application
+ X-KDE-StartupNotify=false
+diff -Naur a/src/plugins/Input/cue/qmmp_cue.desktop b/src/plugins/Input/cue/qmmp_cue.desktop
+--- a/src/plugins/Input/cue/qmmp_cue.desktop	2013-10-02 12:02:53.000000000 +0200
++++ b/src/plugins/Input/cue/qmmp_cue.desktop	2013-10-06 20:04:12.379215741 +0200
+@@ -16,7 +16,7 @@
+ Comment[he]=פתח קבצי cue המצויים בתוך המדור
+ Exec=sh -c "qmmp '%F'/*.cue"
+ Icon=qmmp
+-Categories=AudioVideo;Player;Audio;Qt;
++Categories=AudioVideo;Player;Audio;Qt;X-UHU-Menu/Multimedia/MusicPlayers;
+ MimeType=inode/directory;
+ Type=Application
+ X-KDE-StartupNotify=false
