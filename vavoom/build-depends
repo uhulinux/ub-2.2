@@ -8,4 +8,4 @@ libpng-dev
 mesa-dev
 openal-dev
 sdl-mixer-dev
-wxwidgets-dev
+wxwidgets3-dev

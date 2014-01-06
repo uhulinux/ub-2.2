@@ -2,8 +2,9 @@ binutils-dev
 boost-dev
 cmake
 curl-dev
-enet
+enet-dev
 gamin-dev
+gloox-dev
 libjpeg-dev
 libogg-dev
 libpng-dev
@@ -17,6 +18,6 @@ openal-dev
 openexr-dev
 python-dev
 sdl-dev
-wxwidgets-dev
+wxwidgets3-dev
 zip
 zlib-dev

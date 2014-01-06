@@ -1,6 +1,7 @@
 boost-dev
 curl-dev
 expat-dev
+file-dev
 flac-dev
 imagemagick-dev
 libebml
@@ -8,5 +9,5 @@ liblzo-dev
 libmatroska
 libogg-dev
 libvorbis-dev
-wxwidgets-dev
+wxwidgets3-dev
 zlib-dev

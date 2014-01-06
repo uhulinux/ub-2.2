@@ -5,8 +5,10 @@ cmake
 enblend
 exiv2-dev
 freeglut-dev
+glew-dev
 gtk2-dev
 libjpeg-dev
+liblensfun-dev
 libpano13-dev
 libpng-dev
 libtiff-dev
@@ -14,6 +16,8 @@ libxi-dev
 libxmu-dev
 mesa-dev
 openexr-dev
+python-dev
+swig
 tclap
-wxwidgets-dev
+wxwidgets3-dev
 zip

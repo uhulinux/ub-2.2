@@ -1,0 +1,12 @@
+diff -Naur orig/common/edaappl.cpp patched/common/edaappl.cpp
+--- orig/common/edaappl.cpp	2013-07-27 18:24:52.000000000 +0200
++++ patched/common/edaappl.cpp	2014-01-05 18:37:47.380508126 +0100
+@@ -451,7 +451,7 @@
+ 
+     // Linux and Unix
+ #elif defined(__UNIX__)
+-    m_BinDir = wxStandardPaths().GetExecutablePath();
++    m_BinDir = wxStandardPaths::Get().GetExecutablePath();
+ #else
+     m_BinDir = argv[0];
+ #endif // __UNIX__
