@@ -3,6 +3,7 @@
 mkdir ${UB_INSTALLDIR}/usr/share/icons
 cp -R Buuf_Deuce_for_KDE_${UB_VERSION} ${UB_INSTALLDIR}/usr/share/icons/buuf
 
+# Linkek az UHU menü kategóriáihoz
 for theme in buuf; do
 	for i in 16x16 22x22 32x32 48x48 64x64 128x128; do
 
@@ -62,4 +63,13 @@ for theme in buuf; do
 	done
 done
 
+# Linkek az alkalmazásokhoz
+for theme in buuf; do
+	for i in 16x16 22x22 32x32 48x48 64x64 128x128; do
+
+		ln -s /usr/share/icons/$theme/$i/apps/googleearth.png "$UB_INSTALLDIR"/usr/share/icons/$theme/$i/apps/google-earth.png
+		ln -s /usr/share/icons/$theme/$i/apps/internet-web-browser.png "$UB_INSTALLDIR"/usr/share/icons/$theme/$i/apps/google-chrome.png
+	done
+done
+		
 rm -f ${UB_INSTALLDIR}/usr/share/icons/buuf/{changelog,licenses,Poster.png,screenshot.png}
