@@ -1,18 +1,18 @@
 diff -Naur orig/baobab/data/mate-disk-usage-analyzer.desktop.in.in patched/baobab/data/mate-disk-usage-analyzer.desktop.in.in
---- orig/baobab/data/mate-disk-usage-analyzer.desktop.in.in	2013-03-24 16:36:12.000000000 +0100
-+++ patched/baobab/data/mate-disk-usage-analyzer.desktop.in.in	2013-04-01 23:30:38.687625914 +0200
+--- orig/baobab/data/mate-disk-usage-analyzer.desktop.in.in	2014-01-06 11:38:59.000000000 +0100
++++ patched/baobab/data/mate-disk-usage-analyzer.desktop.in.in	2014-01-09 00:41:28.552987176 +0100
 @@ -7,7 +7,7 @@
  Terminal=false
  Type=Application
  StartupNotify=true
--Categories=GTK;MATE;System;Filesystem;
-+Categories=GTK;MATE;System;Filesystem;X-UHU-Menu/Tools/Utilities;
+-Categories=GTK;System;Filesystem;
++Categories=GTK;System;Filesystem;X-UHU-Menu/Tools/Utilities;
  OnlyShowIn=MATE;
  X-MATE-Bugzilla-Bugzilla=MATE
  X-MATE-Bugzilla-Product=mate-utils
 diff -Naur orig/gsearchtool/mate-search-tool.desktop.in patched/gsearchtool/mate-search-tool.desktop.in
---- orig/gsearchtool/mate-search-tool.desktop.in	2013-03-24 16:36:12.000000000 +0100
-+++ patched/gsearchtool/mate-search-tool.desktop.in	2013-04-01 23:31:01.051832321 +0200
+--- orig/gsearchtool/mate-search-tool.desktop.in	2014-01-06 11:38:59.000000000 +0100
++++ patched/gsearchtool/mate-search-tool.desktop.in	2014-01-09 00:40:19.468349536 +0100
 @@ -6,7 +6,7 @@
  Terminal=false
  Type=Application
@@ -23,8 +23,8 @@ diff -Naur orig/gsearchtool/mate-search-tool.desktop.in patched/gsearchtool/mate
  X-MATE-DocPath=mate-search-tool/mate-search-tool.xml
  X-MATE-Bugzilla-Bugzilla=MATE
 diff -Naur orig/logview/data/mate-system-log.desktop.in.in patched/logview/data/mate-system-log.desktop.in.in
---- orig/logview/data/mate-system-log.desktop.in.in	2013-03-24 16:36:12.000000000 +0100
-+++ patched/logview/data/mate-system-log.desktop.in.in	2013-04-01 23:31:20.524012056 +0200
+--- orig/logview/data/mate-system-log.desktop.in.in	2014-01-06 11:38:59.000000000 +0100
++++ patched/logview/data/mate-system-log.desktop.in.in	2014-01-09 00:40:19.468349536 +0100
 @@ -6,7 +6,7 @@
  Terminal=false
  Type=Application
@@ -35,8 +35,8 @@ diff -Naur orig/logview/data/mate-system-log.desktop.in.in patched/logview/data/
  X-MATE-DocPath=mate-system-log/mate-system-log.xml
  X-MATE-Bugzilla-Bugzilla=MATE
 diff -Naur orig/mate-dictionary/data/mate-dictionary.desktop.in.in patched/mate-dictionary/data/mate-dictionary.desktop.in.in
---- orig/mate-dictionary/data/mate-dictionary.desktop.in.in	2013-03-24 16:36:12.000000000 +0100
-+++ patched/mate-dictionary/data/mate-dictionary.desktop.in.in	2013-04-01 23:32:05.372425992 +0200
+--- orig/mate-dictionary/data/mate-dictionary.desktop.in.in	2014-01-06 11:38:59.000000000 +0100
++++ patched/mate-dictionary/data/mate-dictionary.desktop.in.in	2014-01-09 00:40:19.468349536 +0100
 @@ -6,7 +6,7 @@
  Type=Application
  Icon=accessories-dictionary
@@ -47,8 +47,8 @@ diff -Naur orig/mate-dictionary/data/mate-dictionary.desktop.in.in patched/mate-
  X-MATE-DocPath=mate-dictionary/mate-dictionary.xml
  X-MATE-Bugzilla-Bugzilla=MATE
 diff -Naur orig/mate-screenshot/mate-screenshot.desktop.in patched/mate-screenshot/mate-screenshot.desktop.in
---- orig/mate-screenshot/mate-screenshot.desktop.in	2013-03-24 16:36:12.000000000 +0100
-+++ patched/mate-screenshot/mate-screenshot.desktop.in	2013-04-01 23:31:40.844199610 +0200
+--- orig/mate-screenshot/mate-screenshot.desktop.in	2014-01-06 11:38:59.000000000 +0100
++++ patched/mate-screenshot/mate-screenshot.desktop.in	2014-01-09 00:40:19.472349573 +0100
 @@ -6,7 +6,7 @@
  Type=Application
  Icon=applets-screenshooter
