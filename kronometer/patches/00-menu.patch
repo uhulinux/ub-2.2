@@ -1,0 +1,11 @@
+diff -Naurdp a/kronometer.desktop b/kronometer.desktop
+--- a/kronometer.desktop	2014-01-08 17:20:13.000000000 +0100
++++ b/kronometer.desktop	2014-01-10 02:16:41.497245794 +0100
+@@ -5,5 +5,6 @@ Icon=kronometer
+ Terminal=false
+ Name=Kronometer
+ GenericName=Chronometer
++GenericName[hu]=KDE stopperóra
+ Comment=A simple chronometer application for KDE
+-Categories=Qt;KDE;Utility;
++Categories=Qt;KDE;Utility;X-UHU-Menu/Tools/Utilities;

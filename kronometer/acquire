@@ -1,0 +1,5 @@
+#!/usr/bin/env dl
+
+${UB_VERSION}.tar.gz kronometer-${UB_VERSION}/
+	https://github.com/elvisangelaccio/kronometer/archive/
+
