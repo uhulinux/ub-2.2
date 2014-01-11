@@ -1,0 +1,12 @@
+diff -Naurdp a/src/i-nex/.src/Finfosys.class b/src/i-nex/.src/Finfosys.class
+--- a/src/i-nex/.src/Finfosys.class	2013-01-04 19:55:15.000000000 +0100
++++ b/src/i-nex/.src/Finfosys.class	2014-01-11 17:18:19.614964428 +0100
+@@ -172,7 +172,7 @@ End
+ 
+ Public Sub System()
+   Dim hostname, arch, gcc, timezone, xorg_version, glx_version As String
+-  Shell "cat /etc/timezone" Wait To timezone
++  Shell "cat /etc/sysconfig/hwclock" Wait To timezone
+   hostname = System.Host
+   arch = System.Architecture
+   Shell "gcc -dumpversion" Wait To gcc

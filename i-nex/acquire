@@ -1,0 +1,5 @@
+#!/usr/bin/env dl
+
+${UB_VERSION}.tar.gz I-Nex-${UB_VERSION}/
+	https://github.com/eloaders/I-Nex/archive/
+

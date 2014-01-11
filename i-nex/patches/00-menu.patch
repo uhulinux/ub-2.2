@@ -1,0 +1,16 @@
+diff -Naurdp a/debian/i-nex.desktop b/debian/i-nex.desktop
+--- a/debian/i-nex.desktop	2013-01-04 19:55:15.000000000 +0100
++++ b/debian/i-nex.desktop	2014-01-11 16:55:01.598921801 +0100
+@@ -3,9 +3,9 @@ Version=1.0
+ Encoding=UTF-8
+ Name=I-Nex
+ Comment=I-Nex, system information tool
+-Exec=env LIBOVERLAY_SCROLLBAR=0 /usr/bin/i-nex.gambas
+-Icon=/usr/share/pixmaps/i-nex.0.4.x.png
++Exec=env LIBOVERLAY_SCROLLBAR=0 i-nex
++Icon=i-nex.0.4.x
+ Terminal=false
+ Type=Application
+ StartupNotify=true
+-Categories=System;
++Categories=System;X-UHU-Menu/Tools/Utilities;

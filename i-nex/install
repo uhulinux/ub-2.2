@@ -1,0 +1,20 @@
+#!/bin/sh -eux
+
+install -d ${UB_INSTALLDIR}/usr/bin
+install -p src/i-nex/i-nex.gambas ${UB_INSTALLDIR}/usr/bin/i-nex
+install -d ${UB_INSTALLDIR}/usr/share/i-nex/
+install -d ${UB_INSTALLDIR}/usr/share/i-nex/pastebinit/
+install -d ${UB_INSTALLDIR}/usr/share/doc/i-nex/
+install -d ${UB_INSTALLDIR}/usr/bin/
+install -d ${UB_INSTALLDIR}/usr/share/i-nex/pastebinit/
+cp debian/i-nex.desktop ${UB_INSTALLDIR}/usr/share/applications
+install -Dm644 src/i-nex/logo/i-nex.0.4.x.png ${UB_INSTALLDIR}/usr/share/pixmaps/i-nex.0.4.x.png
+install -p debian/changelog ${UB_INSTALLDIR}/usr/share/i-nex/changelog
+cp -R --preserve=timestamp pastebin.d ${UB_INSTALLDIR}/usr/share/i-nex/pastebinit/pastebin.d
+cp -R --preserve=timestamp po ${UB_INSTALLDIR}/usr/share/i-nex/pastebinit/po
+cp -R --preserve=timestamp utils ${UB_INSTALLDIR}/usr/share/i-nex/pastebinit/utils
+install -p debian/check_kernel ${UB_INSTALLDIR}/usr/bin/check_kernel
+#install -p debian/i-nex-lspci ${UB_INSTALLDIR}/usr/bin/i-nex-lspci
+install -p pastebinit ${UB_INSTALLDIR}/usr/share/i-nex/pastebinit/pastebinit
+install -p pastebinit.xml ${UB_INSTALLDIR}/usr/share/i-nex/pastebinit/pastebinit.xml
+rm -R ${UB_INSTALLDIR}/usr/share/doc/i-nex

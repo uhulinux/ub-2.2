@@ -1,0 +1,4 @@
+#!/bin/sh -eux
+
+/usr/bin/gbc3 -e -a -g -t -p -m  src/i-nex
+gba3 src/i-nex
