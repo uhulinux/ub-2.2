@@ -5,6 +5,7 @@ gst-plugins-good
 gst-plugins-ugly
 mpg123
 mplayer
+perl-gstreamer
 perl-gtk2-notify
 perl-gtk2-webkit
 perl-html-parser
