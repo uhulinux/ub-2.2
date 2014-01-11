@@ -1,0 +1,12 @@
+alsa-utils
+flac
+gst-plugins-bad
+gst-plugins-good
+gst-plugins-ugly
+mpg123
+mplayer
+perl-gtk2-notify
+perl-gtk2-webkit
+perl-html-parser
+perl-net-dbus
+vorbis-tools

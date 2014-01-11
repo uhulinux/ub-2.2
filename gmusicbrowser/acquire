@@ -1,0 +1,5 @@
+#!/usr/bin/env dl
+
+gmusicbrowser-${UB_VERSION}.tar.gz gmusicbrowser-${UB_VERSION}/
+	http://gmusicbrowser.org/download/
+
