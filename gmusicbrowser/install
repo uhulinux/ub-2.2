@@ -2,3 +2,4 @@
 
 ub_install
 install -Dm644 pix/gmusicbrowser.png ${UB_INSTALLDIR}/usr/share/pixmaps/gmusicbrowser.png
+rm -R /usr/share/doc/gmusicbrowser-${UB_VERSION}/
