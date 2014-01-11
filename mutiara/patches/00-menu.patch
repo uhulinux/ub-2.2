@@ -1,0 +1,9 @@
+diff -Naurdp a/data/mutiara.desktop.in b/data/mutiara.desktop.in
+--- a/data/mutiara.desktop.in	2012-11-20 03:09:57.000000000 +0100
++++ b/data/mutiara.desktop.in	2014-01-11 18:19:34.507076478 +0100
+@@ -6,4 +6,4 @@ Exec=mutiara
+ Icon=mutiara.png
+ Terminal=false
+ Type=Application
+-Categories=Graphics;2DGraphics;GTK;
++Categories=Graphics;2DGraphics;GTK;X-UHU-Menu/Graphics/More;
