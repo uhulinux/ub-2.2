@@ -1,0 +1,4 @@
+#!/usr/bin/env dl
+
+smb4k-${UB_VERSION}.tar.bz2 smb4k-${UB_VERSION}/
+	http://downloads.sourceforge.net/project/smb4k/Smb4K%20%28stable%20releases%29/${UB_VERSION}/
