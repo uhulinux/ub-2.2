@@ -1,7 +1,7 @@
 #!/bin/sh -eux
 
 install -d ${UB_INSTALLDIR}/usr/bin
-install -p src/i-nex/i-nex.gambas ${UB_INSTALLDIR}/usr/bin/i-nex
+install -p src/i-nex/i-nex.gambas ${UB_INSTALLDIR}/usr/sbin/i-nex
 install -d ${UB_INSTALLDIR}/usr/share/i-nex/
 install -d ${UB_INSTALLDIR}/usr/share/i-nex/pastebinit/
 install -d ${UB_INSTALLDIR}/usr/share/doc/i-nex/
