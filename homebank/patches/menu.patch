@@ -1,0 +1,9 @@
+--- homebank.orig/data/homebank.desktop.in.in	2008-06-10 07:50:20.000000000 +0200
++++ homebank/data/homebank.desktop.in.in	2009-07-24 18:00:48.000000000 +0200
+@@ -6,5 +6,5 @@
+ StartupNotify=true
+ Type=Application
+ Icon=homebank
+-Categories=GTK;Office;Finance;
++Categories=GTK;Office;Finance;X-UHU-Menu/Tools/Money;
+ MimeType=application/x-homebank;

@@ -6,7 +6,7 @@ diff -Naur a/skrooge/skrooge.desktop b/skrooge/skrooge.desktop
  Terminal=false
  X-KDE-StartupNotify=true
 -Categories=Qt;KDE;Office;Finance;
-+Categories=Qt;KDE;Office;Finance;X-UHU-Menu/Tools/Organizer;
++Categories=Qt;KDE;Office;Finance;X-UHU-Menu/Tools/Money;
  MimeType=application/x-skg;application/x-skgc;application/x-kmymoney;application/vnd.intu.qfx;application/x-ofx;application/x-homebank;application/x-gnc;application/x-gnucash;application/x-gsb;
  X-DBUS-StartupType=Unique
  X-DBUS-ServiceName=org.skrooge
