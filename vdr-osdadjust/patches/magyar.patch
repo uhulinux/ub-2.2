@@ -1,6 +1,6 @@
-diff -Naur orig/osdadjust/po/hu_HU.po mod/osdadjust/po/hu_HU.po
---- orig/osdadjust/po/hu_HU.po	2009-05-05 20:02:53.000000000 +0200
-+++ mod/osdadjust/po/hu_HU.po	2010-06-07 14:03:11.000000000 +0200
+diff -Naur orig/po/hu_HU.po mod/po/hu_HU.po
+--- orig/po/hu_HU.po	2009-05-05 20:02:53.000000000 +0200
++++ mod/po/hu_HU.po	2010-06-07 14:03:11.000000000 +0200
 @@ -13,110 +13,110 @@
  "Last-Translator: Istvan Koenigsberger <istvnko@hotmail.com>, Guido Josten <guido.josten@t-online.de>\n"
  "Language-Team: <vdr@linuxtv.org>\n"
