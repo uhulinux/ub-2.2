@@ -1,0 +1,5 @@
+#!/usr/bin/env dl
+
+avast4workstation-${UB_VERSION}.tar.gz avast4workstation-${UB_VERSION}/
+	http://files.avast.com/files/linux/
+

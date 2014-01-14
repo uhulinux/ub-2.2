@@ -1,0 +1,9 @@
+[Desktop Entry]
+Type=Application
+Name=avast!
+GenericName=avast! 
+Comment=Linux Home Edition represents an antivirus solution for the increasingly popular Linux platform.
+Icon=avast
+Exec=avastgui
+Terminal=False
+Categories=GNOME;Applications;Accessories;Utility;X-UHU-Menu/Tools/More;
