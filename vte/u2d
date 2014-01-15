@@ -1,1 +1,2 @@
-u2dgnome vte
+alap=$(urllist ftp://ftp.gnome.org/pub/GNOME/sources/vte/ | grep -E '^0.2' | sort -V | tail -n 1)
+urllist ftp://ftp.gnome.org/pub/GNOME/sources/vte/"$alap"/ | parsever | sort -V | tail -n 1
