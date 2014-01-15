@@ -1,0 +1,2 @@
+alap=$(sflist lxde LXLauncher%20%28for%20Asus%20EeePC%29 | splitver '^LXLauncher%20([0-9.]+)$' | sort -V | tail -n 1)
+sflist lxde LXLauncher%20%28for%20Asus%20EeePC%29/LXLauncher%20"$alap" | parsever | sort -V | tail -n 1

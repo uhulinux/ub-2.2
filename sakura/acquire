@@ -1,4 +1,4 @@
 #!/usr/bin/env dl
 
 sakura-${UB_VERSION}.tar.bz2 sakura-${UB_VERSION}/
-	http://pkgs.fedoraproject.org/repo/pkgs/sakura/sakura-${UB_VERSION}.tar.bz2/1e27cd500f090784544ff9ab3fca9cf6/
+	https://launchpad.net/sakura/trunk/${UB_VERSION}/+download/
