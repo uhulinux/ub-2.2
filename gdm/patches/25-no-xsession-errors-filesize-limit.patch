@@ -1,0 +1,46 @@
+diff -Naur orig/daemon/display.h patched/daemon/display.h
+--- orig/daemon/display.h	2007-10-15 23:43:03.000000000 +0200
++++ patched/daemon/display.h	2014-01-12 13:53:17.931140187 +0100
+@@ -135,7 +135,7 @@
+ 	int xsession_errors_fd; /* write to the file */
+ 	int session_output_fd; /* read from the session */
+ 	int xsession_errors_bytes;
+-#define MAX_XSESSION_ERRORS_BYTES (80*2500)  /* maximum number of bytes in
++/* #define MAX_XSESSION_ERRORS_BYTES (80*2500)   maximum number of bytes in
+ 						the ~/.xsession-errors file */
+ 	char *xsession_errors_filename; /* if NULL then there is no .xsession-errors
+ 					   file */
+diff -Naur orig/daemon/slave.c patched/daemon/slave.c
+--- orig/daemon/slave.c	2007-10-15 23:43:04.000000000 +0200
++++ patched/daemon/slave.c	2014-01-12 13:50:18.565484716 +0100
+@@ -372,11 +372,11 @@
+ 			d->xsession_errors_fd = -1;
+ 			break;
+ 		}
+-
++/*
+ 		if G_UNLIKELY (d->xsession_errors_bytes >= MAX_XSESSION_ERRORS_BYTES ||
+ 			       got_xfsz_signal)
+ 			continue;
+-
++*/
+ 		/* write until we succeed in writing something */
+ 		VE_IGNORE_EINTR (written = write (d->xsession_errors_fd, buf, r));
+ 		if G_UNLIKELY (written < 0 || got_xfsz_signal) {
+@@ -396,14 +396,14 @@
+ 		}
+ 
+ 		d->xsession_errors_bytes += r;
+-
++/*
+ 		if G_UNLIKELY (d->xsession_errors_bytes >= MAX_XSESSION_ERRORS_BYTES &&
+ 			       ! got_xfsz_signal) {
+ 			VE_IGNORE_EINTR (write (d->xsession_errors_fd,
+ 						"\n...Too much output, ignoring rest...\n",
+ 						strlen ("\n...Too much output, ignoring rest...\n")));
+ 		}
+-
++*/
+ 		/* there wasn't more then buf available, so no need to try reading
+ 		 * again, unless we really want to */
+ 		if (r < sizeof (buf) && ! read_until_eof)
