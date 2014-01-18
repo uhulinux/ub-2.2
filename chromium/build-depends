@@ -4,6 +4,7 @@ dbus-dev
 gperf
 gtk2-dev
 krb5-dev
+libdrm-dev
 libjpeg-dev
 libxi-dev
 libxml2-dev
