@@ -1,8 +1,8 @@
-diff -Naur xkeyboard-config-0.8.orig/rules/base.xml.in xkeyboard-config-0.8/rules/base.xml.in
---- xkeyboard-config-0.8.orig/rules/base.xml.in	2006-02-26 17:12:33.000000000 +0100
-+++ xkeyboard-config-0.8/rules/base.xml.in	2006-06-09 16:19:52.000000000 +0200
-@@ -1516,6 +1516,12 @@
-         <!-- 101 keys -->
+diff -Naur orig/rules/base.xml.in patched/rules/base.xml.in
+--- orig/rules/base.xml.in	2013-08-26 00:29:54.000000000 +0200
++++ patched/rules/base.xml.in	2014-01-19 12:19:30.722370054 +0100
+@@ -3356,6 +3356,12 @@
+         </variant>
          <variant>
            <configItem>
 +            <name>101_qwertz_comma_alldead</name>
@@ -12,9 +12,9 @@ diff -Naur xkeyboard-config-0.8.orig/rules/base.xml.in xkeyboard-config-0.8/rule
 +        <variant>
 +          <configItem>
              <name>101_qwertz_comma_dead</name>
-             <_description>101/qwertz/comma/Dead keys</_description>
+             <_description>Hungarian (101/qwertz/comma/dead keys)</_description>
            </configItem>
-@@ -1528,6 +1534,12 @@
+@@ -3368,6 +3374,12 @@
          </variant>
          <variant>
            <configItem>
@@ -25,9 +25,9 @@ diff -Naur xkeyboard-config-0.8.orig/rules/base.xml.in xkeyboard-config-0.8/rule
 +        <variant>
 +          <configItem>
              <name>101_qwertz_dot_dead</name>
-             <_description>101/qwertz/dot/Dead keys</_description>
+             <_description>Hungarian (101/qwertz/dot/dead keys)</_description>
            </configItem>
-@@ -1540,6 +1552,12 @@
+@@ -3380,6 +3392,12 @@
          </variant>
          <variant>
            <configItem>
@@ -38,9 +38,9 @@ diff -Naur xkeyboard-config-0.8.orig/rules/base.xml.in xkeyboard-config-0.8/rule
 +        <variant>
 +          <configItem>
              <name>101_qwerty_comma_dead</name>
-             <_description>101/qwerty/comma/Dead keys</_description>
+             <_description>Hungarian (101/qwerty/comma/dead keys)</_description>
            </configItem>
-@@ -1552,6 +1570,12 @@
+@@ -3392,6 +3410,12 @@
          </variant>
          <variant>
            <configItem>
@@ -51,10 +51,10 @@ diff -Naur xkeyboard-config-0.8.orig/rules/base.xml.in xkeyboard-config-0.8/rule
 +        <variant>
 +          <configItem>
              <name>101_qwerty_dot_dead</name>
-             <_description>101/qwerty/dot/Dead keys</_description>
+             <_description>Hungarian (101/qwerty/dot/dead keys)</_description>
            </configItem>
-@@ -1567,6 +1591,12 @@
-         <!-- 102 keys -->
+@@ -3404,6 +3428,12 @@
+         </variant>
          <variant>
            <configItem>
 +            <name>102_qwertz_comma_alldead</name>
@@ -64,9 +64,9 @@ diff -Naur xkeyboard-config-0.8.orig/rules/base.xml.in xkeyboard-config-0.8/rule
 +        <variant>
 +          <configItem>
              <name>102_qwertz_comma_dead</name>
-             <_description>102/qwertz/comma/Dead keys</_description>
+             <_description>Hungarian (102/qwertz/comma/dead keys)</_description>
            </configItem>
-@@ -1579,6 +1609,12 @@
+@@ -3416,6 +3446,12 @@
          </variant>
          <variant>
            <configItem>
@@ -77,9 +77,9 @@ diff -Naur xkeyboard-config-0.8.orig/rules/base.xml.in xkeyboard-config-0.8/rule
 +        <variant>
 +          <configItem>
              <name>102_qwertz_dot_dead</name>
-             <_description>102/qwertz/dot/Dead keys</_description>
+             <_description>Hungarian (102/qwertz/dot/dead keys)</_description>
            </configItem>
-@@ -1591,6 +1627,12 @@
+@@ -3428,6 +3464,12 @@
          </variant>
          <variant>
            <configItem>
@@ -90,25 +90,25 @@ diff -Naur xkeyboard-config-0.8.orig/rules/base.xml.in xkeyboard-config-0.8/rule
 +        <variant>
 +          <configItem>
              <name>102_qwerty_comma_dead</name>
-             <_description>102/qwerty/comma/Dead keys</_description>
+             <_description>Hungarian (102/qwerty/comma/dead keys)</_description>
            </configItem>
-@@ -1603,6 +1645,12 @@
+@@ -3439,6 +3481,12 @@
+           </configItem>
          </variant>
          <variant>
-           <configItem>
++          <configItem>
 +            <name>102_qwerty_dot_alldead</name>
 +            <_description>102/qwerty/dot/All dead keys</_description>
 +          </configItem>
 +        </variant>
 +        <variant>
-+          <configItem>
+           <configItem>
              <name>102_qwerty_dot_dead</name>
-             <_description>102/qwerty/dot/Dead keys</_description>
-           </configItem>
-diff -Naur xkeyboard-config-0.8.orig/symbols/hu xkeyboard-config-0.8/symbols/hu
---- xkeyboard-config-0.8.orig/symbols/hu	2005-12-21 01:40:06.000000000 +0100
-+++ xkeyboard-config-0.8/symbols/hu	2006-06-09 16:16:55.000000000 +0200
-@@ -50,6 +50,22 @@
+             <_description>Hungarian (102/qwerty/dot/dead keys)</_description>
+diff -Naur orig/symbols/hu patched/symbols/hu
+--- orig/symbols/hu	2014-01-19 12:17:42.000000000 +0100
++++ patched/symbols/hu	2014-01-19 12:19:30.722370054 +0100
+@@ -54,6 +54,22 @@
  
  // Main layouts
  
@@ -131,7 +131,7 @@ diff -Naur xkeyboard-config-0.8.orig/symbols/hu xkeyboard-config-0.8/symbols/hu
  // 101_qwertz_comma_dead
  // 101 key qwertz layout
  // with decimal comma on keypad
-@@ -82,6 +98,22 @@
+@@ -86,6 +102,22 @@
      include "level3(ralt_switch)"
  };
  
@@ -154,7 +154,7 @@ diff -Naur xkeyboard-config-0.8.orig/symbols/hu xkeyboard-config-0.8/symbols/hu
  // 101_qwertz_dot_dead
  // 101 key qwertz layout
  // with decimal dot on keypad
-@@ -114,6 +146,22 @@
+@@ -118,6 +150,22 @@
      include "level3(ralt_switch)"
  };
  
@@ -177,7 +177,7 @@ diff -Naur xkeyboard-config-0.8.orig/symbols/hu xkeyboard-config-0.8/symbols/hu
  // 101_qwerty_comma_dead
  // 101 key qwerty layout
  // with decimal comma on keypad
-@@ -146,6 +194,22 @@
+@@ -150,6 +198,22 @@
      include "level3(ralt_switch)"
  };
  
@@ -200,7 +200,7 @@ diff -Naur xkeyboard-config-0.8.orig/symbols/hu xkeyboard-config-0.8/symbols/hu
  // 101_qwerty_dot_dead
  // 101 key qwerty layout
  // with decimal dot on keypad
-@@ -178,6 +242,22 @@
+@@ -182,6 +246,22 @@
      include "level3(ralt_switch)"
  };
  
@@ -223,7 +223,7 @@ diff -Naur xkeyboard-config-0.8.orig/symbols/hu xkeyboard-config-0.8/symbols/hu
  // 102_qwertz_comma_dead
  // 102 key qwertz layout
  // with decimal comma on keypad
-@@ -210,6 +290,22 @@
+@@ -214,6 +294,22 @@
      include "level3(ralt_switch)"
  };
  
@@ -246,7 +246,7 @@ diff -Naur xkeyboard-config-0.8.orig/symbols/hu xkeyboard-config-0.8/symbols/hu
  // 102_qwertz_dot_dead
  // 102 key qwertz layout
  // with decimal dot on keypad
-@@ -242,6 +338,22 @@
+@@ -246,6 +342,22 @@
      include "level3(ralt_switch)"
  };
  
@@ -269,7 +269,7 @@ diff -Naur xkeyboard-config-0.8.orig/symbols/hu xkeyboard-config-0.8/symbols/hu
  // 102_qwerty_comma_dead
  // 102 key qwerty layout
  // with decimal comma on keypad
-@@ -274,6 +386,22 @@
+@@ -278,6 +390,22 @@
      include "level3(ralt_switch)"
  };
  
@@ -292,7 +292,7 @@ diff -Naur xkeyboard-config-0.8.orig/symbols/hu xkeyboard-config-0.8/symbols/hu
  // 102_qwerty_dot_dead
  // 102 key qwerty layout
  // with decimal dot on keypad
-@@ -351,6 +479,24 @@
+@@ -355,6 +483,24 @@
  }; 	 
   
  

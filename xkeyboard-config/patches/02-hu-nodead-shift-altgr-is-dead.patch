@@ -1,7 +1,7 @@
-diff -Naur xkeyboard-config-0.8.orig/symbols/hu xkeyboard-config-0.8/symbols/hu
---- xkeyboard-config-0.8.orig/symbols/hu	2005-12-21 01:40:06.000000000 +0100
-+++ xkeyboard-config-0.8/symbols/hu	2006-06-09 16:16:55.000000000 +0200
-@@ -373,18 +373,18 @@
+diff -Naur orig/symbols/hu patched/symbols/hu
+--- orig/symbols/hu	2013-10-02 20:06:27.000000000 +0200
++++ patched/symbols/hu	2014-01-19 12:17:42.585371995 +0100
+@@ -377,18 +377,18 @@
  // Without dead keys support
  hidden partial alphanumeric_keys
  xkb_symbols "def_nodead" {

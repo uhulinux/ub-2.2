@@ -1,8 +1,8 @@
-diff -Naurdp xkeyboard-config-1.7.orig/rules/base.xml.in xkeyboard-config-1.7/rules/base.xml.in
---- xkeyboard-config-1.7.orig/rules/base.xml.in	2009-09-21 23:23:32.000000000 +0200
-+++ xkeyboard-config-1.7/rules/base.xml.in	2009-10-27 20:42:05.000000000 +0100
-@@ -2748,6 +2748,19 @@
-             <_description>102/qwerty/dot/Eliminate dead keys</_description>
+diff -Naur orig/rules/base.xml.in patched/rules/base.xml.in
+--- orig/rules/base.xml.in	2014-01-19 12:19:30.000000000 +0100
++++ patched/rules/base.xml.in	2014-01-19 12:22:01.407760830 +0100
+@@ -2725,6 +2725,19 @@
+             <_description>Estonian (US keyboard with Estonian letters)</_description>
            </configItem>
          </variant>
 +        
@@ -21,11 +21,11 @@ diff -Naurdp xkeyboard-config-1.7.orig/rules/base.xml.in xkeyboard-config-1.7/ru
        </variantList>
      </layout>
      <layout>
-diff -Naurdp xkeyboard-config-1.7.orig/rules/evdev.xml.in xkeyboard-config-1.7/rules/evdev.xml.in
---- xkeyboard-config-1.7.orig/rules/evdev.xml.in	2009-09-21 23:23:37.000000000 +0200
-+++ xkeyboard-config-1.7/rules/evdev.xml.in	2009-10-27 20:42:31.000000000 +0100
-@@ -2748,6 +2748,19 @@
-             <_description>102/qwerty/dot/Eliminate dead keys</_description>
+diff -Naur orig/rules/evdev.xml.in patched/rules/evdev.xml.in
+--- orig/rules/evdev.xml.in	2013-08-26 00:30:05.000000000 +0200
++++ patched/rules/evdev.xml.in	2014-01-19 12:22:01.407760830 +0100
+@@ -2725,6 +2725,19 @@
+             <_description>Estonian (US keyboard with Estonian letters)</_description>
            </configItem>
          </variant>
 +        
@@ -44,10 +44,10 @@ diff -Naurdp xkeyboard-config-1.7.orig/rules/evdev.xml.in xkeyboard-config-1.7/r
        </variantList>
      </layout>
      <layout>
-diff -Naurdp xkeyboard-config-1.7.orig/symbols/hu xkeyboard-config-1.7/symbols/hu
---- xkeyboard-config-1.7.orig/symbols/hu	2008-11-29 16:57:56.000000000 +0100
-+++ xkeyboard-config-1.7/symbols/hu	2009-10-27 20:45:37.000000000 +0100
-@@ -423,3 +423,152 @@ xkb_symbols "def_common" {
+diff -Naur orig/symbols/hu patched/symbols/hu
+--- orig/symbols/hu	2014-01-19 12:19:30.000000000 +0100
++++ patched/symbols/hu	2014-01-19 12:22:01.411760866 +0100
+@@ -575,3 +575,152 @@
      key <AB10>  { [        minus,   underscore,          asterisk                  ] };
  
  };
