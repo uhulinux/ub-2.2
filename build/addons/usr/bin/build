@@ -20,7 +20,7 @@ scrollout
 
 BUILD_VERSION="0.9.4"
 VENDOR="UHU Linux Baráti Kör"
-PACKAGER="UBK Team <ubk@ubk.hu>"
+PACKAGER="UBK <ubk@ubk.hu>"
 
 case `basename $0` in
 	build)
@@ -457,7 +457,7 @@ echo
 		
 	if [ "$UB_NEW_RELEASE" = "1" ]; then
 		newrel=$((rel+1))
-		sed -i "s/$rel/$newrel/g" "$UHUBUILD_PATH"/UB-${UHUBUILD_DISTR}/"$i"/vendor
+		sed -i "s/$rel/$newrel/g" "$UHUBUILD_PATH"/UB-${UHUBUILD_DISTR}/"$i"/release
 	fi
 
 	# Vagy, egy másik megoldás, amelyik az aktuális
