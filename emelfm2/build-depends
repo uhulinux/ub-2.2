@@ -1,6 +1,7 @@
 acl-dev
 dbus-glib-dev
 file-dev
+gimp-dev
 gtk2-dev
 gtkspell-dev
 polkit-dev

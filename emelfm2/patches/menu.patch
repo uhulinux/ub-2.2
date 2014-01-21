@@ -1,0 +1,18 @@
+diff -Naur orig/docs/desktop_environment/emelfm2.desktop mod/docs/desktop_environment/emelfm2.desktop
+--- orig/docs/desktop_environment/emelfm2.desktop	2013-08-12 01:48:07.000000000 +0200
++++ mod/docs/desktop_environment/emelfm2.desktop	2013-12-02 20:15:18.000000000 +0100
+@@ -4,6 +4,7 @@
+ Name=emelFM2
+ GenericName=file manager
+ Comment=2-pane file manager
++Comment[hu]=Kétpaneles fájlkezelő
+ Comment[fr]=2-panneaux gestionnaire de fichiers
+ Comment[de]=2-Fenster Dateimanager
+ Comment[ja]=2-ペイン ファイル manager
+@@ -15,5 +16,5 @@
+ Icon=emelfm2
+ Terminal=false
+ StartupNotify=false
+-Categories=System;Utility;Core;FileTools;FileManager;GTK;
++Categories=System;Utility;Core;FileTools;FileManager;GTK;X-UHU-Menu/Tools/File_Managers;
+ MimeType=inode/directory;inode/mount-point;
