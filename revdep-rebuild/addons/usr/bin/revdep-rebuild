@@ -5,6 +5,7 @@
 # Ez a szkript a bemeneti paraméterként megadott fő verziószámban frissített csomag(ok) miatt nagy valószínűséggel működésképtelenné
 # váló, ezért újrafordítandó csomagok listáját, valamint ezeknek ub listáját adja vissza, megfelelő sorrendben felsorolva.
 # A sorrend kritériuma az, hogy a lista egy eleme sem építkezhet utána sorban valahol következőből.
+# Az első paraméter szám legyen, mely a felsorolandó csomagok áttételes függési mélységének kívánalma. 
 
 ##################################
 # Elvi és megvalósítási magyarázat
@@ -72,10 +73,15 @@
 #eljárások
 ##########
 
+function segitseg () {
+	echo 'Használat: revdep-rebuild <mélység> <csomag> [csomag]...)!' >&2
+	exit 1
+}
+
 # A parancssorban megadott csomagoktól függő csomagokat felsoroló eljárás.
 # Csak azokat sorolja, melyek verziószámmal ellátott rdepends tagokat sorolja fel.
 function rdepem () {
-for num in "$@"; do
+for num in $csomaglista; do
 apt-cache showpkg "$num" | grep , | grep -E ' [0-9.]+$' | sed s/,\.*//g | sed s/"  "//g | sort -u
 done
 }
@@ -92,16 +98,38 @@ depend=$(apt-cache show "$elem" | grep Depends: | head -1 | sed s/Depends:" "//g
 ##########
 
 # paraméter kell a szkriptnek
-if [ $# = 0 ]; then
-	echo "Legalább egy csomagnév kell paraméternek!" >&2
-	exit 1
+melyseg=$(echo $1 | bc)
+if [ "$melyseg" == "0" ]; then
+segitseg
 fi
-
-# A bemeneti paraméter(ek) alapján a fordítandó csomagok ABC sorbarendezett, duplikátumok nélküli stringjének legyártása
-csomaglista=$(rdepem "$@" | sort -u)
+if [ ! "$2" ]; then
+segitseg
+fi
 
 # Esetlegesen létező fájlok eltávolítása
 rm -f ubsorrend csomagsorrend nyerslista keresztek
+
+# mélységi paraméter kiszedése a paraméterlistából
+parancslista=""
+for num in "$@" ; do
+  if [ ! $num == $1 ]; then
+  parancslista=$(echo -e "$parancslista"'\n'"$num")
+  fi
+done
+
+# A bemeneti paraméter(ek) alapján a fordítandó csomagok ABC sorbarendezett, duplikátumok nélküli stringjének legyártása
+echo $melyseg' mélységű függésben lesznek a listák elkészítve'
+csomaglista="$parancslista"
+#mélység szerint a csomagtenger növelése
+ujlista=$(rdepem | sort -u)
+csomaglista="$ujlista"
+melyseg=$(echo $melyseg'-1' | bc)
+while [ ! "$melyseg" == "0" ]; do
+ujlista=$(rdepem $csomaglista | sort -u)
+tmplista="$csomaglista"
+csomaglista=$(echo -e "$tmplista"'\n'"$ujlista" | sort -u)
+melyseg=$(echo $melyseg'-1' | bc)
+done
 
 # Értesítés
 echo ---------
@@ -112,7 +140,7 @@ echo "Ezek előzetes rendezése építőkő számosság szerint, közben közül
 echo ---------
 
 # esetleges paraméter csomagok előfordulásainak eltávolítása a listából
-for i in "$@" ;do
+for i in $parancslista ;do
 ujlista=""
 for csomagtag in $csomaglista; do
   if [ ! "$csomagtag" == "$i" ]; then
@@ -121,7 +149,6 @@ for csomagtag in $csomaglista; do
 done
 csomaglista=$ujlista
 done
-
 # Előzetes rendezés az egyes csomagok depends számossága szerint növekedőn. Legelől lesznek a legkevesebb csomagból építkezők.
 ujlista=""
 for csomagtag in $csomaglista; do
@@ -133,7 +160,7 @@ done
 csomaglista=$(echo "$ujlista" | sort -V | sed s/\[0-9]*xxyyzz//g)
 
 # a paraméter csomagoknak a lista elejére történő elhelyezése
-for num in "$@"; do
+for num in $parancslista; do
 csomaglista=$(echo -e "$num"'\n'"$csomaglista")
 done
 for i in $csomaglista; do
@@ -141,8 +168,8 @@ for i in $csomaglista; do
 done
 
 # Értesítés
-echo "$(echo ${csomaglista} | wc -w)" " csomag előzetes rendezése kész,"
-echo "a paraméter csomagoknak a lista elejére történő elhelyezése és a lista végleges rendezése."
+echo "$(echo ${csomaglista} | wc -w)" " csomag előzetes rendezése kész"
+echo "a paraméter csomagoknak a lista elejére történő elhelyezése és a lista végleges rendezése"
 
 # A teljes csomaglista rendezése úgy, hogy az adott csomag ne építkezzen az utána következők egyikéből sem.
 while [ ! "$csomaglista" == "" ]; do
