@@ -1,0 +1,243 @@
+#!/bin/bash
+
+# revdep-rebuild szkript
+
+# Ez a szkript a bemeneti paraméterként megadott fő verziószámban frissített csomag(ok) miatt nagy valószínűséggel működésképtelenné
+# váló, ezért újrafordítandó csomagok listáját, valamint ezeknek ub listáját adja vissza, megfelelő sorrendben felsorolva.
+# A sorrend kritériuma az, hogy a lista egy eleme sem építkezhet utána sorban valahol következőből.
+
+##################################
+# Elvi és megvalósítási magyarázat
+##################################
+
+# A bemeneti paraméter(ek) alapján a fordítandó csomagok ABC sorbarendezett, duplikátumok nélküli stringjét legyártom az apt adatbázisának lekérdezésével.
+# Csak a verziószámhoz ragaszkodó csomagokat sorolom fel, azokat, amelyek a paraméterként felsorolt csomagokból építkeznek.
+#
+# Az így keletkezett listát először az egyes csomagok depends számossága szerint növekedőn rendezem, elől lesznek a legkevesebb csomagból építkezők.
+# Ezzel elvileg felgyorsul a majdani rendezés, hisz egy csomagnak minél kevesebb az építőkőve, annál valószínűbb, hogy
+# nincs a csomagtengerben belőle építkező, valamint kevesebbszer kell fégigfuttatni a kereső ciklust a csomagtengeren.
+# Ezáltal gyorsabban csökken majd a későbbi rendezésben a feldolgozatlan csomagok számossága, a végleges rendezés ideje is le fog rövidülni.
+# A módszer az, hogy az egyes csomagok építőköveit felsoroltatom az apt-cache segítségével és darabszámát a wc segítsegével megállapítom.
+# Ezt a számot hozzáragasztom mindegyik csomagnév elejére mely számot egy megkülönböztető karaktersorozat követ ("xxyyzz").
+# Ezeket a kibővitett csomagneveket egy új listába teszem úgy, hogy minden egyes tagot egy soremelés karakter kövessen, ezáltal
+# az építőkövek száma szerinti rendezés a "sort" parancs segítségével egyszerűen elvégezhető.
+# A kész rendezett listából ezután a csomagnevek előtti és csak a rendezéshez szükséges ragasztványokat az okos "sed" segítségével eltávolítom.
+#
+# A paraméterként megadott csomagokat az előrendezett csomagok legelejére helyezem, hisz nyilván ezektől függ a többi, ezáltal a rendezés felgyorsul, ha ezeket minél hamarább elkapja a rendező algoritmus már rendezettként.
+#
+# A következő lépés az előzetesen rendezett csomaglista rendezése úgy, hogy egyik csomag se építkezzen az utána következők egyikéből sem.
+#
+# A rendezés akkor lesz kész, ha a rendezetlen csomaglistánk valamennyi eleme elfogy.
+# A rendezetlen csomaglistánk aktuális elemének építőköveit megnézzük, hogy szerepel e valamelyik a rendezetlen csomaglistánk elemei között.
+# Ha szerepel, akkor hamarjában megnézem, hogy csomagunk szerepel e az építőkő építőelemei közt.
+# Ha ugyanis szerepel, akkor keresztfüggésről van szó, ez szarvashiba a csomagolók részéről, továbbá végtelen ciklust 
+# eredményezne, ekkor mindkét rendetlenkedő csomagot eltávolítom a rendezetlen csomagok listájából és külön kiírom őket a "keresztek" nevű fájlba okulásként
+# és az így 2 darab taggal megcsappant rendezésre váró listával folytatom a rendezést.
+# Ha nincs keresztfüggés, akkor a vizsgált csomagunkat a rendezetlen csomaglistánk végére helyezzük át és a következő elemmel folytatjuk a vizsgálatot.
+# A rendezetlenek listájának utoljsó tagjára ugyanis biztosan igaz az, hogy ő utána következőből nem építkezik!
+# Ha nem szerepel csomagunk egyik építőköve sem a rendezésre váró csomagok közt, akkor kivesszük csomagunkat a rendezetlenek sorából és beleírjuk 
+# a "csomagsorrend" nevű fájlba csomagunk nevét következő elemként.
+# Megállapítjuk, hogy csomagunk milyen nevű forrásból keletkezett és ezt a nevet, mely vélhetően azonos a csomag ub -jének nevével
+# és ezt a nevet kiíratom az "ubsorrend" fájlba következő elemként. Splittelt csomagok esetén több azonos lesz, az biztos, ezt majd kézzel
+# korrigálja a csomagoló, hogy ő is dolgozzon valamit.
+# Ezután folytatjuk az így eggyel megcsappant elemszámú rendezetlen listánk soron következő tagjával, ha van még tennivaló.
+
+#####################################
+# a kiírt fájlok, amit a $pwd -be ír:
+#####################################
+# nyerslista -- az elkészítendő csomagok építőkő számosság szerint rendezetten
+# csomagsorrend -- az elkészítendő csomagok kívánt elkészülési sorrendben
+# ubsorrend -- az elkészítendő csomagok uhubuild szkriptjei fordítási sorrendben
+# keresztek -- keresztfüggés eseteén az egymástól kölcsönösen függő csomagok
+
+##########
+# változók
+##########
+
+# van		- találat jelző logikai, ha 1, akkor talált, ha 0, akkor nem
+# csomaglista	- a rendezetlen csomaghalmaz
+# csomagdarab	- a csomaghalmaz elemeinek száma
+# csomagtag	- ciklusváltozó, a csomaghalmaz aktuális eleme
+# kervan	- keresztfüggés találat jelző, ha 1, akkor keresztfüggés van, ha 0, akkor nincs
+# kereszt1	- az egymástól függő két csomag egyikének neve
+# kereszt2	- az egymástól függő két csomag másikának neve
+# depend	- egy adott csomag építőköveinek halmaza
+# dep		- ciklusváltozó, a depend halmaz aktuális eleme
+# nev		- ciklusváltozó, ez is a csomaghalmaz aktuális eleme a főcikluson belüli alciklusban
+# nevdepend	- a $dep építőköveinek halmaza
+# kereszt	- ciklusváltozó, a $nevdepend halmaz aktuális eleme
+# ujlista	- ideiglenes változó egy új lista létrehozására
+
+##########
+#eljárások
+##########
+
+# A parancssorban megadott csomagoktól függő csomagokat felsoroló eljárás.
+# Csak azokat sorolja, melyek verziószámmal ellátott rdepends tagokat sorolja fel.
+function rdepem () {
+for num in "$@"; do
+apt-cache showpkg "$num" | grep , | grep -E ' [0-9.]+$' | sed s/,\.*//g | sed s/"  "//g | sort -u
+done
+}
+
+# A "depends" eljárás, mely a $depend változóba helyezi a $elem építőköveit.
+# A $elem csomag gyorsítótárban lévő verzióiból csak az első, és feltehetően legnagyobb verziószámú tagjának
+# a verziószámmal rendelkező építőköveit sorolja fel.
+function depends () {
+depend=$(apt-cache show "$elem" | grep Depends: | head -1 | sed s/Depends:" "//g | sed s/," "/\\n/g | grep \( | sed s/" "\(\.*//g | sort -u)
+}
+
+##########
+# Hajrá! #
+##########
+
+# paraméter kell a szkriptnek
+if [ $# = 0 ]; then
+	echo "Legalább egy csomagnév kell paraméternek!" >&2
+	exit 1
+fi
+
+# A bemeneti paraméter(ek) alapján a fordítandó csomagok ABC sorbarendezett, duplikátumok nélküli stringjének legyártása
+csomaglista=$(rdepem "$@" | sort -u)
+
+# Esetlegesen létező fájlok eltávolítása
+rm -f ubsorrend csomagsorrend nyerslista keresztek
+
+# Értesítés
+echo ---------
+echo "$(echo ${csomaglista} | wc -w)" ' darab csomag van, melyek a megadott csomagokból építkeznek'
+echo 'és ezek verziószámához ">=", vagy "="  módon ragaszkodnak'
+echo
+echo "Ezek előzetes rendezése építőkő számosság szerint, közben közülük a paraméter csomagok esetleges előfordulásainak eltávolítása"
+echo ---------
+
+# esetleges paraméter csomagok előfordulásainak eltávolítása a listából
+for i in "$@" ;do
+ujlista=""
+for csomagtag in $csomaglista; do
+  if [ ! "$csomagtag" == "$i" ]; then
+    ujlista=$(echo -e "$csomagtag"'\n'"$ujlista")
+  fi
+done
+csomaglista=$ujlista
+done
+
+# Előzetes rendezés az egyes csomagok depends számossága szerint növekedőn. Legelől lesznek a legkevesebb csomagból építkezők.
+ujlista=""
+for csomagtag in $csomaglista; do
+    elem="$csomagtag"
+    depends
+    depdarab=$(echo "$depend" | wc -w)
+    ujlista=$(echo -e "$depdarab"xxyyzz"$csomagtag"'\n'"$ujlista")
+done
+csomaglista=$(echo "$ujlista" | sort -V | sed s/\[0-9]*xxyyzz//g)
+
+# a paraméter csomagoknak a lista elejére történő elhelyezése
+for num in "$@"; do
+csomaglista=$(echo -e "$num"'\n'"$csomaglista")
+done
+for i in $csomaglista; do
+  echo $i >> nyerslista
+done
+
+# Értesítés
+echo "$(echo ${csomaglista} | wc -w)" " csomag előzetes rendezése kész,"
+echo "a paraméter csomagoknak a lista elejére történő elhelyezése és a lista végleges rendezése."
+
+# A teljes csomaglista rendezése úgy, hogy az adott csomag ne építkezzen az utána következők egyikéből sem.
+while [ ! "$csomaglista" == "" ]; do
+ for csomagtag in $csomaglista; do
+    csomagdarab=$(echo ${csomaglista} | wc -w)
+    van="0"
+    kereszt1=""
+    kereszt2=""
+    echo "$csomagdarab"" van hátra, vizsgálat alatt: ""$csomagtag"
+    elem=$csomagtag
+    depends $elem
+# Az építőkövek mindegyikét keressük a rendezésre váró listában
+    for dep in $depend; do
+      for nev in $csomaglista; do
+	if [ $nev == $dep ]; then
+	  van="1"
+	  break
+	fi
+      done
+      if [ $van == "1" ]; then
+	break
+      fi
+    done
+# lezajlott a keresés, kiértékelés
+    ujlista=""
+    if [ $van == "1" ]; then
+	  # keresztbe függés vizsgálat:A $nev csomag is a $csomagtagból építkezik?
+	  kervan="0"
+	  elem="$dep"
+	  depends
+	  nevdepend="$depend"
+	  for kereszt in $nevdepend; do
+	    if [ $kereszt == $csomagtag ]; then
+	      echo " a " $csomagtag" és a " $dep " csomag egymásból építkeznek! "
+	      echo ezek eltávolítva a viszgálandók közül és a keresztek fájlba írva
+	      kereszt1=$csomagtag
+	      kereszt2=$dep
+	      echo "$kereszt1" >> keresztek
+	      echo "$kereszt2" >> keresztek
+	      kervan="1"
+	      for k in $csomaglista; do
+		if [ ! "$k" == "$kereszt1" ]; then
+		  if [ ! "$k" == "$kereszt2" ]; then
+		    ujlista=$(echo $ujlista" "$k)
+		  fi
+		fi
+	      done
+	      break
+	    fi
+	  done
+	  if [ $kervan == "0"  ]; then
+	    for j in $csomaglista; do
+	      if [ ! "$j" == "$csomagtag" ]; then
+		ujlista=$(echo $ujlista" "$j)
+	      fi
+	    done
+	    ujlista=$(echo $ujlista" "$csomagtag)
+	  fi
+    else
+	echo "$csomagtag" >> csomagsorrend
+	echo `apt-cache show $csomagtag | grep Source\: | sed s/Source\:" "//g | sort -u | tail -n 1 | sed s/_.*//g` >> ubsorrend
+	for j in $csomaglista; do
+	  if [ ! "$j" == $csomagtag ]; then
+	    ujlista=$(echo $ujlista" "$j)
+	  fi
+	done
+    fi
+    csomaglista=$ujlista
+   done
+done
+# Rendezés kész
+
+# Értesítés
+echo ub rendbetétel!
+rm -f joubsorrend
+
+# Az ub ismétlődések közül csak az első előfordulást hagyjuk meg.
+ujsor="xxxxyyyyyzzzz"
+for i in `cat ubsorrend`; do
+ van="0"
+ for j in $ujsor ;do
+  if [ $i == "$j" ]; then
+    van="1"
+  fi
+  done
+  if [ "$van" == "0" ]; then
+  ujsor=$(echo "$ujsor"" ""$i")
+  fi
+ujsordb=$(echo $ujsor | wc -w)
+done
+ujsor=$(echo $ujsor | sed s/xxxxyyyyyzzzz//g)
+for i in $ujsor; do
+echo "$i">> tmpfile
+done
+rm -f ubsorrend
+mv tmpfile ubsorrend
+# Na végre!
+echo kész !
