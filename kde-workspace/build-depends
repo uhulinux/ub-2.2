@@ -28,4 +28,6 @@ qimageblitz-dev
 qjson-dev
 sip
 udev-dev
-xcb-util-dev
+xcb-util-image-dev
+xcb-util-keysyms-dev
+xcb-util-renderutil-dev

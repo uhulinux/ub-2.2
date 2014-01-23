@@ -9,4 +9,3 @@ pango-dev
 python-dev
 pyxdg
 startup-notification-dev
-xcb-util-dev

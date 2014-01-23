@@ -6,5 +6,4 @@ libsm-dev
 libxfce4ui-dev
 lmsensors-dev
 startup-notification-dev
-xcb-util-dev
 xfce4-panel-dev

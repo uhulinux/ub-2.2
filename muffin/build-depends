@@ -10,8 +10,8 @@ gsettings-desktop-schemas
 gtk3-dev
 intltool
 libcanberra-dev
+libsm-dev
 libxcomposite-dev
 pango-dev
 startup-notification-dev
-xcb-util-dev
 zenity

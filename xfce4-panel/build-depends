@@ -10,4 +10,3 @@ libxinerama-dev
 libxml2-dev
 libxt-dev
 startup-notification-dev
-xcb-util-dev

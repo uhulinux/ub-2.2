@@ -18,5 +18,4 @@ libxklavier-dev
 libxrandr-dev
 libxt-dev
 startup-notification-dev
-xcb-util-dev
 xfconf-dev

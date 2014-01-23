@@ -4,4 +4,3 @@ gobject-introspection-dev
 gtk2-dev
 intltool
 startup-notification-dev
-xcb-util-dev

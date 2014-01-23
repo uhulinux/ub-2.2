@@ -7,4 +7,3 @@ mate-common
 mate-dialogs
 mate-doc-utils
 startup-notification-dev
-xcb-util-dev

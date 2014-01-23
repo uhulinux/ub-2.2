@@ -9,5 +9,4 @@ libxinerama-dev
 libxt-dev
 perl-xml-parser
 startup-notification-dev
-xcb-util-dev
 xfconf-dev

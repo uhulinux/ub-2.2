@@ -14,4 +14,3 @@ perl-xml-parser
 popt-dev
 startup-notification-dev
 udev-dev
-xcb-util-dev

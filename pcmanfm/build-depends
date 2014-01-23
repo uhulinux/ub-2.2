@@ -9,4 +9,3 @@ libsm-dev
 libxcb-dev
 pixman-dev
 startup-notification-dev
-xcb-util-dev

@@ -15,5 +15,4 @@ libxt-dev
 openssl-dev
 perl-xml-parser
 startup-notification-dev
-xcb-util-dev
 xfce4-panel-dev
