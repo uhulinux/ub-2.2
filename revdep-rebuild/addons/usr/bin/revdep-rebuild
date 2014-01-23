@@ -163,6 +163,13 @@ csomaglista=$(echo "$ujlista" | sort -V | sed s/\[0-9]*xxyyzz//g)
 for num in $parancslista; do
 csomaglista=$(echo -e "$num"'\n'"$csomaglista")
 done
+
+# Kilépés, ha egy csomag adott és nincs tennivaló.
+if [ `echo $parancslista | wc -w` == "1" -a `echo $csomaglista | wc -w` == "1" ]; then
+  echo "A(z) "$parancslista" csomagtól nem függ semmi, nincs tennivaló."
+  exit 1
+fi
+
 for i in $csomaglista; do
   echo $i >> nyerslista
 done
