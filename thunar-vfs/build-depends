@@ -5,4 +5,3 @@ libexo-dev
 libjpeg-dev
 libsm-dev
 startup-notification-dev
-xcb-util-dev

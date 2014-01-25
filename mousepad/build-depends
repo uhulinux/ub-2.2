@@ -6,4 +6,3 @@ libsm-dev
 libxfcegui4-dev
 perl-xml-parser
 startup-notification-dev
-xcb-util-dev

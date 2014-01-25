@@ -18,6 +18,7 @@ libgweather-dev
 libnotify-dev
 liboauth-dev
 libpst-dev
+libsm-dev
 libsoup-gnome-dev
 libxml2-dev
 mx-dev
@@ -26,4 +27,3 @@ nss-dev
 openldap-dev
 python-dev
 startup-notification-dev
-xcb-util-dev

@@ -14,6 +14,5 @@ libxt-dev
 pcre-dev
 startup-notification-dev
 udev-dev
-xcb-util-dev
 xfce4-panel-dev
 xfconf-dev

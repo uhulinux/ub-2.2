@@ -10,6 +10,7 @@ libexif-dev
 libgphoto2-dev
 libieee1284-dev
 libjpeg-dev
+libnetsnmp-dev
 libnotify-dev
 libtiff-dev
 libunique-dev

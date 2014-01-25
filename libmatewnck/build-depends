@@ -6,4 +6,3 @@ libsm-dev
 libxres-dev
 mate-common
 startup-notification-dev
-xcb-util-dev

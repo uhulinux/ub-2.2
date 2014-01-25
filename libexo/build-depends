@@ -4,4 +4,3 @@ libsm-dev
 libxfce4ui-dev
 perl-uri
 startup-notification-dev
-xcb-util-dev

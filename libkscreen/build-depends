@@ -1,3 +1,4 @@
 kdelibs-dev
 qjson-dev
-xcb-util-dev
+xcb-util-image-dev
+xcb-util-renderutil-dev

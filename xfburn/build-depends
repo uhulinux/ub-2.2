@@ -18,5 +18,4 @@ libxslt-dev
 startup-notification-dev
 thunar-vfs-dev
 udev-dev
-xcb-util-dev
 xfce4-dev-tools

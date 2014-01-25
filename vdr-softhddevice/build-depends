@@ -8,4 +8,4 @@ mesa-dev
 vdpau-video-dev
 vdr
 vdr-dev
-xcb-util-dev
+xcb-util-wm-dev
