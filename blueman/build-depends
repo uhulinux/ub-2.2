@@ -6,3 +6,4 @@ pyrex
 python-dev
 python-notify
 startup-notification-dev
+xcb-util-dev

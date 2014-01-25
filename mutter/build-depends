@@ -7,4 +7,5 @@ gtk3-dev
 intltool
 libcanberra-dev
 startup-notification-dev
+xcb-util-dev
 zenity

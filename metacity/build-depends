@@ -8,4 +8,5 @@ libcanberra-dev
 libsm-dev
 python-dev
 startup-notification-dev
+xcb-util-dev
 zenity

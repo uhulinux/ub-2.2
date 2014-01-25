@@ -10,3 +10,4 @@ libxt-dev
 perl-xml-parser
 startup-notification-dev
 vte-dev
+xcb-util-dev

@@ -21,3 +21,4 @@ startup-notification-dev
 thunar-dev
 vte-dev
 webkitgtk-dev
+xcb-util-dev

@@ -4,3 +4,4 @@ intltool
 libsm-dev
 libxres-dev
 startup-notification-dev
+xcb-util-dev

@@ -13,7 +13,6 @@ libgdata-dev
 libgnome-keyring-dev
 liboauth-dev
 libpeas-dev
-libsm-dev
 libsoup-gnome-dev
 libxtst-dev
 lirc-dev
@@ -26,3 +25,4 @@ sqlite-dev
 startup-notification-dev
 totem-plparser-dev
 vala-dev
+xcb-util-dev

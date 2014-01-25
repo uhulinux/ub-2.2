@@ -4,3 +4,4 @@ intltool
 libgee-dev
 polkit-dev
 startup-notification-dev
+xcb-util-dev

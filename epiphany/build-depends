@@ -7,7 +7,6 @@ gnome-keyring-dev
 gobject-introspection-dev
 gsettings-desktop-schemas
 gst-plugins-base-dev
-icu-dev
 intltool
 iso-codes
 libgnome-keyring-dev

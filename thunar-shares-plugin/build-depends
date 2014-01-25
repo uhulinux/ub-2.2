@@ -6,4 +6,5 @@ libjpeg-dev
 libsm-dev
 startup-notification-dev
 thunar-dev
+xcb-util-dev
 xfce4-dev-tools

@@ -21,3 +21,4 @@ libxscrnsaver-dev
 networkmanager-dev
 python-dev
 startup-notification-dev
+xcb-util-dev

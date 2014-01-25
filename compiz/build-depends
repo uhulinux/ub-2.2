@@ -22,3 +22,4 @@ mate-menus-dev
 mesa-dev
 metacity-dev
 startup-notification-dev
+xcb-util-dev

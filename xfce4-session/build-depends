@@ -10,5 +10,6 @@ libxt-dev
 perl-xml-parser
 startup-notification-dev
 x.org-server-utils
+xcb-util-dev
 xfce4-panel-dev
 xfconf-dev

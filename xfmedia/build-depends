@@ -9,5 +9,6 @@ libxinerama-dev
 libxt-dev
 startup-notification-dev
 taglib-dev
+xcb-util-dev
 xfce4-dev-tools
 xine-lib-dev

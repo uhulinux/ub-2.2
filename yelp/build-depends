@@ -2,7 +2,6 @@ enchant-dev
 glib2
 gtk3-dev
 icon-theme-gnome-symbolic
-icu-dev
 intltool
 itstool
 libjpeg-dev
