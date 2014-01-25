@@ -1,0 +1,42 @@
+diff -Naur orig/src/gdu-gtk/gdu-ata-smart-dialog.c patched/src/gdu-gtk/gdu-ata-smart-dialog.c
+--- orig/src/gdu-gtk/gdu-ata-smart-dialog.c	2011-07-08 18:07:14.000000000 +0200
++++ patched/src/gdu-gtk/gdu-ata-smart-dialog.c	2014-01-24 23:44:29.020591440 +0100
+@@ -1110,7 +1110,7 @@
+         test_dialog = gtk_dialog_new_with_buttons (NULL,
+                                                    GTK_WINDOW (dialog),
+                                                    GTK_DIALOG_MODAL|GTK_DIALOG_DESTROY_WITH_PARENT,
+-                                                   NULL);
++                                                   NULL, NULL);
+         gtk_window_set_title (GTK_WINDOW (test_dialog), "");
+ 
+ 
+diff -Naur orig/src/gdu-gtk/gdu-gtk.c patched/src/gdu-gtk/gdu-gtk.c
+--- orig/src/gdu-gtk/gdu-gtk.c	2011-07-08 18:07:14.000000000 +0200
++++ patched/src/gdu-gtk/gdu-gtk.c	2014-01-24 23:37:14.036576677 +0100
+@@ -346,7 +346,7 @@
+         dialog = gtk_dialog_new_with_buttons (window_title,
+                                               GTK_WINDOW (parent_window),
+                                               GTK_DIALOG_MODAL|GTK_DIALOG_DESTROY_WITH_PARENT,
+-                                              NULL);
++                                              NULL, NULL);
+         content_area = gtk_dialog_get_content_area (GTK_DIALOG (dialog));
+         action_area = gtk_dialog_get_action_area (GTK_DIALOG (dialog));
+ 
+@@ -584,7 +584,7 @@
+                                               GTK_DIALOG_MODAL|GTK_DIALOG_DESTROY_WITH_PARENT,
+                                               GTK_STOCK_CANCEL,
+                                               GTK_RESPONSE_CANCEL,
+-                                              NULL);
++                                              NULL, NULL);
+ 
+         if (is_new_password) {
+                 data->button = gtk_dialog_add_button (GTK_DIALOG (dialog), _("Cr_eate"), 0);
+@@ -1162,7 +1162,7 @@
+         dialog = gtk_dialog_new_with_buttons (title,
+                                               GTK_WINDOW (parent_window),
+                                               GTK_DIALOG_MODAL|GTK_DIALOG_DESTROY_WITH_PARENT,
+-                                              NULL);
++                                              NULL, NULL);
+         content_area = gtk_dialog_get_content_area (GTK_DIALOG (dialog));
+         action_area = gtk_dialog_get_action_area (GTK_DIALOG (dialog));
+ 
