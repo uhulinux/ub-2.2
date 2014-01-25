@@ -1,0 +1,14 @@
+#!/bin/sh -eux
+
+cp opt/google/chrome/product_logo_48.png "$UB_INSTALLDIR"/usr/share/pixmaps/google-chrome.png
+sed -i 's|Categories=Network;WebBrowser;|Categories=Network;WebBrowser;X-UHU-Menu/Internet/Browsers;|' opt/google/chrome/google-chrome.desktop
+sed -i 's|Exec=/usr/bin/google-chrome-stable %U|Exec=google-chrome-stable %U|' opt/google/chrome/google-chrome.desktop
+sed -i 's|Exec=/usr/bin/google-chrome-stable|Exec=google-chrome-stable|' opt/google/chrome/google-chrome.desktop
+sed -i 's|Exec=/usr/bin/google-chrome-stable --incognito|Exec=google-chrome-stable --incognito|' opt/google/chrome/google-chrome.desktop
+cp opt/google/chrome/google-chrome.desktop "$UB_INSTALLDIR"/usr/share/applications
+mv opt/google "$UB_INSTALLDIR"/usr/lib
+ln -s /usr/lib/google/chrome/google-chrome "$UB_INSTALLDIR"/usr/bin/google-chrome
+ln -s /usr/lib/google/chrome/google-chrome "$UB_INSTALLDIR"/usr/bin/google-chrome-stable
+mkdir -p "$UB_INSTALLDIR"/opt/google/chrome
+chmod 4755 "$UB_INSTALLDIR"/usr/lib/google/chrome/chrome-sandbox
+ln -s "$UB_INSTALLDIR"/usr/lib/google/chrome/chrome-sandbox "$UB_INSTALLDIR"/opt/google/chrome/chrome-sandbox

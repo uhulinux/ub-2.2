@@ -1,0 +1,12 @@
+K 10
+svn:ignore
+V 68
+changelog
+sourcename
+sources
+maintainer
+release
+distribution
+vendor
+
+END
