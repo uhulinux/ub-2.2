@@ -14,7 +14,6 @@ libusb-dev
 modemmanager
 nss-dev
 polkit-dev
-ppp-dev
 udev-dev
 util-linux-dev
 wireless-tools-dev
