@@ -1,0 +1,156 @@
+#!/bin/bash
+
+# rebuild-rendez szkript
+
+# Ez a szkript a bemeneti paraméterként megadott újrafordításra váró csomagok rendezett listáját
+# valamint ezeknek szintén rendezett ub listáját adja vissza két kimeneti fájlban.
+# A sorrend kritériuma az, hogy a lista egy eleme sem építkezhet utána sorban valahol következőből.
+
+##################################
+# Elvi és megvalósítási magyarázat
+##################################
+
+# A rendezés akkor lesz kész, ha a rendezetlen csomaglistánk valamennyi eleme elfogy.
+# A rendezetlen csomaglistánk aktuális elemének építőköveit megnézzük, hogy szerepel e valamelyik a rendezetlen csomaglistánk elemei között.
+# Ha szerepel, akkor hamarjában megnézem, hogy csomagunk szerepel e az építőkő építőelemei közt.
+# Ha ugyanis szerepel, akkor keresztfüggésről van szó, ez szarvashiba a csomagolók részéről, továbbá végtelen ciklust 
+# eredményezne, ekkor mindkét rendetlenkedő csomagot eltávolítom a rendezetlen csomagok listájából és külön kiírom őket a "keresztek" nevű fájlba okulásként
+# és az így 2 darab taggal megcsappant rendezésre váró listával folytatom a rendezést.
+# Ha nincs keresztfüggés, akkor a vizsgált csomagunkat a rendezetlen csomaglistánk végére helyezzük át és a következő elemmel folytatjuk a vizsgálatot.
+# A rendezetlenek listájának utoljsó tagjára ugyanis biztosan igaz az, hogy ő utána következőből nem építkezik!
+# Ha nem szerepel csomagunk egyik építőköve sem a rendezésre váró csomagok közt, akkor kivesszük csomagunkat a rendezetlenek sorából és beleírjuk 
+# a "csomagrend" nevű fájlba csomagunk nevét következő elemként.
+# Megállapítjuk, hogy csomagunk milyen nevű forrásból keletkezett és ezt a nevet, mely vélhetően azonos a csomag ub -jének nevével
+# és ezt a nevet kiíratom az "ubrend" fájlba következő elemként.
+# Ezután folytatjuk az így eggyel megcsappant elemszámú rendezetlen listánk soron következő tagjával, ha van még tennivaló.
+# Hasított csomagok esetén több azonos ub név lesz az "ubrend" fájlban, utólag korrigálom, hogy csak a legelső előfordulása maradjon meg.
+
+#####################################
+# a kiírt fájlok, amit a $pwd -be ír:
+#####################################
+
+# csomagrend -- Az elkészítendő csomagok listája kívánt elkészülési sorrendben.
+# ubrend -- Az elkészítendő csomagok uhubuild szkriptjeinek listája fordítási sorrendben.
+# keresztek -- Keresztfüggés esetén az egymástól kölcsönösen függő csomagok listája, csak akkor jön létre, ha találunk ilyet.
+
+##########
+# változók
+##########
+
+# van		- találat jelző logikai, ha 1, akkor talált, ha 0, akkor nem
+# csomaglista	- a rendezetlen csomaghalmaz
+# csomagdarab	- a csomaghalmaz elemeinek száma
+# csomagtag	- ciklusváltozó, a csomaghalmaz aktuális eleme
+# kervan	- keresztfüggés találat jelző, ha 1, akkor keresztfüggés van, ha 0, akkor nincs
+# kereszt1	- az egymástól függő két csomag egyikének neve
+# kereszt2	- az egymástól függő két csomag másikának neve
+# depend	- egy adott csomag építőköveinek halmaza
+# dep		- ciklusváltozó, a depend halmaz aktuális eleme
+# nev		- ciklusváltozó, ez is a csomaghalmaz aktuális eleme a főcikluson belüli alciklusban
+# nevdepend	- a $dep építőköveinek halmaza
+# kereszt	- ciklusváltozó, a $nevdepend halmaz aktuális eleme
+# ujlista	- ideiglenes változó egy új lista létrehozására
+
+
+if [ $# = 0 ]; then
+	echo 'Használat: rebuild-rendez <csomagok>!' >&2
+	exit 1
+fi
+
+rm -rf csomagrend ubrend keresztek
+# Értesítés
+csomaglista="$@"
+echo "$(echo ${csomaglista} | wc -w)" ' darab csomag van, melyeket rendezünk'
+
+
+# A teljes csomaglista rendezése úgy, hogy az adott csomag ne építkezzen az utána következők egyikéből sem.
+while [ ! "$csomaglista" == "" ]; do
+ for csomagtag in $csomaglista; do
+    csomagdarab=$(echo ${csomaglista} | wc -w)
+    van="0"
+    kereszt1=""
+    kereszt2=""
+    echo "$csomagdarab"" van hátra, vizsgálat alatt: ""$csomagtag"
+    depend=$(csomagko "$csomagtag")
+# Az építőkövek mindegyikét keressük a rendezésre váró listában
+    for dep in $depend; do
+      for nev in $csomaglista; do
+	if [ $nev == $dep ]; then
+	  van="1"
+	  break
+	fi
+      done
+      if [ $van == "1" ]; then
+	break
+      fi
+    done
+# lezajlott a keresés, kiértékelés
+    ujlista=""
+    if [ $van == "1" ]; then
+	  # keresztbe függés vizsgálat:A $nev csomag is a $csomagtagból építkezik?
+	  kervan="0"
+	  depend=$(csomagko "$dep")
+	  nevdepend="$depend"
+	  for kereszt in $nevdepend; do
+	    if [ $kereszt == $csomagtag ]; then
+	      echo " a " $csomagtag" és a " $dep " csomag egymásból építkeznek! "
+	      echo ezek eltávolítva a viszgálandók közül és a keresztek fájlba írva
+	      kereszt1=$csomagtag
+	      kereszt2=$dep
+	      echo "$kereszt1" >> keresztek
+	      echo "$kereszt2" >> keresztek
+	      kervan="1"
+	      for k in $csomaglista; do
+		if [ ! "$k" == "$kereszt1" ] && [ ! "$k" == "$kereszt2" ]; then
+		  ujlista=$(echo $ujlista" "$k)
+		fi
+	      done
+	      break
+	    fi
+	  done
+	  if [ $kervan == "0"  ]; then
+	    for j in $csomaglista; do
+	      if [ ! "$j" == "$csomagtag" ]; then
+		ujlista=$(echo $ujlista" "$j)
+	      fi
+	    done
+	    ujlista=$(echo $ujlista" "$csomagtag)
+	  fi
+    else
+	echo "$csomagtag" >> csomagrend
+	echo `apt-cache show $csomagtag | grep Source\: | sed s/Source\:" "//g | sort -u | tail -n 1 | sed s/_.*//g` >> ubrend
+	for j in $csomaglista; do
+	  if [ ! "$j" == $csomagtag ]; then
+	    ujlista=$(echo $ujlista" "$j)
+	  fi
+	done
+    fi
+    csomaglista=$ujlista
+   done
+done
+# Rendezés kész
+
+# Értesítés
+echo ub rendbetétel!
+
+# Az ub ismétlődések közül csak az első előfordulást hagyjuk meg.
+ujsor="xxxxyyyyyzzzz"
+for i in `cat ubrend`; do
+ van="0"
+ for j in $ujsor ;do
+  if [ $i == "$j" ]; then
+    van="1"
+  fi
+  done
+  if [ "$van" == "0" ]; then
+  ujsor=$(echo "$ujsor"" ""$i")
+  fi
+ujsordb=$(echo $ujsor | wc -w)
+done
+ujsor=$(echo $ujsor | sed s/xxxxyyyyyzzzz//g)
+for i in $ujsor; do
+echo "$i">> tmpfile
+done
+mv tmpfile ubrend
+# Na végre!
+echo kész !

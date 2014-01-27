@@ -1,0 +1,16 @@
+#!/bin/bash
+
+# A parancssorban megadott csomagktól függő csomagokat felsoroló eljárás.
+# Csak azokat, melyek verziószám igényűek a paraméter csomaggal szemben
+
+if [ $# = 0 ]; then
+	echo 'Használat: csomagfi <csomagnév> [csomagnév]...' >&2
+	exit 1
+fi
+
+function fiak () {
+for num in "$@"; do
+apt-cache showpkg "$num" | grep , | grep -E ' [0-9.]+$' | sed s/,\.*//g | sed s/"  "//g | sort -u
+done
+}
+fiak "$@" | sort -u

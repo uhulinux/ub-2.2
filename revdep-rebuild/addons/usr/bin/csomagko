@@ -1,0 +1,14 @@
+#!/bin/bash
+
+# csomagkovek nevű szkriptecske
+
+# A $1 csomagnak azon építőkő csomagjait sorolja fel, melyek verziószámmal rendelkeznek a standard kimenetre.
+# Az apt gyorsítótárában esetleg több csomagverzió közül csak az első, és ezáltal feltehetően
+# a legnagyobb verziószámú tagjának elemeit .
+
+if [ $# = 0 ]; then
+	echo 'Használat: csomagko <csomagnév>' >&2
+	exit 1
+fi
+
+apt-cache show "$1" | grep Depends: | head -1 | sed s/Depends:" "//g | sed s/," "/\\n/g | grep \( | sed s/" "\(\.*//g | sort -u
