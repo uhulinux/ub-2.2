@@ -7,7 +7,7 @@ gst-plugins-base-dev
 gstreamer-dev
 gtk-doc
 gtk3-dev
-icu
+icu-dev
 libjpeg-dev
 libsoup-gnome-dev
 libxml2-dev

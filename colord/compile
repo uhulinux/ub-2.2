@@ -1,5 +1,8 @@
 #!/bin/sh -eux
 
+aclocal
+automake --add-missing
+intltoolize --force --copy --automake
 autoreconf
 ub_compile \
 	--disable-examples \

@@ -1,3 +1,5 @@
 #!/bin/sh -eux
 
-ub_compile
+ln -sf $(type -P true) py-compile
+ub_compile \
+	--disable-hal
