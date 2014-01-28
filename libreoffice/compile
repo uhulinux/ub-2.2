@@ -37,6 +37,7 @@ export QT4DIR=/usr/lib/qt4
   	--without-system-graphite \
   	--without-system-harfbuzz \
   	--without-system-icu \
+  	--without-system-libabw \
   	--without-system-libcdr \
   	--without-system-libcmis \
 	--without-system-libebook \
