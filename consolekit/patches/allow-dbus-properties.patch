@@ -1,0 +1,15 @@
+diff -Naur orig/data/ConsoleKit.conf patched/data/ConsoleKit.conf
+--- orig/data/ConsoleKit.conf	2010-11-19 02:34:18.000000000 +0100
++++ patched/data/ConsoleKit.conf	2014-01-29 16:00:56.709381533 +0100
+@@ -21,8 +21,9 @@
+           send_interface="org.freedesktop.ConsoleKit.Seat"/>
+     <deny send_destination="org.freedesktop.ConsoleKit" 
+           send_interface="org.freedesktop.ConsoleKit.Session"/>
+-    <deny send_destination="org.freedesktop.ConsoleKit"
+-          send_interface="org.freedesktop.DBus.Properties" />
++
++    <allow send_destination="org.freedesktop.ConsoleKit"
++           send_interface="org.freedesktop.DBus.Properties" />
+ 
+     <allow send_destination="org.freedesktop.ConsoleKit"
+            send_interface="org.freedesktop.ConsoleKit.Manager"
