@@ -166,7 +166,7 @@ xhost "+si:localuser:root"
 if [ $# -ge 1 -a "$1" != "" -a "$1" != "default" -a "$1" != "custom" ]; then
 	exec $sshagent "$@"
 fi
-for i in gnome kde xfce mate icewm-session fluxbox blackbox twm; do
+for i in gnome kde xfce mate enlightenment icewm-session fluxbox blackbox twm; do
 	if type -p $i >/dev/null 2>&1; then
 		exec $sshagent $i
 	fi
