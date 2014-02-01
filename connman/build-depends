@@ -3,6 +3,5 @@ glib2-dev
 gnutls-dev
 iptables-dev
 openvpn
-policykit-dev
 ppp
 wpasupplicant

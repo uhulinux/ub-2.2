@@ -9,5 +9,4 @@ ub_compile \
 	--enable-pptp \
 	--enable-openvpn \
 	--enable-hh2serial-gps \
-	--enable-nmcompat \
-	--enable-polkit
+	--enable-nmcompat
