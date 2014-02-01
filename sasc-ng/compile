@@ -1,9 +1,0 @@
-#!/bin/sh -eux
-
-chmod a+x contrib/sasc-ng/configure
-chmod a+x contrib/sasc-ng/makelinks.sh
-cd contrib/sasc-ng/
-./configure
-make
-make module
-##make sc-plugin

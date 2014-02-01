@@ -1,5 +1,9 @@
 #!/bin/bash
 
+if grep -qv 'vboxusers' /etc/group; then
+	groupadd vboxusers
+fi
+
 cat /etc/passwd | grep /home | awk -F: '{print$1}' |\
 while read username ; do
    usermod -a -G vboxusers $username

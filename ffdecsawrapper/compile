@@ -1,0 +1,6 @@
+#!/bin/sh -eux
+
+./configure
+
+make
+make module
