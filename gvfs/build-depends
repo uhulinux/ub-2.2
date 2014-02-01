@@ -1,5 +1,6 @@
 avahi-dev
 bluez-dev
+dbus-dev
 dbus-glib-dev
 expat-dev
 fuse-dev
@@ -21,5 +22,6 @@ obex-data-server
 openssh
 samba-dev
 sqlite-dev
+udev
 udev-dev
 udisks

@@ -1,4 +1,5 @@
 cyrus-sasl2
+dbus-dev
 gnutls-dev
 gobject-introspection-dev
 gtk3-dev

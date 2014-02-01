@@ -1,0 +1,11 @@
+[Desktop Entry]
+Comment[hu]=Virtuális CI-CAM
+Comment=Virtuális CI-CAM
+Exec=ffdecsawrapper -j 0:1 --cam-budget --sid-allpid --cam-dir /etc/camdir
+Icon=ffdecsawrapper
+Name[hu]=ffdecsawrapper
+Name=ffdecsawrapper
+Terminal=true
+Type=Application
+Version=1.0
+Categories=X-UHU-Menu/Multimedia/TVRadio;

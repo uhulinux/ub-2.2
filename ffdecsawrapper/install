@@ -1,0 +1,5 @@
+#!/bin/sh -eux
+
+cp ffdecsawrapper ${UB_INSTALLDIR}/usr/bin
+mkdir -p ${UB_INSTALLDIR}/lib/modules/`uname -r`/misc
+cp dvbloopback.ko ${UB_INSTALLDIR}/lib/modules/`uname -r`/misc

@@ -180,14 +180,14 @@ if [ "$session" = "" -a -f ~/.dmrc ]; then
 	session="$(grep '^Session=' ~/.dmrc | cut -d= -f2-)"
 fi
 if [ "$session" != "" -a "${session%/*}" = "$session" \
-  -a -f "/usr/lib/sessions/$session.desktop" ]; then
-	session="$(grep '^Exec=' "/usr/lib/sessions/$session.desktop" | cut -d= -f2-)"
+  -a -f "/usr/share/xsessions/$session.desktop" ]; then
+	session="$(grep '^Exec=' "/usr/share/xsessions/$session.desktop" | cut -d= -f2-)"
 fi
 
 if [ "$session" != "" -a "$session" != "default" -a "$session" != "custom" ]; then
 	exec $sshagent $session "$@"
 fi
-for i in gnome kde xfce mate icewm-session fluxbox blackbox twm; do
+for i in gnome kde xfce mate enlightenment icewm-session fluxbox blackbox twm; do
 	if type -p $i >/dev/null 2>&1; then
 		exec $sshagent $i
 	fi

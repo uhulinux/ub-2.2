@@ -8,6 +8,5 @@ iso-codes
 libnotify-dev
 libsm-dev
 networkmanager-dev
-policykit-dev
 polkit-dev
 udev-dev

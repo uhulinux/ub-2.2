@@ -1,4 +1,4 @@
 #!/usr/bin/env dl
 
-cinnamon-${UB_VERSION}.tar.gz linuxmint-Cinnamon-5ab432d/
-	https://github.com/linuxmint/cinnamon/tarball/${UB_VERSION}/
+${UB_VERSION}.zip Cinnamon-${UB_VERSION}/
+	https://github.com/linuxmint/Cinnamon/archive/

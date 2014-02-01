@@ -2,7 +2,7 @@ folks-dev
 gconf2-dev
 gcr-dev
 gjs-dev
-gnome-bluetooth-dev
+gnome-common
 gnome-desktop-dev
 gnome-keyring-dev
 gnome-menus-dev

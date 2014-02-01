@@ -1,5 +1,6 @@
 #!/bin/sh -eux
 
+autoreconf
 BROWSER_PLUGIN_DIR=/usr/lib/firefox/plugins \
 ub_compile \
 	--enable-compile-warnings=minimum \

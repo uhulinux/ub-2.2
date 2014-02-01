@@ -1,6 +1,5 @@
 #!/bin/sh -eux
 
-autoreconf
+autoreconf -vif
 UB_UPDATELIBTOOL=yes ub_compile \
-	--enable-pam-module \
-	--disable-static
+	--enable-pam-module

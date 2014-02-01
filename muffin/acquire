@@ -1,4 +1,4 @@
 #!/usr/bin/env dl
 
-muffin-wm-${UB_VERSION}.tar.gz linuxmint-muffin-ab1d98e/
-	https://github.com/linuxmint/muffin/tarball/${UB_VERSION}/
+${UB_VERSION}.tar.gz muffin-${UB_VERSION}/
+	https://github.com/linuxmint/muffin/archive/${UB_VERSION}/

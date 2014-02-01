@@ -1,4 +1,4 @@
 #!/usr/bin/env dl
 
-ndiswrapper-1.58.tar.gz ndiswrapper-1.58/
+ndiswrapper-${UB_VERSION}.tar.gz ndiswrapper-${UB_VERSION}/
 	http://sourceforge.net/projects/ndiswrapper/files/stable/

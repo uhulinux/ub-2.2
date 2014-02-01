@@ -1,7 +1,7 @@
 diff -Naur orig/.config.i386 patched/.config.i386
---- orig/.config.i386	2012-10-29 15:40:12.233315999 +0100
-+++ patched/.config.i386	2012-10-29 21:38:11.000000000 +0100
-@@ -0,0 +1,6594 @@
+--- orig/.config.i386	2014-01-29 14:22:56.143105842 +0100
++++ patched/.config.i386	2014-01-29 14:27:02.000000000 +0100
+@@ -0,0 +1,6592 @@
 +#
 +# Automatically generated file; DO NOT EDIT.
 +# Linux/i386 3.4.16-1.i386 Kernel Configuration
@@ -2546,7 +2546,6 @@ diff -Naur orig/.config.i386 patched/.config.i386
 +CONFIG_ATH9K_DEBUGFS=y
 +# CONFIG_ATH9K_DFS_CERTIFIED is not set
 +CONFIG_ATH9K_MAC_DEBUG=y
-+CONFIG_ATH9K_RATE_CONTROL=y
 +CONFIG_ATH9K_HTC=m
 +# CONFIG_ATH9K_HTC_DEBUGFS is not set
 +CONFIG_CARL9170=m
@@ -5394,7 +5393,6 @@ diff -Naur orig/.config.i386 patched/.config.i386
 +#
 +# DMA Clients
 +#
-+CONFIG_NET_DMA=y
 +CONFIG_ASYNC_TX_DMA=y
 +CONFIG_DMATEST=m
 +CONFIG_DCA=y

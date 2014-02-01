@@ -44,4 +44,4 @@ chmod -R a+rX,u+w,go-w "$UB_INSTALLDIR"
 # firmware is shipped by the linux-firmware package
 rm -rfv "$UB_INSTALLDIR"/lib/firmware
 
-mkdir -p "$UB_INSTALLDIR"/lib/modules/"$VERSION".i386/updates
+mkdir -p "$UB_INSTALLDIR"/lib/modules/"$VERSION".i386/misc

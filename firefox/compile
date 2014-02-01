@@ -23,6 +23,7 @@ ub_compile \
 	--enable-xinerama \
 	--enable-startup-notification \
 	--enable-libxul \
+	--enable-webp \
 	--disable-gconf \
 	--disable-gnomeui \
 	--disable-gnomevfs \
