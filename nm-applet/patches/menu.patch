@@ -1,0 +1,10 @@
+diff -Naur orig/nm-connection-editor.desktop.in patched/nm-connection-editor.desktop.in
+--- orig/nm-connection-editor.desktop.in	2012-08-17 23:45:13.000000000 +0200
++++ patched/nm-connection-editor.desktop.in	2014-02-01 04:20:49.377903452 +0100
+@@ -9,5 +9,5 @@
+ X-GNOME-Bugzilla-Bugzilla=GNOME
+ X-GNOME-Bugzilla-Product=NetworkManager
+ X-GNOME-Bugzilla-Component=general
+-Categories=GNOME;GTK;Settings;X-GNOME-NetworkSettings;
++Categories=GNOME;GTK;Settings;X-GNOME-NetworkSettings;X-UHU-Menu/Settings;
+ NotShowIn=KDE;

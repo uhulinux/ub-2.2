@@ -1,9 +1,7 @@
 #!/bin/sh -eux
 
-gtkdocize
-autoreconf --install --symlink --force
-intltoolize --force
-autoreconf
+sed -i '/AM_GNU_GETTEXT/d' configure.ac
+autoreconf -vif
 ub_compile \
 	--with-distro=Slackware \
 	--enable-more-warnings=no

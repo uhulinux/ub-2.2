@@ -1,4 +1,3 @@
-cvs
 dbus-glib-dev
 dhcp-client
 eggdbus-dev
@@ -10,6 +9,7 @@ libgcrypt-dev
 libgpg-error-dev
 libnl-dev
 libnotify-dev
+libsoup-dev
 libusb-dev
 modemmanager
 nss-dev
