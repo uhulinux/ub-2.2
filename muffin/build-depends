@@ -12,6 +12,7 @@ intltool
 libcanberra-dev
 libsm-dev
 libxcomposite-dev
+mesa-dev
 pango-dev
 startup-notification-dev
 zenity

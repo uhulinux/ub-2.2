@@ -1,10 +1,8 @@
 #!/bin/sh -eux
-#cp $UB_SRCDIR/patches/gnome-autogen.sh.skip gnome-autogen.sh
-#chmod +x gnome-autogen.sh
-#./autogen.sh
-sed -i '/AM_MAINTAINER/d' configure.ac
-# „config.status: error: po/Makefile.in.in was not created by intltoolize.” miatt
-sed -i '/AM_GNU_GETTEXT/d' configure.ac
+
+sed -e "s:/usr/lib/gnome-session/gnome-session-check-accelerated:/usr/libexec/gnome-session-check-accelerated:" \
+	-i "files/usr/share/gnome-session/sessions/cinnamon.session"
+
 ub_compile \
 	--enable-compile-warnings=maximum \
 	--disable-jhbuild-wrapper-script \
