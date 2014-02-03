@@ -1,0 +1,8 @@
+gobject-introspection-dev
+gsettings-desktop-schemas
+gtk3-dev
+intltool
+json-glib-dev
+libnotify-dev
+libpeas-dev
+webkitgtk3-dev
