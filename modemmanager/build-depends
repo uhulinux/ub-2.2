@@ -1,8 +1,4 @@
 dbus-glib-dev
-gobject-introspection-dev
-gtk-doc
 intltool
-polkit-dev
 ppp
 udev-dev
-vala-dev

@@ -1,9 +1,5 @@
 #!/bin/sh
 
-if [ -s /etc/NetworkManager/nm-system-settings.conf ]; then
-mv /etc/NetworkManager/nm-system-settings.conf /etc/NetworkManager/NetworkManager.conf
-fi
-
 ujhost=`hostname`
 
 sed "s/localhost/$ujhost/g" -i /etc/NetworkManager/NetworkManager.conf
