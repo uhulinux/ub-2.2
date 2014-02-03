@@ -7,11 +7,11 @@ intltool
 iptables
 libgcrypt-dev
 libgpg-error-dev
-libnl-dev
+libnl3-dev
 libnotify-dev
 libsoup-dev
 libusb-dev
-modemmanager
+modemmanager-dev
 nss-dev
 polkit-dev
 udev-dev
