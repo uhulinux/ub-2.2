@@ -1,7 +1,9 @@
 ------------------
+attus 2014-02-06
+build-depends tistító szkript adva
+------------------
 attus | 2014-01-27
 A szkript 4 külön is használható részegységre bontva
-------------------
 ------------------
 attus | 2014-01-23
 egy csomag esetén, ha nincs tennivaló, üzenettel kilép a szkript
