@@ -12,9 +12,10 @@ libnl-dev
 libnotify-dev
 libsoup-dev
 libusb-dev
-modemmanager
+modemmanager-dev
 nss-dev
 polkit-dev
+ppp
 udev-dev
 util-linux-dev
 wireless-tools-dev
