@@ -1,1 +1,7 @@
-gnonlin >= 0.10.17
+gnome-python
+gnonlin
+gst-python
+pycairo
+pygoocanvas
+python-setuptools
+pyxdg
