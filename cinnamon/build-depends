@@ -22,7 +22,6 @@ libsoup-dev
 muffin-dev
 networkmanager-dev
 notification-daemon
-openssl
 polkit-dev
 polkit-gnome-dev
 pulseaudio-dev
