@@ -1,0 +1,5 @@
+#!/usr/bin/env dl
+
+youtube2mp3-${UB_VERSION}b7.tar.bz2 youtube2mp3-${UB_VERSION}b7/
+	http://sourceforge.net/projects/youtube2mp3/files/
+
