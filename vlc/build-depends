@@ -76,6 +76,6 @@ taglib-dev
 udev-dev
 unzip
 vcdimager-dev
-xcb-util-dev
+xcb-util-keysyms-dev
 xosd-dev
 zvbi-dev

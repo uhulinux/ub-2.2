@@ -1,8 +1,18 @@
---- balsa.orig/balsa.desktop.in.in	2009-05-23 09:02:12.000000000 +0200
-+++ balsa/balsa.desktop.in.in	2009-06-21 20:00:38.000000000 +0200
-@@ -7,4 +7,4 @@
+diff -Naur orig/balsa.desktop.in patched/balsa.desktop.in
+--- orig/balsa.desktop.in	2013-04-28 14:27:22.000000000 +0200
++++ patched/balsa.desktop.in	2014-02-02 23:11:01.963358395 +0100
+@@ -9,4 +9,4 @@
  Terminal=false
  Type=Application
  StartupNotify=true
--Categories=@TOOLKIT_CATEGORIES@Network;Email;
-+Categories=@TOOLKIT_CATEGORIES@Network;Email;X-UHU-Menu/Internet/Email;
+-Categories=GNOME;GTK;Office;Email;
++Categories=GNOME;GTK;Office;Email;X-UHU-Menu/Internet/Email;
+diff -Naur orig/balsa.desktop.in.in patched/balsa.desktop.in.in
+--- orig/balsa.desktop.in.in	2013-03-04 20:44:07.000000000 +0100
++++ patched/balsa.desktop.in.in	2014-02-02 23:10:51.003257232 +0100
+@@ -9,4 +9,4 @@
+ Terminal=false
+ Type=Application
+ StartupNotify=true
+-Categories=GNOME;GTK;Office;Email;
++Categories=GNOME;GTK;Office;Email;X-UHU-Menu/Internet/Email;

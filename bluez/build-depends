@@ -4,7 +4,6 @@ dbus-dev
 glib2-dev
 gst-plugins-base-dev
 gstreamer-dev
-libnl-dev
 libsndfile-dev
-libusb-dev
+libusb-compat-dev
 libvorbis-dev

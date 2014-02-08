@@ -1,0 +1,10 @@
+diff -urN simple-scan-0.9.5.orig/data/simple-scan.desktop.in simple-scan-0.9.5/data/simple-scan.desktop.in
+--- simple-scan-0.9.5.orig/data/simple-scan.desktop.in	2009-12-20 10:18:46.000000000 +0100
++++ simple-scan-0.9.5/data/simple-scan.desktop.in	2010-03-04 22:17:08.348990158 +0100
+@@ -6,5 +6,5 @@
+ Terminal=false
+ Type=Application
+ StartupNotify=true
+-Categories=GNOME;GTK;Graphics;Scanning;
++Categories=GNOME;GTK;Graphics;Scanning;X-UHU-Menu/Graphics;
+ X-GNOME-Gettext-Domain=simple-scan

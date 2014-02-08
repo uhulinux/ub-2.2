@@ -1,4 +1,4 @@
 #!/usr/bin/env dl
 
-ModemManager-${UB_VERSION}.tar.bz2 ModemManager-${UB_VERSION}/
+ModemManager-${UB_VERSION}.tar.xz ModemManager-${UB_VERSION}/
 	ftp://ftp.gnome.org/pub/GNOME/sources/ModemManager/${UB_VERSION_HEAD2}/

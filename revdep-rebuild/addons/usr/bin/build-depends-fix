@@ -1,0 +1,32 @@
+#!/bin/bash
+
+# build-depends tisztító szkript
+# azt a tagot kell eltávolítani, amelyik valamelyik másik "depends"ében benne van.
+# a tagot az eredeti listahalmaz minden egyes elemének dends -ei közt kell keresni
+# ha nem szerepel, akkor ő maga belemegy. Ha szerepel, akkor az, akinél szerepel
+
+eredetilista=$(cat build-depends | sort -u)
+
+rm -rf húzások build-depends-uj
+for listaelem in $eredetilista; do # mindegyik listaelemet végignézem
+    van="0"
+    for alelem in $eredetilista; do # minden alelem
+    alelemdeps=$(echo `apt-cache depends "$alelem" | grep Függ |sed s/"  Függ ettől: "//g | sort -u`)
+      for alelemdep in $alelemdeps; do		# közt#
+	if [ $listaelem == $alelemdep ]; then # ha a listaelem neve=építőkő neve
+	  van="1"	# akkor a csomagot nem kell berakni
+	  break
+	fi
+      done
+	if [ "$van" == "1" ]; then
+	  break
+	fi
+    done
+    if [ "$van" == "1" ]; then
+      echo "$listaelem"" csomagot felhúzza: ""$alelem"
+    else
+      echo $listaelem
+      ujlista=$(echo -e "$listaelem"'\n'"$ujlista")
+    fi
+done
+echo "$ujlista" | sort -u > build-depends-uj
