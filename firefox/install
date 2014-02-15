@@ -1,7 +1,9 @@
 #!/bin/sh -eux
 
+cd "$UB_OBJECTDIR"
+
 # 26.0 baromsága
-cp "$UB_COMPILEDIR"/config/makefiles/xpidl/Makefile "$UB_COMPILEDIR"/config/makefiles/xpidl/Makefile.in
+cp "$UB_OBJECTDIR"/config/makefiles/xpidl/Makefile "$UB_OBJECTDIR"/config/makefiles/xpidl/Makefile.in
 
 ub_install
 
@@ -15,4 +17,4 @@ ln -s firefox-"$UB_VERSION" "$UB_INSTALLDIR"/usr/include/firefox
 ln -s firefox-"$UB_VERSION" "$UB_INSTALLDIR"/usr/share/idl/firefox
 
 mkdir -p "$UB_INSTALLDIR"/usr/lib/firefox/browser/extensions/langpack-hu@firefox.mozilla.org
-cp -aR langpack-hu/. "$UB_INSTALLDIR"/usr/lib/firefox/browser/extensions/langpack-hu@firefox.mozilla.org/
+cp -aR "$UB_COMPILEDIR"/langpack-hu/. "$UB_INSTALLDIR"/usr/lib/firefox/browser/extensions/langpack-hu@firefox.mozilla.org/

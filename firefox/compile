@@ -1,11 +1,14 @@
 #!/bin/sh -eux
 
-mkdir -p js/src/.deps
-
 export SHELL=/bin/bash
 export LDFLAGS="-Wl,-rpath,/usr/lib/firefox/ -Wl,--no-keep-memory"
 
-ub_compile \
+cd "$UB_OBJECTDIR"
+mkdir -p js/src/.deps
+
+# az UB_CONFIGURE_DIR="$UB_COMPILEDIR" forma nem jó, linker hiba lesz belőle
+"$UB_COMPILEDIR"/configure \
+	--prefix=/usr \
 	--enable-application=browser \
 	--enable-official-branding \
 	--without-system-jpeg \
@@ -34,4 +37,6 @@ ub_compile \
 	--disable-mochitest \
 	--enable-default-toolkit=cairo-gtk2 \
 	--disable-necko-wifi
+
+ub_make
 
