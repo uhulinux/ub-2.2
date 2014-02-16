@@ -61,7 +61,7 @@ fi
 	mkdir -p "$UHUBUILD_PATH"/misc-${UHUBUILD_DISTR}/failed
 	mkdir -p "$UHUBUILD_PATH"/misc-${UHUBUILD_DISTR}/snapshot/compile
 	mkdir -p "$UHUBUILD_PATH"/misc-${UHUBUILD_DISTR}/snapshot/install
-	mkdir -p "$UHUBUILD_PATH"/misc-${UHUBUILD_DISTR}/logpack
+	mkdir -p "$UHUBUILD_PATH"/misc-${UHUBUILD_DISTR}/buildlogs
 	mkdir -p "$UHUBUILD_PATH"/misc-${UHUBUILD_DISTR}/tmp
 	mkdir -p "$UHUBUILD_PATH"/patches-${UHUBUILD_DISTR}
 	mkdir -p "$UHUBUILD_PATH"/packages-${UHUBUILD_DISTR}/ub
@@ -384,9 +384,9 @@ uhu-scanpkgs .
 	if [ "$UB_UHUCHECK" = "1" ]; then
 		cd "$UHUBUILD_PATH"/UB-${UHUBUILD_DISTR}/
 		uhubuild-check "$i" || exit 1
-			else
-			echo
-			uzenet_var			
+	else
+		echo
+		uzenet_var			
 	fi 
 		
 echo
