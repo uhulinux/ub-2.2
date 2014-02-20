@@ -1,20 +1,24 @@
 diff -Naur orig/config/baseconfig.mk patched/config/baseconfig.mk
---- orig/config/baseconfig.mk	2013-12-05 17:07:23.000000000 +0100
-+++ patched/config/baseconfig.mk	2013-12-13 22:01:36.165576285 +0100
-@@ -1,6 +1,6 @@
+--- orig/config/baseconfig.mk	2014-02-12 22:28:52.000000000 +0100
++++ patched/config/baseconfig.mk	2014-02-19 23:05:29.055963711 +0100
+@@ -1,7 +1,7 @@
  includedir := $(includedir)/$(MOZ_APP_NAME)-$(MOZ_APP_VERSION)
  idldir = $(datadir)/idl/$(MOZ_APP_NAME)-$(MOZ_APP_VERSION)
 -installdir = $(libdir)/$(MOZ_APP_NAME)-$(MOZ_APP_VERSION)
+-sdkdir = $(libdir)/$(MOZ_APP_NAME)-devel-$(MOZ_APP_VERSION)
 +installdir = $(libdir)/$(MOZ_APP_NAME)
- sdkdir = $(libdir)/$(MOZ_APP_NAME)-devel-$(MOZ_APP_VERSION)
++sdkdir = $(libdir)/$(MOZ_APP_NAME)-devel
  DIST = $(DEPTH)/dist
  
+ # We do magic with OBJ_SUFFIX in config.mk, the following ensures we don't
 diff -Naur orig/js/src/config/baseconfig.mk patched/js/src/config/baseconfig.mk
---- orig/js/src/config/baseconfig.mk	2013-12-05 17:07:35.000000000 +0100
-+++ patched/js/src/config/baseconfig.mk	2013-12-13 22:01:08.225318411 +0100
-@@ -1,4 +1,4 @@
+--- orig/js/src/config/baseconfig.mk	2014-02-12 22:29:02.000000000 +0100
++++ patched/js/src/config/baseconfig.mk	2014-02-19 23:05:54.596199439 +0100
+@@ -1,5 +1,5 @@
 -installdir = $(libdir)/$(MOZ_APP_NAME)-$(MOZ_APP_VERSION)
+-sdkdir = $(libdir)/$(MOZ_APP_NAME)-devel-$(MOZ_APP_VERSION)
 +installdir = $(libdir)/$(MOZ_APP_NAME)
- sdkdir = $(libdir)/$(MOZ_APP_NAME)-devel-$(MOZ_APP_VERSION)
++sdkdir = $(libdir)/$(MOZ_APP_NAME)-devel
  
  ifneq (,$(filter /%,$(TOP_DIST)))
+ DIST = $(TOP_DIST)

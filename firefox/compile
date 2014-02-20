@@ -17,7 +17,6 @@ mkdir -p js/src/.deps
 	--with-system-nss \
 	--with-system-nspr \
 	--enable-system-cairo \
-	--enable-system-huspell \
 	--enable-system-sqlite \
 	--enable-gio \
 	--enable-pango \
