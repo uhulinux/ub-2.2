@@ -1,7 +1,7 @@
 diff -Naur orig/chrome/browser/ui/startup/startup_browser_creator_impl.cc patched/chrome/browser/ui/startup/startup_browser_creator_impl.cc
---- orig/chrome/browser/ui/startup/startup_browser_creator_impl.cc	2013-11-08 07:40:41.000000000 +0100
-+++ patched/chrome/browser/ui/startup/startup_browser_creator_impl.cc	2013-11-13 15:12:26.607612757 +0100
-@@ -63,8 +63,6 @@
+--- orig/chrome/browser/ui/startup/startup_browser_creator_impl.cc	2014-02-20 21:27:31.000000000 +0100
++++ patched/chrome/browser/ui/startup/startup_browser_creator_impl.cc	2014-02-21 16:34:41.432663141 +0100
+@@ -64,8 +64,6 @@
  #include "chrome/browser/ui/startup/autolaunch_prompt.h"
  #include "chrome/browser/ui/startup/bad_flags_prompt.h"
  #include "chrome/browser/ui/startup/default_browser_prompt.h"
@@ -10,15 +10,12 @@ diff -Naur orig/chrome/browser/ui/startup/startup_browser_creator_impl.cc patche
  #include "chrome/browser/ui/startup/session_crashed_infobar_delegate.h"
  #include "chrome/browser/ui/startup/startup_browser_creator.h"
  #include "chrome/browser/ui/tabs/pinned_tab_codec.h"
-@@ -875,13 +873,6 @@
-   // so we cannot add the info bars to the focused tabs here.
-   if (is_process_startup == chrome::startup::IS_PROCESS_STARTUP) {
+@@ -897,10 +895,6 @@
+   if (is_process_startup == chrome::startup::IS_PROCESS_STARTUP &&
+       !command_line_.HasSwitch(switches::kTestType)) {
      chrome::ShowBadFlagsPrompt(browser);
--    if (!command_line_.HasSwitch(switches::kTestType)) {
--      GoogleApiKeysInfoBarDelegate::Create(InfoBarService::FromWebContents(
--          browser->tab_strip_model()->GetActiveWebContents()));
--    }
--
+-    GoogleApiKeysInfoBarDelegate::Create(InfoBarService::FromWebContents(
+-        browser->tab_strip_model()->GetActiveWebContents()));
 -    ObsoleteOSInfoBarDelegate::Create(InfoBarService::FromWebContents(
 -        browser->tab_strip_model()->GetActiveWebContents()));
  

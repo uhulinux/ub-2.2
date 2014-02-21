@@ -3,6 +3,7 @@
 ub_compile \
 	--with-opengl \
 	--with-gtk \
+	--enable-stl \
 	--enable-gtk2 \
 	--enable-unicode \
 	--enable-compat28

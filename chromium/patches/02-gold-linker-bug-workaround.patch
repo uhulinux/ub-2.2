@@ -1,7 +1,7 @@
 diff -Naur orig/build/common.gypi patched/build/common.gypi
---- orig/build/common.gypi	2013-11-08 07:42:07.000000000 +0100
-+++ patched/build/common.gypi	2013-11-12 22:47:47.098257530 +0100
-@@ -3430,18 +3430,21 @@
+--- orig/build/common.gypi	2014-02-20 21:28:44.000000000 +0100
++++ patched/build/common.gypi	2014-02-21 16:38:07.298563204 +0100
+@@ -3562,18 +3562,21 @@
            ['linux_use_gold_flags==1', {
              'target_conditions': [
                ['_toolset=="target"', {
