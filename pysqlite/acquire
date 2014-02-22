@@ -1,0 +1,4 @@
+#!/usr/bin/env dl
+
+pysqlite-${UB_VERSION}.tar.gz pysqlite-${UB_VERSION}/
+	ftp://ftp.armedslack.org/salix/i486/13.37/source/l/pysqlite/
