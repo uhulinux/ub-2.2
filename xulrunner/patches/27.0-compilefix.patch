@@ -1,0 +1,12 @@
+diff -Naur orig/xpcom/base/nsMemoryReporterManager.cpp patched/xpcom/base/nsMemoryReporterManager.cpp
+--- orig/xpcom/base/nsMemoryReporterManager.cpp	2014-02-05 22:58:25.300620302 +0100
++++ patched/xpcom/base/nsMemoryReporterManager.cpp	2014-02-07 13:30:43.193591243 +0100
+@@ -1112,7 +1112,7 @@
+ #ifdef HAVE_VSIZE_AND_RESIDENT_REPORTERS
+     return VsizeDistinguishedAmount(aVsize);
+ #else
+-    *aResident = 0;
++    *aVsize = 0;
+     return NS_ERROR_NOT_AVAILABLE;
+ #endif
+ }

@@ -1,11 +1,13 @@
 alsa-lib-dev
 curl-dev
 dbus-glib-dev
+gst-plugins-base-dev
 gtk2-dev
 hunspell-dev
 lcms2-dev
 libidl2-dev
 libnotify-dev
+libvpx-dev
 libx11-dev
 libxext-dev
 libxft-dev
@@ -14,7 +16,8 @@ libxt-dev
 mesa-dev
 nspr-dev
 nss-dev
-python-dev
+python2.7-dev
+sqlite-dev
 startup-notification-dev
 yasm
 zip
