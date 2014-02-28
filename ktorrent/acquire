@@ -1,4 +1,5 @@
 #!/usr/bin/env dl
 
 ktorrent-${UB_VERSION}.tar.bz2 ktorrent-${UB_VERSION}/
+	ftp://ftp.knoppix.nl/vol/3/freebsd-core/ports/distfiles/
 	http://ktorrent.org/downloads/${UB_VERSION}/
