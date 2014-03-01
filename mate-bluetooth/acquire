@@ -1,5 +1,0 @@
-#!/usr/bin/env dl
-
-mate-bluetooth-${UB_VERSION}.tar.xz	mate-bluetooth-${UB_VERSION}/
-	http://pub.mate-desktop.org/releases/${UB_VERSION_HEAD2}/
-
