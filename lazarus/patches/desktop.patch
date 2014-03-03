@@ -1,0 +1,18 @@
+diff -Naur orig/install/lazarus.desktop mod/install/lazarus.desktop
+--- orig/install/lazarus.desktop	2012-06-24 21:29:27.000000000 +0200
++++ mod/install/lazarus.desktop	2014-03-03 16:33:26.000000000 +0100
+@@ -2,11 +2,12 @@
+ Encoding=UTF-8
+ Name=Lazarus
+ Comment=Lazarus IDE
++Comment[hu]=Pascal Fejlesztőkörnyezet
+ Exec=startlazarus %f
+ Terminal=false
+ Type=Application
+-Icon=lazarus.png
+-Categories=Application;IDE;Development;GTK;GUIDesigner;
++Icon=lazarus
++Categories=Application;IDE;Development;GTK;GUIDesigner;X-UHU-Menu/Development/Programming;
+ StartupWMClass=Lazarus
+ MimeType=text/x-pascal;text/lazarus-project-source;text/lazarus-project-information;text/lazarus-form;text/lazarus-resource;text/lazarus-package;text/lazarus-package-link;text/lazarus-code-inlay;
+ [Property::X-KDE-NativeExtension]
