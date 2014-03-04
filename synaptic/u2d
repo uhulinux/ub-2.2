@@ -1,1 +1,1 @@
-urllist http://download.ubk.hu/src/synaptic/ | splitver '^synaptic_([0-9.]+).tar.(gz|bz2)$' | sort -V | tail -n 1
+urllist http://ftp.debian.org/debian/pool/main/s/synaptic/ | splitver '^synaptic_([0-9.]+).tar.(gz|bz2)$' | sort -V | tail -n 1

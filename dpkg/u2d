@@ -1,1 +1,1 @@
-urllist http://download.ubk.hu/src/dpkg/ | splitver '^dpkg_([0-9.]+).tar.(xz|bz2)$' | sort -V | tail -n 1
+urllist http://ftp.debian.org/debian/pool/main/d/dpkg/ | splitver '^dpkg_([0-9.]+).tar.(xz|bz2)$' | sort -V | tail -n 1
