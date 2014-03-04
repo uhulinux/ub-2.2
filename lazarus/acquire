@@ -1,0 +1,4 @@
+#!/usr/bin/env dl
+
+lazarus-${UB_VERSION_HEAD3}-${UB_VERSION_TAIL1}.tar.gz lazarus/
+	http://downloads.sourceforge.net/lazarus/
