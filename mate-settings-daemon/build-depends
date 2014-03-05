@@ -1,5 +1,6 @@
 dbus-glib-dev
 dconf-dev
+gtk2-dev
 intltool
 libcanberra-dev
 libmatekbd-dev

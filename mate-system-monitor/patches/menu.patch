@@ -1,12 +1,24 @@
-diff -Naur orig/mate-system-monitor.desktop.in.in patched/mate-system-monitor.desktop.in.in
---- orig/mate-system-monitor.desktop.in.in	2013-04-01 11:15:56.000000000 +0200
-+++ patched/mate-system-monitor.desktop.in.in	2013-07-23 21:18:52.193938790 +0200
+diff -Naur orig/mate-system-monitor.desktop.in patched/mate-system-monitor.desktop.in
+--- orig/mate-system-monitor.desktop.in	2014-02-19 10:08:28.000000000 +0100
++++ patched/mate-system-monitor.desktop.in	2014-02-24 21:48:14.257509006 +0100
 @@ -8,7 +8,7 @@
  Terminal=false
  Type=Application
  StartupNotify=true
 -Categories=GTK;System;Monitor;
 +Categories=GTK;System;Monitor;X-UHU-Menu/Tools/Utilities;
+ Keywords=MATE;system;monitor;process;list;view;current;resources;
  OnlyShowIn=MATE;
  X-MATE-Bugzilla-Bugzilla=MATE
- X-MATE-Bugzilla-Product=system-monitor
+diff -Naur orig/mate-system-monitor.desktop.in.in patched/mate-system-monitor.desktop.in.in
+--- orig/mate-system-monitor.desktop.in.in	2014-02-18 13:34:45.000000000 +0100
++++ patched/mate-system-monitor.desktop.in.in	2014-02-24 21:48:22.341583613 +0100
+@@ -8,7 +8,7 @@
+ Terminal=false
+ Type=Application
+ StartupNotify=true
+-Categories=GTK;System;Monitor;
++Categories=GTK;System;Monitor;X-UHU-Menu/Tools/Utilities;
+ Keywords=MATE;system;monitor;process;list;view;current;resources;
+ OnlyShowIn=MATE;
+ X-MATE-Bugzilla-Bugzilla=MATE

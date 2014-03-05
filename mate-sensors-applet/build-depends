@@ -1,11 +1,12 @@
 avahi-dev
+dbus-glib-dev
 intltool
 libatasmart-dev
 libnotify-dev
 libxslt-dev
 lmsensors-dev
 mate-common
-mate-doc-utils
 mate-panel-dev
 openssl-dev
 udev-dev
+yelp-tools

@@ -1,9 +1,11 @@
 apache-dev
 caja-dev
+dbus-glib-dev
+gnome-doc-utils
 intltool
+itstool
 libcanberra-dev
 libnotify-dev
 libsm-dev
 libunique-dev
-mate-bluetooth-dev
 mate-common

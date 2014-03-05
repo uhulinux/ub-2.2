@@ -1,9 +1,10 @@
 dbus-glib-dev
+gdk-pixbuf-dev
 gtk-doc
 intltool
 libcanberra-dev
-libmatewnck-dev
 libnotify-dev
 libsm-dev
+libwnck-dev
 mate-common
 xcb-util-dev

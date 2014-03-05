@@ -2,11 +2,11 @@ dbus-glib-dev
 gtkmm2-dev
 intltool
 libgtop2-dev
-libmatewnck-dev
 librsvg2-dev
 libsm-dev
+libwnck-dev
 libxslt-dev
 mate-common
-mate-doc-utils
 mate-icon-theme
 xcb-util-dev
+yelp-tools

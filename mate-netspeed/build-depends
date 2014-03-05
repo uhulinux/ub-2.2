@@ -4,7 +4,7 @@ libgtop2-dev
 libsm-dev
 libxslt-dev
 mate-common
-mate-doc-utils
 mate-panel-dev
 openssl-dev
 wireless-tools-dev
+yelp-tools

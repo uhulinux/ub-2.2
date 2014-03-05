@@ -1,36 +1,12 @@
-diff -Naur orig/data/engrampa.desktop patched/data/engrampa.desktop
---- orig/data/engrampa.desktop	2014-01-28 14:53:07.000000000 +0100
-+++ patched/data/engrampa.desktop	2014-01-31 14:30:02.058125554 +0100
-@@ -195,7 +195,7 @@
- Terminal=false
- Type=Application
- Icon=engrampa
--Categories=GTK;Utility;Archiving;Compression;
-+Categories=GTK;Utility;Archiving;Compression;X-UHU-Menu/Tools/Utilities;
- MimeType=application/x-7z-compressed;application/x-7z-compressed-tar;application/x-ace;application/x-alz;application/x-ar;application/x-archive;application/x-arj;application/x-bzip;application/x-bzip-compressed-tar;application/x-bzip1;application/x-bzip1-compressed-tar;application/x-cabinet;application/x-cbr;application/x-cbz;application/x-cd-image;application/x-compress;application/x-compressed-tar;application/x-cpio;application/x-deb;application/x-ear;application/x-ms-dos-executable;application/x-gtar;application/x-gzip;application/x-gzpostscript;application/x-java-archive;application/x-lha;application/x-lhz;application/x-lrzip;application/x-lrzip-compressed-tar;application/x-lzip;application/x-lzip-compressed-tar;application/x-lzma;application/x-lzma-compressed-tar;application/x-lzop;application/x-lzop-compressed-tar;application/x-rar;application/x-rar-compressed;application/x-rpm;application/x-rzip;application/x-tar;application/x-tarz;application/x-stuffit;application/x-war;application/x-xz;application/x-xz-compressed-tar;application/x-zip;application/x-zip-compressed;application/x-zoo;application/zip;
- X-MATE-DocPath=engrampa/engrampa.xml
- X-MATE-Bugzilla-Bugzilla=MATE
-diff -Naur orig/data/engrampa.desktop.in patched/data/engrampa.desktop.in
---- orig/data/engrampa.desktop.in	2014-01-28 14:53:02.000000000 +0100
-+++ patched/data/engrampa.desktop.in	2014-01-31 14:30:11.234210247 +0100
-@@ -8,7 +8,7 @@
- Terminal=false
- Type=Application
- Icon=engrampa
--Categories=GTK;Utility;Archiving;Compression;
-+Categories=GTK;Utility;Archiving;Compression;X-UHU-Menu/Tools/Utilities;
- MimeType=application/x-7z-compressed;application/x-7z-compressed-tar;application/x-ace;application/x-alz;application/x-ar;application/x-archive;application/x-arj;application/x-bzip;application/x-bzip-compressed-tar;application/x-bzip1;application/x-bzip1-compressed-tar;application/x-cabinet;application/x-cbr;application/x-cbz;application/x-cd-image;application/x-compress;application/x-compressed-tar;application/x-cpio;application/x-deb;application/x-ear;application/x-ms-dos-executable;application/x-gtar;application/x-gzip;application/x-gzpostscript;application/x-java-archive;application/x-lha;application/x-lhz;application/x-lrzip;application/x-lrzip-compressed-tar;application/x-lzip;application/x-lzip-compressed-tar;application/x-lzma;application/x-lzma-compressed-tar;application/x-lzop;application/x-lzop-compressed-tar;application/x-rar;application/x-rar-compressed;application/x-rpm;application/x-rzip;application/x-tar;application/x-tarz;application/x-stuffit;application/x-war;application/x-xz;application/x-xz-compressed-tar;application/x-zip;application/x-zip-compressed;application/x-zoo;application/zip;
- X-MATE-DocPath=engrampa/engrampa.xml
- X-MATE-Bugzilla-Bugzilla=MATE
 diff -Naur orig/data/engrampa.desktop.in.in patched/data/engrampa.desktop.in.in
---- orig/data/engrampa.desktop.in.in	2014-01-28 14:49:42.000000000 +0100
-+++ patched/data/engrampa.desktop.in.in	2014-01-31 14:30:22.978318648 +0100
+--- orig/data/engrampa.desktop.in.in	2014-02-08 18:34:32.000000000 +0100
++++ patched/data/engrampa.desktop.in.in	2014-02-10 20:49:07.162494241 +0100
 @@ -8,7 +8,7 @@
  Terminal=false
  Type=Application
  Icon=engrampa
 -Categories=GTK;Utility;Archiving;Compression;
 +Categories=GTK;Utility;Archiving;Compression;X-UHU-Menu/Tools/Utilities;
- MimeType=application/x-7z-compressed;application/x-7z-compressed-tar;application/x-ace;application/x-alz;application/x-ar;application/x-archive;application/x-arj;application/x-bzip;application/x-bzip-compressed-tar;application/x-bzip1;application/x-bzip1-compressed-tar;application/x-cabinet;application/x-cbr;application/x-cbz;application/x-cd-image;application/x-compress;application/x-compressed-tar;application/x-cpio;application/x-deb;application/x-ear;application/x-ms-dos-executable;application/x-gtar;application/x-gzip;application/x-gzpostscript;application/x-java-archive;application/x-lha;application/x-lhz;application/x-lrzip;application/x-lrzip-compressed-tar;application/x-lzip;application/x-lzip-compressed-tar;application/x-lzma;application/x-lzma-compressed-tar;application/x-lzop;application/x-lzop-compressed-tar;application/x-rar;application/x-rar-compressed;application/x-rpm;application/x-rzip;application/x-tar;application/x-tarz;application/x-stuffit;application/x-war;application/x-xz;application/x-xz-compressed-tar;application/x-zip;application/x-zip-compressed;application/x-zoo;application/zip;
+ MimeType=application/x-7z-compressed;application/x-7z-compressed-tar;application/x-ace;application/x-alz;application/x-ar;application/x-arj;application/x-bzip;application/x-bzip-compressed-tar;application/x-bzip1;application/x-bzip1-compressed-tar;application/x-cabinet;application/x-cbr;application/x-cbz;application/x-cd-image;application/x-compress;application/x-compressed-tar;application/x-cpio;application/x-deb;application/x-ear;application/x-ms-dos-executable;application/x-gtar;application/x-gzip;application/x-gzpostscript;application/x-java-archive;application/x-lha;application/x-lhz;application/x-lrzip;application/x-lrzip-compressed-tar;application/x-lzip;application/x-lzip-compressed-tar;application/x-lzma;application/x-lzma-compressed-tar;application/x-lzop;application/x-lzop-compressed-tar;application/x-ms-wim;application/x-rar;application/x-rar-compressed;application/x-rpm;application/x-rzip;application/x-tar;application/x-tarz;application/x-stuffit;application/x-war;application/x-xz;application/x-xz-compressed-tar;application/x-zip;application/x-zip-compressed;application/x-zoo;application/zip;application/x-archive;application/vnd.ms-cab-compressed;
  X-MATE-DocPath=engrampa/engrampa.xml
  X-MATE-Bugzilla-Bugzilla=MATE

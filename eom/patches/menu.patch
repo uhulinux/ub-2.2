@@ -1,12 +1,12 @@
 diff -Naur orig/data/eom.desktop.in.in patched/data/eom.desktop.in.in
---- orig/data/eom.desktop.in.in	2013-03-24 16:19:41.000000000 +0100
-+++ patched/data/eom.desktop.in.in	2013-04-01 21:34:19.471210070 +0200
+--- orig/data/eom.desktop.in.in	2014-02-19 19:44:47.000000000 +0100
++++ patched/data/eom.desktop.in.in	2014-02-24 19:52:35.021462156 +0100
 @@ -7,7 +7,7 @@
  StartupNotify=true
  Terminal=false
  Type=Application
 -Categories=GTK;Graphics;RasterGraphics;Viewer;
 +Categories=GTK;Graphics;RasterGraphics;Viewer;X-UHU-Menu/Graphics;
+ Keywords=image;viewer;JPEG;PNG;TIFF;SVG;MATE;photos;browse;thumbnails;rotate;
  X-MATE-Bugzilla-Bugzilla=MATE
  X-MATE-Bugzilla-Product=EOM
- X-MATE-Bugzilla-Component=general

@@ -1,0 +1,75 @@
+diff -Naur orig/data/caja-desktop.desktop.in patched/data/caja-desktop.desktop.in
+--- orig/data/caja-desktop.desktop.in	1970-01-01 01:00:00.000000000 +0100
++++ patched/data/caja-desktop.desktop.in	2014-02-28 15:54:02.607951721 +0100
+@@ -0,0 +1,18 @@
++[Desktop Entry]
++_Name=Caja
++_GenericName=File Manager
++Exec=caja -n
++Icon=user-desktop
++Terminal=false
++Type=Application
++StartupNotify=false
++NoDisplay=true
++OnlyShowIn=MATE;
++X-MATE-Bugzilla-Bugzilla=MATE
++X-MATE-Bugzilla-Product=caja
++X-MATE-Bugzilla-Component=general
++X-MATE-Bugzilla-Version=@VERSION@
++X-MATE-Autostart-Phase=Desktop
++X-MATE-Autostart-Notify=true
++X-MATE-AutoRestart=true
++X-MATE-Provides=filemanager
+diff -Naur orig/data/caja-desktop.desktop.in.in patched/data/caja-desktop.desktop.in.in
+--- orig/data/caja-desktop.desktop.in.in	1970-01-01 01:00:00.000000000 +0100
++++ patched/data/caja-desktop.desktop.in.in	2014-02-28 15:54:02.607951721 +0100
+@@ -0,0 +1,18 @@
++[Desktop Entry]
++_Name=Caja
++_GenericName=File Manager
++Exec=caja -n
++Icon=user-desktop
++Terminal=false
++Type=Application
++StartupNotify=false
++NoDisplay=true
++OnlyShowIn=MATE;
++X-MATE-Bugzilla-Bugzilla=MATE
++X-MATE-Bugzilla-Product=caja
++X-MATE-Bugzilla-Component=general
++X-MATE-Bugzilla-Version=@VERSION@
++X-MATE-Autostart-Phase=Desktop
++X-MATE-Autostart-Notify=true
++X-MATE-AutoRestart=true
++X-MATE-Provides=filemanager
+diff -Naur orig/data/Makefile.am patched/data/Makefile.am
+--- orig/data/Makefile.am	2014-02-16 23:01:20.000000000 +0100
++++ patched/data/Makefile.am	2014-02-28 15:54:02.607951721 +0100
+@@ -10,6 +10,7 @@
+ 	caja.desktop.in \
+ 	caja-home.desktop.in \
+ 	caja-computer.desktop.in \
++	caja-desktop.desktop.in \
+ 	caja-folder-handler.desktop.in \
+ 	caja-file-management-properties.desktop.in  \
+ 	caja-browser.desktop.in                     \
+diff -Naur orig/src/caja-main.c patched/src/caja-main.c
+--- orig/src/caja-main.c	2014-02-16 23:01:25.000000000 +0100
++++ patched/src/caja-main.c	2014-02-28 15:53:52.559858974 +0100
+@@ -408,11 +408,11 @@
+ 
+     autostart_mode = FALSE;
+ 
+-    autostart_id = g_getenv ("DESKTOP_AUTOSTART_ID");
+-    if (autostart_id != NULL && *autostart_id != '\0')
+-    {
+-        autostart_mode = TRUE;
+-    }
++//    autostart_id = g_getenv ("DESKTOP_AUTOSTART_ID");
++//    if (autostart_id != NULL && *autostart_id != '\0')
++//    {
++//        autostart_mode = TRUE;
++//    }
+ 
+     /* Get parameters. */
+     remaining = NULL;

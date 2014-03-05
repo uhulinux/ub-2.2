@@ -1,7 +1,7 @@
-diff -Naur orig/desktop-themes/GreenLaguna/gtk-3.0/gtk-widgets.css mod/desktop-themes/GreenLaguna/gtk-3.0/gtk-widgets.css
---- orig/desktop-themes/GreenLaguna/gtk-3.0/gtk-widgets.css	2013-06-09 22:16:36.000000000 +0200
-+++ mod/desktop-themes/GreenLaguna/gtk-3.0/gtk-widgets.css	2013-06-21 16:58:14.000000000 +0200
-@@ -123,7 +123,7 @@
+diff -Naur orig/desktop-themes/GreenLaguna/gtk-3.0/gtk-widgets.css patched/desktop-themes/GreenLaguna/gtk-3.0/gtk-widgets.css
+--- orig/desktop-themes/GreenLaguna/gtk-3.0/gtk-widgets.css	2014-01-17 11:53:54.000000000 +0100
++++ patched/desktop-themes/GreenLaguna/gtk-3.0/gtk-widgets.css	2014-02-10 18:52:44.110042992 +0100
+@@ -130,7 +130,7 @@
  	border-radius: 3px;
  	border-width: 0px;
  	border-style: solid;
@@ -10,7 +10,7 @@ diff -Naur orig/desktop-themes/GreenLaguna/gtk-3.0/gtk-widgets.css mod/desktop-t
  
  	color: @theme_fg_color;
  	background-image: linear-gradient(to bottom,
-@@ -356,12 +356,7 @@
+@@ -363,12 +363,7 @@
  	                                  alpha(@progressbar_pattern, 0.15) 50%,
  	                                  alpha(@progressbar_pattern, 0.15) 75%,
  	                                  transparent 75%,
@@ -24,7 +24,7 @@ diff -Naur orig/desktop-themes/GreenLaguna/gtk-3.0/gtk-widgets.css mod/desktop-t
  }
  
  progressbar.vertical {
-@@ -373,12 +368,7 @@
+@@ -380,12 +375,7 @@
  	                                  alpha(@progressbar_pattern, 0.15) 50%,
  	                                  alpha(@progressbar_pattern, 0.15) 75%,
  	                                  transparent 75%,
@@ -38,7 +38,7 @@ diff -Naur orig/desktop-themes/GreenLaguna/gtk-3.0/gtk-widgets.css mod/desktop-t
  }
  
  GtkProgressBar.progressbar {
-@@ -1437,8 +1427,8 @@
+@@ -1482,8 +1472,8 @@
  	                                  @osd_button_bg_b 68%,
  	                                  @osd_button_bg_c);
  	color: @osd_button_fg;
@@ -48,8 +48,8 @@ diff -Naur orig/desktop-themes/GreenLaguna/gtk-3.0/gtk-widgets.css mod/desktop-t
 +	icon-shadow: 0 -1 @osd_button_shadow;
  }
  
- .osd .button,
-@@ -1488,7 +1478,7 @@
+ .osd.button,
+@@ -1555,7 +1545,7 @@
  
  .osd.toolbar {
  	color: @osd_fg;
@@ -58,7 +58,7 @@ diff -Naur orig/desktop-themes/GreenLaguna/gtk-3.0/gtk-widgets.css mod/desktop-t
  
  	padding: 10px;
  	border-style: none;
-@@ -1506,13 +1496,13 @@
+@@ -1573,13 +1563,13 @@
  	padding: 4px;
  	border-width: 1px 0;
  	border-radius: 0;
@@ -74,7 +74,7 @@ diff -Naur orig/desktop-themes/GreenLaguna/gtk-3.0/gtk-widgets.css mod/desktop-t
  }
  
  .osd.toolbar .button:last-child {
-@@ -1600,11 +1590,11 @@
+@@ -1670,11 +1660,11 @@
  	border-style: none;
  	padding: 5px 8px;
  	border-radius: 5px;
@@ -90,7 +90,7 @@ diff -Naur orig/desktop-themes/GreenLaguna/gtk-3.0/gtk-widgets.css mod/desktop-t
  }
  
  GtkAssistant .sidebar {
-@@ -1660,10 +1650,7 @@
+@@ -1730,10 +1720,7 @@
  	border-style: solid;
  	padding: 2px;
  	color: shade(@switch_slider_color, 0.8);
@@ -102,7 +102,7 @@ diff -Naur orig/desktop-themes/GreenLaguna/gtk-3.0/gtk-widgets.css mod/desktop-t
  	background-repeat: no-repeat;
  	background-position: center;
  }
-@@ -1928,7 +1915,7 @@
+@@ -1998,7 +1985,7 @@
  	                                  @app_notification_c);
  
  	color: @theme_text_color;
@@ -111,7 +111,7 @@ diff -Naur orig/desktop-themes/GreenLaguna/gtk-3.0/gtk-widgets.css mod/desktop-t
  }
  
  /*************
-@@ -2418,7 +2405,7 @@
+@@ -2488,7 +2475,7 @@
  .nautilus-desktop.nautilus-canvas-item,
  .nemo-desktop.nautilus-canvas-item {
  	color: @theme_bg_color;
