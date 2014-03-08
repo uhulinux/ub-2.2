@@ -1,0 +1,5 @@
+#!/usr/bin/env dl
+
+hybrid-v35-nodebug-pcoem-${UB_VERSION//./_}.tar.gz .
+	http://www.broadcom.com/docs/linux_sta/
+#http://www.broadcom.com/docs/linux_sta/hybrid-v35-nodebug-pcoem-6_30_223_141.tar.gz

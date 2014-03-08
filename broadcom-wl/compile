@@ -1,0 +1,5 @@
+#!/bin/bash -eux
+
+KVER="$(ls -1 /lib/modules|grep i386)"
+make -C /lib/modules/${KVER}/build M=`pwd`
+
