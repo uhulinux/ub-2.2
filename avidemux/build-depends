@@ -3,6 +3,7 @@ cmake
 esound-dev
 faac-dev
 faad2
+ffmpeg-dev
 fribidi-dev
 gtk3-dev
 jack-dev
