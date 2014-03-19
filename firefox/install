@@ -2,9 +2,6 @@
 
 cd "$UB_OBJECTDIR"
 
-# 26.0 baromsága
-cp "$UB_OBJECTDIR"/config/makefiles/xpidl/Makefile "$UB_OBJECTDIR"/config/makefiles/xpidl/Makefile.in
-
 ub_install
 
 cp "$UB_INSTALLDIR"/usr/lib/firefox/browser/icons/mozicon128.png "$UB_INSTALLDIR"/usr/share/pixmaps/firefox.png
