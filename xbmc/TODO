@@ -1,46 +1,8 @@
-====================================
-  XScreenSaver support      :  no
-  PNG image support         :  yes
-  OGG Vorbis sound support  :  no
-------------------------------------
-  XBMC Configuration:
-------------------------
-  CrystalHD:	No
-  VDADecoder:	No
-  VTBDecoder:	No
-  OpenMax:	No
-  GOOM:		No
-  Skin Touched:	No
-  MID Support:	No
-  ccache:	No
-  PulseAudio:	Yes
-  HAL Support:	No
-  Google Test Framework Configured:	No
-  ASAP Codec:	No
-  libRTMP support:	No	marad
-  libnfs client support:No	marad
-  libafpclient support:	No
-  AirPLay support:	No	próba
-  AirTunes support:	No	marad
-  libusb support:	No	nem akarja, de miér?
-  libcec support:	No	marad
-  additional players:	No
-  PVR add-ons:		No
-------------------------
-
-configure: == Could not find libRTMP. RTMP support disabled. ==
-configure: == Could not find libnfs. NFS client support disabled. ==
-checking afpfs-ng/libafpclient.h usability... no
-checking afpfs-ng/libafpclient.h presence... no
-checking for afpfs-ng/libafpclient.h... no
-configure: == Could not find libafpclient. AFP client support disabled. ==
-checking plist/plist.h usability... no
-checking plist/plist.h presence... no
-checking for plist/plist.h... no
-configure: == Could not find libplist. AirPlay support disabled. ==
-checking shairport/shairport.h usability... no
-checking shairport/shairport.h presence... no
-checking for shairport/shairport.h... no
-configure: == Could not find libshairport. AirTunes support disabled. ==
-checking for UDEV... yes
-configure: == libusb disabled. ==
+crystalhd
+openmax
+librtmp
+libnfs
+libcec
+libusb
+airplay
+airtunes

@@ -1,24 +1,29 @@
 #!/bin/sh -eux
 
-unset LDFLAGS; LDFLAGS="-Wl,--hash-style=gnu"
+for d in $(printf 'f:\n\t@echo $(BOOTSTRAP_TARGETS)\ninclude bootstrap.mk\n' | make -f - f) ; do
+	[[ -e ${d} ]] && continue
+	pushd ${d/%configure/.} >/dev/null
+	AT_NOELIBTOOLIZE="yes" AT_TOPLEVEL_EAUTORECONF="yes" \
+	autoreconf -vif
+	popd >/dev/null
+done
+
 export JAVA_EXE=/usr/lib/java/jre/bin/java
-#export ac_cv_path_LATEX=no
+export ac_cv_path_LATEX=no
+export ac_cv_lib_avcodec_ff_vdpau_vc1_decode_picture=yes
 
-
-./bootstrap
-
-sed -i \
-	-e '/dbus_connection_send_with_reply_and_block/s:-1:3000:' \
-	xbmc/linux/*.cpp
-    ub_configure \
-  --enable-libmp3lame \
-  --enable-libbluray \
-  --enable-external-libraries \
-  --disable-ccache \
-  --disable-external-ffmpeg \
-  --enable-pulse \
-  --enable-libusb \
-  --enable-ffmpeg-libvorbis \
-  --disable-hal \
-  --enable-rsxs
-ub_make
+ub_compile \
+	--enable-libbluray \
+	--enable-pulse \
+	--enable-sdl \
+	--enable-gl \
+	--disable-hal \
+	--enable-udev \
+	--enable-libusb \
+	--enable-vaapi \
+	--enable-vdpau \
+	--disable-debug \
+	--enable-xrandr \
+	--enable-texturepacker \
+	--enable-external-ffmpeg \
+	--enable-external-libraries
