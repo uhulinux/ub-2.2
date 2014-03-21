@@ -1,7 +1,8 @@
 dconf-dev
+gtk2-dev
 intltool
 libsm-dev
 libxslt-dev
 mate-common
-mate-doc-utils
 vte-dev
+yelp-tools

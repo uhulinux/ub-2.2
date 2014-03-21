@@ -1,8 +1,8 @@
 #!/bin/sh -eux
 
-for file in libnss3.so libnssutil3.so libssl3.so libsmime3.so libsoftokn3.{so,chk} libnssckbi.so libfreebl3.{so,chk} libnssdbm3.{so,chk}; do
-	install -m 644 dist/*.OBJ/lib/"$file" "$UB_INSTALLDIR"/usr/lib
-done
+install -m 755 dist/*.OBJ/lib/*.so "$UB_INSTALLDIR"/usr/lib
+
+install -m 644 dist/*.OBJ/lib/*.chk "$UB_INSTALLDIR"/usr/lib
   
 for file in libcrmf.a libnssb.a libnssckfw.a; do
 	install -m 644 dist/*.OBJ/lib/"$file" "$UB_INSTALLDIR"/usr/lib

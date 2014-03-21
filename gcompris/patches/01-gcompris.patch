@@ -1,0 +1,37 @@
+diff -Naurd a/gcompris.desktop.in b/gcompris.desktop.in
+--- a/gcompris.desktop.in	2012-01-07 00:23:21.000000000 +0100
++++ b/gcompris.desktop.in	2012-01-10 21:25:19.000000000 +0100
+@@ -1,5 +1,5 @@
+ [Desktop Entry]
+-Encoding=UTF-8
++Version=1.1
+ _Name=Educational suite GCompris
+ _GenericName=Multi-activity educational game
+ _Comment=Educational game for ages 2 to 10
+@@ -7,7 +7,7 @@
+ Icon=gcompris
+ Terminal=false
+ Type=Application
+-Categories=Education;Game;KidsGame;
++Categories=Education;Game;KidsGame;X-UHU-Menu/Games;
+ StartupNotify=true
+ X-GNOME-Bugzilla-Bugzilla=GNOME
+ X-GNOME-Bugzilla-Product=gcompris
+diff -Naurd a/gcompris-edit.desktop.in b/gcompris-edit.desktop.in
+--- a/gcompris-edit.desktop.in	2012-02-19 03:13:32.000000000 +0100
++++ b/gcompris-edit.desktop.in	2012-11-24 18:52:37.000000000 +0100
+@@ -1,12 +1,12 @@
+ [Desktop Entry]
+-Encoding=UTF-8
++Version=1.1
+ _Name=GCompris Administration
+ _Comment=Administration for gcompris
+ Exec=gcompris -a --nolockcheck
+ Icon=gcompris-edit
+ Terminal=false
+ Type=Application
+-Categories=Settings;
++Categories=Settings;X-UHU-Menu/Edutainment;
+ StartupNotify=true
+ X-GNOME-Bugzilla-Bugzilla=GNOME
+ X-GNOME-Bugzilla-Product=gcompris

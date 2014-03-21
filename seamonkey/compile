@@ -1,11 +1,14 @@
 #!/bin/sh -eux
 
-mkdir -p mozilla/js/src/.deps
-
 export SHELL=/bin/bash
 export LDFLAGS="-Wl,-rpath,/usr/lib/seamonkey/ -Wl,--no-keep-memory"
 
-ub_compile \
+cd "$UB_OBJECTDIR"
+mkdir -p mozilla/js/src/.deps
+
+# az UB_CONFIGURE_DIR="$UB_COMPILEDIR" forma nem jó, linker hiba lesz belőle
+"$UB_COMPILEDIR"/configure \
+	--prefix=/usr \
 	--enable-application=suite \
 	--enable-official-branding \
 	--without-system-jpeg \
@@ -14,7 +17,6 @@ ub_compile \
 	--with-system-nss \
 	--with-system-nspr \
 	--enable-system-cairo \
-	--enable-system-huspell \
 	--enable-system-sqlite \
 	--enable-gio \
 	--enable-pango \
@@ -33,3 +35,6 @@ ub_compile \
 	--disable-mochitest \
 	--enable-default-toolkit=cairo-gtk2 \
 	--disable-necko-wifi
+	
+ub_make
+

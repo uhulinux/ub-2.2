@@ -89,4 +89,3 @@ mv *.{gz,zip,bz2,tgz} src/
 
 # az unitcheck is, és a slowcheck is többször hibára fut
 make build-nocheck
-

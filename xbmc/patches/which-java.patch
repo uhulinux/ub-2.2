@@ -1,6 +1,6 @@
 diff -Naur orig/codegenerator.mk mod/codegenerator.mk
---- orig/codegenerator.mk	2013-03-20 17:14:41.000000000 +0100
-+++ mod/codegenerator.mk	2013-07-28 19:56:04.000000000 +0200
+--- orig/codegenerator.mk	2013-12-12 22:47:49.000000000 +0100
++++ mod/codegenerator.mk	2014-03-20 20:22:48.000000000 +0100
 @@ -1,7 +1,7 @@
  TOPDIR ?= .
  INTERFACES_DIR ?= xbmc/interfaces

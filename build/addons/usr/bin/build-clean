@@ -9,7 +9,7 @@ scrollout
 # A szkriptet eredetileg készítette: Charlos, 2007. március 9.-én.
 # Sári Gábor <sari.gabor@gmail.com>
 
-BUILDCLEAN_VERSION="0.0.3"
+BUILDCLEAN_VERSION="0.0.4"
 BASENAME=`basename $0`
 BASE=`pwd`
 KVT=" könyvtár kiürítése."
@@ -21,8 +21,6 @@ case ${BASENAME} in
 		export DISTR=2.2;;
 	build-clean-dev)
 		export DISTR=dev;;
-	build-clean-ubk)
-		export DISTR=ubk;;
 esac
 
 [ "$UID" != 0 ] && {
@@ -51,14 +49,14 @@ function help() {
 	echo "A misc-${DISTR}/snapshot/$KVT"
 	appleecho -n "[-rer|--remove-extrareleases] : "
 	echo "A misc-${DISTR}/extrarelease/$KVT"
-	appleecho -n "[-rbl|--remove-buildlogs]     : "
-	echo "A misc-${DISTR}/buildlogs/$KVT"
+#	appleecho -n "[-rbl|--remove-buildlogs]     : "
+#	echo "A misc-${DISTR}/buildlogs/$KVT"
 	appleecho -n "[-rf |--remove-failed]        : "
 	echo "A misc-${DISTR}/failed/$KVT"
 	appleecho -n "[-rlp|--remove-logpack]       : "
 	echo "A misc-${DISTR}/logpack/$KVT"
-	appleecho -n "[-rsp|--remove-srcpack]       : "
-	echo "A misc-${DISTR}/srcpack/$KVT"
+#	appleecho -n "[-rsp|--remove-srcpack]       : "
+#	echo "A misc-${DISTR}/srcpack/$KVT"
 	appleecho -n "[-rt |--remove-tmp]           : "
 	echo "A misc-${DISTR}/tmp/$KVT"
 	appleecho -n "[-rpt|--remove-patches]       : "
@@ -157,9 +155,9 @@ case "$1" in
 	-rer|--remove-extrareleases)
 		extrarel_torles
 		shift;;
-	-rbl|--remove-buildlogs)
-		buildlogs_torles
-		shift;;
+#	-rbl|--remove-buildlogs)
+#		buildlogs_torles
+#		shift;;
 	-rf|--remove-faileds)
 		faileds_torles
 		shift;;
@@ -169,9 +167,9 @@ case "$1" in
 	-rlp|--remove-logpack)
 		logpack_torles
 		shift;;
-	-rsp|--remove-srcpack)
-		srcpack_torles
-		shift;;
+#	-rsp|--remove-srcpack)
+#		srcpack_torles
+#		shift;;
 	-rt |--remove-tmp)
 		tmp_torles
 		shift;;

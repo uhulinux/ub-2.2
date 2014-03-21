@@ -14,6 +14,7 @@ libxt-dev
 mesa-dev
 nspr-dev
 nss-dev
+pulseaudio-dev
 python2.7-dev
 startup-notification-dev
 yasm

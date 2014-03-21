@@ -7,7 +7,9 @@ cp "$UB_INSTALLDIR"/usr/lib/thunderbird/chrome/icons/default/default48.png "$UB_
 rm -f "$UB_INSTALLDIR"/usr/lib/thunderbird/thunderbird
 rm -f "$UB_INSTALLDIR"/usr/bin/thunderbird
 ln -s /usr/lib/thunderbird/thunderbird "$UB_INSTALLDIR"/usr/bin/thunderbird
+
 ln -s thunderbird "$UB_INSTALLDIR"/usr/lib/thunderbird-"$UB_VERSION"
+ln -s thunderbird-devel "$UB_INSTALLDIR"/usr/lib/thunderbird-devel-"$UB_VERSION"
 ln -s thunderbird-"$UB_VERSION" "$UB_INSTALLDIR"/usr/include/thunderbird
 ln -s thunderbird-"$UB_VERSION" "$UB_INSTALLDIR"/usr/share/idl/thunderbird
 

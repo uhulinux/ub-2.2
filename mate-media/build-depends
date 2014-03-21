@@ -6,6 +6,6 @@ libunique-dev
 libxslt-dev
 mate-common
 mate-desktop-dev
-mate-doc-utils
 mate-panel-dev
 pulseaudio-dev
+yelp-tools

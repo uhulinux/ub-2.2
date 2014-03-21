@@ -1,12 +1,17 @@
 #!/bin/sh -eux
 
+export SHELL=/bin/bash
+export LDFLAGS="-Wl,-rpath,/usr/lib/xulrunner/ -Wl,--no-keep-memory"
+
+cd "$UB_OBJECTDIR"
 mkdir -p js/src/.deps
 
-export SHELL=/bin/bash
-export LDFLAGS="-Wl,-rpath,/usr/lib/xulrunner/"
-
-ub_compile \
+# az UB_CONFIGURE_DIR="$UB_COMPILEDIR" forma nem jó, linker hiba lesz belőle
+"$UB_COMPILEDIR"/configure \
+	--prefix=/usr \
 	--with-system-bz2 \
+	--with-system-jpeg \
+	--with-system-libvpx \
 	--with-system-nspr \
 	--with-system-nss \
 	--with-system-zlib \
@@ -34,8 +39,11 @@ ub_compile \
 	--disable-gnomeui \
 	--disable-gnomevfs \
 	--disable-installer \
+	--disable-updater \
 	--disable-javaxpcom \
 	--disable-mochitest \
 	--disable-necko-wifi \
 	--disable-tests
+	
+ub_make
 

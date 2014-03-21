@@ -1,0 +1,14 @@
+diff -Naur orig/debian/qucs.desktop patched/debian/qucs.desktop
+--- orig/debian/qucs.desktop	2013-06-23 07:59:37.000000000 +0200
++++ patched/debian/qucs.desktop	2014-02-15 23:27:43.148263093 +0100
+@@ -8,8 +8,8 @@
+ Comment[fr]=Simulateur universel de circuits
+ Comment[it]=Simulatore universale di circuiti
+ Exec=qucs %U
+-Icon=/usr/share/pixmaps/big.qucs.xpm
++Icon=qucs.png
+ Terminal=false
+ Type=Application
+-Categories=Education;Electronics
++Categories=Education;Electronics;X-UHU-Menu/Edutainment/Miscellaneous;
+ StartupNotify=false

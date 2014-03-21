@@ -1,0 +1,6 @@
+#!/bin/sh -eux
+
+export UPNP_CFLAGS='-I/usr/include/gupnp-1.0'
+
+ub_compile \
+	--with-gtk=2.0

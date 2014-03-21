@@ -84,7 +84,7 @@ a3dcac551fae5ebbec16e844810828c4-libwpd-0.9.9.tar.bz2
 26b3e95ddf3d9c077c480ea45874b3b8-lp_solve_5.5.tar.gz 
 	http://dev-www.libreoffice.org/src/
 
-01a380acfec23bf617117ce98e318f3d-mdds_0.10.1.tar.bz2
+47203e7cade74e5c385aa812f21e7932-mdds_0.10.2.tar.bz2
 	http://dev-www.libreoffice.org/src/
 
 0981bda6548a8c8233ffce2b6e4b2a23-mysql-connector-c++-1.1.0.tar.gz
@@ -105,16 +105,16 @@ d62650a6f908e85643e557a236ea989c-vigra1.6.0.tar.gz
 harfbuzz-0.9.23.tar.bz2
 	http://dev-www.libreoffice.org/src/
 
-libabw-0.0.1.tar.bz2
+libabw-0.0.2.tar.bz2
 	http://dev-www.libreoffice.org/src/
 
 libcdr-0.0.14.tar.bz2
 	http://dev-www.libreoffice.org/src/
 
-libe-book-0.0.2.tar.bz2
+libe-book-0.0.3.tar.bz2
 	http://dev-www.libreoffice.org/src/
 
-libetonyek-0.0.1.tar.bz2
+libetonyek-0.0.3.tar.bz2
 	http://dev-www.libreoffice.org/src/
 
 libfreehand-0.0.0.tar.bz2
@@ -126,6 +126,6 @@ libmspub-0.0.6.tar.bz2
 libmwaw-0.2.0.tar.bz2
 	http://dev-www.libreoffice.org/src/
 
-libodfgen-0.0.3.tar.bz2
+libodfgen-0.0.4.tar.bz2
 	http://dev-www.libreoffice.org/src/
 

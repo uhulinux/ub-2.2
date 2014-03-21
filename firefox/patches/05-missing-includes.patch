@@ -1,3 +1,14 @@
+diff -Naur orig/ipc/chromium/src/base/atomicops_internals_mutex.cc patched/ipc/chromium/src/base/atomicops_internals_mutex.cc
+--- orig/ipc/chromium/src/base/atomicops_internals_mutex.cc	2014-01-28 05:03:44.000000000 +0100
++++ patched/ipc/chromium/src/base/atomicops_internals_mutex.cc	2014-02-05 16:50:13.168717289 +0100
+@@ -6,6 +6,7 @@
+  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
+ 
+ #include "base/atomicops.h"
++#include "base/lock.h"
+ 
+ namespace base {
+ namespace subtle {
 diff -Naur orig/ipc/chromium/src/base/file_util.cc patched/ipc/chromium/src/base/file_util.cc
 --- orig/ipc/chromium/src/base/file_util.cc	2012-11-20 03:46:00.000000000 +0100
 +++ patched/ipc/chromium/src/base/file_util.cc	2012-11-21 12:08:21.528937491 +0100

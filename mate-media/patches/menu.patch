@@ -1,6 +1,6 @@
 diff -Naur orig/gst-mixer/mate-volume-control.desktop.in.in patched/gst-mixer/mate-volume-control.desktop.in.in
---- orig/gst-mixer/mate-volume-control.desktop.in.in	2014-01-01 14:46:08.000000000 +0100
-+++ patched/gst-mixer/mate-volume-control.desktop.in.in	2014-01-04 17:02:19.544191138 +0100
+--- orig/gst-mixer/mate-volume-control.desktop.in.in	2014-01-01 14:45:06.000000000 +0100
++++ patched/gst-mixer/mate-volume-control.desktop.in.in	2014-02-10 21:15:53.513320327 +0100
 @@ -8,7 +8,7 @@
  X-Info=Mate Mixer
  Terminal=false
@@ -10,21 +10,9 @@ diff -Naur orig/gst-mixer/mate-volume-control.desktop.in.in patched/gst-mixer/ma
  X-MATE-DocPath=gst-mixer/mate-volume-control.xml
  X-MATE-Bugzilla-Bugzilla=MATE
  X-MATE-Bugzilla-Product=mate-media
-diff -Naur orig/mate-volume-control/data/mate-volume-control-applet.desktop.in patched/mate-volume-control/data/mate-volume-control-applet.desktop.in
---- orig/mate-volume-control/data/mate-volume-control-applet.desktop.in	2014-01-01 14:46:08.000000000 +0100
-+++ patched/mate-volume-control/data/mate-volume-control-applet.desktop.in	2014-01-04 17:03:17.380724963 +0100
-@@ -5,7 +5,7 @@
- Exec=mate-volume-control-applet
- Terminal=false
- Type=Application
--Categories=AudioVideo;Mixer;Settings;HardwareSettings;
-+Categories=AudioVideo;Mixer;Settings;HardwareSettings;X-UHU-Menu/Settings;
- NoDisplay=true
- OnlyShowIn=MATE;
- X-MATE-Bugzilla-Bugzilla=MATE
 diff -Naur orig/mate-volume-control/data/mate-volume-control.desktop.in.in patched/mate-volume-control/data/mate-volume-control.desktop.in.in
---- orig/mate-volume-control/data/mate-volume-control.desktop.in.in	2014-01-01 14:46:08.000000000 +0100
-+++ patched/mate-volume-control/data/mate-volume-control.desktop.in.in	2014-01-04 17:02:51.008481548 +0100
+--- orig/mate-volume-control/data/mate-volume-control.desktop.in.in	2014-01-01 14:45:06.000000000 +0100
++++ patched/mate-volume-control/data/mate-volume-control.desktop.in.in	2014-02-10 21:16:11.293484437 +0100
 @@ -6,7 +6,7 @@
  Terminal=false
  Type=Application

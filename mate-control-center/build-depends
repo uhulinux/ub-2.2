@@ -15,7 +15,7 @@ libxslt-dev
 marco-dev
 mate-common
 mate-desktop-dev
-mate-doc-utils
 mate-menus-dev
 mate-settings-daemon-dev
 xcb-util-dev
+yelp-tools

@@ -1,7 +1,7 @@
-diff -Naur orig/desktop-themes/ContrastHigh/gtk-3.0/gtk-widgets.css mod/desktop-themes/ContrastHigh/gtk-3.0/gtk-widgets.css
---- orig/desktop-themes/ContrastHigh/gtk-3.0/gtk-widgets.css	2013-06-09 22:16:36.000000000 +0200
-+++ mod/desktop-themes/ContrastHigh/gtk-3.0/gtk-widgets.css	2013-06-20 21:52:50.000000000 +0200
-@@ -576,7 +576,7 @@
+diff -Naur orig/desktop-themes/ContrastHigh/gtk-3.0/gtk-widgets.css patched/desktop-themes/ContrastHigh/gtk-3.0/gtk-widgets.css
+--- orig/desktop-themes/ContrastHigh/gtk-3.0/gtk-widgets.css	2014-01-17 11:53:54.000000000 +0100
++++ patched/desktop-themes/ContrastHigh/gtk-3.0/gtk-widgets.css	2014-02-10 18:49:47.788415609 +0100
+@@ -632,7 +632,7 @@
      border-radius: 0;
      border-width: 1px 0;
      border-color: @theme_button_linked_border;
@@ -10,7 +10,7 @@ diff -Naur orig/desktop-themes/ContrastHigh/gtk-3.0/gtk-widgets.css mod/desktop-
  }
  
  .inline-toolbar .button:hover {
-@@ -1064,7 +1064,7 @@
+@@ -1242,7 +1242,7 @@
  
  .gnome-panel-menu-bar .menuitem *:hover,
  PanelApplet > GtkMenuBar.menubar .menuitem *:hover {
@@ -19,7 +19,7 @@ diff -Naur orig/desktop-themes/ContrastHigh/gtk-3.0/gtk-widgets.css mod/desktop-
  }
  
  /* dropdown menus from applets */
-@@ -1121,7 +1121,7 @@
+@@ -1299,7 +1299,7 @@
  PanelApplet *:active,
  PanelApplet *:hover:active {
      color: @os_chrome_selected_fg_color;
@@ -28,7 +28,7 @@ diff -Naur orig/desktop-themes/ContrastHigh/gtk-3.0/gtk-widgets.css mod/desktop-
  }
  
  WnckPager {
-@@ -1163,7 +1163,7 @@
+@@ -1346,7 +1346,7 @@
  
  .nautilus-desktop.nautilus-canvas-item {
      color: @theme_base_color;

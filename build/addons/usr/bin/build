@@ -384,9 +384,9 @@ uhu-scanpkgs .
 	if [ "$UB_UHUCHECK" = "1" ]; then
 		cd "$UHUBUILD_PATH"/UB-${UHUBUILD_DISTR}/
 		uhubuild-check "$i" || exit 1
-			else
-			echo
-			uzenet_var			
+	else
+		echo
+		uzenet_var			
 	fi 
 		
 echo

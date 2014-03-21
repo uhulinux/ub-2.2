@@ -111,4 +111,4 @@ Terminal=false
 Icon=chromium
 Type=Application
 Categories=Application;Network;WebBrowser;X-UHU-Menu/Internet/Browsers;
-MimeType=text/html;text/xml;application/xhtml_xml;
+MimeType=x-scheme-handler/http;x-scheme-handler/https;text/html;text/xml;application/xhtml_xml;

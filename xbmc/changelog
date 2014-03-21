@@ -1,4 +1,14 @@
 ------------------------------------------------------------------------
+attus 2014-03-21
+libnfs, goom visualisation, ftgl engedélyezés
+folt takarítások, compile egyszerűsítés, TODO
+build-depends tömörítés
+------------------------------------------------------------------------
+attus 2014-03-19
+12.2 -> 12.3
+acquire fix, build-depends fix
+external libs, external-fffmpeg, optipng engedélyezve
+------------------------------------------------------------------------
 r1885 | attus | 2013-12-18 09:20:56 +0100 (Wed, 18 Dec 2013) | 2 lines
 
 u2d

@@ -1,0 +1,60 @@
+diff -Naur orig/configure patched/configure
+--- orig/configure	2014-02-16 17:17:27.000000000 +0100
++++ patched/configure	2014-02-24 18:24:45.856829526 +0100
+@@ -3157,7 +3157,7 @@
+ 
+ GETTEXT_PACKAGE="${PACKAGE}"
+ 
+-localedir='$(prefix)/$(DATADIRNAME)/locale'
++localedir='$(datadir)/locale'
+ 
+ 
+ # Workaround to make aclocal get the right flags
+diff -Naur orig/configure.ac patched/configure.ac
+--- orig/configure.ac	2014-02-16 17:16:56.000000000 +0100
++++ patched/configure.ac	2014-02-24 18:24:58.000941611 +0100
+@@ -11,7 +11,7 @@
+ 
+ GETTEXT_PACKAGE="${PACKAGE}"
+ AC_SUBST(GETTEXT_PACKAGE)
+-localedir='$(prefix)/$(DATADIRNAME)/locale'
++localedir='$(datadir)/locale'
+ AC_SUBST(localedir)
+ 
+ # Workaround to make aclocal get the right flags
+diff -Naur orig/mate/Makefile patched/mate/Makefile
+--- orig/mate/Makefile	2014-02-16 17:17:29.000000000 +0100
++++ patched/mate/Makefile	2014-02-24 18:25:23.981181393 +0100
+@@ -244,7 +244,7 @@
+ intltool__v_merge_options_0 = -q
+ libdir = ${exec_prefix}/lib
+ libexecdir = ${exec_prefix}/libexec
+-localedir = $(prefix)/$(DATADIRNAME)/locale
++localedir = $(datadir)/locale
+ localstatedir = ${prefix}/var
+ mandir = ${datarootdir}/man
+ mkdir_p = $(MKDIR_P)
+diff -Naur orig/mate/scalable/Makefile patched/mate/scalable/Makefile
+--- orig/mate/scalable/Makefile	2014-02-16 17:17:29.000000000 +0100
++++ patched/mate/scalable/Makefile	2014-02-24 18:25:34.437277907 +0100
+@@ -185,7 +185,7 @@
+ intltool__v_merge_options_0 = -q
+ libdir = ${exec_prefix}/lib
+ libexecdir = ${exec_prefix}/libexec
+-localedir = $(prefix)/$(DATADIRNAME)/locale
++localedir = $(datadir)/locale
+ localstatedir = ${prefix}/var
+ mandir = ${datarootdir}/man
+ mkdir_p = $(MKDIR_P)
+diff -Naur orig/menta/Makefile patched/menta/Makefile
+--- orig/menta/Makefile	2014-02-16 17:17:29.000000000 +0100
++++ patched/menta/Makefile	2014-02-24 18:25:13.257082412 +0100
+@@ -185,7 +185,7 @@
+ intltool__v_merge_options_0 = -q
+ libdir = ${exec_prefix}/lib
+ libexecdir = ${exec_prefix}/libexec
+-localedir = $(prefix)/$(DATADIRNAME)/locale
++localedir = $(datadir)/locale
+ localstatedir = ${prefix}/var
+ mandir = ${datarootdir}/man
+ mkdir_p = $(MKDIR_P)

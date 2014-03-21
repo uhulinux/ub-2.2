@@ -1,5 +1,5 @@
 intltool
 libindicator-dev
 mate-common
-mate-doc-utils
 mate-panel-dev
+yelp-tools

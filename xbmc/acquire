@@ -1,4 +1,4 @@
 #!/usr/bin/env dl
 
-xbmc-${UB_VERSION}.tar.gz	xbmc-${UB_VERSION}/
+xbmc-${UB_VERSION/~/-}.tar.gz xbmc-${UB_VERSION/~/-}-Frodo/
 	http://mirrors.xbmc.org/releases/source/

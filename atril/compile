@@ -2,6 +2,9 @@
 
 ub_compile \
 	--with-gtk=2.0 \
+	--with-smclient-backend=xsmp \
+	--without-keyring \
 	--enable-pixbuf \
-	--enable-impress
+	--disable-introspection \
+	--enable-comics
 

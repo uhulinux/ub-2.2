@@ -1,7 +1,7 @@
-diff -Naur shared-mime-info-1.0-ori/freedesktop.org.xml shared-mime-info-1.0/freedesktop.org.xml
---- shared-mime-info-1.0-ori/freedesktop.org.xml	2012-01-17 17:25:11.000000000 +0100
-+++ shared-mime-info-1.0/freedesktop.org.xml	2012-09-09 22:07:34.821264023 +0200
-@@ -1845,6 +1845,7 @@
+diff -Naur orig/freedesktop.org.xml patched/freedesktop.org.xml
+--- orig/freedesktop.org.xml	2013-09-30 12:01:36.000000000 +0200
++++ patched/freedesktop.org.xml	2014-03-16 14:49:56.534901344 +0100
+@@ -1919,6 +1919,7 @@
        <match value="FLV" type="string" offset="0"/>
      </magic>
      <glob pattern="*.flv"/>
@@ -9,7 +9,7 @@ diff -Naur shared-mime-info-1.0-ori/freedesktop.org.xml shared-mime-info-1.0/fre
      <alias type="application/x-flash-video"/>
      <alias type="flv-application/octet-stream"/>
      <alias type="video/flv"/>
-@@ -11377,7 +11378,7 @@
+@@ -12134,7 +12135,7 @@
      <magic>
        <match value="&lt;TS" type="string" offset="0:256"/>
      </magic>
@@ -18,7 +18,7 @@ diff -Naur shared-mime-info-1.0-ori/freedesktop.org.xml shared-mime-info-1.0/fre
      <alias type="application/x-linguist"/>
    </mime-type>
    <mime-type type="application/x-lyx">
-@@ -11897,7 +11898,7 @@
+@@ -12692,7 +12693,7 @@
      <comment xml:lang="uk">відео WebM</comment>
      <comment xml:lang="zh_CN">WebM 视频</comment>
      <comment xml:lang="zh_TW">WebM 視訊</comment>
@@ -27,7 +27,7 @@ diff -Naur shared-mime-info-1.0-ori/freedesktop.org.xml shared-mime-info-1.0/fre
      <magic priority="50">
        
        <match value="0x1a45dfa3" type="big32" offset="0">
-@@ -29654,6 +29655,7 @@
+@@ -31457,6 +31458,7 @@
      <glob pattern="*.mp2"/>
      <glob pattern="*.mpe"/>
      <glob pattern="*.vob"/>

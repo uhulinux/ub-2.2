@@ -1,0 +1,5 @@
+#!/usr/bin/env dl
+
+qucs-${UB_VERSION}.tar.gz qucs-${UB_VERSION}/
+	http://downloads.sourceforge.net/project/qucs/qucs/${UB_VERSION}/
+

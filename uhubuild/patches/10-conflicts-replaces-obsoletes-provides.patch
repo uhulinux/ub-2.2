@@ -1,6 +1,6 @@
 diff -Naur orig/doc/uhubuild.sgml patched/doc/uhubuild.sgml
---- orig/doc/uhubuild.sgml	2013-08-13 18:23:19.107202665 +0200
-+++ patched/doc/uhubuild.sgml	2013-08-13 18:26:17.904852918 +0200
+--- orig/doc/uhubuild.sgml	2014-02-23 18:05:33.000000000 +0100
++++ patched/doc/uhubuild.sgml	2014-02-23 18:07:13.343109336 +0100
 @@ -637,6 +637,17 @@
  
  	Konfig fájlok, soronként egy. A bevezető / jel opcionális.
@@ -19,7 +19,7 @@ diff -Naur orig/doc/uhubuild.sgml patched/doc/uhubuild.sgml
    <tag/depends [?]/
  
  	A csomag control fájljának Depends opciója egészül ki az itt
-@@ -698,6 +709,17 @@
+@@ -703,6 +714,17 @@
  	itt felsorolt könyvtárain belül is találja meg a libeket. Például a
  	qt csomag készítésekor ide kell írni, hogy /usr/lib/qt/lib.
  
@@ -37,7 +37,7 @@ diff -Naur orig/doc/uhubuild.sgml patched/doc/uhubuild.sgml
    <tag/options [?]/
  
  	A konkrét csomag tartalmát befolyásoló kulcsszavakat írhatunk ide,
-@@ -751,6 +773,30 @@
+@@ -756,6 +778,30 @@
  	Ha required, akkor automatikusan Essential is lesz a csomag.
  	Ezen értékek jelentéséről a dokumentáció során még szólunk.
  
@@ -70,7 +70,7 @@ diff -Naur orig/doc/uhubuild.sgml patched/doc/uhubuild.sgml
  	A csomag section mezője.
 diff -Naur orig/src/steps/control patched/src/steps/control
 --- orig/src/steps/control	2010-09-07 17:13:50.000000000 +0200
-+++ patched/src/steps/control	2013-08-13 18:29:29.414620484 +0200
++++ patched/src/steps/control	2014-02-23 18:07:13.343109336 +0100
 @@ -34,6 +34,50 @@
  			echo
  		fi
@@ -124,7 +124,7 @@ diff -Naur orig/src/steps/control patched/src/steps/control
  			echo "Vendor: $(cat "$UB_SRCDIR/vendor")"
 diff -Naur orig/src/uhubuild-check patched/src/uhubuild-check
 --- orig/src/uhubuild-check	2013-04-05 18:33:38.000000000 +0200
-+++ patched/src/uhubuild-check	2013-08-13 18:36:35.118549593 +0200
++++ patched/src/uhubuild-check	2014-02-23 18:07:13.343109336 +0100
 @@ -240,10 +240,10 @@
  
  for file in packages/*/*; do

@@ -1,0 +1,10 @@
+diff -Naur orig/src/viking.desktop.in patched/src/viking.desktop.in
+--- orig/src/viking.desktop.in	2013-03-21 22:12:27.000000000 +0100
++++ patched/src/viking.desktop.in	2014-03-13 16:08:12.560967548 +0100
+@@ -8,5 +8,5 @@
+ Terminal=false
+ Type=Application
+ StartupNotify=true
+-Categories=GTK;Science;Maps;Geography;
++Categories=GTK;Science;Maps;Geography;X-UHU-Menu/Graphics;
+ MimeType=application/vnd.google-earth.kml+xml;application/gpx+xml;

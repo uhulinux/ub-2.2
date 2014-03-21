@@ -1,24 +1,22 @@
 #!/bin/sh -eux
 
-unset LDFLAGS; LDFLAGS="-Wl,--hash-style=gnu"
-export JAVA_EXE=/usr/lib/java/jre/bin/java
-#export ac_cv_path_LATEX=no
-
-
 ./bootstrap
-
-sed -i \
-	-e '/dbus_connection_send_with_reply_and_block/s:-1:3000:' \
-	xbmc/linux/*.cpp
-    ub_configure \
-  --enable-libmp3lame \
-  --enable-libbluray \
-  --enable-external-libraries \
-  --disable-ccache \
-  --disable-external-ffmpeg \
-  --enable-pulse \
-  --enable-libusb \
-  --enable-ffmpeg-libvorbis \
-  --disable-hal \
-  --enable-rsxs
-ub_make
+export JAVA_EXE=/usr/lib/java/jre/bin/java
+export ac_cv_path_LATEX=no
+export ac_cv_lib_avcodec_ff_vdpau_vc1_decode_picture=yes
+ub_compile \
+	--enable-libbluray \
+	--enable-pulse \
+	--enable-sdl \
+	--enable-gl \
+	--enable-goom \
+	--disable-hal \
+	--enable-udev \
+	--enable-libusb \
+	--enable-vaapi \
+	--enable-vdpau \
+	--disable-debug \
+	--enable-xrandr \
+	--enable-texturepacker \
+	--enable-external-ffmpeg \
+	--enable-external-libraries

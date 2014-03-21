@@ -9,8 +9,3 @@ new:
 --without-system-harfbuzz \
 --without-system-libmwaw \
 --without-system-libodfgen \
-
-removed:
---disable-build-mozab \
---enable-mathmldtd \
-

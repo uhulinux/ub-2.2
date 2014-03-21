@@ -1,12 +1,24 @@
-diff -Naur orig/data/pluma.desktop.in.in patched/data/pluma.desktop.in.in
---- orig/data/pluma.desktop.in.in	2013-04-02 16:02:23.000000000 +0200
-+++ patched/data/pluma.desktop.in.in	2013-04-04 22:24:20.506566829 +0200
+diff -Naur orig/data/pluma.desktop.in patched/data/pluma.desktop.in
+--- orig/data/pluma.desktop.in	2014-03-01 15:14:49.000000000 +0100
++++ patched/data/pluma.desktop.in	2014-03-05 19:53:35.795547520 +0100
 @@ -8,7 +8,7 @@
  StartupNotify=true
  MimeType=text/plain;
  Icon=accessories-text-editor
 -Categories=GTK;Utility;TextEditor;
 +Categories=GTK;Utility;TextEditor;X-UHU-Menu/Tools/Editors;
+ Keywords=text;editor;MATE;tabs;highlighting;code;multiple;files;pluggable;
  X-MATE-DocPath=pluma/pluma.xml
  _X-MATE-FullName=pluma Text Editor
- X-MATE-Bugzilla-Bugzilla=MATE
+diff -Naur orig/data/pluma.desktop.in.in patched/data/pluma.desktop.in.in
+--- orig/data/pluma.desktop.in.in	2014-02-23 19:35:21.000000000 +0100
++++ patched/data/pluma.desktop.in.in	2014-03-05 19:53:42.643610728 +0100
+@@ -8,7 +8,7 @@
+ StartupNotify=true
+ MimeType=text/plain;
+ Icon=accessories-text-editor
+-Categories=GTK;Utility;TextEditor;
++Categories=GTK;Utility;TextEditor;X-UHU-Menu/Tools/Editors;
+ Keywords=text;editor;MATE;tabs;highlighting;code;multiple;files;pluggable;
+ X-MATE-DocPath=pluma/pluma.xml
+ _X-MATE-FullName=pluma Text Editor
