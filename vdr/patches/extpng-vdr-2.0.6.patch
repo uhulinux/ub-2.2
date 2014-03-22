@@ -4348,20 +4348,21 @@ diff -Naur vdr-2.0.4.orig/osd.h vdr-2.0.4/osd.h
    };
  
  #define MAXOSDIMAGES 64
-diff -Naur vdr-2.0.4.orig/pat.c vdr-2.0.4/pat.c
---- vdr-2.0.4.orig/pat.c	2013-10-26 17:33:15.000000000 +0200
-+++ vdr-2.0.4/pat.c	2013-10-26 17:33:42.000000000 +0200
-@@ -13,6 +13,9 @@
+diff -Naur orig/pat.c mod/pat.c
+--- orig/pat.c	2014-02-19 10:31:29.000000000 +0100
++++ mod/pat.c	2014-03-22 20:06:36.000000000 +0100
+@@ -12,6 +12,10 @@
+ #include "channels.h"
  #include "libsi/section.h"
  #include "libsi/descriptor.h"
- #include "thread.h"
++#include "thread.h"
 +#ifdef USE_TTXTSUBS
 +#include "vdrttxtsubshooks.h"
 +#endif  // USE_TTXTSUBS
  
- #define PMT_SCAN_TIMEOUT  10 // seconds
+ #define PMT_SCAN_TIMEOUT  1000 // ms
  
-@@ -343,6 +346,10 @@
+@@ -363,6 +367,10 @@
          char DLangs[MAXDPIDS][MAXLANGCODE2] = { "" };
          char SLangs[MAXSPIDS][MAXLANGCODE2] = { "" };
          int Tpid = 0;
@@ -4372,7 +4373,7 @@ diff -Naur vdr-2.0.4.orig/pat.c vdr-2.0.4/pat.c
          int NumApids = 0;
          int NumDpids = 0;
          int NumSpids = 0;
-@@ -436,6 +443,22 @@
+@@ -456,6 +464,22 @@
                                   break;
                              case SI::TeletextDescriptorTag:
                                   Tpid = esPid;
@@ -4395,7 +4396,7 @@ diff -Naur vdr-2.0.4.orig/pat.c vdr-2.0.4/pat.c
                                   break;
                              case SI::ISO639LanguageDescriptorTag: {
                                   SI::ISO639LanguageDescriptor *ld = (SI::ISO639LanguageDescriptor *)d;
-@@ -547,6 +570,14 @@
+@@ -567,6 +591,14 @@
              }
          if (Setup.UpdateChannels >= 2) {
             Channel->SetPids(Vpid, Ppid, Vtype, Apids, Atypes, ALangs, Dpids, Dtypes, DLangs, Spids, SLangs, Tpid);
@@ -4410,7 +4411,6 @@ diff -Naur vdr-2.0.4.orig/pat.c vdr-2.0.4/pat.c
             Channel->SetCaIds(CaDescriptors->CaIds());
             Channel->SetSubtitlingDescriptors(SubtitlingTypes, CompositionPageIds, AncillaryPageIds);
             }
-diff -Naur vdr-2.0.4.orig/plugin.c vdr-2.0.4/plugin.c
 --- vdr-2.0.4.orig/plugin.c	2013-10-26 17:33:16.000000000 +0200
 +++ vdr-2.0.4/plugin.c	2013-10-26 17:33:42.000000000 +0200
 @@ -341,6 +341,14 @@
@@ -11398,97 +11398,9 @@ diff -Naur vdr-2.0.4.orig/receiver.c vdr-2.0.4/receiver.c
       }
    return true;
  }
-diff -Naur vdr-2.0.4.orig/recorder.c vdr-2.0.4/recorder.c
---- vdr-2.0.4.orig/recorder.c	2013-10-26 17:33:15.000000000 +0200
-+++ vdr-2.0.4/recorder.c	2013-10-26 17:33:42.000000000 +0200
-@@ -46,6 +46,16 @@
-      Type = 0x06;
-      }
-   frameDetector = new cFrameDetector(Pid, Type);
-+#ifdef USE_NALUDUMP
-+  if (   Type == 0x1B // MPEG4 video
-+      && (Setup.DumpNaluFill ? (strstr(FileName, "NALUKEEP") == NULL) : (strstr(FileName, "NALUDUMP") != NULL))) { // MPEG4
-+     isyslog("Starting NALU fill dumper");
-+     naluStreamProcessor = new cNaluStreamProcessor();
-+     naluStreamProcessor->SetPid(Pid);
-+     }
-+  else
-+     naluStreamProcessor = NULL;
-+#endif // USE_NALUDUMP
-   index = NULL;
-   fileSize = 0;
-   lastDiskSpaceCheck = time(NULL);
-@@ -67,6 +77,14 @@
- cRecorder::~cRecorder()
- {
-   Detach();
-+#ifdef USE_NALUDUMP
-+  if (naluStreamProcessor) {
-+     long long int TotalPackets = naluStreamProcessor->GetTotalPackets();
-+     long long int DroppedPackets = naluStreamProcessor->GetDroppedPackets();
-+     isyslog("NALU fill dumper: %lld of %lld packets dropped, %lli%%", DroppedPackets, TotalPackets, TotalPackets ? DroppedPackets*100/TotalPackets : 0);
-+     delete naluStreamProcessor;
-+     }
-+#endif // USE_NALUDUMP
-   delete index;
-   delete fileName;
-   delete frameDetector;
-@@ -155,11 +173,39 @@
-                              fileSize += TS_SIZE;
-                              }
-                        }
-+#ifndef USE_NALUDUMP
-                     if (recordFile->Write(b, Count) < 0) {
-                        LOG_ERROR_STR(fileName->Name());
-                        break;
-                        }
-                     fileSize += Count;
-+#else
-+                    if (naluStreamProcessor) {
-+                       naluStreamProcessor->PutBuffer(b, Count);
-+                       bool Fail = false;
-+                       while (true) {
-+                             int OutLength = 0;
-+                             uchar *OutData = naluStreamProcessor->GetBuffer(OutLength);
-+                             if (!OutData || OutLength <= 0)
-+                                break;
-+                             if (recordFile->Write(OutData, OutLength) < 0) {
-+                                LOG_ERROR_STR(fileName->Name());
-+                                Fail = true;
-+                                break;
-+                                }
-+                             fileSize += OutLength;
-+                             }
-+                       if (Fail)
-+                          break;
-+                       }
-+                    else {
-+                    if (recordFile->Write(b, Count) < 0) {
-+                          LOG_ERROR_STR(fileName->Name());
-+                          break;
-+                       }
-+                       fileSize += Count;
-+                    }
-+#endif // USE_NALUDUMP
-                     t.Set(MAXBROKENTIMEOUT);
-                     }
-                  }
-diff -Naur vdr-2.0.4.orig/recorder.h vdr-2.0.4/recorder.h
---- vdr-2.0.4.orig/recorder.h	2013-10-26 17:33:15.000000000 +0200
-+++ vdr-2.0.4/recorder.h	2013-10-26 17:33:42.000000000 +0200
-@@ -21,6 +21,9 @@
-   cRingBufferLinear *ringBuffer;
-   cFrameDetector *frameDetector;
-   cPatPmtGenerator patPmtGenerator;
-+#ifdef USE_NALUDUMP
-+  cNaluStreamProcessor *naluStreamProcessor;
-+#endif // USE_NALUDUMP
-   cFileName *fileName;
-   cIndexFile *index;
-   cUnbufferedFile *recordFile;
-diff -Naur vdr-2.0.4.orig/recording.c vdr-2.0.4/recording.c
---- vdr-2.0.4.orig/recording.c	2013-10-26 17:33:15.000000000 +0200
-+++ vdr-2.0.4/recording.c	2013-10-26 17:33:42.000000000 +0200
+diff -Naur orig/recording.c mod/recording.c
+--- orig/recording.c	2014-03-16 12:03:18.000000000 +0100
++++ mod/recording.c	2014-03-22 20:35:17.000000000 +0100
 @@ -8,6 +8,9 @@
   */
  
@@ -11499,7 +11411,7 @@ diff -Naur vdr-2.0.4.orig/recording.c vdr-2.0.4/recording.c
  #include <ctype.h>
  #include <dirent.h>
  #include <errno.h>
-@@ -1002,7 +1005,11 @@
+@@ -1019,7 +1022,11 @@
  
  const char *cRecording::Title(char Delimiter, bool NewIndicator, int Level) const
  {
@@ -11511,7 +11423,7 @@ diff -Naur vdr-2.0.4.orig/recording.c vdr-2.0.4/recording.c
    free(titleBuffer);
    titleBuffer = NULL;
    if (Level < 0 || Level == HierarchyLevels()) {
-@@ -1022,7 +1029,11 @@
+@@ -1039,7 +1046,11 @@
                     Minutes % 60
                     );
          }
@@ -11523,10 +11435,10 @@ diff -Naur vdr-2.0.4.orig/recording.c vdr-2.0.4/recording.c
                              t->tm_mday,
                              t->tm_mon + 1,
                              t->tm_year % 100,
-@@ -1072,6 +1083,18 @@
+@@ -1088,6 +1099,18 @@
+      }
    return NULL;
  }
- 
 +#ifdef USE_VASARAJANAULOJA
 +const char *cRecording::UpdateFileName(const char *FileName)
 +{
@@ -11539,13 +11451,14 @@ diff -Naur vdr-2.0.4.orig/recording.c vdr-2.0.4/recording.c
 +}
 +#endif /* VASARAJANAULOJA */
 +
+ 
  int cRecording::HierarchyLevels(void) const
  {
-   const char *s = name;
-@@ -1364,7 +1387,11 @@
+@@ -1400,8 +1423,11 @@
+         TouchUpdate();
       }
  }
- 
+-
 +#ifdef USE_VASARAJANAULOJA
 +void cRecordings::DelByName(const char *FileName, bool RemoveRecording)
 +#else
@@ -11554,7 +11467,7 @@ diff -Naur vdr-2.0.4.orig/recording.c vdr-2.0.4/recording.c
  {
    LOCK_THREAD;
    cRecording *recording = GetByName(FileName);
-@@ -1372,7 +1399,11 @@
+@@ -1409,7 +1435,11 @@
       cThreadLock DeletedRecordingsLock(&DeletedRecordings);
       Del(recording, false);
       char *ext = strrchr(recording->fileName, '.');
@@ -11566,53 +11479,18 @@ diff -Naur vdr-2.0.4.orig/recording.c vdr-2.0.4/recording.c
          strncpy(ext, DELEXT, strlen(ext));
          if (access(recording->FileName(), F_OK) == 0) {
             recording->deleted = time(NULL);
-diff -Naur vdr-2.0.4.orig/recording.h vdr-2.0.4/recording.h
---- vdr-2.0.4.orig/recording.h	2013-10-26 17:33:15.000000000 +0200
-+++ vdr-2.0.4/recording.h	2013-10-26 17:33:42.000000000 +0200
-@@ -68,6 +68,9 @@
-   const cEvent *GetEvent(void) const { return event; }
-   const char *Title(void) const { return event->Title(); }
-   const char *ShortText(void) const { return event->ShortText(); }
-+#ifdef USE_GRAPHTFT
-+  tEventID EventID(void) const { return event->EventID(); }
-+#endif /* GRAPHTFT */
-   const char *Description(void) const { return event->Description(); }
-   const cComponents *Components(void) const { return event->Components(); }
-   const char *Aux(void) const { return aux; }
-@@ -119,6 +122,9 @@
-   const char *Title(char Delimiter = ' ', bool NewIndicator = false, int Level = -1) const;
-   const cRecordingInfo *Info(void) const { return info; }
-   const char *PrefixFileName(char Prefix);
-+#ifdef USE_VASARAJANAULOJA
-+  const char *UpdateFileName(const char *FileName);
-+#endif /* VASARAJANAULOJA */
-   int HierarchyLevels(void) const;
-   void ResetResume(void) const;
-   double FramesPerSecond(void) const { return framesPerSecond; }
-@@ -130,7 +136,11 @@
-   int FileSizeMB(void) const;
-        ///< Returns the total file size of this recording (in MB), or -1 if the file
-        ///< size is unknown.
-+#ifdef USE_VASARAJANAULOJA
-+  bool IsNew(void) const { return GetResume() < 0; }
-+#else
-   bool IsNew(void) const { return GetResume() <= 0; }
-+#endif /* VASARAJANAULOJA */
-   bool IsEdited(void) const;
-   bool IsPesRecording(void) const { return isPesRecording; }
-   bool IsOnVideoDirectoryFileSystem(void) const;
-@@ -191,7 +201,11 @@
-   void ClearSortNames(void);
-   cRecording *GetByName(const char *FileName);
-   void AddByName(const char *FileName, bool TriggerUpdate = true);
-+#ifdef USE_VASARAJANAULOJA
-+  void DelByName(const char *FileName, bool RemoveRecording = true);
-+#else
-   void DelByName(const char *FileName);
-+#endif /* VASARAJANAULOJA */
-   void UpdateByName(const char *FileName);
-   int TotalFileSizeMB(void);
-   double MBperMinute(void);
+--- vdr-2.0.4.orig/recorder.h	2013-10-26 17:33:15.000000000 +0200
++++ vdr-2.0.4/recorder.h	2013-10-26 17:33:42.000000000 +0200
+@@ -21,6 +21,9 @@
+   cRingBufferLinear *ringBuffer;
+   cFrameDetector *frameDetector;
+   cPatPmtGenerator patPmtGenerator;
++#ifdef USE_NALUDUMP
++  cNaluStreamProcessor *naluStreamProcessor;
++#endif // USE_NALUDUMP
+   cFileName *fileName;
+   cIndexFile *index;
+   cUnbufferedFile *recordFile;
 diff -Naur vdr-2.0.4.orig/remux.c vdr-2.0.4/remux.c
 --- vdr-2.0.4.orig/remux.c	2013-10-26 17:33:15.000000000 +0200
 +++ vdr-2.0.4/remux.c	2013-10-26 17:33:42.000000000 +0200
