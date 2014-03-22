@@ -3,7 +3,9 @@
 	/usr/lib/firefox/plugins
 	/usr/lib/java/jre
 	/usr/lib/mozilla/plugins
+	/usr/share/applications
 	/usr/share/doc/Packages/java-jre
+	/usr/share/icons
 	/usr/share/man/**/man1/java.1*
 	/usr/share/man/**/man1/javaws.1*
 	/usr/share/man/**/man1/keytool.1*
@@ -18,3 +20,4 @@
 	/usr/share/man/**/man1/servertool.1*
 	/usr/share/man/**/man1/tnameserv.1*
 	/usr/share/man/**/man1/unpack200.1*
+	/usr/share/mime

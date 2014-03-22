@@ -21,6 +21,10 @@ mkdir -p "$UB_INSTALLDIR"/usr/share/doc/Packages/java-{jre,jdk}
 ln -s /usr/lib/java/jre/{COPYRIGHT,LICENSE,README,THIRDPARTYLICENSEREADME.txt,Welcome.html} "$UB_INSTALLDIR"/usr/share/doc/Packages/java-jre/
 ln -s /usr/lib/java/{COPYRIGHT,LICENSE,README.html,THIRDPARTYLICENSEREADME.txt} "$UB_INSTALLDIR"/usr/share/doc/Packages/java-jdk/
 
+# desktop
+mv "$UB_INSTALLDIR"/usr/lib/java/jre/lib/desktop/{applications,icons,mime} "$UB_INSTALLDIR"/usr/share/
+rm -Rf "$UB_INSTALLDIR"/usr/lib/java/jre/lib/desktop
+
 # firefox plugin
 mkdir -p "$UB_INSTALLDIR"/usr/lib/firefox/plugins
 # ln -s /usr/lib/java/jre/plugin/i386/ns7/libjavaplugin_oji.so "$UB_INSTALLDIR"/usr/lib/firefox/plugins/
