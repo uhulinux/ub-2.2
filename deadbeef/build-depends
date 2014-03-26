@@ -6,6 +6,7 @@ freepats
 gtk2-dev
 intltool
 libcddb-dev
+libcdio-dev
 libfaad2-dev
 liblastfm-dev
 libmad-dev
