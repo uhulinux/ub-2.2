@@ -10,7 +10,6 @@ ub_compile \
 	--enable-foomatic-drv-install \
 	--enable-cups-ppd-install \
 	--enable-foomatic-rip-hplip-install \
-	--enable-udev-acl-rules \
 	--enable-qt4 \
 	--enable-pp-build \
     --enable-hpcups-install \
