@@ -1,0 +1,5 @@
+#!/bin/sh -eux
+
+cd build/linux
+cmake -G "Unix Makefiles" -DCMAKE_INSTALL_PREFIX=/usr ../../source
+ub_make

@@ -1,0 +1,21 @@
+diff -Naur orig/codec.c mod/codec.c
+--- orig/codec.c	2013-09-30 20:54:27.000000000 +0200
++++ mod/codec.c	2014-04-01 14:15:00.000000000 +0200
+@@ -215,7 +215,7 @@
+ 	if (video_ctx->pkt) {
+ 	    frame->pkt_pts = video_ctx->pkt->pts;
+ 	} else {
+-	    frame->pkt_pts = AV_NOPTS_VALUE;
++	    //frame->pkt_pts = AV_NOPTS_VALUE;
+ 	}
+ 	return 0;
+     }
+@@ -240,7 +240,7 @@
+ 	if (video_ctx->pkt) {
+ 	    frame->pkt_pts = video_ctx->pkt->pts;
+ 	} else {
+-	    frame->pkt_pts = AV_NOPTS_VALUE;
++	    //frame->pkt_pts = AV_NOPTS_VALUE;
+ 	}
+ 	return 0;
+     }

@@ -25,6 +25,7 @@
 	--enable-avfilter\
 	--enable-libspeex \
 	--enable-libx264 \
+	--enable-libx265 \
 	--enable-libxvid \
 	--enable-x11grab \
 	--enable-version3 \
@@ -34,6 +35,20 @@
 	--enable-gray \
 	--enable-frei0r \
 	--enable-libass \
+	--enable-hwaccel=h263_vaapi \
+	--enable-hwaccel=h263_vdpau \
+	--enable-hwaccel=h264_vaapi \
+	--enable-hwaccel=h264_vaapi \
+	--enable-hwaccel=h264_vda \
+	--enable-hwaccel=mpeg1_vdpau \
+	--enable-hwaccel=mpeg2_vaapi \
+	--enable-hwaccel=mpeg2_vdpau \
+	--enable-hwaccel=mpeg4_vaapi \
+	--enable-hwaccel=mpeg4_vdpau \
+	--enable-hwaccel=vc1_vaapi \
+	--enable-hwaccel=vc1_vdpau \
+	--enable-hwaccel=wmv3_vaapi \
+	--enable-hwaccel=wmv3_vdpau \
 	--enable-openal \
 	--enable-libfreetype \
 	--enable-libgsm \
@@ -41,9 +56,11 @@
 	--enable-libvpx \
 	--enable-pic \
 	--enable-swresample \
-	--enable-version3 \
 	--enable-avresample \
 	--enable-dxva2 \
-	--enable-fontconfig
+	--enable-fontconfig \
+	--enable-openssl \
+	--enable-gnutls \
+	--enable-libcelt
 
 ub_make

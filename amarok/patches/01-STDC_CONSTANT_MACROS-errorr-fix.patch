@@ -1,0 +1,13 @@
+diff -Naur orig/src/musicbrainz/MusicDNSAudioDecoder.cpp mod/src/musicbrainz/MusicDNSAudioDecoder.cpp
+--- orig/src/musicbrainz/MusicDNSAudioDecoder.cpp	2013-08-14 22:22:52.000000000 +0200
++++ mod/src/musicbrainz/MusicDNSAudioDecoder.cpp	2014-03-27 18:24:50.000000000 +0100
+@@ -21,6 +21,9 @@
+ #include "config.h"
+ #include "core/support/Debug.h"
+ #include "core/meta/Meta.h"
++#if defined(__cplusplus) && !defined(__STDC_CONSTANT_MACROS) && !defined(UINT64_C)
++#define __STDC_CONSTANT_MACROS
++#endif
+ 
+ extern "C" {
+     typedef quint64 UINT64_C;

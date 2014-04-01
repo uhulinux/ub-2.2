@@ -1,8 +1,10 @@
 alsa-lib-dev
 bzip2-dev
-celt
+celt-dev
 faac-dev
+faad2
 frei0r-dev
+gnutls-dev
 imlib2-dev
 jack-dev
 libass-dev
@@ -26,10 +28,12 @@ libxfixes-dev
 openal-dev
 opencore-amr-dev
 openjpeg-dev
+openssl-dev
 pulseaudio-dev
 schroedinger-dev
 sdl-dev
 speex-dev
 x264-dev
+x265-dev
 xvid-dev
 yasm
