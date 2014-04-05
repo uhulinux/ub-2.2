@@ -1,0 +1,10 @@
+diff -Naur orig/galculator.desktop.in patched/galculator.desktop.in
+--- orig/galculator.desktop.in	2012-12-15 11:37:03.000000000 +0100
++++ patched/galculator.desktop.in	2014-04-04 23:42:34.925006223 +0200
+@@ -6,5 +6,5 @@
+ Icon=galculator
+ Terminal=false
+ Type=Application
+-Categories=Utility;
++Categories=Utility;X-UHU-Menu/Tools/Calculators;
+ StartupNotify=true

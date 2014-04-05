@@ -1,0 +1,4 @@
+#!/usr/bin/env dl
+
+galculator-${UB_VERSION}.tar.bz2 galculator-${UB_VERSION}/
+	http://downloads.sourceforge.net/project/galculator/galculator/${UB_VERSION}/
