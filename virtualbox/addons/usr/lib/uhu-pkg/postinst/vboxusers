@@ -3,7 +3,7 @@
 if [ "$1" = "virtualbox" -o "$1" = "+" ]; then
 
 	if grep -qv 'vboxusers' /etc/group; then
-		groupadd vboxusers
+		groupadd vboxusers &>/dev/null
 	fi
 
 	cat /etc/passwd | grep /home | awk -F: '{print$1}' |\

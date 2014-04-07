@@ -29,6 +29,7 @@ export QT4DIR=/usr/lib/qt4
 	--with-system-headers \
 	--without-afms \
 	--without-java \
+	--without-ppds \
 	--without-system-npapi-headers \
 	--without-system-jars \
 	--without-system-altlinuxhyph \
