@@ -1,5 +1,4 @@
 [Desktop Entry]
-Encoding=UTF-8
 Exec=gftp-text
 Icon=/usr/share/pixmaps/gftp.png
 Terminal=true

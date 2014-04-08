@@ -1,5 +1,4 @@
 [Desktop Entry]
-Encoding=UTF-8
 Name=Firefox
 Comment=Web Browser
 Comment[hu]=A világháló böngészése
@@ -9,5 +8,5 @@ Terminal=false
 Type=Application
 GenericName=Web Browser
 GenericName[hu]=Webböngésző
-Categories=Application;Network;WebBrowser;X-UHU-Menu/Internet/Browsers;
+Categories=Network;WebBrowser;X-UHU-Menu/Internet/Browsers;
 MimeType=x-scheme-handler/http;x-scheme-handler/https;text/html;text/xml;application/xhtml+xml;

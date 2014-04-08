@@ -1,5 +1,4 @@
 [Desktop Entry]
-Encoding=UTF-8
 Name=Thunderbird
 Comment=E-mail client
 Comment[hu]=E-mail kliens
@@ -9,5 +8,5 @@ Terminal=false
 Type=Application
 GenericName=E-mail client
 GenericName[hu]=E-mail kliens
-Categories=Application;Network;Email;X-UHU-Menu/Internet/Email;
+Categories=Network;Email;X-UHU-Menu/Internet/Email;
 MimeType=x-scheme-handler/mailto;
