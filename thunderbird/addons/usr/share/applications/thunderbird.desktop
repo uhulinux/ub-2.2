@@ -9,5 +9,5 @@ Terminal=false
 Type=Application
 GenericName=E-mail client
 GenericName[hu]=E-mail kliens
-Categories=X-UHU-Menu/Internet/Email;
+Categories=Application;Network;Email;X-UHU-Menu/Internet/Email;
 MimeType=x-scheme-handler/mailto;

@@ -30,5 +30,5 @@ Name[hu]=gFTP-text
 Comment[hu]=Többszálas ftp-kliens, karakteres változat
 Name=gFTP-text
 Comment=Multithreaded ftp client, console version
-Categories=X-UHU-Menu/Internet/Downloaders;
+Categories=Network;FileTransfer;X-UHU-Menu/Internet/Downloaders;
 X-UHU-Major=-1
