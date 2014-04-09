@@ -1,4 +1,5 @@
 dbus-python-dev
+gucharmap-dev
 intltool
 mate-common
 pluma-dev
