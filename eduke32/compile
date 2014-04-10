@@ -1,3 +1,4 @@
 #!/bin/sh -eux
 
+export SDL_TARGET=1
 ub_compile

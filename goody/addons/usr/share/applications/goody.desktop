@@ -1,10 +1,10 @@
 [Desktop Entry]
-Version=1.1
 Type=Application
 Name=Goody
 GenericName=Goody
+GenericName[hu]=Goody a betörő
 Icon=goody
 Exec=goody
 StartupNotify=true
 Terminal=false
-Categories=X-UHU-Menu/Games/Action;
+Categories=Game;ActionGame;X-UHU-Menu/Games/Action;

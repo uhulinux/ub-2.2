@@ -1,13 +1,14 @@
 [Desktop Entry]
-Comment=
-Comment[hu]=élvezetes pacman klón
-Encoding=UTF-8
-Exec=njam
-GenericName=Njam
-GenericName[hu]=nyamm-nyamm
-Icon=/usr/share/njam/njamicon.ico
-MimeType=
 Name=Njam
 Name[hu]=Njam
+GenericName=Njam
+GenericName[hu]=nyamm-nyamm
+Comment=
+Comment[hu]=élvezetes pacman klón
+Exec=njam
+Icon=/usr/share/njam/njamicon.ico
 Type=Application
-Categories=X-UHU-Menu/Games/Action;
+Categories=Game;ActionGame;X-UHU-Menu/Games/Action;
+Terminal=false
+StartupNotify=true
+

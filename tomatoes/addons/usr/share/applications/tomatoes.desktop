@@ -1,9 +1,8 @@
 [Desktop Entry]
-Encoding=UTF-8
-Categories=X-UHU-Menu/Games/Arcade;
+Name=Tomatoes
+Type=Application
 Exec=tomatoes
 GenericName=Tomatoes
 GenericName[hu]=Paradicsomok
 Icon=tomatoes
-Name=Tomatoes
-Type=Application
+Categories=Game;ArcadeGame;X-UHU-Menu/Games/Arcade;

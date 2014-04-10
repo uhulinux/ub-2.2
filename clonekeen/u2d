@@ -1,2 +1,2 @@
-sflist clonekeen clonekeen | sort -V | tail -n 1
+sflist clonekeen clonekeen |sort -V | tail -n 1 | sed s/\\.//g
 

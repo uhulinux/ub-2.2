@@ -1,13 +1,11 @@
 [Desktop Entry]
-Encoding=UTF-8
 Name=vdr
-Comment=vdr launcher
-Comment[hu]=vdr indító szkript
+GenericName=Video Disk Recorder
+Genericname[hu]=VDR személyreszabottan
+Comment=VDR launcher
+Comment[hu]=vdr indító
 Exec=vdrlaunch
 Type=Application
-Categories=X-UHU-Menu/Multimedia/TVRadio;
-GenericName=VDR
-Genericname[hu]=VDR személyreszabottan
+Categories=AudioVideo;TV;X-UHU-Menu/Multimedia/TVRadio;
 Icon=vdr
 Terminal=true
-X-KDE-SubstituteUID=false

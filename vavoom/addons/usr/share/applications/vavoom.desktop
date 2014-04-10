@@ -1,8 +1,9 @@
 [Desktop Entry]
-Version=1.1
 Type=Application
 Name=Vavoom Launcher
 Name[hu]=Vavoom indító
+GenericName=Doom Engine
+GenericName[hu]=Doom futtató motor
 Icon=vavoom
 Exec=vlaunch
-Categories=X-UHU-Menu/Games/Action;
+Categories=Game;ActionGame;X-UHU-Menu/Games/Action;

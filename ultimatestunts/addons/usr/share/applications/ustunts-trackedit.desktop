@@ -1,10 +1,9 @@
 [Desktop Entry]
-Version=1.1
 Type=Application
 Name=Ustunts Track Editor
-Name[hu]=Ustunts pálya editor
+Name[hu]=Ultimate stunts pályaszerkesztő
 Icon=ultimatestunts
 Exec=ustuntstrackedit
 Terminal=false
 StartupNotify=true
-Categories=X-UHU-Menu/Games/Arcade;
+Categories=Game;ArcadeGame;X-UHU-Menu/Games/Arcade;

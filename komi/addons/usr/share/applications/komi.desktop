@@ -1,10 +1,8 @@
 [Desktop Entry]
-Comment=
-Comment[hu]=béka nyelvöltögető
-Encoding=UTF-8
-Categories=X-UHU-Menu/Games/Arcade;
-Exec=komi
-GenericName[hu]=béka nyelvöltögető
-Icon=komi
 Name=komi
+GenericName[hu]=béka nyelvöltögető
 Type=Application
+Comment[hu]=béka nyelvöltögető
+Exec=komi
+Icon=komi
+Categories=Game;ArcadeGame;X-UHU-Menu/Games/Arcade;

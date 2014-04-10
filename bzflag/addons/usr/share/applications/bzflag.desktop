@@ -1,11 +1,10 @@
 [Desktop Entry]
-Encoding=UTF-8
 Name=BZFlag
+Type=Application
 Comment=A Multiplayer, 3D first person tank simulator
 Comment[hu]=3D harckocsi szimulátor, hálózati támogatással, több játékos üzemmóddal
-Exec=bzflag
 Icon=/usr/share/bzflag/bzflag-48x48.png
-StartupNotify=false
+Exec=bzflag
 Terminal=false
-Type=Application
-Categories=Games;Action;X-UHU-Menu/Games/Action;
+StartupNotify=false
+Categories=Application;Game;ActionGame;X-UHU-Menu/Games/Action;

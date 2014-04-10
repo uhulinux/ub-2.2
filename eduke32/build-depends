@@ -4,5 +4,4 @@ libvorbis-dev
 libvpx-dev
 mesa-dev
 nasm
-sdl-dev
 sdl-mixer-dev

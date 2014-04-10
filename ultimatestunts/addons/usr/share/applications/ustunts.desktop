@@ -1,5 +1,4 @@
 [Desktop Entry]
-Version=1.1
 Type=Application
 Name=Ultimate stunts
 Comment=UltimateStunts will be a remake of the famous DOS-game stunts.
@@ -8,4 +7,4 @@ Icon=ultimatestunts
 Exec=ustunts
 Terminal=false
 StartupNotify=false
-Categories=X-UHU-Menu/Games/Arcade;
+Categories=Game;ArcadeGame;X-UHU-Menu/Games/Arcade;
