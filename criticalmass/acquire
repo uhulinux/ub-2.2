@@ -1,4 +1,5 @@
 #!/usr/bin/env dl
+
 CriticalMass-${UB_VERSION}.tar.bz2 CriticalMass-${UB_VERSION}/
 	http://downloads.sourceforge.net/criticalmass/
 	http://surfnet.dl.sourceforge.net/sourceforge/criticalmass/

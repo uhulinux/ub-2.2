@@ -1,14 +1,13 @@
 [Desktop Entry]
+Name=CriticalMass
+Name[hu]=CriticalMass
 Comment=
 Comment[hu]=galaga lövöldözés
-Encoding=UTF-8
-Categories=X-UHU-Menu/Games/Action;
+Categories=Application;Game;ActionGame;X-UHU-Menu/Games/Action;
 Exec=critter
 GenericName=CriticalMass
 GenericName[hu]="galaga" ratatata...
 Icon=critter
-Name=CriticalMass
-Name[hu]=CriticalMass
 StartupNotify=true
 Type=Application
 

@@ -6,4 +6,4 @@ Icon=deflektor
 Exec=deflektor
 Terminal=false
 StartupNotify=true
-Categories=X-UHU-Menu/Games/TacticStrategy;
+Categories=Game;StrategyGame;X-UHU-Menu/Games/TacticStrategy;

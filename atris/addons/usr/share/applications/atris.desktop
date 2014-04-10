@@ -5,4 +5,4 @@ Name=Atris
 Icon=atris
 Comment[hu]=Tetris változat
 Exec=atris
-Categories=X-UHU-Menu/Games/Arcade;
+Categories=Application;Game;ArcadeGame;X-UHU-Menu/Games/Arcade;

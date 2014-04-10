@@ -1,5 +1,6 @@
 #!/bin/sh -eux
-	./configure \
+
+./configure \
 	--prefix-dir=/usr \
 	--binary-dir=bin \
 	--data-dir=share/games/openttd \
@@ -7,5 +8,6 @@
 	--doc-dir=share/doc/Packages/openttd \
 	--personal-dir=.openttd \
 	--install-dir="$UB_INSTALLDIR" \
-	--menu-group=X-UHU-Menu/Games/TacticStrategy
+	--menu-group="Game;X-UHU-Menu/Games/TacticStrategy;"
+
 ub_make
