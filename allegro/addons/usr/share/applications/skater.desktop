@@ -1,8 +1,8 @@
 [Desktop Entry]
-Encoding=UTF-8
-Categories=X-UHU-Menu/Games/Action;
-Exec=skater
-GenericName[hu]=allegro demonstrációs gördeszka játék
+Type=Application
 Name=Skater Demo
 Name[hu]=Gördeszka demó
-Type=Application
+GenericName=Allegro shooter demo
+GenericName[hu]=allegro demonstrációs gördeszka játék
+Categories=Game;ArcadeGame;X-UHU-Menu/Games/Arcade;
+Exec=skater

@@ -5,4 +5,4 @@ Comment[hu]=Az ALSA hangrendszer hangkeverője
 Exec=alsamixer
 Terminal=true
 Type=Application
-Categories=X-UHU-Menu/Multimedia/Mixers;
+Categories=AudioVideo;Audio;Mixer;X-UHU-Menu/Multimedia/Mixers;

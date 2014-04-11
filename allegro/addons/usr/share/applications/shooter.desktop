@@ -1,10 +1,9 @@
 [Desktop Entry]
-Encoding=UTF-8
-Categories=X-UHU-Menu/Games/Action;
-Exec=shooter
+Type=Application
+Name=Shooter
+Name[hu]=Lövöldöző
 GenericName=Allegro shooter demo
 GenericName[hu]=Allegro lövöldöző demó
 Icon=shooter
-Name=Shooter
-Name[hu]=Lövöldöző
-Type=Application
+Categories=Game;ArcadeGame;X-UHU-Menu/Games/Arcade;
+Exec=shooter

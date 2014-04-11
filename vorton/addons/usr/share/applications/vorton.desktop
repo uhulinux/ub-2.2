@@ -1,9 +1,7 @@
 [Desktop Entry]
-Encoding=UTF-8
-Categories=X-UHU-Menu/Games/Arcade;
-Exec=vorton
-GenericName=Highway Encounter
-Icon=vorton
-MimeType=
 Name=Vorton
+GenericName=Highway Encounter
 Type=Application
+Exec=vorton
+Icon=vorton
+Categories=Game;ArcadeGame;X-UHU-Menu/Games/Arcade;
