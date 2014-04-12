@@ -1,1 +1,1 @@
-sflist nasm nasm%20sources | splitver '^([0-9.]+)' | sort -V | tail -n 1
+urllist http://www.nasm.us/pub/nasm/releasebuilds/ | splitver '^([0-9.]+)' | sort -V | tail -n 1
