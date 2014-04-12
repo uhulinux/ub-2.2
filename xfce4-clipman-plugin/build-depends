@@ -2,6 +2,7 @@ gtk2-dev
 intltool
 libexo-dev
 libglade2-dev
+libqrencode-dev
 libsm-dev
 libunique-dev
 libxfce4ui-dev
