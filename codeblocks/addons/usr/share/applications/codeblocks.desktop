@@ -9,4 +9,4 @@ GenericName[hu]=C++ fejlesztői környezet
 Exec=codeblocks
 Icon=/usr/share/pixmaps/codeblocks.png
 Terminal=false
-Categories=X-UHU-Menu/Development/Programming;
+Categories=Development;IDE;X-UHU-Menu/Development/Programming;

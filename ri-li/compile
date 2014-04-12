@@ -1,9 +1,7 @@
 #!/bin/sh -eux
-	aclocal
-	autoconf
-	automake
+
+autoreconf -vif
 export SUBDIRS="src data Sounds"
 	ub_configure \
 	--datadir=/usr/share/games \
-
-ub_make -j3
+ub_make

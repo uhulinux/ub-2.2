@@ -2,7 +2,6 @@
 
 dangerdeep-${UB_VERSION}.tar.gz dangerdeep-${UB_VERSION}/
   http://downloads.sourceforge.net/sourceforge/dangerdeep/
-#  http://kent.dl.sourceforge.net/project/dangerdeep/${UB_VERSION}/
 
 dangerdeep-data-${UB_VERSION}.zip .
   http://downloads.sourceforge.net/dangerdeep/

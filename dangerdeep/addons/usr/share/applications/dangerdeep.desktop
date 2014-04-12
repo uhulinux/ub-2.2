@@ -1,13 +1,12 @@
 [Desktop Entry]
-Comment=Submarine Simulator Game
-Comment[hu]=Tengeralattjáró szimulátor
-Encoding=UTF-8
-Categories=X-UHU-Menu/Games/Action;
-Exec=dangerdeep
+Name=Dangerdeep
 GenericName=Dangerdeep
 GenericName[hu]=Veszélyes merülés
+Comment=Submarine Simulator Game
+Comment[hu]=Tengeralattjáró szimulátor
+Exec=dangerdeep
 Icon=dftd_icon.xpm
-Name=Dangerdeep
+Categories=Game;Simulation;X-UHU-Menu/Games/Action;
 StartupNotify=true
 Type=Application
 
