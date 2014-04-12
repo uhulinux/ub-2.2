@@ -1,8 +1,0 @@
-[Desktop Entry]
-Type=Application
-Name=ChessX
-Name[hu]=ChessX
-Comment=Chess database
-Comment[hu]=Sakk adatbázis
-Exec=chessx
-Categories=X-UHU-Menu/Games/Board;
