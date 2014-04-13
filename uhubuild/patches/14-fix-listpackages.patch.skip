@@ -1,14 +1,50 @@
+diff -Naur orig/src/steps/buildinfo patched/src/steps/buildinfo
+--- orig/src/steps/buildinfo	2005-08-31 15:54:11.000000000 +0200
++++ patched/src/steps/buildinfo	2013-10-26 00:21:53.262332641 +0200
+@@ -9,7 +9,7 @@
+ 
+ cd "$UB_PACKAGEDIR"
+ 
+-listpackages > "$UB_ADMINDIR/pack-with"
++listpackages "$UB_ADMINDIR/pack-with"
+ _hostname  > "$UB_ADMINDIR/pack-host"
+ logdate "Build-Finished"
+ 
+diff -Naur orig/src/steps/compile patched/src/steps/compile
+--- orig/src/steps/compile	2008-12-16 23:10:14.000000000 +0100
++++ patched/src/steps/compile	2013-10-26 00:19:37.993084155 +0200
+@@ -8,7 +8,7 @@
+ 
+ cd "$UB_COMPILEDIR"
+ 
+-listpackages > "$UB_ADMINDIR/compile-with"
++listpackages "$UB_ADMINDIR/compile-with"
+ _hostname  > "$UB_ADMINDIR/compile-host"
+ logdate "Compile-Started"
+ 
+diff -Naur orig/src/steps/install patched/src/steps/install
+--- orig/src/steps/install	2007-11-05 12:21:19.000000000 +0100
++++ patched/src/steps/install	2013-10-26 00:19:46.053158549 +0200
+@@ -8,7 +8,7 @@
+ 
+ . /usr/lib/uhubuild/uhubuild-common
+ 
+-listpackages > "$UB_ADMINDIR/install-with"
++listpackages "$UB_ADMINDIR/install-with"
+ _hostname  > "$UB_ADMINDIR/install-host"
+ logdate "Install-Started"
+ 
 diff -Naur orig/src/uhubuild-common patched/src/uhubuild-common
 --- orig/src/uhubuild-common	2005-08-31 15:54:11.000000000 +0200
-+++ patched/src/uhubuild-common	2013-10-26 00:05:51.805458714 +0200
-@@ -38,8 +38,8 @@
++++ patched/src/uhubuild-common	2013-10-26 00:19:05.628785444 +0200
+@@ -38,9 +38,6 @@
  
  listpackages ()
  {
 -	local i pkg ver rest
 -	COLUMNS=1000 dpkg -l | sed 1,5d | grep '^i' | while read -r i pkg ver rest; do
-+	local pkg ver
-+	dpkg-query -W -f='${Package} ${Version}\n' \* | while read -r pkg ver; do
- 		echo "${pkg}_${ver}"
- 	done
+-		echo "${pkg}_${ver}"
+-	done
++	dpkg-query -W -f='${Package}_${Version}\n' \* > $1
  }
+ 

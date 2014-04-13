@@ -1,7 +1,7 @@
 diff -Naur orig/apt-pkg/acquire-item.h patched/apt-pkg/acquire-item.h
---- orig/apt-pkg/acquire-item.h	2013-09-20 16:12:57.000000000 +0200
-+++ patched/apt-pkg/acquire-item.h	2013-09-29 13:49:07.042678299 +0200
-@@ -168,6 +168,10 @@
+--- orig/apt-pkg/acquire-item.h	2014-03-14 09:05:18.000000000 +0100
++++ patched/apt-pkg/acquire-item.h	2014-04-12 23:06:09.253913366 +0200
+@@ -172,6 +172,10 @@
      */
     std::string DestFile;
  
@@ -13,9 +13,9 @@ diff -Naur orig/apt-pkg/acquire-item.h patched/apt-pkg/acquire-item.h
      *  be fetched.
      *
 diff -Naur orig/apt-pkg/acquire-method.cc patched/apt-pkg/acquire-method.cc
---- orig/apt-pkg/acquire-method.cc	2013-09-20 16:12:57.000000000 +0200
-+++ patched/apt-pkg/acquire-method.cc	2013-09-29 13:49:07.042678299 +0200
-@@ -132,6 +132,9 @@
+--- orig/apt-pkg/acquire-method.cc	2014-03-14 09:05:18.000000000 +0100
++++ patched/apt-pkg/acquire-method.cc	2014-04-12 23:06:09.253913366 +0200
+@@ -140,6 +140,9 @@
  
     if (UsedMirror.empty() == false)
        std::cout << "UsedMirror: " << UsedMirror << "\n";
@@ -26,9 +26,9 @@ diff -Naur orig/apt-pkg/acquire-method.cc patched/apt-pkg/acquire-method.cc
     std::cout << "\n" << std::flush;
  }
 diff -Naur orig/apt-pkg/acquire-method.h patched/apt-pkg/acquire-method.h
---- orig/apt-pkg/acquire-method.h	2013-09-20 16:12:57.000000000 +0200
-+++ patched/apt-pkg/acquire-method.h	2013-09-29 13:49:07.042678299 +0200
-@@ -55,6 +55,7 @@
+--- orig/apt-pkg/acquire-method.h	2014-04-01 14:32:15.000000000 +0200
++++ patched/apt-pkg/acquire-method.h	2014-04-12 23:06:09.253913366 +0200
+@@ -58,6 +58,7 @@
        std::vector<std::string> GPGVOutput;
        time_t LastModified;
        bool IMSHit;
@@ -37,9 +37,9 @@ diff -Naur orig/apt-pkg/acquire-method.h patched/apt-pkg/acquire-method.h
        unsigned long long Size;
        unsigned long long ResumePoint;
 diff -Naur orig/apt-pkg/acquire-worker.cc patched/apt-pkg/acquire-worker.cc
---- orig/apt-pkg/acquire-worker.cc	2013-09-20 16:12:57.000000000 +0200
-+++ patched/apt-pkg/acquire-worker.cc	2013-09-29 13:49:07.042678299 +0200
-@@ -275,6 +275,7 @@
+--- orig/apt-pkg/acquire-worker.cc	2014-03-14 09:05:18.000000000 +0100
++++ patched/apt-pkg/acquire-worker.cc	2014-04-12 23:06:09.253913366 +0200
+@@ -283,6 +283,7 @@
  	    CurrentSize = 0;
  	    TotalSize = strtoull(LookupTag(Message,"Size","0").c_str(), NULL, 10);
  	    ResumePoint = strtoull(LookupTag(Message,"Resume-Point","0").c_str(), NULL, 10);
@@ -47,7 +47,7 @@ diff -Naur orig/apt-pkg/acquire-worker.cc patched/apt-pkg/acquire-worker.cc
  	    Itm->Owner->Start(Message,strtoull(LookupTag(Message,"Size","0").c_str(), NULL, 10));
  
  	    // Display update before completion
-@@ -593,7 +594,11 @@
+@@ -601,7 +602,11 @@
        return;
   
     struct stat Buf;
@@ -61,8 +61,8 @@ diff -Naur orig/apt-pkg/acquire-worker.cc patched/apt-pkg/acquire-worker.cc
     CurrentSize = Buf.st_size;
     
 diff -Naur orig/methods/makefile patched/methods/makefile
---- orig/methods/makefile	2013-09-20 16:12:57.000000000 +0200
-+++ patched/methods/makefile	2013-09-29 13:49:07.042678299 +0200
+--- orig/methods/makefile	2013-12-07 14:12:14.000000000 +0100
++++ patched/methods/makefile	2014-04-12 23:06:09.253913366 +0200
 @@ -79,6 +79,13 @@
  SOURCE = rsh.cc
  include $(PROGRAM_H)
@@ -79,7 +79,7 @@ diff -Naur orig/methods/makefile patched/methods/makefile
  SLIBS = -lapt-pkg $(SOCKETLIBS)
 diff -Naur orig/methods/rsync.cc patched/methods/rsync.cc
 --- orig/methods/rsync.cc	1970-01-01 01:00:00.000000000 +0100
-+++ patched/methods/rsync.cc	2013-09-29 13:49:07.042678299 +0200
++++ patched/methods/rsync.cc	2014-04-12 23:06:09.257913399 +0200
 @@ -0,0 +1,514 @@
 +// -*- mode: cpp; mode: fold -*-
 +// Description								/*{{{*/
@@ -597,7 +597,7 @@ diff -Naur orig/methods/rsync.cc patched/methods/rsync.cc
 +}
 diff -Naur orig/methods/rsync-method.h patched/methods/rsync-method.h
 --- orig/methods/rsync-method.h	1970-01-01 01:00:00.000000000 +0100
-+++ patched/methods/rsync-method.h	2013-09-29 13:49:07.042678299 +0200
++++ patched/methods/rsync-method.h	2014-04-12 23:06:09.257913399 +0200
 @@ -0,0 +1,104 @@
 +// -*- mode: cpp; mode: fold -*-
 +// Description								/*{{{*/
@@ -705,7 +705,7 @@ diff -Naur orig/methods/rsync-method.h patched/methods/rsync-method.h
 +#endif
 diff -Naur orig/RSYNC patched/RSYNC
 --- orig/RSYNC	1970-01-01 01:00:00.000000000 +0100
-+++ patched/RSYNC	2013-09-29 13:49:07.042678299 +0200
++++ patched/RSYNC	2014-04-12 23:06:09.257913399 +0200
 @@ -0,0 +1,22 @@
 +rsync method in apt
 +-------------------
@@ -731,7 +731,7 @@ diff -Naur orig/RSYNC patched/RSYNC
 +from your UHU-Linux CD or wherever you have them). Then tell apt to continue.
 diff -Naur orig/RSYNC_HU patched/RSYNC_HU
 --- orig/RSYNC_HU	1970-01-01 01:00:00.000000000 +0100
-+++ patched/RSYNC_HU	2013-09-29 13:49:07.042678299 +0200
++++ patched/RSYNC_HU	2014-04-12 23:06:09.257913399 +0200
 @@ -0,0 +1,25 @@
 +rsync letöltési mód az apt-ben
 +------------------------------

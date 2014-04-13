@@ -30,6 +30,7 @@ libxxf86vm-dev
 mesa-dev
 openldap-dev
 openssl-dev
+prelink
 pulseaudio-dev
 sane-backends-dev
 unixodbc-dev

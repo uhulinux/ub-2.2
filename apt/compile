@@ -8,5 +8,7 @@ ln -sf /usr/share/automake-"$AM_VER"/config.sub "$UB_COMPILEDIR"/buildlib/config
 
 cd "$UB_OBJECTDIR"
 
+export CPPFLAGS='-std=c++11'
+
 UB_CONFIGURE_DIR="$UB_COMPILEDIR" ub_configure
 ub_make

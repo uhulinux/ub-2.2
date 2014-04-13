@@ -1,4 +1,6 @@
 #!/bin/sh -eux
 
-#./bootstrap --gnulib-srcdir=lib --skip-po
-ub_compile
+autoreconf
+ub_compile \
+	--disable-rpath \
+	--with-ssl=openssl

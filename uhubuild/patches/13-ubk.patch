@@ -22,34 +22,6 @@ diff -Naur orig/src/steps/depends patched/src/steps/depends
  						continue
  					fi
  					# Ha az interpreter a /usr/bin/env, akkor megnezzuk
-diff -Naur orig/src/steps/menu patched/src/steps/menu
---- orig/src/steps/menu	2007-08-15 12:26:05.000000000 +0200
-+++ patched/src/steps/menu	2014-01-21 19:45:36.725951927 +0100
-@@ -55,9 +55,9 @@
- 			fgrep -q '${' "$f" \
- 			  && error "$f: maradt benne '\${', szar a configure vagy a Makefile!" \
- 			  || true
--			grep -q -e '^Exec=/' -e '^TryExec=/' "$f" \
--			  && error "$f: Exec és TryExec után ne álljon útvonal!" \
--			  || true
-+#			grep -q -e '^Exec=/' -e '^TryExec=/' "$f" \
-+#			  && error "$f: Exec és TryExec után ne álljon útvonal!" \
-+#			  || true
- 		done
- 	done
- done
-diff -Naur orig/src/steps/optipng patched/src/steps/optipng
---- orig/src/steps/optipng	2007-11-27 17:15:43.000000000 +0100
-+++ patched/src/steps/optipng	2014-01-21 19:44:56.749582956 +0100
-@@ -7,7 +7,7 @@
- 
- find "$UB_INSTALLDIR" -name "*.png" | while read f; do
- 	echo -n "  $f"
--	if optipng -q "$f"; then
-+	if optipng -quiet -preserve -nx "$f"; then
- 		echo " OK"
- 	else
- 		echo " WARNING: BAD PNG $(file -b "$f")"
 diff -Naur orig/src/steps/pack patched/src/steps/pack
 --- orig/src/steps/pack	2006-04-14 15:14:23.000000000 +0200
 +++ patched/src/steps/pack	2014-01-21 19:44:56.749582956 +0100

@@ -6,5 +6,5 @@ Name=mcedit
 Comment=Editor of Midnight Commander
 Comment[hu]=A Midnight Commander szövegszerkesztője
 Terminal=true
-Categories=X-UHU-Menu/Tools/Editors;
+Categories=ConsoleOnly;Utility;TextEditor;X-UHU-Menu/Tools/Editors;
 X-UHU-Major=-1

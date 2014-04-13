@@ -1,7 +1,7 @@
 diff -Naur orig/apt-pkg/contrib/strutl.cc patched/apt-pkg/contrib/strutl.cc
---- orig/apt-pkg/contrib/strutl.cc	2013-09-20 16:12:57.000000000 +0200
-+++ patched/apt-pkg/contrib/strutl.cc	2013-09-29 13:53:51.945307850 +0200
-@@ -341,7 +341,7 @@
+--- orig/apt-pkg/contrib/strutl.cc	2014-03-14 09:05:18.000000000 +0100
++++ patched/apt-pkg/contrib/strutl.cc	2014-04-12 23:07:35.430708751 +0200
+@@ -369,7 +369,7 @@
     
     /* bytes, KiloBytes, MegaBytes, GigaBytes, TeraBytes, PetaBytes, 
        ExaBytes, ZettaBytes, YottaBytes */
@@ -10,7 +10,7 @@ diff -Naur orig/apt-pkg/contrib/strutl.cc patched/apt-pkg/contrib/strutl.cc
     int I = 0;
     while (I <= 8)
     {
-@@ -356,7 +356,7 @@
+@@ -384,7 +384,7 @@
           sprintf(S,"%'.0f %c",ASize,Ext[I]);
  	 break;
        }
