@@ -1,0 +1,12 @@
+diff -Naur transmission-2.33-orig/gtk/transmission-gtk.desktop.in transmission-2.33/gtk/transmission-gtk.desktop.in
+--- transmission-2.33-orig/gtk/transmission-gtk.desktop.in	2011-07-21 01:38:57.000000000 +0200
++++ transmission-2.33/gtk/transmission-gtk.desktop.in	2011-09-19 21:42:21.000000000 +0200
+@@ -9,7 +9,7 @@
+ TryExec=transmission-gtk
+ Type=Application
+ MimeType=application/x-bittorrent;x-scheme-handler/magnet;
+-Categories=Network;FileTransfer;P2P;GTK;
++Categories=GTK;Network;FileTransfer;P2P;X-UHU-Menu/Internet/Downloaders;
+ X-Ubuntu-Gettext-Domain=transmission
+ X-AppInstall-Keywords=torrent
+ Actions=Pause;Minimize;
