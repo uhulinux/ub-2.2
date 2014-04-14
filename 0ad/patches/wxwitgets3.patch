@@ -1,0 +1,81 @@
+diff -Naur orig/source/tools/atlas/AtlasUI/ActorEditor/ActorEditor.cpp mod/source/tools/atlas/AtlasUI/ActorEditor/ActorEditor.cpp
+--- orig/source/tools/atlas/AtlasUI/ActorEditor/ActorEditor.cpp	2011-08-26 03:56:14.000000000 +0200
++++ mod/source/tools/atlas/AtlasUI/ActorEditor/ActorEditor.cpp	2014-04-14 19:04:40.000000000 +0200
+@@ -178,10 +178,10 @@
+ 		// new format doesn't store the entire path)
+ 		#define THING1(out,outname, in,inname, prefix) \
+ 			wxASSERT( wxString(in["Object"][inname]).StartsWith(_T(prefix)) ); \
+-			out.add(outname, wxString(in["Object"][inname]).Mid(wxString(_T(prefix)).Length()))
++			out.add(outname, wxString(in["Object"][inname]).Mid(wxString(_T(prefix)).Length()).wc_str())
+ 		#define THING2(out,outname, in,inname, prefix) \
+ 			wxASSERT( wxString(in[inname]).StartsWith(_T(prefix)) ); \
+-			out.add(outname, wxString(in[inname]).Mid(wxString(_T(prefix)).Length()))
++			out.add(outname, wxString(in[inname]).Mid(wxString(_T(prefix)).Length()).wc_str())
+ 
+ 		if (wxString(in["Object"]["Material"]).Len())
+ 		{
+@@ -198,7 +198,7 @@
+ 		// XXX
+ 		if (wxString(in["Object"]["TextureName"]).StartsWith(_T("art/textures/ui/session/portraits/ui_portrait_sheet_civ_")))
+ 		{
+-			var.add("texture", L"temp/" + wxString(in["Object"]["TextureName"]).Mid(strlen("art/textures/ui/session/portraits/")));
++			var.add("texture", wxString(wxString(L"temp/") + wxString(in["Object"]["TextureName"]).Mid(strlen("art/textures/ui/session/portraits/"))).wc_str());
+ 		}
+ 		else
+ 		{
+diff -Naur orig/source/tools/atlas/AtlasUI/ScenarioEditor/Sections/Map/Map.cpp mod/source/tools/atlas/AtlasUI/ScenarioEditor/Sections/Map/Map.cpp
+--- orig/source/tools/atlas/AtlasUI/ScenarioEditor/Sections/Map/Map.cpp	2013-10-04 04:29:16.000000000 +0200
++++ mod/source/tools/atlas/AtlasUI/ScenarioEditor/Sections/Map/Map.cpp	2014-04-14 19:07:54.000000000 +0200
+@@ -231,19 +231,19 @@
+ AtObj MapSettingsControl::UpdateSettingsObject()
+ {
+ 	// map name
+-	m_MapSettings.set("Name", wxDynamicCast(FindWindow(ID_MapName), wxTextCtrl)->GetValue());
++	m_MapSettings.set("Name", wxDynamicCast(FindWindow(ID_MapName), wxTextCtrl)->GetValue().wc_str());
+ 
+ 	// map description
+-	m_MapSettings.set("Description", wxDynamicCast(FindWindow(ID_MapDescription), wxTextCtrl)->GetValue());
++	m_MapSettings.set("Description", wxDynamicCast(FindWindow(ID_MapDescription), wxTextCtrl)->GetValue().wc_str());
+ 
+ 	// map preview
+-	m_MapSettings.set("Preview", wxDynamicCast(FindWindow(ID_MapPreview), wxTextCtrl)->GetValue());
++	m_MapSettings.set("Preview", wxDynamicCast(FindWindow(ID_MapPreview), wxTextCtrl)->GetValue().wc_str());
+ 
+ 	// reveal map
+ 	m_MapSettings.setBool("RevealMap", wxDynamicCast(FindWindow(ID_MapReveal), wxCheckBox)->GetValue());
+ 
+ 	// game type / victory conditions
+-	m_MapSettings.set("GameType", wxDynamicCast(FindWindow(ID_MapType), wxChoice)->GetStringSelection());
++	m_MapSettings.set("GameType", wxDynamicCast(FindWindow(ID_MapType), wxChoice)->GetStringSelection().wc_str());
+ 
+ 	// keywords
+ 	{
+diff -Naur orig/source/tools/atlas/AtlasUI/ScenarioEditor/Sections/Player/Player.cpp mod/source/tools/atlas/AtlasUI/ScenarioEditor/Sections/Player/Player.cpp
+--- orig/source/tools/atlas/AtlasUI/ScenarioEditor/Sections/Player/Player.cpp	2013-10-04 04:29:16.000000000 +0200
++++ mod/source/tools/atlas/AtlasUI/ScenarioEditor/Sections/Player/Player.cpp	2014-04-14 19:11:36.000000000 +0200
+@@ -858,14 +858,14 @@
+ 		// name
+ 		wxTextCtrl* text = controls.name;
+ 		if (text->IsEnabled())
+-			player.set("Name", text->GetValue());
++			player.set("Name", text->GetValue().wc_str());
+ 
+ 		// civ
+ 		wxChoice* choice = controls.civ;
+ 		if (choice->IsEnabled() && choice->GetSelection() >= 0)
+ 		{
+ 			wxStringClientData* str = dynamic_cast<wxStringClientData*>(choice->GetClientObject(choice->GetSelection()));
+-			player.set("Civ", str->GetData());
++			player.set("Civ", str->GetData().wc_str());
+ 		}
+ 
+ 		// colour
+@@ -887,7 +887,7 @@
+ 			{
+ 				// ai - get id
+ 				wxStringClientData* str = dynamic_cast<wxStringClientData*>(choice->GetClientObject(choice->GetSelection()));
+-				player.set("AI", str->GetData());
++				player.set("AI", str->GetData().wc_str());
+ 			}
+ 			else // human
+ 				player.set("AI", _T(""));
