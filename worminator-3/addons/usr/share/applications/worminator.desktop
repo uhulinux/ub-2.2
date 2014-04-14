@@ -1,9 +1,8 @@
 [Desktop Entry]
-Encoding=UTF-8
-Categories=X-UHU-Menu/Games/Action;
-Exec=worminator
-GenericName=Worminator
-Icon=worminator
-MimeType=
 Name=Worminator
+GenericName=Worminator
+GenericName[hu]=Kukac harcos
 Type=Application
+Icon=worminator
+Exec=worminator
+Categories=Game;ActionGame;X-UHU-Menu/Games/Action;
