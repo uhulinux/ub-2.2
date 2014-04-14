@@ -1,5 +1,4 @@
 #!/usr/bin/env dl
 
 pingus-${UB_VERSION}.tar.bz2 pingus-${UB_VERSION}/
-	http://pingus.seul.org/files/
-	ftp://pingus.seul.org/pub/pingus/
+	http://pingus.googlecode.com/files/

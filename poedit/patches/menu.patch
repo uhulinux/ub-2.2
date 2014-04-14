@@ -10,7 +10,7 @@ diff -Naur poedit-1.5.1-orig/poedit.desktop poedit-1.5.1/poedit.desktop
  Comment[nl]=Gettext-vertaalhulpmiddel
  Comment[pl]=Edytor pakietów gettext
 @@ -27,5 +28,5 @@
- Icon=poedit
+ Icon=/usr/share/pingus/images/core/editor/actions.png
  Terminal=false
  Type=Application
 -Categories=Development;Translation;

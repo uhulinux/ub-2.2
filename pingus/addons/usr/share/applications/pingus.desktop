@@ -1,5 +1,4 @@
 [Desktop Entry]
-Encoding=UTF-8
 Type=Application
 Name=Pingus
 GenericName=Lemmings Clone
@@ -7,5 +6,5 @@ GenericName[hu]=Lemmings-klón
 Comment=Save the Penguins
 Comment[hu]=Mentsd meg a pingvineket
 Exec=pingus
-Icon=/usr/share/games/pingus/images/core/editor/actions.png
-Categories=X-UHU-Menu/Games/Action;
+Icon=pingus
+Categories=Game;ActionGame;X-UHU-Menu/Games/Action;
