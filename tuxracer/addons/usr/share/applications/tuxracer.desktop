@@ -6,4 +6,4 @@ Exec=tuxracer
 Icon=tuxracer.svg
 Comment=Sliding downhill with Tux the penguin
 Comment[hu]=Hasoncsúszás Tuxszal, a pingvinnel
-Categories=X-UHU-Menu/Games/Action;
+Categories=Game;ActionGame;X-UHU-Menu/Games/Action;
