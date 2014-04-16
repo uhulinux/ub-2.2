@@ -8,4 +8,4 @@ install --mode=644  *.dat $datadir/
 install --mode=755 zaxrr $datadir/
 chmod 0777 "$datadir"
 mkdir -p $pixmapdir
-ln -s /usr/share/doc/Packages/zaxxrr/zax80x80.png $pixmapdir/zaxxon.png
+ln -s /usr/share/doc/Packages/zaxxon/zax80x80.png $pixmapdir/zaxxon.png

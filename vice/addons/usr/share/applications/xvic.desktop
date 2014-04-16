@@ -1,9 +1,8 @@
 [Desktop Entry]
-Encoding=UTF-8
 Type=Application
 Name=XVIC
 Comment=C= VIC20 emulator
 Comment[hu]=C= VIC20 emulátor
 Exec=xvic
 Icon=VICE
-Categories=X-UHU-Menu/Tools/Emulators;
+Categories=Game;Emulator;X-UHU-Menu/Tools/Emulators;
