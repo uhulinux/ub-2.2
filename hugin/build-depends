@@ -19,5 +19,5 @@ openexr-dev
 python-dev
 swig
 tclap
-wxwidgets3-dev
+wxwidgets-dev
 zip
