@@ -1,7 +1,6 @@
 [Desktop Entry]
-Encoding=UTF-8
-Categories=X-UHU-Menu/Games/Action;
-Exec=xgalaga-sdl
-Icon=xgalaga-sdl
 Name=xgalaga-sdl
 Type=Application
+Exec=xgalaga-sdl
+Icon=xgalaga-sdl
+Categories=Game;ArcadeGame;X-UHU-Menu/Games/Arcade;
