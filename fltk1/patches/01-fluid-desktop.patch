@@ -14,4 +14,4 @@ diff -Naur orig/fluid/fluid.desktop mod/fluid/fluid.desktop
  Type=Application
  MimeType=application/x-fluid
 -Categories=Development;GUIDesigner;
-+Categories=X-UHU-Menu/Development/Programming;
++Categories=Development;GUIDesigner;X-UHU-Menu/Development/Programming;
