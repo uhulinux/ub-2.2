@@ -1,0 +1,8 @@
+#!/bin/sh -eux
+
+export CFLAGS='-I/usr/include/openssl'
+ub_compile \
+	--libdir=/etc \
+	--enable-nls \
+	--with-screen=ncursesw \
+	--with-ssl

@@ -1,9 +1,0 @@
-[Desktop Entry]
-Encoding=UTF-8
-Type=Application
-Name=xev
-Comment=X Event Viewer
-Comment[hu]=X eseményfigyelő
-Exec=xev
-Terminal=true
-Categories=X-UHU-Menu/Tools/Utilities;
