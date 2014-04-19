@@ -8,4 +8,4 @@ Comment=ep128 tape editor
 Comment[hu]=ep128 szalag szerkesztő
 Exec=tapeedit
 Icon=tapeedit
-Categories=X-UHU-Menu/Tools/Emulators/Ep128;
+Categories=Game;Emulator;X-UHU-Menu/Tools/Emulators/;

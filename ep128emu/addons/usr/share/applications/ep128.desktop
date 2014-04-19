@@ -3,12 +3,8 @@ Encoding=UTF-8
 Type=Application
 Name=EP128emu
 GenericName=ep128
-GenericName[hu]=ep128
-Comment=ep128 emulator
-Comment[hu]=ep128 emulátor
-Exec=padsp ep128emu
+Comment=Enterprise 64/128 emulator
+Comment[hu]=Enterprise 64/128 emulátor
+Exec=ep128emu
 Icon=ep128emu
-Categories=X-UHU-Menu/Tools/Emulators/Ep128;
-
-
-
+Categories=Game;Emulator;X-UHU-Menu/Tools/Emulators;

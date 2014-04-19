@@ -2,10 +2,9 @@
 Encoding=UTF-8
 Type=Application
 Name=cpc464emu
-GenericName=cpc464emu
-GenericName[hu]=cpc464emu
-Comment=cpc464 emulator
-Comment[hu]=cpc464 emulátor
-Exec=padsp ep128emu -cpc
+GenericName=cpc 464emu
+Comment=Amstrad cpc 464 emulator
+Comment[hu]=Amstrad cpc 464 emulátor
+Exec=ep128emu -cpc
 Icon=cpc464emu
-Categories=X-UHU-Menu/Tools/Emulators/Ep128;
+Categories=Game;Emulator;X-UHU-Menu/Tools/Emulators;
