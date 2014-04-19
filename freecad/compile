@@ -21,10 +21,8 @@ cd build
 	-DCMAKE_BINARY_DIR=/usr/bin \
 	-DCOIN3D_INCLUDE_DIR=/usr/include \
 	-DCOIN3D_LIBRARY=/usr/lib/libCoin.so
-
-
 make -j3
 # Builds Qt plugin
   cd ../src/Tools/plugins/widget/
   qmake-qt4 plugin.pro
-make -j3
+make
