@@ -11,4 +11,4 @@ Icon=/usr/lib/z81/xz81.xpm
 Exec=xz81
 Terminal=false
 StartupNotify=true
-Categories=X-UHU-Menu/Tools/Emulators;
+Categories=Game;Emulator;X-UHU-Menu/Tools/Emulators;

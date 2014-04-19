@@ -6,4 +6,4 @@ diff -Naur orig/python-ui/hatariui.desktop mod/python-ui/hatariui.desktop
  Exec=hatariui
  Icon=hatari-icon
 +Comment[hu]=nagyszerű atari emulátor
-+Categories=X-UHU-Menu/Tools/Emulators;
++Categories=Game;Emulator;X-UHU-Menu/Tools/Emulators;
