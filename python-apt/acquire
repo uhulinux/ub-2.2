@@ -1,5 +1,5 @@
 #!/usr/bin/env dl
 
-python-apt_${UB_VERSION}.tar.gz python-apt-${UB_VERSION}/
-	http://ftp.de.debian.org/debian/pool/main/p/python-apt/
+python-apt_${UB_VERSION}.tar.xz python-apt-${UB_VERSION}/
+	http://ftp.debian.org/debian/pool/main/p/python-apt/
 	http://download.ubk.hu/src/apt/

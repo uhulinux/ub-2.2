@@ -3,9 +3,11 @@
 ub_install
 
 cd ${UB_INSTALLDIR}/usr/lib
-ln -s libgdk-x11-2.0.so.0.2400.22 libgdk-x11-2.0.so.0.1800.9
-ln -s libgtk-x11-2.0.so.0.2400.22 libgtk-x11-2.0.so.0.1800.9
-ln -s libgdk-x11-2.0.so.0.2400.22 libgdk-x11-2.0.so.0.2400.14
-ln -s libgtk-x11-2.0.so.0.2400.22 libgtk-x11-2.0.so.0.2400.14
-ln -s libgdk-x11-2.0.so.0.2400.22 libgdk-x11-2.0.so.0.2400.20
-ln -s libgtk-x11-2.0.so.0.2400.22 libgtk-x11-2.0.so.0.2400.20
+ln -s libgdk-x11-2.0.so.0.2400.23 libgdk-x11-2.0.so.0.1800.9
+ln -s libgtk-x11-2.0.so.0.2400.23 libgtk-x11-2.0.so.0.1800.9
+ln -s libgdk-x11-2.0.so.0.2400.23 libgdk-x11-2.0.so.0.2400.14
+ln -s libgtk-x11-2.0.so.0.2400.23 libgtk-x11-2.0.so.0.2400.14
+ln -s libgdk-x11-2.0.so.0.2400.23 libgdk-x11-2.0.so.0.2400.20
+ln -s libgtk-x11-2.0.so.0.2400.23 libgtk-x11-2.0.so.0.2400.20
+ln -s libgdk-x11-2.0.so.0.2400.23 libgdk-x11-2.0.so.0.2400.22
+ln -s libgtk-x11-2.0.so.0.2400.23 libgtk-x11-2.0.so.0.2400.22
