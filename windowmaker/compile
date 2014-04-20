@@ -2,4 +2,10 @@
 
 ub_compile \
 	--enable-usermenu \
-	--with-nlsdir=/usr/share/locale
+	--with-nlsdir=/usr/share/locale \
+	--with-pixmapdir=/usr/share/pixmaps \
+	--with-x
+
+cd windowmaker-extra
+
+ub_compile

@@ -5,4 +5,5 @@ Name=DOSBox
 Comment=Dos emulator for running games
 Comment[hu]=Dos-emulátor játékok számára
 Exec=dosbox
-Categories=X-UHU-Menu/Tools/Emulators;
+Icon=dosbox
+Categories=Game;Emulator;X-UHU-Menu/Tools/Emulators;
