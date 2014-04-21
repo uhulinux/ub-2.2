@@ -2,9 +2,6 @@
 
 ub_install
 
-#ezt nem akarja valamiért
-#mv "${UB_INSTALLDIR}"/etc/xdg/menus/applications.menu "${UB_INSTALLDIR}"/etc/xdg/menus/gnome-applications.menu
-
-#rm -rf "$UB_INSTALLDIR"/etc/xdg/menus/applications.menu
-#rm -rf "$UB_INSTALLDIR"/usr/share/desktop-directories/Development.directory
-#rm -rf "$UB_INSTALLDIR"/usr/share/desktop-directories/Graphics.directory
+mv "${UB_INSTALLDIR}"/etc/xdg/menus/applications.menu "${UB_INSTALLDIR}"/etc/xdg/menus/gnome-applications.menu
+rm -rf "$UB_INSTALLDIR"/usr/share/desktop-directories/Development.directory
+rm -rf "$UB_INSTALLDIR"/usr/share/desktop-directories/Graphics.directory
