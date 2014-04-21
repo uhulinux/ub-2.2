@@ -1,0 +1,21 @@
+diff -Naur orig/layout/applications.menu patched/layout/applications.menu
+--- orig/layout/applications.menu	2011-10-24 13:48:17.000000000 +0200
++++ patched/layout/applications.menu	2014-04-21 16:26:28.461703343 +0200
+@@ -50,7 +50,7 @@
+   <!-- Development Tools -->
+   <Menu>
+     <Name>Development</Name>
+-    <Directory>Development.directory</Directory>
++    <Directory>Development-gnome.directory</Directory>
+     <Include>
+       <And>
+         <Category>Development</Category>
+@@ -84,7 +84,7 @@
+   <!-- Graphics -->
+   <Menu>
+     <Name>Graphics</Name>
+-    <Directory>Graphics.directory</Directory>
++    <Directory>Graphics-gnome.directory</Directory>
+     <Include>
+       <And>
+         <Category>Graphics</Category>

@@ -3,5 +3,9 @@
 ub_install
 
 mv "${UB_INSTALLDIR}"/etc/xdg/menus/applications.menu "${UB_INSTALLDIR}"/etc/xdg/menus/gnome-applications.menu
-rm -rf "$UB_INSTALLDIR"/usr/share/desktop-directories/Development.directory
-rm -rf "$UB_INSTALLDIR"/usr/share/desktop-directories/Graphics.directory
+# az uhu-menu teljes kipucolása után kivehető
+
+mv "$UB_INSTALLDIR"/usr/share/desktop-directories/Development.directory \
+	"$UB_INSTALLDIR"/usr/share/desktop-directories/Development-gnome.directory
+mv "$UB_INSTALLDIR"/usr/share/desktop-directories/Graphics.directory \
+	"$UB_INSTALLDIR"/usr/share/desktop-directories/Graphics-gnome.directory
