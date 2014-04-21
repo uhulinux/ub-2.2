@@ -4,7 +4,7 @@ fftw3-dev
 glew-dev
 gst-plugins-base-dev
 gstreamer-dev
-libcdio-dev
+libcdio-paranoia-dev
 libgpod-dev
 libimobiledevice-dev
 libindicate-qt-dev

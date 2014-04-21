@@ -6,7 +6,6 @@ ffmpeg-dev
 flac-dev
 jack-dev
 libcddb-dev
-libcdio-dev
 libmad-dev
 libmms-dev
 libmodplug-dev

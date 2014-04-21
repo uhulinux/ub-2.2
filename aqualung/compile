@@ -2,7 +2,6 @@
 
 autoreconf -vif
 ub_compile \
+	--with-cdda \
 	--with-lavc \
-	--without-mpc \
-	--without-cdda
-#
+	--without-mpc

@@ -1,5 +1,5 @@
 #!/usr/bin/env dl
 
-taglib-extras-${UB_VERSION/~/-}.tar.gz taglib-extras-${UB_VERSION#*~}/
-	http://www.kollide.net/~jefferai/
-	svn://anonsvn.kde.org/home/kde/trunk/kdesupport/taglib-extras/@${UB_VERSION#*~r}
+#taglib-extras-${UB_VERSION/~/-}.tar.gz taglib-extras-${UB_VERSION#*~}/
+taglib-extras-${UB_VERSION/~/-}.tar.gz taglib-extras-r1206481/
+	svn://anonsvn.kde.org/home/kde/trunk/kdesupport/taglib-extras/@1206481

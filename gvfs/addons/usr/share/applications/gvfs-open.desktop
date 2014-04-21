@@ -5,3 +5,4 @@ Exec=gvfs-open %F
 Terminal=false
 StartupNotify=true
 MimeType=application/octet-stream;application/octetstream;
+NoDisplay=true

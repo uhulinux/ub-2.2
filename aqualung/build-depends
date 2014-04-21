@@ -7,7 +7,7 @@ gtk2-dev
 jack-dev
 ladspa-dev
 libcddb-dev
-libcdio-dev
+libcdio-paranoia-dev
 liblame-dev
 libmad-dev
 libogg-dev

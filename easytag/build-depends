@@ -2,7 +2,7 @@ desktop-file-utils
 docbook-dtds
 docbook-xsl
 flac-dev
-gtk2-dev
+gtk3-dev
 id3lib-dev
 intltool
 itstool

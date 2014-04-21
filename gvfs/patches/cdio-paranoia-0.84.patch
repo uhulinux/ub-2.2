@@ -1,0 +1,86 @@
+diff -Naur orig/configure.ac patched/configure.ac
+--- orig/configure.ac	2012-05-15 20:04:27.000000000 +0200
++++ patched/configure.ac	2014-04-20 18:28:47.199994165 +0200
+@@ -308,9 +308,18 @@
+   if test "x$msg_cdda" = "xyes"; then
+     PKG_CHECK_MODULES(CDDA, libcdio_paranoia)
+     AC_DEFINE(HAVE_CDDA, 1, [Define to 1 if CDDA is going to be built])
++    # test for actual headers location
++    CPPFLAGS_save="$CPPFLAGS"
++    CPPFLAGS="$CPPFLAGS $CDDA_CFLAGS"
++    AC_CHECK_HEADER(cdio/paranoia/paranoia.h, [
++       AC_DEFINE(HAVE_PARANOIA_NEW_INCLUDES, 1, [Define to 1 if cdio/paranoia/paranoia.h is present]) ])
++    CPPFLAGS="$CPPFLAGS_save"
+   fi
+ fi
+ 
++AC_SUBST(CDDA_LIBS)
++AC_SUBST(CDDA_CFLAGS)
++
+ AM_CONDITIONAL(USE_CDDA, [test "$msg_cdda" = "yes"])
+ 
+ dnl *************************************************
+diff -Naur orig/daemon/gvfsbackendcdda.c patched/daemon/gvfsbackendcdda.c
+--- orig/daemon/gvfsbackendcdda.c	2012-05-15 20:01:50.000000000 +0200
++++ patched/daemon/gvfsbackendcdda.c	2014-04-20 18:27:24.607231862 +0200
+@@ -55,7 +55,11 @@
+ #include "gvfsjobenumerate.h"
+ 
+ #define DO_NOT_WANT_PARANOIA_COMPATIBILITY
+-#include <cdio/paranoia.h>
++#ifdef HAVE_PARANOIA_NEW_INCLUDES
++  #include <cdio/paranoia/paranoia.h>
++#else
++  #include <cdio/paranoia.h>
++#endif
+ #include <cdio/cdio.h>
+ 
+ /* TODO:
+@@ -169,11 +173,22 @@
+   if (!cdio)
+     return;
+ 
+-  cdtext = cdio_get_cdtext(cdio, 0);
++#if LIBCDIO_VERSION_NUM >= 84
++  cdtext = cdio_get_cdtext (cdio);
++#else
++  cdtext = cdio_get_cdtext (cdio, 0);
++#endif /* LIBCDIO_VERSION_NUM >= 84 */
++
+   if (cdtext) {
+-    cdda_backend->album_title = g_strdup (cdtext_get (CDTEXT_TITLE, cdtext));
+-    cdda_backend->album_artist = g_strdup (cdtext_get (CDTEXT_PERFORMER, cdtext));
+-    cdda_backend->genre = g_strdup (cdtext_get (CDTEXT_GENRE, cdtext));
++#if LIBCDIO_VERSION_NUM >= 84
++    cdda_backend->album_title = g_strdup (cdtext_get_const (cdtext, CDTEXT_FIELD_TITLE, 0));
++    cdda_backend->album_artist = g_strdup (cdtext_get_const (cdtext, CDTEXT_FIELD_PERFORMER, 0));
++    cdda_backend->genre = g_strdup (cdtext_get_const (cdtext, CDTEXT_FIELD_GENRE, 0));
++#else
++    cdda_backend->album_title = g_strdup (cdtext_get_const (CDTEXT_TITLE, cdtext));
++    cdda_backend->album_artist = g_strdup (cdtext_get_const (CDTEXT_PERFORMER, cdtext));
++    cdda_backend->genre = g_strdup (cdtext_get_const (CDTEXT_GENRE, cdtext));
++#endif /* LIBCDIO_VERSION_NUM >= 84 */
+   }
+ 
+   cdtrack = cdio_get_first_track_num(cdio);
+@@ -182,10 +197,17 @@
+   for ( ; cdtrack < last_cdtrack; cdtrack++ ) {
+     GVfsBackendCddaTrack *track;
+     track = g_new0 (GVfsBackendCddaTrack, 1);
+-    cdtext = cdio_get_cdtext(cdio, cdtrack);
++#if LIBCDIO_VERSION_NUM < 84
++    cdtext = cdio_get_cdtext (cdio, cdtrack);
++#endif /* LIBCDIO_VERSION_NUM < 84 */
+     if (cdtext) {
+-      track->title = g_strdup (cdtext_get (CDTEXT_TITLE, cdtext));
+-      track->artist = g_strdup (cdtext_get (CDTEXT_PERFORMER, cdtext));
++#if LIBCDIO_VERSION_NUM >= 84
++      track->title = g_strdup (cdtext_get_const (cdtext, CDTEXT_FIELD_TITLE, cdtrack));
++      track->artist = g_strdup (cdtext_get_const (cdtext, CDTEXT_FIELD_PERFORMER, cdtrack));
++#else
++      track->title = g_strdup (cdtext_get_const (CDTEXT_TITLE, cdtext));
++      track->artist = g_strdup (cdtext_get_const (CDTEXT_PERFORMER, cdtext);
++#endif /* LIBCDIO_VERSION_NUM >= 84 */
+     }
+     track->duration = cdio_get_track_sec_count (cdio, cdtrack) / CDIO_CD_FRAMES_PER_SEC;
+ 

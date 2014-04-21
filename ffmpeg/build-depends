@@ -9,7 +9,7 @@ imlib2-dev
 jack-dev
 libass-dev
 libbluray-dev
-libcdio-dev
+libcdio-paranoia-dev
 libdc1394-dev
 libgsm-dev
 libjpeg-dev

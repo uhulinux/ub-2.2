@@ -7,4 +7,4 @@ Comment[hu]=CD-író előtét program
 Icon=/usr/share/cdw/pixmaps/cdw.png
 Exec=cdw
 Terminal=true
-Categories=X-UHU-Menu/Multimedia/CDwriters;
+Categories=DiscBurning;Audio;Video;X-UHU-Menu/Multimedia/CDwriters;

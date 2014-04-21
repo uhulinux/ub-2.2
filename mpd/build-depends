@@ -9,7 +9,6 @@ fluidsynth-dev
 glib2-dev
 jack-dev
 libao-dev
-libcdio-dev
 libfaad2-dev
 libid3tag-dev
 liblame-dev

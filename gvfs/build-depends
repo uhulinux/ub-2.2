@@ -1,6 +1,5 @@
 avahi-dev
 bluez-dev
-dbus-dev
 dbus-glib-dev
 expat-dev
 fuse-dev
@@ -10,7 +9,7 @@ gtk-doc
 intltool
 libarchive-dev
 libbluray-dev
-libcdio-dev
+libcdio-paranoia-dev
 libgcrypt-dev
 libgphoto2-dev
 libimobiledevice-dev
@@ -22,6 +21,4 @@ obex-data-server
 openssh
 samba-dev
 sqlite-dev
-udev
 udev-dev
-udisks
