@@ -5,4 +5,4 @@ Name=QT4 Linguist
 Comment=QT4 Translation tool
 Comment[hu]=QT4 fordításkészítő
 Exec=linguist-qt4
-Categories=X-UHU-Menu/Development/Translation;
+Categories=Qt;Development;Translation;X-UHU-Menu/Development/Translation;

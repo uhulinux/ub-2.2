@@ -5,4 +5,4 @@ Name=Qt5 Designer
 Comment=Qt5 Designer
 Comment[hu]=Qt5 fejlesztőeszköz
 Exec=designer-qt5
-Categories=X-UHU-Menu/Development/Programming;
+Categories=Qt;Development;X-UHU-Menu/Development/Programming;

@@ -5,4 +5,4 @@ Name=QT4 Assistant
 Comment=QT4 Documentation Assistant
 Comment[hu]=QT4 dokumentációs segéd
 Exec=assistant-qt4
-Categories=X-UHU-Menu/Documentation;
+Categories=Qt;Development;X-UHU-Menu/Documentation;

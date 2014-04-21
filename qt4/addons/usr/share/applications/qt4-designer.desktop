@@ -5,4 +5,4 @@ Name=QT4 Designer
 Comment=QT4 Designer
 Comment[hu]=QT4 fejlesztőeszköz
 Exec=designer-qt4
-Categories=X-UHU-Menu/Development/Programming;
+Categories=Qt;Development;X-UHU-Menu/Development/Programming;
