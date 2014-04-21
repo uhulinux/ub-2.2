@@ -1,0 +1,4 @@
+Ki kell irtani az uhu-mnu-structure ütközés miatt az install fázisból:
+
+rm -rf "$UB_INSTALLDIR"/usr/share/desktop-directories/Development.directory
+rm -rf "$UB_INSTALLDIR"/usr/share/desktop-directories/Graphics.directory
