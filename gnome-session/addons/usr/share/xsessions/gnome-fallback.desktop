@@ -1,0 +1,9 @@
+[Desktop Entry]
+Name=GNOME-fallback
+Name[hu]=GNOME-biztonsági
+Comment=This session logs you into GNOME
+Comment[hu]=Bejelentkezés a GNOME környezetbe biztonsági módban
+Exec=gnome-session --session gnome-fallback
+TryExec=gnome-session --session gnome-fallback
+Icon=
+Type=Application
