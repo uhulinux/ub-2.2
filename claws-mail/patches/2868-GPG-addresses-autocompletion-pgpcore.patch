@@ -1,0 +1,354 @@
+From f3b44e4eaab726d313b7da55e5624240f1525f1d Mon Sep 17 00:00:00 2001
+From: Christian Hesse <mail@eworm.de>
+Date: Mon, 17 Mar 2014 11:03:14 +0100
+Subject: [PATCH 1/1] add keyring address autocompletion support to PGP/Core
+ plugin
+
+---
+ src/plugins/pgpcore/Makefile.am      |   2 +
+ src/plugins/pgpcore/autocompletion.c | 121 +++++++++++++++++++++++++++++++++++
+ src/plugins/pgpcore/autocompletion.h |  46 +++++++++++++
+ src/plugins/pgpcore/plugin.c         |  11 +++-
+ src/plugins/pgpcore/prefs_gpg.c      |  12 ++++
+ src/plugins/pgpcore/prefs_gpg.h      |   6 ++
+ 6 files changed, 195 insertions(+), 3 deletions(-)
+ create mode 100644 src/plugins/pgpcore/autocompletion.c
+ create mode 100644 src/plugins/pgpcore/autocompletion.h
+
+diff --git a/src/plugins/pgpcore/Makefile.am b/src/plugins/pgpcore/Makefile.am
+index 236584e..31568ae 100644
+--- a/src/plugins/pgpcore/Makefile.am
++++ b/src/plugins/pgpcore/Makefile.am
+@@ -48,6 +48,7 @@ plugin_LTLIBRARIES = pgpcore.la
+ endif
+ 
+ pgpcore_la_SOURCES = \
++	autocompletion.c \
+ 	passphrase.c \
+ 	plugin.c \
+ 	prefs_gpg.c \
+@@ -58,6 +59,7 @@ pgpcore_la_SOURCES = \
+ 
+ pluginincludedir = $(pkgincludedir)/plugins/pgpcore
+ plugininclude_HEADERS = \
++	autocompletion.h \
+ 	passphrase.h \
+ 	prefs_gpg.h \
+ 	select-keys.h \
+diff --git a/src/plugins/pgpcore/autocompletion.c b/src/plugins/pgpcore/autocompletion.c
+new file mode 100644
+index 0000000..ea3427a
+--- /dev/null
++++ b/src/plugins/pgpcore/autocompletion.c
+@@ -0,0 +1,121 @@
++/*
++ * PGP/Core keyring autocompletion
++ *
++ * Copyright (C) 2014 Christian Hesse <mail@eworm.de>
++ *
++ * This program is free software; you can redistribute it and/or modify
++ * it under the terms of the GNU General Public License as published by
++ * the Free Software Foundation; either version 3 of the License, or
++ * (at your option) any later version.
++ *
++ * This program is distributed in the hope that it will be useful,
++ * but WITHOUT ANY WARRANTY; without even the implied warranty of
++ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
++ * GNU General Public License for more details.
++ *
++ * You should have received a copy of the GNU General Public License
++ * along with this program; if not, write to the Free Software
++ * Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA 02111-1307, USA.
++ */
++
++
++#include <errno.h>
++#include <inttypes.h>
++#include <stdlib.h>
++
++#include <glib.h>
++#include <glib/gi18n.h>
++
++#include <gpgme.h>
++
++#include "autocompletion.h"
++
++static guint autocompletion_hook_id = 0;
++
++static gboolean pgp_autocompletion_hook(gpointer source, gpointer data)
++{
++	gpgme_ctx_t ctx;
++	gpgme_key_t key;
++	gpgme_error_t err;
++	gpgme_user_id_t uid;
++	address_entry *ae;
++
++	/* just return if autocompletion is disabled */
++	if (!prefs_gpg_get_config()->autocompletion)
++		return EXIT_SUCCESS;
++
++	/* initialize */
++	gpgme_check_version(NULL);
++
++	if ((err = gpgme_new(&ctx)) == 0) {
++		err = gpgme_op_keylist_start(ctx, NULL, 0);
++
++		/* walk the available keys */
++		while (err == 0) {
++			if ((err = gpgme_op_keylist_next(ctx, &key)) != 0)
++				break;
++
++			/* skip keys that are revoked, expired, ... */
++			if ((key->revoked || key->expired || key->disabled || key->invalid) == FALSE) {
++				uid = key->uids;
++
++				/* walk all user ids within a key */
++				while (uid != NULL) {
++					if (uid->email != NULL && *uid->email != 0) {
++						ae = g_new0(address_entry, 1);
++
++						ae->address = g_strdup(uid->email);
++						addr_compl_add_address1(ae->address, ae);
++
++						if (uid->name != NULL && *uid->name != 0) {
++							ae->name = g_strdup(uid->name);
++							addr_compl_add_address1(ae->name, ae);
++						} else
++							ae->name = NULL;
++
++						ae->grp_emails = NULL;
++
++						source = g_list_prepend(source, ae);
++
++						debug_print("%s <%s>\n", uid->name, uid->email);
++					}
++					uid = uid->next;
++				}
++			}
++			gpgme_key_release(key);
++		}
++		gpgme_release(ctx);
++	}
++
++	if (gpg_err_code(err) != GPG_ERR_EOF) {
++		debug_print("can not list keys: %s\n", gpgme_strerror(err));
++		exit(EXIT_FAILURE);
++	}
++
++	return EXIT_SUCCESS;
++}
++
++gboolean autocompletion_done(void)
++{
++	if (autocompletion_hook_id > 0)
++	{
++		hooks_unregister_hook(ADDDRESS_COMPLETION_BUILD_ADDRESS_LIST_HOOKLIST, autocompletion_hook_id);
++
++		debug_print("PGP address autocompletion hook unregistered\n");
++	}
++
++	return TRUE;
++}
++
++gint autocompletion_init(gchar ** error)
++{
++	if ((autocompletion_hook_id = hooks_register_hook(ADDDRESS_COMPLETION_BUILD_ADDRESS_LIST_HOOKLIST, pgp_autocompletion_hook, NULL)) == -1)
++	{
++		*error = g_strdup(_("Failed to register PGP address autocompletion hook"));
++		return -1;
++	}
++	debug_print("PGP address autocompletion hook registered\n");
++
++	return EXIT_SUCCESS;
++}
++
+diff --git a/src/plugins/pgpcore/autocompletion.h b/src/plugins/pgpcore/autocompletion.h
+new file mode 100644
+index 0000000..c1711ab
+--- /dev/null
++++ b/src/plugins/pgpcore/autocompletion.h
+@@ -0,0 +1,46 @@
++/*
++ * PGP/Core keyring autocompletion
++ *
++ * Copyright (C) 2014 Christian Hesse <mail@eworm.de>
++ *
++ * This program is free software; you can redistribute it and/or modify
++ * it under the terms of the GNU General Public License as published by
++ * the Free Software Foundation; either version 3 of the License, or
++ * (at your option) any later version.
++ *
++ * This program is distributed in the hope that it will be useful,
++ * but WITHOUT ANY WARRANTY; without even the implied warranty of
++ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
++ * GNU General Public License for more details.
++ *
++ * You should have received a copy of the GNU General Public License
++ * along with this program; if not, write to the Free Software
++ * Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA 02111-1307, USA.
++ */
++
++#ifndef GPGMEGTK_AUTOCOMPLETION_H
++#define GPGMEGTK_AUTOCOMPLETION_H
++
++#include <errno.h>
++#include <inttypes.h>
++#include <stdlib.h>
++
++#include <glib.h>
++#include <glib/gi18n.h>
++
++#include <gpgme.h>
++#include <plugins/pgpcore/prefs_gpg.h>
++
++#include "addr_compl.h"
++#include "claws.h"
++#include "hooks.h"
++#include "procmsg.h"
++#include "utils.h"
++
++static gboolean pgp_autocompletion_hook(gpointer source, gpointer data);
++
++gboolean autocompletion_done(void);
++
++gint autocompletion_init(gchar ** error);
++
++#endif /* GPGMEGTK_AUTOCOMPLETION_H */
+diff --git a/src/plugins/pgpcore/plugin.c b/src/plugins/pgpcore/plugin.c
+index 3033eb5..a71d0df 100644
+--- a/src/plugins/pgpcore/plugin.c
++++ b/src/plugins/pgpcore/plugin.c
+@@ -31,6 +31,7 @@
+ #include "sgpgme.h"
+ #include "prefs_gpg.h"
+ #include "pgp_viewer.h"
++#include "autocompletion.h"
+ #include "plugin.h"
+ 
+ #define PLUGIN_NAME (_("PGP/Core"))
+@@ -45,7 +46,9 @@ gint plugin_init(gchar **error)
+ 	prefs_gpg_init();
+ 	sgpgme_check_create_key();
+ 	pgp_viewer_init();
+-	return 0;	
++	autocompletion_init(error);
++
++	return 0;
+ }
+ 
+ gboolean plugin_done(void)
+@@ -53,6 +56,8 @@ gboolean plugin_done(void)
+ 	pgp_viewer_done();
+ 	prefs_gpg_done();
+ 	sgpgme_done();
++	autocompletion_done();
++
+ 	return TRUE;
+ }
+ 
+@@ -63,8 +68,8 @@ const gchar *plugin_name(void)
+ 
+ const gchar *plugin_desc(void)
+ {
+-	return _("This plugin handles PGP core operations, it is used by other "
+-		 "plugins, like PGP/Mime.\n"
++	return _("This plugin handles PGP core operations and provides address "
++		 "autocompletion. It is used by other plugins, like PGP/Mime.\n"
+                  "\n"
+ 		 "Options can be found in /Configuration/Preferences/Plugins/GPG "
+ 		 "and /Configuration/[Account Preferences]/Plugins/GPG\n"
+diff --git a/src/plugins/pgpcore/prefs_gpg.c b/src/plugins/pgpcore/prefs_gpg.c
+index acdd714..f137f90 100644
+--- a/src/plugins/pgpcore/prefs_gpg.c
++++ b/src/plugins/pgpcore/prefs_gpg.c
+@@ -41,6 +41,9 @@ static PrefParam param[] = {
+ 	{"auto_check_signatures", "FALSE",
+ 	 &prefs_gpg.auto_check_signatures, P_BOOL,
+ 	 NULL, NULL, NULL},
++	{"autocompletion", "FALSE",
++	 &prefs_gpg.autocompletion, P_BOOL,
++	 NULL, NULL, NULL},
+ 	{"use_gpg_agent", "TRUE", &prefs_gpg.use_gpg_agent, P_BOOL,
+ 	 NULL, NULL, NULL},
+ 	{"store_passphrase", "FALSE", &prefs_gpg.store_passphrase, P_BOOL,
+@@ -67,6 +70,7 @@ struct GPGPage
+ 	PrefsPage page;
+ 
+ 	GtkWidget *checkbtn_auto_check_signatures;
++	GtkWidget *checkbtn_autocompletion;
+ 	GtkWidget *checkbtn_use_gpg_agent;
+         GtkWidget *checkbtn_store_passphrase;  
+         GtkWidget *spinbtn_store_passphrase;  
+@@ -85,6 +89,7 @@ static void prefs_gpg_create_widget_func(PrefsPage *_page,
+ 	GtkWidget *checkbtn_passphrase_grab;
+ 	GtkWidget *checkbtn_store_passphrase;
+ 	GtkWidget *checkbtn_auto_check_signatures;
++	GtkWidget *checkbtn_autocompletion;
+ 	GtkWidget *checkbtn_gpg_warning;
+ 	GtkWidget *hbox1;
+ 	GtkWidget *vbox1, *vbox2;
+@@ -105,6 +110,9 @@ static void prefs_gpg_create_widget_func(PrefsPage *_page,
+ 	PACK_CHECK_BUTTON (vbox2, checkbtn_auto_check_signatures,
+ 			_("Automatically check signatures"));
+ 
++	PACK_CHECK_BUTTON (vbox2, checkbtn_autocompletion,
++			_("Use keyring for autocompletion"));
++
+ 	vbox2 = gtkut_get_options_frame(vbox1, &frame_passphrase, _("Passphrase"));
+ 
+ 	PACK_CHECK_BUTTON (vbox2, checkbtn_use_gpg_agent,
+@@ -164,6 +172,7 @@ static void prefs_gpg_create_widget_func(PrefsPage *_page,
+ 	config = prefs_gpg_get_config();
+ 
+ 	gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(checkbtn_auto_check_signatures), config->auto_check_signatures);
++	gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(checkbtn_autocompletion), config->autocompletion);
+ 	if (!getenv("GPG_AGENT_INFO"))
+ 		gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(checkbtn_use_gpg_agent), FALSE);
+ 	else
+@@ -175,6 +184,7 @@ static void prefs_gpg_create_widget_func(PrefsPage *_page,
+ 	gtk_toggle_button_set_active(GTK_TOGGLE_BUTTON(checkbtn_gpg_warning), config->gpg_warning);
+ 
+ 	page->checkbtn_auto_check_signatures = checkbtn_auto_check_signatures;
++	page->checkbtn_autocompletion = checkbtn_autocompletion;
+ 	page->checkbtn_store_passphrase = checkbtn_store_passphrase;
+ 	page->spinbtn_store_passphrase = spinbtn_store_passphrase;
+ 	page->checkbtn_passphrase_grab = checkbtn_passphrase_grab;
+@@ -194,6 +204,8 @@ static void prefs_gpg_save_func(PrefsPage *_page)
+ 
+ 	config->auto_check_signatures =
+ 		gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(page->checkbtn_auto_check_signatures));
++	config->autocompletion =
++		gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(page->checkbtn_autocompletion));
+ 	config->use_gpg_agent = 
+ 		gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(page->checkbtn_use_gpg_agent));
+ 	config->store_passphrase = 
+diff --git a/src/plugins/pgpcore/prefs_gpg.h b/src/plugins/pgpcore/prefs_gpg.h
+index 422b7d6..059e385 100644
+--- a/src/plugins/pgpcore/prefs_gpg.h
++++ b/src/plugins/pgpcore/prefs_gpg.h
+@@ -17,6 +17,9 @@
+  * 
+  */
+ 
++#ifndef GPGMEGTK_PREFS_GPG_H
++#define GPGMEGTK_PREFS_GPG_H
++
+ typedef struct GPGConfig GPGConfig;
+ typedef struct GPGAccountConfig GPGAccountConfig;
+ 
+@@ -31,6 +34,7 @@ typedef enum {
+ struct GPGConfig
+ {
+ 	gboolean	 auto_check_signatures;
++	gboolean	 autocompletion;
+ 	gboolean	 use_gpg_agent;
+ 	gboolean	 store_passphrase;
+ 	gint		 store_passphrase_timeout;
+@@ -58,3 +62,5 @@ void prefs_gpg_add_skip_encryption_warning(const gchar *systemid);
+ void prefs_gpg_remove_skip_encryption_warning(const gchar *systemid);
+ gboolean prefs_gpg_should_skip_encryption_warning(const gchar *systemid);
+ gboolean prefs_gpg_auto_check_signatures(void);
++
++#endif /* GPGMEGTK_PREFS_GPG_H */
+-- 
+1.9.0
