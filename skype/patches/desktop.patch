@@ -1,10 +1,15 @@
 diff -Naur orig/skype.desktop patched/skype.desktop
 --- orig/skype.desktop	2013-12-18 19:52:54.000000000 +0100
-+++ patched/skype.desktop	2014-04-25 20:05:03.038193517 +0200
-@@ -6,6 +6,6 @@
++++ patched/skype.desktop	2014-04-26 23:38:29.034221676 +0200
+@@ -2,10 +2,9 @@
+ Name=Skype
+ Comment=Skype Internet Telephony
+ Exec=env PULSE_LATENCY_MSEC=60 skype %U
+-Icon=skype.png
++Icon=skype
  Terminal=false
  Type=Application
- Encoding=UTF-8
+-Encoding=UTF-8
 -Categories=Network;Application;
 +Categories=Network;Chat;VideoConference;
  MimeType=x-scheme-handler/skype;
