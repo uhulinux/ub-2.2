@@ -1,0 +1,15 @@
+diff -Naur orig/build/common.gypi patched/build/common.gypi
+--- orig/build/common.gypi	2014-04-24 21:31:53.000000000 +0200
++++ patched/build/common.gypi	2014-04-26 01:18:03.195528127 +0200
+@@ -3115,6 +3115,11 @@
+                   '-Wl,--warn-shared-textrel',
+                 ],
+               }],
++              ['OS=="linux" and target_arch=="ia32"', {
++                'ldflags': [
++                  '-Wl,--no-as-needed',
++                ],
++              }],
+               ['clang==1', {
+                 'cflags!': [
+                   '-fno-ident',
