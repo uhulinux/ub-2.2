@@ -1,5 +1,4 @@
 [Desktop Entry]
-Encoding=UTF-8
 Name=Abevjava
 Comment=APEH Abevjava
 Comment[hu]=APEH nyomtatványkitöltő
@@ -8,4 +7,4 @@ Icon=/usr/lib/abevjava/abevjava.ico
 Terminal=false
 Type=Application
 StartupNotify=true
-Categories=Application;Office;X-UHU-Menu/Tools/More;
+Categories=Office;X-UHU-Menu/Tools/More;
