@@ -5,4 +5,4 @@ Icon=Alien8
 Exec=Alien8
 Terminal=false
 StartupNotify=true
-Categories=Game;ArcadeGame;X-UHU-Menu/Games/Arcade;
+Categories=Game;ArcadeGame;

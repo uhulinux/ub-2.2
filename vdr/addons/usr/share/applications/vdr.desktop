@@ -1,11 +1,10 @@
 [Desktop Entry]
 Name=vdr
 GenericName=Video Disk Recorder
-Genericname[hu]=VDR személyreszabottan
 Comment=VDR launcher
-Comment[hu]=vdr indító
+Comment[hu]=VDR indító
 Exec=vdrlaunch
 Type=Application
-Categories=AudioVideo;TV;X-UHU-Menu/Multimedia/TVRadio;
+Categories=AudioVideo;TV;
 Icon=vdr
 Terminal=true
