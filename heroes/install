@@ -2,4 +2,4 @@
 
 ub_install
 
-cp misc/heroes-1.xpm "$UB_INSTALLDIR"/usr/share/pixmaps/
+convert misc/heroes-1.xpm "$UB_INSTALLDIR"/usr/share/pixmaps/heroes.png

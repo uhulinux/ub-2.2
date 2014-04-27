@@ -1,8 +1,6 @@
 [Desktop Entry]
 Name=komi
-GenericName[hu]=béka nyelvöltögető
 Type=Application
-Comment[hu]=béka nyelvöltögető
 Exec=komi
 Icon=komi
 Categories=Game;ArcadeGame;X-UHU-Menu/Games/Arcade;
