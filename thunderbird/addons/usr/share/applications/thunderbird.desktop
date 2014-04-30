@@ -1,7 +1,5 @@
 [Desktop Entry]
 Name=Thunderbird
-Comment=E-mail client
-Comment[hu]=E-mail kliens
 Exec=thunderbird
 Icon=thunderbird
 Terminal=false
