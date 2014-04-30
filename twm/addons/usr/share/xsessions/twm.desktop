@@ -1,5 +1,7 @@
 [Desktop Entry]
-Encoding=UTF-8
-Type=XSession
-Name=twm
+Type=Application
 Exec=twm
+TryExec=twm
+Name=TWM
+Comment=The Tab Window Manager
+Comment[hu]=Tab Window Manager ablakkezelő
