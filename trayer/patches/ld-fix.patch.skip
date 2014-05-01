@@ -1,0 +1,12 @@
+diff -Naur orig/Makefile mod/Makefile
+--- orig/Makefile	2005-01-14 23:46:19.000000000 +0100
++++ mod/Makefile	2014-04-30 22:47:17.000000000 +0200
+@@ -35,7 +35,7 @@
+ 
+ TARGET = trayer
+ $(TARGET): $(OBJ) $(SYSTRAYOBJ)
+-	$(CC) $(LDFLAGS) $(LIBS) $(OBJ) $(SYSTRAYOBJ) -o $@
++	$(CC) $(LDFLAGS) $(OBJ) $(SYSTRAYOBJ) $(LIBS) -lX11 -o $@
+ ifeq (,$(DEVEL))
+ 	strip $@
+ endif

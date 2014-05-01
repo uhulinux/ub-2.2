@@ -4,4 +4,9 @@ ub_compile \
 	--enable-multibyte \
 	--enable-nls \
 	--enable-iconv \
-	--disable-gtk
+	--disable-gtk \
+	--enable-perllib \
+	--enable-rsvg \
+	--enable-xft \
+	--enable-bidi \
+	--with-stroke-library
