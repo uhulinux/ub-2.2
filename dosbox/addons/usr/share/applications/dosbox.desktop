@@ -1,9 +1,8 @@
 [Desktop Entry]
-Encoding=UTF-8
 Type=Application
 Name=DOSBox
 Comment=Dos emulator for running games
 Comment[hu]=Dos-emulátor játékok számára
 Exec=dosbox
 Icon=dosbox
-Categories=Game;Emulator;X-UHU-Menu/Tools/Emulators;
+Categories=Game;Emulator;

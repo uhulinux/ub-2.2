@@ -20,4 +20,3 @@ for sorok in "$bashstr"
 	echo "$sorok" >"$usrbin"
 	done
 chmod +x "$usrbin"
-

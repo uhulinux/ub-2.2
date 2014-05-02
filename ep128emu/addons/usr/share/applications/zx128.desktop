@@ -1,5 +1,4 @@
 [Desktop Entry]
-Encoding=UTF-8
 Type=Application
 Name=zx128emu
 GenericName=zx128emu
@@ -7,4 +6,4 @@ Comment=Sinclair Spectrum zx128 emulator
 Comment[hu]=Sinclair Spectrum zx128 emulátor
 Exec=ep128emu -zx
 Icon=zx128emu
-Categories=Game;Emulator;X-UHU-Menu/Tools/Emulators;
+Categories=Game;Emulator;

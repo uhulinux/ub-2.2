@@ -1,5 +1,4 @@
 [Desktop Entry]
-Version=1.1
 Name=Conky
 Comment=System monitor
 Comment[hu]=rendszer monitor
@@ -7,4 +6,4 @@ Exec=conky
 Terminal=false
 Type=Application
 Icon=
-Categories=X-UHU-Menu/Tools/Utilities;
+Categories=System;Monitor;

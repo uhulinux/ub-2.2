@@ -7,4 +7,4 @@ Icon=/usr/share/bzflag/bzflag-48x48.png
 Exec=bzflag
 Terminal=false
 StartupNotify=false
-Categories=Application;Game;ActionGame;X-UHU-Menu/Games/Action;
+Categories=Game;ActionGame;
