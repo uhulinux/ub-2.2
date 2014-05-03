@@ -1,5 +1,4 @@
 [Desktop Entry]
-Encoding=UTF-8
 Name=Trigger Rally
 Comment=Rally racing game
 Comment[hu]=terepautózás
@@ -9,4 +8,4 @@ Exec=trigger
 Icon=trigger-rally
 Terminal=false
 Type=Application
-Categories=Game;ArcadeGame;X-UHU-Menu/Games/Arcade;
+Categories=Game;ArcadeGame;

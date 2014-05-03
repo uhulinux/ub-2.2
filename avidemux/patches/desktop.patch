@@ -1,21 +1,17 @@
-diff -Naur avidemux_2.6.1-orig/avidemux2.desktop avidemux_2.6.1/avidemux2.desktop
---- avidemux_2.6.1-orig/avidemux2.desktop	2009-01-24 16:18:39.000000000 +0100
-+++ avidemux_2.6.1/avidemux2.desktop	2013-02-27 11:00:42.000000000 +0100
-@@ -1,10 +1,13 @@
+diff -Naur orig/avidemux2.desktop mod/avidemux2.desktop
+--- orig/avidemux2.desktop	2014-03-12 07:15:23.000000000 +0100
++++ mod/avidemux2.desktop	2014-05-03 20:44:26.000000000 +0200
+@@ -1,10 +1,9 @@
  [Desktop Entry]
- Encoding=UTF-8
+-Encoding=UTF-8
 -Name=avidemux2
 +Name=avidemux
  Comment=Video Editor
--Exec=avidemux2_gtk
-+Comment[hu]=Videó szerkesztő
-+GenericName[hu]=Videó szerkesztő
-+Exec=avidemux
+ Exec=avidemux2_gtk
  MimeType=video/mpeg;video/quicktime;video/x-msvideo;video/x-anim;audio/x-mp3;audio/x-mp2;
 -Icon=avidemux
 +Icon=/usr/share/avidemux6/avidemux_icon.png
  Terminal=false
  Type=Application
 -Categories=Application;AudioVideo
-+NotShowIn=KDE;
-+Categories=Application;AudioVideo;X-UHU-Menu/Multimedia/VideoEdit;
++Categories=AudioVideo;AudioVideoEditing;

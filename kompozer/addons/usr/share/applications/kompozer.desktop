@@ -1,5 +1,4 @@
 [Desktop Entry]
-Version=1.1
 Type=Application
 Name=KompoZer
 GenericName=Web Authoring System
@@ -11,4 +10,4 @@ Exec=kompozer
 Terminal=false
 StartupNotify=true
 MimeType=text/html;text/xml;text/css;text/x-javascript;text/javascript;application/xhtml+xml;
-Categories=Development;WebDevelopment;Network;X-UHU-Menu/Development/Web;
+Categories=Development;WebDevelopment;

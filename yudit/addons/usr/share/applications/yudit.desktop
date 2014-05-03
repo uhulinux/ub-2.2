@@ -1,7 +1,6 @@
 [Desktop Entry]
-Encoding=UTF-8
 Name=Yudit
 Exec=yudit %f
 Icon=/usr/share/yudit/data/gnome-yudit.png
 Type=Application
-Categories=X-UHU-Menu/Tools/Editors;
+Categories=Utility;TextEditor;

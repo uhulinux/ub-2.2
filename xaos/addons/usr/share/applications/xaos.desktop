@@ -1,9 +1,8 @@
 [Desktop Entry]
-Encoding=UTF-8
 Type=Application
 Name=Xaos
 Comment=Realtime fractalviewer
 Comment[hu]=Valósidejű fraktálnézegető
-Icon=xaos
 Exec=xaos
-Categories=X-UHU-Menu/Edutainment/Mathematics;
+Icon=xaos
+Categories=Education;DataVisualization;

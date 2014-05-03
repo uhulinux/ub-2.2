@@ -1,9 +1,8 @@
 [Desktop Entry]
-Encoding=UTF-8
 Type=Application
 Name=Tux Racer
 Exec=tuxracer
-Icon=tuxracer.svg
+Icon=/usr/share/pixmaps/tuxracer.svg
 Comment=Sliding downhill with Tux the penguin
 Comment[hu]=Hasoncsúszás Tuxszal, a pingvinnel
-Categories=Game;ActionGame;X-UHU-Menu/Games/Action;
+Categories=Game;ArcadeGame;

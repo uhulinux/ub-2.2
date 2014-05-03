@@ -1,9 +1,10 @@
 [Desktop Entry]
 Name=HoH
 GenericName=Head over Hells
-Comment[hu]=Klasszikus solid 3d játék
+Comment=Solid 3d Game
+Comment[hu]=Klasszikus szobás játék
 Exec=hoh -bgr
-Icon=/usr/share/doc/Packages/HoH/gfx/icon-1.gif
+Icon=HoH
 StartupNotify=false
 Type=Application
-Categories=Game;ActionGame;X-UHU-Menu/Games/Action;
+Categories=Game;ActionGame;

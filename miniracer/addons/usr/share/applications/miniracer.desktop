@@ -1,5 +1,4 @@
 [Desktop Entry]
-Encoding=UTF-8
 Name=Miniracer
 Comment=Car racing game
 Comment[hu]=Autóverseny
@@ -8,4 +7,4 @@ Exec=miniracer
 Icon=miniracer
 Terminal=false
 Type=Application
-Categories=Game;ArcadeGame;X-UHU-Menu/Games/Arcade;
+Categories=Game;ArcadeGame;

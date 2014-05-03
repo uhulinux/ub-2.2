@@ -2,9 +2,9 @@
 Name=vdr
 GenericName=Video Disk Recorder
 Comment=VDR launcher
-Comment[hu]=VDR indító
+Comment[hu]=vdr indító
 Exec=vdrlaunch
 Type=Application
-Categories=AudioVideo;TV;
+Categories=AudioVideo;Video;TV;Player;
 Icon=vdr
 Terminal=true
