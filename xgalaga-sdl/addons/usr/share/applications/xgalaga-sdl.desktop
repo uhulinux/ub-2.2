@@ -3,4 +3,4 @@ Name=xgalaga-sdl
 Type=Application
 Exec=xgalaga-sdl
 Icon=xgalaga-sdl
-Categories=Game;ArcadeGame;X-UHU-Menu/Games/Arcade;
+Categories=Game;ArcadeGame;
