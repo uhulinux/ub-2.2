@@ -1,8 +1,8 @@
 [Desktop Entry]
 Name=Widelands
-GenericName=Widelands
 Comment=Realtime strategy game
+Comment[hu]=Valósidejű stratégiai játék
 Icon=widelands
 Exec=widelands
 Type=Application
-Categories=Game;StrategyGame;X-UHU-Menu/Games/TacticStrategy;
+Categories=Game;StrategyGame;
