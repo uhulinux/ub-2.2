@@ -1,0 +1,4 @@
+#!/usr/bin/env dl
+
+xf86-video-sis-${UB_VERSION}.tar.gz xf86-video-sis-master/
+	git://anongit.freedesktop.org/xorg/driver/xf86-video-sis@master
