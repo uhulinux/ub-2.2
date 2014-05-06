@@ -7,4 +7,4 @@ Icon=eduke32
 Exec=eduke32
 Terminal=false
 StartupNotify=false
-Categories=Game;ActionGame;X-UHU-Menu/Games/Action;
+Categories=Game;ActionGame;
