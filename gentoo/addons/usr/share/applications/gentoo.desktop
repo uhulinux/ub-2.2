@@ -1,5 +1,4 @@
 [Desktop Entry]
-Version=1.1
 Type=Application
 Name=gentoo
 GenericName=file manager
@@ -10,4 +9,4 @@ TryExec=gentoo
 Icon=/usr/share/gentoo/icons/gentoo.png
 Terminal=false
 StartupNotify=true
-Categories=System;FileTools;GTK;FileManager;X-UHU-Menu/Tools/File_Managers;
+Categories=System;FileTools;GTK;FileManager;
