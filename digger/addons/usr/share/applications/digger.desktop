@@ -1,10 +1,10 @@
 [Desktop Entry]
+Name=digger
+Type=Application
 Comment=the digger game, cloned and remastered with additional features
 Comment[hu]=Az újraírt digger, bővített lehetőségekkel
-Categories=Game;ActionGame;X-UHU-Menu/Games/Action;
+Categories=Game;ArcadeGame;
 Exec=digger "/A"
 GenericName=Digger
 GenericName[hu]=aranyász
 Icon=digger
-Name=digger
-Type=Application
