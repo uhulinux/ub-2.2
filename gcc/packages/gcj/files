@@ -22,6 +22,8 @@
 	/usr/include/c++/*/javax
 	/usr/include/c++/*/org
 	/usr/include/c++/*/sun
+	/usr/lib/gcc/*/*/include/ffi.h
+	/usr/lib/gcc/*/*/include/ffitarget.h
 	/usr/lib/gcc/*/*/include/gcj
 	/usr/lib/gcc/*/*/include/jawt.h
 	/usr/lib/gcc/*/*/include/jawt_md.h
@@ -36,7 +38,7 @@
 	/usr/lib/libgcj_bc.so*
 	/usr/lib/libgij.*
 	/usr/lib/logging.properties
-	/usr/lib/pkgconfig/libgcj-*.pc
+	/usr/lib/pkgconfig/libgcj-4.8.pc
 	/usr/libexec/gcc/*/*/jc1
 	/usr/libexec/gcc/*/*/jvgenmain
 	/usr/share/gcc-*/python/libjava
@@ -61,3 +63,6 @@
 	/usr/share/man/man1/gserialver.1
 	/usr/share/man/man1/gtnameserv.1
 	/usr/share/man/man1/rebuild-gcj-db.1
+	/usr/share/man/man3/ffi.3
+	/usr/share/man/man3/ffi_call.3
+	/usr/share/man/man3/ffi_prep_cif.3
