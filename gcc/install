@@ -29,7 +29,16 @@ ln -sf "$arch"-gfortran "$UB_INSTALLDIR"/usr/bin/gfortran
 ln -s ../usr/bin/cpp "$UB_INSTALLDIR"/lib/cpp
 
 cd "$UB_INSTALLDIR"/usr/lib
-ln -s libstdc++.so.6.0.20 "$UB_INSTALLDIR"/usr/lib/libstdc++.so.6.0.13
-ln -s libstdc++.so.6.0.20 "$UB_INSTALLDIR"/usr/lib/libstdc++.so.6.0.17
-ln -s libstdc++.so.6.0.20 "$UB_INSTALLDIR"/usr/lib/libstdc++.so.6.0.18
+ln -s libstdc++.so.6.0.18 "$UB_INSTALLDIR"/usr/lib/libstdc++.so.6.0.13
+ln -s libstdc++.so.6.0.18 "$UB_INSTALLDIR"/usr/lib/libstdc++.so.6.0.17
+ln -s libgcj.so.14 "$UB_INSTALLDIR"/usr/lib/libgcj.so.13
+ln -s libgcj.so.14.0.0 "$UB_INSTALLDIR"/usr/lib/libgcj.so.13.0.0
+ln -s libgcj-tools.so.14 "$UB_INSTALLDIR"/usr/lib/libgcj-tools.so.13
+ln -s libgcj-tools.so.14.0.0 "$UB_INSTALLDIR"/usr/lib/libgcj-tools.so.13.0.0
+ln -s libgij.so.14 "$UB_INSTALLDIR"/usr/lib/libgij.so.13
+ln -s libgij.so.14.0.0 "$UB_INSTALLDIR"/usr/lib/libgij.so.13.0.0
+
+# remove conflicting files
+# rm "$UB_INSTALLDIR"/usr/lib/libffi.*
+# rm "$UB_INSTALLDIR"/usr/share/man/man3/ffi*.3
 
