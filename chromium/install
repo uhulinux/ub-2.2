@@ -1,8 +1,8 @@
 #!/bin/sh -eux
 
 mkdir -p "$UB_INSTALLDIR/usr/lib/chromium/"
-cp -a out/Release/lib.target/*.so "$UB_INSTALLDIR/usr/lib/chromium/"
-rm -rf out/Release/{.deps,obj,obj.host,obj.target,lib.host,lib.target}
+cp -a out/Release/lib/*.so "$UB_INSTALLDIR/usr/lib/chromium/"
+rm -rf out/Release/{gen,lib,obj}
 cp -a out/Release/. "$UB_INSTALLDIR/usr/lib/chromium/"
 
 for size in 16 22 24 32 48 64 128 256; do

@@ -1,8 +1,21 @@
 #!/bin/sh -eux
 
+# ninja.
+# a 34.0.1847.131 valamiért csak ezzel fordul le rendesen,
+# make használatánál linker hibák lesznek.
+
+unzip ninja.zip
+cd ninja-1.4.0
+./bootstrap.py --verbose
+cd ..
+rm -f ninja.zip
+
+# ok, chromium
+
 export LDFLAGS+="-Wl,-rpath,/usr/lib/chromium/ -Wl,--no-keep-memory"
 
-build/gyp_chromium -f make build/all.gyp --no-parallel --depth=. \
+build/gyp_chromium -f ninja build/all.gyp --no-parallel --depth=. \
+	-Dhost_arch=ia32 \
 	-Dtarget_arch=ia32 \
 	-Dpython_ver="2.6" \
 	-Dno_strict_aliasing=1 \
@@ -33,5 +46,5 @@ build/gyp_chromium -f make build/all.gyp --no-parallel --depth=. \
 	-Denable_google_now=0 \
 	-Dcomponent="shared_library"
 
-make -j2 chrome chrome_sandbox BUILDTYPE=Release
+ninja-1.4.0/ninja -C out/Release chrome chrome_sandbox
 
