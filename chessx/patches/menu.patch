@@ -1,9 +1,11 @@
 diff -Naur orig/unix/chessx.desktop mod/unix/chessx.desktop
 --- orig/unix/chessx.desktop	2014-01-02 18:50:14.000000000 +0100
-+++ mod/unix/chessx.desktop	2014-04-12 14:18:15.000000000 +0200
-@@ -4,12 +4,14 @@
++++ mod/unix/chessx.desktop	2014-05-07 13:49:55.447550473 +0200
+@@ -2,14 +2,15 @@
+ Type=Application
+ Name=ChessX
  Comment=Free chess database
- Comment=Chess database
+-Comment=Chess database
  Comment[de]=Schachdatenbank
 +Comment[hu]=Sakkadatbázis
  GenericName=Chess Game
@@ -12,8 +14,9 @@ diff -Naur orig/unix/chessx.desktop mod/unix/chessx.desktop
  Icon=chessx
  Exec=chessx
  Terminal=false
--Categories=Game;BoardGame;
-+Categories=Game;BoardGame;X-UHU-Menu/Games/Board;
+ Categories=Game;BoardGame;
  MimeType=application/x-chess-pgn;
- Keywords=PGN;FEN;Database
- Keywords[de]=PGN;FEN;Datenbank
+-Keywords=PGN;FEN;Database
+-Keywords[de]=PGN;FEN;Datenbank
++Keywords=PGN;FEN;Database;
++Keywords[de]=PGN;FEN;Datenbank;

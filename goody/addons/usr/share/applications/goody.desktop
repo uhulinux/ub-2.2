@@ -7,4 +7,4 @@ Icon=goody
 Exec=goody
 StartupNotify=true
 Terminal=false
-Categories=Game;ActionGame;X-UHU-Menu/Games/Action;
+Categories=Game;ActionGame;

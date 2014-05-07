@@ -4,5 +4,5 @@ Name=Skater Demo
 Name[hu]=Gördeszka demó
 GenericName=Allegro shooter demo
 GenericName[hu]=allegro demonstrációs gördeszka játék
-Categories=Game;ArcadeGame;X-UHU-Menu/Games/Arcade;
+Categories=Game;ArcadeGame;
 Exec=skater
