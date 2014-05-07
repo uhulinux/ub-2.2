@@ -6,4 +6,4 @@ GenericName[hu]=Mario Bros klón
 Exec=megamario
 Icon=megamario
 StartupNotify=false
-Categories=Game;ActionGame;X-UHU-Menu/Games/Action;
+Categories=Game;ArcadeGame;
