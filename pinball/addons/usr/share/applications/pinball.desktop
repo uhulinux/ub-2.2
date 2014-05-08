@@ -5,6 +5,6 @@ Comment=OpenGL pinball game
 Comment[hu]=OpenGL flipper játék
 Type=Application
 Exec=pinball
-Icon=/usr/share/pixmaps/pinball.xpm
+Icon=/usr/share/pinball/pinball.xpm
 Categories=Game;ArcadeGame;
 Terminal=false
