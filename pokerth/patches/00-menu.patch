@@ -30,4 +30,4 @@ diff -Naur a/pokerth.desktop b/pokerth.desktop
  X-DCOP-ServiceType=Multi
  X-KDE-StartupNotify=true
 -Categories=Qt;Game;CardGame;
-+Categories=Qt;Game;CardGame;X-UHU-Menu/Games/Card;
++Categories=Qt;Game;CardGame;
