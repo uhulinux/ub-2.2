@@ -7,34 +7,10 @@ cd "$UB_OBJECTDIR"
 mkdir -p mozilla/js/src/.deps
 
 # az UB_CONFIGURE_DIR="$UB_COMPILEDIR" forma nem jó, linker hiba lesz belőle
-"$UB_COMPILEDIR"/configure \
-	--prefix=/usr \
-	--enable-application=suite \
-	--enable-official-branding \
-	--without-system-jpeg \
-	--with-system-zlib \
-	--with-pthreads \
-	--with-system-nss \
-	--with-system-nspr \
-	--enable-system-cairo \
-	--enable-system-sqlite \
-	--enable-gio \
-	--enable-pango \
-	--enable-svg \
-	--enable-canvas \
-	--enable-xinerama \
-	--enable-startup-notification \
-	--enable-libxul \
-	--disable-gconf \
-	--disable-gnomeui \
-	--disable-gnomevfs \
-	--disable-installer \
-	--disable-updater \
-	--disable-crashreporter \
-	--disable-tests \
-	--disable-mochitest \
-	--enable-default-toolkit=cairo-gtk2 \
-	--disable-necko-wifi
+# a configure opcióknak a 2.26-nál a .mozconfig fájlban kell lenniük, különben
+# hibára fut
+
+"$UB_COMPILEDIR"/configure
 	
 ub_make
 

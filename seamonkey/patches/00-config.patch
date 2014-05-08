@@ -1,0 +1,33 @@
+diff -Naur orig/.mozconfig patched/.mozconfig
+--- orig/.mozconfig	1970-01-01 01:00:00.000000000 +0100
++++ patched/.mozconfig	2014-05-08 12:35:29.582724079 +0200
+@@ -0,0 +1,29 @@
++ac_add_options --prefix=/usr
++ac_add_options --enable-application=suite
++ac_add_options --enable-official-branding
++ac_add_options --without-system-jpeg
++ac_add_options --with-system-zlib
++ac_add_options --with-pthreads
++ac_add_options --with-system-nss
++ac_add_options --with-system-nspr
++ac_add_options --disable-system-cairo
++ac_add_options --disable-system-pixman
++ac_add_options --enable-system-sqlite
++ac_add_options --enable-gio
++ac_add_options --enable-pango
++ac_add_options --enable-svg
++ac_add_options --enable-canvas
++ac_add_options --enable-xinerama
++ac_add_options --enable-startup-notification
++ac_add_options --enable-libxul
++ac_add_options --disable-gconf
++ac_add_options --disable-gnomeui
++ac_add_options --disable-gnomevfs
++ac_add_options --disable-installer
++ac_add_options --disable-updater
++ac_add_options --disable-crashreporter
++ac_add_options --disable-tests
++ac_add_options --disable-mochitest
++ac_add_options --enable-default-toolkit=cairo-gtk2
++ac_add_options --disable-necko-wifi
++

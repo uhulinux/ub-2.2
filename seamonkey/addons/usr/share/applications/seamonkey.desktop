@@ -1,13 +1,10 @@
 [Desktop Entry]
-Encoding=UTF-8
 Name=Seamonkey
-Comment=Web Browser
-Comment[hu]=A világháló böngészése
 Exec=seamonkey
 Icon=seamonkey
 Terminal=false
 Type=Application
 GenericName=Web Browser
 GenericName[hu]=Webböngésző
-Categories=Network;GTK;Email;Browser;WebBrowser;News;X-UHU-Menu/Internet/Browsers;
+Categories=Network;GTK;Email;WebBrowser;News;X-UHU-Menu/Internet/Browsers;
 MimeType=x-scheme-handler/http;x-scheme-handler/https;text/html;text/xml;application/xhtml+xml;
