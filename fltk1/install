@@ -31,14 +31,14 @@ chmod +x "$bindir"/fltk-demo
 
 # a demó desktopja
 lista="[Desktop Entry]
-Encoding=UTF-8
 Type=Application
 Name=FLTK Demo
-Comment=FLTK examples
-Comment[hu]=FLTK Demó
+Name[hu]=FLTK demó
+Comment=FLTK Examples
+Comment[hu]=FLTK példák
 Icon= fluid
 Exec=fltk-demo
-Categories=X-UHU-Menu/Tools/More"
+Categories=Development;GUIDesigner;"
 for listatag in "$lista"
 do
 echo "$listatag" > "$desktopdir"/fltk-demo.desktop
