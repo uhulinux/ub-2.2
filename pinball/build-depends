@@ -1,3 +1,9 @@
+flac-dev
+libmikmod-dev
+libmodplug-dev
+libtool
+libvorbis-dev
 mesa-dev
 sdl-image-dev
 sdl-mixer-dev
+smpeg-dev

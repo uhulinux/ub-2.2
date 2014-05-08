@@ -1,3 +1,6 @@
 #!/bin/sh -eux
-ub_compile \
-  --disable-sdltest
+
+export UB_MAKEPROCS=1
+./configure --prefix=/usr --disable-sdltest
+
+make -j1
