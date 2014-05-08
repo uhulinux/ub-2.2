@@ -1,10 +1,11 @@
---- "$UB_COMPILEDIR"/po/LINGUAS	2007-07-19 16:27:04.000000000 +0200
-+++ "$UB_COMPILEDIR"/po/LINGUAS	2007-08-03 15:04:57.000000000 +0200
+diff -Naur orig/po/LINGUAS mod/po/LINGUAS
+--- orig/po/LINGUAS	2012-12-22 12:02:52.000000000 +0100
++++ mod/po/LINGUAS	2014-05-07 21:56:56.000000000 +0200
 @@ -5,4 +5,5 @@
  fr
  pt
  ro
 -sv
-\ No newline at end of file
+\ Nincs újsor a fájl végén
 +sv
 +hu
