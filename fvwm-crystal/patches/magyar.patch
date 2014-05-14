@@ -1,0 +1,1469 @@
+diff -Naur orig/fvwm/locale/hu_HU/LC_MESSAGES/fvwm-crystal.po mod/fvwm/locale/hu_HU/LC_MESSAGES/fvwm-crystal.po
+--- orig/fvwm/locale/hu_HU/LC_MESSAGES/fvwm-crystal.po	2014-01-05 04:17:07.000000000 +0100
++++ mod/fvwm/locale/hu_HU/LC_MESSAGES/fvwm-crystal.po	2014-05-14 20:37:25.000000000 +0200
+@@ -1,320 +1,1351 @@
+-# German translation for FVWM-Crystal
+-# Copyright (C) 2005 FVWM-Crystal team
+-# This file is distributed under the same license as the fvwm-crystal package.
+-# Nicolas Vilz 'niv' <niv@iaglans.de>, 2005.
+ #
+ msgid ""
+ msgstr ""
++"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+ "Project-Id-Version: fvwm-crystal\n"
+-"POT-Creation-Date: 2005-07-04 14:23+0100\n"
+-"PO-Revision-Date: 2006-03-09 10:19+0100\n"
+-"Last-Translator: SZERVÑC Attila <sas@321.hu>\n"
+-"Language-Team: hu\n"
++"POT-Creation-Date: \n"
++"PO-Revision-Date: \n"
++"Last-Translator: Kiss Attila <attus@enterpriseforever.com>\n"
++"Language-Team: LANGUAGE <attus@enterpriseforever.com>\n"
+ "MIME-Version: 1.0\n"
+-"Content-Type: text/plain; charset=utf-8\n"
++"Content-Type: text/plain; charset=UTF-8\n"
+ "Content-Transfer-Encoding: 8bit\n"
+-"X-Poedit-Language: Hungarian\n"
+-"X-Poedit-Country: HUNGARY\n"
++"Language: hu_HU\n"
++"X-Generator: Poedit 1.6.4\n"
++"X-Poedit-SourceCharset: iso-8859-1\n"
++"X-Poedit-Basepath: /usr/share/locale/hu/LC_MESSAGES\n"
++
++msgid "+ &1 tone"
++msgstr ""
++
++msgid "+ 1 &comma"
++msgstr ""
++
++msgid "+ 1 &fifth"
++msgstr ""
++
++msgid "+ 1 &octave"
++msgstr ""
++
++msgid "+ 1 &sixth"
++msgstr ""
++
++msgid "+ 1 f&ourth"
++msgstr ""
++
++msgid "+ 1 s&eventh"
++msgstr ""
++
++msgid "+ 1 t&hird"
++msgstr ""
++
++msgid "+ 1/2 &tone"
++msgstr ""
++
++msgid "- &1 tone"
++msgstr ""
++
++msgid "- 1 &comma"
++msgstr ""
++
++msgid "- 1 &fifth"
++msgstr ""
++
++msgid "- 1 &octave"
++msgstr ""
++
++msgid "- 1 &sixth"
++msgstr ""
++
++msgid "- 1 f&ourth"
++msgstr ""
++
++msgid "- 1 s&eventh"
++msgstr ""
++
++msgid "- 1 t&hird"
++msgstr ""
++
++msgid "- 1/2 &tone"
++msgstr ""
++
++msgid "1 icon width"
++msgstr "1 ikon széles"
++
++msgid "12 icons width"
++msgstr "12 ikon széles"
++
++msgid "15 icons width"
++msgstr "15 ikon széles"
++
++msgid "2 icons width"
++msgstr "2 ikon széles"
++
++msgid "20 icons width"
++msgstr "21 ikon széles"
++
++msgid "2D Graphics"
++msgstr "2D grafika"
++
++msgid "3 icons width"
++msgstr "3 ikon széles"
++
++msgid "3D Graphics"
++msgstr "3D grafika"
++
++msgid "4 icons width"
++msgstr "4 ikon széles"
++
++msgid "5 icons width"
++msgstr "5 ikon széles"
++
++msgid "6 icons width"
++msgstr "6 ikon széles"
++
++msgid "7 icons width"
++msgstr "7 ikon széles"
++
++msgid "8 icons width"
++msgstr "8 ikon széles"
++
++msgid "9 icons width"
++msgstr "9 ikon széles"
++
++msgid "A console command must be prefixed by A and space,"
++msgstr "Konzol parancsot meg kell előznie A betűnek és egy space -nak."
+ 
+ msgid "About FVWM-Crystal"
+-msgstr "Az FVWM-Crystal névjegye"
++msgstr "FVWM-Crystal névjegye"
++
++msgid "Accessibility"
++msgstr "Kisegítő dolgok"
++
++msgid "Action "
++msgstr "Akció"
++
++msgid "Action Games"
++msgstr "Akciójáték"
++
++msgid "Actions"
++msgstr "Akciók"
+ 
+ msgid "Activate"
+ msgstr "Aktivál"
+ 
+-#
+-# Applications menu
+-#
++msgid "Add a playlist"
++msgstr "Lejátszólistához ad"
++
++msgid "Add playlist"
++msgstr "Lejátszólistahozzáadás"
++
++msgid "Adventure Games"
++msgstr "Kalandjátékok"
++
++msgid "All pages wallpaper"
++msgstr "Minden lap háttér kép"
++
++msgid "Antennas"
++msgstr "Antennák"
++
+ msgid "Applications"
+ msgstr "Alkalmazások"
+ 
+-msgid "Author"
+-msgstr "Szerző"
++msgid "Arcade Games"
++msgstr "Ügyességi játékok"
++
++msgid "Archiving"
++msgstr "Archiválás"
++
++msgid "Artificial Intelligence"
++msgstr "Mesterséges intelligencia"
++
++msgid "Astronomy"
++msgstr "Csillagászat"
++
++msgid "Audio mixer"
++msgstr "Hangkeverő"
++
++msgid "Audio playlists"
++msgstr "Hang lejátszólisták"
++
++msgid "Audio tools"
++msgstr "Hang eszközök"
++
++msgid "Audio-Video Editing"
++msgstr "Hang-videó szerkesztés"
++
++msgid "Authors"
++msgstr "Szerzők"
++
++msgid "Backward"
++msgstr "Vissza"
++
++msgid "Biology"
++msgstr "Biológia"
++
++msgid "Bling bling"
++msgstr ""
++
++msgid "Blocks Games"
++msgstr "Blokk játékok"
++
++msgid "Board Games"
++msgstr "Tábla játékok"
++
++msgid "Browse CDROM"
++msgstr "CDROM túrkálás"
++
++msgid "Browse DVD"
++msgstr "DVD túrkálás"
++
++msgid "Browse Info pages with EMacs"
++msgstr "Infó lap turkálás EMacs -al"
++
++msgid "Browse Info pages with pinfo"
++msgstr "Infó lap turkálás pinfo -val"
++
++msgid "Browse Info pages with tkinfo"
++msgstr "Infó lap turkálás tkinfo -val"
++
++msgid "Browse Medias"
++msgstr "Média turkáló"
++
++msgid "Browse Movies"
++msgstr "Film turkáló"
++
++msgid "Browse Music"
++msgstr "Zene turkáló"
++
++msgid "Building"
++msgstr "Éptés"
+ 
+ msgid "Button model"
+ msgstr "Gomb modell"
+ 
++msgid "CD Burning"
++msgstr "CD írás"
++
++msgid "Calculators"
++msgstr "Számológépek"
++
++msgid "Calendars"
++msgstr "Naptárak"
++
+ msgid "Cancel"
+-msgstr "Mégse"
++msgstr "Mégsem"
++
++msgid "Card Games"
++msgstr "Kártyajátékok"
++
++msgid "Changed desktop manager"
++msgstr "Asztalkezelő változtatva"
++
++msgid "Changed notification area manager"
++msgstr "Azonosító területkezelő változtatva"
++
++msgid "Channels"
++msgstr "Csatornák"
++
++msgid "Character fonts"
++msgstr "Betű típusok"
++
++msgid "Charts"
++msgstr "Térképek"
++
++msgid "Chemistry"
++msgstr "Vegyészet"
++
++msgid "Choose a playlist to load"
++msgstr "Betöltendő lejátszólista"
++
++msgid "Choose a playlist to remove"
++msgstr "Eltávolítandó lejátszólista"
++
++msgid "Choose playlist to copy"
++msgstr "Másolandó lejátszólista"
++
++msgid "Choose playlist to load"
++msgstr "Betöltendő lejátszólista"
++
++msgid "Choose playlist to remove"
++msgstr "Eltávolítandó lejátszólista"
+ 
+ msgid "Clear playlist"
+-msgstr "Lista ürítése"
++msgstr "Lejátszólista törlés"
++
++msgid "Clocks"
++msgstr "Órák"
+ 
+ msgid "Close"
+ msgstr "Bezár"
+ 
+ msgid "Colorsets"
+-msgstr "Színkészletek"
++msgstr "Színek"
++
++msgid "Computer Science"
++msgstr "Számítástechnika"
++
++msgid "Console Only"
++msgstr "Csak konzolos"
++
++msgid "Contact Management"
++msgstr "Kontaktus kezelés"
++
++msgid "Copy playlist"
++msgstr "Lejátszólista másolás"
++
++msgid "Core"
++msgstr "Mag"
+ 
+ msgid "Crossfade"
+-msgstr "Átkever"
++msgstr "Célkereszt"
++
++msgid "Current playlist"
++msgstr "Aktuális lejátszólista"
++
++msgid "Custom action "
++msgstr "Egyéb akció"
++
++msgid "Custom playlists"
++msgstr "Egyéb lejátszólisták"
++
++msgid "Data Visualization"
++msgstr "Adat képi megjelenítés"
++
++msgid "Databases"
++msgstr "Adatbázisok"
++
++msgid "Debuggers"
++msgstr "Hibakeresők"
++
++msgid "Decorations and colorsets"
++msgstr "Díszítések és színek"
++
++msgid "Default browser"
++msgstr "Alap böngésző"
+ 
+ msgid "Default terminal"
+ msgstr "Alap terminál"
+ 
+ msgid "Delayed fullscreen"
+-msgstr "Késleltetett teljesképernyő"
++msgstr "Késleltetett teljes kép"
++
++msgid "Desktop Settings"
++msgstr "Asztal beállítás"
++
++msgid "Desktop geometry"
++msgstr "Asztal méret"
+ 
+ msgid "Desktop manager"
+ msgstr "Asztalkezelő"
+ 
++msgid "Desktop menu"
++msgstr "Asztal menü"
++
+ msgid "Destroy"
+-msgstr "Öl"
++msgstr "Kilövés"
++
++msgid "Destroy MPlayer"
++msgstr "Mplayer kilövés"
+ 
+ msgid "Developer menu"
+-msgstr "Fejlesztő menü"
++msgstr "Fejlesztői menü"
++
++msgid "Development"
++msgstr "Fejlesztés"
++
++msgid "Dial-up"
++msgstr "Tárcsázás"
++
++msgid "Dictionaries"
++msgstr "Szótárak"
++
++msgid "Dictionary"
++msgstr "Szótár"
++
++msgid "Disc Burning"
++msgstr "Lemezírás"
++
++msgid "Each line have the following format:"
++msgstr "Minden sor formája a következő:"
++
++msgid "Economy"
++msgstr "Gazdaság"
++
++msgid "Electricity"
++msgstr "Villamosság"
++
++msgid "Electronics"
++msgstr "Elektronika"
++
++msgid "Email"
++msgstr "Levelezés"
++
++msgid "Emulators"
++msgstr "Emulátorok"
++
++msgid "Engineering"
++msgstr "Mérnöki"
++
++msgid "Enter the default browser"
++msgstr "Alap böngésző megadás"
++
++msgid "Enter the name of the channel list for the DVB input"
++msgstr "A DVB bemenet csatorna listájának neve"
+ 
+ msgid "Everything"
+ msgstr "Minden"
+ 
+ msgid "Exit"
+-msgstr "Kilépés"
++msgstr "Kilép"
++
++msgid "External scripts and applications"
++msgstr "Külső alkalmazások és szkriptek"
++
++msgid "FVWM Man Pages"
++msgstr "FVWM Kézikönyv"
++
++msgid "FVWM manpages"
++msgstr "FVWM Kézikönyv"
+ 
+ msgid "FVWM version"
+ msgstr "FVWM verzió"
+ 
+-#
+-# Screensaver menu
+-#
++msgid "FVWM-Crystal Help"
++msgstr "FVWM-Crystal segítség"
++
++msgid "FVWM-Crystal documentation"
++msgstr "FVWM-Crystal leírás"
++
++msgid "FVWM-Crystal users email list, or the"
++msgstr ""
++
++msgid "FVWM-Crystal with raise"
++msgstr ""
++
++msgid "Feedback, support"
++msgstr ""
++
++msgid "File browser action"
++msgstr "Fájlkezelő akció"
++
++msgid "File Managers"
++msgstr "Fájlkezelők"
++
++msgid "File Systems"
++msgstr "Fájlrendszerek"
++
++msgid "File Tools"
++msgstr "Fájleszközök"
++
++msgid "File Transfer"
++msgstr "Fájlátvitel"
++
++msgid "Files"
++msgstr "Fájlok"
++
++msgid "Flow Charts"
++msgstr "Folyamatábrák"
++
++msgid "Fonts sizes"
++msgstr "Betűnagyság"
++
+ msgid "Force suspend"
+-msgstr "Pihentet"
++msgstr "Készenléti állapot"
++
++msgid "Forward"
++msgstr "Előre"
+ 
+ msgid "Frame"
+ msgstr "Keret"
+ 
+-#
+-# Screenshot menu
+-#
++msgid "Frame step"
++msgstr "Képkocka lépés"
++
+ msgid "Fullscreen"
+-msgstr "Teljesképernyő"
++msgstr "Teljes kép"
++
++msgid "Fvwm-Crystal Docs"
++msgstr "Fvwm-Crystal leírások"
++
++msgid "FvwmConsole terminal"
++msgstr "FvwmConsole terminál"
++
++msgid "GUI Designers"
++msgstr "Felület szerkesztők"
++
++msgid "Games"
++msgstr "Játékok"
++
++msgid "Generate application menu"
++msgstr "Menü generátor"
++
++msgid "Geography"
++msgstr "Földrajz"
++
++msgid "Geology"
++msgstr "Geológia"
++
++msgid "Geoscience"
++msgstr "Földtudomány"
++
++msgid "Go to the FVWM-Crystal users email list"
++msgstr ""
++
++msgid "Go to the fvwm-crystal IRC channel"
++msgstr ""
++
++msgid "Graphics"
++msgstr "Grafika"
++
++msgid "Ham Radio"
++msgstr ""
++
++msgid "Handle width"
++msgstr "Kezelni ezzel"
++
++msgid "Hardware Settings"
++msgstr "Hardver beállítás"
++
++msgid "Help"
++msgstr "Segítség"
++
++msgid "History"
++msgstr "Történet"
++
++msgid "I am sure"
++msgstr "Biztosan"
++
++msgid "IDE"
++msgstr ""
++
++msgid "IRC Clients"
++msgstr "IRC Kliensek"
+ 
+-#
+-# Window menus
+-#
+ msgid "Iconify"
+-msgstr "Ikonra"
++msgstr "Ikonosít"
+ 
+ msgid "Identify"
+-msgstr "Felfed"
++msgstr "Azonosít"
++
++msgid "Icons"
++msgstr "Ikonok"
++
++msgid "Icons in file browser"
++msgstr "Fájlkezelő Ikonos"
+ 
+-#
+-# Developer menu
+-#
+ msgid "Identify window"
+-msgstr "Ablakazonosítás"
++msgstr "Azonosító ablak"
++
++msgid "Image Processing"
++msgstr "Képkezelés"
++
++msgid "Image tools"
++msgstr "Képeszközök"
++
++msgid "Instant Messaging"
++msgstr "Üzenetküldés"
++
++msgid "Interface look and feel"
++msgstr "Interface megjelenés"
++
++msgid "Jump"
++msgstr "Ugrás"
+ 
+ msgid "Jump to left page"
+-msgstr "Ugrás balra"
++msgstr "Bal lapra ugrás"
+ 
+ msgid "Jump to previous page"
+-msgstr "Előző lapra ugrik"
++msgstr "Előző lapra ugrás"
+ 
+ msgid "Jump to right page"
+-msgstr "Ugrás jobbra"
++msgstr "Jobb lapra ugrás"
++
++msgid "Key binding modifiers editor"
++msgstr "Billentyű hozzárendelés szerkesztő"
++
++msgid "Kids Games"
++msgstr "Gyermekjátékok"
++
++msgid "Knowledge"
++msgstr "Tudomány"
++
++msgid "Languages"
++msgstr "Nyelvek"
++
++msgid "Literature"
++msgstr "Irodalom"
++
++msgid "Load all"
++msgstr "Minden betöltése"
++
++msgid "Load media file"
++msgstr "Médiafájl betöltés"
+ 
+ msgid "Load playlist"
+-msgstr "Lista betöltése"
++msgstr "Lejátszólista betöltés"
+ 
+ msgid "Lock screen"
+-msgstr "Képernyőzár"
++msgstr "Képernyő zárolás"
++
++msgid "Logic Games"
++msgstr "Logikai játékok"
+ 
+-#
+-# Exit menu
+-#
+ msgid "Logout"
+ msgstr "Kijelentkezés"
+ 
++msgid "MPlayer volume"
++msgstr "Mplayer hangerő"
++
++msgid "Main documentation"
++msgstr "Dokumentációm"
++
++msgid "Main volume"
++msgstr "Hangerőm"
++
++msgid "Max"
++msgstr "Max"
++
++msgid "Max back"
++msgstr "Max vissza"
++
+ msgid "Maximize"
+-msgstr "Maxi"
++msgstr "Maximál"
+ 
+ msgid "Maximize horizontally"
+-msgstr "Maxi vízszintesen"
++msgstr "Vízszintesen maximál"
+ 
+ msgid "Maximize vertically"
+-msgstr "Maxi függőlegesen"
++msgstr "Függőlegesen maximál"
++
++msgid "Medical Softwares"
++msgstr "Orvosi programok"
++
++msgid "Menu with left click"
++msgstr "Bal kattra menü"
++
++msgid "Menus"
++msgstr "Menük"
++
++msgid "Menus font size"
++msgstr "Menü betűméret"
++
++msgid "Minimize"
++msgstr "Kicsinyít"
++
++msgid "Mixers"
++msgstr "Keverők"
++
++msgid "Modules used in FVWM-Crystal"
++msgstr "Az FVWM-Crystal használt moduljai"
++
++msgid "Monitors"
++msgstr "Monitorok"
++
++msgid "More..."
++msgstr "Több..."
++
++msgid "Mount"
++msgstr "Csatolás"
++
++msgid "Mounted partitions"
++msgstr "Csatolt partíciók"
++
++msgid "Move song:"
++msgstr "Dal mozgatás:"
+ 
+ msgid "Move to left page"
+-msgstr "Balra"
++msgstr "Bal lapra"
+ 
+ msgid "Move to page"
+-msgstr "Ugrás lapra"
++msgstr "Lapra mozgatás"
+ 
+ msgid "Move to previous page"
+ msgstr "Előző lapra"
+ 
+ msgid "Move to right page"
+-msgstr "Jobbra"
++msgstr "Jobb lapra"
++
++msgid "Multimedia"
++msgstr "Multimédia"
++
++msgid "Multimedia Browser"
++msgstr "Multimédia turkáló"
+ 
+-#
+-# Music menu
+-#
+ msgid "Music"
+ msgstr "Zene"
+ 
++msgid "Music find"
++msgstr "Zene keresés"
++
+ msgid "Music player"
+-msgstr "Zenelejátszó"
++msgstr "Zene lejátsző"
+ 
+ msgid "Name of the playlist"
+-msgstr "Lista neve"
++msgstr "Lejátazólista neve"
++
++msgid "Nested sessions"
++msgstr "Beépített asztalok"
++
++msgid "Network"
++msgstr "Hálózat"
++
++msgid "New login"
++msgstr "Új belépés"
++
++msgid "New menu entries will be used after next startup"
++msgstr "Az új menüpontok új bejelenkezéssel lesznek használhatók"
++
++msgid "New nested login"
++msgstr "Új beágyazott bejelenkezés"
++
++msgid "New notification area manager will be used after next startup"
++msgstr "Az új azonosító terület kezelő új bejelenkezéssel lesz használható"
++
++msgid "New notification area setting will be used after next startup"
++msgstr "Az új azonosító terület beállítása új bejelenkezéssel lesz használható"
++
++msgid "New notification area width will be used after next startup"
++msgstr "Az új azonosító terület szélessége új bejelenkezéssel lesz használható"
+ 
+ msgid "New recipe will be used after next startup"
+-msgstr "Az új receptet a következő indulástól használom"
++msgstr "Az új recept új bejelenkezéssel lesz használható"
++
++msgid "New type of icons will be used after next startup"
++msgstr "Az új ikonok új bejelenkezéssel lesznek használhatók"
++
++msgid "News"
++msgstr "Hírek"
++
++msgid "Next"
++msgstr "Következő"
++
++msgid "No icon"
++msgstr "Nincs ikon"
++
++msgid "No menu with left click"
++msgstr "Bal kattra nincs menü"
++
++msgid "No notification area"
++msgstr "Nincs azonosító terület"
+ 
+ msgid "None"
+-msgstr "Nincs"
++msgstr "Semmi"
++
++msgid "Normal"
++msgstr "Normál"
++
++msgid "Normal &backward"
++msgstr "Normál &hátra"
+ 
+ msgid "Normal mode"
+-msgstr "Alapmód"
++msgstr "Normál mód"
+ 
+ msgid "Not now"
+ msgstr "Most nem"
+ 
++msgid "Nothing else is allowed in that file."
++msgstr ""
++
++msgid "Notification area manager"
++msgstr "Azonosító terület kezelő"
++
++msgid "Numerical Analysis"
++msgstr "Számanalízis"
++
++msgid "OCR"
++msgstr ""
++
++msgid "OK"
++msgstr "OK"
++
+ msgid "Off"
+ msgstr "Ki"
+ 
++msgid "Office"
++msgstr "Hivatal"
++
++msgid "Om server"
++msgstr "Omszerver"
++
+ msgid "On"
+ msgstr "Be"
+ 
++msgid "Open debug window"
++msgstr "Hibakövető ablaknyitás"
++
++msgid "Other"
++msgstr "Egyéb"
++
++msgid "Others"
++msgstr "Egyebek"
++
++msgid "Package Managers"
++msgstr "Csomagkezelők"
++
++msgid "Panels"
++msgstr "Panelek"
++
++msgid "Panels font size"
++msgstr "Panel betűméret"
++
++msgid "Parallel Computing"
++msgstr ""
++
++msgid "Pause"
++msgstr "Szünet"
++
++msgid "Personal audio playlists"
++msgstr "Személyes hangjátszólista"
++
++msgid "Personal video playlists"
++msgstr "Személyes filmjátszólista"
++
++msgid "Photography"
++msgstr "Fényképezés"
++
++msgid "Physics"
++msgstr "Fizika"
++
++msgid "Play"
++msgstr "Lejátszás"
++
++msgid "Play DVD"
++msgstr "DVD lejátszás"
++
+ msgid "Play/Pause"
+-msgstr "Lejátszás/szünet"
++msgstr "Játék/szünet"
++
++msgid "Playback"
++msgstr "Visszajátszás"
++
++msgid "Player"
++msgstr "Lejátszó"
+ 
+ msgid "Player is stopped"
+-msgstr "Lejátszó megállítva"
++msgstr "Lejátszó áll"
++
++msgid "Player volume"
++msgstr "Lejátszó hangerő"
++
++msgid "Players"
++msgstr "Lejátszók"
++
++msgid "Playlist copy"
++msgstr "Lejátszólista másolás"
+ 
+ msgid "Playlist editor"
+-msgstr "Listaszerkesztő"
++msgstr "Lejátszólista szerkesztés"
++
++msgid "Playlists"
++msgstr "Lejátszólisták"
++
++msgid "Please edit the following file to suit your need"
++msgstr "Szerkeszd át igény szerint a fájlt"
+ 
+ msgid "Preferences"
+-msgstr "Tulajdonások"
++msgstr "Beállítások"
++
++msgid "Preferences editor"
++msgstr "Beállítások szerkesztése"
++
++msgid "Presentation"
++msgstr "Bemutatók"
++
++msgid "Prev"
++msgstr "Előző"
++
++msgid "Printing"
++msgstr "Nyomtatás"
+ 
+ msgid "Privileged terminals"
+-msgstr "Kiváltságos terminálok"
++msgstr "Kedvenc terminálok"
++
++msgid "Programming and debugging"
++msgstr "Programozás és hibakeresés"
++
++msgid "Project Management"
++msgstr "Projektmenedzselés"
++
++msgid "Publishing"
++msgstr "Publikálás"
+ 
+ msgid "QuakeConsole terminal"
+-msgstr "QuakeKonzol terminál"
++msgstr "Quake konzol"
+ 
+-#
+-# Wallpaper menu
+-#
+ msgid "Random"
+-msgstr "Véletlen"
++msgstr "Véletlenszerű"
++
++msgid "Raster Graphics"
++msgstr "Raszter grafika"
+ 
+ msgid "Reboot computer"
+-msgstr "Gép újraindítása"
++msgstr "Számítógép újraindítás"
++
++msgid "Recorders"
++msgstr "Felvevők"
++
++msgid "Recording"
++msgstr "Felvétel"
++
++msgid "Recreate the Playlists"
++msgstr "Lejátszólisták újraépítése"
++
++msgid "Recreate the playlists"
++msgstr "Lejátszólisták újraépítése"
+ 
+ msgid "Refresh"
+-msgstr "Frissít"
++msgstr "Frissítés"
++
++msgid "Reload current recipe"
++msgstr "Mostani recept újratöltése"
++
++msgid "Remote Access"
++msgstr "Távoli elérés"
+ 
+ msgid "Remove current song"
+-msgstr "E dal eltávolítása"
++msgstr "Aktuális dal eltávolítása"
+ 
+ msgid "Remove playlist"
+-msgstr "Lista eltávolítása"
++msgstr "Lejátszólista eltávolítása"
+ 
+ msgid "Restart"
+ msgstr "Újraindítás"
+ 
++msgid "Restart FVWM-Crystal"
++msgstr "FVWM-Crystal újraindítás"
++
++msgid "Revision Control"
++msgstr "Revizió kontroll"
++
++msgid "Rhythm"
++msgstr "Ritmus"
++
++msgid "Robotics"
++msgstr "Robotika"
++
++msgid "Role Playing"
++msgstr "Szerepjáték"
++
++msgid "Samplers"
++msgstr "Példák"
++
+ msgid "Save"
+ msgstr "Ment"
+ 
+ msgid "Save playlist"
+-msgstr "Lista mentése"
++msgstr "Lejátszólista mentés"
+ 
+ msgid "Save playlist..."
+-msgstr "Lista mentése..."
++msgstr "Lejátszólista mentés..."
++
++msgid "Scanning"
++msgstr "Keresés"
++
++msgid "Screen resolution"
++msgstr "Képfelbontás"
+ 
+ msgid "Screensaver"
+ msgstr "Képernyővédő"
+ 
+ msgid "Screenshot"
+-msgstr "Képernyőkép"
++msgstr "Képfelvétel"
++
++msgid "Security"
++msgstr "Biztonság"
++
++msgid "Seek"
++msgstr "Keres"
++
++msgid "Seek &forward"
++msgstr "Keres &előre"
++
++msgid "Seek &backward"
++msgstr "Keres &hátra"
++
++msgid "Select channel list"
++msgstr "Csatornalista választás"
+ 
+ msgid "Selected desktop manager will be used"
+-msgstr "A kijelölt asztalkezelőt lesz érvényes"
++msgstr "A választott asztalkezelő lesz használva"
++
++msgid "Selected notification area manager will be used"
++msgstr "A választott azonosító terület kezelő lesz használva"
+ 
+-msgid "Show/hide player"
+-msgstr "Lejátszó mutatása/rejtése"
++msgid "Send feedback (for support keep reading)"
++msgstr ""
++
++msgid "Sequencers"
++msgstr "Szekvencerek"
++
++msgid "Settings"
++msgstr "Beállítások"
++
++msgid "Shooters"
++msgstr "Lövöldözők"
++
++msgid "Show main mixer"
++msgstr "A keverő látszik"
++
++msgid "Show/Hide Alsaplayer"
++msgstr "Alsaplayer láttatás"
++
++msgid "Show/Hide GMPC"
++msgstr "GMPC láttatás"
++
++msgid "Show/Hide GXMMS2"
++msgstr "GXMMS2 láttatás"
++
++msgid "Show/Hide QJackCtl"
++msgstr "QjackCtl láttatás"
++
++msgid "Show/Hide menu"
++msgstr "Menü láttatás"
++
++msgid "Show/Hide player"
++msgstr "Lejátszó láttatás"
+ 
+ msgid "Shuffle playlist"
+-msgstr "Kevert lista"
++msgstr "Lejátszólista láttatás"
++
++msgid "Silent operations"
++msgstr "Háttérbeni dolgok"
++
++msgid "Song change"
++msgstr "Hangváltás"
++
++msgid "Sound"
++msgstr "Hang"
++
++msgid "Sound Card"
++msgstr "Hangkártya"
++
++msgid "Sound Effects"
++msgstr "Hang effektek"
++
++msgid "Sound Processing"
++msgstr "Hang generálás"
++
++msgid "Speed"
++msgstr "Sebesség"
++
++msgid "Speed control"
++msgstr "Sebeségszabályzó"
++
++msgid "Sports"
++msgstr "Sport"
++
++msgid "Sports Games"
++msgstr "Sportjátékok"
++
++msgid "Spreadsheets"
++msgstr "Táblázatkezelők"
++
++msgid "Start"
++msgstr "Indítás"
++
++msgid "Start Alsaplayer"
++msgstr "Alsaplayer indítás"
++
++msgid "Start Audacious"
++msgstr "Audacious indítás"
++
++msgid "Start C* Music Player"
++msgstr "C*Music lejátszó indítás"
++
++msgid "Start CDCD"
++msgstr "CDCD indítás"
++
++msgid "Start MPlayer"
++msgstr "Mplayer indítás"
++
++msgid "Start Music On Console"
++msgstr "Zene indítás konzolon"
++
++msgid "Start Music Player Daemon"
++msgstr "Zenlejátszó daemon indítás"
++
++msgid "Start QJackCtl"
++msgstr "QJackCtl indítás"
++
++msgid "Start Quod Libet"
++msgstr "Quod Libet indítás"
++
++msgid "Start XDRadio"
++msgstr "XDRadio indítás"
++
++msgid "Start bling bling"
++msgstr "bling bling indítás"
++
++msgid "Start player"
++msgstr "Lejátszó indítás"
+ 
+ msgid "Start screensaver"
+-msgstr "Képernyővédő indul"
++msgstr "Képernyővédő indítás"
++
++msgid "Start translucency"
++msgstr "Translucency indítás"
+ 
+ msgid "Stay lowered"
+-msgstr "Alul marad"
++msgstr "Kicsiny marad"
+ 
+ msgid "Stay raised"
+-msgstr "Felül marad"
++msgstr "Nagy marad"
+ 
+ msgid "Stick"
+-msgstr "Szeg"
++msgstr "Bot"
++
++msgid "Stop Audacious"
++msgstr "Audacious leáll"
++
++msgid "Stop MPlayer"
++msgstr "Mplayer leáll"
++
++msgid "Stop XMMS2"
++msgstr "XMMS2 leáll"
++
++msgid "Stop bling bling"
++msgstr "bling bling leáll"
+ 
+ msgid "Stop playback"
+-msgstr "Lejátszás leállítása"
++msgstr "Visszajátszás leáll"
++
++msgid "Stop player"
++msgstr "Lejátszó leáll"
+ 
+ msgid "Stop screensaver"
+ msgstr "Képernyővédő leáll"
+ 
+-#
+-# String used in submenus (window decorations and colorsets)
+-#
++msgid "Stop translucency"
++msgstr "Translucency  leáll"
++
++msgid "Strategy Games"
++msgstr "Stratégiai játékok"
++
++msgid "Streaming"
++msgstr "Adafolyam sugárzás"
++
++msgid "Suspend"
++msgstr "Alvás"
++
++msgid "Synthetizers"
++msgstr "Szintetizátorok"
++
+ msgid "System"
+ msgstr "Rendszer"
+ 
+ msgid "Take all free space"
+-msgstr "Teljesen elfoglal"
++msgstr "Minden helyet felszabadít"
+ 
+ msgid "Take all horizontal space"
+-msgstr "Vízszintesen elfoglal"
++msgstr "Minden vízszintes helyet felszabadít"
+ 
+ msgid "Take all vertical space"
+-msgstr "Függőlegesen elfoglal"
++msgstr "Minden függőleges helyet felszabadít"
++
++msgid "Telephony"
++msgstr "Telefon"
++
++msgid "Telephony Tools"
++msgstr "Telefon eszközök"
++
++msgid "Terminals"
++msgstr "Terminálok"
++
++msgid "Text Editors"
++msgstr "Szöveg írók"
++
++msgid "Text Tools"
++msgstr "Szöveg eszközök"
++
++msgid "The majority of the icons are from the Tango project and from"
++msgstr ""
++
++msgid "This page wallpaper"
++msgstr ""
++
++msgid "This will help him make this software better."
++msgstr ""
++
++msgid "Thumbnails"
++msgstr "Bélyegképek"
++
++msgid "Title bars"
++msgstr "Címsorok"
++
++msgid "Title bars font size"
++msgstr "Címsor betűméret"
++
++msgid "To get support, the best places are the"
++msgstr ""
+ 
+ msgid "Toggle FvwmConsole"
+-msgstr "FVWMKonzol"
++msgstr "Fvwm konzol váltás"
+ 
+ msgid "Toggle random"
+-msgstr "Véletlen"
++msgstr "Váltás véletlenszerűen"
+ 
+ msgid "Toggle repeat"
+-msgstr "Ismétlés"
++msgstr "Váltás ismétlés"
++
++msgid "Tools"
++msgstr "Eszközök"
++
++msgid "Translation"
++msgstr "Fordítás"
++
++msgid "Translucency"
++msgstr ""
++
++msgid "Translucency is not supported by FVWM."
++msgstr ""
++
++msgid "Tuners"
++msgstr "Tunerek"
+ 
+ msgid "Turn off computer"
+-msgstr "Gép kikapcsolása"
++msgstr "Számítógép kikapcsolás"
++
++msgid "Type a command to bind to the first mouse button."
++msgstr "Az első egérgombhoz csatolandó parancs"
++
++msgid "Type a command to bind to the second mouse button."
++msgstr "A második egérgombhoz csatolandó parancs"
++
++msgid "Type of icons"
++msgstr "Ikonok típusa"
++
++msgid "Umount"
++msgstr "Lecsatolás"
++
++msgid "Under construction"
++msgstr "Megvalósítás alatt"
++
++msgid "Unexpected results may occur."
++msgstr ""
+ 
+ msgid "Update database"
+-msgstr "Adatbázis firssítés"
++msgstr "Adatbázis frissítése"
+ 
+-#
+-# Preferences menu
+-#
+ msgid "Used recipe"
+ msgstr "Használt recept"
+ 
+ msgid "User"
+-msgstr "Felhasználó"
++msgstr "Használó"
++
++msgid "User feedback"
++msgstr ""
++
++msgid "Vector Graphics"
++msgstr "Vektor grafika"
+ 
+-#
+-# About dialog
+-#
+ msgid "Version"
+ msgstr "Verzió"
+ 
++msgid "Video Effects"
++msgstr "VIdeó hatások"
++
++msgid "Video playlists"
++msgstr "Videó lejátszólisták"
++
++msgid "Video tools"
++msgstr "Videó eszközök"
++
++msgid "Viewers"
++msgstr "Nézőkék"
++
+ msgid "Volume"
+ msgstr "Hangerő"
+ 
++msgid "Vu-Meters"
++msgstr "Vu mérők"
++
+ msgid "Wallpaper"
+ msgstr "Tapéta"
+ 
+-#
+-# Main menu - usually found in recipes/*
+-#
++msgid "Watch DVB"
++msgstr "DVB nézés"
++
++msgid "Web Browsers"
++msgstr "Webböngészők"
++
++msgid "Web Development"
++msgstr "Web fejlesztés"
++
+ msgid "Window decorations"
+-msgstr "Ablak díszítések"
++msgstr "Ablakdíszítések"
+ 
+ msgid "Window focus policy"
+-msgstr "Ablakfókusz szabály"
++msgstr "Ablak fókusz szabály"
++
++msgid "WindowStyle"
++msgstr "Ablak stílus"
++
++msgid "With contributions from:"
++msgstr ""
++
++msgid "Word Processors"
++msgstr "Szövegszerkesztők"
++
++msgid "X.org documentation"
++msgstr ""
++
++msgid "XDG user directories"
++msgstr ""
++
++msgid "XOrg Docs"
++msgstr ""
++
++msgid "XOrg Help"
++msgstr ""
++
++msgid "You are welcomed to send feedback to the developer:"
++msgstr ""
++
++msgid "You have been warned!"
++msgstr ""
++
++msgid "You should edit the file"
++msgstr ""
++
++msgid "and choose a player in the preferences."
++msgstr ""
++
++msgid "and path is the full path to the media directory."
++msgstr ""
++
++msgid "and restart this tool:"
++msgstr ""
+ 
+ msgid "at the next start of your X session"
+-msgstr "az X folyamat következő indítása után"
++msgstr ""
++
++msgid "bug reports, suggestions, patches, ideas,"
++msgstr ""
++
++msgid "congratulations or complaints."
++msgstr ""
++
++msgid "fvwm-crystal IRC channel on FreeNode:"
++msgstr ""
++
++msgid "page"
++msgstr "lap"
++
++msgid "pages"
++msgstr "lapok"
++
++msgid "pixel"
++msgstr "képpont"
++
++msgid "pixels"
++msgstr "képpont"
++
++msgid "type path"
++msgstr "útvonal"
++
++msgid "use X and space otherwise."
++msgstr ""
++
++msgid "where type is one of the following"
++msgstr ""
