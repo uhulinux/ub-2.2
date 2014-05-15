@@ -5,6 +5,11 @@ Telepathy support
 gstreamer-1.0
 
 ---------
+extra fonts, van nálunk is:
+- fonts-dejavu 2.34 (2.33)
+- fonts-liberation 2.00.1 (1.07.3, 2.00.1)
+- fonts-libertine 20120116 (20120116)
+---------
 new:
 --without-system-harfbuzz \
 --without-system-libmwaw \
