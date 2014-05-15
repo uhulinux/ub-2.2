@@ -1,12 +1,6 @@
 #!/usr/bin/env dl
-#nether.804_0.53-1292_i386.deb .
-#	http://braingames.afraid.org/nether/downloads/
-nether.src_${UB_VERSION}-1292.tgz nether_${UB_VERSION}-1292/
-  http://braingames.afraid.org/nether/downloads/
 
-#sources.zip NetherEarth_v0.51-linsrc/
-#	http://www.braingames.getput.com/nether/
-
-#http://braingames.afraid.org/nether/downloads/nether.src_0.53-1292.tgz
-#http://braingames.afraid.org/nether/downloads/nether.804_0.53-1292_i386.deb
-#http://www.braingames.getput.com/nether/sources.zip
+nether_${UB_VERSION}.orig.tar.gz nether_${UB_VERSION}-1292/
+ http://ftp.dk.debian.org/getdeb/ubuntu/pool/games/n/nether/
+  http://ftp.dk.debian.org/getdeb/ubuntu/pool/games/n/nether/nether_0.53.orig.tar.gz
+#  http://braingames.afraid.org/nether/

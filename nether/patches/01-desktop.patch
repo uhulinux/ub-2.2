@@ -1,15 +1,17 @@
 diff -Naur orig/build/linux/nether.desktop mod/build/linux/nether.desktop
 --- orig/build/linux/nether.desktop	2008-04-02 23:17:50.000000000 +0200
-+++ mod/build/linux/nether.desktop	2010-09-22 19:29:12.000000000 +0200
-@@ -2,9 +2,10 @@
- Encoding=UTF-8
++++ mod/build/linux/nether.desktop	2014-05-15 22:15:42.836500119 +0200
+@@ -1,10 +1,10 @@
+ [Desktop Entry]
+-Encoding=UTF-8
  Name=Nether Earth
  Comment=Very first Real Time Strategy game ever.
 +Comment[hu]=A valós idejű stratégiai játékok első képviselője
  Exec=nether
- Icon=nether.png
+-Icon=nether.png
++Icon=nether
  Terminal=false
  Type=Application
 -Categories=Application;Game;ArcadeGame;
-+Categories=Application;Game;ArcadeGame;X-UHU-Menu/Games/TacticStrategy
++Categories=Game;StrategyGame;
  StartupNotify=false
