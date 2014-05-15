@@ -1,0 +1,25 @@
+diff -Naur orig/Makefile patched/Makefile
+--- orig/Makefile	2014-04-25 13:39:00.000000000 +0200
++++ patched/Makefile	2014-05-15 14:18:50.860322501 +0200
+@@ -9,8 +9,8 @@
+ .PHONY: default
+ default: startup all
+ 
+-.PHONY: headers library clean veryclean all binary program doc test update-po
+-all headers library clean veryclean binary program doc manpages debiandoc test update-po startup dirs:
++.PHONY: headers library clean veryclean all binary program doc update-po
++all headers library clean veryclean binary program doc manpages debiandoc update-po startup dirs:
+ 	$(MAKE) -C vendor $@
+ 	$(MAKE) -C apt-pkg $@
+ 	$(MAKE) -C apt-inst $@
+@@ -21,9 +21,8 @@
+ 	$(MAKE) -C dselect $@
+ 	$(MAKE) -C doc $@
+ 	$(MAKE) -C po $@
+-	$(MAKE) -C test $@
+ 
+-all headers library clean veryclean binary program doc manpages debiandoc test update-po: startup dirs
++all headers library clean veryclean binary program doc manpages debiandoc update-po: startup dirs
+ 
+ dirs: startup
+ 

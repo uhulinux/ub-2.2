@@ -1,7 +1,7 @@
 diff -Naur orig/dpkg-deb/build.c patched/dpkg-deb/build.c
---- orig/dpkg-deb/build.c	2013-12-07 07:51:18.000000000 +0100
-+++ patched/dpkg-deb/build.c	2013-12-08 20:36:59.064375588 +0100
-@@ -391,13 +391,6 @@
+--- orig/dpkg-deb/build.c	2014-04-29 14:24:40.000000000 +0200
++++ patched/dpkg-deb/build.c	2014-05-15 13:43:48.190711650 +0200
+@@ -385,13 +385,6 @@
    if (pkg->priority == pri_other)
      warning(_("'%s' contains user-defined Priority value '%s'"),
              controlfile, pkg->otherpriority);

@@ -1,6 +1,6 @@
 diff -Naur orig/lib/dpkg/dpkg.h patched/lib/dpkg/dpkg.h
---- orig/lib/dpkg/dpkg.h	2013-12-07 07:51:18.000000000 +0100
-+++ patched/lib/dpkg/dpkg.h	2013-12-08 20:39:01.553506119 +0100
+--- orig/lib/dpkg/dpkg.h	2014-04-29 14:24:40.000000000 +0200
++++ patched/lib/dpkg/dpkg.h	2014-05-15 13:44:54.727017645 +0200
 @@ -73,6 +73,7 @@
  #define POSTINSTFILE       "postinst"
  #define PRERMFILE          "prerm"
@@ -10,8 +10,8 @@ diff -Naur orig/lib/dpkg/dpkg.h patched/lib/dpkg/dpkg.h
  
  #define STATUSFILE        "status"
 diff -Naur orig/src/remove.c patched/src/remove.c
---- orig/src/remove.c	2013-12-07 07:51:18.000000000 +0100
-+++ patched/src/remove.c	2013-12-08 20:39:01.553506119 +0100
+--- orig/src/remove.c	2014-04-29 14:24:42.000000000 +0200
++++ patched/src/remove.c	2014-05-15 13:44:54.731017654 +0200
 @@ -206,7 +206,8 @@
  {
    /* We need the postrm and list files for --purge. */
@@ -22,7 +22,7 @@ diff -Naur orig/src/remove.c patched/src/remove.c
      return;
  
    debug(dbg_stupidlyverbose, "removal_bulk info not postrm or list");
-@@ -638,6 +639,12 @@
+@@ -639,6 +640,12 @@
      if (unlink(filename) && errno != ENOENT)
        ohshite(_("can't remove old postrm script"));
  

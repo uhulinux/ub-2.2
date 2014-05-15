@@ -1,11 +1,11 @@
-diff -Naur dpkg-1.15.4-orig/lib/dpkg/dpkg-db.h dpkg-1.15.4/lib/dpkg/dpkg-db.h
---- dpkg-1.15.4-orig/lib/dpkg/dpkg-db.h	2009-09-06 09:35:55.000000000 +0200
-+++ dpkg-1.15.4/lib/dpkg/dpkg-db.h	2009-09-16 21:11:47.000000000 +0200
-@@ -30,6 +30,7 @@
+diff -Naur orig/lib/dpkg/dpkg-db.h patched/lib/dpkg/dpkg-db.h
+--- orig/lib/dpkg/dpkg-db.h	2014-04-29 14:24:40.000000000 +0200
++++ patched/lib/dpkg/dpkg-db.h	2014-05-15 13:49:26.981791141 +0200
+@@ -27,6 +27,7 @@
  
- #include <sys/types.h>
+ #include <stdbool.h>
  #include <stdio.h>
 +#include <stdarg.h>
  
- struct versionrevision {
-   unsigned long epoch;
+ #include <dpkg/macros.h>
+ #include <dpkg/varbuf.h>

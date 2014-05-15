@@ -1,7 +1,7 @@
 diff -Naur orig/lib/dpkg/parsehelp.c patched/lib/dpkg/parsehelp.c
---- orig/lib/dpkg/parsehelp.c	2013-01-11 16:07:05.241532480 +0100
-+++ patched/lib/dpkg/parsehelp.c	2013-01-11 16:09:01.274603418 +0100
-@@ -258,8 +258,8 @@
+--- orig/lib/dpkg/parsehelp.c	2014-05-15 13:26:48.313429409 +0200
++++ patched/lib/dpkg/parsehelp.c	2014-05-15 13:32:01.055139060 +0200
+@@ -259,8 +259,8 @@
  
    /* XXX: Would be faster to use something like cisversion and cisrevision. */
    ptr = rversion->version;
@@ -13,20 +13,20 @@ diff -Naur orig/lib/dpkg/parsehelp.c patched/lib/dpkg/parsehelp.c
      if (!cisdigit(*ptr) && !cisalpha(*ptr) && strchr(".-+~:_", *ptr) == NULL)
        return dpkg_put_warn(err, _("invalid character in version number"));
 diff -Naur orig/lib/dpkg/test/t-version.c patched/lib/dpkg/test/t-version.c
---- orig/lib/dpkg/test/t-version.c	2013-01-11 16:07:05.241532480 +0100
-+++ patched/lib/dpkg/test/t-version.c	2013-01-11 16:10:08.379222777 +0100
-@@ -226,7 +226,7 @@
+--- orig/lib/dpkg/test/t-version.c	2014-05-15 13:29:38.752341872 +0200
++++ patched/lib/dpkg/test/t-version.c	2014-05-15 13:35:46.619677850 +0200
+@@ -212,7 +212,7 @@
  
  	/* Test valid characters in upstream version. */
- 	b = version(0, "09azAZ.-+~:_", "0");
+ 	b = DPKG_VERSION_OBJECT(0, "09azAZ.-+~:_", "0");
 -	test_pass(parseversion(&a, "0:09azAZ.-+~:_-0", NULL) == 0);
 +	test_pass(parseversion(&a, "0:azAZ09.-+~:_-0", NULL) == 0);
  	test_pass(dpkg_version_compare(&a, &b) == 0);
  
  	/* Test valid characters in revision. */
-diff -Naur orig/scripts/t/100_Dpkg_Version.t patched/scripts/t/100_Dpkg_Version.t
---- orig/scripts/t/100_Dpkg_Version.t	2012-07-19 14:27:41.000000000 +0200
-+++ patched/scripts/t/100_Dpkg_Version.t	2013-01-11 16:13:24.681034570 +0100
+diff -Naur orig/scripts/t/Dpkg_Version.t patched/scripts/t/Dpkg_Version.t
+--- orig/scripts/t/Dpkg_Version.t	2014-04-29 14:24:42.000000000 +0200
++++ patched/scripts/t/Dpkg_Version.t	2014-05-15 13:39:15.277509965 +0200
 @@ -131,28 +131,28 @@
  1 0:1 0
  0 0:0-0 0
@@ -67,7 +67,7 @@ diff -Naur orig/scripts/t/100_Dpkg_Version.t patched/scripts/t/100_Dpkg_Version.
 +foo.bar foobar 1
 +foo.bar foo1bar 1
 +foo.bar foo0bar 1
-+1foo-1 foo-1 -1
++foo1bar-1 foobar-1 -1
 +foo2.0 foo2 1
 +foo2.0.0 foo2.10.0 -1
 +foo2.0 foo2.0.0 -1
