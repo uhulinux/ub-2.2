@@ -1,0 +1,17 @@
+diff -Naur orig/build/linux/mog.desktop mod/build/linux/mog.desktop
+--- orig/build/linux/mog.desktop	2008-09-13 21:31:37.000000000 +0200
++++ mod/build/linux/mog.desktop	2014-05-15 18:10:23.770423615 +0200
+@@ -1,10 +1,10 @@
+ [Desktop Entry]
+-Encoding=UTF-8
+ Name=Maze of Galious
+ Comment=Remake of a classic MSX platformer
++Comment[hu]=Klasszikus MSX platform játék felújítása
+ Exec=mog
+-Icon=mog.png
++Icon=mog
+ Terminal=false
+ Type=Application
+-Categories=Application;Game;ArcadeGame;
++Categories=Game;ArcadeGame;
+ StartupNotify=false

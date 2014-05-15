@@ -1,0 +1,8 @@
+[Desktop Entry]
+Type=Application
+Name=Azureus
+Comment=Bittorrent client
+Comment[hu]=Bittorrent kliens
+Exec=azureus
+Icon=/usr/lib/azureus/vuze.png
+Categories=GNOME;GTK;Network;FileTransfer;

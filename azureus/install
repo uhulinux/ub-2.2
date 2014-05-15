@@ -1,0 +1,8 @@
+#!/bin/sh -eux
+
+mkdir -p "$UB_INSTALLDIR"/usr/lib/azureus
+cp -a . "$UB_INSTALLDIR"/usr/lib/azureus/
+
+rm "$UB_INSTALLDIR"/usr/lib/azureus/{ChangeLog.txt,GPL.txt,README.txt,TOS.txt}
+
+ln -s /usr/lib/azureus/azureus "$UB_INSTALLDIR"/usr/bin/azureus
