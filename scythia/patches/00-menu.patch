@@ -26,5 +26,5 @@ diff -Naur a/src/scythia.desktop b/src/scythia.desktop
 -X-DCOP-ServiceType=
 -X-KDE-SubstituteUID=false
 -X-KDE-Username=
-+Categories=Network;FileTransfer;X-UHU-Menu/Internet/Downloaders;
++Categories=Network;FileTransfer;
 +Version=1.0

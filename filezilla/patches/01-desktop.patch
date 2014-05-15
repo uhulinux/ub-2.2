@@ -14,5 +14,5 @@
  Icon=filezilla
  Type=Application
 -Categories=Network;FileTransfer;
-+Categories=Network;FileTransfer;X-UHU-Menu/Internet/Downloaders;
++Categories=Network;FileTransfer;
  Version=1.0

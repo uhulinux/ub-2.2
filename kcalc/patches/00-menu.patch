@@ -6,4 +6,4 @@ diff -Naur kcalc-4.7.44-orig//kcalc.desktop kcalc-4.7.44//kcalc.desktop
  Type=Application
  X-KDE-StartupNotify=true
 -Categories=Qt;KDE;Utility;X-KDE-Utilities-Desktop;
-+Categories=Qt;KDE;Utility;X-KDE-Utilities-Desktop;X-UHU-Menu/Tools/Calculators;
++Categories=Qt;KDE;Utility;Calculator;

@@ -6,5 +6,5 @@ diff -Naur orig/galculator.desktop.in patched/galculator.desktop.in
  Terminal=false
  Type=Application
 -Categories=Utility;
-+Categories=Utility;X-UHU-Menu/Tools/Calculators;
++Categories=Utility;Calculator;
  StartupNotify=true
