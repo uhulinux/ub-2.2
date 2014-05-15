@@ -1,0 +1,24 @@
+-----------------
+attus 2014-05-15
+ubk áthozatal
+------------------------------------------------------------------------
+r38684 | attus@enterpriseforever.com | 2014-04-28 15:58:10 +0200 (Mon, 28 Apr 2014) | 2 lines
+
+desktop fix
+
+------------------------------------------------------------------------
+r19069 | ntomasz@uhuklub.hu | 2009-06-27 19:28:28 +0200 (Sat, 27 Jun 2009) | 7 lines
+
+1.2.0~rc3 -> 1.2.0
+acquire, build-depends, homepage fix
+compile and install fix
+add --disable-version-check to compile (thx Egmont for notice in bugtracker id=582)
+drop gcc4 patches and menu patch 
+install own desktop file instead of from source
+
+------------------------------------------------------------------------
+r14167 | egmont | 2007-08-15 12:43:07 +0200 (Wed, 15 Aug 2007) | 2 lines
+
+- compile fix for gcc4
+
+------------------------------------------------------------------------

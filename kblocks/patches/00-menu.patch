@@ -6,4 +6,4 @@ diff -Naur a/kblocks.desktop b/kblocks.desktop
  X-KDE-StartupNotify=true
  X-DBUS-StartupType=Multi
 -Categories=Qt;KDE;Game;ArcadeGame;
-+Categories=Qt;KDE;Game;ArcadeGame;X-UHU-Menu/Games/Arcade;
++Categories=Qt;KDE;Game;BlocksGame;

@@ -13,4 +13,4 @@ diff -Naurd orig/data/lxterminal.desktop mod/data/lxterminal.desktop
  Icon=lxterminal
  Type=Application
 -Categories=GTK;Utility;TerminalEmulator;
-+Categories=GTK;Utility;TerminalEmulator;X-UHU-Menu/Tools/Terminals;
++Categories=GTK;System;TerminalEmulator;
