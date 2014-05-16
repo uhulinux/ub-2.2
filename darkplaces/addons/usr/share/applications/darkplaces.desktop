@@ -9,4 +9,4 @@ Icon=darkplaces
 Exec=darkplaces-sdl
 Terminal=false
 StartupNotify=true
-Categories=Application;Game;ActionGame;X-UHU-Menu/Games/Action;
+Categories=Game;ActionGame;

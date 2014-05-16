@@ -1,9 +1,8 @@
 [Desktop Entry]
-Version=1.1
 Type=Application
 Name=Quake2-SDL
 Icon=q2
 Exec=sdlquake2 +set basedir /usr/share/games/quake2
 Terminal=true
 StartupNotify=true
-Categories=;Game;ActionGame;X-UHU-Menu/Games/Action;
+Categories=Game;ActionGame;

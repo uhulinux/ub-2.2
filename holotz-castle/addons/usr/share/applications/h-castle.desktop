@@ -5,4 +5,4 @@ Icon=holotz
 Exec=holotz-castle
 Terminal=false
 StartupNotify=true
-Categories=Game;ArcadeGame;X-UHU-Menu/Games/Arcade;
+Categories=Game;ArcadeGame;

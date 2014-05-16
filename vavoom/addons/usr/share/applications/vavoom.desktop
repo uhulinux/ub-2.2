@@ -6,4 +6,4 @@ GenericName=Doom Engine
 GenericName[hu]=Doom futtató motor
 Icon=vavoom
 Exec=vlaunch
-Categories=Game;ActionGame;X-UHU-Menu/Games/Action;
+Categories=Game;ActionGame;

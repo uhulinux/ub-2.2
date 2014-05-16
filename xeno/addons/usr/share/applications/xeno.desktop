@@ -7,4 +7,4 @@ Comment=ZX Xeno
 Icon=xeno
 Exec=xeno
 StartupNotify=true
-Categories=Game;ArcadeGame;X-UHU-Menu/Games/Arcade;
+Categories=Game;ArcadeGame;

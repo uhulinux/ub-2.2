@@ -1,8 +1,6 @@
 [Desktop Entry]
 Name=Mahjonng3d
-GenericName=
-GenericName[hu]=térbeli kőrakó
 Exec=mahjongg3d
 Icon=mahjongg3d
 Type=Application
-Categories=Game;LogicGame;X-UHU-Menu/Games/Board;
+Categories=Game;BoardGame;

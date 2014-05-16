@@ -1,0 +1,1 @@
+urllist http://www.reto-schoelly.de/mahjongg3d/downloads.html | splitver '^mahjongg3d-([0-9.]+).tar.bz2' | sort -V | tail -n1
