@@ -4,7 +4,7 @@ diff -Naur acetoneiso_2.3-orig/acetoneiso/menu/AcetoneISO.desktop acetoneiso_2.3
 @@ -1,5 +1,5 @@
  [Desktop Entry]
 -Categories=Qt;KDE;AudioVideo;DiscBurning;
-+Categories=Qt;KDE;AudioVideo;DiscBurning;X-UHU-Menu/Multimedia/CDwriters;
++Categories=Qt;KDE;AudioVideo;DiscBurning;
  Exec=acetoneiso %f
  Icon=Acetino2
  MimeType=application/x-iso;
@@ -12,7 +12,7 @@ diff -Naur acetoneiso_2.3-orig/acetoneiso/menu/AcetoneISO.desktop acetoneiso_2.3
  GenericName=CD/DVD image manipulator
  GenericName[it]=Strumenti per immagini CD/DVD
  GenericName[de]=CD/DVD-Abbildmanager
-+GenericName[hu]=CD/DVD lemezkép fájl menedzser
++GenericName[hu]=CD/DVD lemezkép kezelő
  GenericName[ru]=Манипулятор CD/DVD образов
  StartupNotify=true
  Terminal=false
