@@ -1,4 +1,5 @@
 #!/usr/bin/env dl
 
 pavucontrol-${UB_VERSION}.tar.gz pavucontrol-${UB_VERSION}/
+	ftp://ftp.netbsd.org/pub/pkgsrc/distfiles/
 	http://0pointer.de/lennart/projects/pavucontrol/

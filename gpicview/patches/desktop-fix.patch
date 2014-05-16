@@ -1,0 +1,11 @@
+diff -Naur orig/gpicview.desktop.in mod/gpicview.desktop.in
+--- orig/gpicview.desktop.in	2013-10-23 10:42:02.000000000 +0200
++++ mod/gpicview.desktop.in	2014-05-16 10:30:09.346700320 +0200
+@@ -1,6 +1,5 @@
+ [Desktop Entry]
+-Encoding=UTF-8
+-Categories=Graphics;Utility;Core;GTK;Viewer;RasterGraphics;2DGraphics;Photography;
++Categories=GTK;Graphics;2DGraphics;Core;RasterGraphics;Viewer;Photography;
+ Exec=gpicview %f
+ Icon=gpicview
+ StartupNotify=true
