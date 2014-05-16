@@ -20,6 +20,6 @@ diff -Naur k9copy-2.3.8-Source-orig/k9copy.desktop k9copy-2.3.8-Source/k9copy.de
  Icon=k9copy
  X-DocPath=k9copy/index.html
 -Categories=Qt;KDE;AudioVideo;DiscBurning;
-+Categories=Qt;KDE;AudioVideo;DiscBurning;X-UHU-Menu/Multimedia/CDwriters;
++Categories=Qt;KDE;AudioVideo;DiscBurning;
  X-KDE-StartupNotify=true
 \ Nincs újsor a fájl végén
