@@ -18,7 +18,7 @@ diff -Naur orig/liblucene++-contrib.pc.cmake patched/liblucene++-contrib.pc.cmak
 -Requires: liblucene++=@LUCENE++_VERSION@
 -~
 -
-+Requires: liblucene++ >= @LUCENE++_VERSION@
++Requires: liblucene++ = @LUCENE++_VERSION@
 diff -Naur orig/liblucene++.pc.cmake patched/liblucene++.pc.cmake
 --- orig/liblucene++.pc.cmake	2014-01-30 11:18:58.000000000 +0100
 +++ patched/liblucene++.pc.cmake	2014-02-20 23:51:04.049048919 +0100
