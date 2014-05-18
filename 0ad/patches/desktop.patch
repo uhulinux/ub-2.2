@@ -1,7 +1,7 @@
 diff -Naur orig/build/resources/0ad.desktop patched/build/resources/0ad.desktop
 --- orig/build/resources/0ad.desktop	2013-04-21 18:47:36.000000000 +0200
-+++ patched/build/resources/0ad.desktop	2014-01-04 23:09:14.291379940 +0100
-@@ -2,9 +2,10 @@
++++ patched/build/resources/0ad.desktop	2014-05-18 22:20:45.900700926 +0200
+@@ -2,6 +2,7 @@
  Version=1.0
  Name=0 A.D.
  Comment=A real-time strategy game of ancient warfare
@@ -9,7 +9,3 @@ diff -Naur orig/build/resources/0ad.desktop patched/build/resources/0ad.desktop
  Comment[it]=Videogioco strategico in tempo reale di guerre antiche
  Exec=0ad
  Icon=0ad
- Terminal=false
- Type=Application
--Categories=Game;StrategyGame;
-+Categories=Game;StrategyGame;
