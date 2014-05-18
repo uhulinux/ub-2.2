@@ -15,6 +15,7 @@ icu-dev
 libarchive-dev
 libassuan-dev
 libcanberra-dev
+libchamplain-dev
 libetpan-dev
 libgdata-dev
 libindicate-dev

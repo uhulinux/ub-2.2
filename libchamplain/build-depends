@@ -1,0 +1,5 @@
+clutter-gtk-dev
+gobject-introspection-dev
+gtk3-dev
+libsoup-dev
+sqlite-dev

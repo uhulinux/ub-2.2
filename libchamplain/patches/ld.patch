@@ -1,0 +1,86 @@
+diff -Naur orig/configure patched/configure
+--- orig/configure	2011-09-18 00:51:13.000000000 +0200
++++ patched/configure	2014-05-17 22:15:19.336294513 +0200
+@@ -12427,6 +12427,7 @@
+  elif test -n "$PKG_CONFIG"; then
+     if test -n "$PKG_CONFIG" && \
+     { { $as_echo "$as_me:${as_lineno-$LINENO}: \$PKG_CONFIG --exists --print-errors \"   glib-2.0 >= 2.16
++	  gthread-2.0 >= 2.16
+       gobject-2.0 >= 2.10
+       gdk-3.0 >= 2.90
+       clutter-1.0 >= 1.2
+@@ -12436,6 +12437,7 @@
+ 
+ \""; } >&5
+   ($PKG_CONFIG --exists --print-errors "   glib-2.0 >= 2.16
++  	  gthread-2.0 >= 2.16
+       gobject-2.0 >= 2.10
+       gdk-3.0 >= 2.90
+       clutter-1.0 >= 1.2
+@@ -12448,6 +12450,7 @@
+   $as_echo "$as_me:${as_lineno-$LINENO}: \$? = $ac_status" >&5
+   test $ac_status = 0; }; then
+   pkg_cv_DEPS_CFLAGS=`$PKG_CONFIG --cflags "   glib-2.0 >= 2.16
++	  gthread-2.0 >= 2.16
+       gobject-2.0 >= 2.10
+       gdk-3.0 >= 2.90
+       clutter-1.0 >= 1.2
+@@ -12468,6 +12471,7 @@
+  elif test -n "$PKG_CONFIG"; then
+     if test -n "$PKG_CONFIG" && \
+     { { $as_echo "$as_me:${as_lineno-$LINENO}: \$PKG_CONFIG --exists --print-errors \"   glib-2.0 >= 2.16
++	  gthread-2.0 >= 2.16
+       gobject-2.0 >= 2.10
+       gdk-3.0 >= 2.90
+       clutter-1.0 >= 1.2
+@@ -12477,6 +12481,7 @@
+ 
+ \""; } >&5
+   ($PKG_CONFIG --exists --print-errors "   glib-2.0 >= 2.16
++	  gthread-2.0 >= 2.16
+       gobject-2.0 >= 2.10
+       gdk-3.0 >= 2.90
+       clutter-1.0 >= 1.2
+@@ -12489,6 +12494,7 @@
+   $as_echo "$as_me:${as_lineno-$LINENO}: \$? = $ac_status" >&5
+   test $ac_status = 0; }; then
+   pkg_cv_DEPS_LIBS=`$PKG_CONFIG --libs "   glib-2.0 >= 2.16
++	  gthread-2.0 >= 2.16
+       gobject-2.0 >= 2.10
+       gdk-3.0 >= 2.90
+       clutter-1.0 >= 1.2
+@@ -12518,6 +12524,7 @@
+ fi
+         if test $_pkg_short_errors_supported = yes; then
+ 	        DEPS_PKG_ERRORS=`$PKG_CONFIG --short-errors --print-errors --cflags --libs "   glib-2.0 >= 2.16
++      gthread-2.0 >= 2.16
+       gobject-2.0 >= 2.10
+       gdk-3.0 >= 2.90
+       clutter-1.0 >= 1.2
+@@ -12528,6 +12535,7 @@
+ " 2>&1`
+         else
+ 	        DEPS_PKG_ERRORS=`$PKG_CONFIG --print-errors --cflags --libs "   glib-2.0 >= 2.16
++      gthread-2.0 >= 2.16
+       gobject-2.0 >= 2.10
+       gdk-3.0 >= 2.90
+       clutter-1.0 >= 1.2
+@@ -12541,6 +12549,7 @@
+ 	echo "$DEPS_PKG_ERRORS" >&5
+ 
+ 	as_fn_error $? "Package requirements (   glib-2.0 >= 2.16
++      gthread-2.0 >= 2.16
+       gobject-2.0 >= 2.10
+       gdk-3.0 >= 2.90
+       clutter-1.0 >= 1.2
+diff -Naur orig/configure.ac patched/configure.ac
+--- orig/configure.ac	2011-09-18 00:48:30.000000000 +0200
++++ patched/configure.ac	2014-05-17 22:10:57.042015814 +0200
+@@ -61,6 +61,7 @@
+ 
+ PKG_CHECK_MODULES(DEPS,
+   [   glib-2.0 >= 2.16
++  	  gthread-2.0 >= 2.16
+       gobject-2.0 >= 2.10
+       gdk-3.0 >= 2.90
+       clutter-1.0 >= 1.2

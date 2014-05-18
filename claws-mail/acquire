@@ -1,5 +1,5 @@
 #!/usr/bin/env dl
 
 claws-mail-${UB_VERSION/~/-}.tar.bz2 claws-mail-${UB_VERSION/~/-}/
-	http://downloads.sourceforge.net/project/sylpheed-claws/Claws%20Mail/${UB_VERSION}/
+	http://downloads.sourceforge.net/project/claws-mail/Claws%20Mail/${UB_VERSION}/
 

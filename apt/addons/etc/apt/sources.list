@@ -5,8 +5,8 @@ deb ftp://ftp.uhulinux.hu/uhu/2.2 ./
 
 # UHU tároló tisztított mirror ubk.hu-n
 # deb ftp://ftp.ubk.hu/pkg/2.2-official ./
-# http://download.ubk.hu/pkg/2.2-official ./
+# deb http://download.ubk.hu/pkg/2.2-official ./
 
 # UBK
 deb ftp://ftp.ubk.hu/pkg/2.2 ./
-# http://download.ubk.hu/pkg/2.2/ ./
+# deb http://download.ubk.hu/pkg/2.2/ ./

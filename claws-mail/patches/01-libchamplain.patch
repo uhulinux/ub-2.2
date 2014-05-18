@@ -1,0 +1,65 @@
+diff -Naur orig/configure.ac patched/configure.ac
+--- orig/configure.ac	2013-12-14 11:14:50.000000000 +0100
++++ patched/configure.ac	2014-05-18 00:06:56.907810646 +0200
+@@ -1272,13 +1272,17 @@
+ AC_SUBST(CM_NP_HOTKEY_LIBS)
+ 
+ dnl libchamplain ***************************************************************
+-CHAMPLAIN_MODULE=champlain-gtk-0.4
+-CHAMPLAIN_VERSION=0.4.0
+-PKG_CHECK_EXISTS(champlain-gtk-0.6 > 0.6.0,[CHAMPLAIN_MODULE=champlain-gtk-0.6
+-	CHAMPLAIN_VERSION=0.6.0], [])
++CHAMPLAIN_MODULE=champlain-gtk-0.12
++CHAMPLAIN_VERSION=0.12.0
++PKG_CHECK_EXISTS(champlain-gtk-0.10 > 0.10.0,[CHAMPLAIN_MODULE=champlain-gtk-0.10
++	CHAMPLAIN_VERSION=0.10.0], [])
+ PKG_CHECK_EXISTS(champlain-gtk-0.8 > 0.8.0,[CHAMPLAIN_MODULE=champlain-gtk-0.8
+ 	CHAMPLAIN_VERSION=0.8.0], [])
+-PKG_CHECK_MODULES(CHAMPLAIN, [$CHAMPLAIN_MODULE >= $CHAMPLAIN_VERSION clutter-gtk-0.10], HAVE_CHAMPLAIN=yes, HAVE_CHAMPLAIN=no)
++PKG_CHECK_EXISTS(champlain-gtk-0.6 > 0.6.0,[CHAMPLAIN_MODULE=champlain-gtk-0.6
++	CHAMPLAIN_VERSION=0.6.0], [])
++PKG_CHECK_EXISTS(champlain-gtk-0.4 > 0.4.0,[CHAMPLAIN_MODULE=champlain-gtk-0.4
++	CHAMPLAIN_VERSION=0.4.0], [])
++PKG_CHECK_MODULES(CHAMPLAIN, $CHAMPLAIN_MODULE >= $CHAMPLAIN_VERSION, HAVE_CHAMPLAIN=yes, HAVE_CHAMPLAIN=no)
+ AC_SUBST(CHAMPLAIN_CFLAGS)
+ AC_SUBST(CHAMPLAIN_LIBS)
+ 
+diff -Naur orig/src/plugins/geolocation/geolocation_plugin.c patched/src/plugins/geolocation/geolocation_plugin.c
+--- orig/src/plugins/geolocation/geolocation_plugin.c	2013-12-14 11:15:05.000000000 +0100
++++ patched/src/plugins/geolocation/geolocation_plugin.c	2014-05-18 01:46:36.419933127 +0200
+@@ -276,12 +276,22 @@
+   /* create map widget */
+   map = gtk_champlain_embed_new();
+   view = gtk_champlain_embed_get_view(GTK_CHAMPLAIN_EMBED(map));
++#if CHAMPLAIN_CHECK_VERSION(0,10,0)
++  g_object_set(G_OBJECT(view), "kinetic-mode", TRUE, "zoom-level", 8, NULL);
++#else
+   g_object_set(G_OBJECT(view), "scroll-mode", CHAMPLAIN_SCROLL_MODE_KINETIC, "zoom-level", 8, NULL);
+-
++#endif
+   /* mail origin marker */
++#if CHAMPLAIN_CHECK_VERSION(0,10,0)
++  layer = champlain_marker_layer_new();
++//  layer = champlain_marker_layer_new_full(CHAMPLAIN_SELECTION_SINGLE);
++  origin_marker = CHAMPLAIN_LABEL(champlain_label_new_with_text("mail origin", "Serif 14", NULL, NULL));
++  champlain_label_set_color(CHAMPLAIN_LABEL(origin_marker), &orange);
++#else
+   layer = champlain_layer_new();
+   origin_marker = champlain_marker_new_with_text("mail origin", "Serif 14", NULL, NULL);
+   champlain_marker_set_color(CHAMPLAIN_MARKER(origin_marker), &orange);
++#endif
+   clutter_container_add(CLUTTER_CONTAINER(layer), origin_marker, NULL);
+   champlain_view_add_layer(view, layer);
+ 
+@@ -358,7 +368,11 @@
+       view = g_object_get_data(G_OBJECT(map), GEOLOCATION_MAP_DATA_VIEW);
+       origin_marker = g_object_get_data(G_OBJECT(map), GEOLOCATION_MAP_DATA_ORIGIN_MARKER);
+       champlain_view_center_on(CHAMPLAIN_VIEW(view), lat, lon);
++#if CHAMPLAIN_CHECK_VERSION(0,10,0)
++      champlain_location_set_location(CHAMPLAIN_LOCATION(origin_marker), lat, lon);
++#else
+       champlain_base_marker_set_position(CHAMPLAIN_BASE_MARKER(origin_marker), lat, lon);
++#endif
+       gtk_notebook_set_current_page(GTK_NOTEBOOK(notebook), page_num);
+     }
+     else {
