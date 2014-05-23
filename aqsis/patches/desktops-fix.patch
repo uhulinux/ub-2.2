@@ -1,0 +1,90 @@
+diff -Naur orig/distribution/linux/aqsis.desktop mod/distribution/linux/aqsis.desktop
+--- orig/distribution/linux/aqsis.desktop	2012-08-24 14:26:49.000000000 +0200
++++ mod/distribution/linux/aqsis.desktop	2014-05-23 18:57:32.940565950 +0200
+@@ -1,13 +1,13 @@
+ [Desktop Entry]
+-Version=1.0
+ Type=Application
+ Name=Aqsis Renderer
+ GenericName=RenderMan Renderer
+ NoDisplay=true
+ Comment=Render RenderMan Interface Bytestream (RIB) files
++Comment[hu]=Render RenderMan felület Bytestream (RIB) fájlok
+ Icon=aqsis
+ TryExec=aqsis
+-Exec=/usr/share/aqsis/scripts/aqsis.sh %f
++Exec=aqsis
+ Terminal=true
+ MimeType=model/x-rib;model/x-rib-gzip;
+ Categories=Graphics;3DGraphics;ConsoleOnly;
+diff -Naur orig/distribution/linux/aqsl.desktop mod/distribution/linux/aqsl.desktop
+--- orig/distribution/linux/aqsl.desktop	2012-08-24 14:26:49.000000000 +0200
++++ mod/distribution/linux/aqsl.desktop	2014-05-23 19:05:38.129218099 +0200
+@@ -1,13 +1,14 @@
+ [Desktop Entry]
+-Version=1.0
+ Type=Application
+ Name=Aqsis Shader Compiler
++Name[hu]=Aqsis árnyékoló fordító
+ GenericName=RenderMan Shader Compiler
++GenericName[hu]=RenderMan árnyékoló fordító
+ NoDisplay=true
+ Comment=Compile RenderMan Shading Language (RSL) files
+ Icon=aqsis
+ TryExec=aqsl
+-Exec=/usr/share/aqsis/scripts/aqsl.sh %F
++Exec=aqsl
+ Terminal=true
+ MimeType=text/x-sl;
+ Categories=Graphics;3DGraphics;ConsoleOnly;
+diff -Naur orig/distribution/linux/aqsltell.desktop mod/distribution/linux/aqsltell.desktop
+--- orig/distribution/linux/aqsltell.desktop	2012-08-24 14:26:49.000000000 +0200
++++ mod/distribution/linux/aqsltell.desktop	2014-05-23 19:00:05.481602920 +0200
+@@ -1,13 +1,14 @@
+ [Desktop Entry]
+-Version=1.0
+ Type=Application
+ Name=Aqsis Shader Inspector
++Name[hu]=Aqsis árnyékoló ellenőrző
+ GenericName=RenderMan Shader Inspector
+ NoDisplay=true
+ Comment=Inspect compiled RenderMan Shading Language (RSL) files
++Comment[hu]=Ellenőrzi a fordított RenderMan árnyékoló Language (RSL) fájlokat
+ Icon=aqsis
+ TryExec=aqsltell
+-Exec=/usr/share/aqsis/scripts/aqsltell.sh %F
++Exec=aqsltell
+ Terminal=true
+ MimeType=application/x-slx;
+ Categories=Graphics;3DGraphics;ConsoleOnly;
+diff -Naur orig/distribution/linux/eqsl.desktop mod/distribution/linux/eqsl.desktop
+--- orig/distribution/linux/eqsl.desktop	2012-08-24 14:26:49.000000000 +0200
++++ mod/distribution/linux/eqsl.desktop	2014-05-23 19:02:05.441699213 +0200
+@@ -1,9 +1,11 @@
+ [Desktop Entry]
+-Version=1.0
+ Type=Application
+ Name=Aqsis User Interface
++Name[hu]=Aqsis felhasználói felület
+ GenericName=RenderMan User Interface
++GenericName[hu]=RenderMan felhasználó felület
+ Comment=Graphical user interface for Aqsis tools
++Comment[hu]=Grafikus felület Aqsis eszközökhöz
+ Icon=aqsis
+ TryExec=eqsl
+ Exec=eqsl
+diff -Naur orig/distribution/linux/piqsl.desktop mod/distribution/linux/piqsl.desktop
+--- orig/distribution/linux/piqsl.desktop	2012-08-24 14:26:49.000000000 +0200
++++ mod/distribution/linux/piqsl.desktop	2014-05-23 19:02:59.585816783 +0200
+@@ -1,10 +1,10 @@
+ [Desktop Entry]
+-Version=1.0
+ Type=Application
+ Name=Aqsis Advanced Framebuffer
+ GenericName=RenderMan Advanced Framebuffer
+ NoDisplay=true
+ Comment=Display driver for Aqsis and other RenderMan-compliant renderers
++Comment[hu]=Kijelző meghajtó Aqsis és egyéb RenderMan-kompatibilis megjelenítők
+ Icon=aqsis
+ TryExec=piqsl
+ Exec=piqsl %F
