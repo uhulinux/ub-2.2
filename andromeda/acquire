@@ -1,5 +1,5 @@
 #!/usr/bin/env dl
 
-v${UB_VERSION_HEAD2}.tar.gz Andromeda-${UB_VERSION_HEAD2}/
+v${UB_VERSION_HEAD2}.tar.gz andromeda-${UB_VERSION_HEAD2}/
 	https://github.com/ABBAPOH/Andromeda/archive/
 

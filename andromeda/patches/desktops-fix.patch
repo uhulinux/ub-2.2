@@ -1,0 +1,25 @@
+diff -Naur orig/src/apps/andromeda/andromeda.desktop mod/src/apps/andromeda/andromeda.desktop
+--- orig/src/apps/andromeda/andromeda.desktop	2013-02-09 14:45:27.000000000 +0100
++++ mod/src/apps/andromeda/andromeda.desktop	2014-05-23 17:10:34.228082386 +0200
+@@ -25,4 +25,4 @@
+ MimeType=inode/directory;
+ StartupNotify=true
+ Icon=andromeda
+-Categories=System;FileManager;
++Categories=System;FileTools;FileManager;
+diff -Naur orig/src/apps/imageviewer/imageviewer.desktop mod/src/apps/imageviewer/imageviewer.desktop
+--- orig/src/apps/imageviewer/imageviewer.desktop	2013-02-09 14:45:27.000000000 +0100
++++ mod/src/apps/imageviewer/imageviewer.desktop	2014-05-23 17:12:52.172255560 +0200
+@@ -1,11 +1,10 @@
+ [Desktop Entry]
+ Name=ImageViewer
+ GenericName=ImageViewer
+-Comment[ru]=Просмотрщик изображеий
+ Exec=imageviewer
+ Terminal=false
+ Type=Application
+ MimeType=image/bmp;image/gif;image/jpeg;video/x-mng;image/png;image/x-portable-bitmap;image/x-portable-graymap;image/x-portable-pixmap;image/tiff;image/x-xbitmap;image/x-xpixmap;image/svg+xml;image/x-tga;
+ StartupNotify=true
+ Icon=imageviewer
+-Categories=Graphics;RasterGraphics;Viewer;
++Categories=Graphics;Viewer;
