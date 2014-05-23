@@ -13,7 +13,7 @@ diff -Naur orig/data/almanah.desktop.in mod/data/almanah.desktop.in
  Terminal=false
  Type=Application
 -Categories=GTK;Utility;
-+Categories=GTK;Utility;X-UHU-Menu/Tools/Organizer;
++Categories=GTK;Office;Calendar;
  X-GNOME-Bugzilla-Bugzilla=GNOME
  X-GNOME-Bugzilla-Product=almanah
  X-GNOME-Bugzilla-Component=General

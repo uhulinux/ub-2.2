@@ -6,4 +6,4 @@ Exec=TeletextDVB-capture.sh
 Icon=mini-alevt
 Terminal=false
 Type=Application
-Categories=Application;AudioVideo;X-UHU-Menu/Multimedia/TVRadio;
+Categories=AudioVideo;Video;Recorder;
