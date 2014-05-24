@@ -1,13 +1,10 @@
 alsa-lib-dev
 cmake
-expat-dev
-flac-dev
 gtk2-dev
 jack-dev
 libid3tag-dev
 liblame-dev
 libmad-dev
-libogg-dev
 libsamplerate-dev
 libsndfile-dev
 libvorbis-dev
