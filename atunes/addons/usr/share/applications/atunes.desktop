@@ -1,6 +1,4 @@
-#!/usr/bin/env xdg-open
 [Desktop Entry]
-Version=1.0
 Type=Application
 Name=aTunes
 GenericName=aTunes Music Player
@@ -11,6 +9,5 @@ Exec=atunes
 TryExec=atunes
 Icon=atunes
 Terminal=false
-Categories=AudioVideo;Player;Qt;X-UHU-Menu/Multimedia/MusicPlayers;
+Categories=Qt;AudioVideo;Audio;Player;
 StartupNotify=false
-

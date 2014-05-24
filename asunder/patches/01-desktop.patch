@@ -6,12 +6,12 @@ diff -Naur orig/asunder.desktop patched/asunder.desktop
  GenericName[de]=Ein graphischer CD-Ripper und Encoder
  GenericName[fr]=Extracteur de CD
 -GenericName[hu]=Audió CD Ripper és Tömörítő
-+GenericName[hu]=GenericName[hu]=Audió CD ripper és tömörítő
++GenericName[hu]=Hang CD hangleszedő és tömörítő
  GenericName[ru]=Копирование звуковых CD
  Comment=An application to save tracks from an Audio CD as WAV, MP3, OGG, FLAC, and/or Wavpack.
  Comment[de]=Oberfläche zur Erstellung von Audio-Dateien
 -Comment[hu]=Egy alkalmazás ami az Audió CD-n lévő sávokat lementi, MP3, OGG, FLAC és/vagy Wavpack formátumba.
-+Comment[hu]=Comment[hu]=Audio CD hangsávjait WAV, MP3, OGG, FLAC, Wavpack, Musepack, Monkey's Audio ás/vagy AAC formátumba kódoló program.
++Comment[hu]=Hang CD hangsávjait WAV, MP3, OGG, FLAC, Wavpack, Musepack, Monkey's Audio és/vagy AAC formátumba kódoló program.
  Comment[ru]=Программа для сохранения звуковых дорожек CD в файлы форматов WAV, MP3, OGG, FLAC и/или Wavpack.
  Comment[sv]=Ett program för att spara spår från en ljudskiva som WAV, MP3, OGG och/eller FLAC.
  Exec=asunder
@@ -19,6 +19,6 @@ diff -Naur orig/asunder.desktop patched/asunder.desktop
  StartupNotify=true
  Type=Application
 -Categories=AudioVideo;Audio;
-+Categories=AudioVideo;Audio;X-UHU-Menu/Multimedia/Rippers;
++Categories=AudioVideo;Audio;Recorder;
  Icon=asunder
  

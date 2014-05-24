@@ -22,6 +22,6 @@ diff -Naur a/src/arora.desktop b/src/arora.desktop
  Type=Application
  Icon=arora
 -Categories=Application;Qt;Network;WebBrowser;
-+Categories=Application;Qt;Network;WebBrowser;X-UHU-Menu/Internet/Browsers;
++Categories=Qt;Network;WebBrowser;
  MimeType=text/html;text/xml;application/xhtml+xml;application/xml;image/gif;image/jpeg;image/png;
  StartupNotify=true

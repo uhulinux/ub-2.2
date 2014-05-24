@@ -6,7 +6,7 @@ diff -Naur a/autotests/webpage/tst_webpage.cpp b/autotests/webpage/tst_webpage.c
  
      QTest::newRow("qrc:/notfound.html") << QUrl("qrc:/notfound.html") << true << false;
 -    QTest::newRow("qrc:/startpage.html") << QUrl("qrc:/startpage.html") << true << true;
-+    QTest::newRow("http://ubk.hu/forum/") << QUrl("http://ubk.hu/forum/") << true << true;
++    QTest::newRow("https://code.google.com/p/arora/") << QUrl("https://code.google.com/p/arora/") << true << true;
  }
  
  void tst_WebPage::javaScriptObjects()
@@ -18,7 +18,7 @@ diff -Naur a/src/browsermainwindow.cpp b/src/browsermainwindow.cpp
      QSettings settings;
      settings.beginGroup(QLatin1String("MainWindow"));
 -    QString home = settings.value(QLatin1String("home"), QLatin1String("about:home")).toString();
-+    QString home = settings.value(QLatin1String("home"), QLatin1String("http://ubk.hu/forum/")).toString();
++    QString home = settings.value(QLatin1String("home"), QLatin1String("https://code.google.com/p/arora/")).toString();
      tabWidget()->loadString(home);
  }
  
@@ -30,7 +30,7 @@ diff -Naur a/src/settings.cpp b/src/settings.cpp
  
      settings.beginGroup(QLatin1String("MainWindow"));
 -    QString defaultHome = QLatin1String("about:home");
-+    QString defaultHome = QLatin1String("http://ubk.hu/forum/");
++    QString defaultHome = QLatin1String("https://code.google.com/p/arora/");
      homeLineEdit->setText(settings.value(QLatin1String("home"), defaultHome).toString());
      startupBehavior->setCurrentIndex(settings.value(QLatin1String("startupBehavior"), 0).toInt());
      settings.endGroup();
@@ -42,7 +42,7 @@ diff -Naur a/src/tabwidget.cpp b/src/tabwidget.cpp
      if (url.scheme() == QLatin1String("about")
          && url.path() == QLatin1String("home"))
 -        url = QUrl(QLatin1String("qrc:/startpage.html"));
-+        url = QUrl(QLatin1String("http://ubk.hu/forum/"));
++        url = QUrl(QLatin1String("https://code.google.com/p/arora/"));
  
      // QUrl::isValid() is too much tolerant.
      // We actually want to check if the url conforms to the RFC, which QUrl::isValid() doesn't state.
