@@ -5,6 +5,7 @@ gperf
 gtk2-dev
 krb5-dev
 libdrm-dev
+libexif-dev
 libjpeg-dev
 libxi-dev
 libxml2-dev
@@ -13,8 +14,10 @@ libxslt-dev
 libxtst-dev
 nspr-dev
 nss-dev
+openssl-dev
 pciutils-dev
 pulseaudio-dev
+python-argparse
 python-dev
 udev-dev
 yasm

@@ -52,7 +52,7 @@ diff -Naur orig/third_party/libyuv/include/libyuv/version.h patched/third_party/
  #ifndef INCLUDE_LIBYUV_VERSION_H_  // NOLINT
  #define INCLUDE_LIBYUV_VERSION_H_
  
--#define LIBYUV_VERSION 979
+-#define LIBYUV_VERSION 1000
 +#define LIBYUV_VERSION 1004
  
  #endif  // INCLUDE_LIBYUV_VERSION_H_  NOLINT
@@ -62,7 +62,7 @@ diff -Naur orig/third_party/libyuv/README.chromium patched/third_party/libyuv/RE
 @@ -1,6 +1,6 @@
  Name: libyuv
  URL: http://code.google.com/p/libyuv/
--Version: 979
+-Version: 1000
 +Version: 1004
  License: BSD
  License File: LICENSE

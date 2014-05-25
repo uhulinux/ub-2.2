@@ -109,5 +109,5 @@ Exec=chrome %U
 Terminal=false
 Icon=chromium
 Type=Application
-Categories=Network;WebBrowser;X-UHU-Menu/Internet/Browsers;
+Categories=Network;WebBrowser;
 MimeType=x-scheme-handler/http;x-scheme-handler/https;text/html;text/xml;application/xhtml_xml;

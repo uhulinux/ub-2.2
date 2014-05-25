@@ -1,0 +1,15 @@
+diff -Naur orig/net/tools/tld_cleanup/make_dafsa.py patched/net/tools/tld_cleanup/make_dafsa.py
+--- orig/net/tools/tld_cleanup/make_dafsa.py	2014-05-23 03:07:11.000000000 +0200
++++ patched/net/tools/tld_cleanup/make_dafsa.py	2014-05-24 20:40:36.826238740 +0200
+@@ -460,8 +460,9 @@
+   if len(sys.argv) != 3:
+     print('usage: %s infile outfile' % sys.argv[0])
+     return 1
+-  with open(sys.argv[1], 'r') as infile, open(sys.argv[2], 'w') as outfile:
+-    outfile.write(words_to_cxx(parse_gperf(infile)))
++  with open(sys.argv[1], 'r') as infile:
++    with open(sys.argv[2], 'w') as outfile:
++      outfile.write(words_to_cxx(parse_gperf(infile)))
+   return 0
+ 
+ 
