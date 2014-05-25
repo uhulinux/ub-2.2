@@ -161,7 +161,7 @@ diff -Naur orig/desktop-directories/mate-audio-video-sub-midi.directory.in patch
 +++ patched/desktop-directories/mate-audio-video-sub-midi.directory.in	2014-04-21 21:03:41.483220602 +0200
 @@ -0,0 +1,5 @@
 +[Desktop Entry]
-+_Name=Midi
++_Name=MIDI
 +_Comment=MIDI applications
 +Icon=applications-multimedia
 +Type=Directory
@@ -188,7 +188,7 @@ diff -Naur orig/desktop-directories/mate-audio-video-sub-player.directory.in pat
 +++ patched/desktop-directories/mate-audio-video-sub-player.directory.in	2014-04-21 20:52:23.432962429 +0200
 @@ -0,0 +1,5 @@
 +[Desktop Entry]
-+_Name=Players
++_Name=Player
 +_Comment=Play audio/video files
 +Icon=video-x-generic
 +Type=Directory
@@ -1087,8 +1087,8 @@ diff -Naur orig/po/hu.po patched/po/hu.po
 +msgstr "Optikai lemez író alkalmazások"
 +
 +#: ../desktop-directories/mate-audio-video-sub-midi.directory.in.h:1
-+msgid "Midi"
-+msgstr "Midi"
++msgid "MIDI"
++msgstr "MIDI"
 +
 +#: ../desktop-directories/mate-audio-video-sub-midi.directory.in.h:2
 +msgid "MIDI applications"
@@ -1107,8 +1107,8 @@ diff -Naur orig/po/hu.po patched/po/hu.po
 +msgstr "Zenei program"
 +
 +#: ../desktop-directories/mate-audio-video-sub-player.directory.in.h:1
-+msgid "Players"
-+msgstr "Lejátszók"
++msgid "Player"
++msgstr "Lejátszó"
 +
 +#: ../desktop-directories/mate-audio-video-sub-player.directory.in.h:2
 +msgid "Play audio/video files"
@@ -1219,7 +1219,7 @@ diff -Naur orig/po/hu.po patched/po/hu.po
 +
 +#: ../desktop-directories/mate-game-sub-simulation.directory.in.h:1
 +msgid "Simulation"
-+msgstr "Szimulációs játék"
++msgstr "Szimuláció"
 +
 +#: ../desktop-directories/mate-game-sub-simulation.directory.in.h:2
 +msgid "Simulation game"
@@ -1294,7 +1294,7 @@ diff -Naur orig/po/hu.po patched/po/hu.po
 +
 +#: ../desktop-directories/mate-network-sub-hamradio.directory.in.h:2
 +msgid "HAM radio software"
-+msgstr "HAM rádió programok"
++msgstr "HAM rádió program"
 +
 +#: ../desktop-directories/mate-network-sub-instantmessaging.directory.in.h:1
 +msgid "Instant messaging"
@@ -1381,11 +1381,11 @@ diff -Naur orig/po/hu.po patched/po/hu.po
 +
 +#: ../desktop-directories/mate-system-tools-sub-monitor.directory.in.h:1
 +msgid "Monitor"
-+msgstr "Megfigyelés"
++msgstr "Rendszerfigyelő"
 +
 +#: ../desktop-directories/mate-system-tools-sub-monitor.directory.in.h:2
 +msgid "Monitor application/applet that monitors some resource or activity"
-+msgstr "erőforrás vagy aktivitás figyelő alkalmazás"
++msgstr "Erőforrás vagy aktivitás figyelő alkalmazás"
 +
 +#: ../desktop-directories/mate-system-tools-sub-terminalemulator.directory.in.h:1
 +msgid "Terminal emulator"
@@ -1456,7 +1456,7 @@ diff -Naur orig/po/hu.po patched/po/hu.po
 +
 +#: ../desktop-directories/mate-utility-sub-texttool.directory.in.h:1
 +msgid "Text tool"
-+msgstr "Szöveg kezelő eszköz"
++msgstr "Szöveg kezelő"
 +
 +#: ../desktop-directories/mate-utility-sub-texttool.directory.in.h:2
 +msgid "Text tool utility"
