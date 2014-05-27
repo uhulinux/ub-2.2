@@ -1,7 +1,7 @@
 diff -Naur orig/configure.ac patched/configure.ac
---- orig/configure.ac	2013-12-14 11:14:50.000000000 +0100
-+++ patched/configure.ac	2014-05-18 00:06:56.907810646 +0200
-@@ -1272,13 +1272,17 @@
+--- orig/configure.ac	2014-05-17 23:37:12.000000000 +0200
++++ patched/configure.ac	2014-05-18 02:05:37.821932481 +0200
+@@ -1277,13 +1277,17 @@
  AC_SUBST(CM_NP_HOTKEY_LIBS)
  
  dnl libchamplain ***************************************************************
@@ -25,8 +25,8 @@ diff -Naur orig/configure.ac patched/configure.ac
  AC_SUBST(CHAMPLAIN_LIBS)
  
 diff -Naur orig/src/plugins/geolocation/geolocation_plugin.c patched/src/plugins/geolocation/geolocation_plugin.c
---- orig/src/plugins/geolocation/geolocation_plugin.c	2013-12-14 11:15:05.000000000 +0100
-+++ patched/src/plugins/geolocation/geolocation_plugin.c	2014-05-18 01:46:36.419933127 +0200
+--- orig/src/plugins/geolocation/geolocation_plugin.c	2014-05-17 23:37:12.000000000 +0200
++++ patched/src/plugins/geolocation/geolocation_plugin.c	2014-05-18 02:05:37.821932481 +0200
 @@ -276,12 +276,22 @@
    /* create map widget */
    map = gtk_champlain_embed_new();

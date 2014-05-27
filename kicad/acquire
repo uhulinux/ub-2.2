@@ -1,6 +1,4 @@
 #!/usr/bin/env dl
 
-kicad_${UB_VERSION}.orig.tar.gz kicad-${UB_VERSION}.orig/
+kicad_${UB_VERSION}.orig.tar.xz kicad-${UB_VERSION}.orig/
 	http://ftp.debian.org/debian/pool/main/k/kicad/
-	https://launchpad.net/ubuntu/trusty/+source/kicad/${UB_VERSION}-2/+files/
-

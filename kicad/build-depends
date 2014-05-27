@@ -3,4 +3,4 @@ cairo-dev
 cmake
 glew-dev
 mesa-dev
-wxwidgets3-dev
+wxwidgets-dev

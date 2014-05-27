@@ -28,7 +28,7 @@ c74b7223abe75949b4af367942d96c7a-crosextrafonts-carlito-20130920.tar.gz
 35efabc239af896dfb79be7ebdd6e6b9-gentiumbasic-fonts-1.10.zip
 	http://dev-www.libreoffice.org/src/
 
-b3174b11c2b6a341f5c99b31088bd67b-liberation-fonts-ttf-1.07.3.tar.gz
+134d8262145fc793c6af494dcace3e71-liberation-fonts-ttf-1.07.4.tar.gz
 	http://dev-www.libreoffice.org/src/
 
 7a15edea7d415ac5150ea403e27401fd-open-sans-font-ttf-1.10.tar.gz
@@ -45,19 +45,16 @@ c3c1a8ba7452950636e871d25020ce0d-pt-serif-font-1.0000W.tar.gz
 
 # deps
 
-1756c4fa6c616ae15973c104cd8cb256-Adobe-Core35_AFMs-314.tar.gz
-	http://dev-www.libreoffice.org/src/
-
 48d647fbd8ef8889e5a7f422c1bfda94-clucene-core-2.3.3.4.tar.gz
 	http://dev-www.libreoffice.org/src/
 
-7042305e4208af4c2d5249d814ccce58-graphite2-1.2.3.tgz
+bae83fa5dc7f081768daace6e199adc3-glm-0.9.4.6-libreoffice.zip
 	http://dev-www.libreoffice.org/src/
 
 a2f6010987e1c601274ab5d63b72c944-hyphen-2.8.4.tar.gz
 	http://dev-www.libreoffice.org/src/
 
-9e96ed4c1d99c0d14ac03c140f9f346c-icu4c-52_1-src.tgz
+b73baa6fbdfef197608d1f69300919b9-icu4c-53_1-src.tgz
 	http://dev-www.libreoffice.org/src/
 
 22f8a85daf4a012180322e1f52a7563b-libcmis-0.4.1.tar.gz
@@ -66,7 +63,7 @@ a2f6010987e1c601274ab5d63b72c944-hyphen-2.8.4.tar.gz
 ae330b9493bd4503ac390106ff6060d7-libexttextcat-3.4.3.tar.bz2
 	http://dev-www.libreoffice.org/src/
 
-ea2acaf140ae40a87a952caa75184f4d-liborcus-0.5.1.tar.bz2
+7681383be6ce489d84c1c74f4e7f9643-liborcus-0.7.0.tar.bz2
 	http://dev-www.libreoffice.org/src/
 	
 a3dcac551fae5ebbec16e844810828c4-libwpd-0.9.9.tar.bz2
@@ -75,7 +72,7 @@ a3dcac551fae5ebbec16e844810828c4-libwpd-0.9.9.tar.bz2
 26b3e95ddf3d9c077c480ea45874b3b8-lp_solve_5.5.tar.gz 
 	http://dev-www.libreoffice.org/src/
 
-47203e7cade74e5c385aa812f21e7932-mdds_0.10.2.tar.bz2
+aa5ca9d1ed1082890835afab26400a39-mdds_0.10.3.tar.bz2
 	http://dev-www.libreoffice.org/src/
 
 0981bda6548a8c8233ffce2b6e4b2a23-mysql-connector-c++-1.1.0.tar.gz
@@ -91,6 +88,9 @@ d62650a6f908e85643e557a236ea989c-vigra1.6.0.tar.gz
 	http://dev-www.libreoffice.org/src/
 
 1f24ab1d39f4a51faf22244c94a6203f-xmlsec1-1.2.14.tar.gz
+	http://dev-www.libreoffice.org/src/
+
+graphite2-1.2.4.tgz
 	http://dev-www.libreoffice.org/src/
 
 harfbuzz-0.9.23.tar.bz2

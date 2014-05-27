@@ -1,0 +1,12 @@
+diff -Naur orig/src/common/utils.c patched/src/common/utils.c
+--- orig/src/common/utils.c	2014-05-23 11:37:26.000000000 +0200
++++ patched/src/common/utils.c	2014-05-24 13:31:40.345515653 +0200
+@@ -5173,7 +5173,7 @@
+ 				}
+ 				break;
+ 			case 'r':
+-				strftime(subbuf, 64, "%r", lt);
++				strftime(subbuf, 64, "%X", lt);
+ 				len = strlen(subbuf); CHECK_SIZE();
+ 				strncpy2(curpos, subbuf, buflen - total_done);
+ 				break;

@@ -25,9 +25,9 @@ export QT4DIR=/usr/lib/qt4
 	--with-vendor=ubk.hu \
 	--with-help \
 	--with-fonts \
+	--with-external-tar=src \
 	--with-system-libs \
 	--with-system-headers \
-	--without-afms \
 	--without-java \
 	--without-ppds \
 	--without-system-npapi-headers \
@@ -35,6 +35,7 @@ export QT4DIR=/usr/lib/qt4
 	--without-system-altlinuxhyph \
 	--without-system-bluez \
 	--without-system-clucene \
+	--without-system-glm \
   	--without-system-graphite \
   	--without-system-harfbuzz \
   	--without-system-icu \
@@ -56,9 +57,11 @@ export QT4DIR=/usr/lib/qt4
   	--without-system-orcus \
   	--without-system-vigra \
 	--disable-fetch-external \
+	--disable-coinmp \
 	--disable-dbgutil \
 	--disable-debug \
 	--disable-gconf \
+	--disable-gltf \
 	--disable-gnome-vfs \
 	--disable-kde \
 	--disable-kdeab \
@@ -85,8 +88,11 @@ sed -i 's/uses_gnomevfs=true/uses_gnomevfs=false/g' sysui/desktop/mimetypes/open
 
 # átpakolunk az /src alá mindent, mert
 # ott fogja keresni a letöltött forráscsomagokat
+if [ ! -d src ]; then
 mkdir src
+fi
 mv *.{gz,zip,bz2,tgz} src/
 
 # az unitcheck és a slowcheck nem kell
 make build-nocheck
+

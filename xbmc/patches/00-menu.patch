@@ -1,7 +1,7 @@
 diff -Naur orig/tools/Linux/xbmc.desktop patched/tools/Linux/xbmc.desktop
---- orig/tools/Linux/xbmc.desktop	2013-01-29 15:20:27.000000000 +0100
-+++ patched/tools/Linux/xbmc.desktop	2013-04-23 13:36:35.105094838 +0200
-@@ -2,12 +2,14 @@
+--- orig/tools/Linux/xbmc.desktop	2013-12-12 22:47:49.000000000 +0100
++++ patched/tools/Linux/xbmc.desktop	2014-05-27 12:50:54.427160455 +0200
+@@ -2,7 +2,9 @@
  Version=1.0
  Name=XBMC Media Center
  GenericName=Media Center
@@ -12,9 +12,3 @@ diff -Naur orig/tools/Linux/xbmc.desktop patched/tools/Linux/xbmc.desktop
  Exec=xbmc
  Icon=xbmc
  Terminal=false
- Type=Application
--Categories=AudioVideo;Video;Player;TV;
-+Categories=AudioVideo;Video;Player;TV;X-UHU-Menu/Multimedia/VideoPlayers;
- 
- Actions=Fullscreen;Standalone;
- 

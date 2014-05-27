@@ -16,9 +16,9 @@ mv "$UB_INSTALLDIR"/usr/share/mesa-demos/xdemos/{glxgears,glxinfo} "$UB_INSTALLD
 rm -rf egl tools wgl
 cd objviewer
 
-ln -s ../images/bw.rgb alpine_down.rgb
-ln -s ../images/bw.rgb alpine_east.rgb
-ln -s ../images/bw.rgb alpine_north.rgb
-ln -s ../images/bw.rgb alpine_south.rgb
-ln -s ../images/bw.rgb alpine_up.rgb
-ln -s ../images/bw.rgb alpine_west.rgb
+ln -s ../data/bw.rgb alpine_down.rgb
+ln -s ../data/bw.rgb alpine_east.rgb
+ln -s ../data/bw.rgb alpine_north.rgb
+ln -s ../data/bw.rgb alpine_south.rgb
+ln -s ../data/bw.rgb alpine_up.rgb
+ln -s ../data/bw.rgb alpine_west.rgb

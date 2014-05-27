@@ -1,30 +1,30 @@
-diff -Naurdp mesa-demos-8.0.1/src/egl/Makefile.in mesa-demos-8.0.1-no-egl/src/egl/Makefile.in
---- mesa-demos-8.0.1/src/egl/Makefile.in	2010-07-13 20:53:23.000000000 +0200
-+++ mesa-demos-8.0.1-no-egl/src/egl/Makefile.in	2010-11-24 19:50:49.000000000 +0100
-@@ -261,7 +261,6 @@ top_srcdir = @top_srcdir@
+diff -Naur orig/src/egl/Makefile.in patched/src/egl/Makefile.in
+--- orig/src/egl/Makefile.in	2013-02-24 12:12:04.000000000 +0100
++++ patched/src/egl/Makefile.in	2014-05-27 01:06:28.527075282 +0200
+@@ -304,7 +304,6 @@
  SUBDIRS = \
  	eglut \
  	opengl \
 -	openvg \
  	opengles1 \
- 	opengles2
- 
-diff -Naurdp mesa-demos-8.0.1/src/egl/openvg/Makefile.in mesa-demos-8.0.1-no-egl/src/egl/openvg/Makefile.in
---- mesa-demos-8.0.1/src/egl/openvg/Makefile.in	2010-07-13 20:53:24.000000000 +0200
-+++ mesa-demos-8.0.1-no-egl/src/egl/openvg/Makefile.in	2010-11-24 19:46:29.000000000 +0100
-@@ -328,7 +328,7 @@ sp_screen_LDADD = ../eglut/libeglut_scre
- lion_x11_LDADD = ../eglut/libeglut_x11.la
- sp_x11_LDADD = ../eglut/libeglut_x11.la
+ 	opengles2 \
+ 	oes_vg
+diff -Naur orig/src/egl/openvg/Makefile.in patched/src/egl/openvg/Makefile.in
+--- orig/src/egl/openvg/Makefile.in	2013-02-24 12:12:04.000000000 +0100
++++ patched/src/egl/openvg/Makefile.in	2014-05-27 01:06:28.535075397 +0200
+@@ -386,7 +386,7 @@
+ text_CFLAGS = $(AM_CFLAGS) @FREETYPE2_CFLAGS@
+ text_LDADD = @FREETYPE2_LIBS@ ../eglut/libeglut_x11.la
  SUBDIRS = \
 -	trivial
 +	
  
  all: all-recursive
  
-diff -Naurdp mesa-demos-8.0.1/src/Makefile.in mesa-demos-8.0.1-no-egl/src/Makefile.in
---- mesa-demos-8.0.1/src/Makefile.in	2010-07-13 20:53:23.000000000 +0200
-+++ mesa-demos-8.0.1-no-egl/src/Makefile.in	2010-11-24 20:04:39.000000000 +0100
-@@ -274,7 +274,6 @@ SUBDIRS = \
+diff -Naur orig/src/Makefile.in patched/src/Makefile.in
+--- orig/src/Makefile.in	2013-02-24 12:12:03.000000000 +0100
++++ patched/src/Makefile.in	2014-05-27 01:06:28.543075505 +0200
+@@ -317,7 +317,6 @@
  	redbook \
  	samples \
  	slang \
@@ -32,24 +32,24 @@ diff -Naurdp mesa-demos-8.0.1/src/Makefile.in mesa-demos-8.0.1-no-egl/src/Makefi
  	tools \
  	trivial \
  	vp \
-diff -Naurdp mesa-demos-8.0.1/src/tests/Makefile.in mesa-demos-8.0.1-no-egl/src/tests/Makefile.in
---- mesa-demos-8.0.1/src/tests/Makefile.in	2010-07-13 20:53:26.000000000 +0200
-+++ mesa-demos-8.0.1-no-egl/src/tests/Makefile.in	2010-11-24 19:57:12.000000000 +0100
-@@ -495,7 +495,7 @@ SOURCES = afsmultiarb.c antialias.c arbf
- 	lineclip.c manytex.c mapbufrange.c minmag.c mipgen.c \
- 	mipmap_comp.c mipmap_comp_tests.c mipmap_limits.c \
+diff -Naur orig/src/tests/Makefile.in patched/src/tests/Makefile.in
+--- orig/src/tests/Makefile.in	2013-02-24 12:12:05.000000000 +0100
++++ patched/src/tests/Makefile.in	2014-05-27 01:08:19.220579492 +0200
+@@ -551,7 +551,7 @@
+ 	mipgen.c mipmap_comp.c mipmap_comp_tests.c mipmap_limits.c \
+ 	mipmap_tunnel.c mipmap_view.c multipal.c multitexarray.c \
+ 	multiwindow.c no_s3tc.c packedpixels.c pbo.c persp_hint.c \
+-	prim.c prog_parameter.c quads.c random.c readrate.c \
++	prog_parameter.c quads.c random.c readrate.c \
+ 	rubberband.c scissor.c scissor-viewport.c seccolor.c \
+ 	shader-interp.c shader_api.c shadow-sample.c sharedtex.c \
+ 	stencilreaddraw.c stencilwrap.c step.c streaming_rect.c \
+@@ -576,7 +576,7 @@
+ 	manytex.c mapbufrange.c minmag.c mipgen.c mipmap_comp.c \
+ 	mipmap_comp_tests.c mipmap_limits.c mipmap_tunnel.c \
  	mipmap_view.c multipal.c multitexarray.c multiwindow.c \
 -	no_s3tc.c packedpixels.c pbo.c persp_hint.c prim.c \
 +	no_s3tc.c packedpixels.c pbo.c persp_hint.c \
  	prog_parameter.c quads.c random.c readrate.c rubberband.c \
- 	scissor.c scissor-viewport.c seccolor.c shader_api.c \
- 	sharedtex.c stencilreaddraw.c stencilwrap.c streaming_rect.c \
-@@ -519,7 +519,7 @@ DIST_SOURCES = afsmultiarb.c antialias.c
- 	mapbufrange.c minmag.c mipgen.c mipmap_comp.c \
- 	mipmap_comp_tests.c mipmap_limits.c mipmap_view.c multipal.c \
- 	multitexarray.c multiwindow.c no_s3tc.c packedpixels.c pbo.c \
--	persp_hint.c prim.c prog_parameter.c quads.c random.c \
-+	persp_hint.c prog_parameter.c quads.c random.c \
- 	readrate.c rubberband.c scissor.c scissor-viewport.c \
- 	seccolor.c shader_api.c sharedtex.c stencilreaddraw.c \
- 	stencilwrap.c streaming_rect.c subtex.c subtexrate.c tex1d.c \
+ 	scissor.c scissor-viewport.c seccolor.c shader-interp.c \
+ 	shader_api.c shadow-sample.c sharedtex.c stencilreaddraw.c \

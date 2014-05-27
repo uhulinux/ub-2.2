@@ -1,0 +1,15 @@
+diff -Naur orig/app/desktop/gambas3.desktop patched/app/desktop/gambas3.desktop
+--- orig/app/desktop/gambas3.desktop	2013-07-19 20:23:44.000000000 +0200
++++ patched/app/desktop/gambas3.desktop	2014-05-26 21:22:43.249995631 +0200
+@@ -2,9 +2,8 @@
+ Name=Gambas3
+ Exec=gambas3
+ Comment=Gambas3 Integrated Development Environment
+-Icon=gambas3.png
++Icon=gambas3
+ Terminal=false
+ Type=Application
+-Categories=Application;Development;
+-Encoding=UTF-8
++Categories=Development;
+ StartupNotify=true

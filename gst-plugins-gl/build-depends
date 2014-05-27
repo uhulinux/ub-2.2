@@ -1,6 +1,7 @@
 glew-dev
 gst-plugins-base-dev
 gtk2-dev
+libjpeg-dev
 liboil-dev
 libpng-dev
 libsm-dev

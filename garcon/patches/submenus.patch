@@ -1,6 +1,6 @@
 diff -Naur orig/data/xfce/Makefile.am patched/data/xfce/Makefile.am
 --- orig/data/xfce/Makefile.am	2014-02-22 23:26:36.000000000 +0100
-+++ patched/data/xfce/Makefile.am	2014-05-25 13:40:35.958188101 +0200
++++ patched/data/xfce/Makefile.am	2014-05-26 19:28:35.789376352 +0200
 @@ -24,19 +24,67 @@
  directorydir = $(datadir)/desktop-directories
  directory_in_files =							\
@@ -72,7 +72,7 @@ diff -Naur orig/data/xfce/Makefile.am patched/data/xfce/Makefile.am
  @INTLTOOL_DIRECTORY_RULE@
 diff -Naur orig/data/xfce/Makefile.in patched/data/xfce/Makefile.in
 --- orig/data/xfce/Makefile.in	2014-02-22 23:26:38.000000000 +0100
-+++ patched/data/xfce/Makefile.in	2014-05-25 16:45:37.711973757 +0200
++++ patched/data/xfce/Makefile.in	2014-05-26 19:28:35.789376352 +0200
 @@ -361,19 +361,68 @@
  directorydir = $(datadir)/desktop-directories
  directory_in_files = \
@@ -145,7 +145,7 @@ diff -Naur orig/data/xfce/Makefile.in patched/data/xfce/Makefile.in
  EXTRA_DIST = \
 diff -Naur orig/data/xfce/xfce-accessories-sub-archiving.directory.in patched/data/xfce/xfce-accessories-sub-archiving.directory.in
 --- orig/data/xfce/xfce-accessories-sub-archiving.directory.in	1970-01-01 01:00:00.000000000 +0100
-+++ patched/data/xfce/xfce-accessories-sub-archiving.directory.in	2014-05-25 16:31:48.517565565 +0200
++++ patched/data/xfce/xfce-accessories-sub-archiving.directory.in	2014-05-26 19:28:35.789376352 +0200
 @@ -0,0 +1,7 @@
 +[Desktop Entry]
 +_Name=Archiving
@@ -156,7 +156,7 @@ diff -Naur orig/data/xfce/xfce-accessories-sub-archiving.directory.in patched/da
 +Type=Directory
 diff -Naur orig/data/xfce/xfce-accessories-sub-calculator.directory.in patched/data/xfce/xfce-accessories-sub-calculator.directory.in
 --- orig/data/xfce/xfce-accessories-sub-calculator.directory.in	1970-01-01 01:00:00.000000000 +0100
-+++ patched/data/xfce/xfce-accessories-sub-calculator.directory.in	2014-05-25 16:46:34.328677418 +0200
++++ patched/data/xfce/xfce-accessories-sub-calculator.directory.in	2014-05-26 19:28:35.789376352 +0200
 @@ -0,0 +1,5 @@
 +[Desktop Entry]
 +_Name=Calculator
@@ -165,7 +165,7 @@ diff -Naur orig/data/xfce/xfce-accessories-sub-calculator.directory.in patched/d
 +Type=Directory
 diff -Naur orig/data/xfce/xfce-accessories-sub-clock.directory.in patched/data/xfce/xfce-accessories-sub-clock.directory.in
 --- orig/data/xfce/xfce-accessories-sub-clock.directory.in	1970-01-01 01:00:00.000000000 +0100
-+++ patched/data/xfce/xfce-accessories-sub-clock.directory.in	2014-05-25 16:47:01.633016738 +0200
++++ patched/data/xfce/xfce-accessories-sub-clock.directory.in	2014-05-26 19:28:35.789376352 +0200
 @@ -0,0 +1,5 @@
 +[Desktop Entry]
 +_Name=Clock
@@ -174,7 +174,7 @@ diff -Naur orig/data/xfce/xfce-accessories-sub-clock.directory.in patched/data/x
 +Type=Directory
 diff -Naur orig/data/xfce/xfce-accessories-sub-compression.directory.in patched/data/xfce/xfce-accessories-sub-compression.directory.in
 --- orig/data/xfce/xfce-accessories-sub-compression.directory.in	1970-01-01 01:00:00.000000000 +0100
-+++ patched/data/xfce/xfce-accessories-sub-compression.directory.in	2014-05-25 16:32:15.681909795 +0200
++++ patched/data/xfce/xfce-accessories-sub-compression.directory.in	2014-05-26 19:28:35.789376352 +0200
 @@ -0,0 +1,7 @@
 +[Desktop Entry]
 +_Name=Compression
@@ -185,7 +185,7 @@ diff -Naur orig/data/xfce/xfce-accessories-sub-compression.directory.in patched/
 +Type=Directory
 diff -Naur orig/data/xfce/xfce-accessories-sub-filetool.directory.in patched/data/xfce/xfce-accessories-sub-filetool.directory.in
 --- orig/data/xfce/xfce-accessories-sub-filetool.directory.in	1970-01-01 01:00:00.000000000 +0100
-+++ patched/data/xfce/xfce-accessories-sub-filetool.directory.in	2014-05-25 16:47:22.937281133 +0200
++++ patched/data/xfce/xfce-accessories-sub-filetool.directory.in	2014-05-26 19:28:35.789376352 +0200
 @@ -0,0 +1,5 @@
 +[Desktop Entry]
 +_Name=File tool
@@ -194,7 +194,7 @@ diff -Naur orig/data/xfce/xfce-accessories-sub-filetool.directory.in patched/dat
 +Type=Directory
 diff -Naur orig/data/xfce/xfce-accessories-sub-telephonytool.directory.in patched/data/xfce/xfce-accessories-sub-telephonytool.directory.in
 --- orig/data/xfce/xfce-accessories-sub-telephonytool.directory.in	1970-01-01 01:00:00.000000000 +0100
-+++ patched/data/xfce/xfce-accessories-sub-telephonytool.directory.in	2014-05-25 16:32:31.746113354 +0200
++++ patched/data/xfce/xfce-accessories-sub-telephonytool.directory.in	2014-05-26 19:28:35.789376352 +0200
 @@ -0,0 +1,7 @@
 +[Desktop Entry]
 +_Name=Telephony tool
@@ -205,7 +205,7 @@ diff -Naur orig/data/xfce/xfce-accessories-sub-telephonytool.directory.in patche
 +Type=Directory
 diff -Naur orig/data/xfce/xfce-accessories-sub-texteditor.directory.in patched/data/xfce/xfce-accessories-sub-texteditor.directory.in
 --- orig/data/xfce/xfce-accessories-sub-texteditor.directory.in	1970-01-01 01:00:00.000000000 +0100
-+++ patched/data/xfce/xfce-accessories-sub-texteditor.directory.in	2014-05-25 16:32:40.274221560 +0200
++++ patched/data/xfce/xfce-accessories-sub-texteditor.directory.in	2014-05-26 19:28:35.789376352 +0200
 @@ -0,0 +1,7 @@
 +[Desktop Entry]
 +_Name=Text editor
@@ -216,7 +216,7 @@ diff -Naur orig/data/xfce/xfce-accessories-sub-texteditor.directory.in patched/d
 +Type=Directory
 diff -Naur orig/data/xfce/xfce-accessories-sub-texttool.directory.in patched/data/xfce/xfce-accessories-sub-texttool.directory.in
 --- orig/data/xfce/xfce-accessories-sub-texttool.directory.in	1970-01-01 01:00:00.000000000 +0100
-+++ patched/data/xfce/xfce-accessories-sub-texttool.directory.in	2014-05-25 16:32:49.994344424 +0200
++++ patched/data/xfce/xfce-accessories-sub-texttool.directory.in	2014-05-26 19:28:35.793376412 +0200
 @@ -0,0 +1,7 @@
 +[Desktop Entry]
 +_Name=Text tool
@@ -227,7 +227,7 @@ diff -Naur orig/data/xfce/xfce-accessories-sub-texttool.directory.in patched/dat
 +Type=Directory
 diff -Naur orig/data/xfce/xfce-applications.menu patched/data/xfce/xfce-applications.menu
 --- orig/data/xfce/xfce-applications.menu	2014-02-22 23:26:36.000000000 +0100
-+++ patched/data/xfce/xfce-applications.menu	2014-05-25 15:10:12.176221946 +0200
++++ patched/data/xfce/xfce-applications.menu	2014-05-26 19:31:07.263422846 +0200
 @@ -34,6 +34,9 @@
          <Include>
              <Category>Settings</Category>
@@ -639,7 +639,7 @@ diff -Naur orig/data/xfce/xfce-applications.menu patched/data/xfce/xfce-applicat
      </Menu>
  
      <Menu>
-@@ -139,16 +500,56 @@
+@@ -139,16 +500,55 @@
          <Name>System</Name>
          <Directory>xfce-system.directory</Directory>
          <Include>
@@ -651,7 +651,6 @@ diff -Naur orig/data/xfce/xfce-applications.menu patched/data/xfce/xfce-applicat
 +            </And>
          </Include>
          <Exclude>
-+        	<Category>Settings</Category>
 +        	<Category>Emulator</Category>
 +        	<Category>FileManager</Category>
 +        	<Category>Filesystem</Category>
@@ -701,7 +700,7 @@ diff -Naur orig/data/xfce/xfce-applications.menu patched/data/xfce/xfce-applicat
      <Menu>
 diff -Naur orig/data/xfce/xfce-games-sub-action.directory.in patched/data/xfce/xfce-games-sub-action.directory.in
 --- orig/data/xfce/xfce-games-sub-action.directory.in	1970-01-01 01:00:00.000000000 +0100
-+++ patched/data/xfce/xfce-games-sub-action.directory.in	2014-05-25 16:34:37.395702362 +0200
++++ patched/data/xfce/xfce-games-sub-action.directory.in	2014-05-26 19:28:35.793376412 +0200
 @@ -0,0 +1,7 @@
 +[Desktop Entry]
 +_Name=Action
@@ -712,7 +711,7 @@ diff -Naur orig/data/xfce/xfce-games-sub-action.directory.in patched/data/xfce/x
 +Type=Directory
 diff -Naur orig/data/xfce/xfce-games-sub-adventure.directory.in patched/data/xfce/xfce-games-sub-adventure.directory.in
 --- orig/data/xfce/xfce-games-sub-adventure.directory.in	1970-01-01 01:00:00.000000000 +0100
-+++ patched/data/xfce/xfce-games-sub-adventure.directory.in	2014-05-25 16:34:46.559818672 +0200
++++ patched/data/xfce/xfce-games-sub-adventure.directory.in	2014-05-26 19:28:35.793376412 +0200
 @@ -0,0 +1,7 @@
 +[Desktop Entry]
 +_Name=Adventure
@@ -723,7 +722,7 @@ diff -Naur orig/data/xfce/xfce-games-sub-adventure.directory.in patched/data/xfc
 +Type=Directory
 diff -Naur orig/data/xfce/xfce-games-sub-arcade.directory.in patched/data/xfce/xfce-games-sub-arcade.directory.in
 --- orig/data/xfce/xfce-games-sub-arcade.directory.in	1970-01-01 01:00:00.000000000 +0100
-+++ patched/data/xfce/xfce-games-sub-arcade.directory.in	2014-05-25 16:34:58.207964974 +0200
++++ patched/data/xfce/xfce-games-sub-arcade.directory.in	2014-05-26 19:28:35.793376412 +0200
 @@ -0,0 +1,7 @@
 +[Desktop Entry]
 +_Name=Arcade
@@ -734,7 +733,7 @@ diff -Naur orig/data/xfce/xfce-games-sub-arcade.directory.in patched/data/xfce/x
 +Type=Directory
 diff -Naur orig/data/xfce/xfce-games-sub-blocks.directory.in patched/data/xfce/xfce-games-sub-blocks.directory.in
 --- orig/data/xfce/xfce-games-sub-blocks.directory.in	1970-01-01 01:00:00.000000000 +0100
-+++ patched/data/xfce/xfce-games-sub-blocks.directory.in	2014-05-25 16:35:08.848099280 +0200
++++ patched/data/xfce/xfce-games-sub-blocks.directory.in	2014-05-26 19:28:35.793376412 +0200
 @@ -0,0 +1,7 @@
 +[Desktop Entry]
 +_Name=Blocks
@@ -745,7 +744,7 @@ diff -Naur orig/data/xfce/xfce-games-sub-blocks.directory.in patched/data/xfce/x
 +Type=Directory
 diff -Naur orig/data/xfce/xfce-games-sub-board.directory.in patched/data/xfce/xfce-games-sub-board.directory.in
 --- orig/data/xfce/xfce-games-sub-board.directory.in	1970-01-01 01:00:00.000000000 +0100
-+++ patched/data/xfce/xfce-games-sub-board.directory.in	2014-05-25 16:35:19.112228863 +0200
++++ patched/data/xfce/xfce-games-sub-board.directory.in	2014-05-26 19:28:35.793376412 +0200
 @@ -0,0 +1,7 @@
 +[Desktop Entry]
 +_Name=Board
@@ -756,7 +755,7 @@ diff -Naur orig/data/xfce/xfce-games-sub-board.directory.in patched/data/xfce/xf
 +Type=Directory
 diff -Naur orig/data/xfce/xfce-games-sub-card.directory.in patched/data/xfce/xfce-games-sub-card.directory.in
 --- orig/data/xfce/xfce-games-sub-card.directory.in	1970-01-01 01:00:00.000000000 +0100
-+++ patched/data/xfce/xfce-games-sub-card.directory.in	2014-05-25 16:35:28.888351975 +0200
++++ patched/data/xfce/xfce-games-sub-card.directory.in	2014-05-26 19:28:35.793376412 +0200
 @@ -0,0 +1,7 @@
 +[Desktop Entry]
 +_Name=Card
@@ -767,7 +766,7 @@ diff -Naur orig/data/xfce/xfce-games-sub-card.directory.in patched/data/xfce/xfc
 +Type=Directory
 diff -Naur orig/data/xfce/xfce-games-sub-kids.directory.in patched/data/xfce/xfce-games-sub-kids.directory.in
 --- orig/data/xfce/xfce-games-sub-kids.directory.in	1970-01-01 01:00:00.000000000 +0100
-+++ patched/data/xfce/xfce-games-sub-kids.directory.in	2014-05-25 16:35:37.404459367 +0200
++++ patched/data/xfce/xfce-games-sub-kids.directory.in	2014-05-26 19:28:35.793376412 +0200
 @@ -0,0 +1,7 @@
 +[Desktop Entry]
 +_Name=Kids
@@ -778,7 +777,7 @@ diff -Naur orig/data/xfce/xfce-games-sub-kids.directory.in patched/data/xfce/xfc
 +Type=Directory
 diff -Naur orig/data/xfce/xfce-games-sub-logic.directory.in patched/data/xfce/xfce-games-sub-logic.directory.in
 --- orig/data/xfce/xfce-games-sub-logic.directory.in	1970-01-01 01:00:00.000000000 +0100
-+++ patched/data/xfce/xfce-games-sub-logic.directory.in	2014-05-25 16:35:46.168569825 +0200
++++ patched/data/xfce/xfce-games-sub-logic.directory.in	2014-05-26 19:28:35.793376412 +0200
 @@ -0,0 +1,7 @@
 +[Desktop Entry]
 +_Name=Logic
@@ -789,7 +788,7 @@ diff -Naur orig/data/xfce/xfce-games-sub-logic.directory.in patched/data/xfce/xf
 +Type=Directory
 diff -Naur orig/data/xfce/xfce-games-sub-roleplaying.directory.in patched/data/xfce/xfce-games-sub-roleplaying.directory.in
 --- orig/data/xfce/xfce-games-sub-roleplaying.directory.in	1970-01-01 01:00:00.000000000 +0100
-+++ patched/data/xfce/xfce-games-sub-roleplaying.directory.in	2014-05-25 16:35:56.200696242 +0200
++++ patched/data/xfce/xfce-games-sub-roleplaying.directory.in	2014-05-26 19:28:35.793376412 +0200
 @@ -0,0 +1,7 @@
 +[Desktop Entry]
 +_Name=Role playing
@@ -800,7 +799,7 @@ diff -Naur orig/data/xfce/xfce-games-sub-roleplaying.directory.in patched/data/x
 +Type=Directory
 diff -Naur orig/data/xfce/xfce-games-sub-simulation.directory.in patched/data/xfce/xfce-games-sub-simulation.directory.in
 --- orig/data/xfce/xfce-games-sub-simulation.directory.in	1970-01-01 01:00:00.000000000 +0100
-+++ patched/data/xfce/xfce-games-sub-simulation.directory.in	2014-05-25 16:36:05.576814368 +0200
++++ patched/data/xfce/xfce-games-sub-simulation.directory.in	2014-05-26 19:28:35.793376412 +0200
 @@ -0,0 +1,7 @@
 +[Desktop Entry]
 +_Name=Simulation
@@ -811,7 +810,7 @@ diff -Naur orig/data/xfce/xfce-games-sub-simulation.directory.in patched/data/xf
 +Type=Directory
 diff -Naur orig/data/xfce/xfce-games-sub-sports.directory.in patched/data/xfce/xfce-games-sub-sports.directory.in
 --- orig/data/xfce/xfce-games-sub-sports.directory.in	1970-01-01 01:00:00.000000000 +0100
-+++ patched/data/xfce/xfce-games-sub-sports.directory.in	2014-05-25 16:36:14.608928183 +0200
++++ patched/data/xfce/xfce-games-sub-sports.directory.in	2014-05-26 19:28:35.797376460 +0200
 @@ -0,0 +1,7 @@
 +[Desktop Entry]
 +_Name=Sports
@@ -822,7 +821,7 @@ diff -Naur orig/data/xfce/xfce-games-sub-sports.directory.in patched/data/xfce/x
 +Type=Directory
 diff -Naur orig/data/xfce/xfce-games-sub-strategy.directory.in patched/data/xfce/xfce-games-sub-strategy.directory.in
 --- orig/data/xfce/xfce-games-sub-strategy.directory.in	1970-01-01 01:00:00.000000000 +0100
-+++ patched/data/xfce/xfce-games-sub-strategy.directory.in	2014-05-25 16:36:24.537053122 +0200
++++ patched/data/xfce/xfce-games-sub-strategy.directory.in	2014-05-26 19:28:35.797376460 +0200
 @@ -0,0 +1,7 @@
 +[Desktop Entry]
 +_Name=Strategy
@@ -833,7 +832,7 @@ diff -Naur orig/data/xfce/xfce-games-sub-strategy.directory.in patched/data/xfce
 +Type=Directory
 diff -Naur orig/data/xfce/xfce-multimedia-sub-audiovideoediting.directory.in patched/data/xfce/xfce-multimedia-sub-audiovideoediting.directory.in
 --- orig/data/xfce/xfce-multimedia-sub-audiovideoediting.directory.in	1970-01-01 01:00:00.000000000 +0100
-+++ patched/data/xfce/xfce-multimedia-sub-audiovideoediting.directory.in	2014-05-25 16:36:33.505166021 +0200
++++ patched/data/xfce/xfce-multimedia-sub-audiovideoediting.directory.in	2014-05-26 19:28:35.797376460 +0200
 @@ -0,0 +1,7 @@
 +[Desktop Entry]
 +_Name=Sound & Video editing
@@ -844,7 +843,7 @@ diff -Naur orig/data/xfce/xfce-multimedia-sub-audiovideoediting.directory.in pat
 +Type=Directory
 diff -Naur orig/data/xfce/xfce-multimedia-sub-discburning.directory.in patched/data/xfce/xfce-multimedia-sub-discburning.directory.in
 --- orig/data/xfce/xfce-multimedia-sub-discburning.directory.in	1970-01-01 01:00:00.000000000 +0100
-+++ patched/data/xfce/xfce-multimedia-sub-discburning.directory.in	2014-05-25 16:36:39.777244971 +0200
++++ patched/data/xfce/xfce-multimedia-sub-discburning.directory.in	2014-05-26 19:28:35.797376460 +0200
 @@ -0,0 +1,7 @@
 +[Desktop Entry]
 +_Name=Disc burning
@@ -855,7 +854,7 @@ diff -Naur orig/data/xfce/xfce-multimedia-sub-discburning.directory.in patched/d
 +Type=Directory
 diff -Naur orig/data/xfce/xfce-multimedia-sub-midi.directory.in patched/data/xfce/xfce-multimedia-sub-midi.directory.in
 --- orig/data/xfce/xfce-multimedia-sub-midi.directory.in	1970-01-01 01:00:00.000000000 +0100
-+++ patched/data/xfce/xfce-multimedia-sub-midi.directory.in	2014-05-25 16:36:48.713356730 +0200
++++ patched/data/xfce/xfce-multimedia-sub-midi.directory.in	2014-05-26 19:28:35.797376460 +0200
 @@ -0,0 +1,7 @@
 +[Desktop Entry]
 +_Name=MIDI
@@ -866,7 +865,7 @@ diff -Naur orig/data/xfce/xfce-multimedia-sub-midi.directory.in patched/data/xfc
 +Type=Directory
 diff -Naur orig/data/xfce/xfce-multimedia-sub-mixer.directory.in patched/data/xfce/xfce-multimedia-sub-mixer.directory.in
 --- orig/data/xfce/xfce-multimedia-sub-mixer.directory.in	1970-01-01 01:00:00.000000000 +0100
-+++ patched/data/xfce/xfce-multimedia-sub-mixer.directory.in	2014-05-25 16:48:14.729923829 +0200
++++ patched/data/xfce/xfce-multimedia-sub-mixer.directory.in	2014-05-26 19:28:35.797376460 +0200
 @@ -0,0 +1,5 @@
 +[Desktop Entry]
 +_Name=Mixer
@@ -875,7 +874,7 @@ diff -Naur orig/data/xfce/xfce-multimedia-sub-mixer.directory.in patched/data/xf
 +Type=Directory
 diff -Naur orig/data/xfce/xfce-multimedia-sub-music.directory.in patched/data/xfce/xfce-multimedia-sub-music.directory.in
 --- orig/data/xfce/xfce-multimedia-sub-music.directory.in	1970-01-01 01:00:00.000000000 +0100
-+++ patched/data/xfce/xfce-multimedia-sub-music.directory.in	2014-05-25 16:37:09.473618370 +0200
++++ patched/data/xfce/xfce-multimedia-sub-music.directory.in	2014-05-26 19:28:35.797376460 +0200
 @@ -0,0 +1,7 @@
 +[Desktop Entry]
 +_Name=Music
@@ -886,7 +885,7 @@ diff -Naur orig/data/xfce/xfce-multimedia-sub-music.directory.in patched/data/xf
 +Type=Directory
 diff -Naur orig/data/xfce/xfce-multimedia-sub-player.directory.in patched/data/xfce/xfce-multimedia-sub-player.directory.in
 --- orig/data/xfce/xfce-multimedia-sub-player.directory.in	1970-01-01 01:00:00.000000000 +0100
-+++ patched/data/xfce/xfce-multimedia-sub-player.directory.in	2014-05-25 16:37:19.777747508 +0200
++++ patched/data/xfce/xfce-multimedia-sub-player.directory.in	2014-05-26 19:28:35.797376460 +0200
 @@ -0,0 +1,7 @@
 +[Desktop Entry]
 +_Name=Player
@@ -897,7 +896,7 @@ diff -Naur orig/data/xfce/xfce-multimedia-sub-player.directory.in patched/data/x
 +Type=Directory
 diff -Naur orig/data/xfce/xfce-multimedia-sub-recorder.directory.in patched/data/xfce/xfce-multimedia-sub-recorder.directory.in
 --- orig/data/xfce/xfce-multimedia-sub-recorder.directory.in	1970-01-01 01:00:00.000000000 +0100
-+++ patched/data/xfce/xfce-multimedia-sub-recorder.directory.in	2014-05-25 16:37:28.129853143 +0200
++++ patched/data/xfce/xfce-multimedia-sub-recorder.directory.in	2014-05-26 19:28:35.801376512 +0200
 @@ -0,0 +1,7 @@
 +[Desktop Entry]
 +_Name=Recorder
@@ -908,7 +907,7 @@ diff -Naur orig/data/xfce/xfce-multimedia-sub-recorder.directory.in patched/data
 +Type=Directory
 diff -Naur orig/data/xfce/xfce-multimedia-sub-sequencer.directory.in patched/data/xfce/xfce-multimedia-sub-sequencer.directory.in
 --- orig/data/xfce/xfce-multimedia-sub-sequencer.directory.in	1970-01-01 01:00:00.000000000 +0100
-+++ patched/data/xfce/xfce-multimedia-sub-sequencer.directory.in	2014-05-25 16:48:19.377981462 +0200
++++ patched/data/xfce/xfce-multimedia-sub-sequencer.directory.in	2014-05-26 19:28:35.801376512 +0200
 @@ -0,0 +1,5 @@
 +[Desktop Entry]
 +_Name=Sequencer
@@ -917,7 +916,7 @@ diff -Naur orig/data/xfce/xfce-multimedia-sub-sequencer.directory.in patched/dat
 +Type=Directory
 diff -Naur orig/data/xfce/xfce-multimedia-sub-tuner.directory.in patched/data/xfce/xfce-multimedia-sub-tuner.directory.in
 --- orig/data/xfce/xfce-multimedia-sub-tuner.directory.in	1970-01-01 01:00:00.000000000 +0100
-+++ patched/data/xfce/xfce-multimedia-sub-tuner.directory.in	2014-05-25 16:48:25.850061897 +0200
++++ patched/data/xfce/xfce-multimedia-sub-tuner.directory.in	2014-05-26 19:28:35.801376512 +0200
 @@ -0,0 +1,5 @@
 +[Desktop Entry]
 +_Name=Tuner
@@ -926,7 +925,7 @@ diff -Naur orig/data/xfce/xfce-multimedia-sub-tuner.directory.in patched/data/xf
 +Type=Directory
 diff -Naur orig/data/xfce/xfce-multimedia-sub-tv.directory.in patched/data/xfce/xfce-multimedia-sub-tv.directory.in
 --- orig/data/xfce/xfce-multimedia-sub-tv.directory.in	1970-01-01 01:00:00.000000000 +0100
-+++ patched/data/xfce/xfce-multimedia-sub-tv.directory.in	2014-05-25 16:37:53.874174786 +0200
++++ patched/data/xfce/xfce-multimedia-sub-tv.directory.in	2014-05-26 19:28:35.801376512 +0200
 @@ -0,0 +1,7 @@
 +[Desktop Entry]
 +_Name=TV
@@ -937,7 +936,7 @@ diff -Naur orig/data/xfce/xfce-multimedia-sub-tv.directory.in patched/data/xfce/
 +Type=Directory
 diff -Naur orig/data/xfce/xfce-network-sub-chat.directory.in patched/data/xfce/xfce-network-sub-chat.directory.in
 --- orig/data/xfce/xfce-network-sub-chat.directory.in	1970-01-01 01:00:00.000000000 +0100
-+++ patched/data/xfce/xfce-network-sub-chat.directory.in	2014-05-25 16:38:03.922302886 +0200
++++ patched/data/xfce/xfce-network-sub-chat.directory.in	2014-05-26 19:28:35.801376512 +0200
 @@ -0,0 +1,7 @@
 +[Desktop Entry]
 +_Name=Chat
@@ -948,7 +947,7 @@ diff -Naur orig/data/xfce/xfce-network-sub-chat.directory.in patched/data/xfce/x
 +Type=Directory
 diff -Naur orig/data/xfce/xfce-network-sub-dialup.directory.in patched/data/xfce/xfce-network-sub-dialup.directory.in
 --- orig/data/xfce/xfce-network-sub-dialup.directory.in	1970-01-01 01:00:00.000000000 +0100
-+++ patched/data/xfce/xfce-network-sub-dialup.directory.in	2014-05-25 16:38:33.290671630 +0200
++++ patched/data/xfce/xfce-network-sub-dialup.directory.in	2014-05-26 19:28:35.801376512 +0200
 @@ -0,0 +1,7 @@
 +[Desktop Entry]
 +_Name=Dial-up
@@ -959,7 +958,7 @@ diff -Naur orig/data/xfce/xfce-network-sub-dialup.directory.in patched/data/xfce
 +Type=Directory
 diff -Naur orig/data/xfce/xfce-network-sub-email.directory.in patched/data/xfce/xfce-network-sub-email.directory.in
 --- orig/data/xfce/xfce-network-sub-email.directory.in	1970-01-01 01:00:00.000000000 +0100
-+++ patched/data/xfce/xfce-network-sub-email.directory.in	2014-05-25 16:38:42.314784880 +0200
++++ patched/data/xfce/xfce-network-sub-email.directory.in	2014-05-26 19:28:35.801376512 +0200
 @@ -0,0 +1,7 @@
 +[Desktop Entry]
 +_Name=Email
@@ -970,7 +969,7 @@ diff -Naur orig/data/xfce/xfce-network-sub-email.directory.in patched/data/xfce/
 +Type=Directory
 diff -Naur orig/data/xfce/xfce-network-sub-feed.directory.in patched/data/xfce/xfce-network-sub-feed.directory.in
 --- orig/data/xfce/xfce-network-sub-feed.directory.in	1970-01-01 01:00:00.000000000 +0100
-+++ patched/data/xfce/xfce-network-sub-feed.directory.in	2014-05-25 16:38:50.778891093 +0200
++++ patched/data/xfce/xfce-network-sub-feed.directory.in	2014-05-26 19:28:35.801376512 +0200
 @@ -0,0 +1,7 @@
 +[Desktop Entry]
 +_Name=Feed
@@ -981,7 +980,7 @@ diff -Naur orig/data/xfce/xfce-network-sub-feed.directory.in patched/data/xfce/x
 +Type=Directory
 diff -Naur orig/data/xfce/xfce-network-sub-filetransfer.directory.in patched/data/xfce/xfce-network-sub-filetransfer.directory.in
 --- orig/data/xfce/xfce-network-sub-filetransfer.directory.in	1970-01-01 01:00:00.000000000 +0100
-+++ patched/data/xfce/xfce-network-sub-filetransfer.directory.in	2014-05-25 16:38:59.162996307 +0200
++++ patched/data/xfce/xfce-network-sub-filetransfer.directory.in	2014-05-26 19:28:35.801376512 +0200
 @@ -0,0 +1,7 @@
 +[Desktop Entry]
 +_Name=File transfer
@@ -992,7 +991,7 @@ diff -Naur orig/data/xfce/xfce-network-sub-filetransfer.directory.in patched/dat
 +Type=Directory
 diff -Naur orig/data/xfce/xfce-network-sub-hamradio.directory.in patched/data/xfce/xfce-network-sub-hamradio.directory.in
 --- orig/data/xfce/xfce-network-sub-hamradio.directory.in	1970-01-01 01:00:00.000000000 +0100
-+++ patched/data/xfce/xfce-network-sub-hamradio.directory.in	2014-05-25 16:39:07.683103244 +0200
++++ patched/data/xfce/xfce-network-sub-hamradio.directory.in	2014-05-26 19:28:35.801376512 +0200
 @@ -0,0 +1,7 @@
 +[Desktop Entry]
 +_Name=HAM radio
@@ -1003,7 +1002,7 @@ diff -Naur orig/data/xfce/xfce-network-sub-hamradio.directory.in patched/data/xf
 +Type=Directory
 diff -Naur orig/data/xfce/xfce-network-sub-instantmessaging.directory.in patched/data/xfce/xfce-network-sub-instantmessaging.directory.in
 --- orig/data/xfce/xfce-network-sub-instantmessaging.directory.in	1970-01-01 01:00:00.000000000 +0100
-+++ patched/data/xfce/xfce-network-sub-instantmessaging.directory.in	2014-05-25 16:39:16.955219612 +0200
++++ patched/data/xfce/xfce-network-sub-instantmessaging.directory.in	2014-05-26 19:28:35.801376512 +0200
 @@ -0,0 +1,7 @@
 +[Desktop Entry]
 +_Name=Instant messaging
@@ -1014,7 +1013,7 @@ diff -Naur orig/data/xfce/xfce-network-sub-instantmessaging.directory.in patched
 +Type=Directory
 diff -Naur orig/data/xfce/xfce-network-sub-ircclient.directory.in patched/data/xfce/xfce-network-sub-ircclient.directory.in
 --- orig/data/xfce/xfce-network-sub-ircclient.directory.in	1970-01-01 01:00:00.000000000 +0100
-+++ patched/data/xfce/xfce-network-sub-ircclient.directory.in	2014-05-25 16:49:11.074622245 +0200
++++ patched/data/xfce/xfce-network-sub-ircclient.directory.in	2014-05-26 19:28:35.805376569 +0200
 @@ -0,0 +1,5 @@
 +[Desktop Entry]
 +_Name=IRC client
@@ -1023,7 +1022,7 @@ diff -Naur orig/data/xfce/xfce-network-sub-ircclient.directory.in patched/data/x
 +Type=Directory
 diff -Naur orig/data/xfce/xfce-network-sub-news.directory.in patched/data/xfce/xfce-network-sub-news.directory.in
 --- orig/data/xfce/xfce-network-sub-news.directory.in	1970-01-01 01:00:00.000000000 +0100
-+++ patched/data/xfce/xfce-network-sub-news.directory.in	2014-05-25 16:39:33.023420688 +0200
++++ patched/data/xfce/xfce-network-sub-news.directory.in	2014-05-26 19:28:35.805376569 +0200
 @@ -0,0 +1,7 @@
 +[Desktop Entry]
 +_Name=News
@@ -1034,7 +1033,7 @@ diff -Naur orig/data/xfce/xfce-network-sub-news.directory.in patched/data/xfce/x
 +Type=Directory
 diff -Naur orig/data/xfce/xfce-network-sub-p2p.directory.in patched/data/xfce/xfce-network-sub-p2p.directory.in
 --- orig/data/xfce/xfce-network-sub-p2p.directory.in	1970-01-01 01:00:00.000000000 +0100
-+++ patched/data/xfce/xfce-network-sub-p2p.directory.in	2014-05-25 16:39:41.047521342 +0200
++++ patched/data/xfce/xfce-network-sub-p2p.directory.in	2014-05-26 19:28:35.805376569 +0200
 @@ -0,0 +1,7 @@
 +[Desktop Entry]
 +_Name=P2P
@@ -1045,7 +1044,7 @@ diff -Naur orig/data/xfce/xfce-network-sub-p2p.directory.in patched/data/xfce/xf
 +Type=Directory
 diff -Naur orig/data/xfce/xfce-network-sub-remoteaccess.directory.in patched/data/xfce/xfce-network-sub-remoteaccess.directory.in
 --- orig/data/xfce/xfce-network-sub-remoteaccess.directory.in	1970-01-01 01:00:00.000000000 +0100
-+++ patched/data/xfce/xfce-network-sub-remoteaccess.directory.in	2014-05-25 16:39:48.775618228 +0200
++++ patched/data/xfce/xfce-network-sub-remoteaccess.directory.in	2014-05-26 19:28:35.805376569 +0200
 @@ -0,0 +1,7 @@
 +[Desktop Entry]
 +_Name=Remote access
@@ -1056,7 +1055,7 @@ diff -Naur orig/data/xfce/xfce-network-sub-remoteaccess.directory.in patched/dat
 +Type=Directory
 diff -Naur orig/data/xfce/xfce-network-sub-telephony.directory.in patched/data/xfce/xfce-network-sub-telephony.directory.in
 --- orig/data/xfce/xfce-network-sub-telephony.directory.in	1970-01-01 01:00:00.000000000 +0100
-+++ patched/data/xfce/xfce-network-sub-telephony.directory.in	2014-05-25 16:39:56.275712082 +0200
++++ patched/data/xfce/xfce-network-sub-telephony.directory.in	2014-05-26 19:28:35.805376569 +0200
 @@ -0,0 +1,7 @@
 +[Desktop Entry]
 +_Name=Telephony
@@ -1067,7 +1066,7 @@ diff -Naur orig/data/xfce/xfce-network-sub-telephony.directory.in patched/data/x
 +Type=Directory
 diff -Naur orig/data/xfce/xfce-network-sub-videoconference.directory.in patched/data/xfce/xfce-network-sub-videoconference.directory.in
 --- orig/data/xfce/xfce-network-sub-videoconference.directory.in	1970-01-01 01:00:00.000000000 +0100
-+++ patched/data/xfce/xfce-network-sub-videoconference.directory.in	2014-05-25 16:40:07.255849915 +0200
++++ patched/data/xfce/xfce-network-sub-videoconference.directory.in	2014-05-26 19:28:35.813376677 +0200
 @@ -0,0 +1,7 @@
 +[Desktop Entry]
 +_Name=Video conference
@@ -1078,7 +1077,7 @@ diff -Naur orig/data/xfce/xfce-network-sub-videoconference.directory.in patched/
 +Type=Directory
 diff -Naur orig/data/xfce/xfce-network-sub-webbrowser.directory.in patched/data/xfce/xfce-network-sub-webbrowser.directory.in
 --- orig/data/xfce/xfce-network-sub-webbrowser.directory.in	1970-01-01 01:00:00.000000000 +0100
-+++ patched/data/xfce/xfce-network-sub-webbrowser.directory.in	2014-05-25 16:49:19.106721731 +0200
++++ patched/data/xfce/xfce-network-sub-webbrowser.directory.in	2014-05-26 19:28:35.813376677 +0200
 @@ -0,0 +1,5 @@
 +[Desktop Entry]
 +_Name=Web browser
@@ -1087,7 +1086,7 @@ diff -Naur orig/data/xfce/xfce-network-sub-webbrowser.directory.in patched/data/
 +Type=Directory
 diff -Naur orig/data/xfce/xfce-system-sub-emulator.directory.in patched/data/xfce/xfce-system-sub-emulator.directory.in
 --- orig/data/xfce/xfce-system-sub-emulator.directory.in	1970-01-01 01:00:00.000000000 +0100
-+++ patched/data/xfce/xfce-system-sub-emulator.directory.in	2014-05-25 16:40:23.088047922 +0200
++++ patched/data/xfce/xfce-system-sub-emulator.directory.in	2014-05-26 19:28:35.813376677 +0200
 @@ -0,0 +1,7 @@
 +[Desktop Entry]
 +_Name=Emulator
@@ -1098,7 +1097,7 @@ diff -Naur orig/data/xfce/xfce-system-sub-emulator.directory.in patched/data/xfc
 +Type=Directory
 diff -Naur orig/data/xfce/xfce-system-sub-filemanager.directory.in patched/data/xfce/xfce-system-sub-filemanager.directory.in
 --- orig/data/xfce/xfce-system-sub-filemanager.directory.in	1970-01-01 01:00:00.000000000 +0100
-+++ patched/data/xfce/xfce-system-sub-filemanager.directory.in	2014-05-25 16:49:53.455147104 +0200
++++ patched/data/xfce/xfce-system-sub-filemanager.directory.in	2014-05-26 19:28:35.813376677 +0200
 @@ -0,0 +1,5 @@
 +[Desktop Entry]
 +_Name=File manager
@@ -1107,7 +1106,7 @@ diff -Naur orig/data/xfce/xfce-system-sub-filemanager.directory.in patched/data/
 +Type=Directory
 diff -Naur orig/data/xfce/xfce-system-sub-filesystem.directory.in patched/data/xfce/xfce-system-sub-filesystem.directory.in
 --- orig/data/xfce/xfce-system-sub-filesystem.directory.in	1970-01-01 01:00:00.000000000 +0100
-+++ patched/data/xfce/xfce-system-sub-filesystem.directory.in	2014-05-25 16:40:40.488266072 +0200
++++ patched/data/xfce/xfce-system-sub-filesystem.directory.in	2014-05-26 19:28:35.813376677 +0200
 @@ -0,0 +1,7 @@
 +[Desktop Entry]
 +_Name=Filesystem
@@ -1118,7 +1117,7 @@ diff -Naur orig/data/xfce/xfce-system-sub-filesystem.directory.in patched/data/x
 +Type=Directory
 diff -Naur orig/data/xfce/xfce-system-sub-monitor.directory.in patched/data/xfce/xfce-system-sub-monitor.directory.in
 --- orig/data/xfce/xfce-system-sub-monitor.directory.in	1970-01-01 01:00:00.000000000 +0100
-+++ patched/data/xfce/xfce-system-sub-monitor.directory.in	2014-05-25 16:40:48.888370897 +0200
++++ patched/data/xfce/xfce-system-sub-monitor.directory.in	2014-05-26 19:28:35.813376677 +0200
 @@ -0,0 +1,7 @@
 +[Desktop Entry]
 +_Name=Monitor
@@ -1129,7 +1128,7 @@ diff -Naur orig/data/xfce/xfce-system-sub-monitor.directory.in patched/data/xfce
 +Type=Directory
 diff -Naur orig/data/xfce/xfce-system-sub-terminalemulator.directory.in patched/data/xfce/xfce-system-sub-terminalemulator.directory.in
 --- orig/data/xfce/xfce-system-sub-terminalemulator.directory.in	1970-01-01 01:00:00.000000000 +0100
-+++ patched/data/xfce/xfce-system-sub-terminalemulator.directory.in	2014-05-25 16:40:56.856471192 +0200
++++ patched/data/xfce/xfce-system-sub-terminalemulator.directory.in	2014-05-26 19:28:35.813376677 +0200
 @@ -0,0 +1,7 @@
 +[Desktop Entry]
 +_Name=Terminal emulator
@@ -1140,7 +1139,7 @@ diff -Naur orig/data/xfce/xfce-system-sub-terminalemulator.directory.in patched/
 +Type=Directory
 diff -Naur orig/po/POTFILES.in patched/po/POTFILES.in
 --- orig/po/POTFILES.in	2014-02-22 23:26:36.000000000 +0100
-+++ patched/po/POTFILES.in	2014-05-25 12:43:03.828340809 +0200
++++ patched/po/POTFILES.in	2014-05-26 19:28:35.813376677 +0200
 @@ -1,17 +1,66 @@
  data/xfce/xfce-accessories.directory.in
 +data/xfce/xfce-accessories-sub-archiving.directory.in

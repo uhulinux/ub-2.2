@@ -1,8 +1,7 @@
 #!/bin/sh -eux
 
-# rm -f po/*.gmo
-
 export CFLAGS='-D_FILE_OFFSET_BITS=64'
+
 autoreconf -vif
 
 ub_compile \

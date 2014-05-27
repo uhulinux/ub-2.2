@@ -1,20 +1,20 @@
 diff -Naur orig/resources/linux/mime/applications/eeschema.desktop patched/resources/linux/mime/applications/eeschema.desktop
---- orig/resources/linux/mime/applications/eeschema.desktop	2013-12-02 19:31:43.000000000 +0100
-+++ patched/resources/linux/mime/applications/eeschema.desktop	2013-12-02 19:51:39.006531326 +0100
+--- orig/resources/linux/mime/applications/eeschema.desktop	2014-05-18 15:18:05.000000000 +0200
++++ patched/resources/linux/mime/applications/eeschema.desktop	2014-05-27 14:35:05.390276879 +0200
 @@ -1,5 +1,5 @@
  [Desktop Entry]
 -Categories=Development;Electronics
-+Categories=Development;Electronics;X-UHU-Menu/Edutainment/Miscellaneous;
++Categories=Development;Electronics;
  Comment=Design an electronic schematic
  Comment[fr]=Dessiner des schémas électroniques
  Exec=eeschema
 diff -Naur orig/resources/linux/mime/applications/kicad.desktop patched/resources/linux/mime/applications/kicad.desktop
---- orig/resources/linux/mime/applications/kicad.desktop	2013-12-02 19:31:43.000000000 +0100
-+++ patched/resources/linux/mime/applications/kicad.desktop	2013-12-02 19:51:18.042337835 +0100
+--- orig/resources/linux/mime/applications/kicad.desktop	2014-05-18 15:18:05.000000000 +0200
++++ patched/resources/linux/mime/applications/kicad.desktop	2014-05-27 14:35:18.182446972 +0200
 @@ -1,5 +1,5 @@
  [Desktop Entry]
 -Categories=Development;Electronics
-+Categories=Development;Electronics;X-UHU-Menu/Edutainment/Miscellaneous;
++Categories=Development;Electronics;
  Comment=Design a printed circuit board
  Comment[fr]=Concevoir un circuit imprimé
  Exec=kicad
