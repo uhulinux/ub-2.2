@@ -1,11 +1,18 @@
---- ORIG/bleachbit.desktop	2010-05-27 05:10:07.000000000 +0200
-+++ UHU/bleachbit.desktop	2010-07-28 10:59:57.000000000 +0200
-@@ -73,7 +73,7 @@
+diff -Naur orig/bleachbit.desktop mod/bleachbit.desktop
+--- orig/bleachbit.desktop	2013-11-15 05:42:02.000000000 +0100
++++ mod/bleachbit.desktop	2014-05-28 21:57:23.862687244 +0200
+@@ -1,5 +1,4 @@
+ [Desktop Entry]
+-Version=1.0
+ Type=Application
+ Name=BleachBit
+ Comment=Free space and maintain privacy
+@@ -96,7 +95,6 @@
  TryExec=bleachbit
  Exec=bleachbit
  Icon=bleachbit
 -Categories=GTK;System;
-+Categories=GTK;System;X-UHU-Menu/Tools/Utilities;
- Encoding=UTF-8
+-Encoding=UTF-8
++Categories=GTK;System;Filesystem;
  StartupNotify=true
  
