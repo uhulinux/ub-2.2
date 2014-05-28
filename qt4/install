@@ -17,8 +17,8 @@ ln -s ../lib/qt4/bin/moc "$UB_INSTALLDIR"/usr/bin/moc-qt4
 ln -s ../lib/qt4/bin/uic "$UB_INSTALLDIR"/usr/bin/uic-qt4
 ln -s ../lib/qt4/bin/qdbus "$UB_INSTALLDIR"/usr/bin/qdbus
 ln -s ../lib/qt4/bin/qdbusviewer "$UB_INSTALLDIR"/usr/bin/qdbusviewer
-ln -s ../lib/qt4/bin/qtdemo "$UB_INSTALLDIR"/usr/bin/qtdemo
 ln -s ../lib/qt4/bin/qmake "$UB_INSTALLDIR"/usr/bin/qmake-qt4
+# ln -s ../lib/qt4/bin/qtdemo "$UB_INSTALLDIR"/usr/bin/qtdemo
 
 # pkgconfig linkek
 mkdir -p "$UB_INSTALLDIR"/usr/lib/pkgconfig

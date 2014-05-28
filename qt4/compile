@@ -17,6 +17,10 @@ yes yes | ./configure \
 	-accessibility      \
 	-stl                \
 	\
+	-nomake demos       \
+	-nomake examples    \
+	-nomake docs		\
+	\
 	-plugin-sql-mysql -I/usr/include/mysql \
 	-plugin-sql-psql -I/usr/include/postgresql -I/usr/include/postgresql/server \
 	-plugin-sql-odbc    \
@@ -86,6 +90,4 @@ ub_make
 #some options we may want to use in the future
 #	-phonon-backend     \
 #	-phonon             \
-#	-nomake demos       \
-#	-nomake examples    \
-#	-nomake docs
+
