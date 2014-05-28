@@ -1,3 +1,5 @@
 alsa-lib-dev
+db4-dev
 libsamplerate-dev
 libvorbis-dev
+util-linux-dev

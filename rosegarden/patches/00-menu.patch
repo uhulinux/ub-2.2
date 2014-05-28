@@ -1,12 +1,22 @@
-diff -Naur a/data/desktop/rosegarden.desktop b/data/desktop/rosegarden.desktop
---- a/data/desktop/rosegarden.desktop	2013-04-01 13:57:54.000000000 +0200
-+++ b/data/desktop/rosegarden.desktop	2013-05-25 22:36:13.050000244 +0200
-@@ -1,7 +1,7 @@
+diff -Naur orig/data/desktop/rosegarden.desktop mod/data/desktop/rosegarden.desktop
+--- orig/data/desktop/rosegarden.desktop	2013-04-01 13:57:54.000000000 +0200
++++ mod/data/desktop/rosegarden.desktop	2014-05-24 22:34:12.898737725 +0200
+@@ -1,7 +1,6 @@
  [Desktop Entry]
- Encoding=UTF-8
+-Encoding=UTF-8
  Type=Application
 -Categories=AudioVideo;Audio;Midi;Sequencer;X-SuSE-Sequencer;X-Red-Hat-Base;
-+Categories=AudioVideo;Audio;Midi;Sequencer;X-SuSE-Sequencer;X-Red-Hat-Base;X-UHU-Menu/Multimedia/SoundEdit;
++Categories=AudioVideo;Audio;Midi;Sequencer;
  Exec=rosegarden %f
  MimeType=audio/x-rosegarden-composition;audio/x-rosegarden-device;audio/x-rosegarden-project;audio/x-rosegarden-template;audio/x-wav;audio/midi;audio/ogg;audio/mp3;audio/x-flac;
  X-KDE-NativeMimeType=audio/x-rosegarden-composition
+@@ -11,7 +10,9 @@
+ Comment[es]=Secuenciador de MIDI y de audio y editor de partitura
+ Comment[fr]=Séquenceur MIDI/audio et éditeur de partitions
+ Comment[ru]=MIDI-секвенсер и нотный редактор
++Comment[hu]=MIDI hangszerkesztő és lejátszó
+ Terminal=false
+ Name=Rosegarden
+ GenericName=Digital audio workstation
+ GenericName[de]=Digital Audio Workstation
++GenericName[hu]=Digitális Zeneműhely

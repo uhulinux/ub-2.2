@@ -1,0 +1,1 @@
+sflist zaps166 QMPlay2 | splitver '^QMPlay2-src-([0-9.]+).tar.bz2' | sort -V | tail -n 1

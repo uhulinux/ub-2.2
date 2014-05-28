@@ -1,0 +1,9 @@
+alsa-lib-dev
+dbus-glib-dev
+dotconf-dev
+espeak-dev
+flite-dev
+libsm-dev
+libvorbis-dev
+pulseaudio-dev
+python-dev

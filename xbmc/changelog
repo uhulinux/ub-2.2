@@ -1,4 +1,7 @@
 ----------------------------
+attus 2014-05-28
+új libsndfile/libsamplerate/jack/pulseaudio -> újraforgatás
+----------------------------
 attus 2014-03-27
 ffmpeg-2.2 compile-fix patch
 ------------------------------------------------------------------------

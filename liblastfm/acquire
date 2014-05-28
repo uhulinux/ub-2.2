@@ -1,4 +1,4 @@
 #!/usr/bin/env dl
 
-liblastfm-${UB_VERSION}.tar.gz liblastfm-${UB_VERSION}/
-	http://sourceforge.net/projects/liblastfm/files/
+liblastfm-${UB_VERSION}.tar.gz .
+	https://github.com/lastfm/liblastfm/tarball/${UB_VERSION}

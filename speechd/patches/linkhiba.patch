@@ -1,0 +1,12 @@
+diff -Naur orig/src/c/clients/say/Makefile.in mod/src/c/clients/say/Makefile.in
+--- orig/src/c/clients/say/Makefile.in	2008-07-31 10:57:43.000000000 +0200
++++ mod/src/c/clients/say/Makefile.in	2014-05-27 13:55:20.216974318 +0200
+@@ -204,7 +204,7 @@
+ c_api = $(top_srcdir)/src/c/api
+ AM_CFLAGS = -DLOCALEDIR=\"$(localedir)\" -I/usr/include/ $(inc_local) @glib_include@ -I$(c_api)
+ spd_say_SOURCES = say.c options.c options.h $(c_api)/libspeechd.h
+-spd_say_LDADD = $(c_api)/libspeechd.la
++spd_say_LDADD = $(c_api)/libspeechd.la -lpthread
+ all: all-am
+ 
+ .SUFFIXES:

@@ -1,6 +1,7 @@
 alsa-lib-dev
 avahi-dev
 bluez-dev
+db4-dev
 dbus-glib-dev
 gdbm-dev
 intltool
@@ -16,7 +17,9 @@ libvorbis-dev
 libxtst-dev
 lirc-dev
 openssl-dev
+orc-dev
 speex-dev
 tcp-wrappers-dev
+tdb-dev
 udev-dev
 xcb-util-dev

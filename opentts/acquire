@@ -1,0 +1,7 @@
+#!/usr/bin/env dl
+
+#opentts-${UB_VERSION/~/-}.tar.gz opentts-${UB_VERSION/~/-}/
+#	http://files.opentts.org/opentts/
+
+master.zip opentts-master/
+	https://github.com/razr/opentts/archive/

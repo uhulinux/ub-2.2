@@ -2,6 +2,3 @@
 
 ub_install \
 	PREFIX="$UB_INSTALLDIR"/usr
-
-rm "$UB_INSTALLDIR"/usr/share/doc/LICENSE.txt
-rm "$UB_INSTALLDIR"/usr/share/doc/README.txt

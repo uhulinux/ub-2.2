@@ -13,4 +13,4 @@ diff -Naur linphone-3.4.3-orig/share/linphone.desktop.in linphone-3.4.3/share/li
  Icon=@prefix@/share/pixmaps/linphone/linphone.png
  Terminal=false
 -Categories=Network;Telephony;
-+Categories=Network;Telephony;X-UHU-Menu/Internet/Messengers;
++Categories=Network;Telephony;

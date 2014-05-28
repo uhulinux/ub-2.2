@@ -7,9 +7,9 @@ diff -Naur orig/menu-entries/LiVES.desktop mod/menu-entries/LiVES.desktop
  Comment=Video Editor/VJ tool
 -Categories=AudioVideo;AudioVideoEditing;
 +Comment[hu]=Videószerkesztő alkalmazás
-+Categories=GTK;AudioVideo;AudioVideoEditing;X-UHU-Menu/Multimedia/VideoEdit;
++Categories=GTK;AudioVideo;AudioVideoEditing;
  Exec=lives
 -Icon=lives.xpm
-+Icon=lives.xpm
++Icon=/usr/share/pixmaps/lives.xpm
  Type=Application
  Terminal=false

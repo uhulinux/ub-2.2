@@ -1,0 +1,4 @@
+#!/usr/bin/env dl
+
+padevchooser-${UB_VERSION}.tar.gz padevchooser-${UB_VERSION}/
+	http://0pointer.de/lennart/projects/padevchooser/

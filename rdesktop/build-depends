@@ -1,0 +1,6 @@
+alsa-lib-dev
+libao-dev
+libice-dev
+libsamplerate-dev
+libx11-dev
+openssl-dev

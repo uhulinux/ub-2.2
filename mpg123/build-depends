@@ -1,5 +1,7 @@
 alsa-lib-dev
+db4-dev
 jack-dev
 libsamplerate-dev
 openal-dev
 sdl-dev
+util-linux-dev

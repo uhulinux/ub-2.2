@@ -14,7 +14,7 @@ diff -Naurd pavumeter-0.9.3.orig/src/pavumeter.desktop pavumeter-0.9.3/src/pavum
  StartupNotify=true
  Type=Application
 -Categories=Application;AudioVideo;Audio;
-+Categories=GTK;AudioVideo;Audio;X-UHU-Menu/Multimedia/Mixers;
++Categories=GTK;AudioVideo;Audio;Mixer;
 diff -Naurd pavumeter-0.9.3.orig/src/pavumeter-record.desktop pavumeter-0.9.3/src/pavumeter-record.desktop
 --- pavumeter-0.9.3.orig/src/pavumeter-record.desktop	2007-08-07 02:20:30.000000000 +0200
 +++ pavumeter-0.9.3/src/pavumeter-record.desktop	2009-08-29 12:22:43.000000000 +0200
@@ -32,4 +32,4 @@ diff -Naurd pavumeter-0.9.3.orig/src/pavumeter-record.desktop pavumeter-0.9.3/sr
  StartupNotify=true
  Type=Application
 -Categories=Application;AudioVideo;Audio;
-+Categories=GTK;AudioVideo;Audio;X-UHU-Menu/Multimedia/Mixers;
++Categories=GTK;AudioVideo;Audio;Mixer;

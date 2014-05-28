@@ -1,4 +1,5 @@
 #!/bin/sh -eux
 
-./configure --prefix /usr
-make
+cd lastfm-liblastfm*
+mv COPYING README.md ../
+ub_compile

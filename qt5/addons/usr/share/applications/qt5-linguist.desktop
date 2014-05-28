@@ -1,8 +1,7 @@
 [Desktop Entry]
-Encoding=UTF-8
 Type=Application
 Name=Qt5 Linguist
 Comment=Qt5 Translation tool
 Comment[hu]=Qt5 fordításkészítő
 Exec=linguist-qt5
-Categories=Qt;Development;Translation;X-UHU-Menu/Development/Translation;
+Categories=Qt;Development;Translation;

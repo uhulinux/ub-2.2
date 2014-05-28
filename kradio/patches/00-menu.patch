@@ -6,7 +6,7 @@ diff -Naur kradio4-4.0.7-ori/kradio4.desktop kradio4-4.0.7/kradio4.desktop
  Comment=V4L/V4L2-Radio Application for KDE4
  Terminal=false
 -Categories=Qt;KDE;AudioVideo;
-+Categories=Qt;KDE;AudioVideo;X-UHU-Menu/Multimedia/TVRadio;
++Categories=Qt;KDE;AudioVideo;Audio;Recorder;
 diff -Naur kradio4-4.0.7-ori/src/kradio.desktop kradio4-4.0.7/src/kradio.desktop
 --- kradio4-4.0.7-ori/src/kradio.desktop	2013-01-26 18:34:23.000000000 +0100
 +++ kradio4-4.0.7/src/kradio.desktop	2013-05-15 19:49:34.467763896 +0200
@@ -15,4 +15,4 @@ diff -Naur kradio4-4.0.7-ori/src/kradio.desktop kradio4-4.0.7/src/kradio.desktop
  Name=KRadio
  Name[de]=KRadio
 -Categories=Qt;KDE;AudioVideo;
-+Categories=Qt;KDE;AudioVideo;X-UHU-Menu/Multimedia/TVRadio;
++Categories=Qt;KDE;AudioVideo;Audio;Recorder;

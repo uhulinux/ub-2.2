@@ -11,5 +11,6 @@ libvorbis-dev
 portaudio-dev
 soundtouch-dev
 taglib-dev
+util-linux-dev
 wxwidgets-dev
 zip

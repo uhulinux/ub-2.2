@@ -1,6 +1,7 @@
 dotconf-dev
 fltk1-dev
 imagemagick
+jack-dev
 libjpeg-dev
 libpng-dev
 libsndfile-dev

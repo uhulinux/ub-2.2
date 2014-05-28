@@ -1,4 +1,4 @@
 #!/usr/bin/env dl
 
 libsndfile-${UB_VERSION}.tar.gz libsndfile-${UB_VERSION}/
-	http://pkgs.fedoraproject.org/repo/pkgs/libsndfile/libsndfile-${UB_VERSION}.tar.gz/e0553e12c7a467af44693e95e2eac668/
+	http://www.mega-nerd.com/libsndfile/files/
