@@ -24,7 +24,7 @@ diff -Naur orig/share/applications/caffeine.desktop patched/share/applications/c
  Terminal=false
  Type=Application
 -Categories=Utility;
-+Categories=Utility;X-UHU-Menu/Tools/Utilities;
++Categories=Utility;
  StartupNotify=false
 diff -Naur orig/share/caffeine/glade/GUI.glade patched/share/caffeine/glade/GUI.glade
 --- orig/share/caffeine/glade/GUI.glade	2009-10-31 19:17:56.000000000 +0100
