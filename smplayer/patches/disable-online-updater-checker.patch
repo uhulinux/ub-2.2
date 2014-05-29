@@ -1,0 +1,12 @@
+diff -Naur orig/src/smplayer.pro mod/src/smplayer.pro
+--- orig/src/smplayer.pro	2013-07-21 02:34:24.000000000 +0200
++++ mod/src/smplayer.pro	2014-05-29 20:10:45.466482601 +0200
+@@ -22,7 +22,7 @@
+ DEFINES += LOG_MPLAYER
+ DEFINES += LOG_SMPLAYER
+ DEFINES += SKINS
+-DEFINES += UPDATE_CHECKER
++#DEFINES += UPDATE_CHECKER
+ DEFINES += CHECK_UPGRADED
+ #DEFINES += USE_FONTCONFIG_OPTIONS
+ 
