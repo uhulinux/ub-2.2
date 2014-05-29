@@ -5,6 +5,6 @@ Comment=VDR launcher
 Comment[hu]=vdr indító
 Exec=vdrlaunch
 Type=Application
-Categories=AudioVideo;Video;TV;Player;
+Categories=AudioVideo;Video;TV;
 Icon=vdr
 Terminal=true
