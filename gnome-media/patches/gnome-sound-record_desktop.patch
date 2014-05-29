@@ -13,7 +13,7 @@ diff -Naurd gnome-media-2.26.0.orig/grecord/gnome-sound-recorder.desktop.in.in g
  Type=Application
  X-GNOME-DocPath=grecord/grecord.xml
 -Categories=GNOME;GTK;AudioVideo;Audio;Recorder;
-+Categories=GTK;GNOME;AudioVideo;Audio;Recorder;X-UHU-Menu/Multimedia/Soundrecorders;
++Categories=GTK;GNOME;AudioVideo;Audio;Recorder;
  X-GNOME-Bugzilla-Bugzilla=GNOME
  X-GNOME-Bugzilla-Product=gnome-media
  X-GNOME-Bugzilla-Component=Gnome-Sound-Recorder

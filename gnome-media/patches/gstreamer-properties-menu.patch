@@ -8,7 +8,7 @@ diff -Naur orig/gstreamer-properties/gstreamer-properties.desktop.in.in mod/gstr
 -NoDisplay=true
  Type=Application
 -Categories=GNOME;GTK;Settings;HardwareSettings;
-+Categories=GNOME;GTK;Settings;HardwareSettings;X-UHU-Menu/Settings;
++Categories=GNOME;GTK;Settings;HardwareSettings;
  X-GNOME-Bugzilla-Bugzilla=GNOME
  X-GNOME-Bugzilla-Product=gnome-media
  X-GNOME-Bugzilla-Component=gstreamer-properties
