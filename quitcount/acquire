@@ -1,4 +1,4 @@
 #!/usr/bin/env dl
 
 quitcount-${UB_VERSION}.tar.gz quitcount-${UB_VERSION}/
-    http://downloads.sourceforge.net/project/quitcount/quitcount/${UB_VERSION}/
+    http://downloads.sourceforge.net/project/quitcount/quitcount/${UB_VERSION_HEAD2}/
