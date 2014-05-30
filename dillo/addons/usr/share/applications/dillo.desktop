@@ -1,13 +1,12 @@
 [Desktop Entry]
-Encoding=UTF-8
 Name=Dillo
 Name[hu]=Dillo
 Comment=Web browser
 Comment[hu]=Böngésző
 Exec=dillo
-Icon=
+Icon=dillo
 Terminal=false
-Categories=X-UHU-Menu/Internet/Browsers;
+Categories=Network;WebBrowser;
 Type=Application
 Hidden=false
 StartupNotify=true
