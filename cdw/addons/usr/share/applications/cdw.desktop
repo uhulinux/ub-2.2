@@ -1,5 +1,4 @@
 [Desktop Entry]
-Encoding=UTF-8
 Type=Application
 Name=cdw
 Comment=CD writing frontend
@@ -7,4 +6,4 @@ Comment[hu]=CD-író előtét program
 Icon=/usr/share/cdw/pixmaps/cdw.png
 Exec=cdw
 Terminal=true
-Categories=DiscBurning;Audio;Video;X-UHU-Menu/Multimedia/CDwriters;
+Categories=DiscBurning;AudioVideo;
