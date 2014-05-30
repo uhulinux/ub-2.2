@@ -1,0 +1,8 @@
+[Desktop Entry]
+Type=Application
+Name=wolf3d-full-apogee-v11-windowed
+Name[hu]=wolf3d-full-apogee-v11-ablakos
+Exec=wolf3d-full-apogee-v11-w
+Icon=wolf3d
+Terminal=true
+Categories=Game;ActionGame;X-Wolf4sdl;

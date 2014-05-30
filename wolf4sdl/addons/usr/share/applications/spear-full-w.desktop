@@ -1,0 +1,8 @@
+[Desktop Entry]
+Type=Application
+Name=spear-windowed
+Name[hu]=spear-ablakos
+Exec=spear-full-w
+Icon=wolf3d
+Terminal=true
+Categories=Game;ActionGame;X-Wolf4sdl;

@@ -1,0 +1,8 @@
+[Desktop Entry]
+Type=Application
+Name=wolf3d-shareware-v12-windowed
+Name[hu]=wolf3d-shareware-v12-ablakos
+Exec=wolf3d-shareware-v12-w
+Icon=wolf3d
+Terminal=true
+Categories=Game;ActionGame;X-Wolf4sdl;

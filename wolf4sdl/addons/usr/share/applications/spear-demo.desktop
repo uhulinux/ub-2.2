@@ -1,0 +1,7 @@
+[Desktop Entry]
+Type=Application
+Name=spear-demo
+Exec=spear-demo
+Icon=wolf3d
+Terminal=true
+Categories=Game;ActionGame;X-Wolf4sdl;

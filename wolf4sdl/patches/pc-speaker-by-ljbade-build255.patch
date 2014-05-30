@@ -1,12 +1,12 @@
-diff -ruN wolfori/id_sd.cpp wolfnew/id_sd.cpp
---- wolfori/id_sd.cpp	2011-01-10 00:44:54.853690174 -0600
-+++ wolfnew/id_sd.cpp	2011-01-10 00:46:10.648576816 -0600
-@@ -401,28 +401,29 @@
+diff -Naur orig/id_sd.cpp mod/id_sd.cpp
+--- orig/id_sd.cpp	2009-02-24 12:41:10.000000000 +0100
++++ mod/id_sd.cpp	2014-05-30 15:00:31.992449167 +0200
+@@ -401,28 +401,26 @@
          _asm    and     al,0xfd                 // ~2
          _asm    out     0x61,al
  }
+-
 +#endif
- 
  ///////////////////////////////////////////////////////////////////////////
  //
  //      SDL_PCPlaySound() - Plays the specified sound on the PC speaker
@@ -22,12 +22,12 @@ diff -ruN wolfori/id_sd.cpp wolfnew/id_sd.cpp
 +/*
  //      _asm    pushfd
          _asm    cli
+-
 +*/
- 
          pcLastSample = -1;
          pcLengthLeft = sound->common.length;
          pcSound = sound->data;
- 
+-
 +/*
  //      _asm    popfd
          _asm    sti
@@ -35,7 +35,7 @@ diff -ruN wolfori/id_sd.cpp wolfnew/id_sd.cpp
  }
  
  ///////////////////////////////////////////////////////////////////////////
-@@ -430,24 +431,24 @@
+@@ -430,24 +428,23 @@
  //      SDL_PCStopSound() - Stops the current sound playing on the PC Speaker
  //
  ///////////////////////////////////////////////////////////////////////////
@@ -49,8 +49,8 @@ diff -ruN wolfori/id_sd.cpp wolfnew/id_sd.cpp
 +/*
  //      _asm    pushfd
          _asm    cli
+-
 +*/
- 
          pcSound = 0;
  
 +/*
@@ -64,7 +64,7 @@ diff -ruN wolfori/id_sd.cpp wolfnew/id_sd.cpp
  }
  
  ///////////////////////////////////////////////////////////////////////////
-@@ -458,20 +459,141 @@
+@@ -458,20 +455,142 @@
  static void
  SDL_ShutPC(void)
  {
@@ -75,13 +75,15 @@ diff -ruN wolfori/id_sd.cpp wolfnew/id_sd.cpp
  
          pcSound = 0;
  
+-        _asm    in      al,0x61                 // Turn the speaker & gate off
 +/*
-         _asm    in      al,0x61                 // Turn the speaker & gate off
++	_asm    in      al,0x61                 // Turn the speaker & gate off
          _asm    and     al,0xfc                 // ~3
          _asm    out     0x61,al
  
  //      _asm    popfd
          _asm    sti
++
 +*/
  }
  
@@ -207,7 +209,7 @@ diff -ruN wolfori/id_sd.cpp wolfnew/id_sd.cpp
  
  void
  SD_StopDigitized(void)
-@@ -487,6 +609,7 @@
+@@ -487,6 +606,7 @@
      {
          case sds_PC:
  //            SDL_PCStopSampleInIRQ();
@@ -215,7 +217,7 @@ diff -ruN wolfori/id_sd.cpp wolfnew/id_sd.cpp
              break;
          case sds_SoundBlaster:
  //            SDL_SBStopSampleInIRQ();
-@@ -835,7 +958,7 @@
+@@ -835,7 +955,7 @@
      switch (SoundMode)
      {
          case sdm_PC:
@@ -224,7 +226,7 @@ diff -ruN wolfori/id_sd.cpp wolfnew/id_sd.cpp
              break;
          case sdm_AdLib:
              SDL_ShutAL();
-@@ -1083,6 +1206,9 @@
+@@ -1083,6 +1203,9 @@
  
      alTimeCount = 0;
  
@@ -234,7 +236,7 @@ diff -ruN wolfori/id_sd.cpp wolfnew/id_sd.cpp
      SD_SetSoundMode(sdm_Off);
      SD_SetMusicMode(smm_Off);
  
-@@ -1163,7 +1289,6 @@
+@@ -1163,7 +1286,6 @@
      {
          if ((DigiMode == sds_PC) && (SoundMode == sdm_PC))
          {
@@ -242,7 +244,7 @@ diff -ruN wolfori/id_sd.cpp wolfnew/id_sd.cpp
              if (s->priority < SoundPriority)
                  return 0;
  
-@@ -1173,9 +1298,6 @@
+@@ -1173,9 +1295,6 @@
              SoundPositioned = ispos;
              SoundNumber = sound;
              SoundPriority = s->priority;
@@ -252,7 +254,7 @@ diff -ruN wolfori/id_sd.cpp wolfnew/id_sd.cpp
          }
          else
          {
-@@ -1205,7 +1327,7 @@
+@@ -1205,7 +1324,7 @@
      switch (SoundMode)
      {
          case sdm_PC:
@@ -261,18 +263,9 @@ diff -ruN wolfori/id_sd.cpp wolfnew/id_sd.cpp
              break;
          case sdm_AdLib:
              SDL_ALPlaySound((AdLibSound *)s);
-@@ -1259,7 +1381,7 @@
-     switch (SoundMode)
-     {
-         case sdm_PC:
--//            SDL_PCStopSound();
-+            SDL_PCStopSound();
-             break;
-         case sdm_AdLib:
-             SDL_ALStopSound();
-diff -ruN wolfori/wl_menu.cpp wolfnew/wl_menu.cpp
---- wolfori/wl_menu.cpp	2011-01-10 00:44:54.850356773 -0600
-+++ wolfnew/wl_menu.cpp	2011-01-10 00:45:27.481021092 -0600
+diff -Naur orig/wl_menu.cpp mod/wl_menu.cpp
+--- orig/wl_menu.cpp	2010-11-01 13:17:58.000000000 +0100
++++ mod/wl_menu.cpp	2014-05-30 14:54:03.937175770 +0200
 @@ -105,7 +105,7 @@
      {1, "", 0},
  #else

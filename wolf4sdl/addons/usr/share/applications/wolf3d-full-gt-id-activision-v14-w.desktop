@@ -1,0 +1,8 @@
+[Desktop Entry]
+Type=Application
+Name=wolf3d-full-gt-id-activision-v14-windowed
+Name[hu]=wolf3d-full-gt-id-activision-v14-ablakos
+Exec=wolf3d-full-gt-id-activision-v14-w
+Icon=wolf3d
+Terminal=true
+Categories=Game;ActionGame;X-Wolf4sdl;

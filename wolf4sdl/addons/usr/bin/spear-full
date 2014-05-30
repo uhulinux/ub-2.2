@@ -1,0 +1,13 @@
+#!/bin/bash
+
+cd /usr/share/games/wolf4sdl/spear-full/
+if ! test -e vgahead.*
+then
+	echo a /usr/share/games/wolf4sdl/spear-full/ alá kell másolni 
+	echo kisbetűsen az ID cég adatfájljait a használathoz
+	echo
+	echo Nyomj entert a kilépéshez!
+	read x
+	exit 1
+fi
+./wolf4sdl

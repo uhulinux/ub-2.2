@@ -1,0 +1,14 @@
+#!/bin/bash
+
+cd /usr/share/games/wolf4sdl/wolf3d-full-gt-id-activision-v14/
+if ! test -e vgahead.*
+then
+	echo a /usr/share/games/wolf4sdl/wolf3d-full-gt-id-activision-v14/ alá kell másolni 
+	echo kisbetűsen az ID cég adatfájljait a használathoz
+	echo
+	echo Nyomj entert a kilépéshez!
+	read x
+	exit 1
+fi
+./wolf4sdl
+
