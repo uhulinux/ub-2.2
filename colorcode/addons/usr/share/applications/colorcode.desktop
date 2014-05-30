@@ -8,4 +8,4 @@ Exec=colorcode
 Icon=cc64
 Terminal=false
 Type=Application
-Categories=Qt;Game;LogicGame;X-UHU-Menu/Games/TacticStrategy;
+Categories=Qt;Game;LogicGame;

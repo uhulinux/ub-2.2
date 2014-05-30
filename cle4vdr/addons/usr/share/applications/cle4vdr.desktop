@@ -1,9 +1,9 @@
 [Desktop Entry]
 Name=Cle4vdr
-Name[hu]=vdr-csatornaszerkesztő
+Name[hu]=VDR-csatornalista szerkesztő
 Comment=channel list editor for vdr
 Comment[hu]=csatorna lista szerkesztő vdr -hez
 Exec=cle4vdr
 Terminal=false
 Type=Application
-Categories=Application;Office;X-UHU-Menu/Tools/Editors;
+Categories=AudioVideo;Video;TV;

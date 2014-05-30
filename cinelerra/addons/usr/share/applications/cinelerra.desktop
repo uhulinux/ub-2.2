@@ -3,9 +3,8 @@ Name=Cinelerra
 Name[hu]=Cinelerra
 Comment=Video Editor
 Comment[hu]=Videó szerkesztő
-Categories=Application;AudioVideo;AudioVideoEditing;X-UHU-Menu/Multimedia/VideoEdit;
+Categories=AudioVideo;AudioVideoEditing;
 Exec=cinelerra
-Icon=cinelerra.xpm
+Icon=/usr/share/pixmaps/cinelerra.xpm
 Terminal=false
 Type=Application
-

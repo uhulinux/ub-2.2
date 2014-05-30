@@ -6,5 +6,5 @@ diff -Naur ORIG/devede.desktop UHU/devede.desktop
  TryExec=devede
  Exec=devede
 -Categories=AudioVideo;
-+Categories=AudioVideo;X-UHU-Menu/Multimedia/VideoEdit;
++Categories=AudioVideo;DiscBurning;
  Icon=devede
