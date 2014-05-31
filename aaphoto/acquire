@@ -1,5 +1,7 @@
 #!/usr/bin/env dl
 
-aaphoto_sources_v${UB_VERSION}.tar.gz aaphoto-${UB_VERSION}/
-#aaphoto_sources_all.tar.gz aaPhoto/
-    http://log69.com/downloads/
+v${UB_VERSION}.tar.gz aaphoto-${UB_VERSION}/
+	https://github.com/log69/aaphoto/archive/
+
+#aaphoto_sources_v${UB_VERSION}.tar.gz aaphoto-${UB_VERSION}/
+#    http://log69.com/downloads/
