@@ -5,4 +5,4 @@ ub_install \
 	PREFIX="$UB_INSTALLDIR"/usr \
 	DOC_DIR="$UB_INSTALLDIR"/usr/share/doc/Packages/emelfm2
 mkdir -p "$UB_INSTALLDIR"/usr/share/pixmaps
-ln -s emelfm2/emelfm2_48.png "$UB_INSTALLDIR"/usr/share/pixmaps/emelfm2.png
+cp icons/emelfm2_48.png "$UB_INSTALLDIR"/usr/share/pixmaps/emelfm2.png

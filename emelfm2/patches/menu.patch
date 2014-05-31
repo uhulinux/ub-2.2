@@ -14,5 +14,5 @@ diff -Naur orig/po/emelfm2.desktop.in patched/po/emelfm2.desktop.in
  Terminal=false
  StartupNotify=false
 -Categories=System;Utility;Core;FileTools;FileManager;GTK;
-+Categories=System;Utility;Core;FileTools;FileManager;GTK;X-UHU-Menu/Tools/File_Managers;
++Categories=System;FileTools;FileManager;GTK;
  MimeType=inode/directory;inode/mount-point;
