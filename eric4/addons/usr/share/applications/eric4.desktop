@@ -1,10 +1,11 @@
 [Desktop Entry]
 Type=Application
 Name=Eric4
-GenericName=IDE
+GenericName=Python IDE
 Comment=Eric4 Python IDE
+Comment[hu]=Python fejlesztő környezet
 Exec=eric4
-Icon=eric.png
+Icon=eric
 Terminal=false
-Categories=QT;Development;X-UHU-Menu/Development/Programming;
+Categories=Qt;Development;IDE;
 StartupNotify=false

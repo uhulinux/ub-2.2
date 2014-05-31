@@ -1,0 +1,1 @@
+sflist eric-ide eric4/stable | sort -V | tail -n 1
