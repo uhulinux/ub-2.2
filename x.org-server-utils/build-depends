@@ -1,0 +1,9 @@
+libice-dev
+libx11-dev
+libxcursor-dev
+libxmu-dev
+libxrandr-dev
+libxxf86vm-dev
+nickle
+x.org-bitmaps
+x.org-xtrans-dev
