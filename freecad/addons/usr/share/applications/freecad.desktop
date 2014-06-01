@@ -1,6 +1,4 @@
 [Desktop Entry]
-Version=1.0
-Encoding=UTF-8
 Name=FreeCAD
 Comment=A general purpose 3D CAD modeler
 GenericName=CAD Application
@@ -9,6 +7,6 @@ Path=/usr/lib/freecad/lib
 Terminal=false
 Type=Application
 Icon=/usr/lib/freecad/data/freecad.xpm
-Categories=Application;Science;Math;Education;X-UHU-Menu/Edutainment/Miscellaneous;
+Categories=Application;Science;Math;Education;
 StartupNotify=true
 MimeType=application/x-extension-fcstd;
