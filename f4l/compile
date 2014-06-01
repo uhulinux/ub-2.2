@@ -2,4 +2,4 @@
 
 qmake -project
 qmake -o Makefile f4l.pro
-make
+make LFLAGS="-lz"

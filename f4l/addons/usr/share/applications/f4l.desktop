@@ -1,9 +1,15 @@
 [Desktop Entry]
 Encoding=UTF-8
-Type=Application
-Name=Flash 4 Linux
-Comment[hu]=Flash szerkesztő
-GenericName=Flash 4 Linux
-Icon=video-x-generic
-Categories=Network;WebDevelopment;X-UHU-Menu/Development/Web;
+Name=F4L
+GenericName=Flash animation
+GenericName[ru]=Flash-анимация
+GenericName[hu]=Flash-аnimáció
+Categories=Graphics;VectorGraphics;Qt;
+Comment=F4L is an animated vector graphics editor used to create Flash animation
+Comment[ru]=F4L — программа для создания анимированной векторной графики в формате Flash
+Comment[hu]=Flash animáció szerkesztő
 Exec=f4l
+Icon=f4l
+StartupNotify=true
+Terminal=false
+Type=Application
