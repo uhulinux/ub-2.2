@@ -12,6 +12,6 @@ diff -Naur a/desktop/fdesktoprecorder.desktop b/desktop/fdesktoprecorder.desktop
 +Name[hu]=FDesktopRecorder
  Name=FDesktopRecorder
 -Categories=Qt;KDE;Utility;X-KDE-Utilities-Desktop;
-+Categories=Qt;KDE;Utility;X-KDE-Utilities-Desktop;X-UHU-Menu/Multimedia/VideoEdit;
++Categories=Qt;KDE;Utility;X-KDE-Utilities-Desktop;
  
  X-Desktop-File-Install-Version=0.18
