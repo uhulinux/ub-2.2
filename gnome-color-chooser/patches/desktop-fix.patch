@@ -1,0 +1,15 @@
+diff -Naur orig/src/gnome-color-chooser.desktop.in mod/src/gnome-color-chooser.desktop.in
+--- orig/src/gnome-color-chooser.desktop.in	2008-04-27 21:18:14.000000000 +0200
++++ mod/src/gnome-color-chooser.desktop.in	2014-06-01 10:59:05.321071502 +0200
+@@ -1,10 +1,9 @@
+ [Desktop Entry]
+-Version=1.0
+ Name=GNOME Color Chooser
+ _Comment=Customize your GNOME desktop
+ Exec=gnome-color-chooser
+ Terminal=false
+ Type=Application
+-Icon=gnome-color-chooser.svg
++Icon=/usr/share/pixmaps/gnome-color-chooser.svg
+ Categories=GNOME;Settings;
+ StartupNotify=true

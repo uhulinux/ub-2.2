@@ -5,7 +5,7 @@
  Terminal=false
  Type=Application
 -Categories=Office;Spreadsheet;Science;Math;GNOME;GTK;
-+Categories=GTK;GNOME;Office;Spreadsheet;Science;Math;X-UHU-Menu/Tools/Spreadsheets;
++Categories=GTK;GNOME;Office;Spreadsheet;
  StartupNotify=true
  X-GNOME-Bugzilla-Bugzilla=GNOME
  X-GNOME-Bugzilla-Product=Gnumeric
