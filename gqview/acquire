@@ -1,4 +1,4 @@
 #!/usr/bin/env dl
 
-gqview-${UB_VERSION}.tar.bz2 gqview-${UB_VERSION}/
-	http://rezso.net/src/gqview/
+v${UB_VERSION}.tar.gz gqview-${UB_VERSION}/
+	https://github.com/rezso/gqview/archive/
