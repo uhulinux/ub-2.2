@@ -7,4 +7,4 @@ Icon=/usr/lib/abevjava/abevjava.ico
 Terminal=false
 Type=Application
 StartupNotify=true
-Categories=Office;X-UHU-Menu/Tools/More;
+Categories=Office;Finance;

@@ -6,4 +6,4 @@ diff -Naur frescobaldi-2.0.8-ori/frescobaldi.desktop frescobaldi-2.0.8/frescobal
  Terminal=false
  InitialPreference=8
 -Categories=Qt;AudioVideo;Music;Utility;TextEditor;
-+Categories=Qt;AudioVideo;Music;Utility;TextEditor;X-UHU-Menu/Multimedia/SoundEdit;
++Categories=Qt;Education;AudioVideo;Music;
