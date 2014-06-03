@@ -1,4 +1,4 @@
 #!/usr/bin/env dl
 
 gadmin-proftpd-"$UB_VERSION".tar.gz gadmin-proftpd-"$UB_VERSION"/
-	http://mange.dynalias.org/linux/gadmin-proftpd/
+	ftp://mirror.switch.ch/pool/1/mirror/slitaz/sources/packages/g/

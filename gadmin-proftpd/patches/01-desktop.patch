@@ -1,22 +1,21 @@
-diff -Naur gadmin-proftpd-0.4.1-orig/desktop/gadmin-proftpd.desktop gadmin-proftpd-0.4.1/desktop/gadmin-proftpd.desktop
---- gadmin-proftpd-0.4.1-orig/desktop/gadmin-proftpd.desktop	2008-02-21 20:49:34.000000000 +0100
-+++ gadmin-proftpd-0.4.1/desktop/gadmin-proftpd.desktop	2011-04-23 17:11:20.793118246 +0200
-@@ -5,6 +5,7 @@
+diff -Naur orig/desktop/gadmin-proftpd.desktop mod/desktop/gadmin-proftpd.desktop
+--- orig/desktop/gadmin-proftpd.desktop	2008-02-21 20:49:34.000000000 +0100
++++ mod/desktop/gadmin-proftpd.desktop	2014-06-03 08:21:05.246478053 +0200
+@@ -1,5 +1,4 @@
+ [Desktop Entry]
+-Encoding=UTF-8
+ Name=GADMIN-PROFTPD
+ Name[de]=GADMIN-PROFTPD
  Name[es]=GADMIN-PROFTPD
- Name[fi]=GADMIN-PROFTPD
- Name[fr]=GADMIN-PROFTPD
-+Name[hu]=GADMIN-PROFTPD
- Name[ko]=GADMIN-PROFTPD
- Name[no]=GADMIN-PROFTPD
- Name[pt_BR]=GADMIN-PROFTPD
-@@ -15,8 +16,9 @@
+@@ -15,8 +14,9 @@
  Name[zh_TW]=GADMIN-PROFTPD
  GenericName=GADMIN-PROFTPD
  Comment=ProFTPD FTP server administration
 +Comment[hu]=Grafikus adminisztrációs program a Proftpd szerverhez
  Exec=gadmin-proftpd
- Icon=gadmin-proftpd.png
+-Icon=gadmin-proftpd.png
++Icon=gadmin-proftpd
  Terminal=false
  Type=Application
 -Categories=Application;Network;X-Red-Hat-ServerConfig;X-Red-Hat-Base;
-+Categories=Application;Network;X-Red-Hat-ServerConfig;X-Red-Hat-Base;X-UHU-Menu/Settings;
++Categories=Network;

@@ -26,6 +26,6 @@ diff -Naur fwbackups-1.43.4-orig/src/fwbackups.desktop fwbackups-1.43.4/src/fwba
  Terminal=false
  Type=Application
 -Categories=GTK;System;
-+Categories=GTK;System;X-UHU-Menu/Tools/Utilities;
++Categories=GTK;System;
  #MimeType=text/plain
  Version=1.0
