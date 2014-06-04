@@ -13,6 +13,8 @@ yes yes | ./configure \
 	-c++11              \
 	-no-qml-debug       \
 	\
+	-nomake examples    \
+	\
 	-accessibility      \
 	\
 	-plugin-sql-mysql -I/usr/include/mysql \
@@ -22,8 +24,6 @@ yes yes | ./configure \
 	-system-sqlite      \
 	\
 	-audio-backend      \
-	\
-	-javascript-jit     \
 	\
 	-system-zlib        \
 	-system-libpng      \
@@ -78,6 +78,4 @@ ub_make
 #	-phonon             \
 #	-multimedia         \
 #	-audio-backend      \
-#	-nomake demos       \
 #	-nomake examples    \
-#	-nomake docs

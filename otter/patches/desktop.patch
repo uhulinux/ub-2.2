@@ -1,0 +1,13 @@
+diff -Naur orig/otter-browser.desktop patched/otter-browser.desktop
+--- orig/otter-browser.desktop	2014-06-01 18:38:28.000000000 +0200
++++ patched/otter-browser.desktop	2014-06-04 19:12:25.280091665 +0200
+@@ -36,8 +36,7 @@
+ GenericName[tr_TR]=İnternet Tarayıcısı
+ Icon=otter-browser
+ Type=Application
+-Categories=Application;Network;WebBrowser;
+-Encoding=UTF-8
++Categories=Network;WebBrowser;
+ Exec=otter-browser %u
+ Terminal=false
+ StartupNotify=false

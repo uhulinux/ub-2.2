@@ -14,7 +14,7 @@ diff -Naur a/debian/usr/share/applications/Socializer.desktop b/debian/usr/share
 +Comment[hu]=Facebook böngésző.
  Name=Socializer
 -Categories=
-+Categories=Network;Application;X-UHU-Menu/Internet/Messengers;
++Categories=Network;Chat;InstantMessaging;
  Comment=Facebook browser for your Ubuntu desktop.
 -Icon=/opt/Socializer/Socializer.png
 +Icon=Socializer
