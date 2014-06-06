@@ -8,6 +8,5 @@
 	--doc-dir=share/doc/Packages/openttd \
 	--personal-dir=.openttd \
 	--install-dir="$UB_INSTALLDIR" \
-	--menu-group="Game;X-UHU-Menu/Games/TacticStrategy;"
-
+	--without-lzma
 ub_make
