@@ -1,0 +1,1 @@
+sflist chromium-bsu Chromium%20B.S.U.%20source%20code | splitver '^chromium-bsu-([0-9.]+).tar.gz$' | sort -V | tail -n 1
