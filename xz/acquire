@@ -1,0 +1,7 @@
+#!/usr/bin/env dl
+
+xz-${UB_VERSION/~/}.tar.gz xz-${UB_VERSION/~/}/
+	http://tukaani.org/xz/
+	
+xz-4.999.9beta.tar.gz xz-4.999.9beta/ :xz4
+	http://tukaani.org/xz/

@@ -1,8 +1,8 @@
 diff -Naur orig/dpkg-deb/build.c patched/dpkg-deb/build.c
---- orig/dpkg-deb/build.c	2014-04-29 14:24:40.000000000 +0200
-+++ patched/dpkg-deb/build.c	2014-05-15 13:43:48.190711650 +0200
+--- orig/dpkg-deb/build.c	2014-06-04 02:02:56.000000000 +0200
++++ patched/dpkg-deb/build.c	2014-06-08 18:13:47.119729610 +0200
 @@ -385,13 +385,6 @@
-   if (pkg->priority == pri_other)
+   if (pkg->priority == PKG_PRIO_OTHER)
      warning(_("'%s' contains user-defined Priority value '%s'"),
              controlfile, pkg->otherpriority);
 -  for (field = pkg->available.arbs; field; field = field->next) {
