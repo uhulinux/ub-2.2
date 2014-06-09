@@ -1,5 +1,6 @@
 boost-dev
 gperf
-libwpd-dev
-libwpg-dev
+icu-dev
+librevenge-dev
 libxml2-dev
+xz-dev

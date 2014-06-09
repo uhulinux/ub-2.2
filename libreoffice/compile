@@ -48,8 +48,6 @@ export QT4DIR=/usr/lib/qt4
   	--without-system-libfreehand \
   	--without-system-libmspub \
   	--without-system-libmwaw \
-  	--without-system-libodfgen \
-  	--without-system-libwpd \
   	--without-system-lpsolve \
   	--without-system-mdds \
   	--without-system-mysql-cppconn \

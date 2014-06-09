@@ -7,7 +7,7 @@ diff -Naur inkscape-0.48.2-orig/inkscape.desktop.in inkscape-0.48.2/inkscape.des
  Type=Application
 -Categories=Graphics;VectorGraphics;GTK;
 -MimeType=image/svg+xml;image/svg+xml-compressed;application/vnd.corel-draw;application/pdf;application/postscript;image/x-eps;application/illustrator;
-+Categories=GTK;Graphics;VectorGraphics;X-UHU-Menu/Graphics/Vectors;
++Categories=GTK;Graphics;VectorGraphics;
 +MimeType=image/svg+xml;image/svg+xml-compressed;image/cgm;image/x-wmf;application/vnd.corel-draw;application/x-xccx;application/x-xcgm;application/x-xcdt;application/x-xsk1;application/x-xcmx;image/x-xcdr;
  Exec=inkscape %F
  TryExec=inkscape

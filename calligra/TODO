@@ -1,3 +1,5 @@
+libvisio, libwp{d,g,s}: libodfgen nélkül felesleges megadni
+
 -----------------------------------------------------------------------------
 -- The following OPTIONAL packages could NOT be located on your system.
 -- Consider installing them to enable more features from this software.
