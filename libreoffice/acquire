@@ -1,15 +1,15 @@
 #!/usr/bin/env dl
 
-libreoffice-${UB_VERSION/~/.}.tar.xz libreoffice-${UB_VERSION/~/.}/
+libreoffice-${UB_VERSION/~/.}-buildfix1.tar.xz libreoffice-${UB_VERSION/~/.}-buildfix1/
 	http://download.documentfoundation.org/libreoffice/src/${UB_VERSION_HEAD3}/
 
-libreoffice-dictionaries-${UB_VERSION/~/.}.tar.xz libreoffice-${UB_VERSION/~/.}/
+libreoffice-dictionaries-${UB_VERSION/~/.}-buildfix1.tar.xz libreoffice-${UB_VERSION/~/.}-buildfix1/
 	http://download.documentfoundation.org/libreoffice/src/${UB_VERSION_HEAD3}/
 
-libreoffice-help-${UB_VERSION/~/.}.tar.xz libreoffice-${UB_VERSION/~/.}/
+libreoffice-help-${UB_VERSION/~/.}-buildfix1.tar.xz libreoffice-${UB_VERSION/~/.}-buildfix1/
 	http://download.documentfoundation.org/libreoffice/src/${UB_VERSION_HEAD3}/
 
-libreoffice-translations-${UB_VERSION/~/.}.tar.xz libreoffice-${UB_VERSION/~/.}/
+libreoffice-translations-${UB_VERSION/~/.}-buildfix1.tar.xz libreoffice-${UB_VERSION/~/.}-buildfix1/
 	http://download.documentfoundation.org/libreoffice/src/${UB_VERSION_HEAD3}/
 
 # extra packs
@@ -66,9 +66,6 @@ ae330b9493bd4503ac390106ff6060d7-libexttextcat-3.4.3.tar.bz2
 7681383be6ce489d84c1c74f4e7f9643-liborcus-0.7.0.tar.bz2
 	http://dev-www.libreoffice.org/src/
 	
-a3dcac551fae5ebbec16e844810828c4-libwpd-0.9.9.tar.bz2
-	http://dev-www.libreoffice.org/src/
-
 26b3e95ddf3d9c077c480ea45874b3b8-lp_solve_5.5.tar.gz 
 	http://dev-www.libreoffice.org/src/
 
@@ -96,27 +93,24 @@ graphite2-1.2.4.tgz
 harfbuzz-0.9.23.tar.bz2
 	http://dev-www.libreoffice.org/src/
 
-libabw-0.0.2.tar.bz2
+libabw-0.1.0.tar.bz2
 	http://dev-www.libreoffice.org/src/
 
-libcdr-0.0.15.tar.bz2
+libcdr-0.1.0.tar.bz2
 	http://dev-www.libreoffice.org/src/
 
-libe-book-0.0.3.tar.bz2
+libe-book-0.1.1.tar.bz2
 	http://dev-www.libreoffice.org/src/
 
-libetonyek-0.0.4.tar.bz2
+libetonyek-0.1.1.tar.bz2
 	http://dev-www.libreoffice.org/src/
 
-libfreehand-0.0.0.tar.bz2
+libfreehand-0.1.0.tar.bz2
 	http://dev-www.libreoffice.org/src/
 
-libmspub-0.0.6.tar.bz2
+libmspub-0.1.0.tar.bz2
 	http://dev-www.libreoffice.org/src/
 
-libmwaw-0.2.0.tar.bz2
-	http://dev-www.libreoffice.org/src/
-
-libodfgen-0.0.4.tar.bz2
+libmwaw-0.3.1.tar.bz2
 	http://dev-www.libreoffice.org/src/
 

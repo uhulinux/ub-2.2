@@ -18,8 +18,10 @@ hunspell-hu
 kdelibs-dev
 lcms2-dev
 libjpeg-dev
+libodfgen-dev
 librsvg2-dev
 libvisio-dev
+libwpd-dev
 libwpg-dev
 libwps-dev
 libx11-dev

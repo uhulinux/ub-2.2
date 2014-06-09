@@ -16,6 +16,7 @@ kactivities-dev
 kdepimlibs-dev
 lcms2-dev
 libkdcraw-dev
+libodfgen-dev
 libpqxx-dev
 libqtgtl-dev
 librcps-dev
