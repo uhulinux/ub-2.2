@@ -1,0 +1,12 @@
+#!/bin/sh -eux
+
+install -D -m 0755 xdg_menu $UB_INSTALLDIR/usr/bin/xdg_menu
+install -D -m 0755 xdg_menu_su $UB_INSTALLDIR/usr/bin/xdg_menu_su
+install -D -m 0755 update-menus $UB_INSTALLDIR/usr/bin/update-menus
+install -D -m 0644 update-menus.conf $UB_INSTALLDIR/etc/update-menus.conf
+mkdir -p $UB_INSTALLDIR/usr/share/desktop-directories/
+cp arch-desktop-directories/* $UB_INSTALLDIR/usr/share/desktop-directories/
+mkdir -p $UB_INSTALLDIR/etc/xdg/menus/
+cp arch-xdg-menu/* $UB_INSTALLDIR/etc/xdg/menus/
+mkdir -p $UB_INSTALLDIR/var/cache/xdg-menu
+
