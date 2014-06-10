@@ -1,0 +1,321 @@
+From 2f094108326d42e19fe03e69fb50b343f86d7fcb Mon Sep 17 00:00:00 2001
+From: Christian Hesse <mail@eworm.de>
+Date: Tue, 25 Mar 2014 09:55:52 +0100
+Subject: [PATCH 1/1] add plugin to display QR-Code for avatar
+
+---
+ configure.ac                      |  21 +++++
+ src/plugins/Makefile.am           |   1 +
+ src/plugins/qr_avatar/Makefile.am |  24 +++++
+ src/plugins/qr_avatar/qr-avatar.c | 190 ++++++++++++++++++++++++++++++++++++++
+ 4 files changed, 236 insertions(+)
+ create mode 100644 src/plugins/qr_avatar/Makefile.am
+ create mode 100644 src/plugins/qr_avatar/qr-avatar.c
+
+diff --git a/configure.ac b/configure.ac
+index 474971f..14a3a7c 100644
+--- a/configure.ac
++++ b/configure.ac
+@@ -1004,6 +1004,10 @@ AC_ARG_ENABLE(pgpinline-plugin,
+ 		[  --disable-pgpinline-plugin      Do not build pgpinline plugin],
+ 		[enable_pgpinline_plugin=$enableval], [enable_pgpinline_plugin=auto])
+ 
++AC_ARG_ENABLE(qr-avatar-plugin,
++		[  --disable-qr-avatar-plugin      Do not build qr-avatar plugin],
++		[enable_qr_avatar_plugin=$enableval], [enable_qr_avatar_plugin=auto])
++
+ AC_ARG_ENABLE(rssyl-plugin,
+ 		[  --disable-rssyl-plugin          Do not build rssyl plugin],
+ 		[enable_rssyl_plugin=$enableval], [enable_rssyl_plugin=auto])
+@@ -1054,6 +1058,7 @@ dnl PGP/Inline:		pgpcore libgpgme
+ dnl S/Mime:		pgpcore libgpgme
+ dnl Python:		Python
+ dnl RSSyl:		libxml2 libcurl
++dnl QR-Avatar:		libqrencode
+ dnl SpamReport:		libcurl
+ dnl vCalendar:		libcurl
+ 
+@@ -1062,6 +1067,11 @@ PKG_CHECK_MODULES(CURL, libcurl, HAVE_CURL=yes, HAVE_CURL=no)
+ AC_SUBST(CURL_LIBS)
+ AC_SUBST(CURL_CFLAGS)
+ 
++dnl libqrencode ****************************************************************
++PKG_CHECK_MODULES(QRENCODE, libqrencode, HAVE_QRENCODE=yes, HAVE_QRENCODE=no)
++AC_SUBST(QRENCODE_LIBS)
++AC_SUBST(QRENCODE_CFLAGS)
++
+ dnl libxml2 ********************************************************************
+ PKG_CHECK_MODULES(LIBXML, libxml-2.0, HAVE_LIBXML=yes, HAVE_LIBXML=no)
+ AC_SUBST(LIBXML_LIBS)
+@@ -1715,6 +1725,15 @@ else
+ 	AC_MSG_RESULT(no)
+ fi
+ 
++AC_MSG_CHECKING([whether to build qr-avatar plugin])
++if test x"$enable_qr_avatar_plugin" != xno; then
++       PLUGINS="$PLUGINS qr-avatar"
++       AC_MSG_RESULT(yes)
++else
++       DISABLED_PLUGINS="$DISABLED_PLUGINS qr-avatar"
++       AC_MSG_RESULT(no)
++fi
++
+ AC_MSG_CHECKING([whether to build rssyl plugin])
+ if test x"$enable_rssyl_plugin" != xno; then
+ 	dependencies_missing=""
+@@ -1870,6 +1889,7 @@ AM_CONDITIONAL(BUILD_PYTHON_PLUGIN,		test x"$enable_python_plugin" != xno)
+ AM_CONDITIONAL(BUILD_PGPCORE_PLUGIN,		test x"$enable_pgpcore_plugin" != xno)
+ AM_CONDITIONAL(BUILD_PGPMIME_PLUGIN,		test x"$enable_pgpmime_plugin" != xno)
+ AM_CONDITIONAL(BUILD_PGPINLINE_PLUGIN,		test x"$enable_pgpinline_plugin" != xno)
++AM_CONDITIONAL(BUILD_QR_AVATAR_PLUGIN,		test x"$enable_qr_avatar_plugin" != xno)
+ AM_CONDITIONAL(BUILD_RSSYL_PLUGIN,		test x"$enable_rssyl_plugin" != xno)
+ AM_CONDITIONAL(BUILD_SMIME_PLUGIN,		test x"$enable_smime_plugin" != xno)
+ AM_CONDITIONAL(BUILD_SPAMASSASSIN_PLUGIN,	test x"$enable_spamassassin_plugin" != xno)
+@@ -1920,6 +1940,7 @@ src/plugins/python/examples/Makefile
+ src/plugins/pgpcore/Makefile
+ src/plugins/pgpmime/Makefile
+ src/plugins/pgpinline/Makefile
++src/plugins/qr_avatar/Makefile
+ src/plugins/rssyl/Makefile
+ src/plugins/smime/Makefile
+ src/plugins/spamassassin/Makefile
+diff --git a/src/plugins/Makefile.am b/src/plugins/Makefile.am
+index 2914aa5..b54e4e8 100644
+--- a/src/plugins/Makefile.am
++++ b/src/plugins/Makefile.am
+@@ -22,6 +22,7 @@ SUBDIRS = \
+ 	pgpcore \
+ 	pgpmime \
+ 	pgpinline \
++	qr_avatar \
+ 	rssyl \
+ 	smime \
+ 	spamassassin \
+diff --git a/src/plugins/qr_avatar/Makefile.am b/src/plugins/qr_avatar/Makefile.am
+new file mode 100644
+index 0000000..a22bbb9
+--- /dev/null
++++ b/src/plugins/qr_avatar/Makefile.am
+@@ -0,0 +1,24 @@
++plugindir = $(pkglibdir)/plugins
++
++if BUILD_QR_AVATAR_PLUGIN
++plugin_LTLIBRARIES = qr-avatar.la
++endif
++
++qr_avatar_la_SOURCES = \
++	qr-avatar.c
++
++qr_avatar_la_LDFLAGS = \
++	$(GTK_LIBS) \
++	$(QRENCODE_LIBS) \
++	-avoid-version -module
++
++AM_CPPFLAGS = \
++	$(GTK_CFLAGS) \
++	$(QRENCODE_CFLAGS)
++
++INCLUDES = \
++	-I$(top_srcdir)/src \
++	-I$(top_srcdir)/src/common \
++	-I$(top_builddir)/src/common \
++	-I$(top_srcdir)/src/gtk \
++	-I/usr/include
+diff --git a/src/plugins/qr_avatar/qr-avatar.c b/src/plugins/qr_avatar/qr-avatar.c
+new file mode 100644
+index 0000000..b2d7527
+--- /dev/null
++++ b/src/plugins/qr_avatar/qr-avatar.c
+@@ -0,0 +1,190 @@
++/*
++ * qr-avatar - A plugin for Claws Mail
++ *
++ * Copyright (C) 2014 Christian Hesse <mail@eworm.de> and the Claws Mail team
++ *
++ * This program is free software; you can redistribute it and/or modify
++ * it under the terms of the GNU General Public License as published by
++ * the Free Software Foundation; either version 3 of the License, or
++ * (at your option) any later version.
++ *
++ * This program is distributed in the hope that it will be useful,
++ * but WITHOUT ANY WARRANTY; without even the implied warranty of
++ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
++ * GNU General Public License for more details.
++ *
++ * You should have received a copy of the GNU General Public License
++ * along with this program; if not, write to the Free Software
++ * Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA 02111-1307, USA.
++ */
++
++#include <stdlib.h>
++#include <inttypes.h>
++
++#include <errno.h>
++
++#include <glib.h>
++#include <glib/gi18n.h>
++
++#include <qrencode.h>
++
++#include <common/version.h>
++#include <common/claws.h>
++#include <common/plugin.h>
++#include <common/utils.h>
++#include <common/hooks.h>
++#include <common/ssl.h>
++#include <procmsg.h>
++#include <procheader.h>
++#include <avatars.h>
++
++#define QR_AVATAR_QR_AVATAR 4
++#define QR_AVATAR_SIZE 48
++
++static guint update_hook_id;
++static guint render_hook_id;
++
++static gboolean qr_avatar_update_hook(gpointer source, gpointer data)
++{
++        AvatarCaptureData *acd = (AvatarCaptureData *)source;
++
++        debug_print("qr-avatar qr_avatar_update_hook() invoked\n");
++
++        if (!strcmp(acd->header, "From:")) {
++                gchar *addr;
++
++                addr = g_strdup(acd->content);
++                extract_address(addr);
++
++                debug_print("qr-avatar added '%s'\n", addr);
++                procmsg_msginfo_add_avatar(acd->msginfo, QR_AVATAR_QR_AVATAR, addr);
++        }
++
++        return FALSE; /* keep getting */
++}
++
++static gboolean qr_avatar_render_hook(gpointer source, gpointer data)
++{
++	AvatarRender *ar = (AvatarRender *)source;
++	GtkWidget *image = NULL;
++	gchar * text;
++
++	QRcode *qrcode;
++	unsigned char * qrdata;
++	GdkPixbuf *pixbuf, *pixbuf_scaled;
++	int i, j, k, rowstride, channels;
++	guchar *pixel;
++
++	debug_print("qr-avatar qr_avatar_render_hook() invoked\n");
++
++	if ((text = procmsg_msginfo_get_avatar(ar->full_msginfo, QR_AVATAR_QR_AVATAR)) != NULL) {
++
++		if ((qrcode = QRcode_encodeString8bit(text, 0, QR_ECLEVEL_L)) == NULL)
++			return FALSE;
++
++		qrdata = qrcode->data;
++
++		pixbuf = gdk_pixbuf_new(GDK_COLORSPACE_RGB, FALSE, 8,
++				qrcode->width, qrcode->width);
++
++		pixel = gdk_pixbuf_get_pixels(pixbuf);
++		rowstride = gdk_pixbuf_get_rowstride(pixbuf);
++		channels = gdk_pixbuf_get_n_channels(pixbuf);
++
++		gdk_pixbuf_fill(pixbuf, 0xffffffff);
++
++		for (i = 0; i < qrcode->width; i++)
++			for (j = 0; j < qrcode->width; j++) {
++				for (k = 0; k < channels; k++)
++					pixel[i * rowstride + j * channels + k] = !(*qrdata & 0x1) * 0xff;
++				qrdata++;
++			}
++
++		/* claws-mail is limited to avatar with 48x48 pixels
++		 * TODO: skip scaling as soon as different sizes are supported */
++		pixbuf_scaled = gdk_pixbuf_scale_simple(pixbuf, QR_AVATAR_SIZE, QR_AVATAR_SIZE, GDK_INTERP_BILINEAR);
++
++		QRcode_free(qrcode);
++		g_object_unref(pixbuf);
++
++		image = gtk_image_new_from_pixbuf(pixbuf_scaled);
++
++		g_object_unref(pixbuf_scaled);
++
++		if (ar->image != NULL) /* previous plugin set one */
++			gtk_widget_destroy(ar->image);
++
++		ar->image = image;
++
++                return TRUE;
++        }
++
++        return FALSE; /* keep rendering */
++}
++
++gboolean plugin_done(void)
++{
++	hooks_unregister_hook(AVATAR_HEADER_UPDATE_HOOKLIST, update_hook_id);
++	hooks_unregister_hook(AVATAR_IMAGE_RENDER_HOOKLIST, render_hook_id);
++
++	debug_print("QR-Avatar plugin unloaded\n");
++
++	return TRUE;
++}
++
++gint plugin_init(gchar **error)
++{
++	if (!check_plugin_version(MAKE_NUMERIC_VERSION(3,9,3,29),
++				VERSION_NUMERIC, _("QR-Avatar"), error))
++		return -1;
++
++	if ((update_hook_id = hooks_register_hook(AVATAR_HEADER_UPDATE_HOOKLIST, qr_avatar_update_hook, NULL)) == -1)
++	{
++		*error = g_strdup(_("Failed to register QR-Avatar update hook"));
++		return -1;
++	}
++
++	if ((render_hook_id = hooks_register_hook(AVATAR_IMAGE_RENDER_HOOKLIST, qr_avatar_render_hook, NULL)) == -1)
++	{
++		*error = g_strdup(_("Failed to register QR-Avatar render hook"));
++		return -1;
++	}
++
++	debug_print("QR-Avatar plugin loaded\n");
++
++	return EXIT_SUCCESS;
++}
++
++const gchar *plugin_name(void)
++{
++	return _("QR-Avatar");
++}
++
++const gchar *plugin_desc(void)
++{
++	return _("This plugin shows QR-Code for Avatar.\n\n"
++		"Copyright 2014 by Christian Hesse <mail@eworm.de>");
++}
++
++const gchar *plugin_type(void)
++{
++	return "Common";
++}
++
++const gchar *plugin_licence(void)
++{
++	return "GPL3+";
++}
++
++const gchar *plugin_version(void)
++{
++	return VERSION;
++}
++
++struct PluginFeature *plugin_provides(void)
++{
++	static struct PluginFeature features[] =
++		{ {PLUGIN_UTILITY, N_("QR-Avatar")},
++		  {PLUGIN_NOTHING, NULL}};
++	return features;
++}
+-- 
+1.9.1
