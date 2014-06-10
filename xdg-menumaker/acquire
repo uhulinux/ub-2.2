@@ -1,0 +1,4 @@
+#!/usr/bin/env dl
+
+arch-xdg-menu-$UB_VERSION.tar.gz .
+	http://archlinux-stuff.googlecode.com/files/
