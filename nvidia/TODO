@@ -1,0 +1,5 @@
+A mesa ütközések miatt eddig kiirtott funciók helyretétele
+#### Error: Nincs meg ez a lib: libGL.so (igényli: /usr/lib/libnvidia-ifr.so."$UB_VERSION")
+rm -f libnvidia-ifr.so."$UB_VERSION"
+#### Error: Nincs meg ez a lib: libGL.so.1 (igényli: /usr/lib/libnvidia-fbc.so."$UB_VERSION")
+rm -f libnvidia-fbc.so."$UB_VERSION"

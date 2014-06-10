@@ -9,5 +9,5 @@ diff -Naur orig/nvidia-settings.desktop mod/nvidia-settings.desktop
 -Icon=__PIXMAP_PATH__/nvidia-settings.png
 -Categories=Application;System;
 +Exec=nvidia-settings
-+Icon=nvidia-settings.png
-+Categories=Application;System;Settings;X-UHU-Menu/Settings;
++Icon=nvidia-settings
++Categories=System;HardwareSettings;

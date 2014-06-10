@@ -3,6 +3,7 @@
 KVER="$(ls -1 /lib/modules|grep i386)"
 
 #célkönyvtárak
+moduldir="$UB_INSTALLDIR"/lib/modules/"$KVER"/kernel/drivers
 cellibdir="$UB_INSTALLDIR"/usr/lib
 xmoduldir="$cellibdir"/xorg/modules
 desktopdir="$UB_INSTALLDIR"/usr/share/applications
@@ -12,11 +13,15 @@ pixmapdir="$UB_INSTALLDIR"/usr/share/pixmaps/
 
 #könyvtárgyártás
 mkdir -p "$cellibdir"/nvidia \
+	"$moduldir" \
 	"$xmoduldir"/{drivers,extensions} \
 	"$desktopdir" \
 	"$mandir" \
 	"$vendordir" \
 	"$pixmapdir"
+
+#kernelmodulok
+cp kernel/nvidia.ko kernel/uvm/nvidia-uvm.ko "$moduldir"/
 
 # binárisok
 mv	nvidia-xconfig \
@@ -38,9 +43,6 @@ mv	*.1 "$mandir"/
 # vendor
 mv	nvidia.icd "$vendordir"/
 
-# installált kernel modul a csomagba
-mv	lib $UB_INSTALLDIR/
-
 # biztonságba helyezés a régi módon
 mv	libglx.so."$UB_VERSION" "$cellibdir"/nvidia/
 
@@ -58,6 +60,8 @@ mv	tls "$cellibdir"
 # a mesa-dev függés viszont felrántana egy rakás dev -et,
 # ezért lemondunk az NvIFROpenGL library használatáról egyelőre
 rm -f libnvidia-ifr.so."$UB_VERSION"
+#### Error: Nincs meg ez a lib: libGL.so.1 (igényli: /usr/lib/libnvidia-fbc.so.340.17)
+rm -f libnvidia-fbc.so."$UB_VERSION"
 
 # minden áthelyezése a libekbe
 mv *.so.* "$cellibdir"/

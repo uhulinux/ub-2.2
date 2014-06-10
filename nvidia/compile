@@ -13,9 +13,5 @@ rm $forras.run
 patch -i "$UB_SRCDIR"/patches/menu.patch.skip
 cd kernel
 make SYSSRC=/usr/src/linux KERNEL_UNAME="$KVER" MODULE_ROOT=$moduldir module
-#akdályok leküzdése a telepítéshez
-patch -i "$UB_SRCDIR"/patches/skip-sanity-check.patch.skip
-#elkészült modul telepítése
-make SYSSRC=/usr/src/linux KERNEL_UNAME="$KVER" MODULE_ROOT=$moduldir module-install
-#ez minek? De legyen..
-make clean
+cd uvm
+make SYSSRC=/usr/src/linux KERNEL_UNAME="$KVER" MODULE_ROOT=$moduldir/uvm module
