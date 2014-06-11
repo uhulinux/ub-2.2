@@ -1,7 +1,7 @@
 diff -Naur orig/browser/components/nsBrowserContentHandler.js patched/browser/components/nsBrowserContentHandler.js
---- orig/browser/components/nsBrowserContentHandler.js	2014-04-22 07:27:35.000000000 +0200
-+++ patched/browser/components/nsBrowserContentHandler.js	2014-04-28 21:42:46.028897960 +0200
-@@ -578,7 +578,6 @@
+--- orig/browser/components/nsBrowserContentHandler.js	2014-06-06 03:15:17.000000000 +0200
++++ patched/browser/components/nsBrowserContentHandler.js	2014-06-11 16:51:24.820665263 +0200
+@@ -576,7 +576,6 @@
          switch (override) {
            case OVERRIDE_NEW_PROFILE:
              // New profile.
@@ -9,12 +9,13 @@ diff -Naur orig/browser/components/nsBrowserContentHandler.js patched/browser/co
              break;
            case OVERRIDE_NEW_MSTONE:
              // Check whether we will restore a session. If we will, we assume
-@@ -590,8 +589,6 @@
+@@ -587,8 +586,7 @@
+             var ss = Components.classes["@mozilla.org/browser/sessionstartup;1"]
                                 .getService(Components.interfaces.nsISessionStartup);
              willRestoreSession = ss.isAutomaticRestoreEnabled();
- 
--            overridePage = Services.urlFormatter.formatURLPref("startup.homepage_override_url");
 -
- #if MOZ_UPDATE_CHANNEL == aurora
-             // Temporary Australis whatsnew page for Aurora (bug 966014)
-             try {
+-            overridePage = Services.urlFormatter.formatURLPref("startup.homepage_override_url");
++          
+             if (prefb.prefHasUserValue("app.update.postupdate"))
+               overridePage = getPostUpdateOverridePage(overridePage);
+ 
