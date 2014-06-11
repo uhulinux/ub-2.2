@@ -1,0 +1,14 @@
+diff -Naurd orig/Makefile.in mod/Makefile.in
+--- orig/Makefile.in	2009-08-28 20:41:13.000000000 +0200
++++ mod/Makefile.in	2009-08-29 07:04:17.000000000 +0200
+@@ -330,8 +330,8 @@
+ 	configure.com \
+ 	nmake.opt
+ 
+-dist_doc_DATA = $(docfiles)
+-SUBDIRS = port libtiff tools build contrib test man html
++dist_doc_DATA = #$(docfiles)
++SUBDIRS = port libtiff tools build contrib test man #html
+ all: all-recursive
+ 
+ .SUFFIXES:
