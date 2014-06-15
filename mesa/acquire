@@ -2,4 +2,4 @@
 
 MesaLib-${UB_VERSION/~/-}.tar.bz2 Mesa-${UB_VERSION%~*}/
 	ftp://ftp.freedesktop.org/pub/mesa/${UB_VERSION%~*}/
-
+	ftp://ftp.freedesktop.org/pub/mesa/older-versions/8.x/${UB_VERSION}/

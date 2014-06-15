@@ -1,9 +1,9 @@
-diff -Naur xtrans-0.99.2.orig/xtrans.pc.in xtrans-0.99.2/xtrans.pc.in
---- xtrans-0.99.2.orig/xtrans.pc.in	2005-07-02 20:00:50.000000000 +0200
-+++ xtrans-0.99.2/xtrans.pc.in	2005-11-28 14:19:48.000000000 +0100
+diff -Naur orig/xtrans.pc.in patched/xtrans.pc.in
+--- orig/xtrans.pc.in	2014-03-25 14:50:33.000000000 +0100
++++ patched/xtrans.pc.in	2014-06-15 19:11:21.394165291 +0200
 @@ -6,4 +6,5 @@
  Name: XTrans
  Description: Abstract network code for X
  Version: @PACKAGE_VERSION@
 +Requires: xproto
- Cflags: -I${includedir} -D_BSD_SOURCE @fchown_define@ @sticky_bit_define@
+ Cflags: -I${includedir} -D_DEFAULT_SOURCE -D_BSD_SOURCE @fchown_define@ @sticky_bit_define@
