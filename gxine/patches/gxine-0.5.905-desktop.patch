@@ -9,6 +9,6 @@
 \ No newline at end of file
 +GenericName[hu]=Videólejátszó
 +Comment[hu]=Film- és zenelejátszó, digitális TV-néző
-+Categories=AudioVideo;Video;GTK;Player;TV;X-UHU-Menu/Multimedia/VideoPlayers;
++Categories=AudioVideo;Video;GTK;Player;
 +MimeType=x-content/video-dvd;x-content/audio-cdda;x-content/video-vcd;x-content/video-svcd;
 \ No newline at end of file

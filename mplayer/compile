@@ -1,5 +1,5 @@
 #!/bin/sh -eux
-CFLAGS="-O2 -march=i686 -mtune=generic -fomit-frame-pointer" \
+CFLAGS="-O2 -march=i686 -mtune=generic -fomit-frame-pointer -I/usr/include/directfb" \
 ./configure \
 	--extra-cflags="-DHAVE_ISNAN -DHAVE_ISINF" \
 	--prefix=/usr \
@@ -23,5 +23,7 @@ CFLAGS="-O2 -march=i686 -mtune=generic -fomit-frame-pointer" \
 	--enable-libopenjpeg \
 	--enable-libgsm \
 	--enable-radio \
-	--enable-radio-capture
+	--enable-radio-capture \
+	--enable-directfb
+
 ub_make

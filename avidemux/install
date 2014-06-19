@@ -2,5 +2,5 @@
 
 mkdir -p "${UB_INSTALLDIR}/usr/share/avidemux6"
 cp avidemux_icon.png "${UB_INSTALLDIR}/usr/share/avidemux6/"
-cp avidemux2.desktop "${UB_INSTALLDIR}/usr/share/applications/avidemux3.desktop"
+#cp avidemux2.desktop "${UB_INSTALLDIR}/usr/share/applications/avidemux3.desktop"
 ln -s avidemux3_qt4 "${UB_INSTALLDIR}/usr/bin/avidemux"
