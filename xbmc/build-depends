@@ -17,6 +17,7 @@ gperf
 jasper-dev
 java-jre
 liba52-dev
+libcdio-dev
 libdts-dev
 libdvdcss-dev
 liblzo-dev
@@ -26,6 +27,7 @@ libmms-dev
 libmpeg2-dev
 libnfs-dev
 libplist-dev
+libsamplerate-dev
 libssh-dev
 libtiff-dev
 libusb-compat-dev
@@ -34,12 +36,15 @@ libvdpau-dev
 libxinerama-dev
 libxmu-dev
 libxrandr-dev
+libxslt-dev
 libyajl-dev
 lirc-dev
 mesa-demos
+mesa-dev
 mysql-dev
 nasm
 pcre-dev
+pulseaudio-dev
 python-dev
 python-simplejson
 samba-dev
@@ -52,6 +57,7 @@ swig
 taglib-dev
 tinyxml
 udev-dev
+udisks-dev
 unrar
 unzip
 upower-dev
