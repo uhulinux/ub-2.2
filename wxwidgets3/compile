@@ -6,4 +6,6 @@ ub_compile \
 	--enable-stl \
 	--enable-gtk2 \
 	--enable-unicode \
-	--enable-compat28
+	--enable-compat28 \
+	--enable-ipv6 \
+	--enable-intl
