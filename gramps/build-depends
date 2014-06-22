@@ -1,0 +1,8 @@
+graphviz-dev
+gtk3-dev
+intltool
+librsvg2-dev
+pygobject3-dev
+python-bsddb3
+python3-dev
+xdg-utils

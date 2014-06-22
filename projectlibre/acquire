@@ -1,0 +1,4 @@
+#!/usr/bin/env dl
+
+projectlibre-${UB_VERSION}.tar.gz projectlibre-${UB_VERSION}/
+	http://downloads.sourceforge.net/projectlibre/

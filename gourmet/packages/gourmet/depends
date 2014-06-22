@@ -1,0 +1,8 @@
+beautifulsoup >=
+gst-python >=
+pygtk >=
+pypdf >=
+python-argparse >=
+python-pil >=
+python-sqlalchemy >=
+reportlab >=
