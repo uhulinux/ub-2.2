@@ -1,5 +1,0 @@
-#!/bin/sh -eux
-
-python setup.py build_ext -i
-cd Sane
-python setup.py build_ext -i

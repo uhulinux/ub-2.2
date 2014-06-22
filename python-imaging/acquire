@@ -1,5 +1,0 @@
-#!/usr/bin/env dl
-
-Imaging-"$UB_VERSION".tar.gz Imaging-"$UB_VERSION"/
-  http://effbot.org/downloads/
-
