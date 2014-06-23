@@ -1,0 +1,4 @@
+#!/bin/sh -eux
+
+sed -i 's/linux2/linux3/g' setup.py
+ub_compile

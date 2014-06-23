@@ -3,6 +3,7 @@ gtk3-dev
 intltool
 librsvg2-dev
 pygobject3-dev
+pyicu
 python-bsddb3
 python3-dev
 xdg-utils

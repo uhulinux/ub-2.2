@@ -2,7 +2,7 @@
 
 ub_install
 
-python3 sa2to3.py --no-diffs -w lib test examples
+# python3 sa2to3.py --no-diffs -w lib test examples
 
 python3 setup.py install --root="$UB_INSTALLDIR"
 
