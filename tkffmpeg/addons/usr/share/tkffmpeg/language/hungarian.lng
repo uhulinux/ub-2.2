@@ -1,0 +1,64 @@
+.ffmpeg = GUI for FFmpeg video converter
+.fiLes = Fájlok
+.fiLes.info.1.1.vcodec = Videó kódoló
+.fiLes.info.1.2.vbit = Videó bitsebesség
+.fiLes.info.1.3.size = Méret
+.fiLes.info.1.4.aspect = Képarány
+.fiLes.info.2.1.acodec = Hang kódoló
+.fiLes.info.2.2.abit = Bitsebeség
+.fiLes.info.2.3.frequency = Frekvencia
+.fiLes.fiLes1.name = Bemeneti fájl
+.fiLes.fiLes2.name = Kimeneti fájl
+.fiLes.vframe.dvdvideo = DVD videó készítés
+.fiLes.vframe.ltemp = Ideiglenes könyvtár
+.fiLes.packed.dvdvideo = Darabolt fájlok
+.fiLes.packed.ltemp = Mappa
+.option.optionV = Videó opciók
+.option.optionA = Hang opciók
+.option.optionV.v1.1.bitrate = Videó bitsebesség
+.option.optionV.v1.2.fps = FPS
+.option.optionV.v1.3.chdein = Deinterlace
+.option.optionV.v1.4.label = Videó kódoló
+.option.optionV.size = Méret
+.option.optionA.1.ac = Hang kódoló
+.option.optionA.2.fr = Frekvencia
+.option.optionA.3.bit = Bitsebesség
+.option.optionA.4.chst = Sztereó
+.addit.moreL = Járulékos parancssori opciók
+.but.chop = Konvertálás utáni megnyitás
+.but.go = RUN
+.but.cancel = EXIT
+.but.option = Opciók
+.but.burn = Lemez írás
+.option.optionV.size.2.x = Képarány
+lang_adv_opt = Haladó opciók
+lang_change = Nyelv váltás
+lang_programm = Médiajátszó váltás
+lang_userO = Felhasználói beállítások betöltéses
+lang_save_but = Mentés
+lang_ok = Művel vége
+lang_exec = Végrehajtás:
+lang_open_file = Fájl nyitás...
+lang_abort = Félbehagy
+lang_time = Futási idő
+lang_all_time = Teljes idő
+.option.optionV.v1.5.copy = Videóbeállítások másolása
+.option.optionA.5.copy = Hangbeállítások másolása
+tray_burn = Lemezírás!
+tray_convert = Konvertálás:
+error_user = ERROR! Lost run of the user!!! 
+error_log = ERROR! View log!!!
+error_programm = ERROR! Set real player name!!!
+error_file = ERROR! Select Input and Output File!!!
+error_input_file = ERROR! Select Input File!!!
+error_input_file_ex = ERROR! This Input File does not exists!!!
+error_output_file = ERROR! Select Output File!!!
+error_vbitrate = ERROR! Video bitrate. This value can not be = '0'
+error_x = ERROR! Size X. This value can not be = '0'
+error_y = ERROR! Size Y. This value can not be = '0'
+error_fps = ERROR! FPS. This value can not be = '0'
+error_vcodec = ERROR! Video codec. This value can not be = '0'
+error_acodec = ERROR! Audio codec. This value can not be = '0'
+error_freq = ERROR! Frequency. This value can not be = '0'
+error_abitrate = ERROR! Audio bitrate. This value can not be = '0'
+error_size = ERROR! File size does not match the size of the dvd-disk!!!
