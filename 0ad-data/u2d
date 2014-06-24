@@ -1,0 +1,2 @@
+urllist http://releases.wildfiregames.com/ | grep -E '^0ad-([0-9.]+)-alpha-unix-data.tar.xz$' | \
+sed s/0ad-// | sed s/-unix.*// | sed s/-/~/ | sort -V | tail -n 1 
