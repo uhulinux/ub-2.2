@@ -1,0 +1,12 @@
+diff -Naur orig/source/i18n/L10n.cpp patched/source/i18n/L10n.cpp
+--- orig/source/i18n/L10n.cpp	2014-05-08 01:33:21.000000000 +0200
++++ patched/source/i18n/L10n.cpp	2014-06-24 03:15:28.678470641 +0200
+@@ -422,7 +422,7 @@
+ {
+ 	UErrorCode success = U_ZERO_ERROR;
+ 	UnicodeString utf16Number;
+-	NumberFormat* numberFormatter = NumberFormat::createInstance(currentLocale, UNUM_DECIMAL, success);
++	NumberFormat* numberFormatter = NumberFormat::createInstance(currentLocale, success);
+ 	numberFormatter->format(number, utf16Number);
+ 	char utf8Number[512];
+ 	CheckedArrayByteSink sink(utf8Number, ARRAY_SIZE(utf8Number));

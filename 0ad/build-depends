@@ -5,6 +5,7 @@ curl-dev
 enet-dev
 gamin-dev
 gloox-dev
+icu-dev
 libjpeg-dev
 libogg-dev
 libpng-dev
@@ -14,9 +15,10 @@ libxcursor-dev
 libxml2-dev
 lua-dev
 mesa-dev
+nspr-dev
 openal-dev
 openexr-dev
-python-dev
+python2.7-dev
 sdl-dev
 wxwidgets3-dev
 zip
