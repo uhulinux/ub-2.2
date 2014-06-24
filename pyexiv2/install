@@ -1,0 +1,3 @@
+#!/bin/sh -eux
+
+scons DESTDIR="$UB_INSTALLDIR" install

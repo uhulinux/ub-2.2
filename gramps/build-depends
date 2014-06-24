@@ -2,8 +2,9 @@ graphviz-dev
 gtk3-dev
 intltool
 librsvg2-dev
+pyexiv2
 pygobject3-dev
 pyicu
 python-bsddb3
-python3-dev
+python-dev
 xdg-utils
