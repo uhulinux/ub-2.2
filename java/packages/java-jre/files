@@ -9,9 +9,6 @@
 	/usr/share/man/**/man1/java.1*
 	/usr/share/man/**/man1/javaws.1*
 	/usr/share/man/**/man1/keytool.1*
-	/usr/share/man/**/man1/kinit.1*
-	/usr/share/man/**/man1/klist.1*
-	/usr/share/man/**/man1/ktab.1*
 	/usr/share/man/**/man1/orbd.1*
 	/usr/share/man/**/man1/pack200.1*
 	/usr/share/man/**/man1/policytool.1*
