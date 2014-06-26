@@ -1,0 +1,28 @@
+diff -Naur orig/gio/gdesktopappinfo.c patched/gio/gdesktopappinfo.c
+--- orig/gio/gdesktopappinfo.c	2012-11-26 17:52:48.000000000 +0100
++++ patched/gio/gdesktopappinfo.c	2014-06-26 01:54:11.975816704 +0200
+@@ -1066,15 +1066,19 @@
+   else
+     {
+       if (check == NULL)
+-	check = g_find_program_in_path ("nxterm");
++	check = g_find_program_in_path ("mate-terminal"); // MATE
+       if (check == NULL)
+-	check = g_find_program_in_path ("color-xterm");
++	check = g_find_program_in_path ("xfce4-terminal"); // XFCE
+       if (check == NULL)
+-	check = g_find_program_in_path ("rxvt");
++	check = g_find_program_in_path ("lxterminal"); // LXDE
++      if (check == NULL)
++	check = g_find_program_in_path ("eterm");
+       if (check == NULL)
+-	check = g_find_program_in_path ("xterm");
++	check = g_find_program_in_path ("roxterm");
+       if (check == NULL)
+-	check = g_find_program_in_path ("dtterm");
++	check = g_find_program_in_path ("sakura");
++      if (check == NULL)
++	check = g_find_program_in_path ("rxvt");
+       if (check == NULL)
+ 	{
+ 	  check = g_strdup ("xterm");
