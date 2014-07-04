@@ -1,28 +1,52 @@
 diff -Naur orig/gio/gdesktopappinfo.c patched/gio/gdesktopappinfo.c
 --- orig/gio/gdesktopappinfo.c	2012-11-26 17:52:48.000000000 +0100
-+++ patched/gio/gdesktopappinfo.c	2014-06-26 01:54:11.975816704 +0200
-@@ -1066,15 +1066,19 @@
-   else
-     {
-       if (check == NULL)
--	check = g_find_program_in_path ("nxterm");
-+	check = g_find_program_in_path ("mate-terminal"); // MATE
-       if (check == NULL)
--	check = g_find_program_in_path ("color-xterm");
-+	check = g_find_program_in_path ("xfce4-terminal"); // XFCE
-       if (check == NULL)
--	check = g_find_program_in_path ("rxvt");
-+	check = g_find_program_in_path ("lxterminal"); // LXDE
-+      if (check == NULL)
++++ patched/gio/gdesktopappinfo.c	2014-07-02 23:26:05.125567569 +0200
+@@ -1056,15 +1056,18 @@
+   term_argv = g_new0 (char *, 3);
+ 
+   check = g_find_program_in_path ("gnome-terminal");
+-  if (check != NULL)
+-    {
+-      term_argv[0] = check;
+-      /* Note that gnome-terminal takes -x and
+-       * as -e in gnome-terminal is broken we use that. */
+-      term_argv[1] = g_strdup ("-x");
+-    }
+-  else
+-    {
++	  if (check == NULL)
++	check = g_find_program_in_path ("mate-terminal");
++	  if (check == NULL)
++	check = g_find_program_in_path ("xfce4-terminal");
++	  if (check == NULL)
++	check = g_find_program_in_path ("lxterminal");
++	  if (check == NULL)
 +	check = g_find_program_in_path ("eterm");
++	  if (check == NULL)
++	check = g_find_program_in_path ("roxterm");
++	  if (check == NULL)
++	check = g_find_program_in_path ("sakura");
+       if (check == NULL)
+ 	check = g_find_program_in_path ("nxterm");
+       if (check == NULL)
+@@ -1072,17 +1075,15 @@
+       if (check == NULL)
+ 	check = g_find_program_in_path ("rxvt");
        if (check == NULL)
 -	check = g_find_program_in_path ("xterm");
-+	check = g_find_program_in_path ("roxterm");
-       if (check == NULL)
--	check = g_find_program_in_path ("dtterm");
-+	check = g_find_program_in_path ("sakura");
-+      if (check == NULL)
-+	check = g_find_program_in_path ("rxvt");
+-      if (check == NULL)
+ 	check = g_find_program_in_path ("dtterm");
        if (check == NULL)
  	{
  	  check = g_strdup ("xterm");
+ 	  g_warning ("couldn't find a terminal, falling back to xterm");
+ 	}
+-      term_argv[0] = check;
+-      term_argv[1] = g_strdup ("-e");
+-    }
++
++  term_argv[0] = check;
++  term_argv[1] = g_strdup ("-e");
+ 
+   real_argc = term_argc + *argc;
+   real_argv = g_new (char *, real_argc + 1);
