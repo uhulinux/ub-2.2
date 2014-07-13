@@ -4,7 +4,6 @@ gettext
 glib2-dev
 gtk-doc
 gtk2-dev
-gtk3-dev
 intltool
 libxslt-dev
 menu-cache-dev
