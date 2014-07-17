@@ -1,0 +1,19 @@
+diff -Naur orig/qtfm.desktop mod/qtfm.desktop
+--- orig/qtfm.desktop	2012-03-20 03:18:05.000000000 +0100
++++ mod/qtfm.desktop	2014-07-14 17:16:11.000000000 +0200
+@@ -26,9 +26,13 @@
+ Comment[sr@ijekavianlatin]=Lagani menadžer fajlova baziran na čistom Qt-u
+ Comment[zh_TW]=基於純Qt的輕量級檔案管理員
+ 
++Name[hu]=qtFM fájlkezelő
++GenericName[hu]=Qt fájlkezelő
++Comment[hu]=könnyed QT alapú fájlkezelő
++
+ Type=Application
+ Icon=qtfm
+ Exec=qtfm
+ Terminal=false
+-MimeType=application/x-directory;inode/directory
+-Categories=Qt;Utility;FileManager
++MimeType=application/x-directory;inode/directory;
++Categories=Qt;System;FileTools;FileManager;

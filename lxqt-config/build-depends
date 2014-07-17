@@ -1,0 +1,6 @@
+cmake
+libXcursor-dev
+libXfixes-dev
+liblxqt-dev
+libqtxdg-dev
+qt4-dev

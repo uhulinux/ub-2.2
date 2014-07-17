@@ -1,0 +1,5 @@
+cmake
+dbus-dev
+libfm-dev
+menu-cache-dev
+qt4-dev

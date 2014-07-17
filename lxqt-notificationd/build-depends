@@ -1,0 +1,4 @@
+cmake
+liblxqt-dev
+libqtxdg-dev
+qt4-dev

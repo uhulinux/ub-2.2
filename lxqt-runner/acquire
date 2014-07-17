@@ -1,0 +1,4 @@
+#!/usr/bin/env dl
+
+lxqt-runner-${UB_VERSION}.tar.xz .
+	http://lxqt.org/downloads/${UB_VERSION}/

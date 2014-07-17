@@ -1,0 +1,5 @@
+cmake
+glib2-dev
+libX11-dev
+libxrandr-dev
+qt4-dev

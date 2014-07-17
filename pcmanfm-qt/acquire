@@ -1,0 +1,4 @@
+#!/usr/bin/env dl
+
+pcmanfm-qt-${UB_VERSION}.tar.xz .
+	http://lxqt.org/downloads/${UB_VERSION}/
