@@ -1,3 +1,0 @@
-#!/usr/bin/env dl
-
-gdm-theme-ubk-mate-${UB_VERSION}.tar.gz ubk-mate :/usr/share/gdm/themes/ubk-mate

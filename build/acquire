@@ -1,0 +1,4 @@
+#!/usr/bin/env dl
+
+build-${UB_VERSION}.tar.gz build-${UB_VERSION}/
+    http://download.ubk.hu/src/ubk/build/
