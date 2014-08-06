@@ -1,0 +1,4 @@
+cmake
+libX11-dev
+libexif-dev
+pcmanfm-qt-dev
