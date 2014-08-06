@@ -1,4 +1,5 @@
 atk-dev
 glib2-dev
+gtk-doc
 gtk2-dev
 pango-dev
