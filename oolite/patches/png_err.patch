@@ -1,0 +1,11 @@
+diff -Naur orig/src/Core/Materials/OOPNGTextureLoader.m mod/src/Core/Materials/OOPNGTextureLoader.m
+--- orig/src/Core/Materials/OOPNGTextureLoader.m	2014-06-29 22:22:32.000000000 +0200
++++ mod/src/Core/Materials/OOPNGTextureLoader.m	2014-08-27 18:53:32.077627013 +0200
+@@ -31,7 +31,6 @@
+ #import "OOCPUInfo.h"
+ #import "NSDataOOExtensions.h"
+ 
+-void png_error(png_structp, png_const_charp) NO_RETURN_FUNC;
+ 
+ 
+ static void PNGError(png_structp png, png_const_charp message);

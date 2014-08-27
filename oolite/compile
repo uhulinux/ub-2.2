@@ -1,11 +1,3 @@
 #!/bin/sh -eux
 
-FF_JS_URI="http://jens.ayton.se/oolite/deps/firefox-4.0.source.js-only.tbz"
-echo "${FF_JS_URI}" > deps/Cross-platform-deps/mozilla/current.url
-sed -i -e 's/^\.PHONY: all$/.PHONY: .NOTPARALLEL all/' libjs.make
-	sed -i -e 's:.*STRIP.*:	true:' GNUmakefile.postamble
-	sed -i -e '/ADDITIONAL_OBJCFLAGS *=/aADDITIONAL_OBJCFLAGS += -fobjc-exceptions' \
-		GNUmakefile
-	sed "/void png_error/d" -i src/Core/Materials/OOPNGTextureLoader.m
-
 make GNUSTEP_MAKEFILES="/usr/share/GNUstep/Makefiles" -f Makefile release

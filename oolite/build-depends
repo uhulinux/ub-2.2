@@ -1,10 +1,15 @@
 curl-dev
 espeak-dev
 gnustep-base
+gnutls-dev
 icu-dev
-libpng.dev
+libpng-dev
+libvorbis-dev
+libxslt-dev
 mesa-dev
 nspr-dev
+objc
+openal-dev
 python-dev
 sdl-mixer-dev
 zip
