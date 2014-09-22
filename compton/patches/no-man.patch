@@ -1,0 +1,24 @@
+diff -Naur orig/Makefile mod/Makefile
+--- orig/Makefile	2013-10-21 16:17:01.000000000 +0200
++++ mod/Makefile	2014-09-22 22:22:08.185517272 +0200
+@@ -118,17 +118,16 @@
+ 	$(CC) $(CFG) $(CPPFLAGS) $(LDFLAGS) $(CFLAGS) -o $@ $(OBJS) $(LIBS)
+ 
+ man/%.1: man/%.1.asciidoc
+-	a2x --format manpage $<
++	
+ 
+ man/%.1.html: man/%.1.asciidoc
+ 	asciidoc $<
+ 
+-docs: $(MANPAGES) $(MANPAGES_HTML)
++docs:
+ 
+ install: $(BINS) docs
+-	@install -d "$(DESTDIR)$(BINDIR)" "$(DESTDIR)$(MANDIR)" "$(DESTDIR)$(APPDIR)"
++	@install -d "$(DESTDIR)$(BINDIR)" "$(DESTDIR)$(APPDIR)"
+ 	@install -m755 $(BINS) "$(DESTDIR)$(BINDIR)"/ 
+-	@install -m644 $(MANPAGES) "$(DESTDIR)$(MANDIR)"/
+ 	@install -m644 compton.desktop "$(DESTDIR)$(APPDIR)"/
+ ifneq "$(DOCDIR)" ""
+ 	@install -d "$(DESTDIR)$(DOCDIR)"
