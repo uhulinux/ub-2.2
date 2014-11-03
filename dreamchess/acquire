@@ -1,0 +1,4 @@
+#!/usr/bin/env dl
+
+dreamchess-${UB_VERSION}.tar.gz dreamchess-${UB_VERSION}/
+	http://sourceforge.net/projects/dreamchess/files/dreamchess/${UB_VERSION}/
