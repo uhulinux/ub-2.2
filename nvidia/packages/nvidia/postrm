@@ -1,3 +1,4 @@
 #!/bin/sh
 
-ln -sf /usr/lib/xorg/modules/extensions/libglx.xorg /usr/lib/xorg/modules/extensions/libglx.so
+ln -sf /usr/lib/xorg/modules/extensions/libglx.so.xorg /usr/lib/xorg/modules/extensions/libglx.so
+ldconfig
