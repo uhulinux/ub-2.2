@@ -1,0 +1,18 @@
+diff -Naur orig/unetbootin.desktop mod/unetbootin.desktop
+--- orig/unetbootin.desktop	2014-04-05 08:33:20.000000000 +0200
++++ mod/unetbootin.desktop	2014-11-11 22:32:03.000000000 +0100
+@@ -1,12 +1,8 @@
+ [Desktop Entry]
+-Version=1.0
+ Name=UNetbootin
+ Comment=Tool for creating Live USB drives
+ Categories=Application;System;
+-Exec=/usr/bin/unetbootin
+-Terminal=false
++Exec=/usr/bin/unetbootin_polkit
++Terminal=true
+ Type=Application
+-Name[en_US]=UNetbootin
+-GenericName[en_US]=UNetbootin
+-Comment[en_US]=Tool for creating Live USB drives
+ Icon=unetbootin

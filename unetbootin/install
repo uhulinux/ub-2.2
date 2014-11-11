@@ -1,0 +1,12 @@
+#!/bin/sh -eux
+
+install -d "$UB_INSTALLDIR/usr/share/unetbootin"
+install -Dm755 "unetbootin" "$UB_INSTALLDIR/usr/bin/unetbootin"
+install -m644 "unetbootin"_*.qm "$UB_INSTALLDIR/usr/share/unetbootin/"
+install -Dm644 "unetbootin.desktop" \
+	"$UB_INSTALLDIR/usr/share/applications/unetbootin.desktop"
+for i in 16 22 24 32 48 256; do
+	install -Dm644 "unetbootin_${i}.png" \
+	"$UB_INSTALLDIR/usr/share/icons/hicolor/${i}x${i}/apps/unetbootin.png"
+done
+ 

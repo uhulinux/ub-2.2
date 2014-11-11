@@ -1,0 +1,6 @@
+#!/bin/sh -eux
+
+/usr/lib/qt4/bin/lupdate unetbootin.pro
+/usr/lib/qt4/bin/lrelease unetbootin.pro
+qmake-qt4 "DEFINES += NOSTATIC" "RESOURCES -= unetbootin.qrc"
+ub_compile
