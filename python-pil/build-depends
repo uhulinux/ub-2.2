@@ -3,6 +3,7 @@ libjpeg-dev
 libpng-dev
 libx11-dev
 python-dev
+python-tkinter
 sane-backends-dev
 tcl-dev
 tk-dev
