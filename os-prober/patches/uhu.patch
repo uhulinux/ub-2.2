@@ -1,0 +1,13 @@
+diff -Naur orig/os-probes/mounted/common/90linux-distro patched/os-probes/mounted/common/90linux-distro
+--- orig/os-probes/mounted/common/90linux-distro	2013-05-19 10:57:50.000000000 +0200
++++ patched/os-probes/mounted/common/90linux-distro	2014-10-03 03:05:43.835765744 +0200
+@@ -125,6 +125,9 @@
+ 	elif [ -e "$dir/etc/meego-release" ]; then
+ 		short="MeeGo"
+ 		long="$(head -1 "$dir/etc/meego-release")"
++	elif [ -e "$dir/etc/uhu-release" ]; then
++		short="UHU"
++		long="$(printf "UHU-Linux (%s)\n" "$(cat "$dir/etc/uhu-release")")"
+ 	else
+ 		short="Linux"
+ 		long="unknown Linux distribution"

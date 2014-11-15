@@ -1,5 +1,0 @@
-#!/usr/bin/env dl
-
-google-chrome-stable_current_i386.deb .
-	https://dl.google.com/linux/direct/
-

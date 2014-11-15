@@ -1,6 +1,6 @@
-diff -Naur orig/usr/sbin/update-ca-certificates mod/usr/sbin/update-ca-certificates
---- orig/usr/sbin/update-ca-certificates	2013-01-20 15:37:16.000000000 +0100
-+++ mod/usr/sbin/update-ca-certificates	2013-01-30 22:09:18.306661313 +0100
+diff -Naur orig/usr/sbin/update-ca-certificates patched/usr/sbin/update-ca-certificates
+--- orig/usr/sbin/update-ca-certificates	2014-10-20 08:46:00.000000000 +0200
++++ patched/usr/sbin/update-ca-certificates	2014-10-29 23:34:30.665691372 +0100
 @@ -23,6 +23,8 @@
  
  verbose=0
@@ -11,18 +11,18 @@ diff -Naur orig/usr/sbin/update-ca-certificates mod/usr/sbin/update-ca-certifica
  do
    case $1 in
 @@ -30,18 +32,23 @@
-   	verbose=1;;
-   --fresh|-f)
- 	fresh=1;;
-+  --root|-r)
-+	ROOT=$(readlink -f "$2")
-+	# needed as c_rehash wants to read the files directly
-+	RELPATH="../../.."
-+	shift;;
-   --help|-h|*)
--	echo "$0: [--verbose] [--fresh]"
-+	echo "$0: [--verbose] [--fresh] [--root <dir>]"
- 	exit;;
+       verbose=1;;
+     --fresh|-f)
+       fresh=1;;
++    --root|-r)
++      ROOT=$(readlink -f "$2")
++      # needed as c_rehash wants to read the files directly
++      RELPATH="../../.."
++      shift;;
+     --help|-h|*)
+-      echo "$0: [--verbose] [--fresh]"
++      echo "$0: [--verbose] [--fresh] [--root <dir>]"
+       exit;;
    esac
    shift
  done
@@ -47,8 +47,8 @@ diff -Naur orig/usr/sbin/update-ca-certificates mod/usr/sbin/update-ca-certifica
 +    ln -sf "${RELPATH}${CERT#$ROOT}" "$PEM"
      echo +$PEM >> "$ADDED"
    fi
-   cat "$CERT" >> "$TEMPBUNDLE"
-@@ -82,18 +89,18 @@
+   # Add trailing newline to certificate, if it is missing (#635570)
+@@ -83,18 +90,18 @@
    fi
  }
  
@@ -58,20 +58,20 @@ diff -Naur orig/usr/sbin/update-ca-certificates mod/usr/sbin/update-ca-certifica
    echo -n "Clearing symlinks in $ETCCERTSDIR..."
    find . -type l -print | while read symlink
    do
--     case $(readlink $symlink) in
--     $CERTSDIR*) rm -f $symlink;;
-+     case $(readlink "$symlink") in
-+     "$CERTSDIR"*) rm -f "$symlink";;
-      esac
+-    case $(readlink $symlink) in
+-      $CERTSDIR*) rm -f $symlink;;
++    case $(readlink "$symlink") in
++      "$CERTSDIR"*) rm -f "$symlink";;
+     esac
    done
    find . -type l -print | while read symlink
    do
--     test -f $symlink || rm -f $symlink
-+     test -f "$symlink" || rm -f "$symlink"
+-    test -f $symlink || rm -f $symlink
++    test -f "$symlink" || rm -f "$symlink"
    done
    echo "done."
  fi
-@@ -102,13 +109,13 @@
+@@ -103,13 +110,13 @@
  
  # Handle certificates that should be removed.  This is an explicit act
  # by prefixing lines in the configuration files with exclamation marks (!).
@@ -88,7 +88,7 @@ diff -Naur orig/usr/sbin/update-ca-certificates mod/usr/sbin/update-ca-certifica
    if ! test -f "$CERTSDIR/$crt"
    then
      echo "W: $CERTSDIR/$crt not found, but listed in $CERTSCONF." >&2
-@@ -148,14 +155,14 @@
+@@ -151,14 +158,14 @@
  
  echo "$ADDED_CNT added, $REMOVED_CNT removed; done."
  
