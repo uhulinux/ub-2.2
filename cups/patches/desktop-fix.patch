@@ -1,0 +1,11 @@
+diff -Naur orig/desktop/cups.desktop.in mod/desktop/cups.desktop.in
+--- orig/desktop/cups.desktop.in	2009-10-02 19:15:07.000000000 +0200
++++ mod/desktop/cups.desktop.in	2014-12-10 14:19:51.812722503 +0100
+@@ -1,6 +1,6 @@
+ [Desktop Entry]
+ Categories=System;Printing;HardwareSettings;X-Red-Hat-Base;
+-Exec=@CUPS_HTMLVIEW@ http://localhost:631/
++Exec=xdg-open http://localhost:631/
+ Icon=cups
+ StartupNotify=false
+ Terminal=false
