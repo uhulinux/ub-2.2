@@ -45,3 +45,6 @@ cat nss-config.in | sed -e "s,@libdir@,/usr/lib,g" \
 						-e "s,@MOD_PATCH_VERSION@,$NSS_VPATCH,g" \
 						> "$UB_INSTALLDIR"/usr/bin/nss-config
 chmod 755 "$UB_INSTALLDIR"/usr/bin/nss-config
+
+mkdir -p "$UB_INSTALLDIR"/usr/lib/ssl/certs/
+mk-ca-bundle.pl -f -d file:///"$(readlink -f lib/ckfw/builtins/certdata.txt)" "$UB_INSTALLDIR"/usr/lib/ssl/certs/ca-cert.pem

@@ -4,7 +4,7 @@ cd "$UB_OBJECTDIR"
 
 ub_install
 
-cp "$UB_INSTALLDIR"/usr/lib/firefox/browser/icons/mozicon128.png "$UB_INSTALLDIR"/usr/share/pixmaps/firefox.png
+cp "$UB_COMPILEDIR"/browser/branding/official/default48.png "$UB_INSTALLDIR"/usr/share/pixmaps/firefox.png
 
 rm -f "$UB_INSTALLDIR"/usr/lib/firefox/firefox
 rm -f "$UB_INSTALLDIR"/usr/bin/firefox
