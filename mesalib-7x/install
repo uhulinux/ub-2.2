@@ -1,0 +1,6 @@
+#!/bin/sh -eux
+
+string='unichrome i810 mach64 mga r128 savage sis tdfx'
+for driver in $string ;do
+make -C src/mesa/drivers/dri/"$driver" DESTDIR="${UB_INSTALLDIR}" install
+done

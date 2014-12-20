@@ -1,0 +1,12 @@
+expat-dev
+imake
+libdrm-dev
+libx11-dev
+libxdamage-dev
+libxml2-dev
+libxt-dev
+libxxf86vm-dev
+llvm
+python
+udev-dev
+x.org-proto-dev
