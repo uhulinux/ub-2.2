@@ -119,7 +119,7 @@ diff -Naur orig/src/steps/control patched/src/steps/control
 +			echo
 +		fi
 +		
- 		echo "Distribution: ${UB_DISTRIBUTION/ dev/ 2.3}"
+ 		echo "Distribution: ${UB_DISTRIBUTION/ dev/ 3}"
  		if [ -f "$UB_SRCDIR/vendor" ]; then
  			echo "Vendor: $(cat "$UB_SRCDIR/vendor")"
 diff -Naur orig/src/uhubuild-check patched/src/uhubuild-check

@@ -114,22 +114,6 @@ diff -Naur orig/src/uhubuild-chrootbuild patched/src/uhubuild-chrootbuild
  	IFS=":" cat >>"$UHUBUILD_APT_PREFERENCES" <<EOF
  Package: *
  Pin: release v=${versions[*]},l=${distribution% *}
-@@ -200,13 +200,13 @@
- 
- greenecho -n 'Fájlrendszerek csatolása: '
- 
--for i in 1 2 3; do
-+# for i in 1 2 3; do
- 	umount -lf "$UHUBUILD_CHROOTDIR/dev" 2>/dev/null || true
- 	umount -lf "$UHUBUILD_CHROOTDIR/proc" 2>/dev/null || true
- 	umount -lf "$UHUBUILD_CHROOTDIR/mnt/ccache" 2>/dev/null || true
- 	umount -lf "$UHUBUILD_CHROOTDIR/mnt/snapshot" 2>/dev/null || true
- 	umount -lf "$UHUBUILD_CHROOTDIR/$UHUBUILD_SRCDIR" 2>/dev/null || true
--done
-+# done
- 
- echo -n 'dev '
- mkdir -p "$UHUBUILD_CHROOTDIR/dev"
 diff -Naur orig/src/uhubuild-commonenvironment patched/src/uhubuild-commonenvironment
 --- orig/src/uhubuild-commonenvironment	2006-04-14 15:31:43.000000000 +0200
 +++ patched/src/uhubuild-commonenvironment	2014-06-15 21:46:45.995483884 +0200
