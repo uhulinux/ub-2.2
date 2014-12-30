@@ -1,0 +1,25 @@
+diff -Naur orig/lib/menu.in mod/lib/menu.in
+--- orig/lib/menu.in	2009-01-25 15:39:50.000000000 +0100
++++ mod/lib/menu.in	2014-12-30 16:39:13.000000000 +0100
+@@ -4,16 +4,9 @@
+ # since modifications to this file will be discarded when you
+ # (re)install icewm.
+ #
+-prog xterm xterm xterm
+-prog rxvt xterm rxvt -bg black -cr green -fg white -C -fn 9x15 -sl 500
+-prog fte fte fte
+-prog NEdit nedit nedit
+-prog Mozilla mozilla mozilla
+-prog XChat xchat xchat
+-prog Gimp gimp gimp
++prog xterm /usr/share/icons/gnome/16x16/apps/terminal.png xterm
++prog "Web böngésző" /usr/share/icons/gnome/16x16/apps/web-browser.png xdg-open about:blank
+ separator
+-menuprog Gnome folder icewm-menu-gnome1 --list @CONFIG_GNOME1_MENU_DIR@
+-menuprog Gnome folder icewm-menu-gnome2 --list @CONFIG_GNOME2_MENU_DIR@
+-menuprog KDE folder icewm-menu-gnome@GNOME_VER@ --list @CONFIG_KDE_MENU_DIR@
+-menufile Programs folder programs
+-menufile Tool_bar folder toolbar
++prog "Menü újraépítése" /usr/share/icons/gnome/16x16/actions/edit-find-replace.png /usr/share/icewm/startup
++separator
++menufile Alkalmazások folder programs.autogen

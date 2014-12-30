@@ -1,0 +1,11 @@
+diff -Naur orig/UltraRealVista/default.theme mod/UltraRealVista/default.theme
+--- orig/UltraRealVista/default.theme	2007-12-10 04:52:18.000000000 +0100
++++ mod/UltraRealVista/default.theme	2014-12-21 19:58:26.000000000 +0100
+@@ -111,6 +111,7 @@
+ 
+ TaskBarClockLeds=0
+ DesktopBackgroundCenter = 1
++DesktopBackgroundScaled=1
+ DesktopBackgroundImage = 'img22.jpg'
+ TaskBarShowNetStatus=0
+ TaskBarShowCPUStatus=0

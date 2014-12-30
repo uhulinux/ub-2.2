@@ -1,0 +1,13 @@
+diff -Naur orig/Nitrogen/default.theme mod/Nitrogen/default.theme
+--- orig/Nitrogen/default.theme	2014-04-30 13:00:56.000000000 +0200
++++ mod/Nitrogen/default.theme	2014-12-21 23:09:40.197535868 +0100
+@@ -31,6 +31,9 @@
+ ################################################## Desktop
+ 
+ DesktopBackgroundColor         = "#000000"
++DesktopBackgroundCenter=1
++DesktopBackgroundScaled=1
++DesktopBackgroundImage = 'ThrowingStones.jpg'
+ 
+ ################################################## Taskbar
+ 
