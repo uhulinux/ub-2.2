@@ -2,7 +2,6 @@
 
 autoreconf -vif
 ub_compile \
-	--with-dri-driverdir=/usr/lib/xorg/modules/dri \
 	-with-dri-drivers=unichrome,i810,mach64,mga,r128,savage,sis,tdfx \
 	--with-gallium-drivers= \
 	--disable-gallium-llvm \
