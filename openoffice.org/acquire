@@ -1,0 +1,62 @@
+#!/usr/bin/env dl
+
+apache-openoffice-${UB_VERSION}-r1617669-src.tar.bz2 aoo-${UB_VERSION}/
+	https://archive.apache.org/dist/openoffice/${UB_VERSION}/source/
+	http://sourceforge.net/projects/openofficeorg.mirror/files/${UB_VERSION}/source/
+	ftp://xenia.sote.hu/pub/mirrors/www.apache.org/openoffice/${UB_VERSION}/source/
+	http://xenia.sote.hu/ftp/mirrors/www.apache.org/openoffice/${UB_VERSION}/source/
+
+#deps	
+1d8728eb0dfcac72a0fd99c17ec7f386-Python-2.7.6.tgz
+	http://www.python.org/ftp/python/2.7.6/Python-2.7.6.tgz
+
+fdb27bfe2dbe2e7b57ae194d9bf36bab-SampleICC-1.3.2.tar.gz
+	http://ooo-extras.apache-extras.org.codespot.com/files/
+
+97262fe54dddaf583eaaee3497a426e1-apr-1.4.5.tar.gz
+	http://archive.apache.org/dist/apr/apr-1.4.5.tar.gz
+
+666a5d56098a9debf998510e304c8095-apr-util-1.4.1.tar.gz
+	http://archive.apache.org/dist/apr/apr-util-1.4.1.tar.gz
+
+48a9f787f43a09c0a9b7b00cd1fddbbf-hyphen-2.7.1.tar.gz
+	http://sourceforge.net/projects/hunspell/files/Hyphen/2.7/hyphen-2.7.1.tar.gz
+
+2f6ecca935948f7db92d925d88d0d078-icu4c-4_0_1-src.tgz
+	http://ooo-extras.apache-extras.org.codespot.com/files/
+
+52654eb3b2e60c35731ea8fc87f1bd29-jpeg-8d.tar.gz
+	http://ooo-extras.apache-extras.org.codespot.com/files/
+
+128cfc86ed5953e57fe0f5ae98b62c2e-libtextcat-2.2.tar.gz
+	http://ooo-extras.apache-extras.org.codespot.com/files/
+		
+0dd138efff4412c707e239290fb82d4f-mdds_0.3.1.tar.bz2
+	http://ooo-extras.apache-extras.org.codespot.com/files/
+
+067201ea8b126597670b5eff72e1f66c-mythes-1.2.0.tar.gz
+	http://ooo-extras.apache-extras.org.codespot.com/files/
+	
+f65fbbd72926c8e7cf0dbd4ada03b0d226f461fd-serf-1.2.1.tar.bz2
+	http://ooo-extras.apache-extras.org.codespot.com/files/
+	http://serf.googlecode.com/files/serf-1.2.1.tar.bz2
+
+0168229624cfac409e766913506961a8-ucpp-1.3.2.tar.gz
+	http://ooo-extras.apache-extras.org.codespot.com/files/
+
+d62650a6f908e85643e557a236ea989c-vigra1.6.0.tar.gz
+	http://ooo-extras.apache-extras.org.codespot.com/files/
+
+1f24ab1d39f4a51faf22244c94a6203f-xmlsec1-1.2.14.tar.gz
+	http://www.aleksey.com/xmlsec/download/xmlsec1-1.2.14.tar.gz
+	ftp://ftp.aleksey.com/pub/xmlsec/releases/xmlsec1-1.2.14.tar.gz
+
+#java vackok
+
+17410483b5b5f267aa18b7e00b65e6e0-hsqldb_1_8_0.zip
+	http://sourceforge.net/projects/hsqldb/files/hsqldb/hsqldb_1_8_0/hsqldb_1_8_0_10.zip
+
+17960f35b2239654ba608cf1f3e256b3-lucene-2.9.4-src.tar.gz
+	http://archive.apache.org/dist/lucene/java/2.9.4/lucene-2.9.4-src.tar.gz
+
+

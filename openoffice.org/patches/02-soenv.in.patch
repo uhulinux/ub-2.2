@@ -1,0 +1,21 @@
+diff -Naur orig/main/set_soenv.in patched/main/set_soenv.in
+--- orig/main/set_soenv.in	2014-02-25 09:24:52.000000000 +0100
++++ patched/main/set_soenv.in	2014-05-02 22:15:43.591858604 +0200
+@@ -2005,9 +2005,7 @@
+ #
+ # Writing the aliases to file.
+ ToFile( "Aliases.",          $empty,             "c" );
+-ToFile( "Don't set aliases when bootstrapping", $empty, "c" );
+ ToFile( 'if ( ! ${?_ISBOOTSTRAP_} ) then', $empty, "y");
+-ToFile( "if test -z \"\$_ISBOOTSTRAP_\"; then", $empty, "z");
+ 
+ ToFile( "alias mkout",       $mkout,             "a" );
+ ToFile( "alias deliver",     $deliver,           "a" );
+@@ -2022,7 +2020,6 @@
+ }
+ 
+ ToFile( "endif",             $empty, "y");
+-ToFile( "fi",                $empty, "z");
+ 
+ # Check if the right dmake version is used. (W32 only)
+ if ( $platform =~ m/cygwin/ ) {
