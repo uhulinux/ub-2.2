@@ -1,0 +1,12 @@
+diff -Naur orig/src/gui.c mod/src/gui.c
+--- orig/src/gui.c	2014-11-25 02:17:54.000000000 +0100
++++ mod/src/gui.c	2015-01-10 19:02:26.000000000 +0100
+@@ -314,7 +314,7 @@
+ #ifdef GUI_GTK
+ #if !GTK_CHECK_VERSION(3,0,0)
+     if (!mainw->foreign) {
+-      lives_widget_ensure_style(mainw->LiVES);
++      gtk_widget_ensure_style(mainw->LiVES);
+     }
+ #endif
+ #endif

@@ -1,5 +1,6 @@
-ffmpeg >=
-imagemagick >=
-mplayer >=
-sox >=
-transcode >=
+ffmpeg
+imagemagick
+mplayer
+python
+sox
+transcode
