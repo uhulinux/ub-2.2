@@ -1,0 +1,18 @@
+#!/bin/sh -eux
+
+cd "$UB_OBJECTDIR"
+
+# The kernel version shipped with UHU-Linux 2.0 is 2.6.17.
+# Do not increase this version number for UHU-Linux 2.1, since we do want
+# the kernel of UHU-Linux 2.0 to be able to run binaries of UHU-Linux 2.1
+# (for example in chrooted builds).
+
+UB_CONFIGURE_DIR="$UB_COMPILEDIR" ub_configure \
+	--with-tls \
+	--enable-add-ons \
+	--enable-kernel=2.6.23
+
+# glibc doesn't like -Os!
+ub_make \
+	CFLAGS="-O2 -march=c3 -mtune=pentium4" \
+	user-defined-trusted-dirs=/usr/local/lib

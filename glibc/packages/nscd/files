@@ -1,0 +1,6 @@
+	/etc/init.d/nscd
+	/etc/nscd.conf
+	/etc/runlevel.d/custom/nscd.service
+	/etc/runlevel.d/default/nscd.service
+	/usr/sbin/nscd
+	/usr/sbin/nscd_nischeck

@@ -3,6 +3,9 @@
 mkdir -p "$UB_INSTALLDIR/usr/lib/chromium/"
 cp -a out/Release/lib/*.so "$UB_INSTALLDIR/usr/lib/chromium/"
 rm -rf out/Release/{gen,lib,obj}
+rm -f out/Release/.ninja_{deps,log}
+rm -f out/Release/build.ninja
+rm -f out/Release/*.so.TOC
 cp -a out/Release/. "$UB_INSTALLDIR/usr/lib/chromium/"
 
 for size in 16 22 24 32 48 64 128 256; do

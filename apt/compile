@@ -1,7 +1,7 @@
 #!/bin/sh -eux
 
 AM_VER=`automake --version | head -n 1 | cut -d' ' -f4 | cut -d. -f-2`
- 
+
 ln -sf /usr/share/automake-"$AM_VER"/config.guess "$UB_COMPILEDIR"/buildlib/config.guess
 ln -sf /usr/share/automake-"$AM_VER"/config.sub "$UB_COMPILEDIR"/buildlib/config.sub
 ln -sf /usr/share/automake-"$AM_VER"/config.sub "$UB_COMPILEDIR"/buildlib/config.rpath

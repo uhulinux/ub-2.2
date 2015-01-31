@@ -1,0 +1,9 @@
+/etc/gai.conf
+/etc/host.conf
+/etc/hosts
+/etc/ld.so.conf
+/etc/localtime
+/etc/nsswitch.conf
+/etc/protocols
+/etc/resolv.conf
+/etc/services

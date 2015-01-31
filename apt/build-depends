@@ -1,6 +1,9 @@
 curl-dev
 db4-dev
+docbook-dtds
+docbook-xsl
 doxygen
 dpkg-dev
-glibc-dev
+graphviz
+libxslt-dev
 python

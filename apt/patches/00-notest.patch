@@ -1,14 +1,37 @@
+diff -Naur orig/configure patched/configure
+--- orig/configure	2014-12-23 14:13:02.000000000 +0100
++++ patched/configure	2015-01-13 23:06:45.300224563 +0100
+@@ -4809,7 +4809,8 @@
+ if test "x$ac_cv_header_gtest_gtest_h" = xyes; then :
+ 
+ else
+-  as_fn_error $? "failed: I need gtest to build tests" "$LINENO" 5
++  { $as_echo "$as_me:${as_lineno-$LINENO}: WARNING: failed: I need gtest to build tests" >&5
++$as_echo "$as_me: WARNING: failed: I need gtest to build tests" >&2;}
+ fi
+ 
+ 
+diff -Naur orig/configure.ac patched/configure.ac
+--- orig/configure.ac	2014-12-23 14:13:00.000000000 +0100
++++ patched/configure.ac	2015-01-13 22:53:02.008142078 +0100
+@@ -91,7 +91,7 @@
+ 
+ AC_LANG_PUSH([C++])
+ AC_CHECK_HEADER(gtest/gtest.h,,
+-     AC_MSG_ERROR([failed: I need gtest to build tests]),
++     AC_MSG_WARN([failed: I need gtest to build tests]),
+ )
+ AC_LANG_POP([C++])
+ 
 diff -Naur orig/Makefile patched/Makefile
---- orig/Makefile	2014-04-25 13:39:00.000000000 +0200
-+++ patched/Makefile	2014-05-15 14:18:50.860322501 +0200
-@@ -9,8 +9,8 @@
- .PHONY: default
+--- orig/Makefile	2014-12-23 14:12:54.000000000 +0100
++++ patched/Makefile	2015-01-13 23:07:56.200576139 +0100
+@@ -10,7 +10,7 @@
  default: startup all
  
--.PHONY: headers library clean veryclean all binary program doc test update-po
--all headers library clean veryclean binary program doc manpages debiandoc test update-po startup dirs:
-+.PHONY: headers library clean veryclean all binary program doc update-po
-+all headers library clean veryclean binary program doc manpages debiandoc update-po startup dirs:
+ .PHONY: headers library clean veryclean all binary program doc test update-po
+-all headers library clean veryclean binary program doc manpages docbook test update-po startup dirs:
++all headers library clean veryclean binary program doc manpages docbook update-po startup dirs:
  	$(MAKE) -C vendor $@
  	$(MAKE) -C apt-pkg $@
  	$(MAKE) -C apt-inst $@
@@ -18,8 +41,8 @@ diff -Naur orig/Makefile patched/Makefile
  	$(MAKE) -C po $@
 -	$(MAKE) -C test $@
  
--all headers library clean veryclean binary program doc manpages debiandoc test update-po: startup dirs
-+all headers library clean veryclean binary program doc manpages debiandoc update-po: startup dirs
+-all headers library clean veryclean binary program doc manpages docbook test update-po: startup dirs
++all headers library clean veryclean binary program doc manpages docbook update-po: startup dirs
  
  dirs: startup
  

@@ -14,10 +14,9 @@ libxslt-dev
 libxtst-dev
 nspr-dev
 nss-dev
-openssl-dev
 pciutils-dev
 pulseaudio-dev
-python-argparse
-python-dev
+python3-argparse
+python3-dev
 udev-dev
 yasm

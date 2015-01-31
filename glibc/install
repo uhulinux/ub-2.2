@@ -1,0 +1,27 @@
+#!/bin/sh -eux
+
+cd "$UB_OBJECTDIR"
+
+touch "$UB_INSTALLDIR"/etc/ld.so.conf
+mkdir -p "$UB_INSTALLDIR"/usr/lib/gconv
+touch "$UB_INSTALLDIR"/usr/lib/gconv/gconv-modules.cache
+make \
+	install_root="$UB_INSTALLDIR" \
+	install
+make \
+	install_root="$UB_INSTALLDIR" \
+	localedata/install-locales
+
+cp -p "$UB_COMPILEDIR"/nscd/nscd.conf    "$UB_INSTALLDIR"/etc/
+cp -p "$UB_COMPILEDIR"/nss/nsswitch.conf "$UB_INSTALLDIR"/etc/
+cp -p "$UB_COMPILEDIR"/posix/gai.conf    "$UB_INSTALLDIR"/etc/
+
+rm -f "$UB_INSTALLDIR"/etc/localtime
+cp -p "$UB_INSTALLDIR"/usr/share/zoneinfo/Europe/Budapest "$UB_INSTALLDIR"/etc/localtime
+
+rm -f "$UB_INSTALLDIR"/etc/ld.so.cache
+rm -f "$UB_INSTALLDIR"/usr/libexec/pt_chown
+
+for i in acpi asm asm-generic generated linux sound; do
+	ln -s ../src/linux/include/$i "$UB_INSTALLDIR"/usr/include/$i
+done

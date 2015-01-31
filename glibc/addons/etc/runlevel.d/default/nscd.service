@@ -1,0 +1,9 @@
+Summary=Name Service Cache Daemon
+Summary[hu]=Névlekérdezés gyorsítótár
+Description=Caches queries to the passwd, group and hosts services. Especially useful if NIS or LDAP client is used.
+Description[hu]=Eltárolja a passwd, group és hosts szolgáltatások lekérdezéseinek eredményét. Különösen NIS- vagy LDAP-kliens használatakor gyorsít sokat.
+MsgDesc=Name Service Cache Daemon
+MsgDesc[hu]=Névlekérdezés gyorsítótár
+Script=/etc/init.d/nscd
+Runlevels=
+Sequence=10
