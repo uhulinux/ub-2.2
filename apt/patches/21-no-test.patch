@@ -1,0 +1,56 @@
+diff -Naur orig/configure patched/configure
+--- orig/configure	2015-01-16 10:38:59.000000000 +0100
++++ patched/configure	2015-02-02 23:15:07.424575818 +0100
+@@ -4805,14 +4805,6 @@
+ ac_compiler_gnu=$ac_cv_cxx_compiler_gnu
+ 
+ 
+-ac_fn_cxx_check_header_mongrel "$LINENO" "gtest/gtest.h" "ac_cv_header_gtest_gtest_h" "$ac_includes_default"
+-if test "x$ac_cv_header_gtest_gtest_h" = xyes; then :
+-
+-else
+-  as_fn_error $? "failed: I need gtest to build tests" "$LINENO" 5
+-fi
+-
+-
+ ac_ext=c
+ ac_cpp='$CPP $CPPFLAGS'
+ ac_compile='$CC -c $CFLAGS $CPPFLAGS conftest.$ac_ext >&5'
+diff -Naur orig/configure.ac patched/configure.ac
+--- orig/configure.ac	2015-01-16 10:38:57.000000000 +0100
++++ patched/configure.ac	2015-02-02 23:16:20.760939474 +0100
+@@ -89,12 +89,6 @@
+      AC_MSG_ERROR([failed: I need CURL due https support]),
+ )
+ 
+-AC_LANG_PUSH([C++])
+-AC_CHECK_HEADER(gtest/gtest.h,,
+-     AC_MSG_ERROR([failed: I need gtest to build tests]),
+-)
+-AC_LANG_POP([C++])
+-
+ 
+ AC_SUBST(BDBLIB)
+ 
+diff -Naur orig/Makefile patched/Makefile
+--- orig/Makefile	2015-01-16 10:38:46.000000000 +0100
++++ patched/Makefile	2015-02-02 23:14:06.064271549 +0100
+@@ -9,8 +9,8 @@
+ .PHONY: default
+ default: startup all
+ 
+-.PHONY: headers library clean veryclean all binary program doc test update-po
+-all headers library clean veryclean binary program doc manpages docbook test update-po startup dirs:
++.PHONY: headers library clean veryclean all binary program doc update-po
++all headers library clean veryclean binary program doc manpages docbook update-po startup dirs:
+ 	$(MAKE) -C vendor $@
+ 	$(MAKE) -C apt-pkg $@
+ 	$(MAKE) -C apt-inst $@
+@@ -21,7 +21,6 @@
+ 	$(MAKE) -C dselect $@
+ 	$(MAKE) -C doc $@
+ 	$(MAKE) -C po $@
+-	$(MAKE) -C test $@
+ 
+ all headers library clean veryclean binary program doc manpages docbook test update-po: startup dirs
+ 

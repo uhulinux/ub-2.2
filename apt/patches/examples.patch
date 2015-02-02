@@ -1,9 +1,9 @@
 diff -Naur orig/doc/makefile patched/doc/makefile
---- orig/doc/makefile	2013-12-07 14:12:14.000000000 +0100
-+++ patched/doc/makefile	2013-12-08 21:15:55.453939684 +0100
+--- orig/doc/makefile	2014-10-15 19:55:49.000000000 +0200
++++ patched/doc/makefile	2014-10-18 22:32:59.136151857 +0200
 @@ -12,14 +12,11 @@
  
- doc: manpages debiandoc
+ doc: manpages docbook
  
 -examples/sources.list: ../vendor/current/sources.list
 -	ln -sf $(shell readlink -f $^) $@
