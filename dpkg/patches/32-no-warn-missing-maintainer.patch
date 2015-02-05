@@ -1,9 +1,9 @@
 diff -Naur orig/lib/dpkg/parse.c patched/lib/dpkg/parse.c
---- orig/lib/dpkg/parse.c	2014-04-29 14:24:40.000000000 +0200
-+++ patched/lib/dpkg/parse.c	2014-05-15 13:52:16.134143431 +0200
+--- orig/lib/dpkg/parse.c	2014-10-11 19:36:42.000000000 +0200
++++ patched/lib/dpkg/parse.c	2014-10-18 22:10:27.917451525 +0200
 @@ -186,7 +186,7 @@
-       (pkg->status != stat_notinstalled &&
-        pkg->status != stat_halfinstalled)) {
+       (pkg->status != PKG_STAT_NOTINSTALLED &&
+        pkg->status != PKG_STAT_HALFINSTALLED)) {
      parse_ensure_have_field(ps, &pkgbin->description, "description");
 -    parse_ensure_have_field(ps, &pkgbin->maintainer, "maintainer");
 +    //parse_ensure_have_field(ps, &pkgbin->maintainer, "maintainer");

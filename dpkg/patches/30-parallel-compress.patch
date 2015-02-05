@@ -1,6 +1,6 @@
 diff -Naur orig/lib/dpkg/compress.c patched/lib/dpkg/compress.c
---- orig/lib/dpkg/compress.c	2014-04-29 14:24:40.000000000 +0200
-+++ patched/lib/dpkg/compress.c	2014-05-15 13:50:51.033913565 +0200
+--- orig/lib/dpkg/compress.c	2014-10-11 19:36:42.000000000 +0200
++++ patched/lib/dpkg/compress.c	2014-10-18 22:08:54.588988734 +0200
 @@ -256,7 +256,7 @@
  #endif
  

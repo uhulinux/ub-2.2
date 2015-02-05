@@ -1,4 +1,4 @@
 coreutils
 pbzip2
 pigz
-tar >=
+tar

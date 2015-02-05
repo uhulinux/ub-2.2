@@ -1,7 +1,7 @@
 diff -Naur orig/lib/dpkg/parsehelp.c patched/lib/dpkg/parsehelp.c
---- orig/lib/dpkg/parsehelp.c	2014-06-04 01:07:31.000000000 +0200
-+++ patched/lib/dpkg/parsehelp.c	2014-06-08 18:10:45.241470389 +0200
-@@ -210,11 +210,11 @@
+--- orig/lib/dpkg/parsehelp.c	2014-10-13 16:20:57.000000000 +0200
++++ patched/lib/dpkg/parsehelp.c	2014-11-15 17:58:18.818320525 +0100
+@@ -234,11 +234,11 @@
    if (*ptr && !cisdigit(*ptr++))
      return dpkg_put_warn(err, _("version number does not start with digit"));
    for (; *ptr; ptr++) {
@@ -16,8 +16,8 @@ diff -Naur orig/lib/dpkg/parsehelp.c patched/lib/dpkg/parsehelp.c
    }
  
 diff -Naur orig/lib/dpkg/test/t-version.c patched/lib/dpkg/test/t-version.c
---- orig/lib/dpkg/test/t-version.c	2014-06-04 02:02:55.000000000 +0200
-+++ patched/lib/dpkg/test/t-version.c	2014-06-08 18:10:45.241470389 +0200
+--- orig/lib/dpkg/test/t-version.c	2014-10-13 16:20:57.000000000 +0200
++++ patched/lib/dpkg/test/t-version.c	2014-11-15 17:58:18.818320525 +0100
 @@ -211,8 +211,8 @@
  	test_pass(dpkg_version_compare(&a, &b) == 0);
  
