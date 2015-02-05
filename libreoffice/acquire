@@ -72,7 +72,7 @@ b73baa6fbdfef197608d1f69300919b9-icu4c-53_1-src.tgz
 26b3e95ddf3d9c077c480ea45874b3b8-lp_solve_5.5.tar.gz 
 	http://dev-www.libreoffice.org/src/
 
-896272c1a9e396b871cb4dffbd694503-mdds_0.11.1.tar.bz2
+cb4207cb913c7a5a8bfa5b91234618ee-mdds_0.11.2.tar.bz2
 	http://dev-www.libreoffice.org/src/
 
 7239a4430efd4d0189c4f24df67f08e5-mysql-connector-c++-1.1.4.tar.gz
@@ -99,13 +99,13 @@ graphite2-1.2.4.tgz
 harfbuzz-0.9.23.tar.bz2
 	http://dev-www.libreoffice.org/src/
 
-libabw-0.1.0.tar.bz2
+libabw-0.1.1.tar.bz2
 	http://dev-www.libreoffice.org/src/
 
 libcdr-0.1.1.tar.bz2
 	http://dev-www.libreoffice.org/src/
 
-libe-book-0.1.1.tar.bz2
+libe-book-0.1.2.tar.bz2
 	http://dev-www.libreoffice.org/src/
 
 libetonyek-0.1.1.tar.bz2
@@ -114,10 +114,10 @@ libetonyek-0.1.1.tar.bz2
 libfreehand-0.1.0.tar.bz2
 	http://dev-www.libreoffice.org/src/
 
-libmspub-0.1.1.tar.bz2
+libmspub-0.1.2.tar.bz2
 	http://dev-www.libreoffice.org/src/
 
-libmwaw-0.3.3.tar.bz2
+libmwaw-0.3.4.tar.bz2
 	http://dev-www.libreoffice.org/src/
 
 libpagemaker-0.0.2.tar.bz2
