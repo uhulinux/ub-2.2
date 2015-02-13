@@ -1,0 +1,6 @@
+/var/cache/vdr
+/var/vdr/
+/var/vdr/config
+/var/vdr/config/plugins
+/var/vdr/config/plugins/setup
+/var/vdr/video

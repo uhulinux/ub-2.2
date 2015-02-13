@@ -1,0 +1,9 @@
+/var/vdr/config/channels.conf
+/var/vdr/config/diseqc.conf
+/var/vdr/config/keymacros.conf
+/var/vdr/config/plugins/setup/sysconfig
+/var/vdr/config/plugins/setup/vdr-menu.xml
+/var/vdr/config/plugins/setup/vdr-setup.xml
+/var/vdr/config/scr.conf
+/var/vdr/config/sources.conf
+/var/vdr/config/svdrphosts.conf
