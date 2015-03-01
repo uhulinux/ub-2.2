@@ -1,5 +1,8 @@
 dbus-glib-dev
+gst1.0-plugins-bad
 gst1.0-plugins-base-dev
+gst1.0-plugins-good
+gst1.0-plugins-ugly
 gtk2-dev
 intltool
 libnotify-dev

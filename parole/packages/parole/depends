@@ -1,1 +1,3 @@
-gst1.0-plugins-ugly
+gst1.0-plugins-bad >=
+gst1.0-plugins-good >=
+gst1.0-plugins-ugly >=
