@@ -1,0 +1,16 @@
+diff -Naur orig/gksu-properties/gksu-properties.desktop.in patched/gksu-properties/gksu-properties.desktop.in
+--- orig/gksu-properties/gksu-properties.desktop.in	2008-05-09 19:39:55.000000000 +0200
++++ patched/gksu-properties/gksu-properties.desktop.in	2015-03-01 19:33:57.775624749 +0100
+@@ -3,9 +3,9 @@
+ _Name=Privilege granting
+ _Comment=Configure behavior of the privilege-granting tool
+ Exec=gksu-properties
+-Icon=gksu.png
++Icon=gksu
+ StartupNotify=true
+ Terminal=false
+ Type=Application
+-Categories=GNOME;GTK;Application;Settings;AdvancedSettings;
+-OnlyShowIn=GNOME;XFCE;
++Categories=GNOME;GTK;Application;Settings;X-UHU-Menu/Settings;
++OnlyShowIn=GNOME;XFCE;MATE;

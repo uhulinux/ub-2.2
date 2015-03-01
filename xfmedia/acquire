@@ -1,4 +1,0 @@
-#!/usr/bin/env dl
-
-xfmedia-$UB_VERSION.tar.bz2 xfmedia-$UB_VERSION/
-	ftp://ftp.br.debian.org/slitaz/sources/packages-4.0/x/

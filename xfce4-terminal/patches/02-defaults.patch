@@ -33,7 +33,7 @@ diff -Naur orig/terminal/terminal-preferences.c patched/terminal/terminal-prefer
                           NULL,
                           "ScrollingLines",
 -                         0u, 1024u * 1024u, 1000u,
-+                         0u, 1024u * 1024u, 8000u,
++                         0u, 1024u * 1024u, 2000u,
                           G_PARAM_READWRITE | G_PARAM_STATIC_STRINGS);
  
    /**

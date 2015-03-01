@@ -1,6 +1,7 @@
 dbus-glib-dev
 expat-dev
 gamin-dev
+gconf2-dev
 intltool
 libexif-dev
 libexo-dev
@@ -14,3 +15,4 @@ perl-xml-parser
 popt-dev
 startup-notification-dev
 udev-dev
+xcb-util-dev

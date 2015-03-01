@@ -1,4 +1,4 @@
 #!/bin/sh -eux
 
-# sed -i s/AM_CONFIG_HEADER/AC_CONFIG_HEADERS/g configure.in.in
+./autogen.sh --prefix=/usr
 ub_compile

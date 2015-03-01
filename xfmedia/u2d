@@ -1,1 +1,0 @@
-urllist http://spuriousinterrupt.org/files/xfmedia/ | splitver '^xfmedia-([0-9.]+).tar.bz2$' | sort -V | tail -n 1

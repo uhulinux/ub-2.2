@@ -1,0 +1,23 @@
+diff -Naur orig/libgksu/Makefile.am patched/libgksu/Makefile.am
+--- orig/libgksu/Makefile.am	2008-05-09 19:39:55.000000000 +0200
++++ patched/libgksu/Makefile.am	2015-03-01 19:24:55.852937499 +0100
+@@ -30,6 +30,6 @@
+ noinst_PROGRAMS = test-gksu
+ test_gksu_SOURCES = test-gksu.c
+ test_gksu_LDADD = libgksu2.la
+-test_gksu_LDFLAGS = `pkg-config --libs glib-2.0`
++test_gksu_LDFLAGS = `pkg-config --libs gtk+-2.0 glib-2.0`
+ 
+ EXTRA_DIST = libgksu.ver
+diff -Naur orig/libgksu/Makefile.in patched/libgksu/Makefile.in
+--- orig/libgksu/Makefile.in	2009-03-04 19:56:14.000000000 +0100
++++ patched/libgksu/Makefile.in	2015-03-01 19:26:20.717358319 +0100
+@@ -286,7 +286,7 @@
+ gksu_run_helper_SOURCES = gksu-run-helper.c
+ test_gksu_SOURCES = test-gksu.c
+ test_gksu_LDADD = libgksu2.la
+-test_gksu_LDFLAGS = `pkg-config --libs glib-2.0`
++test_gksu_LDFLAGS = `pkg-config --libs gtk+-2.0 glib-2.0`
+ EXTRA_DIST = libgksu.ver
+ all: all-am
+ 

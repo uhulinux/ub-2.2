@@ -3,7 +3,6 @@ gamin-dev
 gtk2-dev
 intltool
 libexo-dev
-libglade2-dev
 libjpeg-dev
 libnotify-dev
 libwnck-dev
@@ -14,5 +13,6 @@ libxml2-dev
 libxt-dev
 startup-notification-dev
 thunar-dev
+xcb-util-dev
 xfce4-panel-dev
 xfconf-dev

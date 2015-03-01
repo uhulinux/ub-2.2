@@ -1,0 +1,108 @@
+diff -Naur orig/configure.ac patched/configure.ac
+--- orig/configure.ac	2010-11-07 12:26:47.000000000 +0100
++++ patched/configure.ac	2015-02-27 20:08:26.146024482 +0100
+@@ -24,21 +24,17 @@
+ AC_REVISION([xfce4_notes_plugin_version_build])
+ AC_CANONICAL_TARGET()
+ 
++LT_PREREQ([2.2.6])
++LT_INIT([disable-static])
++
+ AM_INIT_AUTOMAKE([1.11 dist-bzip2])
+ AM_CONFIG_HEADER([config.h])
+ AM_MAINTAINER_MODE()
+ AM_SILENT_RULES([yes])
+ 
+-dnl Avoid g77 and g++ checks
+-m4_undefine([AC_PROG_CXX])
+-m4_defun([AC_PROG_CXX],[])
+-m4_undefine([AC_PROG_F77])
+-m4_defun([AC_PROG_F77],[])
+-
+ dnl Check for basic programs
+ AM_PROG_CC_C_O()
+ AC_PROG_LD()
+-AC_PROG_LIBTOOL()
+ AC_PROG_INSTALL()
+ AC_PROG_INTLTOOL()
+ 
+@@ -51,12 +47,13 @@
+ 
+ dnl Check for required packages
+ XDT_CHECK_LIBX11_REQUIRE()
+-XDT_CHECK_PACKAGE([GLIB], [glib-2.0], [2.16.0])
+-XDT_CHECK_PACKAGE([GTK], [gtk+-2.0], [2.14.0])
+-XDT_CHECK_PACKAGE([LIBXFCEGUI4], [libxfcegui4-1.0], [4.4.0])
+-XDT_CHECK_PACKAGE([LIBXFCE4UTIL], [libxfce4util-1.0], [4.4.0])
+-XDT_CHECK_PACKAGE([LIBXFCE4PANEL], [libxfce4panel-1.0], [4.4.0])
+-XDT_CHECK_PACKAGE([XFCONF], [libxfconf-0], [4.6.0])
++XDT_CHECK_PACKAGE([GLIB], [glib-2.0], [2.24.0])
++XDT_CHECK_PACKAGE([GIO], [gio-2.0], [2.24.0])
++XDT_CHECK_PACKAGE([GTK], [gtk+-2.0], [2.20.0])
++XDT_CHECK_PACKAGE([LIBXFCE4UI], [libxfce4ui-1], [4.10.0])
++XDT_CHECK_PACKAGE([LIBXFCE4UTIL], [libxfce4util-1.0], [4.10.0])
++XDT_CHECK_PACKAGE([LIBXFCE4PANEL], [libxfce4panel-1.0], [4.10.0])
++XDT_CHECK_PACKAGE([XFCONF], [libxfconf-0], [4.10.0])
+ XDT_CHECK_PACKAGE([UNIQUE], [unique-1.0], [1.0.0])
+ 
+ dnl Check for libxfce4panel >= 4.7
+@@ -64,7 +61,7 @@
+ 
+ dnl Check for valac
+ if test "x$USE_MAINTAINER_MODE" = "xyes" ; then
+-	AM_PROG_VALAC([0.10.0])
++	AM_PROG_VALAC([0.16.0])
+ 	if test "x$VALAC" = "x" ; then
+ 		AC_MSG_ERROR([Cannot find the "valac" compiler in your PATH])
+ 	fi
+diff -Naur orig/src/Makefile.am patched/src/Makefile.am
+--- orig/src/Makefile.am	2010-11-05 19:15:23.000000000 +0100
++++ patched/src/Makefile.am	2015-02-27 20:12:21.595192011 +0100
+@@ -36,7 +36,7 @@
+ xfce4_notes_settings_CFLAGS =						\
+ 	@LIBX11_CFLAGS@							\
+ 	@GTK_CFLAGS@							\
+-	@LIBXFCEGUI4_CFLAGS@						\
++	@LIBXFCE4UI_CFLAGS@						\
+ 	@XFCONF_CFLAGS@							\
+ 	@UNIQUE_CFLAGS@
+ 
+@@ -44,7 +44,7 @@
+ 	$(top_builddir)/lib/libnotes.la					\
+ 	@LIBX11_LIBS@							\
+ 	@GTK_LIBS@							\
+-	@LIBXFCEGUI4_LIBS@						\
++	@LIBXFCE4UI_LIBS@						\
+ 	@XFCONF_LIBS@							\
+ 	@UNIQUE_LIBS@
+ 
+diff -Naur orig/src/xfce4-notes-settings.c patched/src/xfce4-notes-settings.c
+--- orig/src/xfce4-notes-settings.c	2010-11-06 21:39:34.000000000 +0100
++++ patched/src/xfce4-notes-settings.c	2015-02-27 20:02:02.752123334 +0100
+@@ -25,7 +25,7 @@
+ #include <xfconf/xfconf.h>
+ #include <gtk/gtk.h>
+ #include <libxfce4util/libxfce4util.h>
+-#include <libxfcegui4/libxfcegui4.h>
++#include <libxfce4ui/libxfce4ui.h>
+ 
+ #include "defines.h"
+ #include "color.h"
+@@ -115,7 +115,7 @@
+ 
+   /* === Global settings === */
+   box = gtk_vbox_new (FALSE, BORDER);
+-  frame = xfce_create_framebox_with_content (_("Global settings"), box);
++  frame = xfce_gtk_frame_box_new_with_content (_("Global settings"), box);
+   gtk_container_set_border_width (GTK_CONTAINER (frame), BORDER);
+   gtk_container_add (GTK_CONTAINER (vbox), frame);
+ 
+@@ -163,7 +163,7 @@
+ 
+   /* === New window settings === */
+   box = gtk_vbox_new (FALSE, BORDER);
+-  frame = xfce_create_framebox_with_content (_("New group settings"), box);
++  frame = xfce_gtk_frame_box_new_with_content (_("New group settings"), box);
+   gtk_container_set_border_width (GTK_CONTAINER (frame), BORDER);
+   gtk_container_add (GTK_CONTAINER (vbox), frame);
+ 

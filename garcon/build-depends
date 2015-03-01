@@ -4,3 +4,4 @@ libsm-dev
 libxfce4ui-dev
 libxfce4util-dev
 startup-notification-dev
+xcb-util-dev

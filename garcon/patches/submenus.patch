@@ -737,9 +737,9 @@ diff -Naur orig/data/xfce/xfce-games-sub-blocks.directory.in patched/data/xfce/x
 @@ -0,0 +1,7 @@
 +[Desktop Entry]
 +_Name=Blocks
-+Name[hu]=Blocks
++Name[hu]=Blokkok
 +_Comment=Falling blocks game
-+Comment[hu]=Falling blocks game
++Comment[hu]=Potyogó blokkok játék (pl. tetris)
 +Icon=gnome-gnometris
 +Type=Directory
 diff -Naur orig/data/xfce/xfce-games-sub-board.directory.in patched/data/xfce/xfce-games-sub-board.directory.in
@@ -789,12 +789,10 @@ diff -Naur orig/data/xfce/xfce-games-sub-logic.directory.in patched/data/xfce/xf
 diff -Naur orig/data/xfce/xfce-games-sub-roleplaying.directory.in patched/data/xfce/xfce-games-sub-roleplaying.directory.in
 --- orig/data/xfce/xfce-games-sub-roleplaying.directory.in	1970-01-01 01:00:00.000000000 +0100
 +++ patched/data/xfce/xfce-games-sub-roleplaying.directory.in	2014-05-26 19:28:35.793376412 +0200
-@@ -0,0 +1,7 @@
+@@ -0,0 +1,5 @@
 +[Desktop Entry]
 +_Name=Role playing
-+Name[hu]=Role playing
-+_Comment=Role playing game
-+Comment[hu]=Role playing game
++Name[hu]=Szerepjáték
 +Icon=stock_person
 +Type=Directory
 diff -Naur orig/data/xfce/xfce-games-sub-simulation.directory.in patched/data/xfce/xfce-games-sub-simulation.directory.in
@@ -995,9 +993,9 @@ diff -Naur orig/data/xfce/xfce-network-sub-hamradio.directory.in patched/data/xf
 @@ -0,0 +1,7 @@
 +[Desktop Entry]
 +_Name=HAM radio
-+Name[hu]=HAM rádió
++Name[hu]=Amatőr rádió
 +_Comment=HAM radio software
-+Comment[hu]=HAM rádió program
++Comment[hu]=Programok amatőr rádiózáshoz
 +Icon=applications-internet
 +Type=Directory
 diff -Naur orig/data/xfce/xfce-network-sub-instantmessaging.directory.in patched/data/xfce/xfce-network-sub-instantmessaging.directory.in
@@ -1112,7 +1110,7 @@ diff -Naur orig/data/xfce/xfce-system-sub-filesystem.directory.in patched/data/x
 +_Name=Filesystem
 +Name[hu]=Fájlrendszer
 +_Comment=Filesystem tool
-+Comment[hu]=Fájlrendszer-eszköz
++Comment[hu]=Fájlrendszer-kezelő eszköz
 +Icon=applications-system
 +Type=Directory
 diff -Naur orig/data/xfce/xfce-system-sub-monitor.directory.in patched/data/xfce/xfce-system-sub-monitor.directory.in

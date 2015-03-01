@@ -1,4 +1,0 @@
-#!/usr/bin/env dl
-
-xfprint-$UB_VERSION.tar.bz2 xfprint-$UB_VERSION/
-	http://archive.xfce.org/src/archive/xfprint/"$UB_VERSION_HEAD2"/
