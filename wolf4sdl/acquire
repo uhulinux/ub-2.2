@@ -1,9 +1,5 @@
 #!/usr/bin/env dl
 
-Wolf4SDL-${UB_VERSION}-src.zip Wolf4SDL-${UB_VERSION}-src/
-	http://www.alice-dsl.net/mkroll/bins/
-	http://www.stud.uni-karlsruhe.de/~uvaue/chaos/bins/
-	http://chrisballinger.info/wolf4sdl/
-	http://radix-16.com/files/wolf4sdl/
-#wolf4sdl_${UB_VERSION}+svn262+dfsg1.orig.tar.gz wolf4sdl-${UB_VERSION}+svn262/
-#  https://launchpad.net/debian/sid/+source/wolf4sdl/1.7+svn262+dfsg1-1/+files/wolf4sdl_1.7+svn262+dfsg1.orig.tar.gz
+master.zip wolf4sdl-master/
+  https://github.com/a-detiste/wolf4sdl/archive/
+  

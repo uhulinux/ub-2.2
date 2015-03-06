@@ -1,44 +1,79 @@
-#!/bin/bash
-if [ ! $1 ] ; then
-echo legalább 1 paraméter kell !
-echo A lehetséges paraméterek:
-echo wolf3d-shareware-v11
-echo wolf3d-shareware-v12
-echo wolf3d-shareware-v14
-echo wolf3d-full-apogee-v11
-echo wolf3d-full-gt-id-activision-v14
-echo spear-demo
-echo spear-full
-exit 1
-fi
+#!/bin/sh
+#
+# Copyright (C) 2015  Fabian Greffrath <fabian+debian@greffrath.com>
+#
+# This program is free software; you can redistribute it and/or modify
+# it under the terms of the GNU General Public License as published by
+# the Free Software Foundation; either version 2 of the License, or
+# (at your option) any later version.
+#
+# This program is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+# GNU General Public License for more details.
+#
+# You should have received a copy of the GNU General Public License along
+# with this program; if not, write to the Free Software Foundation, Inc.,
+# 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
 
-if ! test "$1" = "wolf3d-shareware-v11"\
-	-o "$1" = "wolf3d-shareware-v12"\
-	-o "$1" = "wolf3d-shareware-v14"\
-	-o "$1" = "wolf3d-full-apogee-v11"\
-	-o "$1" = "wolf3d-full-gt-id-activision-v14"\
-	-o "$1" = "spear-demo"\
-	-o "$1" = "spear-full"
-	then
-	echo helytelen paraméter
-	exit 1
-fi
+DATADIR=/usr/share/games/wolf3d
+ENGINE=
 
+file_matches()
+{
+  if [ -r "$DATADIR/$1" ] && \
+     [ `cksum "$DATADIR/$1" | cut -d ' ' -f 2` -eq $2 ]
+  then
+    return 0
+  else
+    return 1
+  fi
+}
 
-#if [ ! -d ~/.wolf4sdl/"$1" ]
-#then
-#	mkdir -p ~/.wolf4sdl/"$1"
-#	ln -sf -t ~/.wolf4sdl/"$1" /usr/share/games/wolf4sdl/"$1"/*
-#fi
+# see game-data-packager/data/wolf3d.yaml
 
-cd /usr/share/games/wolf4sdl/"$1"/
-if ! test -e vgahead.*
+# Wolf3d Full v1.4 GT/ID/Activision
+if `file_matches vgagraph.wl6 275774`
 then
-	echo a /usr/share/games/wolf4sdl/"$1"/ alá kell másolni 
-	echo kisbetűsen az ID cég adatfájljait a használathoz
-	echo
-	echo Nyomj entert a kilépéshez!
-	read x
-	exit 1
+  ENGINE=wolf4sdl-wl6
+elif `file_matches vgagraph.wl6 276096`
+then
+  ENGINE=wolf4sdl-wl6
+# Wolf3d Full v1.4 Apogee (with ReadThis)
+elif `file_matches vgagraph.wl6 334506`
+then
+  ENGINE=wolf4sdl-wl6a
+# Wolf3d Full v1.1 Apogee (with ReadThis)
+elif `file_matches vgagraph.wl6 302374`
+then
+  ENGINE=wolf4sdl-wl6a1
+# Wolf3d Shareware v1.4
+elif `file_matches vgagraph.wl1 326568`
+then
+  ENGINE=wolf4sdl-wl1
+#Wolf3d Shareware v1.1
+elif `file_matches vgagraph.wl1 296826`
+then
+  ENGINE=wolf4sdl-wl11d
+#Wolf3d Shareware v1.2
+elif `file_matches vgagraph.wl1 296813`
+then
+  ENGINE=wolf4sdl-wl12d
+#Spear shareware
+elif `file_matches vgagraph.sdm 305891`
+then
+  ENGINE=wolf4sdl-sdm
+#Spear full
+elif `file_matches vgagraph.sod 947979`
+then
+  ENGINE=wolf4sdl-sod
 fi
-./wolf4sdl $2 $3 $4 $5 $6
+
+if [ -z "$ENGINE" ]
+then
+  echo "Could not find any supported data files in $DATADIR."
+  return 1
+else
+  cd $DATADIR
+  exec "$ENGINE" "$@"
+fi
