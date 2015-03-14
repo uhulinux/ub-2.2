@@ -1,68 +1,29 @@
 diff -Naur orig/configure.ac mod/configure.ac
---- orig/configure.ac	2013-02-13 11:05:49.000000000 +0100
-+++ mod/configure.ac	2014-12-29 15:36:14.364690927 +0100
-@@ -666,6 +666,7 @@
+--- orig/configure.ac	2015-01-05 15:42:15.000000000 +0100
++++ mod/configure.ac	2015-02-07 20:05:20.949414165 +0100
+@@ -597,6 +597,7 @@
  nls/vi_VN/Makefile
  nls/zh_CN/Makefile
  nls/zh_TW/Makefile
 +nls/hu_HU/Makefile
- )
+ ])
  
  dnl Print results
 diff -Naur orig/nls/hu_HU/Makefile.am mod/nls/hu_HU/Makefile.am
 --- orig/nls/hu_HU/Makefile.am	1970-01-01 01:00:00.000000000 +0100
-+++ mod/nls/hu_HU/Makefile.am	2014-12-29 15:16:12.960738666 +0100
-@@ -0,0 +1,46 @@
-+# nls/de_DE/Makefile.am for Fluxbox - www.fluxbox.org
++++ mod/nls/hu_HU/Makefile.am	2015-02-07 20:25:21.577395683 +0100
+@@ -0,0 +1,7 @@
++# nls/hu_HU/Makefile.am for Fluxbox - www.fluxbox.org
 +
 +THE_LANG = hu_HU
 +SRC_CODESET = ISO-8859-2
 +DEST_CODESETS = UTF-8
 +
-+LOCALE_PATH = @LOCALE_PATH@
-+NLSTEST = @NLS@
-+MFILES = Translation.m
-+GENERATED_MFILES = $(patsubst %,generated-%.m,$(DEST_CODESETS))
-+MAINTAINERCLEANFILES = Makefile.in $(GENERATED_MFILES)
-+CATFILES = $(patsubst %,fluxbox-%.cat,$(DEST_CODESETS))
-+
-+# We distribute the generated files so that users don't need iconv
-+EXTRA_DIST= $(MFILES) $(GENERATED_MFILES)
-+CLEANFILES = $(CATFILES)
-+
-+all-local: $(CATFILES)
-+install-data-local: $(CATFILES)
-+	@if test x$(NLSTEST) = "x-DNLS"; then \
-+		for codeset in $(DEST_CODESETS); do \
-+			echo "Installing catalog in $(DESTDIR)$(LOCALE_PATH)/$(THE_LANG).$${codeset}"; \
-+			$(mkinstalldirs) $(DESTDIR)$(LOCALE_PATH)/$(THE_LANG).$${codeset}; \
-+			$(INSTALL_DATA) fluxbox-$${codeset}.cat $(DESTDIR)$(LOCALE_PATH)/$(THE_LANG).$${codeset}/fluxbox.cat; \
-+		done; \
-+	fi
-+
-+# not part of the normal build process
-+translations: $(GENERATED_MFILES)
-+
-+generated-%.m: Translation.m
-+	iconv -f $(SRC_CODESET) -t $* $(srcdir)/Translation.m | sed s/$(SRC_CODESET)/$*/ > $@
-+
-+uninstall-local:
-+	@if test x$(NLSTEST) = "x-DNLS"; then \
-+		for codeset in $(DEST_CODESETS); do \
-+			rm -f $(DESTDIR)$(LOCALE_PATH)/$(THE_LANG).$${codeset}/fluxbox.cat; \
-+			rmdir $(DESTDIR)$(LOCALE_PATH)/$(THE_LANG).$${codeset}; \
-+		done; \
-+	fi
-+
-+fluxbox-%.cat: generated-%.m Translation.m
-+	@if test x$(NLSTEST) = "x-DNLS"; then \
-+		echo "Creating catfile for $*"; \
-+		$(gencat_cmd) fluxbox-$*.cat $(srcdir)/generated-$*.m; \
-+	fi
++include $(top_srcdir)/nls/nls.mk
 diff -Naur orig/nls/hu_HU/Translation.m mod/nls/hu_HU/Translation.m
 --- orig/nls/hu_HU/Translation.m	1970-01-01 01:00:00.000000000 +0100
-+++ mod/nls/hu_HU/Translation.m	2014-12-29 19:26:31.620141884 +0100
-@@ -0,0 +1,280 @@
++++ mod/nls/hu_HU/Translation.m	2015-02-07 20:23:51.613397068 +0100
+@@ -0,0 +1,278 @@
 +$ codeset=ISO-8859-2
 +
 +$set 1 #Align
@@ -323,7 +284,7 @@ diff -Naur orig/nls/hu_HU/Translation.m mod/nls/hu_HU/Translation.m
 +11 Hiba: '-rc' paraméter igényû
 +12 Hiba: '-screen' paraméter igényû
 +13 Fluxbox %s: (c) %s Henrik Kinnunen\n\n\
-+Webseite: http://www.fluxbox.org/\n\n\
++Honlap: http://www.fluxbox.org/\n\n\
 +-display <string>\t\tMás képernyõ használata $DISPLAY.\n\
 +-screen <all|int,int,int>\tA megadott képernyõn fut.\n\
 +-rc <string>\t\t\tMegadott init fájl használata.\n\
@@ -341,17 +302,16 @@ diff -Naur orig/nls/hu_HU/Translation.m mod/nls/hu_HU/Translation.m
 +4 Dokk
 +5 Normál
 +6 Fenn
-+
-+
-diff -Naur orig/nls/Makefile.am mod/nls/Makefile.am
---- orig/nls/Makefile.am	2013-02-13 11:04:05.000000000 +0100
-+++ mod/nls/Makefile.am	2014-12-29 15:24:00.816720075 +0100
-@@ -6,7 +6,7 @@
- 		  sv_SE tr_TR it_IT pt_PT bg_BG ja_JP ko_KR \
- 		  lv_LV de_DE nl_NL no_NO sl_SI pl_PL vi_VN be_BY \
- 		  uk_UA el_GR nb_NO zh_CN fi_FI en_US en_GB de_CH \
--		  de_AT fr_CH sk_SK zh_TW mk_MK he_IL
-+		  de_AT fr_CH sk_SK zh_TW mk_MK he_IL hu_HU
+diff -Naur orig/nls/Makemodule.am mod/nls/Makemodule.am
+--- orig/nls/Makemodule.am	2014-04-11 17:44:55.000000000 +0200
++++ mod/nls/Makemodule.am	2015-02-07 19:54:01.829424619 +0100
+@@ -41,7 +41,8 @@
+ 	nls/uk_UA \
+ 	nls/vi_VN \
+ 	nls/zh_CN \
+-	nls/zh_TW
++	nls/zh_TW \
++	nls/hu_HU
  
- MAINTAINERCLEANFILES = Makefile.in fluxbox-nls.hh
- EXTRA_DIST=fluxbox-nls.hh nlsinfo
+ uninstall-local:
+ 	@if test x$(NLSTEST) = "x-DNLS"; then \
