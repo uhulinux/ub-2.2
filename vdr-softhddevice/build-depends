@@ -2,10 +2,11 @@ alsa-lib-dev
 ffmpeg-dev
 libX11-dev
 libva-dev
+libva-intel-driver
+libva-vdpau-driver
 libvdpau-dev
 libxcb-dev
-mesa-dev
-vdpau-video-dev
 vdr
 vdr-dev
+xcb-util-dev
 xcb-util-wm-dev

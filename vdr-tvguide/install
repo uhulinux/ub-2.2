@@ -2,5 +2,5 @@
 
 ub_install
 
-mkdir -p $UB_INSTALLDIR/var/cdr/config
-cp -r themes $UB_INSTALLDIR/var/cdr/config/themes
+mkdir -p $UB_INSTALLDIR/etc/vdr
+cp -r themes $UB_INSTALLDIR/etc/vdr/themes

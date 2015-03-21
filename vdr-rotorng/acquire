@@ -1,7 +1,0 @@
-#!/usr/bin/env dl
-
-rotorng-${UB_VERSION}.tar.gz rotorng-${UB_VERSION}/ :rotorng
-	http://projects.vdr-developer.org/attachments/download/1088/
-
-Transponders.zip . :transponders
-	http://www.fastsatfinder.com/bin/ 

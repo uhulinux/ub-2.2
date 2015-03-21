@@ -1,1 +1,1 @@
-urllist http://www.joachim-wilke.de/dl_28.htm | parsever | sort -V | tail -n 1
+urllist https://github.com/jowi24/vdr-screenshot/releases/ | splitver '^([0-9.]+).tar.gz$' | sort -V | tail -n 1

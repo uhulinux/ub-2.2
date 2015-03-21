@@ -1,0 +1,8 @@
+Summary=oscam server
+Summary[hu]=oscam szerver
+Description=
+Description[hu]=
+Script=/etc/init.d/oscam
+SupportsReload=no
+Runlevels=
+Sequence=12

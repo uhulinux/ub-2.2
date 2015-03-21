@@ -1,12 +1,3 @@
 #!/bin/sh -eux
 
 ub_install
-#make \
-#	MANDIR="$UB_INSTALLDIR"/usr/share/man \
-#	BINDIR="$UB_INSTALLDIR"/usr/bin \
-#	CONFDIR="$UB_INSTALLDIR"/var/vdr/config \
-#	LOCALEDIR="$UB_INSTALLDIR"/usr/share/locale \
-#	LIBDIR="$UB_INSTALLDIR"/usr/lib/vdr \
-#	VIDEODIR=$"$UB_INSTALLDIR"/var/vdr/video \
-#install
-

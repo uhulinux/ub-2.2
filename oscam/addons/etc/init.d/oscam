@@ -1,0 +1,9 @@
+#!/bin/sh
+
+. /etc/init.d/common
+
+DAEMON=/usr/bin/oscam
+PIDFILE="/var/run/oscam.pid"
+DAEMONARGS=(-b -B $PIDFILE -c /etc/oscam)
+
+startstop "$@"

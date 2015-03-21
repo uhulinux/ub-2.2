@@ -1,5 +1,8 @@
 #!/bin/sh -eux
 
-ub_install
-mkdir -p $UB_INSTALLDIR/usr/share/vdr/plugins
-ln -s $UB_INSTALLDIR/var/vdr/config/plugins/live $UB_INSTALLDIR/usr/share/vdr/plugins/live
+make \
+	DESTDIR=${UB_INSTALLDIR} \
+	LIBDIR=/usr/lib/vdr \
+install
+mkdir -p ${UB_INSTALLDIR}/usr/share/vdr/plugins/
+cp -R live ${UB_INSTALLDIR}/usr/share/vdr/plugins/

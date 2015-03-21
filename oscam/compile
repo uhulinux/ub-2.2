@@ -1,0 +1,5 @@
+#!/bin/sh -eux
+
+make allyesconfig
+export OSCAM_BIN=oscam CONF_DIR=/etc/oscam USE_LIBUSB=1 USE_PCSC=1
+ub_compile

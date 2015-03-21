@@ -1,7 +1,4 @@
 #!/usr/bin/env dl
 
-#vdr-plugin-xvdr-${UB_VERSION_MAJOR}.${UB_VERSION_MINOR}.${UB_VERSION_MICRO}.tar.gz vdr-plugin-xvdr-xvdr-${UB_VERSION_MAJOR}.${UB_VERSION_MINOR}.${UB_VERSION_MICRO}/
-#  git://github.com/pipelka/vdr-plugin-xvdr.git@xvdr-0.9.5
- 
 xvdr-${UB_VERSION}.tar.gz vdr-plugin-xvdr-xvdr-${UB_VERSION}/
   https://github.com/pipelka/vdr-plugin-xvdr/archive/

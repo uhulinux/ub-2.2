@@ -1,31 +1,19 @@
------------------
-Kiss Attila attus@enterpriseforever.com 2014-06-19
-ffmpeg-2.2.3, xine-lib-1.2.5
-----------------------------
-attus 2014-03-27
-ffmpeg-2.2 compile-fix patch
------------------
-Kiss Attila attus@enterpriseforever.com 2014-03-22
-vdr-2.0.6
------------------
-Kiss Attila attus@enterpriseforever.com 2014-02-23
-ffmpeg-2.1.4
-----------------
-2014-01-13 attus
-vdr-2.0.5
+---------------
+Kiss Attila 2015-02-20
+git 2.0.0
 ------------------------------------------------------------------------
-r1940 | attus | 2013-12-18 19:05:56 +0100 (Wed, 18 Dec 2013) | 2 lines
+r35082 | attus@enterpriseforever.com | 2013-11-14 19:13:01 +0100 (Thu, 14 Nov 2013) | 2 lines
 
-acquire fix
+VDR verziókövetés
 
 ------------------------------------------------------------------------
-r1650 | attus | 2013-10-30 21:29:01 +0100 (Wed, 30 Oct 2013) | 3 lines
+r34488 | rezso@rezso.net | 2013-10-11 00:22:31 +0200 (Fri, 11 Oct 2013) | 3 lines
 
 1.0.7~cvs20130223.2117 -> 1.1.0
 acquire fix
 
 ------------------------------------------------------------------------
-r1364 | rezso | 2013-10-03 23:58:05 +0200 (Thu, 03 Oct 2013) | 1 line
+r33165 | attus@enterpriseforever.com | 2013-08-06 15:24:30 +0200 (Tue, 06 Aug 2013) | 1 line
 
 new package: vdr-xineliboutput
 ------------------------------------------------------------------------

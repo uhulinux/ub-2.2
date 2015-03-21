@@ -1,6 +1,6 @@
+/etc/vdr/
+/etc/vdr/conf.d
+/etc/vdr/plugins
 /var/cache/vdr
 /var/vdr/
-/var/vdr/config
-/var/vdr/config/plugins
-/var/vdr/config/plugins/setup
 /var/vdr/video
