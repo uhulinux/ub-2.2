@@ -1,6 +1,6 @@
 diff -Naur orig/desktop-directories/Makefile.am patched/desktop-directories/Makefile.am
 --- orig/desktop-directories/Makefile.am	2013-02-13 23:51:45.000000000 +0100
-+++ patched/desktop-directories/Makefile.am	2014-04-21 12:53:16.747640077 +0200
++++ patched/desktop-directories/Makefile.am	2014-10-20 19:08:40.381368370 +0200
 @@ -10,17 +10,66 @@
  
  directory_in_files = \
@@ -70,7 +70,7 @@ diff -Naur orig/desktop-directories/Makefile.am patched/desktop-directories/Make
  	mate-menu-system.directory.in \
 diff -Naur orig/desktop-directories/Makefile.in patched/desktop-directories/Makefile.in
 --- orig/desktop-directories/Makefile.in	2014-03-01 11:38:08.000000000 +0100
-+++ patched/desktop-directories/Makefile.in	2014-04-21 12:53:38.967845154 +0200
++++ patched/desktop-directories/Makefile.in	2014-10-20 19:08:40.385368390 +0200
 @@ -333,17 +333,66 @@
  
  directory_in_files = \
@@ -140,448 +140,526 @@ diff -Naur orig/desktop-directories/Makefile.in patched/desktop-directories/Make
  	mate-menu-system.directory.in \
 diff -Naur orig/desktop-directories/mate-audio-video-sub-audiovideoediting.directory.in patched/desktop-directories/mate-audio-video-sub-audiovideoediting.directory.in
 --- orig/desktop-directories/mate-audio-video-sub-audiovideoediting.directory.in	1970-01-01 01:00:00.000000000 +0100
-+++ patched/desktop-directories/mate-audio-video-sub-audiovideoediting.directory.in	2014-04-21 20:52:37.789094927 +0200
-@@ -0,0 +1,5 @@
++++ patched/desktop-directories/mate-audio-video-sub-audiovideoediting.directory.in	2014-10-20 19:10:05.405789983 +0200
+@@ -0,0 +1,7 @@
 +[Desktop Entry]
 +_Name=Sound & Video editing
++Name[hu]=Hang és videó szerkesztés
 +_Comment=Applications to edit audio/video files
++Comment[hu]=Hang/videó fájlokat szerkesztő alkalmazások
 +Icon=video-x-generic
 +Type=Directory
 diff -Naur orig/desktop-directories/mate-audio-video-sub-discburning.directory.in patched/desktop-directories/mate-audio-video-sub-discburning.directory.in
 --- orig/desktop-directories/mate-audio-video-sub-discburning.directory.in	1970-01-01 01:00:00.000000000 +0100
-+++ patched/desktop-directories/mate-audio-video-sub-discburning.directory.in	2014-04-21 20:42:39.347571516 +0200
-@@ -0,0 +1,5 @@
++++ patched/desktop-directories/mate-audio-video-sub-discburning.directory.in	2014-10-20 19:12:52.350617818 +0200
+@@ -0,0 +1,7 @@
 +[Desktop Entry]
 +_Name=Disc burning
++Name[hu]=Optikai lemez írás
 +_Comment=Applications to burn a disc
++Comment[hu]=Optikai lemez író alkalmazások
 +Icon=drive-optical
 +Type=Directory
 diff -Naur orig/desktop-directories/mate-audio-video-sub-midi.directory.in patched/desktop-directories/mate-audio-video-sub-midi.directory.in
 --- orig/desktop-directories/mate-audio-video-sub-midi.directory.in	1970-01-01 01:00:00.000000000 +0100
-+++ patched/desktop-directories/mate-audio-video-sub-midi.directory.in	2014-04-21 21:03:41.483220602 +0200
-@@ -0,0 +1,5 @@
++++ patched/desktop-directories/mate-audio-video-sub-midi.directory.in	2014-10-20 19:13:58.070943707 +0200
+@@ -0,0 +1,7 @@
 +[Desktop Entry]
 +_Name=MIDI
++Name[hu]=MIDI
 +_Comment=MIDI applications
++Comment[hu]=MIDI kezelő alkalmazások
 +Icon=applications-multimedia
 +Type=Directory
 diff -Naur orig/desktop-directories/mate-audio-video-sub-mixer.directory.in patched/desktop-directories/mate-audio-video-sub-mixer.directory.in
 --- orig/desktop-directories/mate-audio-video-sub-mixer.directory.in	1970-01-01 01:00:00.000000000 +0100
-+++ patched/desktop-directories/mate-audio-video-sub-mixer.directory.in	2014-04-21 20:43:02.035780912 +0200
++++ patched/desktop-directories/mate-audio-video-sub-mixer.directory.in	2014-10-20 19:14:15.271028998 +0200
 @@ -0,0 +1,5 @@
 +[Desktop Entry]
 +_Name=Mixer
-+_Comment=Mixer
++Name[hu]=Mixer
 +Icon=multimedia-volume-control
 +Type=Directory
 diff -Naur orig/desktop-directories/mate-audio-video-sub-music.directory.in patched/desktop-directories/mate-audio-video-sub-music.directory.in
 --- orig/desktop-directories/mate-audio-video-sub-music.directory.in	1970-01-01 01:00:00.000000000 +0100
-+++ patched/desktop-directories/mate-audio-video-sub-music.directory.in	2014-04-21 20:52:04.748789981 +0200
-@@ -0,0 +1,5 @@
++++ patched/desktop-directories/mate-audio-video-sub-music.directory.in	2014-10-20 19:14:53.919220644 +0200
+@@ -0,0 +1,7 @@
 +[Desktop Entry]
 +_Name=Music
++Name[hu]=Zene
 +_Comment=Musical software
++Comment[hu]=Zenei program
 +Icon=audio-x-generic
 +Type=Directory
 diff -Naur orig/desktop-directories/mate-audio-video-sub-player.directory.in patched/desktop-directories/mate-audio-video-sub-player.directory.in
 --- orig/desktop-directories/mate-audio-video-sub-player.directory.in	1970-01-01 01:00:00.000000000 +0100
-+++ patched/desktop-directories/mate-audio-video-sub-player.directory.in	2014-04-21 20:52:23.432962429 +0200
-@@ -0,0 +1,5 @@
++++ patched/desktop-directories/mate-audio-video-sub-player.directory.in	2014-10-20 19:15:21.227356058 +0200
+@@ -0,0 +1,7 @@
 +[Desktop Entry]
 +_Name=Player
++Name[hu]=Lejátszó
 +_Comment=Play audio/video files
++Comment[hu]=Hang/videó fájlok lejátszása
 +Icon=video-x-generic
 +Type=Directory
 diff -Naur orig/desktop-directories/mate-audio-video-sub-recorder.directory.in patched/desktop-directories/mate-audio-video-sub-recorder.directory.in
 --- orig/desktop-directories/mate-audio-video-sub-recorder.directory.in	1970-01-01 01:00:00.000000000 +0100
-+++ patched/desktop-directories/mate-audio-video-sub-recorder.directory.in	2014-04-21 20:43:29.376033255 +0200
-@@ -0,0 +1,5 @@
++++ patched/desktop-directories/mate-audio-video-sub-recorder.directory.in	2014-10-20 19:15:59.051543618 +0200
+@@ -0,0 +1,7 @@
 +[Desktop Entry]
 +_Name=Recorder
++Name[hu]=Felvevő
 +_Comment=Record audio/video files
++Comment[hu]=Hang/videó fájlokat felvevő alkalmazás
 +Icon=media-record
 +Type=Directory
 diff -Naur orig/desktop-directories/mate-audio-video-sub-sequencer.directory.in patched/desktop-directories/mate-audio-video-sub-sequencer.directory.in
 --- orig/desktop-directories/mate-audio-video-sub-sequencer.directory.in	1970-01-01 01:00:00.000000000 +0100
-+++ patched/desktop-directories/mate-audio-video-sub-sequencer.directory.in	2014-04-20 23:46:55.408171989 +0200
++++ patched/desktop-directories/mate-audio-video-sub-sequencer.directory.in	2014-10-20 19:16:18.371639421 +0200
 @@ -0,0 +1,5 @@
 +[Desktop Entry]
 +_Name=Sequencer
-+_Comment=Sequencer
++Name[hu]=Sequencer
 +Icon=applications-multimedia
 +Type=Directory
 diff -Naur orig/desktop-directories/mate-audio-video-sub-tuner.directory.in patched/desktop-directories/mate-audio-video-sub-tuner.directory.in
 --- orig/desktop-directories/mate-audio-video-sub-tuner.directory.in	1970-01-01 01:00:00.000000000 +0100
-+++ patched/desktop-directories/mate-audio-video-sub-tuner.directory.in	2014-04-20 23:46:55.408171989 +0200
++++ patched/desktop-directories/mate-audio-video-sub-tuner.directory.in	2014-10-20 19:16:37.955736533 +0200
 @@ -0,0 +1,5 @@
 +[Desktop Entry]
 +_Name=Tuner
-+_Comment=Tuner
++Name[hu]=Tuner
 +Icon=applications-multimedia
 +Type=Directory
 diff -Naur orig/desktop-directories/mate-audio-video-sub-tv.directory.in patched/desktop-directories/mate-audio-video-sub-tv.directory.in
 --- orig/desktop-directories/mate-audio-video-sub-tv.directory.in	1970-01-01 01:00:00.000000000 +0100
-+++ patched/desktop-directories/mate-audio-video-sub-tv.directory.in	2014-04-21 21:01:49.318185359 +0200
-@@ -0,0 +1,5 @@
++++ patched/desktop-directories/mate-audio-video-sub-tv.directory.in	2014-10-20 19:17:19.011940120 +0200
+@@ -0,0 +1,7 @@
 +[Desktop Entry]
 +_Name=TV
++Name[hu]=TV
 +_Comment=TV applications
++Comment[hu]=TV alkalmazások
 +Icon=video-display
 +Type=Directory
 diff -Naur orig/desktop-directories/mate-game-sub-action.directory.in patched/desktop-directories/mate-game-sub-action.directory.in
 --- orig/desktop-directories/mate-game-sub-action.directory.in	1970-01-01 01:00:00.000000000 +0100
-+++ patched/desktop-directories/mate-game-sub-action.directory.in	2014-04-20 23:58:35.874637053 +0200
-@@ -0,0 +1,5 @@
++++ patched/desktop-directories/mate-game-sub-action.directory.in	2014-10-20 19:19:31.064594934 +0200
+@@ -0,0 +1,7 @@
 +[Desktop Entry]
 +_Name=Action
++Name[hu]=Akció
 +_Comment=Action game
++Comment[hu]=Akciójáték
 +Icon=weather-storm
 +Type=Directory
 diff -Naur orig/desktop-directories/mate-game-sub-adventure.directory.in patched/desktop-directories/mate-game-sub-adventure.directory.in
 --- orig/desktop-directories/mate-game-sub-adventure.directory.in	1970-01-01 01:00:00.000000000 +0100
-+++ patched/desktop-directories/mate-game-sub-adventure.directory.in	2014-04-20 23:46:55.416172054 +0200
-@@ -0,0 +1,5 @@
++++ patched/desktop-directories/mate-game-sub-adventure.directory.in	2014-10-20 19:20:00.832742546 +0200
+@@ -0,0 +1,7 @@
 +[Desktop Entry]
 +_Name=Adventure
++Name[hu]=Kaland
 +_Comment=Adventure style game
++Comment[hu]=Kalandjáték
 +Icon=applications-games
 +Type=Directory
 diff -Naur orig/desktop-directories/mate-game-sub-arcade.directory.in patched/desktop-directories/mate-game-sub-arcade.directory.in
 --- orig/desktop-directories/mate-game-sub-arcade.directory.in	1970-01-01 01:00:00.000000000 +0100
-+++ patched/desktop-directories/mate-game-sub-arcade.directory.in	2014-04-20 23:59:27.351112178 +0200
-@@ -0,0 +1,5 @@
++++ patched/desktop-directories/mate-game-sub-arcade.directory.in	2014-10-20 19:20:29.040882422 +0200
+@@ -0,0 +1,7 @@
 +[Desktop Entry]
 +_Name=Arcade
++Name[hu]=Ügyességi
 +_Comment=Arcade style game
++Comment[hu]=Ügyességi játék
 +Icon=gnome-joystick
 +Type=Directory
 diff -Naur orig/desktop-directories/mate-game-sub-blocks.directory.in patched/desktop-directories/mate-game-sub-blocks.directory.in
 --- orig/desktop-directories/mate-game-sub-blocks.directory.in	1970-01-01 01:00:00.000000000 +0100
-+++ patched/desktop-directories/mate-game-sub-blocks.directory.in	2014-04-21 00:00:03.639447104 +0200
-@@ -0,0 +1,5 @@
++++ patched/desktop-directories/mate-game-sub-blocks.directory.in	2014-10-20 19:20:59.885035370 +0200
+@@ -0,0 +1,7 @@
 +[Desktop Entry]
 +_Name=Blocks
++Name[hu]=Blokkok
 +_Comment=Falling blocks game
++Comment[hu]=Potyogó blokkok játék (pl. tetris)
 +Icon=gnome-gnometris
 +Type=Directory
 diff -Naur orig/desktop-directories/mate-game-sub-board.directory.in patched/desktop-directories/mate-game-sub-board.directory.in
 --- orig/desktop-directories/mate-game-sub-board.directory.in	1970-01-01 01:00:00.000000000 +0100
-+++ patched/desktop-directories/mate-game-sub-board.directory.in	2014-04-21 21:29:22.141440362 +0200
-@@ -0,0 +1,5 @@
++++ patched/desktop-directories/mate-game-sub-board.directory.in	2014-10-20 19:21:28.505177290 +0200
+@@ -0,0 +1,7 @@
 +[Desktop Entry]
 +_Name=Board
++Name[hu]=Táblás
 +_Comment=Board game
++Comment[hu]=Táblajáték
 +Icon=applications-boardgames
 +Type=Directory
 diff -Naur orig/desktop-directories/mate-game-sub-card.directory.in patched/desktop-directories/mate-game-sub-card.directory.in
 --- orig/desktop-directories/mate-game-sub-card.directory.in	1970-01-01 01:00:00.000000000 +0100
-+++ patched/desktop-directories/mate-game-sub-card.directory.in	2014-04-21 21:30:06.213847138 +0200
-@@ -0,0 +1,5 @@
++++ patched/desktop-directories/mate-game-sub-card.directory.in	2014-10-20 19:21:58.841327719 +0200
+@@ -0,0 +1,7 @@
 +[Desktop Entry]
 +_Name=Card
++Name[hu]=Kártya
 +_Comment=Card game
++Comment[hu]=Kártyajáték
 +Icon=applications-cardgames
 +Type=Directory
 diff -Naur orig/desktop-directories/mate-game-sub-kids.directory.in patched/desktop-directories/mate-game-sub-kids.directory.in
 --- orig/desktop-directories/mate-game-sub-kids.directory.in	1970-01-01 01:00:00.000000000 +0100
-+++ patched/desktop-directories/mate-game-sub-kids.directory.in	2014-04-21 00:01:39.400330936 +0200
-@@ -0,0 +1,5 @@
++++ patched/desktop-directories/mate-game-sub-kids.directory.in	2014-10-20 19:22:25.009457480 +0200
+@@ -0,0 +1,7 @@
 +[Desktop Entry]
 +_Name=Kids
++Name[hu]=Gyerekeknek
 +_Comment=Game for kids
++Comment[hu]=Játék gyerekeknek
 +Icon=gnome-amusements
 +Type=Directory
 diff -Naur orig/desktop-directories/mate-game-sub-logic.directory.in patched/desktop-directories/mate-game-sub-logic.directory.in
 --- orig/desktop-directories/mate-game-sub-logic.directory.in	1970-01-01 01:00:00.000000000 +0100
-+++ patched/desktop-directories/mate-game-sub-logic.directory.in	2014-04-21 00:02:08.632600738 +0200
-@@ -0,0 +1,5 @@
++++ patched/desktop-directories/mate-game-sub-logic.directory.in	2014-10-20 19:22:49.881580814 +0200
+@@ -0,0 +1,7 @@
 +[Desktop Entry]
 +_Name=Logic
++Name[hu]=Logikai
 +_Comment=Logic game
++Comment[hu]=Logikai játék
 +Icon=system-run
 +Type=Directory
 diff -Naur orig/desktop-directories/mate-game-sub-roleplaying.directory.in patched/desktop-directories/mate-game-sub-roleplaying.directory.in
 --- orig/desktop-directories/mate-game-sub-roleplaying.directory.in	1970-01-01 01:00:00.000000000 +0100
-+++ patched/desktop-directories/mate-game-sub-roleplaying.directory.in	2014-04-21 00:02:36.644859291 +0200
++++ patched/desktop-directories/mate-game-sub-roleplaying.directory.in	2014-10-20 19:23:19.577728069 +0200
 @@ -0,0 +1,5 @@
 +[Desktop Entry]
 +_Name=Role playing
-+_Comment=Role playing game
++Name[hu]=Szerepjáték
 +Icon=stock_person
 +Type=Directory
 diff -Naur orig/desktop-directories/mate-game-sub-simulation.directory.in patched/desktop-directories/mate-game-sub-simulation.directory.in
 --- orig/desktop-directories/mate-game-sub-simulation.directory.in	1970-01-01 01:00:00.000000000 +0100
-+++ patched/desktop-directories/mate-game-sub-simulation.directory.in	2014-04-20 23:46:55.416172054 +0200
-@@ -0,0 +1,5 @@
++++ patched/desktop-directories/mate-game-sub-simulation.directory.in	2014-10-20 19:23:44.569851998 +0200
+@@ -0,0 +1,7 @@
 +[Desktop Entry]
 +_Name=Simulation
++Name[hu]=Szimuláció
 +_Comment=Simulation game
++Comment[hu]=Szimulációs játék
 +Icon=applications-games
 +Type=Directory
 diff -Naur orig/desktop-directories/mate-game-sub-sports.directory.in patched/desktop-directories/mate-game-sub-sports.directory.in
 --- orig/desktop-directories/mate-game-sub-sports.directory.in	1970-01-01 01:00:00.000000000 +0100
-+++ patched/desktop-directories/mate-game-sub-sports.directory.in	2014-04-21 00:03:12.377189089 +0200
-@@ -0,0 +1,5 @@
++++ patched/desktop-directories/mate-game-sub-sports.directory.in	2014-10-20 19:24:15.802006870 +0200
+@@ -0,0 +1,7 @@
 +[Desktop Entry]
 +_Name=Sports
++Name[hu]=Sport
 +_Comment=Sports game
++Comment[hu]=Sport játék
 +Icon=stock_scores
 +Type=Directory
 diff -Naur orig/desktop-directories/mate-game-sub-strategy.directory.in patched/desktop-directories/mate-game-sub-strategy.directory.in
 --- orig/desktop-directories/mate-game-sub-strategy.directory.in	1970-01-01 01:00:00.000000000 +0100
-+++ patched/desktop-directories/mate-game-sub-strategy.directory.in	2014-04-20 23:46:55.416172054 +0200
-@@ -0,0 +1,5 @@
++++ patched/desktop-directories/mate-game-sub-strategy.directory.in	2014-10-20 19:24:42.858141034 +0200
+@@ -0,0 +1,7 @@
 +[Desktop Entry]
 +_Name=Strategy
++Name[hu]=Stratégia
 +_Comment=Strategy game
++Comment[hu]=Stratégiai játék
 +Icon=applications-games
 +Type=Directory
 diff -Naur orig/desktop-directories/mate-network-sub-chat.directory.in patched/desktop-directories/mate-network-sub-chat.directory.in
 --- orig/desktop-directories/mate-network-sub-chat.directory.in	1970-01-01 01:00:00.000000000 +0100
-+++ patched/desktop-directories/mate-network-sub-chat.directory.in	2014-04-21 20:48:48.254976401 +0200
-@@ -0,0 +1,5 @@
++++ patched/desktop-directories/mate-network-sub-chat.directory.in	2014-10-20 19:25:12.506288051 +0200
+@@ -0,0 +1,7 @@
 +[Desktop Entry]
 +_Name=Chat
++Name[hu]=Chat
 +_Comment=Chat client
++Comment[hu]=Chat kliens
 +Icon=user-available
 +Type=Directory
 diff -Naur orig/desktop-directories/mate-network-sub-dialup.directory.in patched/desktop-directories/mate-network-sub-dialup.directory.in
 --- orig/desktop-directories/mate-network-sub-dialup.directory.in	1970-01-01 01:00:00.000000000 +0100
-+++ patched/desktop-directories/mate-network-sub-dialup.directory.in	2014-04-21 20:39:35.157871499 +0200
-@@ -0,0 +1,5 @@
++++ patched/desktop-directories/mate-network-sub-dialup.directory.in	2014-10-20 19:25:36.146405276 +0200
+@@ -0,0 +1,7 @@
 +[Desktop Entry]
 +_Name=Dial-up
++Name[hu]=Tárcsázó
 +_Comment=Dial-up program
++Comment[hu]=Tárcsázó program
 +Icon=modem
 +Type=Directory
 diff -Naur orig/desktop-directories/mate-network-sub-email.directory.in patched/desktop-directories/mate-network-sub-email.directory.in
 --- orig/desktop-directories/mate-network-sub-email.directory.in	1970-01-01 01:00:00.000000000 +0100
-+++ patched/desktop-directories/mate-network-sub-email.directory.in	2014-04-21 20:57:15.007653558 +0200
-@@ -0,0 +1,5 @@
++++ patched/desktop-directories/mate-network-sub-email.directory.in	2014-10-20 19:26:01.482530912 +0200
+@@ -0,0 +1,7 @@
 +[Desktop Entry]
 +_Name=Email
++Name[hu]=E-mail
 +_Comment=Email client
++Comment[hu]=E-mail kliens
 +Icon=mail-send
 +Type=Directory
 diff -Naur orig/desktop-directories/mate-network-sub-feed.directory.in patched/desktop-directories/mate-network-sub-feed.directory.in
 --- orig/desktop-directories/mate-network-sub-feed.directory.in	1970-01-01 01:00:00.000000000 +0100
-+++ patched/desktop-directories/mate-network-sub-feed.directory.in	2014-04-20 23:46:55.420172094 +0200
-@@ -0,0 +1,5 @@
++++ patched/desktop-directories/mate-network-sub-feed.directory.in	2014-10-20 19:26:28.058662695 +0200
+@@ -0,0 +1,7 @@
 +[Desktop Entry]
 +_Name=Feed
++Name[hu]=Hírforrások
 +_Comment=RSS, podcast and other subscription based contents
++Comment[hu]=RSS, podcast és más, feliratkozás-alapú tartalom
 +Icon=applications-internet
 +Type=Directory
 diff -Naur orig/desktop-directories/mate-network-sub-filetransfer.directory.in patched/desktop-directories/mate-network-sub-filetransfer.directory.in
 --- orig/desktop-directories/mate-network-sub-filetransfer.directory.in	1970-01-01 01:00:00.000000000 +0100
-+++ patched/desktop-directories/mate-network-sub-filetransfer.directory.in	2014-04-21 21:07:25.525288434 +0200
-@@ -0,0 +1,5 @@
++++ patched/desktop-directories/mate-network-sub-filetransfer.directory.in	2014-10-20 19:26:54.886795729 +0200
+@@ -0,0 +1,7 @@
 +[Desktop Entry]
 +_Name=File transfer
++Name[hu]=Fájlátvitel
 +_Comment=File transfer tool (e.g. FTP)
++Comment[hu]=Eszköz fájlátvitelhez (pl. FTP)
 +Icon=emblem-downloads
 +Type=Directory
 diff -Naur orig/desktop-directories/mate-network-sub-hamradio.directory.in patched/desktop-directories/mate-network-sub-hamradio.directory.in
 --- orig/desktop-directories/mate-network-sub-hamradio.directory.in	1970-01-01 01:00:00.000000000 +0100
-+++ patched/desktop-directories/mate-network-sub-hamradio.directory.in	2014-04-20 23:46:55.420172094 +0200
-@@ -0,0 +1,5 @@
++++ patched/desktop-directories/mate-network-sub-hamradio.directory.in	2014-10-20 19:27:25.694948498 +0200
+@@ -0,0 +1,7 @@
 +[Desktop Entry]
 +_Name=HAM radio
++Name[hu]=Amatőr rádió
 +_Comment=HAM radio software
++Comment[hu]=Programok amatőr rádiózáshoz
 +Icon=applications-internet
 +Type=Directory
 diff -Naur orig/desktop-directories/mate-network-sub-instantmessaging.directory.in patched/desktop-directories/mate-network-sub-instantmessaging.directory.in
 --- orig/desktop-directories/mate-network-sub-instantmessaging.directory.in	1970-01-01 01:00:00.000000000 +0100
-+++ patched/desktop-directories/mate-network-sub-instantmessaging.directory.in	2014-04-21 20:49:05.527135823 +0200
-@@ -0,0 +1,5 @@
++++ patched/desktop-directories/mate-network-sub-instantmessaging.directory.in	2014-10-20 19:27:52.171079786 +0200
+@@ -0,0 +1,7 @@
 +[Desktop Entry]
 +_Name=Instant messaging
++Name[hu]=Azonnali üzenetküldő
 +_Comment=Instant messaging client
++Comment[hu]=Azonnali üzenetküldő kliens
 +Icon=user-available
 +Type=Directory
 diff -Naur orig/desktop-directories/mate-network-sub-ircclient.directory.in patched/desktop-directories/mate-network-sub-ircclient.directory.in
 --- orig/desktop-directories/mate-network-sub-ircclient.directory.in	1970-01-01 01:00:00.000000000 +0100
-+++ patched/desktop-directories/mate-network-sub-ircclient.directory.in	2014-04-21 20:49:29.419356336 +0200
++++ patched/desktop-directories/mate-network-sub-ircclient.directory.in	2014-10-20 19:28:10.863172476 +0200
 @@ -0,0 +1,5 @@
 +[Desktop Entry]
 +_Name=IRC client
-+_Comment=IRC client
++Name[hu]=IRC kliens
 +Icon=user-available
 +Type=Directory
 diff -Naur orig/desktop-directories/mate-network-sub-news.directory.in patched/desktop-directories/mate-network-sub-news.directory.in
 --- orig/desktop-directories/mate-network-sub-news.directory.in	1970-01-01 01:00:00.000000000 +0100
-+++ patched/desktop-directories/mate-network-sub-news.directory.in	2014-04-21 21:21:20.452994540 +0200
-@@ -0,0 +1,5 @@
++++ patched/desktop-directories/mate-network-sub-news.directory.in	2014-10-20 19:28:44.243337999 +0200
+@@ -0,0 +1,7 @@
 +[Desktop Entry]
 +_Name=News
++Name[hu]=Hírek
 +_Comment=News reader or news ticker
++Comment[hu]=Hírolvasó
 +Icon=internet-news-reader
 +Type=Directory
 diff -Naur orig/desktop-directories/mate-network-sub-p2p.directory.in patched/desktop-directories/mate-network-sub-p2p.directory.in
 --- orig/desktop-directories/mate-network-sub-p2p.directory.in	1970-01-01 01:00:00.000000000 +0100
-+++ patched/desktop-directories/mate-network-sub-p2p.directory.in	2014-04-21 21:08:10.457703146 +0200
-@@ -0,0 +1,5 @@
++++ patched/desktop-directories/mate-network-sub-p2p.directory.in	2014-10-20 19:29:07.583453736 +0200
+@@ -0,0 +1,7 @@
 +[Desktop Entry]
 +_Name=P2P
++Name[hu]=P2P
 +_Comment=P2P program
++Comment[hu]=P2P program
 +Icon=emblem-downloads
 +Type=Directory
 diff -Naur orig/desktop-directories/mate-network-sub-remoteaccess.directory.in patched/desktop-directories/mate-network-sub-remoteaccess.directory.in
 --- orig/desktop-directories/mate-network-sub-remoteaccess.directory.in	1970-01-01 01:00:00.000000000 +0100
-+++ patched/desktop-directories/mate-network-sub-remoteaccess.directory.in	2014-04-21 20:31:08.349193823 +0200
-@@ -0,0 +1,5 @@
++++ patched/desktop-directories/mate-network-sub-remoteaccess.directory.in	2014-10-20 19:29:36.015594724 +0200
+@@ -0,0 +1,7 @@
 +[Desktop Entry]
 +_Name=Remote access
++Name[hu]=Távoli elérés
 +_Comment=Tool to remotely manage your PC
++Comment[hu]=A számítógép távoli elérése
 +Icon=preferences-desktop-remote-desktop
 +Type=Directory
 diff -Naur orig/desktop-directories/mate-network-sub-telephony.directory.in patched/desktop-directories/mate-network-sub-telephony.directory.in
 --- orig/desktop-directories/mate-network-sub-telephony.directory.in	1970-01-01 01:00:00.000000000 +0100
-+++ patched/desktop-directories/mate-network-sub-telephony.directory.in	2014-04-21 20:40:43.338500783 +0200
-@@ -0,0 +1,5 @@
++++ patched/desktop-directories/mate-network-sub-telephony.directory.in	2014-10-20 19:30:01.559721390 +0200
+@@ -0,0 +1,7 @@
 +[Desktop Entry]
 +_Name=Telephony
++Name[hu]=Telefonálás
 +_Comment=Telephony via PC
++Comment[hu]=Telefonálás számítógépen keresztül
 +Icon=call-start
 +Type=Directory
 diff -Naur orig/desktop-directories/mate-network-sub-videoconference.directory.in patched/desktop-directories/mate-network-sub-videoconference.directory.in
 --- orig/desktop-directories/mate-network-sub-videoconference.directory.in	1970-01-01 01:00:00.000000000 +0100
-+++ patched/desktop-directories/mate-network-sub-videoconference.directory.in	2014-04-21 20:38:53.329485442 +0200
-@@ -0,0 +1,5 @@
++++ patched/desktop-directories/mate-network-sub-videoconference.directory.in	2014-10-20 19:30:28.007852539 +0200
+@@ -0,0 +1,7 @@
 +[Desktop Entry]
 +_Name=Video conference
++Name[hu]=Videókonferencia
 +_Comment=Video conference software
++Comment[hu]=Videókonferencia program
 +Icon=camera-web
 +Type=Directory
 diff -Naur orig/desktop-directories/mate-network-sub-webbrowser.directory.in patched/desktop-directories/mate-network-sub-webbrowser.directory.in
 --- orig/desktop-directories/mate-network-sub-webbrowser.directory.in	1970-01-01 01:00:00.000000000 +0100
-+++ patched/desktop-directories/mate-network-sub-webbrowser.directory.in	2014-04-21 20:29:24.788237989 +0200
++++ patched/desktop-directories/mate-network-sub-webbrowser.directory.in	2014-10-20 19:30:42.911926445 +0200
 @@ -0,0 +1,5 @@
 +[Desktop Entry]
 +_Name=Web browser
-+_Comment=Web browser
++Name[hu]=Webböngésző
 +Icon=web-browser
 +Type=Directory
 diff -Naur orig/desktop-directories/mate-system-tools-sub-emulator.directory.in patched/desktop-directories/mate-system-tools-sub-emulator.directory.in
 --- orig/desktop-directories/mate-system-tools-sub-emulator.directory.in	1970-01-01 01:00:00.000000000 +0100
-+++ patched/desktop-directories/mate-system-tools-sub-emulator.directory.in	2014-04-20 23:46:55.424172139 +0200
-@@ -0,0 +1,5 @@
++++ patched/desktop-directories/mate-system-tools-sub-emulator.directory.in	2014-10-20 19:31:09.280057197 +0200
+@@ -0,0 +1,7 @@
 +[Desktop Entry]
 +_Name=Emulator
++Name[hu]=Emulátor
 +_Comment=Emulator of another platform
++Comment[hu]=Más platform emulátora
 +Icon=applications-system
 +Type=Directory
 diff -Naur orig/desktop-directories/mate-system-tools-sub-filemanager.directory.in patched/desktop-directories/mate-system-tools-sub-filemanager.directory.in
 --- orig/desktop-directories/mate-system-tools-sub-filemanager.directory.in	1970-01-01 01:00:00.000000000 +0100
-+++ patched/desktop-directories/mate-system-tools-sub-filemanager.directory.in	2014-04-21 20:44:06.204373175 +0200
++++ patched/desktop-directories/mate-system-tools-sub-filemanager.directory.in	2014-10-20 19:31:28.840154190 +0200
 @@ -0,0 +1,5 @@
 +[Desktop Entry]
 +_Name=File manager
-+_Comment=File manager
++Name[hu]=Fájlkezelő
 +Icon=system-file-manager
 +Type=Directory
 diff -Naur orig/desktop-directories/mate-system-tools-sub-filesystem.directory.in patched/desktop-directories/mate-system-tools-sub-filesystem.directory.in
 --- orig/desktop-directories/mate-system-tools-sub-filesystem.directory.in	1970-01-01 01:00:00.000000000 +0100
-+++ patched/desktop-directories/mate-system-tools-sub-filesystem.directory.in	2014-04-20 23:46:55.424172139 +0200
-@@ -0,0 +1,5 @@
++++ patched/desktop-directories/mate-system-tools-sub-filesystem.directory.in	2014-10-20 19:32:09.224354445 +0200
+@@ -0,0 +1,7 @@
 +[Desktop Entry]
 +_Name=Filesystem
++Name[hu]=Fájlrendszer
 +_Comment=Filesystem tool
++Comment[hu]=Fájlrendszer-kezelő eszköz
 +Icon=applications-system
 +Type=Directory
 diff -Naur orig/desktop-directories/mate-system-tools-sub-monitor.directory.in patched/desktop-directories/mate-system-tools-sub-monitor.directory.in
 --- orig/desktop-directories/mate-system-tools-sub-monitor.directory.in	1970-01-01 01:00:00.000000000 +0100
-+++ patched/desktop-directories/mate-system-tools-sub-monitor.directory.in	2014-04-21 20:44:37.152658807 +0200
-@@ -0,0 +1,5 @@
++++ patched/desktop-directories/mate-system-tools-sub-monitor.directory.in	2014-10-20 19:32:57.616594409 +0200
+@@ -0,0 +1,7 @@
 +[Desktop Entry]
 +_Name=Monitor
++Name[hu]=Rendszerfigyelő
 +_Comment=Monitor application/applet that monitors some resource or activity
++Comment[hu]=Erőforrás vagy aktivitás figyelő alkalmazás
 +Icon=utilities-system-monitor
 +Type=Directory
 diff -Naur orig/desktop-directories/mate-system-tools-sub-terminalemulator.directory.in patched/desktop-directories/mate-system-tools-sub-terminalemulator.directory.in
 --- orig/desktop-directories/mate-system-tools-sub-terminalemulator.directory.in	1970-01-01 01:00:00.000000000 +0100
-+++ patched/desktop-directories/mate-system-tools-sub-terminalemulator.directory.in	2014-04-21 20:45:01.888887124 +0200
-@@ -0,0 +1,5 @@
++++ patched/desktop-directories/mate-system-tools-sub-terminalemulator.directory.in	2014-10-20 19:33:26.692738590 +0200
+@@ -0,0 +1,7 @@
 +[Desktop Entry]
 +_Name=Terminal emulator
++Name[hu]=Terminálemulátor
 +_Comment=Terminal emulator application
++Comment[hu]=Terminálemulátor alkalmazás
 +Icon=utilities-terminal
 +Type=Directory
 diff -Naur orig/desktop-directories/mate-utility-sub-archiving.directory.in patched/desktop-directories/mate-utility-sub-archiving.directory.in
 --- orig/desktop-directories/mate-utility-sub-archiving.directory.in	1970-01-01 01:00:00.000000000 +0100
-+++ patched/desktop-directories/mate-utility-sub-archiving.directory.in	2014-04-21 20:53:37.821649009 +0200
-@@ -0,0 +1,5 @@
++++ patched/desktop-directories/mate-utility-sub-archiving.directory.in	2014-10-20 19:33:58.912898361 +0200
+@@ -0,0 +1,7 @@
 +[Desktop Entry]
 +_Name=Archiving
++Name[hu]=Archiválás
 +_Comment=Tool to archive/backup data
++Comment[hu]=Adat archiváló/visszaállító eszköz
 +Icon=package-x-generic
 +Type=Directory
 diff -Naur orig/desktop-directories/mate-utility-sub-calculator.directory.in patched/desktop-directories/mate-utility-sub-calculator.directory.in
 --- orig/desktop-directories/mate-utility-sub-calculator.directory.in	1970-01-01 01:00:00.000000000 +0100
-+++ patched/desktop-directories/mate-utility-sub-calculator.directory.in	2014-04-21 20:41:15.598798535 +0200
++++ patched/desktop-directories/mate-utility-sub-calculator.directory.in	2014-10-20 19:34:14.844977364 +0200
 @@ -0,0 +1,5 @@
 +[Desktop Entry]
 +_Name=Calculator
-+_Comment=Calculators
++Name[hu]=Számológép
 +Icon=accessories-calculator
 +Type=Directory
 diff -Naur orig/desktop-directories/mate-utility-sub-clock.directory.in patched/desktop-directories/mate-utility-sub-clock.directory.in
 --- orig/desktop-directories/mate-utility-sub-clock.directory.in	1970-01-01 01:00:00.000000000 +0100
-+++ patched/desktop-directories/mate-utility-sub-clock.directory.in	2014-04-21 21:18:43.987550411 +0200
++++ patched/desktop-directories/mate-utility-sub-clock.directory.in	2014-10-20 19:34:34.877076698 +0200
 @@ -0,0 +1,5 @@
 +[Desktop Entry]
 +_Name=Clock
-+_Comment=Clock
++Name[hu]=Óra
 +Icon=mate-panel-clock
 +Type=Directory
 diff -Naur orig/desktop-directories/mate-utility-sub-compression.directory.in patched/desktop-directories/mate-utility-sub-compression.directory.in
 --- orig/desktop-directories/mate-utility-sub-compression.directory.in	1970-01-01 01:00:00.000000000 +0100
-+++ patched/desktop-directories/mate-utility-sub-compression.directory.in	2014-04-21 20:54:05.529904744 +0200
-@@ -0,0 +1,5 @@
++++ patched/desktop-directories/mate-utility-sub-compression.directory.in	2014-10-20 19:35:05.113226631 +0200
+@@ -0,0 +1,7 @@
 +[Desktop Entry]
 +_Name=Compression
++Name[hu]=Tömörítés
 +_Comment=Tool to manage compressed data/archives
++Comment[hu]=Tömörített adatokat/archívumokat kezelő eszköz
 +Icon=package-x-generic
 +Type=Directory
 diff -Naur orig/desktop-directories/mate-utility-sub-filetool.directory.in patched/desktop-directories/mate-utility-sub-filetool.directory.in
 --- orig/desktop-directories/mate-utility-sub-filetool.directory.in	1970-01-01 01:00:00.000000000 +0100
-+++ patched/desktop-directories/mate-utility-sub-filetool.directory.in	2014-04-21 21:33:45.339869610 +0200
++++ patched/desktop-directories/mate-utility-sub-filetool.directory.in	2014-10-20 19:35:23.245316543 +0200
 @@ -0,0 +1,5 @@
 +[Desktop Entry]
 +_Name=File tool
-+_Comment=File tool utility
++Name[hu]=Fájlkezelő eszköz
 +Icon=system-file-manager
 +Type=Directory
 diff -Naur orig/desktop-directories/mate-utility-sub-telephonytool.directory.in patched/desktop-directories/mate-utility-sub-telephonytool.directory.in
 --- orig/desktop-directories/mate-utility-sub-telephonytool.directory.in	1970-01-01 01:00:00.000000000 +0100
-+++ patched/desktop-directories/mate-utility-sub-telephonytool.directory.in	2014-04-21 20:40:29.258370828 +0200
-@@ -0,0 +1,5 @@
++++ patched/desktop-directories/mate-utility-sub-telephonytool.directory.in	2014-10-20 19:35:53.881468459 +0200
+@@ -0,0 +1,7 @@
 +[Desktop Entry]
 +_Name=Telephony tool
++Name[hu]=Segédeszköz telefonáláshoz
 +_Comment=Telephony tool, to dial a number, manage PBX, ...
++Comment[hu]=Segédeszköz telefonáláshoz; tárcsázás, PBX kezelése, ...
 +Icon=call-start
 +Type=Directory
 diff -Naur orig/desktop-directories/mate-utility-sub-texteditor.directory.in patched/desktop-directories/mate-utility-sub-texteditor.directory.in
 --- orig/desktop-directories/mate-utility-sub-texteditor.directory.in	1970-01-01 01:00:00.000000000 +0100
-+++ patched/desktop-directories/mate-utility-sub-texteditor.directory.in	2014-04-21 20:41:41.519037764 +0200
-@@ -0,0 +1,5 @@
++++ patched/desktop-directories/mate-utility-sub-texteditor.directory.in	2014-10-20 19:36:39.793696126 +0200
+@@ -0,0 +1,7 @@
 +[Desktop Entry]
 +_Name=Text editor
++Name[hu]=Szövegszerkesztő
 +_Comment=Text editing
++Comment[hu]=Szöveg szerkesztése
 +Icon=accessories-text-editor
 +Type=Directory
 diff -Naur orig/desktop-directories/mate-utility-sub-texttool.directory.in patched/desktop-directories/mate-utility-sub-texttool.directory.in
 --- orig/desktop-directories/mate-utility-sub-texttool.directory.in	1970-01-01 01:00:00.000000000 +0100
-+++ patched/desktop-directories/mate-utility-sub-texttool.directory.in	2014-04-21 20:42:03.139237317 +0200
-@@ -0,0 +1,5 @@
++++ patched/desktop-directories/mate-utility-sub-texttool.directory.in	2014-10-20 19:37:05.833825252 +0200
+@@ -0,0 +1,7 @@
 +[Desktop Entry]
 +_Name=Text tool
++Name[hu]=Szöveg kezelő
 +_Comment=Text tool utility
++Comment[hu]=Szöveg kezelő eszköz
 +Icon=accessories-text-editor
 +Type=Directory
 diff -Naur orig/layout/mate-applications.menu patched/layout/mate-applications.menu
 --- orig/layout/mate-applications.menu	2014-01-19 22:20:59.000000000 +0100
-+++ patched/layout/mate-applications.menu	2014-04-21 12:56:00.337149950 +0200
++++ patched/layout/mate-applications.menu	2014-10-20 19:08:40.393368429 +0200
 @@ -34,6 +34,72 @@
          <Not><Category>System</Category></Not>
        </And>
@@ -1030,444 +1108,9 @@ diff -Naur orig/layout/mate-applications.menu patched/layout/mate-applications.m
    </Menu>   <!-- End System Tools -->
  
    <!-- Other -->
-diff -Naur orig/po/hu.po patched/po/hu.po
---- orig/po/hu.po	2013-10-20 13:17:37.000000000 +0200
-+++ patched/po/hu.po	2014-04-21 16:17:13.000000000 +0200
-@@ -1,23 +1,25 @@
- # SOME DESCRIPTIVE TITLE.
- # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
- # This file is distributed under the same license as the PACKAGE package.
--# 
-+#
- # Translators:
- # Gabor Kelemen <kelemeng at mate dot hu>, 2004, 2005, 2006, 2007, 2008, 2009
- # Laszlo Dvornik <dvornik at mate dot hu>, 2005
- msgid ""
- msgstr ""
- "Project-Id-Version: MATE Desktop Environment\n"
--"Report-Msgid-Bugs-To: https://github.com/mate-desktop/\n"
--"POT-Creation-Date: 2012-07-04 15:45+0200\n"
--"PO-Revision-Date: 2012-07-04 13:51+0000\n"
--"Last-Translator: Stefano Karapetsas <stefano@karapetsas.com>\n"
--"Language-Team: Hungarian (http://www.transifex.com/projects/p/MATE/language/hu/)\n"
-+"Report-Msgid-Bugs-To: \n"
-+"POT-Creation-Date: 2014-04-21 16:10+0200\n"
-+"PO-Revision-Date: 2014-04-21 16:17+0100\n"
-+"Last-Translator: rezso <rezso@rezso.net>\n"
-+"Language-Team: Hungarian (http://www.transifex.com/projects/p/MATE/language/"
-+"hu/)\n"
-+"Language: hu\n"
- "MIME-Version: 1.0\n"
- "Content-Type: text/plain; charset=UTF-8\n"
- "Content-Transfer-Encoding: 8bit\n"
--"Language: hu\n"
- "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-+"X-Generator: Poedit 1.6.4\n"
- 
- #: ../desktop-directories/mate-audio-video.directory.in.h:1
- msgid "Sound & Video"
-@@ -27,6 +29,74 @@
- msgid "Multimedia menu"
- msgstr "Multimédia menü"
- 
-+#: ../desktop-directories/mate-audio-video-sub-audiovideoediting.directory.in.h:1
-+msgid "Sound & Video editing"
-+msgstr "Hang és videó szerkesztés"
-+
-+#: ../desktop-directories/mate-audio-video-sub-audiovideoediting.directory.in.h:2
-+msgid "Applications to edit audio/video files"
-+msgstr "Hang/videó fájlokat szerkesztő alkalmazások"
-+
-+#: ../desktop-directories/mate-audio-video-sub-discburning.directory.in.h:1
-+msgid "Disc burning"
-+msgstr "Optikai lemez írás"
-+
-+#: ../desktop-directories/mate-audio-video-sub-discburning.directory.in.h:2
-+msgid "Applications to burn a disc"
-+msgstr "Optikai lemez író alkalmazások"
-+
-+#: ../desktop-directories/mate-audio-video-sub-midi.directory.in.h:1
-+msgid "MIDI"
-+msgstr "MIDI"
-+
-+#: ../desktop-directories/mate-audio-video-sub-midi.directory.in.h:2
-+msgid "MIDI applications"
-+msgstr "MIDI kezelő alkalmazások"
-+
-+#: ../desktop-directories/mate-audio-video-sub-mixer.directory.in.h:1
-+msgid "Mixer"
-+msgstr "Mixer"
-+
-+#: ../desktop-directories/mate-audio-video-sub-music.directory.in.h:1
-+msgid "Music"
-+msgstr "Zene"
-+
-+#: ../desktop-directories/mate-audio-video-sub-music.directory.in.h:2
-+msgid "Musical software"
-+msgstr "Zenei program"
-+
-+#: ../desktop-directories/mate-audio-video-sub-player.directory.in.h:1
-+msgid "Player"
-+msgstr "Lejátszó"
-+
-+#: ../desktop-directories/mate-audio-video-sub-player.directory.in.h:2
-+msgid "Play audio/video files"
-+msgstr "Hang/videó fájlok lejátszása"
-+
-+#: ../desktop-directories/mate-audio-video-sub-recorder.directory.in.h:1
-+msgid "Recorder"
-+msgstr "Felvevő"
-+
-+#: ../desktop-directories/mate-audio-video-sub-recorder.directory.in.h:2
-+msgid "Record audio/video files"
-+msgstr "Hang/videó fájlokat felvevő alkalmazás"
-+
-+#: ../desktop-directories/mate-audio-video-sub-sequencer.directory.in.h:1
-+msgid "Sequencer"
-+msgstr "Sequencer"
-+
-+#: ../desktop-directories/mate-audio-video-sub-tuner.directory.in.h:1
-+msgid "Tuner"
-+msgstr "Tuner"
-+
-+#: ../desktop-directories/mate-audio-video-sub-tv.directory.in.h:1
-+msgid "TV"
-+msgstr "TV"
-+
-+#: ../desktop-directories/mate-audio-video-sub-tv.directory.in.h:2
-+msgid "TV applications"
-+msgstr "TV alkalmazások"
-+
- #: ../desktop-directories/mate-development.directory.in.h:1
- msgid "Programming"
- msgstr "Fejlesztés"
-@@ -47,6 +117,102 @@
- msgid "Games and amusements"
- msgstr "Játék és szórakozás"
- 
-+#: ../desktop-directories/mate-game-sub-action.directory.in.h:1
-+msgid "Action"
-+msgstr "Akció"
-+
-+#: ../desktop-directories/mate-game-sub-action.directory.in.h:2
-+msgid "Action game"
-+msgstr "Akciójáték"
-+
-+#: ../desktop-directories/mate-game-sub-adventure.directory.in.h:1
-+msgid "Adventure"
-+msgstr "Kaland"
-+
-+#: ../desktop-directories/mate-game-sub-adventure.directory.in.h:2
-+msgid "Adventure style game"
-+msgstr "Kalandjáték"
-+
-+#: ../desktop-directories/mate-game-sub-arcade.directory.in.h:1
-+msgid "Arcade"
-+msgstr "Ügyességi"
-+
-+#: ../desktop-directories/mate-game-sub-arcade.directory.in.h:2
-+msgid "Arcade style game"
-+msgstr "Ügyességi játék"
-+
-+#: ../desktop-directories/mate-game-sub-board.directory.in.h:1
-+msgid "Board"
-+msgstr "Táblás"
-+
-+#: ../desktop-directories/mate-game-sub-board.directory.in.h:2
-+msgid "Board game"
-+msgstr "Táblajáték"
-+
-+#: ../desktop-directories/mate-game-sub-blocks.directory.in.h:1
-+msgid "Blocks"
-+msgstr ""
-+
-+#: ../desktop-directories/mate-game-sub-blocks.directory.in.h:2
-+msgid "Falling blocks game"
-+msgstr ""
-+
-+#: ../desktop-directories/mate-game-sub-card.directory.in.h:1
-+msgid "Card"
-+msgstr "Kártya"
-+
-+#: ../desktop-directories/mate-game-sub-card.directory.in.h:2
-+msgid "Card game"
-+msgstr "Kártyajáték"
-+
-+#: ../desktop-directories/mate-game-sub-kids.directory.in.h:1
-+msgid "Kids"
-+msgstr "Gyerekeknek"
-+
-+#: ../desktop-directories/mate-game-sub-kids.directory.in.h:2
-+msgid "Game for kids"
-+msgstr "Játék gyerekeknek"
-+
-+#: ../desktop-directories/mate-game-sub-logic.directory.in.h:1
-+msgid "Logic"
-+msgstr "Logikai"
-+
-+#: ../desktop-directories/mate-game-sub-logic.directory.in.h:2
-+msgid "Logic game"
-+msgstr "Logikai játék"
-+
-+#: ../desktop-directories/mate-game-sub-roleplaying.directory.in.h:1
-+msgid "Role playing"
-+msgstr ""
-+
-+#: ../desktop-directories/mate-game-sub-roleplaying.directory.in.h:2
-+msgid "Role playing game"
-+msgstr ""
-+
-+#: ../desktop-directories/mate-game-sub-simulation.directory.in.h:1
-+msgid "Simulation"
-+msgstr "Szimuláció"
-+
-+#: ../desktop-directories/mate-game-sub-simulation.directory.in.h:2
-+msgid "Simulation game"
-+msgstr "Szimulációs játék"
-+
-+#: ../desktop-directories/mate-game-sub-sports.directory.in.h:1
-+msgid "Sports"
-+msgstr "Sport"
-+
-+#: ../desktop-directories/mate-game-sub-sports.directory.in.h:2
-+msgid "Sports game"
-+msgstr "Sport játék"
-+
-+#: ../desktop-directories/mate-game-sub-strategy.directory.in.h:1
-+msgid "Strategy"
-+msgstr "Stratégia"
-+
-+#: ../desktop-directories/mate-game-sub-strategy.directory.in.h:2
-+msgid "Strategy game"
-+msgstr "Stratégiai játék"
-+
- #: ../desktop-directories/mate-graphics.directory.in.h:1
- msgid "Graphics"
- msgstr "Grafika"
-@@ -87,6 +253,110 @@
- msgid "Programs for Internet access such as web and email"
- msgstr "Programok az internet használatához (pl. web és e-mail)"
- 
-+#: ../desktop-directories/mate-network-sub-chat.directory.in.h:1
-+msgid "Chat"
-+msgstr "Chat"
-+
-+#: ../desktop-directories/mate-network-sub-chat.directory.in.h:2
-+msgid "Chat client"
-+msgstr "Chat kliens"
-+
-+#: ../desktop-directories/mate-network-sub-dialup.directory.in.h:1
-+msgid "Dial-up"
-+msgstr "Tárcsázó"
-+
-+#: ../desktop-directories/mate-network-sub-dialup.directory.in.h:2
-+msgid "Dial-up program"
-+msgstr "Tárcsázó program"
-+
-+#: ../desktop-directories/mate-network-sub-email.directory.in.h:1
-+msgid "Email"
-+msgstr "E-mail"
-+
-+#: ../desktop-directories/mate-network-sub-email.directory.in.h:2
-+msgid "Email client"
-+msgstr "E-mail kliens"
-+
-+#: ../desktop-directories/mate-network-sub-feed.directory.in.h:1
-+msgid "Feed"
-+msgstr "Hírforrások"
-+
-+#: ../desktop-directories/mate-network-sub-feed.directory.in.h:2
-+msgid "RSS, podcast and other subscription based contents"
-+msgstr "RSS, podcast és más, feliratkozás-alapú tartalom"
-+
-+#: ../desktop-directories/mate-network-sub-filetransfer.directory.in.h:1
-+msgid "File transfer"
-+msgstr "Fájlátvitel"
-+
-+#: ../desktop-directories/mate-network-sub-filetransfer.directory.in.h:2
-+msgid "File transfer tool (e.g. FTP)"
-+msgstr "Eszköz fájlátvitelhez (pl. FTP)"
-+
-+#: ../desktop-directories/mate-network-sub-hamradio.directory.in.h:1
-+msgid "HAM radio"
-+msgstr "HAM rádió"
-+
-+#: ../desktop-directories/mate-network-sub-hamradio.directory.in.h:2
-+msgid "HAM radio software"
-+msgstr "HAM rádió program"
-+
-+#: ../desktop-directories/mate-network-sub-instantmessaging.directory.in.h:1
-+msgid "Instant messaging"
-+msgstr "Azonnali üzenetküldő"
-+
-+#: ../desktop-directories/mate-network-sub-instantmessaging.directory.in.h:2
-+msgid "Instant messaging client"
-+msgstr "Azonnali üzenetküldő kliens"
-+
-+#: ../desktop-directories/mate-network-sub-ircclient.directory.in.h:1
-+msgid "IRC client"
-+msgstr "IRC kliens"
-+
-+#: ../desktop-directories/mate-network-sub-news.directory.in.h:1
-+msgid "News"
-+msgstr "Hírek"
-+
-+#: ../desktop-directories/mate-network-sub-news.directory.in.h:2
-+msgid "News reader or news ticker"
-+msgstr "Hírolvasó"
-+
-+#: ../desktop-directories/mate-network-sub-p2p.directory.in.h:1
-+msgid "P2P"
-+msgstr "P2P"
-+
-+#: ../desktop-directories/mate-network-sub-p2p.directory.in.h:2
-+msgid "P2P program"
-+msgstr "P2P program"
-+
-+#: ../desktop-directories/mate-network-sub-remoteaccess.directory.in.h:1
-+msgid "Remote access"
-+msgstr "Távoli elérés"
-+
-+#: ../desktop-directories/mate-network-sub-remoteaccess.directory.in.h:2
-+msgid "Tool to remotely manage your PC"
-+msgstr "A számítógép távoli elérése"
-+
-+#: ../desktop-directories/mate-network-sub-telephony.directory.in.h:1
-+msgid "Telephony"
-+msgstr "Telefonálás"
-+
-+#: ../desktop-directories/mate-network-sub-telephony.directory.in.h:2
-+msgid "Telephony via PC"
-+msgstr "Telefonálás számítógépen keresztül"
-+
-+#: ../desktop-directories/mate-network-sub-videoconference.directory.in.h:1
-+msgid "Video conference"
-+msgstr "Videókonferencia"
-+
-+#: ../desktop-directories/mate-network-sub-videoconference.directory.in.h:2
-+msgid "Video conference software"
-+msgstr "Videókonferencia program"
-+
-+#: ../desktop-directories/mate-network-sub-webbrowser.directory.in.h:1
-+msgid "Web browser"
-+msgstr "Webböngésző"
-+
- #: ../desktop-directories/mate-office.directory.in.h:1
- msgid "Office"
- msgstr "Iroda"
-@@ -137,6 +407,42 @@
- msgid "System configuration and monitoring"
- msgstr "Rendszerbeállítás és megfigyelés"
- 
-+#: ../desktop-directories/mate-system-tools-sub-emulator.directory.in.h:1
-+msgid "Emulator"
-+msgstr "Emulátor"
-+
-+#: ../desktop-directories/mate-system-tools-sub-emulator.directory.in.h:2
-+msgid "Emulator of another platform"
-+msgstr "Más platform emulátora"
-+
-+#: ../desktop-directories/mate-system-tools-sub-filemanager.directory.in.h:1
-+msgid "File manager"
-+msgstr "Fájlkezelő"
-+
-+#: ../desktop-directories/mate-system-tools-sub-filesystem.directory.in.h:1
-+msgid "Filesystem"
-+msgstr "Fájlrendszer"
-+
-+#: ../desktop-directories/mate-system-tools-sub-filesystem.directory.in.h:2
-+msgid "Filesystem tool"
-+msgstr "Fájlrendszer-eszköz"
-+
-+#: ../desktop-directories/mate-system-tools-sub-monitor.directory.in.h:1
-+msgid "Monitor"
-+msgstr "Rendszerfigyelő"
-+
-+#: ../desktop-directories/mate-system-tools-sub-monitor.directory.in.h:2
-+msgid "Monitor application/applet that monitors some resource or activity"
-+msgstr "Erőforrás vagy aktivitás figyelő alkalmazás"
-+
-+#: ../desktop-directories/mate-system-tools-sub-terminalemulator.directory.in.h:1
-+msgid "Terminal emulator"
-+msgstr "Terminálemulátor"
-+
-+#: ../desktop-directories/mate-system-tools-sub-terminalemulator.directory.in.h:2
-+msgid "Terminal emulator application"
-+msgstr "Terminálemulátor alkalmazás"
-+
- #: ../desktop-directories/mate-utility-accessibility.directory.in.h:1
- msgid "Universal Access"
- msgstr "Akadálymentesítés"
-@@ -145,6 +451,66 @@
- msgid "Universal Access Settings"
- msgstr "Akadálymentesítés beállításai"
- 
-+#: ../desktop-directories/mate-utility-sub-archiving.directory.in.h:1
-+msgid "Archiving"
-+msgstr "Archiválás"
-+
-+#: ../desktop-directories/mate-utility-sub-archiving.directory.in.h:2
-+msgid "Tool to archive/backup data"
-+msgstr "Adat archiváló/visszaállító eszköz"
-+
-+#: ../desktop-directories/mate-utility-sub-calculator.directory.in.h:1
-+msgid "Calculator"
-+msgstr "Számológép"
-+
-+#: ../desktop-directories/mate-utility-sub-calculator.directory.in.h:2
-+msgid "Calculators"
-+msgstr "Számológép"
-+
-+#: ../desktop-directories/mate-utility-sub-clock.directory.in.h:1
-+msgid "Clock"
-+msgstr "Óra"
-+
-+#: ../desktop-directories/mate-utility-sub-compression.directory.in.h:1
-+msgid "Compression"
-+msgstr "Tömörítés"
-+
-+#: ../desktop-directories/mate-utility-sub-compression.directory.in.h:2
-+msgid "Tool to manage compressed data/archives"
-+msgstr "Tömörített adatokat/archívumokat kezelő eszköz"
-+
-+#: ../desktop-directories/mate-utility-sub-filetool.directory.in.h:1
-+msgid "File tool"
-+msgstr "Fájlkezelő eszköz"
-+
-+#: ../desktop-directories/mate-utility-sub-filetool.directory.in.h:2
-+msgid "File tool utility"
-+msgstr "Fájlkezelő eszköz"
-+
-+#: ../desktop-directories/mate-utility-sub-telephonytool.directory.in.h:1
-+msgid "Telephony tool"
-+msgstr "Segédeszköz telefonáláshoz"
-+
-+#: ../desktop-directories/mate-utility-sub-telephonytool.directory.in.h:2
-+msgid "Telephony tool, to dial a number, manage PBX, ..."
-+msgstr "Segédeszköz telefonáláshoz; tárcsázás, PBX kezelése, ..."
-+
-+#: ../desktop-directories/mate-utility-sub-texteditor.directory.in.h:1
-+msgid "Text editor"
-+msgstr "Szövegszerkesztő"
-+
-+#: ../desktop-directories/mate-utility-sub-texteditor.directory.in.h:2
-+msgid "Text editing"
-+msgstr "Szöveg szerkesztése"
-+
-+#: ../desktop-directories/mate-utility-sub-texttool.directory.in.h:1
-+msgid "Text tool"
-+msgstr "Szöveg kezelő"
-+
-+#: ../desktop-directories/mate-utility-sub-texttool.directory.in.h:2
-+msgid "Text tool utility"
-+msgstr "Szöveg kezelő eszköz"
-+
- #: ../desktop-directories/mate-utility.directory.in.h:1
- msgid "Accessories"
- msgstr "Kellékek"
 diff -Naur orig/po/POTFILES.in patched/po/POTFILES.in
 --- orig/po/POTFILES.in	2013-02-13 23:51:45.000000000 +0100
-+++ patched/po/POTFILES.in	2014-04-21 12:54:21.360236429 +0200
++++ patched/po/POTFILES.in	2014-10-20 19:08:40.393368429 +0200
 @@ -1,21 +1,70 @@
  # List of source files containing translatable strings.
  # Please keep this file sorted alphabetically.

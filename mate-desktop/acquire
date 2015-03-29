@@ -3,3 +3,5 @@
 mate-desktop-${UB_VERSION}.tar.xz	mate-desktop-${UB_VERSION}/
 	http://pub.mate-desktop.org/releases/${UB_VERSION_HEAD2}/
 
+ubk01.png
+	http://download.ubk.hu/src/ubk/backgrounds/

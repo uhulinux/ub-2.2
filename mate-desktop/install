@@ -2,4 +2,7 @@
 
 ub_install
 
+mkdir -p "$UB_INSTALLDIR"/usr/share/backgrounds/mate/UHU
+mv ubk01.png "$UB_INSTALLDIR"/usr/share/backgrounds/mate/UHU/ubk01.png
+
 rm -Rf "$UB_INSTALLDIR"/usr/share/MateConf
