@@ -13,7 +13,6 @@ mate-backgrounds
 mate-calc
 mate-control-center
 mate-desktop
-mate-dialogs
 mate-icon-theme
 mate-indicator-applet
 mate-media
@@ -35,3 +34,4 @@ mate-utils
 mozo
 pluma
 udisks
+zenity

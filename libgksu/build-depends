@@ -1,11 +1,11 @@
 docbook-dtds
 docbook-xsl
 gconf2-dev
-gnome2-keyring-dev
 gtk-doc
 gtk2-dev
 intltool
 libglade2-dev
+libgnome-keyring-dev
 libgtop2-dev
 libsm-dev
 perl-xml-parser
