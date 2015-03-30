@@ -1,6 +1,6 @@
 diff -Naur orig/browser/app/profile/firefox.js patched/browser/app/profile/firefox.js
---- orig/browser/app/profile/firefox.js	2014-11-26 13:29:52.000000000 +0100
-+++ patched/browser/app/profile/firefox.js	2014-12-01 17:12:30.743290231 +0100
+--- orig/browser/app/profile/firefox.js	2015-02-23 08:39:29.000000000 +0100
++++ patched/browser/app/profile/firefox.js	2015-02-24 21:56:27.343276289 +0100
 @@ -21,6 +21,9 @@
  #endif
  #endif
@@ -21,7 +21,7 @@ diff -Naur orig/browser/app/profile/firefox.js patched/browser/app/profile/firef
  
  // Dictionary download preference
  pref("browser.dictionaries.download.url", "https://addons.mozilla.org/%LOCALE%/firefox/dictionaries/");
-@@ -160,12 +164,12 @@
+@@ -152,12 +156,12 @@
  #endif
  
  // Whether or not app updates are enabled
@@ -36,7 +36,7 @@ diff -Naur orig/browser/app/profile/firefox.js patched/browser/app/profile/firef
  
  // See chart in nsUpdateService.js source for more details
  // incompatibilities are ignored by updates in Metro
-@@ -320,7 +324,7 @@
+@@ -306,7 +310,7 @@
  #endif
  
  // Control autoFill behavior
@@ -44,9 +44,9 @@ diff -Naur orig/browser/app/profile/firefox.js patched/browser/app/profile/firef
 +pref("browser.urlbar.autoFill", false);
  pref("browser.urlbar.autoFill.typed", true);
  
- // 0: Match anywhere (e.g., middle of words)
-@@ -358,7 +362,7 @@
- pref("browser.urlbar.default.behavior", 0);
+ // Use the new unifiedComplete component
+@@ -348,7 +352,7 @@
+ pref("browser.urlbar.suggest.history.onlyTyped",    false);
  
  pref("browser.urlbar.formatting.enabled", true);
 -pref("browser.urlbar.trimURLs", true);
@@ -54,7 +54,7 @@ diff -Naur orig/browser/app/profile/firefox.js patched/browser/app/profile/firef
  
  pref("browser.altClickSave", false);
  
-@@ -892,11 +896,7 @@
+@@ -888,11 +892,7 @@
  // 0 goes Back/Forward
  // 1 act like PgUp/PgDown
  // 2 and other values, nothing
