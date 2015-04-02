@@ -1,6 +1,6 @@
 diff -Naur orig/browser/app/profile/firefox.js patched/browser/app/profile/firefox.js
---- orig/browser/app/profile/firefox.js	2015-02-23 08:39:29.000000000 +0100
-+++ patched/browser/app/profile/firefox.js	2015-02-24 21:56:27.343276289 +0100
+--- orig/browser/app/profile/firefox.js	2015-03-27 03:20:16.000000000 +0100
++++ patched/browser/app/profile/firefox.js	2015-03-31 18:17:31.238989995 +0200
 @@ -21,6 +21,9 @@
  #endif
  #endif
@@ -36,7 +36,7 @@ diff -Naur orig/browser/app/profile/firefox.js patched/browser/app/profile/firef
  
  // See chart in nsUpdateService.js source for more details
  // incompatibilities are ignored by updates in Metro
-@@ -306,7 +310,7 @@
+@@ -309,7 +313,7 @@
  #endif
  
  // Control autoFill behavior
@@ -45,7 +45,7 @@ diff -Naur orig/browser/app/profile/firefox.js patched/browser/app/profile/firef
  pref("browser.urlbar.autoFill.typed", true);
  
  // Use the new unifiedComplete component
-@@ -348,7 +352,7 @@
+@@ -351,7 +355,7 @@
  pref("browser.urlbar.suggest.history.onlyTyped",    false);
  
  pref("browser.urlbar.formatting.enabled", true);
@@ -54,7 +54,7 @@ diff -Naur orig/browser/app/profile/firefox.js patched/browser/app/profile/firef
  
  pref("browser.altClickSave", false);
  
-@@ -888,11 +892,7 @@
+@@ -874,11 +878,7 @@
  // 0 goes Back/Forward
  // 1 act like PgUp/PgDown
  // 2 and other values, nothing
