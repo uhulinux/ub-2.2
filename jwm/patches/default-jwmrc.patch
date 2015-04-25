@@ -36,8 +36,8 @@ diff -Naur orig/example.jwmrc mod/example.jwmrc
 -        <Restart label="Restart" icon="restart.png"/>
 -        <Exit label="Exit" confirm="true" icon="quit.png"/>
 +        <Restart label="JWM restart" icon="reload.png"/>
-+        <Program icon="system-shutdown.png" label="Kikapcsolás">systemctl poweroff</Program>
-+        <Program icon="redo.png" label="Újraindítás">systemctl reboot</Program>
++        <Program icon="system-shutdown.png" label="Kikapcsolás">poweroff</Program>
++        <Program icon="redo.png" label="Újraindítás">reboot</Program>
 +        <Exit label="Kilépés" confirm="true" icon="system-log-out.png"/>
      </RootMenu>
  
