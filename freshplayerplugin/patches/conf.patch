@@ -1,10 +1,10 @@
 diff -Naur orig/data/freshwrapper.conf.example patched/data/freshwrapper.conf.example
---- orig/data/freshwrapper.conf.example	2014-10-19 23:46:18.000000000 +0200
-+++ patched/data/freshwrapper.conf.example	2014-11-15 12:51:31.071041436 +0100
-@@ -19,7 +19,7 @@
- xinerama_screen = 0
- 
- # Path to the Pepper Flash plugin
+--- orig/data/freshwrapper.conf.example	2015-04-25 17:17:24.000000000 +0200
++++ patched/data/freshwrapper.conf.example	2015-04-26 14:03:30.834043734 +0200
+@@ -25,7 +25,7 @@
+ # a number of location where it could be. Usually that's enough, but if
+ # not, you should manually enter the right path. Multiple paths could
+ # be specified, separated by colon.
 -pepperflash_path = "/opt/google/chrome/PepperFlash/libpepflashplayer.so"
 +pepperflash_path = "/usr/lib/PepperFlash/libpepflashplayer.so"
  

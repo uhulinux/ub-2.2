@@ -4,4 +4,6 @@ gtk2-dev
 libconfig-dev
 libevent-dev
 mesa-dev
+openssl-dev
+pulseaudio-dev
 ragel
