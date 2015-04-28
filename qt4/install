@@ -13,12 +13,14 @@ ln -s ../lib/qt4/bin/assistant "$UB_INSTALLDIR"/usr/bin/assistant-qt4
 ln -s ../lib/qt4/bin/qtconfig "$UB_INSTALLDIR"/usr/bin/qt4config
 ln -s ../lib/qt4/bin/designer "$UB_INSTALLDIR"/usr/bin/designer-qt4
 ln -s ../lib/qt4/bin/linguist "$UB_INSTALLDIR"/usr/bin/linguist-qt4
+ln -s ../lib/qt4/bin/lrelease "$UB_INSTALLDIR"/usr/bin/lrelease-qt4
+ln -s ../lib/qt4/bin/lupdate "$UB_INSTALLDIR"/usr/bin/lupdate-qt4
 ln -s ../lib/qt4/bin/moc "$UB_INSTALLDIR"/usr/bin/moc-qt4
 ln -s ../lib/qt4/bin/uic "$UB_INSTALLDIR"/usr/bin/uic-qt4
-ln -s ../lib/qt4/bin/qdbus "$UB_INSTALLDIR"/usr/bin/qdbus
-ln -s ../lib/qt4/bin/qdbusviewer "$UB_INSTALLDIR"/usr/bin/qdbusviewer
+ln -s ../lib/qt4/bin/qdbus "$UB_INSTALLDIR"/usr/bin/qdbus-qt4
+ln -s ../lib/qt4/bin/qdbusviewer "$UB_INSTALLDIR"/usr/bin/qdbusviewer-qt4
+ln -s ../lib/qt4/bin/qtdemo "$UB_INSTALLDIR"/usr/bin/qtdemo-qt4
 ln -s ../lib/qt4/bin/qmake "$UB_INSTALLDIR"/usr/bin/qmake-qt4
-# ln -s ../lib/qt4/bin/qtdemo "$UB_INSTALLDIR"/usr/bin/qtdemo
 
 # pkgconfig linkek
 mkdir -p "$UB_INSTALLDIR"/usr/lib/pkgconfig

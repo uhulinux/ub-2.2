@@ -17,6 +17,7 @@ libvorbis-dev
 musepack-dev
 ncurses-dev
 popt-dev
+pulseaudio-dev
 speex-dev
 taglib-dev
 wavpack-dev

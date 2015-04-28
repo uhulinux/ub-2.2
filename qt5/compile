@@ -74,8 +74,5 @@ yes yes | ./configure \
 ub_make
 
 #some options we may want to use in the future
-#	-phonon-backend     \
-#	-phonon             \
-#	-multimedia         \
-#	-audio-backend      \
-#	-nomake examples    \
+#	-nomake tests       \
+#	-nomake docs
