@@ -1,0 +1,8 @@
+#!/bin/sh -eux
+
+export USE_QT5=YES
+export CMAKE_PREFIX_PATH=/usr/lib/qt5
+export BUILD_HTML_DOCS=OFF
+export BUILD_TESTING=OFF
+export BUILD_TYPE=Release
+ub_compile

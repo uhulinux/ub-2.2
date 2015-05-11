@@ -1,0 +1,4 @@
+#!/usr/bin/env dl
+
+lxqt-openssh-askpass-${UB_VERSION}.tar.xz lxqt-openssh-askpass-${UB_VERSION}/
+	http://downloads.lxqt.org/lxqt/${UB_VERSION}/

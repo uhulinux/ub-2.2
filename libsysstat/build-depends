@@ -1,2 +1,3 @@
 cmake
-qt4-dev
+icu-dev
+qt5-dev

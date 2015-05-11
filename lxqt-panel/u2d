@@ -1,1 +1,1 @@
-urllist http://lxqt.org/downloads/lxqt/ | splitver '^([0-9.]+)$' | sort -V | tail -n 1
+urllist https://github.com/lxde/lxqt-panel/releases | splitver '^([0-9.]+)$' | sort -V | tail -n 1

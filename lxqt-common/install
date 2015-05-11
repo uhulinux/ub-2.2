@@ -1,3 +1,6 @@
 #!/bin/sh -eux
 
 ub_install
+mkdir -p ${UB_INSTALLDIR}/etc/xdg
+cp -r ${UB_INSTALLDIR}/usr/lib/qt5/etc/xdg/* ${UB_INSTALLDIR}/etc/xdg/
+

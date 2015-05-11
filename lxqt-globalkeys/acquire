@@ -1,4 +1,4 @@
 #!/usr/bin/env dl
 
-lxqt-globalkeys-${UB_VERSION}.tar.xz .
-	http://lxqt.org/downloads/${UB_VERSION}/
+lxqt-globalkeys-${UB_VERSION}.tar.xz lxqt-globalkeys-${UB_VERSION}/
+	http://downloads.lxqt.org/lxqt/${UB_VERSION}/

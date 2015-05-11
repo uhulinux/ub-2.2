@@ -1,4 +1,5 @@
 cmake
-libX11-dev
+kwindowsystem-dev
 liblxqt-dev
-qt4-dev
+libqtxdg-dev
+libx11-dev

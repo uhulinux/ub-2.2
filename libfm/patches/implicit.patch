@@ -1,0 +1,11 @@
+diff -Naur orig/src/Makefile.am mod/src/Makefile.am
+--- orig/src/Makefile.am	2014-10-14 18:46:06.000000000 +0200
++++ mod/src/Makefile.am	2015-05-10 21:56:06.704500734 +0200
+@@ -20,7 +20,6 @@
+ 	-I$(srcdir)/base \
+ 	-I$(srcdir)/job \
+ 	-DPACKAGE_LOCALE_DIR=\""$(prefix)/$(DATADIRNAME)/locale"\" \
+-	-Werror-implicit-function-declaration \
+ 	$(NULL)
+ 
+ glib_compat_SOURCES= \

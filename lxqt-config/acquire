@@ -1,4 +1,4 @@
 #!/usr/bin/env dl
 
-lxqt-config-${UB_VERSION}.tar.xz .
-	http://lxqt.org/downloads/${UB_VERSION}/
+lxqt-config-${UB_VERSION}.tar.xz lxqt-config-${UB_VERSION}/
+	http://downloads.lxqt.org/lxqt/${UB_VERSION}/

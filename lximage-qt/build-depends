@@ -2,3 +2,4 @@ cmake
 libX11-dev
 libexif-dev
 pcmanfm-qt-dev
+qt5-dev

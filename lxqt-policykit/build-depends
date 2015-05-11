@@ -1,6 +1,6 @@
 cmake
+kwindowsystem-dev
 liblxqt-dev
 libqtxdg-dev
 polkit-dev
-polkit-qt-1-dev
-qt4-dev
+polkit-qt5-dev

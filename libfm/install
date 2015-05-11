@@ -2,5 +2,5 @@
 
 ub_install
 
-rm -f "$UB_INSTALLDIR"/usr/lib/pkgconfig/libfm-gtk3.pc
-rm -f "$UB_INSTALLDIR"/usr/bin/lxshortcut
+rm -rf "$UB_INSTALLDIR"/usr/include/libfm
+mv "$UB_INSTALLDIR"/usr/include/libfm-1.0/ "$UB_INSTALLDIR"/usr/include/libfm

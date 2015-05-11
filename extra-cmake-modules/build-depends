@@ -1,0 +1,7 @@
+cmake
+python-dev
+python-docutils
+python-markupsafe
+python-setuptools
+python-sphinx
+qt5-dev

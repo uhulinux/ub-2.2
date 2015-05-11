@@ -1,3 +1,11 @@
 #!/bin/sh -eux
 
-ub_compile
+export USE_QT5=YES
+export  CMAKE_PREFIX_PATH=/usr/lib/qt5/
+export QTX_LIBRARIES="/usr/lib/gt5/"
+mkdir build
+cd build
+cmake -DCMAKE_INSTALL_PREFIX=/usr -DUSE_QT5=true ..
+sed s/-lQt5DBus//g -i src/CMakeFiles/lximage-qt.dir/link.txt
+sed s/-lQt5Core//g -i src/CMakeFiles/lximage-qt.dir/link.txt
+make

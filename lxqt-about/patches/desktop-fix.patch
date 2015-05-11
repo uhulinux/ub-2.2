@@ -1,12 +1,12 @@
 diff -Naur orig/resources/lxqt-about.desktop.in mod/resources/lxqt-about.desktop.in
---- orig/resources/lxqt-about.desktop.in	2014-05-07 09:31:33.000000000 +0200
-+++ mod/resources/lxqt-about.desktop.in	2014-07-11 23:27:10.000000000 +0200
-@@ -5,7 +5,6 @@
+--- orig/resources/lxqt-about.desktop.in	2014-06-01 06:56:02.000000000 +0200
++++ mod/resources/lxqt-about.desktop.in	2014-12-02 10:14:33.539861263 +0100
+@@ -5,7 +5,7 @@
  Comment=Learn more about LXQt
  Exec=lxqt-about
  Icon=help-about
 -Categories=Help;LXQt
--OnlyShowIn=LXQt;LXDE;
-+Categories=Documentation;
++Categories=Documentation;LXQt
+ OnlyShowIn=LXQt;LXDE;
  
  #TRANSLATIONS_DIR=translations
