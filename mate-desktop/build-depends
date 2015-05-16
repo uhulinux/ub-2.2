@@ -1,12 +1,10 @@
 dbus-glib-dev
 dconf-dev
-gtk-doc
+gobject-introspection-dev
 gtk2-dev
 intltool
+itstool
 libsm-dev
-libunique-dev
-mate-common
 rarian-dev
 startup-notification-dev
 xcb-util-dev
-yelp-tools

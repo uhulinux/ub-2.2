@@ -1,0 +1,5 @@
+#!/bin/sh -eux
+
+sed -i -e 's/flexiondotorg/ubuntu-mate/g' setup.py
+
+ub_compile

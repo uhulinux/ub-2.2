@@ -1,0 +1,5 @@
+#!/bin/sh -eux
+
+mkdir -p "${UB_INSTALLDIR}"/usr/{include/NVCtrl,lib}
+cp nv_control.h NVCtrl{,Lib}.h "${UB_INSTALLDIR}"/usr/include/NVCtrl/
+cp libXNVCtrl.a "${UB_INSTALLDIR}"/usr/lib/libXNVCtrl.a

@@ -4,10 +4,11 @@ gtk2-dev
 intltool
 libcanberra-dev
 libmatekbd-dev
+libmatemixer-dev
 libnotify-dev
 libxkbfile-dev
-mate-common
 mate-desktop-dev
 nss-dev
 polkit-dev
 pulseaudio-dev
+udev-dev

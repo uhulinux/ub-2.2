@@ -1,0 +1,21 @@
+diff -Naur orig/po/hu.po patched/po/hu.po
+--- orig/po/hu.po	2014-01-25 18:48:42.000000000 +0100
++++ patched/po/hu.po	2014-11-23 16:26:57.568655053 +0100
+@@ -486,7 +486,7 @@
+ #: ../main-menu/src/main-menu.c:66 ../main-menu/src/main-menu-ui.c:2412
+ #: ../main-menu/src/slab-window.ui.h:1
+ msgid "GNOME Main Menu"
+-msgstr "GNOME főmenü"
++msgstr "MATE főmenü"
+ 
+ #: ../main-menu/src/main-menu-ui.c:226
+ msgid "_Open Menu"
+@@ -498,7 +498,7 @@
+ 
+ #: ../main-menu/src/main-menu-ui.c:2413
+ msgid "The GNOME Main Menu"
+-msgstr "A GNOME főmenü"
++msgstr "A MATE főmenü"
+ 
+ #: ../main-menu/src/network-status-tile.c:95
+ msgid "Network: None"

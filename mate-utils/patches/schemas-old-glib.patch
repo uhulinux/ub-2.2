@@ -1,0 +1,177 @@
+diff -Naur orig/baobab/data/org.mate.disk-usage-analyzer.gschema.xml.in patched/baobab/data/org.mate.disk-usage-analyzer.gschema.xml.in
+--- orig/baobab/data/org.mate.disk-usage-analyzer.gschema.xml.in	2014-02-24 09:46:55.000000000 +0100
++++ patched/baobab/data/org.mate.disk-usage-analyzer.gschema.xml.in	2015-05-16 17:48:21.950551851 +0200
+@@ -6,35 +6,35 @@
+   <schema gettext-domain="@GETTEXT_PACKAGE@" id="org.mate.disk-usage-analyzer.preferences" path="/org/mate/disk-usage-analyzer/preferences/">
+     <key name="monitor-home" type="b">
+       <default>false</default>
+-      <_summary>Monitor Home</_summary>
+-      <_description>Whether any change to the home directory should be monitored.</_description>
++      <summary>Monitor Home</summary>
++      <description>Whether any change to the home directory should be monitored.</description>
+     </key>
+     <key name="excluded-uris" type="as">
+       <default>[]</default>
+-      <_summary>Excluded partitions URIs</_summary>
+-      <_description>A list of URIs for partitions to be excluded from scanning.</_description>
++      <summary>Excluded partitions URIs</summary>
++      <description>A list of URIs for partitions to be excluded from scanning.</description>
+     </key>
+   </schema>
+   <schema gettext-domain="@GETTEXT_PACKAGE@" id="org.mate.disk-usage-analyzer.ui" path="/org/mate/disk-usage-analyzer/ui/">
+     <key name="toolbar-visible" type="b">
+       <default>true</default>
+-      <_summary>Toolbar is Visible</_summary>
+-      <_description>Whether the toolbar should be visible in main window.</_description>
++      <summary>Toolbar is Visible</summary>
++      <description>Whether the toolbar should be visible in main window.</description>
+     </key>
+     <key name="statusbar-visible" type="b">
+       <default>false</default>
+-      <_summary>Statusbar is Visible</_summary>
+-      <_description>Whether the status bar at the bottom of main window	should be visible.</_description>
++      <summary>Statusbar is Visible</summary>
++      <description>Whether the status bar at the bottom of main window	should be visible.</description>
+     </key>
+     <key name="subfoldertips-visible" type="b">
+       <default>true</default>
+-      <_summary>Subfolder tips visible</_summary>
+-      <_description>Whether the subfolder tooltips of the selected folder are drawn.</_description>
++      <summary>Subfolder tips visible</summary>
++      <description>Whether the subfolder tooltips of the selected folder are drawn.</description>
+     </key>
+     <key name="active-chart" type="s">
+       <default>'rings'</default>
+-      <_summary>Active Chart</_summary>
+-      <_description>Which type of chart should be displayed.</_description>
++      <summary>Active Chart</summary>
++      <description>Which type of chart should be displayed.</description>
+     </key>
+   </schema>
+ </schemalist>
+diff -Naur orig/logview/data/org.mate.system-log.gschema.xml.in patched/logview/data/org.mate.system-log.gschema.xml.in
+--- orig/logview/data/org.mate.system-log.gschema.xml.in	2014-02-24 09:46:55.000000000 +0100
++++ patched/logview/data/org.mate.system-log.gschema.xml.in	2015-05-16 17:50:37.847225726 +0200
+@@ -2,33 +2,33 @@
+   <schema id="org.mate.system-log" path="/org/mate/system-log/">
+     <key name="logfile" type="s">
+       <default>'/var/log/messages'</default>
+-      <_summary>Log file to open up on startup</_summary>
+-      <_description>Specifies the log file displayed at startup. The default is either /var/adm/messages or  /var/log/messages, depending on your  operating system.</_description>
++      <summary>Log file to open up on startup</summary>
++      <description>Specifies the log file displayed at startup. The default is either /var/adm/messages or  /var/log/messages, depending on your  operating system.</description>
+     </key>
+     <key name="fontsize" type="i">
+       <default>10</default>
+-      <_summary>Size of the font used to display the log</_summary>
+-      <_description>Specifies the size of the fixed-width font used to display the log in the main tree view. The default is taken from the default terminal font size.</_description>
++      <summary>Size of the font used to display the log</summary>
++      <description>Specifies the size of the fixed-width font used to display the log in the main tree view. The default is taken from the default terminal font size.</description>
+     </key>
+     <key name="height" type="i">
+       <default>400</default>
+-      <_summary>Height of the main window in pixels</_summary>
+-      <_description>Specifies the height of the log viewer main window in pixels.</_description>
++      <summary>Height of the main window in pixels</summary>
++      <description>Specifies the height of the log viewer main window in pixels.</description>
+     </key>
+     <key name="width" type="i">
+       <default>600</default>
+-      <_summary>Width of the main window in pixels</_summary>
+-      <_description>Specifies the width of the log viewer main window in pixels.</_description>
++      <summary>Width of the main window in pixels</summary>
++      <description>Specifies the width of the log viewer main window in pixels.</description>
+     </key>
+     <key name="logfiles" type="as">
+       <default>[]</default>
+-      <_summary>Log files to open up on startup</_summary>
+-      <_description>Specifies a list of log files to open up at startup. A default list is created by reading /etc/syslog.conf.</_description>
++      <summary>Log files to open up on startup</summary>
++      <description>Specifies a list of log files to open up at startup. A default list is created by reading /etc/syslog.conf.</description>
+     </key>
+     <key name="filters" type="as">
+       <default>[]</default>
+-      <_summary>List of saved filters</_summary>
+-      <_description>List of saved regexp filters</_description>
++      <summary>List of saved filters</summary>
++      <description>List of saved regexp filters</description>
+     </key>
+   </schema>
+ </schemalist>
+diff -Naur orig/mate-dictionary/data/org.mate.dictionary.gschema.xml.in patched/mate-dictionary/data/org.mate.dictionary.gschema.xml.in
+--- orig/mate-dictionary/data/org.mate.dictionary.gschema.xml.in	2014-02-24 09:46:55.000000000 +0100
++++ patched/mate-dictionary/data/org.mate.dictionary.gschema.xml.in	2015-05-16 17:50:34.815210691 +0200
+@@ -3,23 +3,23 @@
+   <schema id="org.mate.dictionary" path="/org/mate/dictionary/" gettext-domain="@GETTEXT_PACKAGE@">
+     <key name="database" type="s">
+       <default>'!'</default>
+-      <_summary>The default database to use</_summary>
+-      <_description>The name of the default individual database or meta-database to use on a dictionary source. An exclamation mark ("!") means that all the databases present in a dictionary source should be searched</_description>
++      <summary>The default database to use</summary>
++      <description>The name of the default individual database or meta-database to use on a dictionary source. An exclamation mark ("!") means that all the databases present in a dictionary source should be searched</description>
+     </key>
+     <key name="strategy" type="s">
+       <default>'exact'</default>
+-      <_summary>The default search strategy to use</_summary>
+-      <_description>The name of the default search strategy to use on a dictionary source, if available. The default strategy is 'exact', that is match exact words.</_description>
++      <summary>The default search strategy to use</summary>
++      <description>The name of the default search strategy to use on a dictionary source, if available. The default strategy is 'exact', that is match exact words.</description>
+     </key>
+     <key name="print-font" type="s">
+       <default>'Serif 12'</default>
+-      <_summary>The font to be used when printing</_summary>
+-      <_description>The font to be used when printing a definition.</_description>
++      <summary>The font to be used when printing</summary>
++      <description>The font to be used when printing a definition.</description>
+     </key>
+     <key name="source-name" type="s">
+       <default>'Default'</default>
+-      <_summary>The name of the dictionary source used</_summary>
+-      <_description>The name of the dictionary source used to retrieve the definitions of words.</_description>
++      <summary>The name of the dictionary source used</summary>
++      <description>The name of the dictionary source used to retrieve the definitions of words.</description>
+     </key>
+   </schema>
+ </schemalist>
+diff -Naur orig/mate-screenshot/org.mate.screenshot.gschema.xml.in patched/mate-screenshot/org.mate.screenshot.gschema.xml.in
+--- orig/mate-screenshot/org.mate.screenshot.gschema.xml.in	2014-02-24 09:46:55.000000000 +0100
++++ patched/mate-screenshot/org.mate.screenshot.gschema.xml.in	2015-05-16 17:50:31.867196072 +0200
+@@ -2,28 +2,28 @@
+   <schema id="org.mate.screenshot" path="/org/mate/screenshot/">
+     <key name="delay" type="i">
+       <default>0</default>
+-      <_summary>Screenshot delay</_summary>
+-      <_description>The number of seconds to wait before taking the screenshot.</_description>
++      <summary>Screenshot delay</summary>
++      <description>The number of seconds to wait before taking the screenshot.</description>
+     </key>
+     <key name="last-save-directory" type="s">
+       <default>''</default>
+-      <_summary>Screenshot directory</_summary>
+-      <_description>The directory the last screenshot was saved in.</_description>
++      <summary>Screenshot directory</summary>
++      <description>The directory the last screenshot was saved in.</description>
+     </key>
+     <key name="include-border" type="b">
+       <default>true</default>
+-      <_summary>Include Border</_summary>
+-      <_description>Include the window manager border along with the screenshot</_description>
++      <summary>Include Border</summary>
++      <description>Include the window manager border along with the screenshot</description>
+     </key>
+     <key name="include-pointer" type="b">
+       <default>true</default>
+-      <_summary>Include Pointer</_summary>
+-      <_description>Include the pointer in the screenshot</_description>
++      <summary>Include Pointer</summary>
++      <description>Include the pointer in the screenshot</description>
+     </key>
+     <key name="border-effect" type="s">
+       <default>'none'</default>
+-      <_summary>Border Effect</_summary>
+-      <_description>Effect to add to the outside of a border.  Possible values are "shadow", "none", and "border".</_description>
++      <summary>Border Effect</summary>
++      <description>Effect to add to the outside of a border.  Possible values are "shadow", "none", and "border".</description>
+     </key>
+   </schema>
+ </schemalist>

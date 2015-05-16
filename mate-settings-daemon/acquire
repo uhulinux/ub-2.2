@@ -1,5 +1,5 @@
 #!/usr/bin/env dl
 
-mate-settings-daemon-${UB_VERSION}.tar.xz	mate-settings-daemon-${UB_VERSION}/
+mate-settings-daemon-${UB_VERSION}.tar.xz mate-settings-daemon-${UB_VERSION}/
 	http://pub.mate-desktop.org/releases/${UB_VERSION_HEAD2}/
 

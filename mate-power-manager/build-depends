@@ -2,12 +2,13 @@ avahi-dev
 dbus-glib-dev
 docbook2man
 intltool
+itstool
 libcanberra-dev
 libnotify-dev
 libsm-dev
 libunique-dev
 libxslt-dev
-mate-common
+mate-desktop-dev
 mate-panel-dev
 openssl-dev
 upower-dev

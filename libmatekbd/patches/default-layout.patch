@@ -1,0 +1,12 @@
+diff -Naur orig/libmatekbd/org.mate.peripherals-keyboard-xkb.gschema.xml.in.in patched/libmatekbd/org.mate.peripherals-keyboard-xkb.gschema.xml.in.in
+--- orig/libmatekbd/org.mate.peripherals-keyboard-xkb.gschema.xml.in.in	2014-03-05 20:48:36.000000000 +0100
++++ patched/libmatekbd/org.mate.peripherals-keyboard-xkb.gschema.xml.in.in	2015-01-04 20:21:48.775695993 +0100
+@@ -12,7 +12,7 @@
+       <_description>keyboard model</_description>
+     </key>
+     <key name="layouts" type="as">
+-      <default>[]</default>
++      <default>['hu']</default>
+       <_summary>Keyboard layout</_summary>
+       <_description>keyboard layout</_description>
+     </key>

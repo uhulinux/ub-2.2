@@ -1,0 +1,41 @@
+diff -Naur orig/src/Makefile.am patched/src/Makefile.am
+--- orig/src/Makefile.am	2013-12-02 19:53:13.000000000 +0100
++++ patched/src/Makefile.am	2014-08-06 08:06:34.583834549 +0200
+@@ -26,6 +26,3 @@
+ 
+ gsettingsdir = $(datadir)/glib-2.0/schemas
+ gsettings_DATA = org.mate.panel.applet.LockkeysApplet.gschema.xml
+-
+-install-data-hook:
+-	glib-compile-schemas $(DESTDIR)$(datadir)/glib-2.0/schemas 2>/dev/null
+diff -Naur orig/src/Makefile.in patched/src/Makefile.in
+--- orig/src/Makefile.in	2013-12-02 19:53:26.000000000 +0100
++++ patched/src/Makefile.in	2014-08-06 08:08:36.540439299 +0200
+@@ -687,7 +687,7 @@
+ install-data-am: install-appletDATA install-gsettingsDATA \
+ 	install-serviceDATA install-xmluiDATA
+ 	@$(NORMAL_INSTALL)
+-	$(MAKE) $(AM_MAKEFLAGS) install-data-hook
++	$(MAKE) $(AM_MAKEFLAGS)
+ install-dvi: install-dvi-am
+ 
+ install-dvi-am:
+@@ -742,7 +742,7 @@
+ 	distclean-compile distclean-generic distclean-tags distdir dvi \
+ 	dvi-am html html-am info info-am install install-am \
+ 	install-appletDATA install-data install-data-am \
+-	install-data-hook install-dvi install-dvi-am install-exec \
++	install-dvi install-dvi-am install-exec \
+ 	install-exec-am install-gsettingsDATA install-html \
+ 	install-html-am install-info install-info-am \
+ 	install-libexecPROGRAMS install-man install-pdf install-pdf-am \
+@@ -755,9 +755,6 @@
+ 	uninstall-serviceDATA uninstall-xmluiDATA
+ 
+ 
+-install-data-hook:
+-	glib-compile-schemas $(DESTDIR)$(datadir)/glib-2.0/schemas 2>/dev/null
+-
+ # Tell versions [3.59,3.63) of GNU make to not export all variables.
+ # Otherwise a system limit (for SysV at least) may be exceeded.
+ .NOEXPORT:

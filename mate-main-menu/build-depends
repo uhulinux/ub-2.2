@@ -2,7 +2,6 @@ caja-dev
 intltool
 libgtop2-dev
 libunique-dev
-mate-common
 mate-control-center-dev
 mate-desktop-dev
 mate-panel-dev

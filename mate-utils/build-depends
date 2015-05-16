@@ -1,10 +1,9 @@
 avahi-dev
-gtk-doc
 intltool
+itstool
 libcanberra-dev
 libgtop2-dev
 libsm-dev
-mate-common
 mate-panel-dev
 openssl-dev
 yelp-tools

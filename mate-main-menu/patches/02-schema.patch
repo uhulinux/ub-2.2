@@ -1,0 +1,20 @@
+diff -Naur orig/main-menu/src/main-menu-ui.c patched/main-menu/src/main-menu-ui.c
+--- orig/main-menu/src/main-menu-ui.c	2014-02-11 20:01:39.000000000 +0100
++++ patched/main-menu/src/main-menu-ui.c	2015-01-03 13:16:08.138626587 +0100
+@@ -81,7 +81,6 @@
+ #define DISABLE_TERMINAL_SETTINGS_KEY   "disable-command-line"
+ #define DISABLE_LOCKSCREEN_SETTINGS_KEY "disable-lock-screen"
+ 
+-#define PANEL_SCHEMA                    "org.mate.panel"
+ #define DISABLE_LOGOUT_SETTINGS_KEY     "disable-log-out"
+ 
+ G_DEFINE_TYPE (MainMenuUI, main_menu_ui, G_TYPE_OBJECT)
+@@ -335,7 +334,7 @@
+ 	priv->filearea_settings = g_settings_new (FILE_AREA_SCHEMA);
+ 	priv->lockdown_settings = g_settings_new (LOCKDOWN_SETTINGS_SCHEMA);
+ 	priv->mate_lockdown_settings = g_settings_new (MATE_LOCKDOWN_SCHEMA);
+-	priv->panel_settings = g_settings_new (PANEL_SCHEMA);
++	priv->panel_settings = g_settings_new (MATE_LOCKDOWN_SCHEMA);
+ 
+ 	window_ui_path = g_build_filename (DATADIR, PACKAGE, "slab-window.ui", NULL);
+ 	button_ui_path = g_build_filename (DATADIR, PACKAGE, "slab-button.ui", NULL);

@@ -1,6 +1,4 @@
 gobject-introspection-dev
-gtk-doc
 gtk2-dev
 intltool
-mate-common
 polkit-dev

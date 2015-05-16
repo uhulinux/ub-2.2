@@ -1,0 +1,126 @@
+diff -Naur orig/application-browser/src/application-browser.c patched/application-browser/src/application-browser.c
+--- orig/application-browser/src/application-browser.c	2013-02-12 17:56:06.000000000 +0100
++++ patched/application-browser/src/application-browser.c	2014-11-23 16:42:35.393305474 +0100
+@@ -27,7 +27,7 @@
+ #include <stdlib.h>
+ #include <glib/gi18n.h>
+ #include <gio/gio.h>
+-#include <libslab/slab.h>
++#include <libmate-slab/slab.h>
+ 
+ #define APPLICATION_BROWSER_SCHEMA  "org.mate.gnome-main-menu.application-browser"
+ #define NEW_APPS_MAX_ITEMS          "new-apps-max-items"
+diff -Naur orig/configure patched/configure
+--- orig/configure	2014-03-09 15:30:23.000000000 +0100
++++ patched/configure	2014-11-23 16:36:54.479614975 +0100
+@@ -13961,7 +13961,7 @@
+ 
+ GLIB_REQUIRED=2.16.0
+ GTK_REQUIRED=2.18
+-SLAB_REQUIRED=1.5.2
++SLAB_REQUIRED=1.9.0
+ 
+ # Check whether --enable-glibtest was given.
+ if test "${enable_glibtest+set}" = set; then :
+@@ -14326,7 +14326,7 @@
+ 		gobject-2.0 			\
+ 		gtk+-2.0 >= $GTK_REQUIRED 	\
+ 		gdk-2.0				\
+-		libslab >= $SLAB_REQUIRED"
++		mate-slab >= $SLAB_REQUIRED"
+ 
+ 
+ 
+diff -Naur orig/configure.ac patched/configure.ac
+--- orig/configure.ac	2014-03-09 15:25:33.000000000 +0100
++++ patched/configure.ac	2014-11-23 16:25:32.048230980 +0100
+@@ -32,7 +32,7 @@
+ 
+ GLIB_REQUIRED=2.16.0
+ GTK_REQUIRED=2.18
+-SLAB_REQUIRED=1.5.2
++SLAB_REQUIRED=1.9.0
+ 
+ AM_PATH_GLIB_2_0($GLIB_REQUIRED,,,gobject)
+ 
+@@ -42,7 +42,7 @@
+ 		gobject-2.0 			\
+ 		gtk+-2.0 >= $GTK_REQUIRED 	\
+ 		gdk-2.0				\
+-		libslab >= $SLAB_REQUIRED"
++		mate-slab >= $SLAB_REQUIRED"
+ 
+ 
+ PKG_CHECK_MODULES(APPLICATION_BROWSER, [ $COMMON_MODULES mate-desktop-2.0 unique-1.0 ])
+diff -Naur orig/main-menu/src/hard-drive-status-tile.h patched/main-menu/src/hard-drive-status-tile.h
+--- orig/main-menu/src/hard-drive-status-tile.h	2013-02-12 17:56:06.000000000 +0100
++++ patched/main-menu/src/hard-drive-status-tile.h	2014-11-23 16:53:34.608574346 +0100
+@@ -21,7 +21,7 @@
+ #ifndef __HARD_DRIVE_STATUS_TILE_H__
+ #define __HARD_DRIVE_STATUS_TILE_H__
+ 
+-#include <libslab/slab.h>
++#include <libmate-slab/slab.h>
+ 
+ G_BEGIN_DECLS
+ 
+diff -Naur orig/main-menu/src/main-menu.c patched/main-menu/src/main-menu.c
+--- orig/main-menu/src/main-menu.c	2013-02-12 17:56:06.000000000 +0100
++++ patched/main-menu/src/main-menu.c	2014-11-23 16:50:19.959609134 +0100
+@@ -26,7 +26,7 @@
+ #include <glib/gi18n.h>
+ #include <mate-panel-applet.h>
+ #include <string.h>
+-#include <libslab/slab.h>
++#include <libmate-slab/slab.h>
+ 
+ #include "main-menu-ui.h"
+ 
+diff -Naur orig/main-menu/src/main-menu-ui.c patched/main-menu/src/main-menu-ui.c
+--- orig/main-menu/src/main-menu-ui.c	2014-02-11 20:01:39.000000000 +0100
++++ patched/main-menu/src/main-menu-ui.c	2014-11-23 16:50:06.383541814 +0100
+@@ -37,7 +37,7 @@
+ #include <gio/gio.h>
+ #include <gio/gdesktopappinfo.h>
+ #include <unistd.h>
+-#include <libslab/slab.h>
++#include <libmate-slab/slab.h>
+ 
+ #include "hard-drive-status-tile.h"
+ 
+diff -Naur orig/main-menu/src/network-status-agent.c patched/main-menu/src/network-status-agent.c
+--- orig/main-menu/src/network-status-agent.c	2013-02-12 17:56:06.000000000 +0100
++++ patched/main-menu/src/network-status-agent.c	2014-11-23 16:50:55.815786936 +0100
+@@ -32,7 +32,7 @@
+ #include <iwlib.h>
+ #include <glibtop/netlist.h>
+ #include <glibtop/netload.h>
+-#include <libslab/slab.h>
++#include <libmate-slab/slab.h>
+ 
+ typedef struct
+ {
+diff -Naur orig/main-menu/src/network-status-tile.h patched/main-menu/src/network-status-tile.h
+--- orig/main-menu/src/network-status-tile.h	2013-02-12 17:56:06.000000000 +0100
++++ patched/main-menu/src/network-status-tile.h	2014-11-23 16:54:39.648896864 +0100
+@@ -21,7 +21,7 @@
+ #ifndef __NETWORK_STATUS_TILE_H__
+ #define __NETWORK_STATUS_TILE_H__
+ 
+-#include <libslab/slab.h>
++#include <libmate-slab/slab.h>
+ 
+ G_BEGIN_DECLS
+ 
+diff -Naur orig/main-menu/src/tile-table.h patched/main-menu/src/tile-table.h
+--- orig/main-menu/src/tile-table.h	2013-02-12 17:56:06.000000000 +0100
++++ patched/main-menu/src/tile-table.h	2014-11-23 16:53:21.008506907 +0100
+@@ -22,7 +22,7 @@
+ #define __TILE_TABLE_H__
+ 
+ #include <gtk/gtk.h>
+-#include <libslab/slab.h>
++#include <libmate-slab/slab.h>
+ 
+ G_BEGIN_DECLS
+

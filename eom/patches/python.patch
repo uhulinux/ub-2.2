@@ -1,0 +1,33 @@
+diff -Naur orig/configure patched/configure
+--- orig/configure	2015-04-05 18:57:40.000000000 +0200
++++ patched/configure	2015-04-07 19:24:32.717314335 +0200
+@@ -17470,7 +17470,7 @@
+   $as_echo_n "(cached) " >&6
+ else
+ 
+-	for am_cv_pathless_PYTHON in python python2 python3 python3.3 python3.2 python3.1 python3.0 python2.7  python2.6 python2.5 python2.4 python2.3 python2.2 python2.1 python2.0 none; do
++	for am_cv_pathless_PYTHON in python python2 python3 python3.4 python3.3 python3.2 python3.1 python3.0 python2.7  python2.6 python2.5 python2.4 python2.3 python2.2 python2.1 python2.0 none; do
+ 	  test "$am_cv_pathless_PYTHON" = none && break
+ 	  prog="import sys
+ # split strings by '.' and convert to numeric.  Append some zeros
+@@ -17698,7 +17698,7 @@
+ if test "x$have_python" != "xno"; then
+ 	PY_PREFIX=`$PYTHON -c 'import sys ; print sys.prefix'`
+ 	PY_EXEC_PREFIX=`$PYTHON -c 'import sys ; print sys.exec_prefix'`
+-	PYTHON_LIBS="-lpython$PYTHON_VERSION"
++	PYTHON_LIBS="-lpython$PYTHON_VERSION -lutil"
+ 	PYTHON_LIB_LOC="-L$PY_EXEC_PREFIX/lib/python$PYTHON_VERSION/config"
+ 	PYTHON_CFLAGS="-I$PY_PREFIX/include/python$PYTHON_VERSION"
+ 	PYTHON_MAKEFILE="$libdir/python$PYTHON_VERSION/config/Makefile"
+diff -Naur orig/configure.ac patched/configure.ac
+--- orig/configure.ac	2015-04-05 18:57:24.000000000 +0200
++++ patched/configure.ac	2015-04-07 19:19:37.227849082 +0200
+@@ -396,7 +396,7 @@
+ if test "x$have_python" != "xno"; then
+ 	PY_PREFIX=`$PYTHON -c 'import sys ; print sys.prefix'`
+ 	PY_EXEC_PREFIX=`$PYTHON -c 'import sys ; print sys.exec_prefix'`
+-	PYTHON_LIBS="-lpython$PYTHON_VERSION"
++	PYTHON_LIBS="-lpython$PYTHON_VERSION -lutil"
+ 	PYTHON_LIB_LOC="-L$PY_EXEC_PREFIX/lib/python$PYTHON_VERSION/config"
+ 	PYTHON_CFLAGS="-I$PY_PREFIX/include/python$PYTHON_VERSION"
+ 	PYTHON_MAKEFILE="$libdir/python$PYTHON_VERSION/config/Makefile"

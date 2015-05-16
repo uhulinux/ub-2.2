@@ -1,5 +1,0 @@
-#!/usr/bin/env dl
-
-mintmenu_${UB_VERSION}.tar.gz mintmenu/
-	http://packages.linuxmint.com/pool/main/m/mintmenu/
-

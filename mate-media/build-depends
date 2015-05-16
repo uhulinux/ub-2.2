@@ -1,10 +1,11 @@
 dbus-glib-dev
 gst-plugins-base-dev
 intltool
+itstool
 libcanberra-dev
+libmatemixer-dev
 libunique-dev
 libxslt-dev
-mate-common
 mate-desktop-dev
 mate-panel-dev
 pulseaudio-dev

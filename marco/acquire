@@ -1,5 +1,5 @@
 #!/usr/bin/env dl
 
-marco-${UB_VERSION}.tar.xz	marco-${UB_VERSION}/
+marco-${UB_VERSION}.tar.xz marco-${UB_VERSION}/
 	http://pub.mate-desktop.org/releases/${UB_VERSION_HEAD2}/
 

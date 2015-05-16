@@ -1,7 +1,10 @@
 #!/bin/sh -eux
 
+# old glib
+sed -i -e "s/2.36.0/2.34.0/g" configure
+
 ub_compile \
 	--with-gtk=2.0 \
 	--enable-pulse \
-	--disable-gstreamer
+	--with-libmatemixer
 

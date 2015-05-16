@@ -1,9 +1,13 @@
 enchant-dev
-gtk-doc
+gtksourceview2-dev
 intltool
 iso-codes
+itstool
 libsm-dev
-mate-common
+mate-desktop-dev
 pygtk-dev
-pygtksourceview2-dev
+pygtksourceview
+pygtksourceview-dev
+python-dev
+xcb-util-dev
 yelp-tools

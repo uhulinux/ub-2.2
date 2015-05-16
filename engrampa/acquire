@@ -1,5 +1,5 @@
 #!/usr/bin/env dl
 
-engrampa-${UB_VERSION}.tar.xz	engrampa-${UB_VERSION}/
+engrampa-${UB_VERSION}.tar.xz engrampa-${UB_VERSION}/
 	http://pub.mate-desktop.org/releases/${UB_VERSION_HEAD2}/
 

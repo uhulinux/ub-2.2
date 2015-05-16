@@ -1,0 +1,13 @@
+diff -Naur orig/mate-tweak patched/mate-tweak
+--- orig/mate-tweak	2015-05-10 20:37:33.814497848 +0200
++++ patched/mate-tweak	2015-05-10 20:42:58.156106172 +0200
+@@ -308,7 +308,8 @@
+             mint_menu_available = True
+ 
+         gnome_menu_available = False
+-        if os.path.exists('/usr/lib/gnome-main-menu/main-menu'):
++        if os.path.exists('/usr/libexec/mate/main-menu') or \
++           os.path.exists('/usr/lib/gnome-main-menu/main-menu'):
+             gnome_menu_available = True
+ 
+         maximus_available = False

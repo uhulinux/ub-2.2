@@ -1,6 +1,6 @@
 eom-dev
-gconf2-dev
 intltool
+libchamplain-dev
 libexif-dev
 libgdata-dev
 liboauth-dev

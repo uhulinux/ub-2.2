@@ -1,0 +1,52 @@
+diff -Naur orig/configure patched/configure
+--- orig/configure	2015-04-06 18:41:31.000000000 +0200
++++ patched/configure	2015-04-07 18:41:15.076433329 +0200
+@@ -12478,8 +12478,8 @@
+ # ***************************
+ 
+ GLIB_REQUIRED=2.36.0
+-POLKIT_AGENT_REQUIRED=0.97
+-POLKIT_GOBJECT_REQUIRED=0.97
++POLKIT_AGENT_REQUIRED=0.102
++POLKIT_GOBJECT_REQUIRED=0.102
+ 
+ { $as_echo "$as_me:${as_lineno-$LINENO}: checking which gtk+ version to compile against" >&5
+ $as_echo_n "checking which gtk+ version to compile against... " >&6; }
+diff -Naur orig/configure.ac patched/configure.ac
+--- orig/configure.ac	2015-04-06 18:39:03.000000000 +0200
++++ patched/configure.ac	2015-04-07 18:40:43.116274847 +0200
+@@ -122,8 +122,8 @@
+ # ***************************
+ 
+ GLIB_REQUIRED=2.36.0
+-POLKIT_AGENT_REQUIRED=0.97
+-POLKIT_GOBJECT_REQUIRED=0.97
++POLKIT_AGENT_REQUIRED=0.102
++POLKIT_GOBJECT_REQUIRED=0.102
+ 
+ AC_MSG_CHECKING([which gtk+ version to compile against])
+ AC_ARG_WITH([gtk],
+diff -Naur orig/polkitgtkmate/example.c patched/polkitgtkmate/example.c
+--- orig/polkitgtkmate/example.c	2014-03-05 21:09:28.000000000 +0100
++++ patched/polkitgtkmate/example.c	2015-04-07 18:38:31.299621204 +0200
+@@ -147,7 +147,7 @@
+ 
+ 
+ 	system_bus_name_subject = polkit_system_bus_name_new(g_dbus_connection_get_unique_name(bus));
+-	unix_process_subject = polkit_unix_process_new(getpid());
++	unix_process_subject = polkit_unix_process_new_for_owner(getpid(), 0, -1);
+ 
+ 	error = NULL;
+ 	authority = polkit_authority_get_sync(NULL /* GCancellable* */, &error);
+diff -Naur orig/polkitgtkmate/polkitlockbutton.c patched/polkitgtkmate/polkitlockbutton.c
+--- orig/polkitgtkmate/polkitlockbutton.c	2014-03-05 21:09:28.000000000 +0100
++++ patched/polkitgtkmate/polkitlockbutton.c	2015-04-07 18:39:29.275908693 +0200
+@@ -418,7 +418,7 @@
+ 
+   if (button->priv->subject == NULL)
+     {
+-      button->priv->subject = polkit_unix_process_new (getpid ());
++      button->priv->subject = polkit_unix_process_new_for_owner (getpid(), 0, -1);
+     }
+ 
+   /* synchronously check on construction - TODO: we could implement GAsyncInitable

@@ -4,13 +4,13 @@ gobject-introspection-dev
 gst-plugins-base-dev
 gtksourceview2-dev
 intltool
+itstool
 libgtop2-dev
 libmateweather-dev
 libnotify-dev
 libsm-dev
 libwnck-dev
 libxslt-dev
-mate-common
 mate-desktop-dev
 mate-icon-theme
 mate-panel-dev
@@ -18,7 +18,8 @@ mate-settings-daemon-dev
 networkmanager-dev
 openssl-dev
 polkit-dev
-pygobject3-dev
+pygobject-dev
+udev-dev
 upower-dev
 xcb-util-dev
 yelp-tools

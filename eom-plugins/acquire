@@ -1,4 +1,4 @@
 #!/usr/bin/env dl
 
-${UB_VERSION}.tar.gz	mate-image-viewer-plugins-${UB_VERSION}/
-	https://github.com/cygwinports/mate-image-viewer-plugins/archive/
+${UB_VERSION}.tar.bz2 prezso-eom-plugins-af4befc1e0d2/
+	https://bitbucket.org/prezso/eom-plugins/get/

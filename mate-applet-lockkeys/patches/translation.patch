@@ -1,0 +1,179 @@
+diff -Naur orig/src/lockkeys-applet-menu.xml patched/src/lockkeys-applet-menu.xml
+--- orig/src/lockkeys-applet-menu.xml	2015-01-20 19:45:20.000000000 +0100
++++ patched/src/lockkeys-applet-menu.xml	1970-01-01 01:00:00.000000000 +0100
+@@ -1,4 +0,0 @@
+-<menuitem name="Item 1" action="Settings" />
+-<menuitem name="Item 3" action="About" />
+-
+-
+diff -Naur orig/src/main.c patched/src/main.c
+--- orig/src/main.c	2015-01-20 19:45:20.000000000 +0100
++++ patched/src/main.c	2015-05-11 02:09:23.000000000 +0200
+@@ -248,9 +248,6 @@
+ 		//GTK_STOCK_HELP, GTK_RESPONSE_HELP,
+ 		NULL));
+ 
+-	//gtk_container_set_border_width(GTK_CONTAINER(applet->settings), 12);
+-	//gtk_box_set_spacing(GTK_BOX(applet->settings->vbox), 18);
+-	//gtk_window_set_default_size(GTK_WINDOW(applet->settings), 240, -1);
+ 	gtk_dialog_set_default_response(GTK_DIALOG(applet->settings), GTK_RESPONSE_ACCEPT);
+ 	gtk_window_set_resizable(GTK_WINDOW(applet->settings), FALSE);
+ 	
+@@ -260,7 +257,6 @@
+ 	header_str = g_strconcat("<span weight=\"bold\">", _("Settings"), "</span>", NULL);
+ 	header_lbl = gtk_label_new(header_str);
+ 	gtk_label_set_use_markup(GTK_LABEL(header_lbl), TRUE);
+-	//gtk_label_set_justify(GTK_LABEL(header_lbl), GTK_JUSTIFY_LEFT);
+ 	gtk_misc_set_alignment(GTK_MISC(header_lbl), 0, 0.5);
+ 	g_free(header_str);
+ 	gtk_box_pack_start(GTK_BOX(vbox1), header_lbl, TRUE, TRUE, 0);
+@@ -457,14 +453,14 @@
+ }
+ 
+ static const GtkActionEntry applet_menu_actions [] = {
+-	//{ "Settings", GTK_STOCK_PROPERTIES, N_("_Settings"), NULL, NULL, G_CALLBACK (settings_cb) },
+-	//{ "Help", GTK_STOCK_HELP, N_("_Help"), NULL, NULL, G_CALLBACK (help_cb) },
+-	//{ "About", GTK_STOCK_ABOUT, N_("_About"), NULL, NULL, G_CALLBACK (about_cb) }
+-	{ "Settings", GTK_STOCK_PROPERTIES, "_Settings", NULL, NULL, G_CALLBACK (settings_cb) },
+-	//{ "Help", GTK_STOCK_HELP, "_Help", NULL, NULL, G_CALLBACK (help_cb) },
+-	{ "About", GTK_STOCK_ABOUT, NULL, "_About", NULL, G_CALLBACK (about_cb) }
++	{ "Properties", GTK_STOCK_PROPERTIES, NULL, NULL, NULL, G_CALLBACK (settings_cb) },
++	{ "About", GTK_STOCK_ABOUT, NULL, NULL, NULL, G_CALLBACK (about_cb) }
+ };
+ 
++static char *ui  =
++"<menuitem name='Item 1' action='Properties' />"
++"<menuitem name='Item 2' action='About' />"
++;
+ 
+ static void applet_back_change (MatePanelApplet *a, MatePanelAppletBackgroundType type, GdkColor *color, GdkPixmap *pixmap, LedApplet *applet) {
+         /* taken from the TrashApplet */
+@@ -608,9 +604,9 @@
+ 	gtk_container_add(GTK_CONTAINER(applet_widget), applet->vbox);
+ 
+         GtkActionGroup *action_group = gtk_action_group_new ("Lockkeys Applet Actions");
+-        //gtk_action_group_set_translation_domain (action_group, GETTEXT_PACKAGE);
+         gtk_action_group_add_actions (action_group, applet_menu_actions, G_N_ELEMENTS (applet_menu_actions), applet);
+-	mate_panel_applet_setup_menu_from_file(applet->applet, "/usr/share/mate-2.0/ui/lockkeys-applet-menu.xml", action_group);
++	//gtk_action_group_set_translation_domain (action_group, PACKAGE_NAME);
++	mate_panel_applet_setup_menu(applet->applet, ui, action_group);
+ 
+ 	gtk_widget_show_all(GTK_WIDGET(applet_widget));
+ 
+diff -Naur orig/src/Makefile.am patched/src/Makefile.am
+--- orig/src/Makefile.am	2015-01-20 19:45:20.000000000 +0100
++++ patched/src/Makefile.am	2015-05-11 02:11:28.000000000 +0200
+@@ -17,10 +17,6 @@
+ appletdir = $(datadir)/mate-panel/applets
+ applet_DATA = org.mate.applets.LockkeysApplet.mate-panel-applet
+ 
+-xmluidir = $(datadir)/mate-2.0/ui
+-xmlui_DATA = lockkeys-applet-menu.xml
+-EXTRA_DIST = lockkeys-applet-menu.xml
+-
+ servicedir = $(datadir)/dbus-1/services
+ service_DATA = org.mate.panel.applet.LockkeysApplet.service
+ 
+diff -Naur orig/src/Makefile.in patched/src/Makefile.in
+--- orig/src/Makefile.in	2015-01-20 19:45:36.000000000 +0100
++++ patched/src/Makefile.in	2015-05-11 02:18:35.897951467 +0200
+@@ -109,8 +109,7 @@
+ 	org.mate.panel.applet.LockkeysApplet.gschema.xml
+ CONFIG_CLEAN_VPATH_FILES =
+ am__installdirs = "$(DESTDIR)$(libexecdir)" "$(DESTDIR)$(appletdir)" \
+-	"$(DESTDIR)$(gsettingsdir)" "$(DESTDIR)$(servicedir)" \
+-	"$(DESTDIR)$(xmluidir)"
++	"$(DESTDIR)$(gsettingsdir)" "$(DESTDIR)$(servicedir)"
+ PROGRAMS = $(libexec_PROGRAMS)
+ am_lockkeys_applet_OBJECTS = main.$(OBJEXT)
+ lockkeys_applet_OBJECTS = $(am_lockkeys_applet_OBJECTS)
+@@ -178,7 +177,7 @@
+     || { echo " ( cd '$$dir' && rm -f" $$files ")"; \
+          $(am__cd) "$$dir" && rm -f $$files; }; \
+   }
+-DATA = $(applet_DATA) $(gsettings_DATA) $(service_DATA) $(xmlui_DATA)
++DATA = $(applet_DATA) $(gsettings_DATA) $(service_DATA)
+ am__tagged_files = $(HEADERS) $(SOURCES) $(TAGS_FILES) $(LISP)
+ # Read a list of newline-separated strings from the standard input,
+ # and print each of them once, without duplicates.  Input order is
+@@ -343,9 +342,6 @@
+ lockkeys_applet_SOURCES = main.c applet.h 
+ appletdir = $(datadir)/mate-panel/applets
+ applet_DATA = org.mate.applets.LockkeysApplet.mate-panel-applet
+-xmluidir = $(datadir)/mate-2.0/ui
+-xmlui_DATA = lockkeys-applet-menu.xml
+-EXTRA_DIST = lockkeys-applet-menu.xml
+ servicedir = $(datadir)/dbus-1/services
+ service_DATA = org.mate.panel.applet.LockkeysApplet.service
+ gsettingsdir = $(datadir)/glib-2.0/schemas
+@@ -521,27 +517,6 @@
+ 	@list='$(service_DATA)'; test -n "$(servicedir)" || list=; \
+ 	files=`for p in $$list; do echo $$p; done | sed -e 's|^.*/||'`; \
+ 	dir='$(DESTDIR)$(servicedir)'; $(am__uninstall_files_from_dir)
+-install-xmluiDATA: $(xmlui_DATA)
+-	@$(NORMAL_INSTALL)
+-	@list='$(xmlui_DATA)'; test -n "$(xmluidir)" || list=; \
+-	if test -n "$$list"; then \
+-	  echo " $(MKDIR_P) '$(DESTDIR)$(xmluidir)'"; \
+-	  $(MKDIR_P) "$(DESTDIR)$(xmluidir)" || exit 1; \
+-	fi; \
+-	for p in $$list; do \
+-	  if test -f "$$p"; then d=; else d="$(srcdir)/"; fi; \
+-	  echo "$$d$$p"; \
+-	done | $(am__base_list) | \
+-	while read files; do \
+-	  echo " $(INSTALL_DATA) $$files '$(DESTDIR)$(xmluidir)'"; \
+-	  $(INSTALL_DATA) $$files "$(DESTDIR)$(xmluidir)" || exit $$?; \
+-	done
+-
+-uninstall-xmluiDATA:
+-	@$(NORMAL_UNINSTALL)
+-	@list='$(xmlui_DATA)'; test -n "$(xmluidir)" || list=; \
+-	files=`for p in $$list; do echo $$p; done | sed -e 's|^.*/||'`; \
+-	dir='$(DESTDIR)$(xmluidir)'; $(am__uninstall_files_from_dir)
+ 
+ ID: $(am__tagged_files)
+ 	$(am__define_uniq_tagged_files); mkid -fID $$unique
+@@ -629,7 +604,7 @@
+ check: check-am
+ all-am: Makefile $(PROGRAMS) $(DATA)
+ installdirs:
+-	for dir in "$(DESTDIR)$(libexecdir)" "$(DESTDIR)$(appletdir)" "$(DESTDIR)$(gsettingsdir)" "$(DESTDIR)$(servicedir)" "$(DESTDIR)$(xmluidir)"; do \
++	for dir in "$(DESTDIR)$(libexecdir)" "$(DESTDIR)$(appletdir)" "$(DESTDIR)$(gsettingsdir)" "$(DESTDIR)$(servicedir)"; do \
+ 	  test -z "$$dir" || $(MKDIR_P) "$$dir"; \
+ 	done
+ install: install-am
+@@ -685,7 +660,7 @@
+ info-am:
+ 
+ install-data-am: install-appletDATA install-gsettingsDATA \
+-	install-serviceDATA install-xmluiDATA
++	install-serviceDATA
+ 	@$(NORMAL_INSTALL)
+ 	$(MAKE) $(AM_MAKEFLAGS) install-data-hook
+ install-dvi: install-dvi-am
+@@ -732,8 +707,7 @@
+ ps-am:
+ 
+ uninstall-am: uninstall-appletDATA uninstall-gsettingsDATA \
+-	uninstall-libexecPROGRAMS uninstall-serviceDATA \
+-	uninstall-xmluiDATA
++	uninstall-libexecPROGRAMS uninstall-serviceDATA
+ 
+ .MAKE: install-am install-data-am install-strip
+ 
+@@ -747,12 +721,12 @@
+ 	install-html-am install-info install-info-am \
+ 	install-libexecPROGRAMS install-man install-pdf install-pdf-am \
+ 	install-ps install-ps-am install-serviceDATA install-strip \
+-	install-xmluiDATA installcheck installcheck-am installdirs \
++	installcheck installcheck-am installdirs \
+ 	maintainer-clean maintainer-clean-generic mostlyclean \
+ 	mostlyclean-compile mostlyclean-generic pdf pdf-am ps ps-am \
+ 	tags tags-am uninstall uninstall-am uninstall-appletDATA \
+ 	uninstall-gsettingsDATA uninstall-libexecPROGRAMS \
+-	uninstall-serviceDATA uninstall-xmluiDATA
++	uninstall-serviceDATA
+ 
+ 
+ install-data-hook:

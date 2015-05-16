@@ -7,7 +7,6 @@ libxext-dev
 libxi-dev
 libxkbfile-dev
 libxscrnsaver-dev
-mate-common
 mate-desktop-dev
 mate-menus-dev
 mesa-dev

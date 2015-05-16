@@ -1,10 +1,12 @@
 #!/bin/sh -eux
 
+# old glib
+sed -i -e "s/2.36.0/2.34.0/g" configure configure.ac
+
 ub_compile \
 	--with-gtk=2.0 \
-	--with-smclient-backend=xsmp \
+	--with-platform=mate \
 	--without-keyring \
 	--enable-pixbuf \
-	--disable-introspection \
+	--enable-introspection \
 	--enable-comics
-

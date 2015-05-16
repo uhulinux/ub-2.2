@@ -1,7 +1,13 @@
 #!/bin/sh -eux
 
-autoreconf -vif
+# old glib
+sed -i -e "s/2.36.0/2.34.0/g" configure
+# old pygtksourceview
+sed -i -e "s/2.9.2/2.8.0/g" configure
+
+# gtk3-nál --disable-python kell, mert gtk3 esetén is
+# keresi a pygtk-t, ami viszont gtk2-es, így kiakad a build.
+
 ub_compile \
 	--with-gtk=2.0 \
 	--enable-python
-

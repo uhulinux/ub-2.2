@@ -1,9 +1,10 @@
 gtk2-dev
 intltool
+itstool
 libcanberra-dev
 libgtop2-dev
 libsm-dev
-mate-common
+mate-desktop-dev
 startup-notification-dev
 xcb-util-dev
 yelp-tools

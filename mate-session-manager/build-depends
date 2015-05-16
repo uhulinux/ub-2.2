@@ -4,6 +4,8 @@ intltool
 libsm-dev
 libxslt-dev
 libxtst-dev
-mate-common
+mate-desktop-dev
+udev-dev
 upower-dev
 x.org-xtrans-dev
+xcb-util-dev
