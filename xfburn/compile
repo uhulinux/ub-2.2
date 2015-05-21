@@ -1,4 +1,4 @@
 #!/bin/sh -eux
 
-./autogen.sh --prefix=/usr
+# ./autogen.sh --prefix=/usr
 ub_compile
