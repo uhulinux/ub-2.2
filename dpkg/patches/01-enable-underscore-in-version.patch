@@ -1,23 +1,18 @@
 diff -Naur orig/lib/dpkg/parsehelp.c patched/lib/dpkg/parsehelp.c
---- orig/lib/dpkg/parsehelp.c	2014-10-13 16:20:57.000000000 +0200
-+++ patched/lib/dpkg/parsehelp.c	2014-11-15 17:58:18.818320525 +0100
-@@ -234,11 +234,11 @@
-   if (*ptr && !cisdigit(*ptr++))
+--- orig/lib/dpkg/parsehelp.c	2015-05-18 14:38:18.000000000 +0200
++++ patched/lib/dpkg/parsehelp.c	2015-05-19 20:44:54.959568690 +0200
+@@ -238,7 +238,7 @@
+   if (*ptr && !c_isdigit(*ptr++))
      return dpkg_put_warn(err, _("version number does not start with digit"));
    for (; *ptr; ptr++) {
--    if (!cisdigit(*ptr) && !cisalpha(*ptr) && strchr(".-+~:", *ptr) == NULL)
-+    if (!cisdigit(*ptr) && !cisalpha(*ptr) && strchr(".-+~:_", *ptr) == NULL)
+-    if (!c_isdigit(*ptr) && !c_isalpha(*ptr) && strchr(".-+~:", *ptr) == NULL)
++    if (!c_isdigit(*ptr) && !c_isalpha(*ptr) && strchr(".-+~:_", *ptr) == NULL)
        return dpkg_put_warn(err, _("invalid character in version number"));
    }
    for (ptr = rversion->revision; *ptr; ptr++) {
--    if (!cisdigit(*ptr) && !cisalpha(*ptr) && strchr(".+~", *ptr) == NULL)
-+    if (!cisdigit(*ptr) && !cisalpha(*ptr) && strchr(".+~_", *ptr) == NULL)
-       return dpkg_put_warn(err, _("invalid character in revision number"));
-   }
- 
-diff -Naur orig/lib/dpkg/test/t-version.c patched/lib/dpkg/test/t-version.c
---- orig/lib/dpkg/test/t-version.c	2014-10-13 16:20:57.000000000 +0200
-+++ patched/lib/dpkg/test/t-version.c	2014-11-15 17:58:18.818320525 +0100
+diff -Naur orig/lib/dpkg/t/t-version.c patched/lib/dpkg/t/t-version.c
+--- orig/lib/dpkg/t/t-version.c	2015-05-07 05:08:52.000000000 +0200
++++ patched/lib/dpkg/t/t-version.c	2015-05-19 20:48:30.716638572 +0200
 @@ -211,8 +211,8 @@
  	test_pass(dpkg_version_compare(&a, &b) == 0);
  

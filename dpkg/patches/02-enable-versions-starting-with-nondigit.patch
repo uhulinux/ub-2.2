@@ -1,20 +1,20 @@
 diff -Naur orig/lib/dpkg/parsehelp.c patched/lib/dpkg/parsehelp.c
---- orig/lib/dpkg/parsehelp.c	2014-11-15 17:58:18.818320525 +0100
-+++ patched/lib/dpkg/parsehelp.c	2014-11-15 18:00:24.186942195 +0100
-@@ -231,8 +231,8 @@
+--- orig/lib/dpkg/parsehelp.c	2015-05-19 20:44:54.959568690 +0200
++++ patched/lib/dpkg/parsehelp.c	2015-05-19 20:52:24.881799734 +0200
+@@ -235,8 +235,8 @@
  
    /* XXX: Would be faster to use something like cisversion and cisrevision. */
    ptr = rversion->version;
--  if (*ptr && !cisdigit(*ptr++))
+-  if (*ptr && !c_isdigit(*ptr++))
 -    return dpkg_put_warn(err, _("version number does not start with digit"));
-+  /* if (*ptr && !cisdigit(*ptr++))
-+    return dpkg_put_warn(err, _("version number does not start with digit")); */
++  //if (*ptr && !c_isdigit(*ptr++))
++  //  return dpkg_put_warn(err, _("version number does not start with digit"));
    for (; *ptr; ptr++) {
-     if (!cisdigit(*ptr) && !cisalpha(*ptr) && strchr(".-+~:_", *ptr) == NULL)
+     if (!c_isdigit(*ptr) && !c_isalpha(*ptr) && strchr(".-+~:_", *ptr) == NULL)
        return dpkg_put_warn(err, _("invalid character in version number"));
-diff -Naur orig/lib/dpkg/test/t-version.c patched/lib/dpkg/test/t-version.c
---- orig/lib/dpkg/test/t-version.c	2014-11-15 17:58:18.818320525 +0100
-+++ patched/lib/dpkg/test/t-version.c	2014-11-15 18:00:24.186942195 +0100
+diff -Naur orig/lib/dpkg/t/t-version.c patched/lib/dpkg/t/t-version.c
+--- orig/lib/dpkg/t/t-version.c	2015-05-19 20:48:30.716638572 +0200
++++ patched/lib/dpkg/t/t-version.c	2015-05-19 20:54:55.830548249 +0200
 @@ -212,7 +212,7 @@
  
  	/* Test valid characters in upstream version. */
@@ -25,9 +25,9 @@ diff -Naur orig/lib/dpkg/test/t-version.c patched/lib/dpkg/test/t-version.c
  
  	/* Test valid characters in revision. */
 diff -Naur orig/scripts/t/Dpkg_Version.t patched/scripts/t/Dpkg_Version.t
---- orig/scripts/t/Dpkg_Version.t	2014-10-13 11:40:29.000000000 +0200
-+++ patched/scripts/t/Dpkg_Version.t	2014-11-15 18:00:24.186942195 +0100
-@@ -131,28 +131,28 @@
+--- orig/scripts/t/Dpkg_Version.t	2015-05-07 05:08:53.000000000 +0200
++++ patched/scripts/t/Dpkg_Version.t	2015-05-19 20:57:49.603409942 +0200
+@@ -139,28 +139,28 @@
  1 0:1 0
  0 0:0-0 0
  2:2.5 1:7.5 1

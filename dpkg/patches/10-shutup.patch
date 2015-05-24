@@ -1,14 +1,14 @@
 diff -Naur orig/dpkg-deb/build.c patched/dpkg-deb/build.c
---- orig/dpkg-deb/build.c	2014-10-12 05:16:47.000000000 +0200
-+++ patched/dpkg-deb/build.c	2014-10-18 22:03:39.627426924 +0200
-@@ -441,8 +441,10 @@
-     pkg = check_new_pkg(dir);
-     if (subdir)
-       debar = pkg_get_pathname(debar, pkg);
-+    /*
-     printf(_("dpkg-deb: building package `%s' in `%s'.\n"),
-            pkg->set->name, debar);
-+    */
+--- orig/dpkg-deb/build.c	2015-05-18 14:38:18.000000000 +0200
++++ patched/dpkg-deb/build.c	2015-05-19 21:02:45.508877258 +0200
+@@ -482,8 +482,8 @@
+     pkg = check_control_area(dir);
+     if (debar == NULL)
+       debar = gen_dest_pathname_from_pkg(dest, pkg);
+-    printf(_("dpkg-deb: building package '%s' in '%s'.\n"),
+-           pkg->set->name, debar);
++    //printf(_("dpkg-deb: building package '%s' in '%s'.\n"),
++    //       pkg->set->name, debar);
    }
    m_output(stdout, _("<standard output>"));
  
