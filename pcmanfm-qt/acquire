@@ -1,4 +1,4 @@
 #!/usr/bin/env dl
 
-pcmanfm-qt-${UB_VERSION}.tar.xz pcmanfm-qt-${UB_VERSION}/
-	http://downloads.lxqt.org/lxqt/${UB_VERSION}/
+36cb841b6541bfa1683823128c2b75d4b1b5f87b.zip pcmanfm-qt-36cb841b6541bfa1683823128c2b75d4b1b5f87b/
+	https://github.com/lxde/pcmanfm-qt/archive/

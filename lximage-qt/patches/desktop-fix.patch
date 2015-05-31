@@ -1,15 +1,20 @@
 diff -Naur orig/data/lximage-qt.desktop.in mod/data/lximage-qt.desktop.in
---- orig/data/lximage-qt.desktop.in	2014-05-09 20:06:31.000000000 +0200
-+++ mod/data/lximage-qt.desktop.in	2014-08-06 13:46:45.000000000 +0200
-@@ -3,9 +3,10 @@
- Name=LXImage
- GenericName=Image Viewer
- Comment=The LXQt image viewer
-+Comment[hu]=LXQt képnéző
- Icon=lximage-qt
+--- orig/data/lximage-qt.desktop.in	2015-02-18 01:27:45.000000000 +0100
++++ mod/data/lximage-qt.desktop.in	2015-05-19 12:58:45.086148313 +0200
+@@ -7,5 +7,5 @@
  Exec=lximage-qt
  StartupNotify=true
  Terminal=false
 -Categories=Graphics;Utility;Core;Qt;Viewer;RasterGraphics;2DGraphics;Photography;
 +Categories=Qt;Graphics;RasterGraphics;Viewer;
  MimeType=image/bmp;image/gif;image/jpeg;image/jpg;image/png;image/tiff;image/x-bmp;image/x-pcx;image/x-tga;image/x-portable-pixmap;image/x-portable-bitmap;image/x-targa;image/x-portable-greymap;application/pcx;image/svg+xml;image/svg-xml;
+diff -Naur orig/data/lximage-qt-screenshot.desktop.in mod/data/lximage-qt-screenshot.desktop.in
+--- orig/data/lximage-qt-screenshot.desktop.in	2015-02-18 01:27:45.000000000 +0100
++++ mod/data/lximage-qt-screenshot.desktop.in	2015-05-19 13:10:14.820271583 +0200
+@@ -5,5 +5,5 @@
+ Comment=Take a screenshot
+ Exec=lximage-qt --screenshot
+ Icon=camera-photo
+-Categories=Graphics;Utility;Core;Qt;
++Categories=Graphics;Core;Qt;
+ StartupNotify=true

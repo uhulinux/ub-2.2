@@ -1,4 +1,4 @@
 #!/usr/bin/env dl
 
-liblxqt-${UB_VERSION}.tar.xz liblxqt-${UB_VERSION}/
-	http://downloads.lxqt.org/lxqt/${UB_VERSION}/
+af98dfeb889bd49e04f32079ad34c9d0991e123a.zip liblxqt-af98dfeb889bd49e04f32079ad34c9d0991e123a/
+	https://github.com/lxde/liblxqt/archive/

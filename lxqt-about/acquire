@@ -1,4 +1,4 @@
 #!/usr/bin/env dl
 
-lxqt-about-${UB_VERSION}.tar.xz lxqt-about-${UB_VERSION}/
-	http://downloads.lxqt.org/lxqt/${UB_VERSION}/
+3f9712727657868226bad69f4bb5567145e67eb2.zip lxqt-about-3f9712727657868226bad69f4bb5567145e67eb2/
+	https://github.com/lxde/lxqt-about/archive/

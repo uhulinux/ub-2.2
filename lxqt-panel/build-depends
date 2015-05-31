@@ -1,7 +1,7 @@
 alsa-lib-dev
 cmake
 kguiaddons-dev
-kwindowsystem-dev
+libdbusmenu-qt5-dev
 liblxqt-dev
 liblxqt-mount-dev
 libqtxdg-dev
@@ -13,3 +13,4 @@ lmsensors-dev
 lxqt-globalkeys-dev
 menu-cache-dev
 pulseaudio-dev
+solid-dev

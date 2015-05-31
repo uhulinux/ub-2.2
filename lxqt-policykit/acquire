@@ -1,4 +1,4 @@
 #!/usr/bin/env dl
 
-lxqt-policykit-${UB_VERSION}.tar.xz lxqt-policykit-${UB_VERSION}/
-	http://downloads.lxqt.org/lxqt/${UB_VERSION}/
+d400f4f533eed3d0449a3feac5b6962ba8807478.zip lxqt-policykit-d400f4f533eed3d0449a3feac5b6962ba8807478/
+	https://github.com/lxde/lxqt-policykit/archive/

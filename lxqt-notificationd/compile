@@ -1,6 +1,5 @@
 #!/bin/sh -eux
 
 rm config/translations/lxqt-config-notificationd_ru.desktop
-export USE_QT5=YES
-export  CMAKE_PREFIX_PATH=/usr/lib/qt5
-ub_compile
+ub_compile \
+	-DCMAKE_PREFIX_PATH=/usr/lib/qt5

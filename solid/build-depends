@@ -1,0 +1,6 @@
+cmake
+extra-cmake-modules
+qt5-dev
+udev-dev
+udisks-dev
+upower-dev

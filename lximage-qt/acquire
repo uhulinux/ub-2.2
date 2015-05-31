@@ -1,4 +1,4 @@
 #!/usr/bin/env dl
 
-lximage-qt-${UB_VERSION}.tar.xz lximage-qt-${UB_VERSION}/
-	http://downloads.lxqt.org/lximage-qt/${UB_VERSION}/
+c0354720e45c3c8c4938a4013e3a42c72bfdc49d.zip lximage-qt-c0354720e45c3c8c4938a4013e3a42c72bfdc49d/
+	https://github.com/lxde/lximage-qt/archive/

@@ -1,0 +1,16 @@
+diff -Naur orig/startlxqt.in mod/startlxqt.in
+--- orig/startlxqt.in	2015-05-28 10:34:28.000000000 +0200
++++ mod/startlxqt.in	2015-05-28 13:21:56.563006277 +0200
+@@ -20,6 +20,12 @@
+ fi
+ mkdir -p "$XDG_DESKTOP_DIR"
+ 
++# Az alappenel, ha muszály
++mkdir -p "$HOME"/.config/lxqt
++if [ ! -f "$HOME"/.config/lxqt/panel.conf ]; then
++cp /etc/xdg/lxqt/panel.conf "$HOME"/.config/lxqt/
++fi
++
+ # Clean up after GDM (GDM sets the number of desktops to one)
+ xprop -root -remove _NET_NUMBER_OF_DESKTOPS -remove _NET_DESKTOP_NAMES -remove _NET_CURRENT_DESKTOP 2> /dev/null
+ 

@@ -1,4 +1,4 @@
 #!/usr/bin/env dl
 
-lxqt-powermanagement-${UB_VERSION}.tar.xz lxqt-powermanagement-${UB_VERSION}/
-	http://downloads.lxqt.org/lxqt/${UB_VERSION}/
+3040cf9fcea30d26224e595dc2600487abb48449.zip lxqt-powermanagement-3040cf9fcea30d26224e595dc2600487abb48449/
+   https://github.com/lxde/lxqt-powermanagement/archive/

@@ -452,27 +452,3 @@ diff -Naur orig/menu/lxqt-applications.menu mod/menu/lxqt-applications.menu
  			<Or>
  				<Filename>lxqt-config.desktop</Filename>
  			</Or>
-diff -Naur orig/menu/translations/lxqt-leave_hu.directory mod/menu/translations/lxqt-leave_hu.directory
---- orig/menu/translations/lxqt-leave_hu.directory	1970-01-01 01:00:00.000000000 +0100
-+++ mod/menu/translations/lxqt-leave_hu.directory	2015-05-04 17:26:51.339039156 +0200
-@@ -0,0 +1,8 @@
-+[Desktop Entry]
-+Name=Leave
-+Comment=Leave Session
-+Icon=system-shutdown
-+Type=Directory
-+
-+Comment[hu]=LXQt elhagyása
-+Name[hu]=Kilépés
-diff -Naur orig/menu/translations/lxqt-settings_hu.directory mod/menu/translations/lxqt-settings_hu.directory
---- orig/menu/translations/lxqt-settings_hu.directory	1970-01-01 01:00:00.000000000 +0100
-+++ mod/menu/translations/lxqt-settings_hu.directory	2015-05-04 17:26:18.731040452 +0200
-@@ -0,0 +1,8 @@
-+[Desktop Entry]
-+Encoding=UTF-8
-+Type=Directory
-+Name=LXQt settings
-+Icon=preferences-system
-+
-+Comment[hu]=LXQt rendszerbeállítások
-+Name[de]=LXQt beállítás

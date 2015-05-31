@@ -1,4 +1,4 @@
 #!/usr/bin/env dl
 
-lxqt-panel-${UB_VERSION}.tar.xz lxqt-panel-${UB_VERSION}/
-	http://downloads.lxqt.org/lxqt/${UB_VERSION}/
+fa2a85bccaa47056782fa9c2bfed3c95cb93e0d7.zip lxqt-panel-fa2a85bccaa47056782fa9c2bfed3c95cb93e0d7/
+	https://github.com/lxde/lxqt-panel/archive/
