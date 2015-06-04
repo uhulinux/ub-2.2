@@ -1,0 +1,12 @@
+diff -Naur orig/startlxqt.in mod/startlxqt.in
+--- orig/startlxqt.in	2015-05-23 16:26:30.000000000 +0200
++++ mod/startlxqt.in	2015-06-04 14:44:59.026617405 +0200
+@@ -37,6 +37,8 @@
+ # Qt5 platform plugin
+ export QT_QPA_PLATFORMTHEME=lxqt
+ 
++export QT_XKB_CONFIG_ROOT=/usr/share/X11/xkb
++
+ # use lxqt-applications.menu for main app menu
+ export XDG_MENU_PREFIX="lxqt-"
+ 
