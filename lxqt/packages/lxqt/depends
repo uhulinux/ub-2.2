@@ -1,13 +1,15 @@
-lxqt-about
-lxqt-common
-lxqt-config
-lxqt-config-randr
-lxqt-notificationd
-lxqt-panel
-lxqt-policykit
-lxqt-powermanagement
-lxqt-qtplugin
-lxqt-runner
-lxqt-session
-pcmanfm-qt
-udisks
+compton-conf >=
+lximage-qt >=
+lxqt-about >=
+lxqt-admin >=
+lxqt-common >=
+lxqt-config >=
+lxqt-notificationd >=
+lxqt-openssh-askpass >=
+lxqt-panel >=
+lxqt-policykit >=
+lxqt-powermanagement >=
+lxqt-qtplugin >=
+lxqt-runner >=
+lxqt-session >=
+obconf >=
