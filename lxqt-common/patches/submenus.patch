@@ -1,12 +1,12 @@
 diff -Naur orig/menu/lxqt-applications.menu mod/menu/lxqt-applications.menu
---- orig/menu/lxqt-applications.menu	2015-02-14 14:42:58.000000000 +0100
-+++ mod/menu/lxqt-applications.menu	2015-05-04 18:32:35.000000000 +0200
-@@ -28,8 +28,73 @@
+--- orig/menu/lxqt-applications.menu	2015-06-06 18:51:31.000000000 +0200
++++ mod/menu/lxqt-applications.menu	2015-06-06 18:47:00.000000000 +0200
+@@ -28,8 +28,82 @@
  				<Not><Category>System</Category></Not>
  			</And>
  		</Include>
 +		<Exclude>
-+			<Category>Archiving</Category>
++		<Category>Archiving</Category>
 +        	<Category>Calculator</Category>
 +        	<Category>Clock</Category>
 +        	<Category>Compression</Category>
@@ -14,7 +14,10 @@ diff -Naur orig/menu/lxqt-applications.menu mod/menu/lxqt-applications.menu
 +        	<Category>TelephonyTools</Category>
 +        	<Category>TextEditor</Category>
 +        	<Category>TextTools</Category>
-+        </Exclude>
++        	<Category>FileManager</Category>
++        	<Category>GNOME</Category>
++        	<Category>KDE</Category>
++		</Exclude>
 +    	<Menu>
 +      		<Name>Archiving</Name>
 +      		<Directory>lxde-utility-sub-archiving.directory</Directory>
@@ -40,14 +43,20 @@ diff -Naur orig/menu/lxqt-applications.menu mod/menu/lxqt-applications.menu
 +			<Name>Compression</Name>
 +			<Directory>lxde-utility-sub-compression.directory</Directory>
 +			<Include>
++			  <And>
 +				<Category>Compression</Category>
++				<Not><Category>Archiving</Category></Not>
++			      </And>
 +			</Include>
 +		</Menu>
 +		<Menu>
 +			<Name>File tools</Name>
 +			<Directory>lxde-utility-sub-filetool.directory</Directory>
 +			<Include>
-+				<Category>FileTools</Category>
++			  <And>
++			    <Not><Category>System</Category></Not> 
++			  <Category>FileTools</Category>
++			</And>
 +			</Include>
 +		</Menu>
 +		<Menu>
@@ -76,7 +85,7 @@ diff -Naur orig/menu/lxqt-applications.menu mod/menu/lxqt-applications.menu
  	<!-- Accessibility submenu -->
  	<Menu>
  		<Name>Universal Access</Name>
-@@ -74,6 +139,105 @@
+@@ -74,6 +148,113 @@
  				<Category>Game</Category>
  			</And>
  		</Include>
@@ -179,10 +188,18 @@ diff -Naur orig/menu/lxqt-applications.menu mod/menu/lxqt-applications.menu
 +				<Category>StrategyGame</Category>
 +			</Include>
 +		</Menu>
++		<Menu>
++			<Name>Emulator</Name>
++			<Directory>lxde-system-tools-sub-emulator.directory</Directory>
++			<Include>
++				<Category>Emulator</Category>
++			</Include>
++		</Menu>    
++
  	</Menu> <!-- End Games -->
  
  	<!-- Graphics -->
-@@ -97,6 +261,120 @@
+@@ -97,6 +278,120 @@
  				<Category>Network</Category>
  			</And>
  		</Include>
@@ -303,7 +320,7 @@ diff -Naur orig/menu/lxqt-applications.menu mod/menu/lxqt-applications.menu
  	</Menu>	 <!-- End Internet -->
  
  	<!-- Multimedia -->
-@@ -108,6 +386,88 @@
+@@ -108,6 +403,88 @@
  				<Category>AudioVideo</Category>
  			</And>
  		</Include>
@@ -392,7 +409,7 @@ diff -Naur orig/menu/lxqt-applications.menu mod/menu/lxqt-applications.menu
  	</Menu>	 <!-- End Multimedia -->
  
  	<!-- Office -->
-@@ -132,6 +492,50 @@
+@@ -132,6 +509,53 @@
  				<Not><Category>PackageManager</Category></Not>
  			</And>
  		</Include>
@@ -409,7 +426,10 @@ diff -Naur orig/menu/lxqt-applications.menu mod/menu/lxqt-applications.menu
 +			<Name>Emulator</Name>
 +			<Directory>lxde-system-tools-sub-emulator.directory</Directory>
 +			<Include>
-+				<Category>Emulator</Category>
++			 <And>
++			  <Category>Emulator</Category>
++				<Not><Category>Game</Category></Not>
++			      </And>
 +			</Include>
 +		</Menu>    
 +		<Menu>
@@ -443,7 +463,7 @@ diff -Naur orig/menu/lxqt-applications.menu mod/menu/lxqt-applications.menu
  	</Menu>	 <!-- End System Tools -->
  
  	<!-- Other -->
-@@ -182,6 +586,8 @@
+@@ -182,6 +606,8 @@
  			</Or>
  		</Include>
  		<Exclude>
