@@ -1,7 +1,7 @@
 diff -Naur orig/src/account.c patched/src/account.c
---- orig/src/account.c	2014-05-23 11:37:26.000000000 +0200
-+++ patched/src/account.c	2014-05-23 22:38:07.112583636 +0200
-@@ -945,6 +945,11 @@
+--- orig/src/account.c	2014-10-20 22:05:29.000000000 +0200
++++ patched/src/account.c	2014-10-23 19:39:03.939607868 +0200
+@@ -952,6 +952,11 @@
  
  	ACP_FASSIGN(imap_auth_type);
  
@@ -13,7 +13,7 @@ diff -Naur orig/src/account.c patched/src/account.c
  	/* send */
  	ACP_FASSIGN(gen_msgid);
  	ACP_FASSIGN(gen_xmailer);
-@@ -1751,6 +1756,9 @@
+@@ -1758,6 +1763,9 @@
  
  	/* set value in account */
  	ac->recv_at_getall ^= TRUE;
@@ -24,8 +24,8 @@ diff -Naur orig/src/account.c patched/src/account.c
  
  static void account_double_clicked(GtkTreeView		*list_view,
 diff -Naur orig/src/inc.c patched/src/inc.c
---- orig/src/inc.c	2014-05-23 11:37:26.000000000 +0200
-+++ patched/src/inc.c	2014-05-23 22:38:07.128583796 +0200
+--- orig/src/inc.c	2014-10-20 22:05:29.000000000 +0200
++++ patched/src/inc.c	2014-10-23 19:49:27.666700759 +0200
 @@ -135,10 +135,13 @@
  static gint inc_all_spool(void);
  static void inc_autocheck_timer_set_interval	(guint		 interval);
@@ -74,7 +74,7 @@ diff -Naur orig/src/inc.c patched/src/inc.c
  static gpointer autocheck_data = NULL;
  
  static void inc_notify_cmd(gint new_msgs, gboolean notify)
-@@ -1451,50 +1454,95 @@
+@@ -1451,48 +1454,94 @@
  	inc_autocheck_timer_set();
  }
  
@@ -88,18 +88,17 @@ diff -Naur orig/src/inc.c patched/src/inc.c
 -	if (prefs_common.autochk_newmail && autocheck_data
 +	if (prefs_common.autochk_newmail && account->recv_at_getall && autocheck_data
  	    && prefs_common.work_offline == FALSE) {
- #if GLIB_CHECK_VERSION(2,14,0)
  		if (interval % 1000 == 0)
 -			autocheck_timer =
 -				g_timeout_add_seconds(interval/1000, inc_autocheck_func, autocheck_data);
 +			account->acc_autocheck_timer =
 +				g_timeout_add_seconds(interval/1000, (GSourceFunc)inc_acc_autocheck_func, account);
  		else
- #endif
--		autocheck_timer = g_timeout_add
--			(interval, inc_autocheck_func, autocheck_data);
+-			autocheck_timer = g_timeout_add
+-				(interval, inc_autocheck_func, autocheck_data);
 -		debug_print("added timer = %d\n", autocheck_timer);
-+		account->acc_autocheck_timer = g_timeout_add (interval, (GSourceFunc)inc_acc_autocheck_func, account);
++			account->acc_autocheck_timer = g_timeout_add
++				(interval, (GSourceFunc)inc_acc_autocheck_func, account);
 +		debug_print(" +++ added timer = %d for account '%s'\n", account->acc_autocheck_timer, account->account_name);
  	}
  }
@@ -126,13 +125,11 @@ diff -Naur orig/src/inc.c patched/src/inc.c
 +		   PrefsAccount *account = list->data;
 +	if( account-> recv_at_getall)
 +		   inc_acc_autocheck_timer_remove(account);
- 	}
- }
- 
--static gint inc_autocheck_func(gpointer data)
++	}
++}
++
 +void inc_acc_autocheck_timer_set(PrefsAccount *account)
- {
--	MainWindow *mainwin = (MainWindow *)data;
++{
 +	guint time = 1;
 +	switch(account->acc_autocheck_method)
 +	{
@@ -148,20 +145,22 @@ diff -Naur orig/src/inc.c patched/src/inc.c
 +				  debug_print("Autocheck method '%d' unknown for account '%s'\n", 
 +						  account->acc_autocheck_method,
 +						  account->account_name);
-+	}
- 
+ 	}
++ 
 +	inc_acc_autocheck_timer_set_interval(account, time * 60000);
-+}
-+
+ }
+ 
+-static gint inc_autocheck_func(gpointer data)
 +void inc_acc_autocheck_timer_remove(PrefsAccount *account)
-+{
+ {
+-	MainWindow *mainwin = (MainWindow *)data;
 +	if (account->acc_autocheck_timer) {
 +		  debug_print(" --- removed timer = %d for account '%s'\n", account->acc_autocheck_timer, account->account_name);
 +		  g_source_remove(account->acc_autocheck_timer);
 +		  account->acc_autocheck_timer = 0;
 +	}
 +}
-+
+ 
 +static gint inc_acc_autocheck_func(PrefsAccount *account)
 +{
  	if (inc_lock_count) {
@@ -188,8 +187,8 @@ diff -Naur orig/src/inc.c patched/src/inc.c
  	return FALSE;
  }
 diff -Naur orig/src/inc.h patched/src/inc.h
---- orig/src/inc.h	2014-05-23 11:37:26.000000000 +0200
-+++ patched/src/inc.h	2014-05-23 22:38:07.136583882 +0200
+--- orig/src/inc.h	2014-10-20 22:05:29.000000000 +0200
++++ patched/src/inc.h	2014-10-23 19:39:03.947607908 +0200
 @@ -109,6 +109,8 @@
  void inc_autocheck_timer_init	(MainWindow	*mainwin);
  void inc_autocheck_timer_set	(void);
@@ -200,8 +199,8 @@ diff -Naur orig/src/inc.h patched/src/inc.h
  
  #endif /* __INC_H__ */
 diff -Naur orig/src/prefs_account.c patched/src/prefs_account.c
---- orig/src/prefs_account.c	2014-05-23 11:37:26.000000000 +0200
-+++ patched/src/prefs_account.c	2014-05-23 22:38:07.148583990 +0200
+--- orig/src/prefs_account.c	2014-10-20 22:05:24.000000000 +0200
++++ patched/src/prefs_account.c	2014-10-23 19:39:03.955607947 +0200
 @@ -141,6 +141,10 @@
  	GtkWidget *inbox_entry;
  	GtkWidget *inbox_btn;
@@ -213,7 +212,7 @@ diff -Naur orig/src/prefs_account.c patched/src/prefs_account.c
  	GtkWidget *local_frame;
  	GtkWidget *local_inbox_label;
  	GtkWidget *local_inbox_entry;
-@@ -467,6 +471,16 @@
+@@ -468,6 +472,16 @@
  	 &receive_page.size_limit_spinbtn,
  	 prefs_set_data_from_spinbtn, prefs_set_spinbtn},
  
@@ -230,7 +229,7 @@ diff -Naur orig/src/prefs_account.c patched/src/prefs_account.c
  	{"filter_on_receive", "TRUE", &tmp_ac_prefs.filter_on_recv, P_BOOL,
  	 &receive_page.filter_on_recv_checkbtn,
  	 prefs_set_data_from_toggle, prefs_set_toggle},
-@@ -1360,6 +1374,21 @@
+@@ -1368,6 +1382,21 @@
  	page->page.widget = vbox1;
  }
  
@@ -252,7 +251,7 @@ diff -Naur orig/src/prefs_account.c patched/src/prefs_account.c
  static void receive_create_widget_func(PrefsPage * _page,
                                             GtkWindow * window,
                                             gpointer data)
-@@ -1610,6 +1639,104 @@
+@@ -1618,6 +1647,104 @@
  	CLAWS_SET_TIP(low_bandwidth_checkbtn,
  			     _("This mode uses less bandwidth, but can be slower with some servers."));
  
@@ -357,7 +356,7 @@ diff -Naur orig/src/prefs_account.c patched/src/prefs_account.c
  	hbox1 = gtk_hbox_new (FALSE, 8);
  	gtk_widget_show (hbox1);
  	gtk_box_pack_start (GTK_BOX (vbox2), hbox1, FALSE, FALSE, 4);
-@@ -1628,6 +1755,9 @@
+@@ -1636,6 +1763,9 @@
  		(vbox1, recvatgetall_checkbtn,
  		 _("'Get Mail' checks for new messages on this account"));
  
@@ -367,7 +366,7 @@ diff -Naur orig/src/prefs_account.c patched/src/prefs_account.c
  	page->pop3_frame               = frame1;
  	page->use_apop_checkbtn          = use_apop_checkbtn;
  	page->rmmail_checkbtn            = rmmail_checkbtn;
-@@ -1649,6 +1779,10 @@
+@@ -1657,6 +1787,10 @@
  	page->subsonly_checkbtn		= subsonly_checkbtn;
  	page->low_bandwidth_checkbtn	= low_bandwidth_checkbtn;
  	page->local_frame		= local_frame;
@@ -378,7 +377,7 @@ diff -Naur orig/src/prefs_account.c patched/src/prefs_account.c
  	page->local_inbox_label	= local_inbox_label;
  	page->local_inbox_entry	= local_inbox_entry;
  	page->local_inbox_btn		= local_inbox_btn;
-@@ -1663,6 +1797,7 @@
+@@ -1671,6 +1805,7 @@
  
  	if (new_account) {
  		prefs_set_dialog_to_default(receive_param);
@@ -386,7 +385,7 @@ diff -Naur orig/src/prefs_account.c patched/src/prefs_account.c
  	} else
  		prefs_set_dialog(receive_param);
  
-@@ -2945,7 +3080,42 @@
+@@ -2958,7 +3093,42 @@
  
  static gint prefs_receive_apply(void)
  {
@@ -429,7 +428,7 @@ diff -Naur orig/src/prefs_account.c patched/src/prefs_account.c
  	return 0;
  }
  
-@@ -3463,6 +3633,7 @@
+@@ -3478,6 +3648,7 @@
  	*ac_prefs = tmp_ac_prefs;
  	ac_prefs->account_id = prefs_account_get_new_id();
  
@@ -438,8 +437,8 @@ diff -Naur orig/src/prefs_account.c patched/src/prefs_account.c
  
  	return ac_prefs;
 diff -Naur orig/src/prefs_account.h patched/src/prefs_account.h
---- orig/src/prefs_account.h	2014-05-23 11:37:26.000000000 +0200
-+++ patched/src/prefs_account.h	2014-05-23 22:38:07.156584071 +0200
+--- orig/src/prefs_account.h	2014-10-20 22:05:28.000000000 +0200
++++ patched/src/prefs_account.h	2014-10-23 19:39:03.955607947 +0200
 @@ -43,6 +43,11 @@
  	SIG_DIRECT
  } SigType;
@@ -452,7 +451,7 @@ diff -Naur orig/src/prefs_account.h patched/src/prefs_account.h
  #include <glib.h>
  
  #include "smtp.h"
-@@ -94,6 +99,10 @@
+@@ -95,6 +100,10 @@
  	gint msg_leave_time;
  	gint msg_leave_hour;
  	gboolean recv_at_getall;
@@ -464,8 +463,8 @@ diff -Naur orig/src/prefs_account.h patched/src/prefs_account.h
  	gboolean enable_size_limit;
  	gint size_limit;
 diff -Naur orig/src/prefs_gtk.c patched/src/prefs_gtk.c
---- orig/src/prefs_gtk.c	2014-05-23 11:37:26.000000000 +0200
-+++ patched/src/prefs_gtk.c	2014-05-23 22:38:07.156584071 +0200
+--- orig/src/prefs_gtk.c	2014-10-20 22:05:29.000000000 +0200
++++ patched/src/prefs_gtk.c	2014-10-23 19:39:03.955607947 +0200
 @@ -196,6 +196,10 @@
  			*((gint *)param[i].data) =
  				(gint)atoi(value);
@@ -548,8 +547,8 @@ diff -Naur orig/src/prefs_gtk.c patched/src/prefs_gtk.c
  		gtk_spin_button_set_value(GTK_SPIN_BUTTON(*pparam->widget),
  					  (gfloat)*((gushort *)pparam->data));
 diff -Naur orig/src/prefs_gtk.h patched/src/prefs_gtk.h
---- orig/src/prefs_gtk.h	2014-05-23 11:37:26.000000000 +0200
-+++ patched/src/prefs_gtk.h	2014-05-23 22:38:07.156584071 +0200
+--- orig/src/prefs_gtk.h	2014-10-20 22:05:30.000000000 +0200
++++ patched/src/prefs_gtk.h	2014-10-23 19:39:03.959607963 +0200
 @@ -36,6 +36,7 @@
  {
  	P_STRING,

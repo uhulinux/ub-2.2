@@ -1,12 +1,13 @@
 #!/bin/sh -eux
 
-export CFLAGS='-D_FILE_OFFSET_BITS=64'
-
 autoreconf -vif
+
+# GData:
+# http://www.thewildbeast.co.uk/claws-mail/bugzilla/show_bug.cgi?id=3432
 
 ub_compile \
     --enable-crash-dialog \
     --disable-gtk3 \
     --disable-ldap \
-    --disable-jpilot
-
+    --disable-jpilot \
+    --disable-gdata-plugin

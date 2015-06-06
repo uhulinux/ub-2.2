@@ -1,22 +1,7 @@
-From 2f094108326d42e19fe03e69fb50b343f86d7fcb Mon Sep 17 00:00:00 2001
-From: Christian Hesse <mail@eworm.de>
-Date: Tue, 25 Mar 2014 09:55:52 +0100
-Subject: [PATCH 1/1] add plugin to display QR-Code for avatar
-
----
- configure.ac                      |  21 +++++
- src/plugins/Makefile.am           |   1 +
- src/plugins/qr_avatar/Makefile.am |  24 +++++
- src/plugins/qr_avatar/qr-avatar.c | 190 ++++++++++++++++++++++++++++++++++++++
- 4 files changed, 236 insertions(+)
- create mode 100644 src/plugins/qr_avatar/Makefile.am
- create mode 100644 src/plugins/qr_avatar/qr-avatar.c
-
-diff --git a/configure.ac b/configure.ac
-index 474971f..14a3a7c 100644
---- a/configure.ac
-+++ b/configure.ac
-@@ -1004,6 +1004,10 @@ AC_ARG_ENABLE(pgpinline-plugin,
+diff -Naur orig/configure.ac patched/configure.ac
+--- orig/configure.ac	2014-10-27 19:58:19.000000000 +0100
++++ patched/configure.ac	2014-10-27 21:52:39.988869294 +0100
+@@ -1005,6 +1005,10 @@
  		[  --disable-pgpinline-plugin      Do not build pgpinline plugin],
  		[enable_pgpinline_plugin=$enableval], [enable_pgpinline_plugin=auto])
  
@@ -27,15 +12,15 @@ index 474971f..14a3a7c 100644
  AC_ARG_ENABLE(rssyl-plugin,
  		[  --disable-rssyl-plugin          Do not build rssyl plugin],
  		[enable_rssyl_plugin=$enableval], [enable_rssyl_plugin=auto])
-@@ -1054,6 +1058,7 @@ dnl PGP/Inline:		pgpcore libgpgme
+@@ -1056,6 +1060,7 @@
  dnl S/Mime:		pgpcore libgpgme
  dnl Python:		Python
- dnl RSSyl:		libxml2 libcurl
+ dnl RSSyl:		expat libcurl
 +dnl QR-Avatar:		libqrencode
  dnl SpamReport:		libcurl
  dnl vCalendar:		libcurl
  
-@@ -1062,6 +1067,11 @@ PKG_CHECK_MODULES(CURL, libcurl, HAVE_CURL=yes, HAVE_CURL=no)
+@@ -1064,6 +1069,11 @@
  AC_SUBST(CURL_LIBS)
  AC_SUBST(CURL_CFLAGS)
  
@@ -44,10 +29,10 @@ index 474971f..14a3a7c 100644
 +AC_SUBST(QRENCODE_LIBS)
 +AC_SUBST(QRENCODE_CFLAGS)
 +
- dnl libxml2 ********************************************************************
- PKG_CHECK_MODULES(LIBXML, libxml-2.0, HAVE_LIBXML=yes, HAVE_LIBXML=no)
- AC_SUBST(LIBXML_LIBS)
-@@ -1715,6 +1725,15 @@ else
+ dnl expat **********************************************************************
+ HAVE_EXPAT=no
+ AC_CHECK_HEADER(expat.h, [expat_header=yes], [])
+@@ -1722,6 +1732,15 @@
  	AC_MSG_RESULT(no)
  fi
  
@@ -63,7 +48,7 @@ index 474971f..14a3a7c 100644
  AC_MSG_CHECKING([whether to build rssyl plugin])
  if test x"$enable_rssyl_plugin" != xno; then
  	dependencies_missing=""
-@@ -1870,6 +1889,7 @@ AM_CONDITIONAL(BUILD_PYTHON_PLUGIN,		test x"$enable_python_plugin" != xno)
+@@ -1877,6 +1896,7 @@
  AM_CONDITIONAL(BUILD_PGPCORE_PLUGIN,		test x"$enable_pgpcore_plugin" != xno)
  AM_CONDITIONAL(BUILD_PGPMIME_PLUGIN,		test x"$enable_pgpmime_plugin" != xno)
  AM_CONDITIONAL(BUILD_PGPINLINE_PLUGIN,		test x"$enable_pgpinline_plugin" != xno)
@@ -71,19 +56,18 @@ index 474971f..14a3a7c 100644
  AM_CONDITIONAL(BUILD_RSSYL_PLUGIN,		test x"$enable_rssyl_plugin" != xno)
  AM_CONDITIONAL(BUILD_SMIME_PLUGIN,		test x"$enable_smime_plugin" != xno)
  AM_CONDITIONAL(BUILD_SPAMASSASSIN_PLUGIN,	test x"$enable_spamassassin_plugin" != xno)
-@@ -1920,6 +1940,7 @@ src/plugins/python/examples/Makefile
+@@ -1927,6 +1947,7 @@
  src/plugins/pgpcore/Makefile
  src/plugins/pgpmime/Makefile
  src/plugins/pgpinline/Makefile
 +src/plugins/qr_avatar/Makefile
  src/plugins/rssyl/Makefile
+ src/plugins/rssyl/libfeed/Makefile
  src/plugins/smime/Makefile
- src/plugins/spamassassin/Makefile
-diff --git a/src/plugins/Makefile.am b/src/plugins/Makefile.am
-index 2914aa5..b54e4e8 100644
---- a/src/plugins/Makefile.am
-+++ b/src/plugins/Makefile.am
-@@ -22,6 +22,7 @@ SUBDIRS = \
+diff -Naur orig/src/plugins/Makefile.am patched/src/plugins/Makefile.am
+--- orig/src/plugins/Makefile.am	2014-10-27 19:58:15.000000000 +0100
++++ patched/src/plugins/Makefile.am	2014-10-27 21:52:39.988869294 +0100
+@@ -27,6 +27,7 @@
  	pgpcore \
  	pgpmime \
  	pgpinline \
@@ -91,11 +75,9 @@ index 2914aa5..b54e4e8 100644
  	rssyl \
  	smime \
  	spamassassin \
-diff --git a/src/plugins/qr_avatar/Makefile.am b/src/plugins/qr_avatar/Makefile.am
-new file mode 100644
-index 0000000..a22bbb9
---- /dev/null
-+++ b/src/plugins/qr_avatar/Makefile.am
+diff -Naur orig/src/plugins/qr_avatar/Makefile.am patched/src/plugins/qr_avatar/Makefile.am
+--- orig/src/plugins/qr_avatar/Makefile.am	1970-01-01 01:00:00.000000000 +0100
++++ patched/src/plugins/qr_avatar/Makefile.am	2014-10-27 21:52:39.988869294 +0100
 @@ -0,0 +1,24 @@
 +plugindir = $(pkglibdir)/plugins
 +
@@ -121,11 +103,9 @@ index 0000000..a22bbb9
 +	-I$(top_builddir)/src/common \
 +	-I$(top_srcdir)/src/gtk \
 +	-I/usr/include
-diff --git a/src/plugins/qr_avatar/qr-avatar.c b/src/plugins/qr_avatar/qr-avatar.c
-new file mode 100644
-index 0000000..b2d7527
---- /dev/null
-+++ b/src/plugins/qr_avatar/qr-avatar.c
+diff -Naur orig/src/plugins/qr_avatar/qr-avatar.c patched/src/plugins/qr_avatar/qr-avatar.c
+--- orig/src/plugins/qr_avatar/qr-avatar.c	1970-01-01 01:00:00.000000000 +0100
++++ patched/src/plugins/qr_avatar/qr-avatar.c	2014-10-27 21:52:39.988869294 +0100
 @@ -0,0 +1,190 @@
 +/*
 + * qr-avatar - A plugin for Claws Mail
@@ -317,5 +297,3 @@ index 0000000..b2d7527
 +		  {PLUGIN_NOTHING, NULL}};
 +	return features;
 +}
--- 
-1.9.1
