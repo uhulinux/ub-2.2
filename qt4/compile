@@ -1,25 +1,30 @@
 #!/bin/sh -eux
 
-export UB_MAKE_PROCS=4
 export LD_LIBRARY_PATH="$(pwd)"/lib
 
-yes yes | ./configure \
+./configure \
 	-platform linux-g++-32 \
 	-prefix /usr/lib/qt4 \
+	-sysconfdir /etc/xdg \
 	\
 	-release            \
 	-opensource         \
+	-confirm-license	\
 	-shared             \
 	-fast               \
 	-largefile          \
+	-rpath              \
+	-verbose            \
+	-silent             \
+	-optimized-qmake    \
+	-reduce-relocations \
+	-no-separate-debug-info \
+	\
+	-nomake examples    \
 	\
 	-exceptions         \
 	-accessibility      \
 	-stl                \
-	\
-	-nomake demos       \
-	-nomake examples    \
-	-nomake docs		\
 	\
 	-plugin-sql-mysql -I/usr/include/mysql \
 	-plugin-sql-psql -I/usr/include/postgresql -I/usr/include/postgresql/server \
@@ -49,19 +54,11 @@ yes yes | ./configure \
 	\
 	-openssl-linked     \
 	\
-	-rpath              \
-	-verbose            \
-	-silent             \
-	-optimized-qmake    \
-	\
 	-no-nis             \
 	-cups               \
 	-iconv              \
 	-no-pch             \
 	-dbus-linked        \
-	\
-	-reduce-relocations \
-	-no-separate-debug-info \
 	\
 	-gtkstyle           \
 	-no-nas-sound       \
@@ -84,14 +81,11 @@ yes yes | ./configure \
 	-lcrypto            \
 	-lcrypt             \
 	-lssl               \
-	
+
 ub_make
 
 #some options we may want to use in the future
 #	-phonon-backend     \
 #	-phonon             \
-#	-multimedia         \
-#	-audio-backend      \
 #	-nomake demos       \
-#	-nomake examples    \
 #	-nomake docs

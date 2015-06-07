@@ -1,6 +1,6 @@
 fontconfig-dev
 freetype2-dev
-glib2-dev
+glib-dev
 libice-dev
 libjpeg-dev
 libmng-dev

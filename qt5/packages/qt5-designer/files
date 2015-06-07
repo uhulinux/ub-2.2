@@ -9,3 +9,5 @@
 	/usr/lib/qt5/translations/linguist_*.qm
 	/usr/share/applications/qt5-designer.desktop
 	/usr/share/applications/qt5-linguist.desktop
+	/usr/share/pixmaps/designer-qt5.png
+	/usr/share/pixmaps/linguist-qt5.png

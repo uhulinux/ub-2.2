@@ -4,3 +4,4 @@
 	/usr/lib/qt5/doc
 	/usr/lib/qt5/translations/assistant_*.qm
 	/usr/share/applications/qt5-assistant.desktop
+	/usr/share/pixmaps/assistant-qt5.png

@@ -5,6 +5,7 @@ fontconfig-dev
 freetds
 freetype2-dev
 gtk2-dev
+icu-dev
 libjpeg-dev
 libmng-dev
 libpng-dev

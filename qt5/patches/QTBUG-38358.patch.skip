@@ -1,0 +1,23 @@
+diff -Naur orig/qtbase/src/3rdparty/harfbuzz-ng/harfbuzz-ng.pro patched/qtbase/src/3rdparty/harfbuzz-ng/harfbuzz-ng.pro
+--- orig/qtbase/src/3rdparty/harfbuzz-ng/harfbuzz-ng.pro	2014-12-05 17:24:34.000000000 +0100
++++ patched/qtbase/src/3rdparty/harfbuzz-ng/harfbuzz-ng.pro	2015-01-18 18:48:03.406323043 +0100
+@@ -131,3 +131,8 @@
+         # even in 10.8 where they were also made available stand-alone.
+         LIBS_PRIVATE += -framework ApplicationServices
+ }
++
++TARGET = $$TARGET$$qtPlatformTargetSuffix()
++target.path = $$[QT_INSTALL_LIBS]
++INSTALLS += target
++
+diff -Naur orig/qtbase/src/3rdparty/harfbuzzng.pri patched/qtbase/src/3rdparty/harfbuzzng.pri
+--- orig/qtbase/src/3rdparty/harfbuzzng.pri	2014-12-05 17:24:33.000000000 +0100
++++ patched/qtbase/src/3rdparty/harfbuzzng.pri	2015-01-18 18:51:42.063407305 +0100
+@@ -1,6 +1,6 @@
+ contains(QT_CONFIG, harfbuzz) {
+     INCLUDEPATH += $$PWD/harfbuzz-ng/include
+-    LIBS_PRIVATE += -L$$QT_BUILD_TREE/lib -lqtharfbuzzng$$qtPlatformTargetSuffix()
++    LIBS_PRIVATE += -L$$[QT_INSTALL_LIBS] -lqtharfbuzzng$$qtPlatformTargetSuffix()
+ } else:contains(QT_CONFIG, system-harfbuzz) {
+     LIBS_PRIVATE += -lharfbuzz
+ }
