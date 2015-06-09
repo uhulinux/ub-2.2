@@ -30,7 +30,6 @@ mysql-dev
 openssl-dev
 postgresql-dev
 pulseaudio-dev
-re2c
 ruby-dev
 sqlite-dev
 udev-dev

@@ -1,38 +1,20 @@
 #!/bin/sh -eux
 
-# deprecated in 5.5: Qt WebKit, Qt Declarative (Qt Quick 1), Qt Script
-
-# qtwebengine: HTML5 fejlesztőknek egy Chromium alapú izé, nem kell
-
-# https://bugreports.qt.io/browse/QTBUG-43412
-# egyelőre viszont qtwayland sem kell 
-# mkdir qtwayland/.git
-
 export LD_LIBRARY_PATH="$(pwd)"/lib
 
-./configure \
+yes yes | ./configure \
 	-platform linux-g++-32 \
 	-prefix /usr/lib/qt5 \
 	-sysconfdir /etc/xdg \
 	\
 	-release            \
 	-opensource         \
-	-confirm-license	\
 	-shared             \
 	-largefile          \
 	-c++11              \
-	-rpath              \
-	-verbose            \
-	-silent             \
-	-optimized-qmake    \
 	-no-qml-debug       \
-	-no-use-gold-linker \
-	-no-journald		\
-	-reduce-relocations \
-	-no-separate-debug-info \
 	\
 	-nomake examples    \
-	-skip qtwebengine	\
 	\
 	-accessibility      \
 	\
@@ -51,12 +33,19 @@ export LD_LIBRARY_PATH="$(pwd)"/lib
 	\
 	-openssl-linked     \
 	\
+	-rpath              \
+	-verbose            \
+	-silent             \
+	-optimized-qmake    \
+	\
 	-no-nis             \
 	-cups               \
 	-iconv              \
 	-no-pch             \
 	-dbus-linked        \
-	-mtdev				\
+	\
+	-reduce-relocations \
+	-no-separate-debug-info \
 	\
 	-glib               \
 	-gtkstyle           \
@@ -87,4 +76,4 @@ ub_make
 
 #some options we may want to use in the future
 #	-nomake tests       \
-#	-gstreamer 1.0		\
+#	-nomake docs

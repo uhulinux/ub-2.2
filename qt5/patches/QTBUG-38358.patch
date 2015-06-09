@@ -10,3 +10,14 @@ diff -Naur orig/qtbase/src/3rdparty/harfbuzz-ng/harfbuzz-ng.pro patched/qtbase/s
 +target.path = $$[QT_INSTALL_LIBS]
 +INSTALLS += target
 +
+diff -Naur orig/qtbase/src/3rdparty/harfbuzzng.pri patched/qtbase/src/3rdparty/harfbuzzng.pri
+--- orig/qtbase/src/3rdparty/harfbuzzng.pri	2014-12-05 17:24:33.000000000 +0100
++++ patched/qtbase/src/3rdparty/harfbuzzng.pri	2015-01-18 18:51:42.063407305 +0100
+@@ -1,6 +1,6 @@
+ contains(QT_CONFIG, harfbuzz) {
+     INCLUDEPATH += $$PWD/harfbuzz-ng/include
+-    LIBS_PRIVATE += -L$$QT_BUILD_TREE/lib -lqtharfbuzzng$$qtPlatformTargetSuffix()
++    LIBS_PRIVATE += -L$$[QT_INSTALL_LIBS] -lqtharfbuzzng$$qtPlatformTargetSuffix()
+ } else:contains(QT_CONFIG, system-harfbuzz) {
+     LIBS_PRIVATE += -lharfbuzz
+ }
