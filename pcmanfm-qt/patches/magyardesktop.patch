@@ -1,0 +1,26 @@
+diff -Naur orig/pcmanfm/pcmanfm-qt.desktop.in mod/pcmanfm/pcmanfm-qt.desktop.in
+--- orig/pcmanfm/pcmanfm-qt.desktop.in	2015-06-09 18:29:23.000000000 +0200
++++ mod/pcmanfm/pcmanfm-qt.desktop.in	2015-06-12 15:56:31.000000000 +0200
+@@ -1,6 +1,9 @@
+ [Desktop Entry]
+ Type=Application
+ Name=PCManFM File Manager
++Name[hu]=PCManFM-Qt fájlkezelő
++GenericName[hu]=Fájlkezelő
++Comment[hu]=Fájlok böngészése és karbantartása
+ GenericName=File Manager
+ Comment=Browse the file system and manage the files
+ Exec=pcmanfm-qt %U
+diff -Naur orig/pcmanfm/pcmanfm-qt-desktop-pref.desktop.in mod/pcmanfm/pcmanfm-qt-desktop-pref.desktop.in
+--- orig/pcmanfm/pcmanfm-qt-desktop-pref.desktop.in	2015-06-09 18:29:23.000000000 +0200
++++ mod/pcmanfm/pcmanfm-qt-desktop-pref.desktop.in	2015-06-12 15:56:56.000000000 +0200
+@@ -1,6 +1,9 @@
+ [Desktop Entry]
+ Type=Application
+ Name=Desktop
++Name[hu]=Asztal
++GenericName[hu]=Asztalbeállítás
++Comment[hu]=Asztal kinézet és viselkedés beállítása
+ GenericName=Desktop Settings
+ Comment=Change wallpapers and behavior of desktop manager
+ Exec=pcmanfm-qt --desktop-pref=general
