@@ -6,6 +6,7 @@ yes yes | ./configure \
 	-platform linux-g++-32 \
 	-prefix /usr/lib/qt5 \
 	-sysconfdir /etc/xdg \
+	-no-sse2 \
 	\
 	-release            \
 	-opensource         \
