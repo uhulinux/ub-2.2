@@ -1,1 +1,1 @@
-sflist menumaker MenuMaker | sort -V | tail -n 1
+sflist menumaker Legacy/MenuMaker | sort -V | tail -n 1
