@@ -2,7 +2,7 @@ bzip2-dev
 gpm-dev
 libjpeg-dev
 libpng-dev
+librsvg2-dev
 libtiff-dev
-libx11-dev
 libxt-dev
 openssl-dev
