@@ -12,7 +12,7 @@ CFLAGS="-O2 -march=i686 -mtune=generic -fomit-frame-pointer -I/usr/include/direc
 	--language="hu bg cs de dk el en es fr it ja ko mk nb nl pl ro ru sk sv tr uk pt_BR zh_CN zh_TW" \
 	--enable-gui \
 	--enable-menu \
-	--disable-fribidi \
+	--enable-fribidi \
 	--enable-bl \
 	--enable-xvmc \
 	--enable-mga \
@@ -24,6 +24,7 @@ CFLAGS="-O2 -march=i686 -mtune=generic -fomit-frame-pointer -I/usr/include/direc
 	--enable-libgsm \
 	--enable-radio \
 	--enable-radio-capture \
-	--enable-directfb
-
+	--enable-gui \
+	--enable-directfb \
+	--extra-ldflags="-lfribidi"
 ub_make

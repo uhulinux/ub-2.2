@@ -6,6 +6,7 @@ dirac-dev
 directfb-dev
 esound-dev
 faac-dev
+fribidi-dev
 gtk2-dev
 jack-dev
 ladspa-dev

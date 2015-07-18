@@ -1,4 +1,7 @@
 #!/usr/bin/env dl
 
-smplayer-${UB_VERSION}.tar.bz2 smplayer-${UB_VERSION}/
-	http://downloads.sourceforge.net/smplayer/
+#smplayer-${UB_VERSION}.tar.bz2 smplayer-${UB_VERSION}/
+#	http://downloads.sourceforge.net/smplayer/
+
+smplayer_${UB_VERSION}~ds0.orig.tar.bz2 smplayer-${UB_VERSION}~ds0.orig/
+	http://ftp.debian.org/debian/pool/main/s/smplayer/

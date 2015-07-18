@@ -1,12 +1,8 @@
 #!/bin/sh -eux
 
-
- sed -e 's:DEFINES += UPDATE_CHECKER:#DEFINES += UPDATE_CHECKER:' \
-	-e 's:DEFINES += CHECK_UPGRADED:#DEFINES += CHECK_UPGRADED:' \
-	-i src/smplayer.pro 
 ub_make \
 	PREFIX=/usr \
-	QMAKE=qmake-qt4 \
-	LRELEASE=/usr/lib/qt4/bin/lrelease \
+	QMAKE=qmake-qt5 \
+	LRELEASE=/usr/lib/qt5/bin/lrelease \
 	DOC_PATH="\\\"/usr/share/doc/smplayer\\\"" \
 	QMAKE_OPTS=DEFINES+=NO_DEBUG_ON_CONSOL
