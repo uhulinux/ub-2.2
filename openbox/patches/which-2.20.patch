@@ -1,5 +1,6 @@
---- openbox-3.5.0/data/autostart/autostart.in~	2011-08-02 15:50:01.963531310 +0000
-+++ openbox-3.5.0/data/autostart/autostart.in	2011-08-02 15:51:57.277879458 +0000
+diff -Naurd a/data/autostart/autostart.in b/data/autostart/autostart.in
+--- a/data/autostart/autostart.in	2013-08-12 03:33:24.000000000 +0200
++++ b/data/autostart/autostart.in	2013-08-13 18:16:44.000000000 +0200
 @@ -8,7 +8,7 @@
  #
  #if test -x @libexecdir@/gnome-settings-daemon >/dev/null; then
@@ -8,4 +9,4 @@
 +#elif which gnome-settings-daemon >/dev/null 2>&1; then
  #  gnome-settings-daemon &
  #fi
-      
+ 
