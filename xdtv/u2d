@@ -1,0 +1,1 @@
+sflist xawdecode 01%20-%20XdTV | sort -V  | sed s/%20.*// |sed s/cvs/~cvs/ | tail -n 1
