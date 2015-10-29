@@ -1,0 +1,4 @@
+#!/usr/bin/env dl
+
+release-${UB_VERSION}.tar.gz hardinfo-release-${UB_VERSION}/hardinfo2/
+	  https://github.com/lpereira/hardinfo/archive/release-0.5.1.tar.gz
