@@ -6,7 +6,7 @@ cd build/workspaces
 ./update-workspaces.sh \
       --with-system-enet \
       --bindir=/usr/bin \
-      --libdir=/usr/lib \
+      --libdir=/usr/lib/0ad \
       --datadir=/usr/share/0ad/data
 cd gcc
-make CONFIG=Release -j3
+ub_make
