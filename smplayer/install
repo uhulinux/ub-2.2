@@ -1,9 +1,8 @@
 #!/bin/sh -eux
 
 make \
-	DOC_PATH=/usr/share/doc/smplayer \
 	DESTDIR="$UB_INSTALLDIR" \
 	PREFIX=/usr \
-	QMAKE=qmake-qt5 \
-	LRELEASE=/usr/lib/qt5/bin/lrelease \
+	QMAKE=qmake-qt4 \
+	LRELEASE=/usr/lib/qt4/bin/lrelease \
 install

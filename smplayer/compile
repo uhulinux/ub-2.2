@@ -2,7 +2,6 @@
 
 ub_make \
 	PREFIX=/usr \
-	QMAKE=qmake-qt5 \
-	LRELEASE=/usr/lib/qt5/bin/lrelease \
-	DOC_PATH="\\\"/usr/share/doc/smplayer\\\"" \
-	QMAKE_OPTS=DEFINES+=NO_DEBUG_ON_CONSOL
+	QMAKE=qmake-qt4 \
+	LRELEASE=/usr/lib/qt4/bin/lrelease
+
