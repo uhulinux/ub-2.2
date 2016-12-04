@@ -1,0 +1,100 @@
+diff -Naurdp a/hald/linux2/blockdev.c b/hald/linux2/blockdev.c
+--- a/hald/linux2/blockdev.c	2006-07-26 12:52:37.000000000 +0200
++++ b/hald/linux2/blockdev.c	2006-07-26 12:52:37.000000000 +0200
+@@ -263,12 +263,14 @@ blockdev_refresh_mount_state (HalDevice 
+ 			HAL_INFO (("  match %s (%i:%i)", hal_device_get_udi (dev), major, minor));
+ 
+ 			if (statbuf.st_dev == devt) {
+-				/* found entry for this device in /proc/mounts */
+-				device_property_atomic_update_begin ();
+-				hal_device_property_set_bool (dev, "volume.is_mounted", TRUE);
+-				hal_device_property_set_string (dev, "volume.mount_point", mnt.mnt_dir);
+-				device_property_atomic_update_end ();
+-				HAL_INFO (("  set %s to be mounted at %s", hal_device_get_udi (dev), mnt.mnt_dir));
++				if (strncmp(mnt.mnt_dir, "/media/.fuse/", 13)) {
++					/* found entry for this device in /proc/mounts */
++					device_property_atomic_update_begin ();
++					hal_device_property_set_bool (dev, "volume.is_mounted", TRUE);
++					hal_device_property_set_string (dev, "volume.mount_point", mnt.mnt_dir);
++					device_property_atomic_update_end ();
++					HAL_INFO (("  set %s to be mounted at %s", hal_device_get_udi (dev), mnt.mnt_dir));
++				}
+ 				volumes = g_slist_delete_link (volumes, volume);
+ 				break;
+ 			}
+diff -Naurdp a/tools/hal-system-storage-mount b/tools/hal-system-storage-mount
+--- a/tools/hal-system-storage-mount	2006-02-14 19:49:55.000000000 +0100
++++ b/tools/hal-system-storage-mount	2006-07-26 12:52:37.000000000 +0200
+@@ -197,8 +197,20 @@ else
+     MOUNTTYPE_EXPANDED=""
+ fi
+ 
++MOUNTPOINT_REAL="$MOUNT_ROOT/$MOUNTPOINT"
++BLOCK_DEVICE="$HAL_PROP_BLOCK_DEVICE"
++unset FUSEWRAP
++if [ "$(hal-get-property --udi "$HAL_PROP_BLOCK_STORAGE_DEVICE" --key storage.removable)" == "true" ]; then
++	FUSEWRAP=true
++	FUSENAME="${HAL_PROP_BLOCK_DEVICE//\//_}"
++	MOUNTPOINT_REAL="/media/.fuse/$FUSENAME"
++	mkdir -p "/media/.fuse"
++	chmod 700 /media/.fuse
++	mkdir -p "$MOUNTPOINT_REAL"
++fi
++
+ # mount and return status
+-RESULT=$(mount -o "noexec,nosuid,nodev$MOUNTOPTIONS" $MOUNTTYPE_EXPANDED "$HAL_PROP_BLOCK_DEVICE" "$MOUNT_ROOT/$MOUNTPOINT" 2>&1)
++RESULT=$(mount -o "nosuid,nodev$MOUNTOPTIONS" $MOUNTTYPE_EXPANDED "$BLOCK_DEVICE" "$MOUNTPOINT_REAL" 2>&1)
+ if [ $? -ne 0 ]; then
+     case "$RESULT" in
+ 	*"unknown filesystem"*)
+@@ -213,10 +225,23 @@ if [ $? -ne 0 ]; then
+ 	rm -f "$MOUNT_ROOT/$MOUNTPOINT/.created-by-hal"
+ 	rmdir "$MOUNT_ROOT/$MOUNTPOINT"
+     fi
++    if [ -n "$FUSEWRAP" ]; then
++	rmdir "$MOUNTPOINT_REAL"
++    fi
+     exit 1
+ fi
+ 
++if [ "$(hal-get-property --udi "$HAL_PROP_BLOCK_STORAGE_DEVICE" --key storage.drive_type)" == "cdrom" ]; then
++	CDROM="$HAL_PROP_BLOCK_DEVICE" cdctl -o0
++fi
+ hal-set-property --udi $UDI --key info.hal_mount.created_mount_point --string "$MOUNT_ROOT/$MOUNTPOINT" > /dev/null 2>&1
+ hal-set-property --udi $UDI --key info.hal_mount.mounted_by_uid --int "$HAL_METHOD_INVOKED_BY_UID" > /dev/null 2>&1
++if [ -n "$FUSEWRAP" ]; then
++	FUSEXMP_ROOT="$MOUNTPOINT_REAL" fusexmp_fh -o allow_other -o nonempty "$MOUNT_ROOT/$MOUNTPOINT"
++	hal-set-property --udi "$UDI" --key info.hal_mount.fusewrap --bool true >/dev/null 2>&1
++	hal-set-property --udi "$UDI" --key info.hal_mount.fusename --string "$FUSENAME" >/dev/null 2>&1
++	hal-set-property --udi "$UDI" --key volume.mount_point --string "$MOUNT_ROOT/$MOUNTPOINT" >/dev/null 2>&1
++	hal-set-property --udi "$UDI" --key volume.is_mounted --bool "true" >/dev/null 2>&1
++fi
+ 
+ exit 0
+diff -Naurdp a/tools/hal-system-storage-unmount b/tools/hal-system-storage-unmount
+--- a/tools/hal-system-storage-unmount	2006-07-26 12:52:37.000000000 +0200
++++ b/tools/hal-system-storage-unmount	2006-07-26 12:53:08.000000000 +0200
+@@ -72,7 +72,7 @@ if [ "$GIVEN_UNMOUNTOPTIONS" != "" ]; th
+     done
+ fi
+ 
+-RESULT=$(umount $UNMOUNTOPTIONS "$MOUNT_POINT"  2>&1)
++RESULT=$(umount $UNMOUNTOPTIONS ${HAL_PROP_INFO_HAL_MOUNT_FUSEWRAP+-lf} "$MOUNT_POINT"  2>&1)
+ if [ $? -ne 0 ]; then
+     case "$RESULT" in
+ 	*busy*)
+@@ -99,4 +99,14 @@ fi
+ hal-set-property --udi $UDI --key info.hal_mount.created_mount_point --remove > /dev/null 2>&1
+ hal-set-property --udi $UDI --key info.hal_mount.mounted_by_uid --remove > /dev/null 2>&1
+ 
++if [ -n "$HAL_PROP_INFO_HAL_MOUNT_FUSEWRAP" ]; then
++	hal-set-property --udi "$UDI" --key volume.mount_point --string "" >/dev/null 2>&1
++	hal-set-property --udi "$UDI" --key volume.is_mounted --bool "false" >/dev/null 2>&1
++	umount "/media/.fuse/$HAL_PROP_INFO_HAL_MOUNT_FUSENAME"
++	rmdir  "/media/.fuse/$HAL_PROP_INFO_HAL_MOUNT_FUSENAME"
++	rmdir --ignore-fail-on-non-empty "/media/.fuse"
++	hal-set-property --udi "$UDI" --key info.hal_mount.fusewrap --remove >/dev/null 2>&1
++	hal-set-property --udi "$UDI" --key info.hal_mount.fusename --remove >/dev/null 2>&1
++fi
++
+ exit 0

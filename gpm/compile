@@ -1,0 +1,4 @@
+#!/bin/sh -eux
+
+LIBS=-lm \
+ub_compile

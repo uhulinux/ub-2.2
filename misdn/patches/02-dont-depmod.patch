@@ -1,0 +1,12 @@
+diff -Naur a/Makefile b/Makefile
+--- a/Makefile	2007-07-02 11:31:44.000000000 +0200
++++ b/Makefile	2007-08-14 14:01:42.000000000 +0200
+@@ -53,7 +53,7 @@
+ 	export MINCLUDES=$(MISDNDIR)/include ; export MISDNVERSION=$(MISDNVERSION); make -C $(LINUX) SUBDIRS=$(MISDN_SRC) modules $(CONFIGS)  
+ 
+ install: all modules-install misdn-init
+-	$(DEPMOD) 
++#	$(DEPMOD) 
+ 	$(UPDATE_MODULES)
+ 	$(MODULES_UPDATE)
+ 	make -C config install

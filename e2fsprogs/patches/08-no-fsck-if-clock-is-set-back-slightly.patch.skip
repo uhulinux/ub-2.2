@@ -1,0 +1,29 @@
+diff -Naur e2fsprogs-1.38.orig/e2fsck/unix.c e2fsprogs-1.38/e2fsck/unix.c
+--- e2fsprogs-1.38.orig/e2fsck/unix.c	2005-06-20 14:35:27.000000000 +0200
++++ e2fsprogs-1.38/e2fsck/unix.c	2006-08-09 17:28:52.000000000 +0200
+@@ -275,8 +275,12 @@
+ 			     (unsigned) fs->super->s_max_mnt_count*2))
+ 			reason = 0;
+ 	} else if (fs->super->s_checkinterval &&
++		  ((ctx->now >= fs->super->s_lastcheck &&
+ 		   ((ctx->now - fs->super->s_lastcheck) >= 
+-		    fs->super->s_checkinterval)) {
++		    fs->super->s_checkinterval)) ||
++		   (ctx->now <  fs->super->s_lastcheck &&
++		   ((fs->super->s_lastcheck - ctx->now) >=
++		    fs->super->s_checkinterval)))) {
+ 		reason = _(" has gone %u days without being checked");
+ 		reason_arg = (ctx->now - fs->super->s_lastcheck)/(3600*24);
+ 		if (batt && ((ctx->now - fs->super->s_lastcheck) < 
+@@ -301,7 +305,10 @@
+ 			next_check = 1;
+ 	}
+ 	if (fs->super->s_checkinterval &&
+-	    ((ctx->now - fs->super->s_lastcheck) >= fs->super->s_checkinterval))
++	   ((ctx->now >= fs->super->s_lastcheck &&
++	    ((ctx->now - fs->super->s_lastcheck) >= fs->super->s_checkinterval)) ||
++	    (ctx->now <  fs->super->s_lastcheck &&
++	    ((fs->super->s_lastcheck - ctx->now) >= fs->super->s_checkinterval))))
+ 		next_check = 1;
+ 	if (next_check <= 5) {
+ 		if (next_check == 1)

@@ -1,0 +1,10 @@
+#!/usr/bin/env dl
+
+dosemu-${UB_VERSION}.tgz dosemu-${UB_VERSION}/
+	http://downloads.sourceforge.net/dosemu/
+
+dosemu-freedos-1.0-bin.tgz
+	http://downloads.sourceforge.net/dosemu/
+
+fonts-xfree86-misc-cp-852_4.3.0.1-11.1_i386.uhu usr/share/fonts/misc/ :etc
+	ftp://ftp.uhulinux.hu/pub/uhu/1.1/packages/release/

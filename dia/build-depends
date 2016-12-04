@@ -1,0 +1,16 @@
+cairo-dev
+docbook-xsl
+freetype2-dev
+glib2-dev
+gtk2-dev
+intltool
+libart-lgpl-dev
+libgnomeui2-dev
+libpng-dev
+libxml2-dev
+libxslt-dev
+openssl-dev
+pango-dev
+pygtk-dev
+python-dev
+pyxml

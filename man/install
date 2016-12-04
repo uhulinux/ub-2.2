@@ -1,0 +1,8 @@
+#!/bin/sh -eux
+
+make \
+	PREFIX="$UB_INSTALLDIR" \
+	MANDIR="$UB_INSTALLDIR"/usr/share/man \
+	install
+
+rm -f "$UB_INSTALLDIR"/usr/share/locale/*/man

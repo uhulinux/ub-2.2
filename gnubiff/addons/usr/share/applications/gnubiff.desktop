@@ -1,0 +1,9 @@
+[Desktop Entry]
+Encoding=UTF-8
+Type=Application
+Name=gnubiff
+Comment=Notification when mail arrives
+Comment[hu]=Értesítés új levél érkezésekor
+Icon=gnubiff.png
+Exec=gnubiff
+Categories=X-UHU-Menu/Internet/Email/Alert;

@@ -1,0 +1,9 @@
+diff -urN pam_usb-0.3.1.orig/Makefile pam_usb-0.3.1/Makefile
+--- pam_usb-0.3.1.orig/Makefile	2003-12-18 12:46:02.000000000 +0100
++++ pam_usb-0.3.1/Makefile	2004-08-03 10:20:43.416115001 +0200
+@@ -1,4 +1,5 @@
+ MAKE	=	make
++DESTDIR	=	$(DESTDIR)
+ 
+ all: pam_usb tools
+ 

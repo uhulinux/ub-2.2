@@ -1,0 +1,4 @@
+#!/usr/bin/env dl
+
+efltk-$UB_VERSION.tar.gz efltk/
+	http://downloads.sourceforge.net/ede/

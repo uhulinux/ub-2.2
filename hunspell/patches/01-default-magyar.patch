@@ -1,0 +1,12 @@
+diff -Naur hunspell-1.1.8.orig/src/tools/hunspell.cxx hunspell-1.1.8/src/tools/hunspell.cxx
+--- hunspell-1.1.8.orig/src/tools/hunspell.cxx	2007-07-16 09:57:23.000000000 +0200
++++ hunspell-1.1.8/src/tools/hunspell.cxx	2007-07-17 17:11:22.000000000 +0200
+@@ -24,7 +24,7 @@
+ //for debugging only
+ //#define LOG
+ 
+-#define DEFAULTDICNAME "default"
++#define DEFAULTDICNAME "magyar"
+ 
+ #ifdef W32
+ 

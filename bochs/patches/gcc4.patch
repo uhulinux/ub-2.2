@@ -1,0 +1,18 @@
+diff -Naur bochs-2.2.6.orig/iodev/hdimage.h bochs-2.2.6/iodev/hdimage.h
+--- bochs-2.2.6.orig/iodev/hdimage.h	2005-11-06 12:07:01.000000000 +0100
++++ bochs-2.2.6/iodev/hdimage.h	2007-08-15 16:28:20.000000000 +0200
+@@ -273,14 +273,8 @@
+ 
+  void panic(const char * message);
+  off_t
+-#ifndef PARANOID
+-       sparse_image_t::
+-#endif
+                        get_physical_offset();
+  void
+-#ifndef PARANOID
+-       sparse_image_t::
+-#endif
+                        set_virtual_page(Bit32u new_virtual_page);
+  void read_header();
+  ssize_t read_page_fragment(Bit32u read_virtual_page, Bit32u read_page_offset, size_t read_size, void * buf);

@@ -1,0 +1,4 @@
+#!/usr/bin/env dl
+
+linuxwacom-${UB_VERSION_HEAD3}-${UB_VERSION_TAIL1}.tar.bz2 linuxwacom-${UB_VERSION_HEAD3}-${UB_VERSION_TAIL1}/
+	http://downloads.sourceforge.net/linuxwacom/

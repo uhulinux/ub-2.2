@@ -1,0 +1,6 @@
+#!/bin/sh -eux
+
+cd src
+./mkgen
+#ub_make
+./build

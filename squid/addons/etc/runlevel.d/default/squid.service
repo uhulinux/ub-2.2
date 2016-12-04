@@ -1,0 +1,10 @@
+Summary=Squid Cache and Proxy Server
+Summary[hu]=Squid cache- és proxyszerver
+Description=Server to fetch and store web pages and serve them to many clients.
+Description[hu]=Weblapok letöltését és ideiglenes tárolását végző program.
+MsgDesc=Web Proxy and Cache
+MsgDesc[hu]=Web proxy és cache
+Script=/etc/init.d/squid
+SupportsReload=yes
+Runlevels=
+Sequence=20

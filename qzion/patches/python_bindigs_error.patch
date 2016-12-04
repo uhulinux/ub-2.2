@@ -1,0 +1,12 @@
+diff -Naur qzion-mainline-orig/python/qzion/qzionobject.sip qzion-mainline/python/qzion/qzionobject.sip
+--- qzion-mainline-orig/python/qzion/qzionobject.sip	2009-02-18 22:38:44.000000000 +0100
++++ qzion-mainline/python/qzion/qzionobject.sip	2009-07-09 11:00:45.000000000 +0200
+@@ -10,7 +10,7 @@
+ 
+ %ConvertToSubClassCode
+     static struct classes {
+-        char *name;
++        const char *name;
+         sipWrapperType **type;
+     } cls[] = {
+         {sipName_QZionText, &sipClass_QZionText},

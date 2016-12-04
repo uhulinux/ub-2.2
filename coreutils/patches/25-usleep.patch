@@ -1,0 +1,179 @@
+diff -Naurdp a/man/Makefile.in b/man/Makefile.in
+--- a/man/Makefile.in	2009-11-18 16:03:21.000000000 +0100
++++ b/man/Makefile.in	2009-12-02 22:44:49.180403007 +0100
+@@ -1414,6 +1414,7 @@ sha512sum.1:	$(common_dep)	$(srcdir)/sha
+ shred.1:	$(common_dep)	$(srcdir)/shred.x	../src/shred.c
+ shuf.1:		$(common_dep)	$(srcdir)/shuf.x	../src/shuf.c
+ sleep.1:	$(common_dep)	$(srcdir)/sleep.x	../src/sleep.c
++usleep.1:	$(common_dep)	$(srcdir)/usleep.x	../src/usleep.c
+ sort.1:		$(common_dep)	$(srcdir)/sort.x	../src/sort.c
+ split.1:	$(common_dep)	$(srcdir)/split.x	../src/split.c
+ stat.1:		$(common_dep)	$(srcdir)/stat.x	../src/stat.c
+diff -Naurdp a/man/usleep.1 b/man/usleep.1
+--- a/man/usleep.1	1970-01-01 01:00:00.000000000 +0100
++++ b/man/usleep.1	2009-12-02 22:44:49.180403007 +0100
+@@ -0,0 +1,50 @@
++.\"
++.\" Copyright 2001 Werner Fink, 2001 SuSE GmbH Nuernberg, Germany.
++.\"
++.\" This program is free software; you can redistribute it and/or modify
++.\" it under the terms of the GNU General Public License as published by
++.\" the Free Software Foundation; either version 2 of the License, or
++.\" (at your option) any later version.
++.\"
++.TH USLEEP 1 "Jan 31, 2001" "Version 1.16" "The SuSE boot concept"
++.UC 1
++.SH NAME
++usleep \- sleep for the specified number of microseconds
++.\"
++.SH SYNOPSIS
++.\"
++.B usleep [
++.I usec
++.B ]
++.\"
++.SH DESCRIPTION
++.B usleep
++pauses for the number of
++.I usec
++microseconds. The default is
++.B 1
++microsecond.  If
++.B 0
++microseconds are specified
++.BR sched_yield (2)
++is called.
++.\"
++.SH BUGS
++The
++.B usleep
++program uses the
++.BR usleep (3)
++function and therefore shows the same weaknesses
++by any system activity.
++\."
++.SH SEE ALSO
++.BR usleep (3),
++.BR sleep (1),
++.BR sleep (3),
++.BR sched_yield (2).
++\."
++.SH COPYRIGHT
++2001 Werner Fink,
++2001 SuSE GmbH Nuernberg, Germany.
++.SH AUTHOR
++Werner Fink <werner@suse.de>
+diff -Naurdp a/man/usleep.x b/man/usleep.x
+--- a/man/usleep.x	1970-01-01 01:00:00.000000000 +0100
++++ b/man/usleep.x	2009-12-02 22:44:49.180403007 +0100
+@@ -0,0 +1,4 @@
++[NAME]
++usleep \- sleep for the specified number of microseconds
++[DESCRIPTION]
++.\" Add any additional description here
+diff -Naurdp a/src/Makefile.in b/src/Makefile.in
+--- a/src/Makefile.in	2009-12-02 22:44:48.724903047 +0100
++++ b/src/Makefile.in	2009-12-02 22:48:34.140615225 +0100
+@@ -534,6 +534,11 @@ sleep_SOURCES = sleep.c
+ sleep_OBJECTS = sleep.$(OBJEXT)
+ sleep_DEPENDENCIES = $(am__DEPENDENCIES_2) $(am__DEPENDENCIES_1) \
+ 	$(am__DEPENDENCIES_1)
++usleep_SOURCES = usleep.c
++usleep_OBJECTS = usleep.$(OBJEXT)
++am__DEPENDENCIES_3 = $(am__DEPENDENCIES_2) $(am__DEPENDENCIES_1) \
++	$(am__DEPENDENCIES_1)
++usleep_DEPENDENCIES = $(am__DEPENDENCIES_3)
+ sort_SOURCES = sort.c
+ sort_OBJECTS = sort.$(OBJEXT)
+ sort_DEPENDENCIES = $(am__DEPENDENCIES_2) $(am__DEPENDENCIES_1) \
+@@ -1665,6 +1670,7 @@ sum_LDADD = $(LDADD)
+ sync_LDADD = $(LDADD)
+ tac_LDADD = $(LDADD)
+ tail_LDADD = $(LDADD) $(POW_LIB) $(LIB_NANOSLEEP)
++usleep_LDADD = $(LDADD) $(POW_LIB) $(LIB_NANOSLEEP)
+ tee_LDADD = $(LDADD)
+ test_LDADD = $(LDADD) $(LIB_EACCESS)
+ timeout_LDADD = $(LDADD) $(LIBICONV)
+@@ -2361,6 +2367,7 @@ distclean-compile:
+ @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/shred.Po@am__quote@
+ @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/shuf.Po@am__quote@
+ @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/sleep.Po@am__quote@
++@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/usleep.Po@am__quote@
+ @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/sort.Po@am__quote@
+ @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/split.Po@am__quote@
+ @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/stat.Po@am__quote@
+diff -Naurdp a/src/usleep.c b/src/usleep.c
+--- a/src/usleep.c	1970-01-01 01:00:00.000000000 +0100
++++ b/src/usleep.c	2009-12-02 22:44:49.188405778 +0100
+@@ -0,0 +1,71 @@
++/*
++ * usleep.c     Sleep for the specified number of microseconds
++ *
++ * Usage:       usleep [ microseconds ]
++ *
++ * Copyright 2001 Werner Fink, 2001 SuSE GmbH Nuernberg, Germany.
++ * Copyright 2005 Werner Fink, 2005 SUSE LINUX Products GmbH, Germany.
++ *
++ * This program is free software; you can redistribute it and/or modify
++ * it under the terms of the GNU General Public License as published by
++ * the Free Software Foundation; either version 2 of the License, or
++ * (at your option) any later version.
++ *
++ * Author:      Werner Fink <werner@suse.de>
++ */
++
++#ifndef  __USE_STRING_INLINES
++# define __USE_STRING_INLINES
++#endif
++#ifdef   __NO_STRING_INLINES
++# undef  __NO_STRING_INLINES
++#endif
++#include <libgen.h>
++#include <string.h>
++#include <stdio.h>
++#include <stdlib.h>
++#include <unistd.h>
++#ifdef _POSIX_PRIORITY_SCHEDULING
++# include <sched.h>
++#endif
++#define USAGE		"Usage:\t%s [ microseconds ]\n", we_are
++
++static char *we_are;
++int main(int argc, char **argv)
++{
++    unsigned long int usec = 1;
++
++    if (argc > 2)
++	goto err;
++
++    if (argc > 1) {
++	char *endptr;
++	usec = strtoul(argv[1], &endptr, 10);
++	if (*endptr != '\0')
++	    goto err;
++    }
++
++    if (usec)
++	usleep(usec);
++#ifdef _POSIX_PRIORITY_SCHEDULING
++    else
++	(void)sched_yield();
++#endif
++    _exit(0);
++
++    /* Do this at the end for speed */
++err:
++    we_are = basename(argv[0]);
++    fprintf(stderr, USAGE);
++
++    if (argc > 1 && *(argv[1]) == '-') {
++	argv[1]++;
++	if (!strcmp(argv[1], "-help") || *(argv[1]) == 'h' || *(argv[1]) == '?') {
++	    fprintf(stderr, "Sleep for the specified number of microseconds.\n\n");
++	    fprintf(stderr, "Help options:\n");
++	    fprintf(stderr, "  -h, -?, --help    display this help and exit.\n");
++	    exit (0);
++	}
++    }
++    exit (1);
++}

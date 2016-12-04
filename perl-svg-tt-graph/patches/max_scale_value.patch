@@ -1,0 +1,120 @@
+diff -Naurdp SVG-TT-Graph-0.16/lib/SVG/TT/Graph/Bar.pm SVG-TT-Graph-0.16.max_scale_value/lib/SVG/TT/Graph/Bar.pm
+--- SVG-TT-Graph-0.16/lib/SVG/TT/Graph/Bar.pm	2010-04-17 14:01:28.000000000 +0200
++++ SVG-TT-Graph-0.16.max_scale_value/lib/SVG/TT/Graph/Bar.pm	2011-04-29 17:13:36.128665980 +0200
+@@ -62,6 +62,7 @@ title, subtitle etc.
+     'show_data_values'       => 1,
+ 
+     'min_scale_value'        => '0',
++    'max_scale_value'        => undef,
+     'stagger_x_labels'       => 0,
+     'rotate_x_labels'        => 0,
+     'bar_gap'                => 1,
+@@ -191,6 +192,11 @@ is '1', set to '0' if you don't want gap
+ The point at which the Y axis starts, defaults to '0',
+ if set to '' it will default to the minimum data value.
+ 
++=item max_scale_value()
++
++The maximum value for the Y axis.  If set to '', it will 
++default to the maximum data value.
++
+ =item show_x_labels()
+ 
+ Whether to show labels on the X axis or not, defaults
+@@ -330,6 +336,7 @@ sub _set_defaults {
+     'show_data_values'       => 1,
+   
+     'min_scale_value'        => '0',
++    'max_scale_value'        => '',
+     'scale_divisions'        => '',
+     'bar_gap'                => 1,
+ 
+@@ -587,17 +594,25 @@ __DATA__
+   [% min_scale_value = min_value %]
+ [% END %]
+ 
++<!-- find ending value for scale on y axis -->
++[% IF config.max_scale_value || config.max_scale_value == '0' %]
++  [% max_scale_value = config.max_scale_value %]
++[% ELSE %]
++  <!-- setting highest value to be max_value as no max_scale_value defined -->
++  [% max_scale_value = max_value %]
++[% END %]
++	
+ <!-- base line -->
+ [% base_line = h + y %]
+ 
+ <!-- how much padding between largest bar and top of graph -->
+-[% IF (max_value - min_scale_value) == 0 %]
++[% IF (max_scale_value - min_scale_value) == 0 %]
+   [% top_pad = 10 %]
+ [% ELSE %]
+-  [% top_pad = (max_value - min_scale_value) / 20 %]  
++  [% top_pad = (max_scale_value - min_scale_value) / 20 %]	
+ [% END %]  
+ 
+-[% scale_range = (max_value + top_pad) - min_scale_value %]
++[% scale_range = (max_scale_value + top_pad) - min_scale_value %]
+ 
+ <!-- default to 10 scale_divisions if none have been set -->
+ [% IF config.scale_divisions %]
+diff -Naurdp SVG-TT-Graph-0.16/lib/SVG/TT/Graph/Line.pm SVG-TT-Graph-0.16.max_scale_value/lib/SVG/TT/Graph/Line.pm
+--- SVG-TT-Graph-0.16/lib/SVG/TT/Graph/Line.pm	2010-04-17 14:01:33.000000000 +0200
++++ SVG-TT-Graph-0.16.max_scale_value/lib/SVG/TT/Graph/Line.pm	2011-04-29 17:16:32.275685414 +0200
+@@ -70,6 +70,7 @@ title, subtitle etc.
+     'stacked'                => 0,
+ 
+     'min_scale_value'        => '0',
++    'max_scale_value'        => undef,
+     'area_fill'              => 0,
+     'show_x_labels'          => 1,
+     'stagger_x_labels'       => 0,
+@@ -199,6 +200,11 @@ Accumulates each data set. (i.e. Each po
+ The point at which the Y axis starts, defaults to '0',
+ if set to '' it will default to the minimum data value.
+ 
++=item max_scale_value()
++
++The maximum value for the Y axis.  If set to '', it will 
++default to the maximum data value.
++
+ =item show_x_labels()
+ 
+ Whether to show labels on the X axis or not, defaults
+@@ -340,6 +346,7 @@ sub _set_defaults {
+     'stacked'                => 0,
+   
+     'min_scale_value'        => '0',
++    'max_scale_value'        => '',
+     'area_fill'              => 0,
+     'show_x_labels'          => 1,
+     'stagger_x_labels'       => 0,
+@@ -615,17 +622,25 @@ __DATA__
+   [% min_scale_value = min_value %]
+ [% END %]
+ 
++<!-- find ending value for scale on y axis -->
++[% IF config.max_scale_value || config.max_scale_value == '0' %]
++  [% max_scale_value = config.max_scale_value %]
++[% ELSE %]
++  <!-- setting highest value to be max_value as no max_scale_value defined -->
++  [% max_scale_value = max_value %]
++[% END %]
++	
+ <!-- base line -->
+ [% base_line = h + y %]
+ 
+ <!-- how much padding between largest bar and top of graph -->
+-[% IF (max_value - min_scale_value) == 0 %]
++[% IF (max_scale_value - min_scale_value) == 0 %]
+   [% top_pad = 10 %]
+ [% ELSE %]
+-  [% top_pad = (max_value - min_scale_value) / 20 %]
++  [% top_pad = (max_scale_value - min_scale_value) / 20 %]
+ [% END %]
+ 
+-[% scale_range = (max_value + top_pad) - min_scale_value %]
++[% scale_range = (max_scale_value + top_pad) - min_scale_value %]
+ 
+ <!-- default to 10 scale_divisions if none have been set -->
+ [% IF config.scale_divisions %]

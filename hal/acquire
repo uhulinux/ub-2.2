@@ -1,0 +1,4 @@
+#!/usr/bin/env dl
+
+hal-${UB_VERSION/~/}.tar.gz hal-${UB_VERSION/~/}/
+	http://hal.freedesktop.org/releases/

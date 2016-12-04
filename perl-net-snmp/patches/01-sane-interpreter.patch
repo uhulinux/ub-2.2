@@ -1,0 +1,99 @@
+diff -Naur a/examples/example1.pl b/examples/example1.pl
+--- a/examples/example1.pl	2003-09-11 21:10:19.000000000 +0200
++++ b/examples/example1.pl	2003-11-23 16:11:17.000000000 +0100
+@@ -1,4 +1,4 @@
+-#! /usr/local/bin/perl
++#! /usr/bin/perl
+ 
+ # ============================================================================
+ 
+diff -Naur a/examples/example2.pl b/examples/example2.pl
+--- a/examples/example2.pl	2003-09-11 21:10:19.000000000 +0200
++++ b/examples/example2.pl	2003-11-23 16:11:22.000000000 +0100
+@@ -1,4 +1,4 @@
+-#! /usr/local/bin/perl
++#! /usr/bin/perl
+ 
+ # ============================================================================
+ 
+diff -Naur a/examples/example3.pl b/examples/example3.pl
+--- a/examples/example3.pl	2003-09-11 21:10:19.000000000 +0200
++++ b/examples/example3.pl	2003-11-23 16:11:27.000000000 +0100
+@@ -1,4 +1,4 @@
+-#! /usr/local/bin/perl
++#! /usr/bin/perl
+ 
+ # ============================================================================
+ 
+diff -Naur a/examples/example4.pl b/examples/example4.pl
+--- a/examples/example4.pl	2003-09-11 21:10:19.000000000 +0200
++++ b/examples/example4.pl	2003-11-23 16:11:32.000000000 +0100
+@@ -1,4 +1,4 @@
+-#! /usr/local/bin/perl
++#! /usr/bin/perl
+ 
+ # ============================================================================
+ 
+diff -Naur a/examples/snmpgetbulk.pl b/examples/snmpgetbulk.pl
+--- a/examples/snmpgetbulk.pl	2003-09-11 21:10:19.000000000 +0200
++++ b/examples/snmpgetbulk.pl	2003-11-23 16:18:55.000000000 +0100
+@@ -1,4 +1,4 @@
+-#! /usr/local/bin/perl 
++#! /usr/bin/perl 
+ 
+ eval '(exit $?0)' && eval 'exec /usr/local/bin/perl $0 ${1+"$@"}'
+ && eval 'exec /usr/local/bin/perl $0 $argv:q'
+diff -Naur a/examples/snmpgetnext.pl b/examples/snmpgetnext.pl
+--- a/examples/snmpgetnext.pl	2003-09-11 21:10:20.000000000 +0200
++++ b/examples/snmpgetnext.pl	2003-11-23 16:18:59.000000000 +0100
+@@ -1,4 +1,4 @@
+-#! /usr/local/bin/perl 
++#! /usr/bin/perl 
+ 
+ eval '(exit $?0)' && eval 'exec /usr/local/bin/perl $0 ${1+"$@"}'
+ && eval 'exec /usr/local/bin/perl $0 $argv:q'
+diff -Naur a/examples/snmpget.pl b/examples/snmpget.pl
+--- a/examples/snmpget.pl	2003-09-11 21:10:19.000000000 +0200
++++ b/examples/snmpget.pl	2003-11-23 16:18:51.000000000 +0100
+@@ -1,4 +1,4 @@
+-#! /usr/local/bin/perl 
++#! /usr/bin/perl 
+ 
+ eval '(exit $?0)' && eval 'exec /usr/local/bin/perl $0 ${1+"$@"}'
+ && eval 'exec /usr/local/bin/perl $0 $argv:q'
+diff -Naur a/examples/snmpset.pl b/examples/snmpset.pl
+--- a/examples/snmpset.pl	2003-09-11 21:10:19.000000000 +0200
++++ b/examples/snmpset.pl	2003-11-23 16:19:08.000000000 +0100
+@@ -1,4 +1,4 @@
+-#! /usr/local/bin/perl 
++#! /usr/bin/perl 
+ 
+ eval '(exit $?0)' && eval 'exec /usr/local/bin/perl $0 ${1+"$@"}'
+ && eval 'exec /usr/local/bin/perl $0 $argv:q'
+diff -Naur a/examples/snmpwalk.pl b/examples/snmpwalk.pl
+--- a/examples/snmpwalk.pl	2003-09-11 21:10:19.000000000 +0200
++++ b/examples/snmpwalk.pl	2003-11-23 16:19:12.000000000 +0100
+@@ -1,4 +1,4 @@
+-#! /usr/local/bin/perl 
++#! /usr/bin/perl 
+ 
+ eval '(exit $?0)' && eval 'exec /usr/local/bin/perl $0 ${1+"$@"}'
+ && eval 'exec /usr/local/bin/perl $0 $argv:q'
+diff -Naur a/examples/table.pl b/examples/table.pl
+--- a/examples/table.pl	2003-09-11 21:10:19.000000000 +0200
++++ b/examples/table.pl	2003-11-23 16:19:18.000000000 +0100
+@@ -1,4 +1,4 @@
+-#! /usr/local/bin/perl 
++#! /usr/bin/perl 
+ 
+ eval '(exit $?0)' && eval 'exec /usr/local/bin/perl $0 ${1+"$@"}'
+ && eval 'exec /usr/local/bin/perl $0 $argv:q'
+diff -Naur a/examples/trap.pl b/examples/trap.pl
+--- a/examples/trap.pl	2003-09-11 21:10:20.000000000 +0200
++++ b/examples/trap.pl	2003-11-23 16:19:23.000000000 +0100
+@@ -1,4 +1,4 @@
+-#! /usr/local/bin/perl
++#! /usr/bin/perl
+ 
+ eval '(exit $?0)' && eval 'exec /usr/local/bin/perl $0 ${1+"$@"}'
+ && eval 'exec /usr/local/bin/perl $0 $argv:q'

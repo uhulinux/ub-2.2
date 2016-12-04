@@ -1,0 +1,26 @@
+#!/bin/sh -eux
+
+ub_compile \
+	--sysconfdir=/etc/squid \
+	--datadir=/usr/share/squid \
+	--with-large-files \
+	--enable-ssl \
+	--enable-referer-log \
+	--enable-arp-acl \
+	--enable-linux-netfilter \
+	--enable-underscores \
+	--enable-htcp \
+	--enable-useragent-log \
+	--enable-icmp \
+	--enable-snmp \
+	--enable-delay-pools \
+	--enable-cache-digests \
+	--enable-carp \
+	--enable-auth="basic digest ntlm" \
+	--enable-basic-auth-helpers="LDAP MSNT NCSA PAM SMB YP SASL POP3 DB getpwnam multi-domain-NTLM" \
+	--enable-ntlm-auth-helpers="fakeauth SMB no_check" \
+	--enable-ntlm-fail-open \
+	--enable-digest-auth-helpers="password ldap" \
+	--enable-err-languages="English Hungarian" \
+	--enable-default-err-language="Hungarian" \
+	--enable-external-acl-helpers="ip_user ldap_group unix_group wbinfo_group"

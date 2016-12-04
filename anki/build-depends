@@ -1,0 +1,8 @@
+pygame
+pyqt4
+python-dev
+python-numpy
+python-setuptools
+python-simplejson
+python-sqlalchemy
+sip

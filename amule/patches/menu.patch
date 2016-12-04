@@ -1,0 +1,17 @@
+diff -Naur amule-cvs-orig/amule.desktop amule-cvs/amule.desktop
+--- amule-cvs-orig/amule.desktop	2006-12-19 13:55:53.000000000 +0100
++++ amule-cvs/amule.desktop	2007-03-10 10:04:02.000000000 +0100
+@@ -1,7 +1,10 @@
+ [Desktop Entry]
+ Name=aMule
+-Exec=amule
+-Icon=amule
++Comment=P2P File sharing
++Comment[hu]=P2P Fájlcserélő
++GenericName[hu]=P2P Fájlcserélő
++Exec=amule
++Icon=amule.xpm
+ Terminal=false
+ Type=Application
+-Categories=Network;P2P;
++Categories=Network;P2P;X-UHU-Menu/Internet/Downloaders;

@@ -1,0 +1,73 @@
+diff -Naurd orig/Makefile mod/Makefile
+--- orig/Makefile	2009-11-01 05:30:08.000000000 +0100
++++ mod/Makefile	2010-02-12 12:52:54.000000000 +0100
+@@ -24,21 +24,21 @@
+ 	rm -rf scratch/Plugins/UnicodePlugin
+ 
+ install: all
+-	cp -rf scratch $(ROOTDEST)
+-	cp -f src/scratch.desktop /usr/share/applications/ 
+-	cp -f src/icons/48x48/scratch1.png /usr/share/icons/hicolor/48x48/apps/
+-	cp -f src/icons/128x128/scratch1.png /usr/share/icons/hicolor/128x128/apps/
+-	cp -f src/icons/48x48/gnome-mime-application-x-scratch-project.png /usr/share/icons/hicolor/48x48/mimetypes/
+-	cp -f src/icons/128x128/gnome-mime-application-x-scratch-project.png /usr/share/icons/hicolor/128x128/mimetypes/
+-	cp -f src/scratch.xml /usr/share/mime/packages/
+-	cp -f src/scratch /usr/bin/
+-	update-desktop-database
+-	update-mime-database /usr/share/mime
+-	gtk-update-icon-cache -qf /usr/share/icons/hicolor
+-	chmod 644 /usr/share/mime/packages/scratch.xml
+-	chmod 666 /etc/gnome/defaults.list
+-	echo "application/x-scratch-project=scratch.desktop" >> /etc/gnome/defaults.list
+-	chmod 644 /etc/gnome/defaults.list
++	cp -rf scratch $(DESTDIR)$(ROOTDEST)
++	cp -f src/scratch.desktop $(DESTDIR)/usr/share/applications/ 
++	cp -f src/icons/48x48/scratch1.png $(DESTDIR)/usr/share/icons/hicolor/48x48/apps/
++	cp -f src/icons/128x128/scratch1.png $(DESTDIR)/usr/share/icons/hicolor/128x128/apps/
++	cp -f src/icons/48x48/gnome-mime-application-x-scratch-project.png $(DESTDIR)/usr/share/icons/hicolor/48x48/mimetypes/
++	cp -f src/icons/128x128/gnome-mime-application-x-scratch-project.png $(DESTDIR)/usr/share/icons/hicolor/128x128/mimetypes/
++	cp -f src/scratch.xml $(DESTDIR)/usr/share/mime/packages/
++	cp -f src/scratch $(DESTDIR)/usr/bin/
++#	update-desktop-database
++#	update-mime-database /usr/share/mime
++#	gtk-update-icon-cache -qf /usr/share/icons/hicolor
++#	chmod 644 /usr/share/mime/packages/scratch.xml
++#	chmod 666 /etc/gnome/defaults.list
++#	echo "application/x-scratch-project=scratch.desktop" >> /etc/gnome/defaults.list
++#	chmod 644 /etc/gnome/defaults.list
+ 
+ build:
+ 	touch build
+diff -Naurd orig/src/scratch mod/src/scratch
+--- orig/src/scratch	2009-11-01 05:30:08.000000000 +0100
++++ mod/src/scratch	2010-02-12 13:28:46.000000000 +0100
+@@ -2,9 +2,8 @@
+ # Squeakvm wrapper to load Scratch image.
+ #------------------------------------------------------------
+ 
+-/usr/bin/scratch_squeak_vm \
+--plugins /usr/lib/scratch/Plugins \
++/usr/share/scratch/App/scratch_squeak_vm \
++-plugins /usr/share/scratch/Plugins \
+ -vm-sound-PA \
+-/usr/lib/scratch/Scratch.image "${@}"
+-
++/usr/share/scratch/Scratch.image "${@}"
+ 
+diff -Naurd orig/src/scratch.desktop mod/src/scratch.desktop
+--- orig/src/scratch.desktop	2009-11-01 05:30:08.000000000 +0100
++++ mod/src/scratch.desktop	2010-02-12 13:10:52.000000000 +0100
+@@ -1,9 +1,11 @@
+ [Desktop Entry]
++Version=1.1
+ Name=Scratch
+-Comment= Programming system and content development tool
++Comment=Programming system and content development tool
++Comment[hu]=Programnyelv gyerekeknek
+ Exec=scratch
+ Terminal=false
+ Type=Application
+ Icon=scratch1
+-Categories=Development;
++Categories=Development;X-UHU-Menu/Development/Programming;
+ MimeType=application/x-scratch-project

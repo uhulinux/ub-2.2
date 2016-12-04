@@ -1,0 +1,6 @@
+#!/usr/bin/env dl
+
+libdvdnav-${UB_VERSION}.tar.bz2 libdvdnav-${UB_VERSION}/
+	http://www1.mplayerhq.hu/MPlayer/releases/dvdnav/
+	http://www2.mplayerhq.hu/MPlayer/releases/dvdnav/
+#	http://download.sourceforge.net/dvd/

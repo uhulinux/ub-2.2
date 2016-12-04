@@ -1,0 +1,4 @@
+#!/usr/bin/env dl
+
+Net-Address-IP-Local-${UB_VERSION}.tar.gz Net-Address-IP-Local-${UB_VERSION}/
+	http://search.cpan.org/CPAN/authors/id/J/JM/JMEHNLE/net-address-ip-local/

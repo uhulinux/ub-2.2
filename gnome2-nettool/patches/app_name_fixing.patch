@@ -1,0 +1,17 @@
+--- gnome-nettool-2.26.1.orig/po/hu.po	2009-03-31 16:11:02.000000000 +0200
++++ gnome-nettool-2.26.1/po/hu.po	2009-04-30 19:32:41.000000000 +0200
+@@ -34,10 +34,13 @@
+ 
+ #. Dear translator: This is the name of the application
+ #: ../src/callbacks.c:334 ../src/callbacks.c:335
+-#: ../src/gnome-nettool.desktop.in.in.h:1
+ msgid "Network Tools"
+ msgstr "Hálózati segédeszközök"
+ 
++#: ../src/gnome-nettool.desktop.in.in.h:1
++msgid "GNOME Network Tools"
++msgstr "GNOME hálózati segédeszközök"
++
+ #: ../src/callbacks.c:337
+ msgid "Graphical user interface for common network utilities"
+ msgstr "Grafikus felhasználói felület általános hálózati segédprogramokhoz"

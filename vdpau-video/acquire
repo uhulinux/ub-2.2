@@ -1,0 +1,4 @@
+#!/usr/bin/env dl
+
+vdpau-video-${UB_VERSION}.tar.gz vdpau-video-${UB_VERSION}/
+	http://www.splitted-desktop.com/~gbeauchesne/vdpau-video/

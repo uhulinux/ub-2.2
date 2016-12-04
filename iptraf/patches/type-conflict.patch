@@ -1,0 +1,22 @@
+diff -Naur iptraf-3.0.0.orig/src/othptab.c iptraf-3.0.0/src/othptab.c
+--- iptraf-3.0.0.orig/src/othptab.c	2005-09-13 08:42:54.000000000 +0200
++++ iptraf-3.0.0/src/othptab.c	2006-07-05 16:32:03.000000000 +0200
+@@ -16,6 +16,7 @@
+ 
+ ***/
+ 
++#define __blkcnt_t_defined /* avoid conflicting types for 'blkcnt_t' from linux/types.h and sys/types.h */
+ #include <asm/types.h>
+ #include <linux/if_ether.h>
+ #include <linux/if_tr.h>
+diff -Naur iptraf-3.0.0.orig/src/tr.c iptraf-3.0.0/src/tr.c
+--- iptraf-3.0.0.orig/src/tr.c	2005-09-13 08:42:54.000000000 +0200
++++ iptraf-3.0.0/src/tr.c	2006-07-05 16:31:36.000000000 +0200
+@@ -6,6 +6,7 @@
+  * Copyright (c) Gerard Paul Java 2002
+  */
+ 
++#define __blkcnt_t_defined /* avoid conflicting types for 'blkcnt_t' from linux/types.h and sys/types.h */
+ #include <asm/types.h>
+ #include <linux/if_tr.h>
+ #include <netinet/in.h>

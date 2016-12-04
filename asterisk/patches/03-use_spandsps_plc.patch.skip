@@ -1,0 +1,140 @@
+diff -Naur a/include/asterisk/plc.h b/include/asterisk/plc.h
+--- a/include/asterisk/plc.h	2006-06-14 16:12:56.000000000 +0200
++++ b/include/asterisk/plc.h	2007-04-25 11:32:12.000000000 +0200
+@@ -1,18 +1,17 @@
+-/*! \file
+- * \brief SpanDSP - a series of DSP components for telephony
++/*
++ * SpanDSP - a series of DSP components for telephony
+  *
+  * plc.h
+  *
+- * \author Steve Underwood <steveu@coppice.org>
++ * Written by Steve Underwood <steveu@coppice.org>
+  *
+  * Copyright (C) 2004 Steve Underwood
+  *
+  * All rights reserved.
+  *
+  * This program is free software; you can redistribute it and/or modify
+- * it under the terms of the GNU General Public License as published by
+- * the Free Software Foundation; either version 2 of the License, or
+- * (at your option) any later version.
++ * it under the terms of the GNU General Public License version 2, as
++ * published by the Free Software Foundation.
+  *
+  * This program is distributed in the hope that it will be useful,
+  * but WITHOUT ANY WARRANTY; without even the implied warranty of
+@@ -23,37 +22,36 @@
+  * along with this program; if not, write to the Free Software
+  * Foundation, Inc., 675 Mass Ave, Cambridge, MA 02139, USA.
+  *
+- * This version may be optionally licenced under the GNU LGPL licence.
+- *
+- * A license has been granted to Digium (via disclaimer) for the use of
+- * this code.
++ * $Id: plc.h,v 1.14 2007/04/05 19:20:49 steveu Exp $
+  */
+ 
++/*! \file */
+ 
+-#if !defined(_PLC_H_)
+-#define _PLC_H_
+-
+-#ifdef SOLARIS
+-#include <sys/int_types.h>
+-#else
+-#if defined(__OpenBSD__) || defined( __FreeBSD__)
+-#include <inttypes.h>
+-#else
+-#include <stdint.h>
+-#endif
+-#endif
++#if !defined(_SPANDSP_PLC_H_)
++#define _SPANDSP_PLC_H_
+ 
+ /*! \page plc_page Packet loss concealment
+ \section plc_page_sec_1 What does it do?
+-The packet loss concealment module provides a suitable synthetic fill-in signal,
+-to minimise the audible effect of lost packets in VoIP applications. It is not
+-tied to any particular codec, and could be used with almost any codec which does not
++The packet loss concealment module provides a synthetic fill-in signal, to minimise
++the audible effect of lost packets in VoIP applications. It is not tied to any
++particular codec, and could be used with almost any codec which does not
+ specify its own procedure for packet loss concealment.
+ 
+-Where a codec specific concealment procedure exists, the algorithm is usually built
++Where a codec specific concealment procedure exists, that algorithm is usually built
+ around knowledge of the characteristics of the particular codec. It will, therefore,
+ generally give better results for that particular codec than this generic concealer will.
+ 
++The PLC code implements an algorithm similar to the one described in Appendix 1 of G.711.
++However, the G.711 algorithm is optimised for 10ms packets. Few people use such small
++packets. 20ms is a much more common value, and longer packets are also quite common. The
++algorithm has been adjusted with this in mind. Also, the G.711 approach causes an
++algorithmic delay, and requires significant buffer manipulation when there is no packet
++loss. The algorithm used here avoids this. It causes no delay, and achieves comparable
++quality with normal speech.
++
++Note that both this algorithm, and the one in G.711 are optimised for speech. For most kinds
++of music a much slower decay on bursts of lost packets give better results.
++
+ \section plc_page_sec_2 How does it work?
+ While good packets are being received, the plc_rx() routine keeps a record of the trailing
+ section of the known speech signal. If a packet is missed, plc_fillin() is called to produce
+@@ -83,7 +81,7 @@
+   correct steadily fall. Therefore, the volume of the synthesized signal is made to decay
+   linearly, such that after 50ms of missing audio it is reduced to silence.
+ 
+-- When real speech resumes, an extra 1/4 pitch period of sythetic speech is blended with the
++- When real speech resumes, an extra 1/4 pitch period of synthetic speech is blended with the
+   start of the real speech. If the erasure is small, this smoothes the transition. If the erasure
+   is long, and the synthetic signal has faded to zero, the blending softens the start up of the
+   real signal, avoiding a kind of "click" or "pop" effect that might occur with a sudden onset.
+@@ -110,6 +108,9 @@
+     the pitch assessment. */
+ #define PLC_HISTORY_LEN         (CORRELATION_SPAN + PLC_PITCH_MIN)
+ 
++/*!
++    The generic packet loss concealer context.
++*/
+ typedef struct
+ {
+     /*! Consecutive erased samples */
+@@ -128,11 +129,12 @@
+ 
+ 
+ #ifdef __cplusplus
+-extern "C" {
++extern "C"
++{
+ #endif
+ 
+-/*! Process a block of received audio samples.
+-    \brief Process a block of received audio samples.
++/*! Process a block of received audio samples for PLC.
++    \brief Process a block of received audio samples for PLC.
+     \param s The packet loss concealer context.
+     \param amp The audio sample buffer.
+     \param len The number of samples in the buffer.
+@@ -147,12 +149,17 @@
+     \return The number of samples synthesized. */
+ int plc_fillin(plc_state_t *s, int16_t amp[], int len);
+ 
+-/*! Process a block of received V.29 modem audio samples.
+-    \brief Process a block of received V.29 modem audio samples.
++/*! Initialise a packet loss concealer context.
++    \brief Initialise a PLC context.
+     \param s The packet loss concealer context.
+-    \return A pointer to the he packet loss concealer context. */
++    \return A pointer to the the packet loss concealer context. */
+ plc_state_t *plc_init(plc_state_t *s);
+ 
++/*! Free a packet loss concealer context.
++    \param s The packet loss concealer context.
++    \return 0 for OK. */
++int plc_release(plc_state_t *s);
++
+ #ifdef __cplusplus
+ }
+ #endif

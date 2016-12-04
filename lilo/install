@@ -1,0 +1,6 @@
+#!/bin/sh -eux
+
+make \
+	ROOT="$UB_INSTALLDIR" \
+	MAN_DIR=/usr/share/man \
+	install

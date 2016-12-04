@@ -1,0 +1,18 @@
+diff -Naur nagios-3.2.0-orig/daemon-init.in nagios-3.2.0/daemon-init.in
+--- nagios-3.2.0-orig/daemon-init.in	2009-11-29 19:32:45.000000000 +0100
++++ nagios-3.2.0/daemon-init.in	2009-11-29 19:38:07.000000000 +0100
+@@ -124,11 +124,13 @@
+ 		echo -n "Starting nagios:"
+ 		$NagiosBin -v $NagiosCfgFile > /dev/null 2>&1;
+ 		if [ $? -eq 0 ]; then
+-			su - $NagiosUser -c "touch $NagiosVarDir/nagios.log $NagiosRetentionFile"
++			touch $NagiosVarDir/nagios.log $NagiosRetentionFile
++			chown $NagiosUser:$NagiosGroup $NagiosVarDir/nagios.log $NagiosRetentionFile
+ 			rm -f $NagiosCommandFile
+ 			touch $NagiosRunFile
+ 			chown $NagiosUser:$NagiosGroup $NagiosRunFile
+ 			$NagiosBin -d $NagiosCfgFile
++			pidof nagios > $NagiosRunFile
+ 			if [ -d $NagiosLockDir ]; then touch $NagiosLockDir/$NagiosLockFile; fi
+ 			echo " done."
+ 			exit 0

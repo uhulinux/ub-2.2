@@ -1,0 +1,50 @@
+diff -Naur ORIG/builds/install/arch-specific/linux/Makefile.in UHU/builds/install/arch-specific/linux/Makefile.in
+--- ORIG/builds/install/arch-specific/linux/Makefile.in	2005-05-28 00:15:05.000000000 +0200
++++ UHU/builds/install/arch-specific/linux/Makefile.in	2008-02-12 16:59:02.000000000 +0100
+@@ -180,7 +180,7 @@
+ 
+ install: buildTarDir
+ 	(cd $(GEN_ROOT)/$(TarDir); ./install.sh)
+-	cp -r $(GEN_ROOT)/$(DebugDir)/* /
++#	cp -r $(GEN_ROOT)/$(DebugDir)/* /
+ 
+ 
+ rpmfile: $(RPMFile)
+diff -Naur ORIG/builds/install/arch-specific/linux/super/tarinstall.sh.in UHU/builds/install/arch-specific/linux/super/tarinstall.sh.in
+--- ORIG/builds/install/arch-specific/linux/super/tarinstall.sh.in	2005-05-28 00:15:13.000000000 +0200
++++ UHU/builds/install/arch-specific/linux/super/tarinstall.sh.in	2008-02-12 17:02:04.000000000 +0100
+@@ -40,7 +40,8 @@
+ 
+ OrigDir=`pwd`
+ 
+-cd /
++#cd /
++cd /${UB_INSTALLDIR}
+ 
+ tar -xzf "$OrigDir/buildroot.tar.gz"
+ 
+diff -Naur ORIG/builds/install/arch-specific/linux/super/tarMainInstall.sh.in UHU/builds/install/arch-specific/linux/super/tarMainInstall.sh.in
+--- ORIG/builds/install/arch-specific/linux/super/tarMainInstall.sh.in	2005-05-28 00:15:13.000000000 +0200
++++ UHU/builds/install/arch-specific/linux/super/tarMainInstall.sh.in	2008-02-12 17:03:14.000000000 +0100
+@@ -43,7 +43,8 @@
+ #== Main Program ==========================================================
+ 
+ 
+-InteractiveInstall=1
++#InteractiveInstall=1
++InteractiveInstall=
+ export InteractiveInstall
+ 
+ 
+@@ -72,9 +73,9 @@
+ if [ -e scripts ]
+ then
+     echo "Extracting install data"
+-    runAndCheckExit "./scripts/preinstall.sh"
++#    runAndCheckExit "./scripts/preinstall.sh"
+     runAndCheckExit "./scripts/tarinstall.sh"
+-    runAndCheckExit "./scripts/postinstall.sh"
++#    runAndCheckExit "./scripts/postinstall.sh"
+ fi
+ 
+ echo "Install completed"

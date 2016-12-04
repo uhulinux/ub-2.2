@@ -1,0 +1,5 @@
+#!/bin/sh -eux
+
+mkdir -p "$UB_INSTALLDIR"/usr/share/caph/maps
+install -D -m755 src/caph "$UB_INSTALLDIR"/usr/share/caph/caph
+cp -a caph-data/. "$UB_INSTALLDIR"/usr/

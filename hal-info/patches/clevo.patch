@@ -1,0 +1,36 @@
+diff -Naurd a/fdi/information/10freedesktop/30-keymap-clevo.fdi b/fdi/information/10freedesktop/30-keymap-clevo.fdi
+--- a/fdi/information/10freedesktop/30-keymap-clevo.fdi	1970-01-01 01:00:00.000000000 +0100
++++ b/fdi/information/10freedesktop/30-keymap-clevo.fdi	2007-11-06 18:19:14.000000000 +0100
+@@ -0,0 +1,21 @@
++<?xml version="1.0" encoding="ISO-8859-1"?> <!-- -*- SGML -*- -->
++
++<deviceinfo version="0.2">
++  <device>
++
++    <!-- These are raw scancodes produced by the atkbd driver -->
++    <match key="@input.originating_device:info.linux.driver" string="atkbd">
++
++      <match key="/org/freedesktop/Hal/devices/computer:system.hardware.vendor" string="Phoenix/SiS">
++        <match key="/org/freedesktop/Hal/devices/computer:system.hardware.product" string="M720S">
++          <append key="input.keymap.data" type="strlist">e06c:email</append> <!-- Email -->
++          <append key="input.keymap.data" type="strlist">e032:www</append> <!-- W key -->
++          <append key="info.capabilities" type="strlist">input.keymap</append>
++        </match>
++      </match>
++
++    </match>
++
++  </device>
++</deviceinfo>
++
+diff -Naurd a/fdi/information/10freedesktop/Makefile.am b/fdi/information/10freedesktop/Makefile.am
+--- a/fdi/information/10freedesktop/Makefile.am	2007-10-09 17:06:12.000000000 +0200
++++ b/fdi/information/10freedesktop/Makefile.am	2007-11-06 18:18:41.000000000 +0100
+@@ -58,6 +58,7 @@
+ 		30-keymap-module-thinkpad-acpi.fdi	\
+ 		30-keymap-misc.fdi			\
+ 		30-keymap-hp.fdi			\
++		30-keymap-clevo.fdi			\
+ 		30-keymap-compaq.fdi			\
+ 		30-keymap-lenovo.fdi			\
+ 		30-keymap-dell.fdi			\

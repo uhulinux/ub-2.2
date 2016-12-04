@@ -1,0 +1,12 @@
+diff -Naurdp a/Makefile.in b/Makefile.in
+--- a/Makefile.in	2008-05-25 18:47:38.000000000 +0200
++++ b/Makefile.in	2008-09-05 17:17:55.000000000 +0200
+@@ -331,7 +331,7 @@ sbindir = @sbindir@
+ sharedstatedir = @sharedstatedir@
+ sysconfdir = @sysconfdir@
+ target_alias = @target_alias@
+-SUBDIRS = Expense SyncTime KeyRing dialer m4 po icons docs empty
++SUBDIRS = Expense SyncTime KeyRing dialer m4 po docs empty
+ EXTRA_DIST = config.rpath mkinstalldirs reconf autogen.sh \
+ 	intltool-extract.in intltool-merge.in intltool-update.in \
+ 	ChangeLog ChangeLog.cvs \

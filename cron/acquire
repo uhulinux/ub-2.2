@@ -1,0 +1,4 @@
+#!/usr/bin/env dl
+
+vixie-cron-${UB_VERSION_HEAD2}-${UB_VERSION_TAIL2}.src.rpm vixie-cron-${UB_VERSION_HEAD2}.tar.gz vixie-cron-${UB_VERSION_HEAD2}/
+	http://download.fedora.redhat.com/pub/fedora/linux/core/5/source/SRPMS/

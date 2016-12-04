@@ -1,0 +1,4 @@
+#!/usr/bin/env dl
+
+fish-$UB_VERSION.tar.bz2 fish-$UB_VERSION/
+	http://fishshell.org/files/$UB_VERSION/

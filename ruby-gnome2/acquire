@@ -1,0 +1,4 @@
+#!/usr/bin/env dl
+
+ruby-gnome2-all-${UB_VERSION}.tar.gz ruby-gnome2-all-${UB_VERSION}/
+	http://downloads.sourceforge.net/ruby-gnome2/

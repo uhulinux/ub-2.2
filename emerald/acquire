@@ -1,0 +1,4 @@
+#!/usr/bin/env dl
+
+emerald-${UB_VERSION}.tar.gz emerald-${UB_VERSION}/
+	http://releases.compiz-fusion.org/${UB_VERSION}/

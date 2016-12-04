@@ -1,0 +1,4 @@
+#!/usr/bin/env dl
+
+minicom-${UB_VERSION}.tar.gz minicom-${UB_VERSION}/
+	http://alioth.debian.org/download.php/123/

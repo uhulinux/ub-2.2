@@ -1,0 +1,12 @@
+diff -Naurdp a/src/iptraf.c b/src/iptraf.c
+--- a/src/iptraf.c	2005-09-13 08:42:54.000000000 +0200
++++ b/src/iptraf.c	2005-10-26 12:40:18.000000000 +0200
+@@ -490,7 +490,7 @@ int main(int argc, char **argv)
+     int current_log_interval;
+ 
+ #ifndef ALLOWUSERS
+-    if (getuid() != 0) {
++    if (geteuid() != 0) {
+         fprintf(stderr, "\nIPTraf Version %s\n", VERSION);
+         fprintf(stderr, "Copyright (c) Gerard Paul Java 1997-2004l\n\n");
+         fprintf(stderr,

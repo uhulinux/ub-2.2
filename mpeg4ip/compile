@@ -1,0 +1,7 @@
+#!/bin/sh -eux
+
+export CFLAGS="-Wno-array-bounds"
+
+ub_compile \
+	--enable-ipv6 \
+	--disable-player

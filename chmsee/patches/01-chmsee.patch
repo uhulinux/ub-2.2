@@ -1,0 +1,18 @@
+diff -Naur orig/data/chmsee.desktop.in mod/data/chmsee.desktop.in
+--- orig/data/chmsee.desktop.in	2010-04-12 10:45:01.000000000 +0200
++++ mod/data/chmsee.desktop.in	2010-04-16 16:43:20.000000000 +0200
+@@ -1,11 +1,12 @@
+ [Desktop Entry]
+-Version=1.1.0
++Version=1.1
+ _Name=ChmSee
+ _Comment=HTML Help(CHM) viewer
++Comment[hu]=Microsoft HTML Help megjelenítő
+ Exec=chmsee %f
+ Terminal=false
+ Type=Application
+ Icon=chmsee-icon
+ StartupNotify=true
+-Categories=Utility;
++Categories=Utility;Viewer;X-UHU-Menu/Tools/Viewers;
+ MimeType=application/x-chm;

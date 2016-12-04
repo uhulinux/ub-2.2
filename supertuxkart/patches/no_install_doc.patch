@@ -1,0 +1,35 @@
+diff -Naur supertuxkart-0.6.2a-orig//Makefile.in supertuxkart-0.6.2a//Makefile.in
+--- supertuxkart-0.6.2a-orig//Makefile.in	2009-10-19 01:48:25.000000000 +0200
++++ supertuxkart-0.6.2a//Makefile.in	2010-05-03 19:39:44.000000000 +0200
+@@ -219,7 +219,6 @@
+  README.macosx \
+  README.windows
+ 
+-dist_pkgdata_DATA = AUTHORS ChangeLog COPYING README
+ all: all-recursive
+ 
+ .SUFFIXES:
+@@ -256,23 +255,6 @@
+ 	cd $(srcdir) && $(AUTOCONF)
+ $(ACLOCAL_M4):  $(am__aclocal_m4_deps)
+ 	cd $(srcdir) && $(ACLOCAL) $(ACLOCAL_AMFLAGS)
+-install-dist_pkgdataDATA: $(dist_pkgdata_DATA)
+-	@$(NORMAL_INSTALL)
+-	test -z "$(pkgdatadir)" || $(MKDIR_P) "$(DESTDIR)$(pkgdatadir)"
+-	@list='$(dist_pkgdata_DATA)'; for p in $$list; do \
+-	  if test -f "$$p"; then d=; else d="$(srcdir)/"; fi; \
+-	  f=$(am__strip_dir) \
+-	  echo " $(dist_pkgdataDATA_INSTALL) '$$d$$p' '$(DESTDIR)$(pkgdatadir)/$$f'"; \
+-	  $(dist_pkgdataDATA_INSTALL) "$$d$$p" "$(DESTDIR)$(pkgdatadir)/$$f"; \
+-	done
+-
+-uninstall-dist_pkgdataDATA:
+-	@$(NORMAL_UNINSTALL)
+-	@list='$(dist_pkgdata_DATA)'; for p in $$list; do \
+-	  f=$(am__strip_dir) \
+-	  echo " rm -f '$(DESTDIR)$(pkgdatadir)/$$f'"; \
+-	  rm -f "$(DESTDIR)$(pkgdatadir)/$$f"; \
+-	done
+ 
+ # This directory's subdirectories are mostly independent; you can cd
+ # into them and run `make' without going through this Makefile.

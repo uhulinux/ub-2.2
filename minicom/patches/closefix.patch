@@ -1,0 +1,11 @@
+diff -Naurd minicom-2.1.orig/src/minicom.c minicom-2.1/src/minicom.c
+--- minicom-2.1.orig/src/minicom.c	2003-05-16 22:33:19.000000000 +0200
++++ minicom-2.1/src/minicom.c	2005-09-23 21:59:41.000000000 +0200
+@@ -1527,6 +1528,7 @@
+   set_privs();
+   keyboard(KUNINSTALL, 0);
+   if (lockfile[0]) unlink(lockfile);
++  tcflush(portfd, 2); // 2==TCIOFLUSH
+   close(portfd);
+   /* Please - if your system doesn't have uid_t and/or gid_t, define 'em
+    * conditionally in "port.h".

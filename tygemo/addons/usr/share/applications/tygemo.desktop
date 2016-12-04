@@ -1,0 +1,9 @@
+[Desktop Entry]
+Encoding=UTF-8
+Type=Application
+Exec=tygemo  
+Name=TyGeMo
+Comment=PhotoPC GUI
+Comment[hu]=Digitális fényképezés
+Terminal=0
+Categories=X-UHU-Menu/Multimedia/More;

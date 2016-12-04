@@ -1,0 +1,4 @@
+#!/usr/bin/env dl
+
+Class-MethodMaker-${UB_VERSION}.tar.gz Class-MethodMaker-${UB_VERSION}/
+	http://search.cpan.org/CPAN/authors/id/S/SC/SCHWIGON/class-methodmaker/

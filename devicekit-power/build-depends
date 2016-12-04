@@ -1,0 +1,11 @@
+dbus-glib-dev
+devicekit-dev
+docbook-xsl
+eggdbus-dev
+expat-dev
+glib2-dev
+intltool
+libusb-dev
+libxslt
+polkit-dev
+udev-dev

@@ -1,0 +1,9 @@
+#!/bin/sh -eux
+
+cd lib/Xaw3d
+mkdir X11
+ln -fs .. X11/Xaw3d
+xmkmf
+sed -i -e 's,$(EXTRAXAWREQS) ,,' Makefile
+make depend
+make

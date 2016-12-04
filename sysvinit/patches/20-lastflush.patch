@@ -1,0 +1,11 @@
+diff -Naurd sysvinit-2.85.orig/src/last.c sysvinit-2.85/src/last.c
+--- sysvinit-2.85.orig/src/last.c	2003-04-17 13:38:56.000000000 +0200
++++ sysvinit-2.85/src/last.c	2005-09-24 19:32:06.000000000 +0200
+@@ -476,6 +476,7 @@
+ 		else
+ 			putchar('*');
+ 	}
++	fflush(stdout);
+ 
+ 	recsdone++;
+ 	if (maxrecs && recsdone >= maxrecs)

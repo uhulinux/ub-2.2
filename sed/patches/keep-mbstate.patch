@@ -1,0 +1,23 @@
+diff -Naurd orig/sed/execute.c mod/sed/execute.c
+--- orig/sed/execute.c	2009-06-26 12:13:53.000000000 +0200
++++ mod/sed/execute.c	2009-06-28 11:12:05.000000000 +0200
+@@ -1275,6 +1275,9 @@
+   /* Exchange line and s_accum.  This can be much cheaper
+      than copying s_accum.active into line.text (for huge lines). */
+   line_exchange(&line, &s_accum, false);
++#ifdef HAVE_MBRTOWC
++  memcpy(&s_accum.mbstate, &line.mbstate, sizeof(line.mbstate));
++#endif
+ 
+   /* Finish up. */
+   if (count < sub->numb)
+@@ -1488,6 +1491,9 @@
+ 			 (for huge lines).  See comment above for 'g' as
+ 			 to while the third argument is incorrect anyway.  */
+ 		      line_exchange(&line, &s_accum, true);
++#ifdef HAVE_MBRTOWC
++		      memcpy(&s_accum.mbstate, &line.mbstate, sizeof(line.mbstate));
++#endif
+ 		    }
+                   else
+                     flush_output(output_file.fp);

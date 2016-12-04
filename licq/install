@@ -1,0 +1,13 @@
+#!/bin/sh -eux
+
+ub_install
+
+for i in auto-reply console email qt-gui rms; do
+	cd plugins/$i
+	ub_install
+	cd ../..
+done
+
+# this image is an animgif, NOT png...
+mv "$UB_INSTALLDIR"/usr/share/licq/qt-gui/skin.compact/frame.{png,gif}
+sed -e 's/frame.png/frame.gif/g' -i "$UB_INSTALLDIR"/usr/share/licq/qt-gui/skin.compact/compact.skin

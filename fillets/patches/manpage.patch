@@ -1,0 +1,12 @@
+diff -Naur fillets-ng-0.6.0.orig/fillets.6 fillets-ng-0.6.0/fillets.6
+--- fillets-ng-0.6.0.orig/fillets.6	2004-10-03 01:01:57.000000000 +0200
++++ fillets-ng-0.6.0/fillets.6	2005-03-17 14:33:38.000000000 +0100
+@@ -136,7 +136,7 @@
+ Find more information in the "How to Play" html manual listed below.
+ .PP
+ .SH SEE ALSO
+-.BR /usr/share/doc/fillets-ng/html/manual.html
++.BR /usr/share/doc/Packages/fillets-data/html/manual.html
+ .br
+ .BR http://fillets.sf.net 
+ .br

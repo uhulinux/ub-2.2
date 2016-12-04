@@ -1,0 +1,59 @@
+diff -up libproxy-0.2.3/configure.dbus libproxy-0.2.3/configure
+--- libproxy-0.2.3/configure.dbus	2008-07-11 12:13:12.000000000 +0200
++++ libproxy-0.2.3/configure	2008-07-11 12:13:24.000000000 +0200
+@@ -20408,12 +20408,12 @@ if test -n "$NetworkManager_CFLAGS"; the
+     pkg_cv_NetworkManager_CFLAGS="$NetworkManager_CFLAGS"
+  elif test -n "$PKG_CONFIG"; then
+     if test -n "$PKG_CONFIG" && \
+-    { (echo "$as_me:$LINENO: \$PKG_CONFIG --exists --print-errors \"NetworkManager\"") >&5
+-  ($PKG_CONFIG --exists --print-errors "NetworkManager") 2>&5
++    { (echo "$as_me:$LINENO: \$PKG_CONFIG --exists --print-errors \"NetworkManager dbus-1\"") >&5
++  ($PKG_CONFIG --exists --print-errors "NetworkManager dbus-1") 2>&5
+   ac_status=$?
+   echo "$as_me:$LINENO: \$? = $ac_status" >&5
+   (exit $ac_status); }; then
+-  pkg_cv_NetworkManager_CFLAGS=`$PKG_CONFIG --cflags "NetworkManager" 2>/dev/null`
++  pkg_cv_NetworkManager_CFLAGS=`$PKG_CONFIG --cflags "NetworkManager dbus-1" 2>/dev/null`
+ else
+   pkg_failed=yes
+ fi
+@@ -20424,12 +20424,12 @@ if test -n "$NetworkManager_LIBS"; then
+     pkg_cv_NetworkManager_LIBS="$NetworkManager_LIBS"
+  elif test -n "$PKG_CONFIG"; then
+     if test -n "$PKG_CONFIG" && \
+-    { (echo "$as_me:$LINENO: \$PKG_CONFIG --exists --print-errors \"NetworkManager\"") >&5
+-  ($PKG_CONFIG --exists --print-errors "NetworkManager") 2>&5
++    { (echo "$as_me:$LINENO: \$PKG_CONFIG --exists --print-errors \"NetworkManager dbus-1\"") >&5
++  ($PKG_CONFIG --exists --print-errors "NetworkManager dbus-1") 2>&5
+   ac_status=$?
+   echo "$as_me:$LINENO: \$? = $ac_status" >&5
+   (exit $ac_status); }; then
+-  pkg_cv_NetworkManager_LIBS=`$PKG_CONFIG --libs "NetworkManager" 2>/dev/null`
++  pkg_cv_NetworkManager_LIBS=`$PKG_CONFIG --libs "NetworkManager dbus-1" 2>/dev/null`
+ else
+   pkg_failed=yes
+ fi
+@@ -20447,9 +20447,9 @@ else
+         _pkg_short_errors_supported=no
+ fi
+         if test $_pkg_short_errors_supported = yes; then
+-	        NetworkManager_PKG_ERRORS=`$PKG_CONFIG --short-errors --print-errors "NetworkManager" 2>&1`
++	        NetworkManager_PKG_ERRORS=`$PKG_CONFIG --short-errors --print-errors "NetworkManager dbus-1" 2>&1`
+         else
+-	        NetworkManager_PKG_ERRORS=`$PKG_CONFIG --print-errors "NetworkManager" 2>&1`
++	        NetworkManager_PKG_ERRORS=`$PKG_CONFIG --print-errors "NetworkManager dbus-1" 2>&1`
+         fi
+ 	# Put the nasty error message in config.log where it belongs
+ 	echo "$NetworkManager_PKG_ERRORS" >&5
+diff -up libproxy-0.2.3/configure.ac.dbus libproxy-0.2.3/configure.ac
+--- libproxy-0.2.3/configure.ac.dbus	2008-07-11 12:12:43.000000000 +0200
++++ libproxy-0.2.3/configure.ac	2008-07-11 12:12:58.000000000 +0200
+@@ -19,7 +19,7 @@ PKG_CHECK_MODULES(webkit, webkit-1.0, ha
+ PKG_CHECK_MODULES(mozjs, xulrunner-js, have_mozjs=yes, 
+ 		[PKG_CHECK_MODULES(mozjs, firefox-js, have_mozjs=yes,
+ 		[PKG_CHECK_MODULES(mozjs, mozilla-js, have_mozjs=yes, have_mozjs=no)])])
+-PKG_CHECK_MODULES(NetworkManager, NetworkManager, 
++PKG_CHECK_MODULES(NetworkManager, NetworkManager dbus-1, 
+ 					have_networkmanager=yes, have_networkmanager=no)
+ 
+ # Environmental Variable

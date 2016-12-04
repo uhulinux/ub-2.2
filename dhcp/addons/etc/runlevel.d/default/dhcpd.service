@@ -1,0 +1,10 @@
+Summary=DHCP Server
+Summary[hu]=DHCP-szerver
+Description=Server providing information for other hosts' automatic configuration.
+Description[hu]=Más gépek automatikus beállítása számára információt nyújtó szerver.
+MsgDesc=DHCP Server
+MsgDesc[hu]=DHCP-szerver
+Script=/etc/init.d/dhcpd
+SupportsReload=yes
+Runlevels=
+Sequence=20

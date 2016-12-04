@@ -1,0 +1,19 @@
+diff -Naurdp e2fsprogs-1.41.10.orig/e2fsck/unix.c e2fsprogs-1.41.10/e2fsck/unix.c
+--- e2fsprogs-1.41.10.orig/e2fsck/unix.c	2010-02-05 15:58:41.000000000 +0100
++++ e2fsprogs-1.41.10/e2fsck/unix.c	2010-02-23 02:42:49.964379542 +0100
+@@ -339,6 +339,7 @@ static void check_if_skip(e2fsck_t ctx)
+ 		fputs(_(", check forced.\n"), stdout);
+ 		return;
+ 	}
++	if (getenv("FSCK_QUIET_IF_CLEAN") == NULL)
+ 	printf(_("%s: clean, %u/%u files, %u/%u blocks"), ctx->device_name,
+ 	       fs->super->s_inodes_count - fs->super->s_free_inodes_count,
+ 	       fs->super->s_inodes_count,
+@@ -973,6 +974,7 @@ int main (int argc, char *argv[])
+ 
+ 	init_resource_track(&ctx->global_rtrack, NULL);
+ 	if (!(ctx->options & E2F_OPT_PREEN) || show_version_only)
++		if (getenv("FSCK_QUIET_IF_CLEAN") == NULL)
+ 		fprintf(stderr, "e2fsck %s (%s)\n", my_ver_string,
+ 			 my_ver_date);
+ 

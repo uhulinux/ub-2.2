@@ -1,0 +1,14 @@
+diff -Naur amavisd-new-2.1.2.orig/amavisd.conf-sample amavisd-new-2.1.2/amavisd.conf-sample
+--- amavisd-new-2.1.2.orig/amavisd.conf-sample	2004-09-06 20:30:43.000000000 +0200
++++ amavisd-new-2.1.2/amavisd.conf-sample	2005-07-19 15:59:39.000000000 +0200
+@@ -2121,3 +2121,10 @@
+ #}
++# Source other configuration files.
++# See "Laundering..." in man perlsec.
++foreach (glob "/etc/amavisd.d/*.conf") {
++	/^(.*)$/;
++	do $1;
++}
++
+ 
+ 1;  # insure a defined return value

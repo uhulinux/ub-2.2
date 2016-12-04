@@ -1,0 +1,14 @@
+diff -urN gthumb-2.10.10.orig/data/gthumb.desktop.in gthumb-2.10.10/data/gthumb.desktop.in
+--- gthumb-2.10.10.orig/data/gthumb.desktop.in	2008-09-22 21:22:20.000000000 +0200
++++ gthumb-2.10.10/data/gthumb.desktop.in	2008-10-22 00:21:23.000000000 +0200
+@@ -1,8 +1,8 @@
+ [Desktop Entry]
+-_Name=gThumb Image Viewer
++Name=gThumb
+ _GenericName=Image Viewer
+ _Comment=View and organize your images
+-Categories=GNOME;GTK;Graphics;Viewer;RasterGraphics;2DGraphics;Photography;
++Categories=GNOME;GTK;Graphics;Viewer;RasterGraphics;2DGraphics;Photography;X-UHU-Menu/Graphics;
+ Exec=gthumb %U
+ Icon=gthumb
+ MimeType=image/bmp;image/jpeg;image/gif;image/png;image/tiff;image/x-bmp;image/x-ico;image/x-png;image/x-pcx;image/x-tga;image/xpm;image/svg+xml;x-content/image-dcf;x-content/image-picturecd;

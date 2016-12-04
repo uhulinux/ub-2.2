@@ -1,0 +1,4 @@
+#!/usr/bin/env dl
+
+mISDN-${UB_VERSION//./_}.tar.gz mISDN-${UB_VERSION//./_}/
+	http://www.misdn.org/downloads/releases/

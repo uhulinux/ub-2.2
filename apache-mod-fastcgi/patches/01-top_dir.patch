@@ -1,0 +1,12 @@
+diff -Naurd mod_fastcgi-2.4.0.orig/Makefile.AP2 mod_fastcgi-2.4.0/Makefile.AP2
+--- mod_fastcgi-2.4.0.orig/Makefile.AP2	2002-07-29 03:36:34.000000000 +0200
++++ mod_fastcgi-2.4.0/Makefile.AP2	2003-03-01 18:17:27.000000000 +0100
+@@ -4,7 +4,7 @@
+ 
+ builddir     = .
+ 
+-top_dir      = /usr/local/apache2
++top_dir      = /usr/lib/apache
+ 
+ top_srcdir   = ${top_dir}
+ top_builddir = ${top_dir}

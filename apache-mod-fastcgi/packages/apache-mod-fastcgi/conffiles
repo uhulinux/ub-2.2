@@ -1,0 +1,2 @@
+/etc/apache/mods/conf/mod_fastcgi.conf
+/etc/apache/mods/loaders/mod_fastcgi.load

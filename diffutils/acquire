@@ -1,0 +1,4 @@
+#!/usr/bin/env dl
+
+diffutils-${UB_VERSION}.tar.gz diffutils-${UB_VERSION}/
+	ftp://ftp.gnu.org/gnu/diffutils/

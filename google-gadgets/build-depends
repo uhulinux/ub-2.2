@@ -1,0 +1,16 @@
+cmake
+curl-dev
+dbus-dev
+gst-plugins-base-dev
+gstreamer-dev
+gtk2-dev
+js-dev
+libgsf-dev
+librsvg2-dev
+libxml2-dev
+networkmanager-dev
+qt4-dev
+startup-notification-dev
+webkitgtk-dev
+xulrunner-dev
+zip

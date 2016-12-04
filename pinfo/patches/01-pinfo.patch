@@ -1,0 +1,65 @@
+diff -Naurd orig/doc/pinfo.info mod/doc/pinfo.info
+--- orig/doc/pinfo.info	2006-03-16 17:28:00.000000000 +0100
++++ mod/doc/pinfo.info	2010-06-18 16:13:16.000000000 +0200
+@@ -1,6 +1,6 @@
+ This is pinfo.info, produced by makeinfo version 4.8 from pinfo.texi.
+ 
+-   This is documentation for `pinfo', version 0.6.4.  Edition 0.2.1,
++   This is documentation for `pinfo', version 0.6.9.  Edition 0.2.1,
+ date 1 Dec 2001.
+ 
+                                        Copyright 2000 (C) Przemek Borys
+@@ -15,7 +15,7 @@
+ 
+ File: pinfo.info,  Node: Top,  Next: Invoking,  Prev: (dir),  Up: (dir)
+ 
+-   This documentation is for `pinfo', version 0.6.4.
++   This documentation is for `pinfo', version 0.6.9.
+ 
+    Original manpage written on 21 Mar 1999 by Przemek Borys,
+ <pborys@dione.ids.pl>, `http://zeus.polsl.gliwice.pl/~pborys/'.
+diff -Naurd orig/doc/pinfo.texi mod/doc/pinfo.texi
+--- orig/doc/pinfo.texi	2006-03-16 16:40:41.000000000 +0100
++++ mod/doc/pinfo.texi	2010-06-18 16:13:42.000000000 +0200
+@@ -5,7 +5,7 @@
+ @c %**end of header
+ 
+ @set EDITION 0.2.1
+-@set VERSION 0.6.4
++@set VERSION 0.6.9
+ @set DATE 1 Dec 2001
+ @set DATEMAN 21 Mar 1999
+ 
+diff -Naurd orig/src/filehandling_functions.c mod/src/filehandling_functions.c
+--- orig/src/filehandling_functions.c	2006-03-16 16:15:02.000000000 +0100
++++ mod/src/filehandling_functions.c	2010-06-18 16:10:04.000000000 +0200
+@@ -41,14 +41,16 @@
+  * you dump the file through `gunzip -d -c', etc.                              *
+  ******************************************************************************/
+ 
+-#define SuffixesNumber 4
++#define SuffixesNumber 6
+ 
+ Suffixes suffixes[SuffixesNumber] =
+ {
+ 	{"", 		"cat"},
+ 	{".gz",		"gzip -d -q -c"},
+ 	{".Z",		"gzip -d -q -c"},
+-	{".bz2",	"bzip2 -d -c"}
++	{".bz2",	"bzip2 -d -c"},
++	{".lzma",	"lzma -d -c"},
++	{".xz",		"xz -d -c"}
+ };
+ 
+ /*****************************************************************************/
+diff -Naurd orig/src/manual.c mod/src/manual.c
+--- orig/src/manual.c	2006-03-16 15:14:30.000000000 +0100
++++ mod/src/manual.c	2010-06-18 16:12:06.000000000 +0200
+@@ -261,6 +261,7 @@
+ 		xfree(tmpfilename1);
+ 	}
+ 	tmpfilename1 = make_tempfile();
++	putenv("GROFF_NO_SGR=true");
+ 
+ #ifdef getmaxyx
+ 	init_curses();

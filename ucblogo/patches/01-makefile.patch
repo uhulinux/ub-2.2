@@ -1,0 +1,41 @@
+diff -urN ucblogo-5.5.orig/docs/makefile ucblogo-5.5/docs/makefile
+--- ucblogo-5.5.orig/docs/makefile	2004-11-30 16:57:46.000000000 +0100
++++ ucblogo-5.5/docs/makefile	2008-09-05 17:23:26.000000000 +0200
+@@ -1,5 +1,5 @@
+ BUILDIR	      = `pwd`
+-INFODIR	      = $(prefix)/info
++INFODIR	      = $(prefix)/share/info
+ DOCSDIR	      = $(LIBLOC)/docs
+ HTMLDIR	      = $(DOCSDIR)/html
+ 
+diff -urN ucblogo-5.5.orig/emacs/makefile ucblogo-5.5/emacs/makefile
+--- ucblogo-5.5.orig/emacs/makefile	2004-11-28 22:09:22.000000000 +0100
++++ ucblogo-5.5/emacs/makefile	2008-09-05 16:48:19.000000000 +0200
+@@ -1,6 +1,6 @@
+ BUILDIR	      = `pwd`
+ EMACSDIR      = $(LIBLOC)/emacs
+-INFODIR	      = $(prefix)/info
++INFODIR	      = $(prefix)/share/info
+ LOADPATH      = $(subst X,$(EMACSDIR),(setq load-path (cons "\"X\"" load-path)))
+ LOGOBIN	      = $(subst X,$(BINDIR),(setq logo-binary-name \"X/logo\"))
+ INFOPATH      = $(subst X,$(INFODIR),(setq logo-info-file \"X/ucblogo.info\"))
+@@ -10,7 +10,6 @@
+ all: logo.elc dot.emacs install-logo-mode 
+ 
+ logo.elc: comint-logo.el letrec.el logo.el
+-	emacs -batch -l $(BUILDIR)/edfunc.el -f compile-load-path -f batch-byte-compile comint-logo.el letrec.el logo.el
+ 
+ dot.emacs:
+ 	@echo "$(LOADPATH)" > e.path
+diff -urN ucblogo-5.5.orig/makefile.in ucblogo-5.5/makefile.in
+--- ucblogo-5.5.orig/makefile.in	2004-11-30 17:11:07.000000000 +0100
++++ ucblogo-5.5/makefile.in	2008-09-05 16:58:29.000000000 +0200
+@@ -4,7 +4,7 @@
+ LIBS  = @X_PRE_LIBS@ @X_LIBS@ @LIBS@ @X_EXTRA_LIBS@
+ prefix = @prefix@
+ BINDIR        = $(prefix)/bin
+-LIBLOC        = $(prefix)/lib/logo
++LIBLOC        = $(prefix)/share/ucblogo
+ MAKE = @MAKE@
+ 
+ # LIBLOC      = `pwd`

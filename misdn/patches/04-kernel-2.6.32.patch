@@ -1,0 +1,227 @@
+diff -Naurdp mISDN-1_1_9_2.orig/drivers/isdn/hardware/mISDN/arcofi.c mISDN-1_1_9_2/drivers/isdn/hardware/mISDN/arcofi.c
+--- mISDN-1_1_9_2.orig/drivers/isdn/hardware/mISDN/arcofi.c	2009-01-22 14:36:34.000000000 +0100
++++ mISDN-1_1_9_2/drivers/isdn/hardware/mISDN/arcofi.c	2009-11-27 17:52:46.000000000 +0100
+@@ -8,6 +8,7 @@
+  *
+  */
+  
++#include <linux/sched.h>
+ #include "channel.h"
+ #include "layer1.h"
+ #include "isac.h"
+diff -Naurdp mISDN-1_1_9_2.orig/drivers/isdn/hardware/mISDN/avm_fritz.c mISDN-1_1_9_2/drivers/isdn/hardware/mISDN/avm_fritz.c
+--- mISDN-1_1_9_2.orig/drivers/isdn/hardware/mISDN/avm_fritz.c	2009-01-22 14:36:34.000000000 +0100
++++ mISDN-1_1_9_2/drivers/isdn/hardware/mISDN/avm_fritz.c	2009-11-27 17:02:26.000000000 +0100
+@@ -17,6 +17,7 @@
+ #endif
+ #include <linux/delay.h>
+ #include <linux/isdn_compat.h>
++#include <linux/sched.h>
+ #include "core.h"
+ #include "channel.h"
+ #include "isac.h"
+diff -Naurdp mISDN-1_1_9_2.orig/drivers/isdn/hardware/mISDN/contr.c mISDN-1_1_9_2/drivers/isdn/hardware/mISDN/contr.c
+--- mISDN-1_1_9_2.orig/drivers/isdn/hardware/mISDN/contr.c	2009-01-22 14:36:34.000000000 +0100
++++ mISDN-1_1_9_2/drivers/isdn/hardware/mISDN/contr.c	2009-11-27 17:20:39.000000000 +0100
+@@ -399,7 +399,7 @@ ResetController(struct capi_ctr *ctrl)
+ #ifdef OLDCAPI_DRIVER_INTERFACE
+ 	contr->ctrl->reseted(contr->ctrl);
+ #else
+-	capi_ctr_reseted(contr->ctrl);
++	capi_ctr_down(contr->ctrl);
+ #endif
+ }
+ 
+diff -Naurdp mISDN-1_1_9_2.orig/drivers/isdn/hardware/mISDN/debugtool.c mISDN-1_1_9_2/drivers/isdn/hardware/mISDN/debugtool.c
+--- mISDN-1_1_9_2.orig/drivers/isdn/hardware/mISDN/debugtool.c	2009-01-22 14:36:34.000000000 +0100
++++ mISDN-1_1_9_2/drivers/isdn/hardware/mISDN/debugtool.c	2009-11-27 17:51:49.000000000 +0100
+@@ -35,6 +35,7 @@
+ #include <linux/in.h>
+ #include <linux/skbuff.h>
+ #include <linux/delay.h>
++#include <linux/smp_lock.h>
+ 
+ #include "core.h"
+ #include <linux/mISDNdebugtool.h>
+diff -Naurdp mISDN-1_1_9_2.orig/drivers/isdn/hardware/mISDN/hfc_multi.c mISDN-1_1_9_2/drivers/isdn/hardware/mISDN/hfc_multi.c
+--- mISDN-1_1_9_2.orig/drivers/isdn/hardware/mISDN/hfc_multi.c	2009-01-22 14:36:34.000000000 +0100
++++ mISDN-1_1_9_2/drivers/isdn/hardware/mISDN/hfc_multi.c	2009-11-27 17:04:43.000000000 +0100
+@@ -103,6 +103,7 @@
+ #include "dsp.h"
+ #include "debug.h"
+ #include <linux/isdn_compat.h>
++#include <linux/sched.h>
+ 
+ //#warning
+ //#define IRQCOUNT_DEBUG
+diff -Naurdp mISDN-1_1_9_2.orig/drivers/isdn/hardware/mISDN/hfc_pci.c mISDN-1_1_9_2/drivers/isdn/hardware/mISDN/hfc_pci.c
+--- mISDN-1_1_9_2.orig/drivers/isdn/hardware/mISDN/hfc_pci.c	2009-01-22 14:36:34.000000000 +0100
++++ mISDN-1_1_9_2/drivers/isdn/hardware/mISDN/hfc_pci.c	2009-11-27 17:05:41.000000000 +0100
+@@ -35,6 +35,7 @@
+ #include "layer1.h"
+ #include "debug.h"
+ #include <linux/isdn_compat.h>
++#include <linux/sched.h>
+ 
+ #define HFC_INFO(txt)	printk(KERN_DEBUG txt)
+ 
+diff -Naurdp mISDN-1_1_9_2.orig/drivers/isdn/hardware/mISDN/hfcs_mini.c mISDN-1_1_9_2/drivers/isdn/hardware/mISDN/hfcs_mini.c
+--- mISDN-1_1_9_2.orig/drivers/isdn/hardware/mISDN/hfcs_mini.c	2009-01-22 14:36:34.000000000 +0100
++++ mISDN-1_1_9_2/drivers/isdn/hardware/mISDN/hfcs_mini.c	2009-11-27 17:06:32.000000000 +0100
+@@ -57,6 +57,7 @@
+ #include "debug.h"
+ #include "hfcs_mini.h"
+ #include "hfcsmcc.h"
++#include <linux/sched.h>
+ 
+ #if HFCBRIDGE == BRIDGE_HFCPCI
+ #include <linux/pci.h>
+diff -Naurdp mISDN-1_1_9_2.orig/drivers/isdn/hardware/mISDN/hfcs_usb.c mISDN-1_1_9_2/drivers/isdn/hardware/mISDN/hfcs_usb.c
+--- mISDN-1_1_9_2.orig/drivers/isdn/hardware/mISDN/hfcs_usb.c	2009-01-22 14:36:34.000000000 +0100
++++ mISDN-1_1_9_2/drivers/isdn/hardware/mISDN/hfcs_usb.c	2009-11-27 17:08:14.000000000 +0100
+@@ -30,6 +30,7 @@
+ #include "layer1.h"
+ #include "debug.h"
+ #include "hfcs_usb.h"
++#include <linux/sched.h>
+ 
+ 
+ #define DRIVER_NAME "mISDN_hfcsusb"
+diff -Naurdp mISDN-1_1_9_2.orig/drivers/isdn/hardware/mISDN/l1oip.c mISDN-1_1_9_2/drivers/isdn/hardware/mISDN/l1oip.c
+--- mISDN-1_1_9_2.orig/drivers/isdn/hardware/mISDN/l1oip.c	2009-01-22 14:36:34.000000000 +0100
++++ mISDN-1_1_9_2/drivers/isdn/hardware/mISDN/l1oip.c	2009-11-27 17:07:58.000000000 +0100
+@@ -216,6 +216,7 @@ announced.
+ #include "dsp.h"
+ #include "debug.h"
+ #include <linux/isdn_compat.h>
++#include <linux/sched.h>
+ 
+ #include "l1oip.h"
+ 
+diff -Naurdp mISDN-1_1_9_2.orig/drivers/isdn/hardware/mISDN/loop.c mISDN-1_1_9_2/drivers/isdn/hardware/mISDN/loop.c
+--- mISDN-1_1_9_2.orig/drivers/isdn/hardware/mISDN/loop.c	2009-01-22 14:36:34.000000000 +0100
++++ mISDN-1_1_9_2/drivers/isdn/hardware/mISDN/loop.c	2009-11-27 17:07:47.000000000 +0100
+@@ -32,6 +32,7 @@
+ #include "layer1.h"
+ #include "debug.h"
+ #include <linux/isdn_compat.h>
++#include <linux/sched.h>
+ 
+ #include "loop.h"
+ 
+diff -Naurdp mISDN-1_1_9_2.orig/drivers/isdn/hardware/mISDN/sedl_fax.c mISDN-1_1_9_2/drivers/isdn/hardware/mISDN/sedl_fax.c
+--- mISDN-1_1_9_2.orig/drivers/isdn/hardware/mISDN/sedl_fax.c	2009-01-22 14:36:34.000000000 +0100
++++ mISDN-1_1_9_2/drivers/isdn/hardware/mISDN/sedl_fax.c	2009-11-27 17:07:16.000000000 +0100
+@@ -30,6 +30,7 @@
+ #include <linux/module.h>
+ #include <linux/pci.h>
+ #include <linux/delay.h>
++#include <linux/sched.h>
+ #if LINUX_VERSION_CODE >= KERNEL_VERSION(2, 6, 27)
+ # include <linux/semaphore.h>
+ #else
+diff -Naurdp mISDN-1_1_9_2.orig/drivers/isdn/hardware/mISDN/stack.c mISDN-1_1_9_2/drivers/isdn/hardware/mISDN/stack.c
+--- mISDN-1_1_9_2.orig/drivers/isdn/hardware/mISDN/stack.c	2009-01-22 14:36:34.000000000 +0100
++++ mISDN-1_1_9_2/drivers/isdn/hardware/mISDN/stack.c	2009-11-27 17:23:44.000000000 +0100
+@@ -6,6 +6,8 @@
+  *
+  */
+ 
++#include <linux/smp_lock.h>
++#include <linux/sched.h>
+ #include "core.h"
+ 
+ static LIST_HEAD(mISDN_stacklist);
+diff -Naurdp mISDN-1_1_9_2.orig/drivers/isdn/hardware/mISDN/sysfs_inst.c mISDN-1_1_9_2/drivers/isdn/hardware/mISDN/sysfs_inst.c
+--- mISDN-1_1_9_2.orig/drivers/isdn/hardware/mISDN/sysfs_inst.c	2009-06-09 10:09:20.000000000 +0200
++++ mISDN-1_1_9_2/drivers/isdn/hardware/mISDN/sysfs_inst.c	2009-11-27 17:48:01.000000000 +0100
+@@ -82,7 +82,7 @@ static void release_mISDN_inst(struct de
+ #endif
+         if (core_debug & DEBUG_SYSFS)
+ #if LINUX_VERSION_CODE >= KERNEL_VERSION(2,6,26)
+-		printk(KERN_INFO "release instance class dev %s\n", dev->bus_id);
++		printk(KERN_INFO "release instance class dev %s\n", dev_name(dev));
+ #else
+                 printk(KERN_INFO "release instance class dev %s\n", dev->class_id);
+ #endif
+@@ -127,7 +127,7 @@ mISDN_register_sysfs_inst(mISDNinstance_
+ 
+ 	inst->class_dev.class = &inst_dev_class;
+ #if LINUX_VERSION_CODE >= KERNEL_VERSION(2,6,26)
+-	snprintf(inst->class_dev.bus_id, BUS_ID_SIZE, "inst-%08x", inst->id);
++	dev_set_name(&inst->class_dev, "inst-%08x", inst->id);
+ 	err = device_register(&inst->class_dev);
+ #else
+ 	snprintf(inst->class_dev.class_id, BUS_ID_SIZE, "inst-%08x", inst->id);
+diff -Naurdp mISDN-1_1_9_2.orig/drivers/isdn/hardware/mISDN/sysfs_obj.c mISDN-1_1_9_2/drivers/isdn/hardware/mISDN/sysfs_obj.c
+--- mISDN-1_1_9_2.orig/drivers/isdn/hardware/mISDN/sysfs_obj.c	2009-06-09 08:20:29.000000000 +0200
++++ mISDN-1_1_9_2/drivers/isdn/hardware/mISDN/sysfs_obj.c	2009-11-27 17:45:07.000000000 +0100
+@@ -136,7 +136,7 @@ mISDN_register_sysfs_obj(mISDNobject_t *
+ 
+ 	obj->class_dev.class = &obj_dev_class;
+ #if LINUX_VERSION_CODE >= KERNEL_VERSION(2,6,26)
+-        snprintf(obj->class_dev.bus_id, BUS_ID_SIZE, "obj-%d", obj->id);
++        dev_set_name(&obj->class_dev, "obj-%d", obj->id);
+         err = device_register(&obj->class_dev);
+ #else
+         snprintf(obj->class_dev.class_id, BUS_ID_SIZE, "obj-%d", obj->id);
+diff -Naurdp mISDN-1_1_9_2.orig/drivers/isdn/hardware/mISDN/sysfs_st.c mISDN-1_1_9_2/drivers/isdn/hardware/mISDN/sysfs_st.c
+--- mISDN-1_1_9_2.orig/drivers/isdn/hardware/mISDN/sysfs_st.c	2009-06-09 10:10:16.000000000 +0200
++++ mISDN-1_1_9_2/drivers/isdn/hardware/mISDN/sysfs_st.c	2009-11-27 17:50:31.000000000 +0100
+@@ -7,6 +7,8 @@
+  * This file is (c) under GNU PUBLIC LICENSE
+  *
+  */
++
++#include <linux/sched.h>
+ #include "core.h"
+ #include "sysfs.h"
+ 
+@@ -260,11 +262,11 @@ mISDN_register_sysfs_stack(mISDNstack_t 
+ 	st->class_dev.class = &stack_dev_class;
+ #if LINUX_VERSION_CODE >= KERNEL_VERSION(2,6,26)
+         if (st->id & FLG_CHILD_STACK)
+-                snprintf(st->class_dev.bus_id, BUS_ID_SIZE, "chst-%08x", st->id);
++                dev_set_name(&st->class_dev, "chst-%08x", st->id);
+         else if (st->id & FLG_CLONE_STACK)
+-                snprintf(st->class_dev.bus_id, BUS_ID_SIZE, "clst-%08x", st->id);
++                dev_set_name(&st->class_dev, "clst-%08x", st->id);
+         else
+-                snprintf(st->class_dev.bus_id, BUS_ID_SIZE, "st-%08x", st->id);
++                dev_set_name(&st->class_dev, "st-%08x", st->id);
+         if (st->mgr)
+                 st->class_dev.parent = st->mgr->class_dev.parent;
+ 	err = device_register(&st->class_dev);
+diff -Naurdp mISDN-1_1_9_2.orig/drivers/isdn/hardware/mISDN/udevice.c mISDN-1_1_9_2/drivers/isdn/hardware/mISDN/udevice.c
+--- mISDN-1_1_9_2.orig/drivers/isdn/hardware/mISDN/udevice.c	2009-01-22 14:36:34.000000000 +0100
++++ mISDN-1_1_9_2/drivers/isdn/hardware/mISDN/udevice.c	2009-11-27 17:29:10.000000000 +0100
+@@ -9,6 +9,7 @@
+ #include <linux/poll.h>
+ #include <linux/vmalloc.h>
+ #include <linux/timer.h>
++#include <linux/sched.h>
+ #ifdef CONFIG_DEVFS_FS
+ #include <linux/devfs_fs_kernel.h>
+ #endif
+diff -Naurdp mISDN-1_1_9_2.orig/drivers/isdn/hardware/mISDN/w6692.c mISDN-1_1_9_2/drivers/isdn/hardware/mISDN/w6692.c
+--- mISDN-1_1_9_2.orig/drivers/isdn/hardware/mISDN/w6692.c	2009-01-22 14:36:34.000000000 +0100
++++ mISDN-1_1_9_2/drivers/isdn/hardware/mISDN/w6692.c	2009-11-27 17:07:34.000000000 +0100
+@@ -24,6 +24,7 @@
+ #include <linux/module.h>
+ #include <linux/pci.h>
+ #include <linux/delay.h>
++#include <linux/sched.h>
+ 
+ #include "core.h"
+ #include "channel.h"
+diff -Naurdp mISDN-1_1_9_2.orig/drivers/isdn/hardware/mISDN/xhfc_su.c mISDN-1_1_9_2/drivers/isdn/hardware/mISDN/xhfc_su.c
+--- mISDN-1_1_9_2.orig/drivers/isdn/hardware/mISDN/xhfc_su.c	2009-01-22 14:36:34.000000000 +0100
++++ mISDN-1_1_9_2/drivers/isdn/hardware/mISDN/xhfc_su.c	2009-11-27 17:08:53.000000000 +0100
+@@ -53,6 +53,7 @@
+ #include <linux/module.h>
+ #include <linux/delay.h>
+ #include <linux/pci.h>
++#include <linux/sched.h>
+ #include <asm/timex.h>
+ #include "core.h"
+ #include "helper.h"

@@ -1,0 +1,4 @@
+#!/usr/bin/env dl
+
+sysvinit-${UB_VERSION}.tar.gz sysvinit-${UB_VERSION}/
+	ftp://ftp.cistron.nl/pub/people/miquels/software/

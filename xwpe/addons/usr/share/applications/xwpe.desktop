@@ -1,0 +1,11 @@
+[Desktop Entry]
+Version=1.1
+Type=Application
+Name=XWPE
+Comment=XWPE IDE
+Comment[hu]=XWindow Programming Environment
+GenericName[hu]=XWindow Programming Environment
+Exec=xwpe %F
+Icon=/usr/share/pixmaps/xwpe-bm.png
+Terminal=true
+Categories=X-UHU-Menu/Development/Programming;

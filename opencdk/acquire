@@ -1,0 +1,4 @@
+#!/usr/bin/env dl
+
+opencdk-${UB_VERSION}.tar.bz2 opencdk-${UB_VERSION}/
+	ftp://ftp.gnutls.org/pub/gnutls/opencdk/

@@ -1,0 +1,4 @@
+#!/usr/bin/env dl
+
+pam_krb5-${UB_VERSION}-2.2.src.rpm pam_krb5-${UB_VERSION}-2.tar.gz pam_krb5-${UB_VERSION}-2/
+	http://download.fedora.redhat.com/pub/fedora/linux/core/5/source/SRPMS/

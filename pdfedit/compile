@@ -1,0 +1,8 @@
+#!/bin/sh -eux
+
+export QTDIR="/usr/lib/qt"
+
+ub_compile \
+	--enable-user-manual \
+	--enable-pdfedit-core-dev \
+	--enable-tools

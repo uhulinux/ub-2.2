@@ -1,0 +1,15 @@
+diff -Naurd orig/menu_data/aqemu.desktop mod/menu_data/aqemu.desktop
+--- orig/menu_data/aqemu.desktop	2009-06-04 09:29:38.000000000 +0200
++++ mod/menu_data/aqemu.desktop	2009-09-29 06:36:46.000000000 +0200
+@@ -6,9 +6,10 @@
+ Type=Application
+ Icon=aqemu_48x48.png
+ StartupNotify=true
+-Categories=System;Emulator;
++Categories=System;Emulator;X-UHU-Menu/Tools/Emulators;
+ 
+ Name[ru]=AQEMU
+ Name[en]=AQEMU
+ Comment[ru]=Управление виртуальными машинами
+ Comment[en]=Virtual machine manager
++Comment[hu]=Qemu frontend

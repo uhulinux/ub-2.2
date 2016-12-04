@@ -1,0 +1,71 @@
+diff -urN dhcpcd-1.3.22-pl4.orig/dhcpcd.8 dhcpcd-1.3.22-pl4/dhcpcd.8
+--- dhcpcd-1.3.22-pl4.orig/dhcpcd.8	2003-01-01 02:31:31.000000000 +0100
++++ dhcpcd-1.3.22-pl4/dhcpcd.8	2003-01-13 20:37:25.000000000 +0100
+@@ -137,7 +137,7 @@
+ will use
+ .I <ConfigDir>
+ directory instead of default
+-.I /etc/dhcpc
++.I /var/lib/dhcpc
+ to store configuration information.
+ .TP
+ .BI \-S
+@@ -281,7 +281,7 @@
+ .SH FILES
+ .PD 0
+ .TP
+-.BI /etc/dhcpc
++.BI /var/lib/dhcpc
+ Default 
+ .I <ConfigDir>
+ directory used for storing files
+diff -urN dhcpcd-1.3.22-pl4.orig/dhcpcd.exe dhcpcd-1.3.22-pl4/dhcpcd.exe
+--- dhcpcd-1.3.22-pl4.orig/dhcpcd.exe	2002-04-28 04:32:56.000000000 +0200
++++ dhcpcd-1.3.22-pl4/dhcpcd.exe	2003-01-13 20:37:09.000000000 +0100
+@@ -1,10 +1,10 @@
+ #!/bin/sh
+ #
+-#  This is a sample /etc/dhcpc/dhcpcd.exe script.
+-#  /etc/dhcpc/dhcpcd.exe script is executed by dhcpcd daemon
++#  This is a sample /var/lib/dhcpc/dhcpcd.exe script.
++#  /var/lib/dhcpc/dhcpcd.exe script is executed by dhcpcd daemon
+ #  any time it configures or shuts down interface.
+ #  The following parameters are passed to dhcpcd.exe script:
+-#  $1 = HostInfoFilePath, e.g  "/etc/dhcpc/dhcpcd-eth0.info"
++#  $1 = HostInfoFilePath, e.g  "/var/lib/dhcpc/dhcpcd-eth0.info"
+ #  $2 = "up" if interface has been configured with the same
+ #       IP address as before reboot;
+ #  $2 = "down" if interface has been shut down;
+diff -urN dhcpcd-1.3.22-pl4.orig/pathnames.h dhcpcd-1.3.22-pl4/pathnames.h
+--- dhcpcd-1.3.22-pl4.orig/pathnames.h	2002-09-29 17:55:31.000000000 +0200
++++ dhcpcd-1.3.22-pl4/pathnames.h	2003-01-13 20:51:24.000000000 +0100
+@@ -37,7 +37,7 @@
+ #define NIS_CONF		"/etc/config/yp.conf"
+ #define NTP_CONF		"/etc/config/ntp.conf"
+ #else
+-#define CONFIG_DIR		"/etc/dhcpc"
++#define CONFIG_DIR		"/var/lib/dhcpc"
+ #define RESOLV_CONF		"/etc/resolv.conf"
+ #define NIS_CONF		"/etc/yp.conf"
+ #define NTP_CONF		"/etc/ntp.conf"
+diff -urN dhcpcd-1.3.22-pl4.orig/README dhcpcd-1.3.22-pl4/README
+--- dhcpcd-1.3.22-pl4.orig/README	2002-12-27 05:08:36.000000000 +0100
++++ dhcpcd-1.3.22-pl4/README	2003-01-13 20:36:53.000000000 +0100
+@@ -147,7 +147,7 @@
+   Note 4.
+     if your dhcpcd binary compiles fine and runs OK with "--help" flag
+     only and otherwise immediately coredumps with "Segmentation Fault" 
+-    error then delete /etc/dhcpc/dhcpcd-<interface>.cache file and
++    error then delete /var/lib/dhcpc/dhcpcd-<interface>.cache file and
+     try running dhcpcd again. There is a chance your dhcpcd cache file
+     is from old version of dhcpcd.
+ 
+@@ -197,7 +197,7 @@
+ parameters passed. The exact pathname of the executable script can be
+ changed with "-c ExecFilePath" dhcpcd option. The <ConfigDir>
+ directory can be specified with "-L <ConfigDir>" option, otherwise
+-it defaults to /etc/dhcpc/. The dhcpcd.exe script invokation is:
++it defaults to /var/lib/dhcpc/. The dhcpcd.exe script invokation is:
+ <ConfigDir>/dhcpcd.exe <HostInfoFilePath> <up|down|new> [-d]
+ where <HostInfoFilePath> is actually <ConfigDir>/dhcpcd-<interface>.info
+ file; optional parameter [-d] is a debug flag passed if dhcpcd has

@@ -1,0 +1,22 @@
+--- x.orig/grsync.desktop.in	2010-03-08 16:22:36.000000000 +0100
++++ x/grsync.desktop.in	2010-05-03 17:55:07.000000000 +0200
+@@ -1,16 +1,16 @@
+ [Desktop Entry]
+ Version=1.0
+-Encoding=UTF-8
+ Name=Grsync
+ Terminal=false
+ Type=Application
+ MimeType=application/x-grsync-session;
+-Categories=Application;System;
++Categories=GTK;System;X-UHU-Menu/Tools/File_Managers;
+ Comment=Synchronize files with rsync
+ Comment[fr]=Interface GTK pour rsync
+ Comment[it]=Sincronizza file con rsync
+ Comment[nb]=Et GTK-grensesnitt for rsync
+ Comment[ru]=GTK интерфейс для rsync
+ Comment[tr]=Rsync için bir GTK grafik arayüzü
+-Exec=@prefix@/bin/@PACKAGE@ -i %f
++Exec=@PACKAGE@ -i %f
++TryExec=@PACKAGE@
+ @OTHER_DESKTOP_ENTRIES@

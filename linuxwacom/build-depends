@@ -1,0 +1,7 @@
+hal-dev
+libice-dev
+libx11-dev
+libxi-dev
+tcl-dev
+tk-dev
+x.org-server-dev

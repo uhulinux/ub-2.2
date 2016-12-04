@@ -1,0 +1,12 @@
+diff -Naur nautilus-2.6.1.orig/libnautilus-private/apps_nautilus_preferences.schemas.in nautilus-2.6.1/libnautilus-private/apps_nautilus_preferences.schemas.in
+--- nautilus-2.6.1.orig/libnautilus-private/apps_nautilus_preferences.schemas.in	2004-02-20 11:28:45.000000000 +0100
++++ nautilus-2.6.1/libnautilus-private/apps_nautilus_preferences.schemas.in	2004-05-21 14:10:17.000000000 +0200
+@@ -589,7 +589,7 @@
+       <applyto>/apps/nautilus/list_view/default_zoom_level</applyto>
+       <owner>nautilus</owner>
+       <type>string</type>
+-      <default>smaller</default>
++      <default>small</default>
+       <locale name="C">
+          <short>Default list zoom level</short>
+          <long>

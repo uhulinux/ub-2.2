@@ -1,0 +1,5 @@
+#!/usr/bin/env dl
+
+IO-Socket-SSL-${UB_VERSION}.tar.gz IO-Socket-SSL-${UB_VERSION}/
+	ftp://ftp.kfki.hu/pub/packages/perl/CPAN/modules/by-module/IO/
+	ftp://ftp.cpan.org/pub/CPAN/modules/by-module/IO/

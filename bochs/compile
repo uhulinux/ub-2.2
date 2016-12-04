@@ -1,0 +1,44 @@
+#!/bin/sh -eux
+
+sed -i s,/opt/gnome,/usr,g configure
+
+ub_compile \
+	--enable-static=no \
+	--enable-plugins \
+	--enable-cpu-level=6 \
+	--enable-apic \
+	--enable-compressed-hd \
+	--enable-ne2000 \
+	--enable-pci \
+	--enable-usb \
+	--enable-dc2300-vlb-ide \
+	--enable-4meg-pages \
+	--enable-pae \
+	--enable-guest2host-tlb \
+	--enable-repeat-speedups \
+	--enable-icache \
+	--enable-fast-function-calls \
+	--enable-global-pages \
+	--enable-host-specific-asms \
+	--enable-ignore-bad-msr \
+	--enable-port-e9-hack \
+	--enable-reset-on-triple-fault \
+	--enable-disasm \
+	--enable-all-optimizations \
+	--enable-readline \
+	--enable-instrumentation \
+	--enable-vbe \
+	--enable-fpu \
+	--enable-3dnow \
+	--enable-sse=2 \
+	--enable-daz \
+	--enable-sep \
+	--enable-x86-debugger \
+	--enable-cdrom \
+	--enable-sb16=linux \
+	--enable-gameport \
+	--enable-gdb-stub \
+	--enable-iodebug \
+	--enable-xpm \
+	--with-x11 \
+	--with-sdl

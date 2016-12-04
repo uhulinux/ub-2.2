@@ -1,0 +1,35 @@
+Miscellaneous changes to align psqlodbc with unixODBC 64-bit fixes.
+
+
+diff -Naur psqlodbc-08.04.0100.orig/odbcapi30.c psqlodbc-08.04.0100/odbcapi30.c
+--- psqlodbc-08.04.0100.orig/odbcapi30.c	2008-10-06 17:46:09.000000000 -0400
++++ psqlodbc-08.04.0100/odbcapi30.c	2009-08-17 23:40:02.000000000 -0400
+@@ -118,13 +118,7 @@
+ 			SQLPOINTER CharacterAttribute,
+ 			SQLSMALLINT BufferLength,
+ 			SQLSMALLINT *StringLength,
+-#if defined(_WIN64)
+ 			SQLLEN *NumericAttribute
+-#elif defined(WITH_UNIXODBC) || defined(WIN32)
+-			SQLPOINTER NumericAttribute
+-#else
+-			SQLLEN *NumericAttribute
+-#endif
+ 			)
+ {
+ 	CSTR	func = "SQLColAttribute";
+diff -Naur psqlodbc-08.04.0100.orig/odbcapi30w.c psqlodbc-08.04.0100/odbcapi30w.c
+--- psqlodbc-08.04.0100.orig/odbcapi30w.c	2009-03-22 10:17:10.000000000 -0400
++++ psqlodbc-08.04.0100/odbcapi30w.c	2009-08-17 23:40:02.000000000 -0400
+@@ -262,11 +262,7 @@
+ 	SQLPOINTER	pCharAttr,
+ 	SQLSMALLINT	cbCharAttrMax,	
+ 	SQLSMALLINT	*pcbCharAttr,
+-#if defined(WITH_UNIXODBC) || (defined(WIN32) && ! defined(_WIN64))
+-	SQLPOINTER	pNumAttr
+-#else
+ 	SQLLEN		*pNumAttr
+-#endif
+ 	)
+ {
+ 	CSTR func = "SQLColAttributeW";

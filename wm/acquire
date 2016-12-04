@@ -1,0 +1,4 @@
+#!/usr/bin/env dl
+
+wm-${UB_VERSION}-contrib.tar.gz wm/
+	http://www.plig.org/xwinman/archive/wm/

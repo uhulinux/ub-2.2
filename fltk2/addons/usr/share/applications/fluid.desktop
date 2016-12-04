@@ -1,0 +1,10 @@
+[Desktop Entry]
+Version=1.1
+Name=FLUID
+Comment=FLTK GUI Designer
+Comment[hu]=FLTK szerkesztő
+Exec=fluid2 %F
+Icon=fluid
+Terminal=false
+Type=Application
+Categories=Development;GUIDesigner;X-UHU-Menu/Development/Programming;

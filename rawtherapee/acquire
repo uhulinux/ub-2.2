@@ -1,0 +1,5 @@
+#!/usr/bin/env dl
+
+rawtherapee-${UB_VERSION}.tar.xz rawtherapee-${UB_VERSION}/
+	http://rawtherapee.googlecode.com/files/
+	http://www.rawtherapee.com/

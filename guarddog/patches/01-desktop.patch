@@ -1,0 +1,16 @@
+diff -Naur guarddog-2.2.0.orig/kde/guarddog.desktop guarddog-2.2.0/kde/guarddog.desktop
+--- guarddog-2.2.0.orig/kde/guarddog.desktop	2001-05-18 08:47:27.000000000 +0200
++++ guarddog-2.2.0/kde/guarddog.desktop	2006-06-15 14:38:23.000000000 +0200
+@@ -1,5 +1,7 @@
+ [Desktop Entry]
++Encoding=UTF-8
+ Comment=Firewall utility
++Comment[hu]=Tűzfal beállító program
+ DocPath=guarddog/index.html
+ Exec=guarddog
+ Icon=guarddog
+@@ -12,3 +14,4 @@
+ X-KDE-RootOnly=true
+ X-KDE-SubstituteUID=true
+ X-KDE-Username=root
++Categories=Application;System;X-UHU-Menu/Internet/Firewall;

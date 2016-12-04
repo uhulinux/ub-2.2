@@ -1,0 +1,174 @@
+--- iputils/Makefile.infiniband	2007-02-22 15:53:04.000000000 +0100
++++ iputils/Makefile	2007-02-22 15:55:05.000000000 +0100
+@@ -45,6 +45,8 @@
+ rdisc_srv.o: rdisc.c
+ 	$(CC) $(CFLAGS) -DRDISC_SERVER -o rdisc_srv.o rdisc.c
+ 
++arping: arping.o
++	$(CC) $(LDFLAGS) arping.o $(LOADLIBES) $(LDLIBS) -lsysfs -o arping
+ 
+ check-kernel:
+ ifeq ($(KERNEL_INCLUDE),)
+--- iputils/arping.c.infiniband	2007-02-22 15:53:04.000000000 +0100
++++ iputils/arping.c	2007-02-22 15:53:05.000000000 +0100
+@@ -29,6 +29,7 @@
+ #include <string.h>
+ #include <netinet/in.h>
+ #include <arpa/inet.h>
++#include <sysfs/libsysfs.h>
+ 
+ #include "SNAPSHOT.h"
+ 
+@@ -48,8 +49,13 @@
+ int s;
+ int broadcast_only;
+ 
+-struct sockaddr_ll me;
+-struct sockaddr_ll he;
++/*
++ * Make these two structs have padding at the end so the overly long Infiniband
++ * hardware addresses can have the remainder of their address tacked onto
++ * the end of the struct without overlapping anything.
++ */
++struct sockaddr_ll me[2];
++struct sockaddr_ll he[2];
+ 
+ struct timeval start, last;
+ 
+@@ -124,7 +130,8 @@
+ 	p+=4;
+ 
+ 	gettimeofday(&now, NULL);
+-	err = sendto(s, buf, p-buf, 0, (struct sockaddr*)HE, sizeof(*HE));
++	err = sendto(s, buf, p-buf, 0, (struct sockaddr*)HE, (ah->ar_hln > 8) ?
++		     sizeof(*HE) + ah->ar_hln - 8 : sizeof(*HE));
+ 	if (err == p-buf) {
+ 		last = now;
+ 		sent++;
+@@ -174,7 +181,7 @@
+ 
+ 	if (last.tv_sec==0 || MS_TDIFF(tv,last) > 500) {
+ 		count--;
+-		send_pack(s, src, dst, &me, &he);
++		send_pack(s, src, dst, &me[0], &he[0]);
+ 		if (count == 0 && unsolicited)
+ 			finish();
+ 	}
+@@ -221,7 +228,7 @@
+ 		return 0;
+ 	if (ah->ar_pln != 4)
+ 		return 0;
+-	if (ah->ar_hln != me.sll_halen)
++	if (ah->ar_hln != me[0].sll_halen)
+ 		return 0;
+ 	if (len < sizeof(*ah) + 2*(4 + ah->ar_hln))
+ 		return 0;
+@@ -232,7 +239,7 @@
+ 			return 0;
+ 		if (src.s_addr != dst_ip.s_addr)
+ 			return 0;
+-		if (memcmp(p+ah->ar_hln+4, &me.sll_addr, ah->ar_hln))
++		if (memcmp(p+ah->ar_hln+4, &me[0].sll_addr, ah->ar_hln))
+ 			return 0;
+ 	} else {
+ 		/* DAD packet was:
+@@ -250,7 +257,7 @@
+ 		 */
+ 		if (src_ip.s_addr != dst.s_addr)
+ 			return 0;
+-		if (memcmp(p, &me.sll_addr, me.sll_halen) == 0)
++		if (memcmp(p, &me[0].sll_addr, me[0].sll_halen) == 0)
+ 			return 0;
+ 		if (src.s_addr && src.s_addr != dst_ip.s_addr)
+ 			return 0;
+@@ -266,7 +273,7 @@
+ 			printf("for %s ", inet_ntoa(dst_ip));
+ 			s_printed = 1;
+ 		}
+-		if (memcmp(p+ah->ar_hln+4, me.sll_addr, ah->ar_hln)) {
++		if (memcmp(p+ah->ar_hln+4, me[0].sll_addr, ah->ar_hln)) {
+ 			if (!s_printed)
+ 				printf("for ");
+ 			printf("[");
+@@ -292,7 +299,7 @@
+ 	if (quit_on_reply)
+ 		finish();
+ 	if(!broadcast_only) {
+-		memcpy(he.sll_addr, p, me.sll_halen);
++		memcpy(he[0].sll_addr, p, me[0].sll_halen);
+ 		unicasting=1;
+ 	}
+ 	return 1;
+@@ -458,9 +465,9 @@
+ 		close(probe_fd);
+ 	};
+ 
+-	me.sll_family = AF_PACKET;
+-	me.sll_ifindex = ifindex;
+-	me.sll_protocol = htons(ETH_P_ARP);
++	me[0].sll_family = AF_PACKET;
++	me[0].sll_ifindex = ifindex;
++	me[0].sll_protocol = htons(ETH_P_ARP);
+ 	if (bind(s, (struct sockaddr*)&me, sizeof(me)) == -1) {
+ 		perror("bind");
+ 		exit(2);
+@@ -473,14 +480,37 @@
+ 			exit(2);
+ 		}
+ 	}
+-	if (me.sll_halen == 0) {
++	if (me[0].sll_halen == 0) {
+ 		if (!quiet)
+ 			printf("Interface \"%s\" is not ARPable (no ll address)\n", device);
+ 		exit(dad?0:2);
+ 	}
+-
+-	he = me;
+-	memset(he.sll_addr, -1, he.sll_halen);
++	he[0] = me[0];
++	he[1] = me[1];
++	{
++		struct sysfs_class_device *dev;
++		struct sysfs_attribute *brdcast;
++		char *next_ch;
++
++		dev = sysfs_open_class_device("net", device);
++		if (!dev) {
++			perror("sysfs class device");
++			exit(2);
++		}
++		brdcast = sysfs_get_classdev_attr(dev, "broadcast");
++		if (!brdcast) {
++			perror("sysfs attribute broadcast");
++			exit(2);
++		}
++		if (sysfs_read_attribute(brdcast)) {
++			perror("sysfs read brdcast");
++			exit(2);
++		}
++		for (ch=0; ch<he[0].sll_halen; ch++) {
++			he[0].sll_addr[ch] = strtol(brdcast->value + (ch*3),
++						    &next_ch, 16);
++		}
++	}
+ 
+ 	if (!quiet) {
+ 		printf("ARPING %s ", inet_ntoa(dst));
+@@ -500,7 +530,7 @@
+ 	while(1) {
+ 		sigset_t sset, osset;
+ 		unsigned char packet[4096];
+-		struct sockaddr_ll from;
++		struct sockaddr_ll from[2];
+ 		socklen_t alen = sizeof(from);
+ 		int cc;
+ 
+@@ -513,7 +543,7 @@
+ 		sigaddset(&sset, SIGALRM);
+ 		sigaddset(&sset, SIGINT);
+ 		sigprocmask(SIG_BLOCK, &sset, &osset);
+-		recv_pack(packet, cc, &from);
++		recv_pack(packet, cc, &from[0]);
+ 		if(received == count)
+ 			exit(0);
+ 		sigprocmask(SIG_SETMASK, &osset, NULL);

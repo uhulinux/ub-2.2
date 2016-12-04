@@ -1,0 +1,14 @@
+diff -Naurd orig/doc/gpaco.desktop mod/doc/gpaco.desktop
+--- orig/doc/gpaco.desktop	2008-10-03 20:57:46.000000000 +0200
++++ mod/doc/gpaco.desktop	2009-06-26 06:30:47.000000000 +0200
+@@ -4,8 +4,9 @@
+ Name=Package Organizer
+ GenericName=Package Organizer
+ Comment=Manages software installed from source code
++Comment[hu]=LFS csomagkezelő
+ Exec=gpaco
+ Icon=gpaco.png
+ StartupNotify=false
+ Terminal=false
+-Categories=Application;System;PackageManager;GTK
++Categories=Application;System;PackageManager;GTK;X-UHU-Menu/Tools/Utilities;

@@ -1,0 +1,4 @@
+#!/usr/bin/env dl
+
+evolution-rss-${UB_VERSION}.tar.gz evolution-rss-${UB_VERSION}/
+	http://gnome.eu.org/

@@ -1,0 +1,16 @@
+#!/bin/sh -eux
+
+ub_install
+
+for i in \
+  /usr/bin/Terminal \
+  /usr/share/applications/Terminal.desktop \
+  /usr/share/man/man1/Terminal.1 \
+  /usr/share/icons/hicolor/scalable/apps/Terminal.svg \
+  /usr/share/pixmaps/terminal.xpm; do
+	mv "$UB_INSTALLDIR$i" "$UB_INSTALLDIR${i/[tT]erminal/xfce-Terminal}"
+done
+
+rm "$UB_INSTALLDIR"/usr/bin/terminal
+ln -s xfce-Terminal "$UB_INSTALLDIR"/usr/bin/xfce-terminal
+ln -s xfce-Terminal "$UB_INSTALLDIR"/usr/bin/xfce4-terminal

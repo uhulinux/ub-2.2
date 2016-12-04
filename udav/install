@@ -1,0 +1,8 @@
+#!/bin/sh -eux
+
+ub_install
+cp -a udav.1 "$UB_INSTALLDIR"/usr/share/man/man1/
+cp -a src/udav.png "$UB_INSTALLDIR"/usr/share/pixmaps/
+rm "$UB_INSTALLDIR"/usr/share/applications/UDAV.desktop
+rm "$UB_INSTALLDIR"/usr/share/udav/udav.png
+rmdir "$UB_INSTALLDIR"/usr/share/udav

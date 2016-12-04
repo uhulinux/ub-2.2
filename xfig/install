@@ -1,0 +1,13 @@
+#!/bin/sh -eux
+
+make \
+	DESTDIR="$UB_INSTALLDIR" \
+	BINDIR=/usr/bin \
+	MANDIR=/usr/share/man/man1 \
+	XFIGLIBDIR=/usr/share/xfig \
+	install \
+	install.man
+cp -a Libraries "$UB_INSTALLDIR"/usr/share/xfig/
+find "$UB_INSTALLDIR"/usr/share/xfig/Libraries -type f | xargs chmod 644
+
+mv "$UB_INSTALLDIR"/usr/bin/xfig "$UB_INSTALLDIR"/usr/bin/xfig.bin

@@ -1,0 +1,12 @@
+diff -urN tetex-src-2.0.orig/texk/make/paths.mk tetex-src-2.0/texk/make/paths.mk
+--- tetex-src-2.0.orig/texk/make/paths.mk	2002-11-12 21:54:37.000000000 +0100
++++ tetex-src-2.0/texk/make/paths.mk	2003-02-12 21:04:19.000000000 +0100
+@@ -47,7 +47,7 @@
+ texmf = @texmfmain@
+ 
+ # The directory used by varfonts.
+-vartexfonts = /var/tmp/texfonts
++vartexfonts = /var/cache/texmf
+ 
+ # Regular input files.
+ texinputdir = $(texmf)/tex

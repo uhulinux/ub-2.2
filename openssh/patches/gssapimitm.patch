@@ -1,0 +1,200 @@
+diff -Naurdp a/auth2.c b/auth2.c
+--- a/auth2.c	2007-10-26 06:26:16.000000000 +0200
++++ b/auth2.c	2008-04-04 13:12:14.000000000 +0200
+@@ -65,6 +65,7 @@ extern Authmethod method_kbdint;
+ extern Authmethod method_hostbased;
+ #ifdef GSSAPI
+ extern Authmethod method_gssapi;
++extern Authmethod method_gssapi_old;
+ #endif
+ 
+ Authmethod *authmethods[] = {
+@@ -72,6 +73,7 @@ Authmethod *authmethods[] = {
+ 	&method_pubkey,
+ #ifdef GSSAPI
+ 	&method_gssapi,
++	&method_gssapi_old,
+ #endif
+ 	&method_passwd,
+ 	&method_kbdint,
+diff -Naurdp a/auth2-gss.c b/auth2-gss.c
+--- a/auth2-gss.c	2007-12-02 12:59:45.000000000 +0100
++++ b/auth2-gss.c	2008-04-04 13:12:14.000000000 +0200
+@@ -177,6 +177,15 @@ input_gssapi_token(int type, u_int32_t p
+ 				dispatch_set(
+ 				    SSH2_MSG_USERAUTH_GSSAPI_EXCHANGE_COMPLETE,
+ 				    &input_gssapi_exchange_complete);
++
++			/* 
++			 * Old style 'gssapi' didn't have the GSSAPI_MIC 
++			 * and went straight to sending exchange_complete 
++			 */
++			if (options.gss_enable_mitm)
++				dispatch_set(
++				    SSH2_MSG_USERAUTH_GSSAPI_EXCHANGE_COMPLETE,
++				    &input_gssapi_exchange_complete);
+ 		}
+ 	}
+ 
+@@ -298,4 +307,10 @@ Authmethod method_gssapi = {
+ 	&options.gss_authentication
+ };
+ 
++Authmethod method_gssapi_old = {
++	"gssapi",
++	userauth_gssapi,
++	&options.gss_enable_mitm
++};
++
+ #endif /* GSSAPI */
+diff -Naurdp a/readconf.c b/readconf.c
+--- a/readconf.c	2008-02-10 12:25:52.000000000 +0100
++++ b/readconf.c	2008-04-04 13:12:14.000000000 +0200
+@@ -126,7 +126,7 @@ typedef enum {
+ 	oHostKeyAlgorithms, oBindAddress, oSmartcardDevice,
+ 	oClearAllForwardings, oNoHostAuthenticationForLocalhost,
+ 	oEnableSSHKeysign, oRekeyLimit, oVerifyHostKeyDNS, oConnectTimeout,
+-	oAddressFamily, oGssAuthentication, oGssDelegateCreds,
++	oAddressFamily, oGssAuthentication, oGssDelegateCreds, oGssEnableMITM,
+ 	oServerAliveInterval, oServerAliveCountMax, oIdentitiesOnly,
+ 	oSendEnv, oControlPath, oControlMaster, oHashKnownHosts,
+ 	oTunnel, oTunnelDevice, oLocalCommand, oPermitLocalCommand,
+@@ -164,9 +164,11 @@ static struct {
+ #if defined(GSSAPI)
+ 	{ "gssapiauthentication", oGssAuthentication },
+ 	{ "gssapidelegatecredentials", oGssDelegateCreds },
++	{ "gssapienablemitmattack", oGssEnableMITM },
+ #else
+ 	{ "gssapiauthentication", oUnsupported },
+ 	{ "gssapidelegatecredentials", oUnsupported },
++	{ "gssapienablemitmattack", oUnsupported },
+ #endif
+ 	{ "fallbacktorsh", oDeprecated },
+ 	{ "usersh", oDeprecated },
+@@ -445,6 +447,10 @@ parse_flag:
+ 	case oGssDelegateCreds:
+ 		intptr = &options->gss_deleg_creds;
+ 		goto parse_flag;
++		
++	case oGssEnableMITM:
++		intptr = &options->gss_enable_mitm;
++		goto parse_flag;
+ 
+ 	case oBatchMode:
+ 		intptr = &options->batch_mode;
+@@ -1011,6 +1017,7 @@ initialize_options(Options * options)
+ 	options->challenge_response_authentication = -1;
+ 	options->gss_authentication = -1;
+ 	options->gss_deleg_creds = -1;
++	options->gss_enable_mitm = -1;
+ 	options->password_authentication = -1;
+ 	options->kbd_interactive_authentication = -1;
+ 	options->kbd_interactive_devices = NULL;
+@@ -1101,6 +1108,8 @@ fill_default_options(Options * options)
+ 		options->gss_authentication = 0;
+ 	if (options->gss_deleg_creds == -1)
+ 		options->gss_deleg_creds = 0;
++	if (options->gss_enable_mitm == -1)
++		options->gss_enable_mitm = 0;
+ 	if (options->password_authentication == -1)
+ 		options->password_authentication = 1;
+ 	if (options->kbd_interactive_authentication == -1)
+diff -Naurdp a/readconf.h b/readconf.h
+--- a/readconf.h	2008-02-10 12:25:52.000000000 +0100
++++ b/readconf.h	2008-04-04 13:12:14.000000000 +0200
+@@ -45,6 +45,7 @@ typedef struct {
+ 					/* Try S/Key or TIS, authentication. */
+ 	int     gss_authentication;	/* Try GSS authentication */
+ 	int     gss_deleg_creds;	/* Delegate GSS credentials */
++	int 	gss_enable_mitm;	/* Enable old style gssapi auth */
+ 	int     password_authentication;	/* Try password
+ 						 * authentication. */
+ 	int     kbd_interactive_authentication; /* Try keyboard-interactive auth. */
+diff -Naurdp a/servconf.c b/servconf.c
+--- a/servconf.c	2008-02-10 12:48:55.000000000 +0100
++++ b/servconf.c	2008-04-04 13:27:39.000000000 +0200
+@@ -91,6 +91,7 @@ initialize_server_options(ServerOptions 
+ 	options->kerberos_get_afs_token = -1;
+ 	options->gss_authentication=-1;
+ 	options->gss_cleanup_creds = -1;
++	options->gss_enable_mitm = -1;
+ 	options->password_authentication = -1;
+ 	options->kbd_interactive_authentication = -1;
+ 	options->challenge_response_authentication = -1;
+@@ -207,6 +208,8 @@ fill_default_server_options(ServerOption
+ 		options->gss_authentication = 0;
+ 	if (options->gss_cleanup_creds == -1)
+ 		options->gss_cleanup_creds = 1;
++	if (options->gss_enable_mitm == -1)
++		options->gss_enable_mitm = 0;
+ 	if (options->password_authentication == -1)
+ 		options->password_authentication = 1;
+ 	if (options->kbd_interactive_authentication == -1)
+@@ -291,7 +294,7 @@ typedef enum {
+ 	sBanner, sUseDNS, sHostbasedAuthentication,
+ 	sHostbasedUsesNameFromPacketOnly, sClientAliveInterval,
+ 	sClientAliveCountMax, sAuthorizedKeysFile, sAuthorizedKeysFile2,
+-	sGssAuthentication, sGssCleanupCreds, sAcceptEnv, sPermitTunnel,
++	sGssAuthentication, sGssCleanupCreds, sAcceptEnv, sPermitTunnel, sGssEnableMITM,
+ 	sMatch, sPermitOpen, sForceCommand, sChrootDirectory,
+ 	sUsePrivilegeSeparation,
+ 	sDeprecated, sUnsupported
+@@ -352,9 +355,11 @@ static struct {
+ #ifdef GSSAPI
+ 	{ "gssapiauthentication", sGssAuthentication, SSHCFG_ALL },
+ 	{ "gssapicleanupcredentials", sGssCleanupCreds, SSHCFG_GLOBAL },
++	{ "gssapienablemitmattack", sGssEnableMITM },
+ #else
+ 	{ "gssapiauthentication", sUnsupported, SSHCFG_ALL },
+ 	{ "gssapicleanupcredentials", sUnsupported, SSHCFG_GLOBAL },
++	{ "gssapienablemitmattack", sUnsupported },
+ #endif
+ 	{ "passwordauthentication", sPasswordAuthentication, SSHCFG_ALL },
+ 	{ "kbdinteractiveauthentication", sKbdInteractiveAuthentication, SSHCFG_ALL },
+@@ -878,6 +883,10 @@ parse_flag:
+ 	case sGssCleanupCreds:
+ 		intptr = &options->gss_cleanup_creds;
+ 		goto parse_flag;
++		
++	case sGssEnableMITM:
++		intptr = &options->gss_enable_mitm;
++		goto parse_flag;
+ 
+ 	case sPasswordAuthentication:
+ 		intptr = &options->password_authentication;
+diff -Naurdp a/servconf.h b/servconf.h
+--- a/servconf.h	2008-03-07 08:31:24.000000000 +0100
++++ b/servconf.h	2008-04-04 13:12:14.000000000 +0200
+@@ -91,6 +91,7 @@ typedef struct {
+ 						 * authenticated with Kerberos. */
+ 	int     gss_authentication;	/* If true, permit GSSAPI authentication */
+ 	int     gss_cleanup_creds;	/* If true, destroy cred cache on logout */
++	int	gss_enable_mitm;	/* If true, enable old style GSSAPI */
+ 	int     password_authentication;	/* If true, permit password
+ 						 * authentication. */
+ 	int     kbd_interactive_authentication;	/* If true, permit */
+diff -Naurdp a/sshconnect2.c b/sshconnect2.c
+--- a/sshconnect2.c	2008-02-10 12:25:53.000000000 +0100
++++ b/sshconnect2.c	2008-04-04 13:12:14.000000000 +0200
+@@ -243,6 +243,10 @@ Authmethod authmethods[] = {
+ 		userauth_gssapi,
+ 		&options.gss_authentication,
+ 		NULL},
++	{"gssapi",
++		userauth_gssapi,
++		&options.gss_enable_mitm,
++		NULL},
+ #endif
+ 	{"hostbased",
+ 		userauth_hostbased,
+@@ -577,7 +581,9 @@ process_gssapi_token(void *ctxt, gss_buf
+ 
+ 	if (status == GSS_S_COMPLETE) {
+ 		/* send either complete or MIC, depending on mechanism */
+-		if (!(flags & GSS_C_INTEG_FLAG)) {
++		
++		if (strcmp(authctxt->method->name,"gssapi")==0 ||
++		    (!(flags & GSS_C_INTEG_FLAG))) {
+ 			packet_start(SSH2_MSG_USERAUTH_GSSAPI_EXCHANGE_COMPLETE);
+ 			packet_send();
+ 		} else {

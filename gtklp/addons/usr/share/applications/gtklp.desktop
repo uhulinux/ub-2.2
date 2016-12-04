@@ -1,0 +1,11 @@
+[Desktop Entry]
+Encoding=UTF-8
+Name=GtkLP
+Comment=GTK frontend to CUPS
+Comment[hu]=Grafikus előtét program CUPS-hoz
+Exec=gtklp
+Icon=gtklp
+Terminal=false
+Type=Application
+Categories=GTK;Printing;X-UHU-Menu/Tools/Utilities;
+StartupNotify=false

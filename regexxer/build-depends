@@ -1,0 +1,6 @@
+gconfmm2-dev
+gtkmm2-dev
+libglademm2-dev
+libsigc++-dev
+pcre-dev
+perl-xml-parser

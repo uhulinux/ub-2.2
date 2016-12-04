@@ -1,0 +1,19 @@
+#!/bin/sh -eux
+
+grep -rl '\[2[0-9][0-9]\]' |
+xargs sed -i 's/\[2[0-9][0-9]\]/[1000]/'
+
+#	--enable-acl-management \
+ub_compile \
+	--enable-maintainer-mode \
+	--enable-acpi-ibm \
+	--enable-acpi-toshiba \
+	--disable-acpi-acpid \
+	--enable-acpi-proc \
+	--with-dell-backlight \
+	--with-keymaps \
+	--enable-parted \
+	--with-usb-ids=/usr/share/usb.ids \
+	--with-hal-user=root \
+	--with-hal-group=root \
+	--disable-policy-kit

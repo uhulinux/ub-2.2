@@ -1,0 +1,2 @@
+	/etc/gnome-vfs-*
+	/usr/lib/gnome-vfs-*/modules/*.so*

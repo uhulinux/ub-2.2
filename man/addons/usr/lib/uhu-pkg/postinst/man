@@ -1,0 +1,29 @@
+#!/bin/sh -e
+
+# Szedd ki az exit-et a /usr/lib/uhu-pkg/*/man szkriptek elejéről,
+# ha azt szeretnéd, hogy minden csomagtelepítés és -eltávolítás után
+# újragenerálódjon a whatis adatbázis. (Vigyázz: nagyon lassú.)
+exit 0
+
+do_makewhatis ()
+{
+	[ -z "${UHU_PKG_QUIET+x}" ] && echo -n "  Generating whatis database ..."
+	makewhatis
+	true > /var/lib/uhu-pkg/man
+	while [ ! /var/lib/uhu-pkg/man -ot /var/lib/dpkg/info \
+	     -a ! /var/lib/uhu-pkg/man -nt /var/lib/dpkg/info ]; do
+		sleep 0.1
+		true > /var/lib/uhu-pkg/man
+	done
+	[ -z "${UHU_PKG_QUIET+x}" ] && echo
+}
+
+if [ -f /var/lib/uhu-pkg/man -a /var/lib/uhu-pkg/man -nt /var/lib/dpkg/info ]; then
+	exit 0
+fi
+
+if [ "$1" = "man" -o "$1" = "+" ]; then
+	do_makewhatis
+elif grep -q '^/usr/share/man/' /var/lib/dpkg/info/"$1".list; then
+	do_makewhatis
+fi

@@ -1,0 +1,9 @@
+[Desktop Entry]
+Version=1.1
+Name=THE
+Comment=The Hessling Editor
+Comment[hu]=The Hessling Editor
+Exec=browser /usr/share/doc/the/THE-3.3B3.html
+Icon=/usr/share/doc/the/the64.png
+Type=Application
+Categories=X-UHU-Menu/Documentation;

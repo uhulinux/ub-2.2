@@ -1,0 +1,8 @@
+bluez-dev
+cmake
+expat-dev
+glib2-dev
+libsoup-dev
+libwbxml-dev
+libxml2-dev
+openobex-dev

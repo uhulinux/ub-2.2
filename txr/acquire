@@ -1,0 +1,4 @@
+#!/usr/bin/env dl
+
+txr-master.tar.gz txr-master/
+	http://git.savannah.gnu.org/cgit/txr.git/snapshot/

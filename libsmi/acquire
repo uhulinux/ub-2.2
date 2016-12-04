@@ -1,0 +1,4 @@
+#!/usr/bin/env dl
+
+libsmi-${UB_VERSION}.tar.gz libsmi-${UB_VERSION}/
+	ftp://ftp.ibr.cs.tu-bs.de/pub/local/libsmi/

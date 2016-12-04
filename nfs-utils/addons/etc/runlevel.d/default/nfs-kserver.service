@@ -1,0 +1,11 @@
+Summary=Kernel NFS Server
+Summary[hu]=A kernelben lévő NFS-szerver
+Description=Initialize the kernel NFS server.
+Description[en_GB]=Initialise the kernel NFS server.
+Description[hu]=A kernelben lévő NFS-szerver beállítása.
+MsgDesc=NFS Server
+MsgDesc[hu]=NFS-szerver
+Script=/etc/init.d/nfs-kserver
+SupportsReload=yes
+Runlevels=
+Sequence=20

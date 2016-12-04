@@ -1,0 +1,10 @@
+[Desktop Entry]
+Version=1.1
+Type=Application
+Name=CodeLite
+Comment=C/C++ IDE
+Comment[hu]=C/C++ fejlesztői környezet
+Exec=codelite
+Icon=/usr/share/codelite/images/cubes.png
+Terminal=false
+Categories=X-UHU-Menu/Development/Programming;

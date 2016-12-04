@@ -1,0 +1,16 @@
+diff -urN sabayon-2.22.1.orig/configure sabayon-2.22.1/configure
+--- sabayon-2.22.1.orig/configure	2008-09-23 00:36:29.000000000 +0200
++++ sabayon-2.22.1/configure	2008-10-15 20:20:28.000000000 +0200
+@@ -25593,6 +25593,12 @@
+       install_xinitrc_script="yes"
+       XINITRC_SYSCONFDIR="X11/xinit/xinitrc.d"
+       ;;
++	uhu-linux)
++      XSESSION="/etc/gdm/Xsession"
++      SESSION_NAME="gnome-session"
++      install_xinitrc_script="yes"
++      XINITRC_SYSCONFDIR="X11/xinit/xinitrc.d"
++      ;;
+     *)
+       echo "Your distribution (${with_distro}) is not yet supported!  (patches welcome)"
+       exit 1

@@ -1,0 +1,4 @@
+#!/usr/bin/env dl
+
+Crypt-PasswdMD5-${UB_VERSION}.tar.gz Crypt-PasswdMD5-${UB_VERSION}/
+	http://search.cpan.org/CPAN/authors/id/L/LU/LUISMUNOZ/

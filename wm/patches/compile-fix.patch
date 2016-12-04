@@ -1,0 +1,75 @@
+diff -Naurd wm.orig/errHndlr.c wm/errHndlr.c
+--- wm.orig/errHndlr.c	1988-09-07 08:54:38.000000000 +0200
++++ wm/errHndlr.c	2003-09-08 23:18:10.000000000 +0200
+@@ -15,7 +15,6 @@
+     (void) fprintf(stderr, "  Request Minor code: %d\n", event->minor_code);
+     (void) fprintf(stderr, "  ResourceId 0x%x\n", event->resourceid);
+     (void) fprintf(stderr, "  Error Serial #%d\n", event->serial);
+-    (void) fprintf(stderr, "  Current Serial #%d\n", dpy->request);
+     errorStatus = True;
+     return 0;
+ }
+diff -Naurd wm.orig/Makefile wm/Makefile
+--- wm.orig/Makefile	1988-09-20 05:04:15.000000000 +0200
++++ wm/Makefile	2003-09-08 23:21:48.000000000 +0200
+@@ -42,7 +42,7 @@
+ 
+         PATHSEP = /
+          DEPEND = $(DEPENDSRC)/makedepend
+-          IMAKE = $(IMAKESRC)/imake
++          IMAKE = imake
+             RGB = $(RGBSRC)/rgb
+          CFLAGS = $(CDEBUGFLAGS) $(INCLUDES) $(STD_DEFINES) $(DEFINES)
+       LINTFLAGS = $(LINTOPTS) $(INCLUDES) $(STD_DEFINES) $(DEFINES) -DLINT
+@@ -79,7 +79,7 @@
+      CONTRIBSRC = $(TOP)/contrib
+          DOCSRC = $(TOP)/doc
+       DEPENDSRC = $(UTILSRC)/makedepend
+-       IMAKESRC = $(UTILSRC)/imake
++       IMAKESRC = imake
+        IRULESRC = $(UTILSRC)/imake.includes
+          RGBSRC = $(UTILSRC)/rgb
+         XLIBSRC = $(LIBSRC)/X
+@@ -107,7 +107,7 @@
+          RM_CMD = $(RM) *.CKP *.ln *.BAK *.bak *.o core errs ,* *~ *.a \
+ 			.emacs_* tags TAGS make.log MakeOut
+ 
+-LOCAL_LIBRARIES = $(XLIB) $(OLDXLIB)
++LOCAL_LIBRARIES =
+            SRCS = test.c mkPixmap.c errHndlr.c
+            OBJS = test.o mkPixmap.o errHndlr.o
+ 
+@@ -117,7 +117,7 @@
+ 
+ wm: $(OBJS) $(LOCAL_LIBRARIES)
+ 	$(RM) $@
+-	$(CC) -o $@ $(OBJS) $(LOCAL_LIBRARIES) $(LDFLAGS)
++	$(CC) -o $@ $(OBJS) $(LOCAL_LIBRARIES) $(LDFLAGS) -lX11 -loldX
+ 
+ relink::
+ 	$(RM) $(PROGRAM)
+@@ -144,12 +144,7 @@
+ clean::
+ 	$(RM_CMD) \#*
+ 
+-Makefile:: $(IMAKE)
+-
+-Makefile:: Imakefile \
+-	$(IRULESRC)/Imake.tmpl \
+-	$(IRULESRC)/Imake.rules \
+-	$(IRULESRC)/$(MACROFILE)
++Makefile:: Imakefile
+ 	-$(RM) Makefile.bak; $(MV) Makefile Makefile.bak
+ 	$(IMAKE_CMD) -DTOPDIR=$(TOP)
+ 
+diff -Naurd wm.orig/test.c wm/test.c
+--- wm.orig/test.c	1988-09-07 08:54:44.000000000 +0200
++++ wm/test.c	2003-09-08 23:17:34.000000000 +0200
+@@ -1042,7 +1042,6 @@
+     fputs("\n  ", stderr);
+     XGetErrorDatabaseText(dpy, mtype, "CurrentSerial", "Current Serial #%d",
+ 	mesg, BUFSIZ);
+-    (void) fprintf(stderr, mesg, dpy->request);
+     fputs("\n", stderr);
+     return (0);
+     /*NOTREACHED*/

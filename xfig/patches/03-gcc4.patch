@@ -1,0 +1,23 @@
+diff -Naur xfig.3.2.4.orig/u_fonts.h xfig.3.2.4/u_fonts.h
+--- xfig.3.2.4.orig/u_fonts.h	2002-03-27 01:18:23.000000000 +0100
++++ xfig.3.2.4/u_fonts.h	2005-11-15 21:08:00.000000000 +0100
+@@ -32,9 +32,6 @@
+ 
+ extern int		psfontnum();
+ extern int		latexfontnum();
+-extern struct _xfstruct	x_fontinfo[], x_backup_fontinfo[];
+-extern struct _fstruct	ps_fontinfo[];
+-extern struct _fstruct	latex_fontinfo[];
+ 
+ /* element of linked list for each font
+    The head of list is for the different font NAMES,
+@@ -61,5 +58,9 @@
+ 				 * sizes */
+ };
+ 
++extern struct _xfstruct	x_fontinfo[], x_backup_fontinfo[];
++extern struct _fstruct	ps_fontinfo[];
++extern struct _fstruct	latex_fontinfo[];
++
+ int		x_fontnum();
+ #endif /* U_FONTS_H */

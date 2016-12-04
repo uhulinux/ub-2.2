@@ -1,0 +1,4 @@
+#!/usr/bin/env dl
+
+obexftp-${UB_VERSION}.tar.bz2 obexftp-${UB_VERSION}/
+	http://downloads.sourceforge.net/openobex/

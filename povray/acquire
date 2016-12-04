@@ -1,0 +1,5 @@
+#!/usr/bin/env dl
+
+povray-${UB_VERSION}.tar.gz povray-${UB_VERSION}/
+	ftp://ftp.povray.org/pub/povray/Official/Unix/
+	ftp://ftp.povray.org/pub/povray/Old-Versions/Official-${UB_VERSION}/Unix/

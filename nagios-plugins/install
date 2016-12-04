@@ -1,0 +1,6 @@
+#!/bin/sh -eux
+
+ub_install
+
+cd perlmods/Nagios-Plugin-0.27
+ub_install

@@ -1,0 +1,79 @@
+diff -Naur figlet221.orig/figlet.6 figlet221/figlet.6
+--- figlet221.orig/figlet.6	2002-07-13 11:57:21.000000000 +0200
++++ figlet221/figlet.6	2004-11-06 13:22:06.000000000 +0100
+@@ -327,7 +327,11 @@
+ .B FIGlet
+ executes the commands in all
+ .I controlfiles
+-in the list.  See
++in the list.  If and only if the list of
++.I controlfiles
++is empty,
++.B FIGlet
++interprets the input according to the character set of the current locale.  See
+ the file
+ .IR figfont.txt ,
+ provided with FIGlet,
+diff -Naur figlet221.orig/figlet.c figlet221/figlet.c
+--- figlet221.orig/figlet.c	2002-07-13 11:44:09.000000000 +0200
++++ figlet221/figlet.c	2004-11-06 13:15:02.000000000 +0100
+@@ -63,6 +63,11 @@
+ #include <sys/ioctl.h> /* Needed for get_columns */
+ #endif
+ 
++#include <locale.h>
++#include <langinfo.h>
++#include <iconv.h>
++#include <errno.h>
++
+ #include "zipio.h"     /* Package for reading compressed files */
+ 
+ #define MYSTRLEN(x) ((int)strlen(x)) /* Eliminate ANSI problem */
+@@ -1823,6 +1828,38 @@
+     return getinchr_buffer;
+     }
+ 
++  if (cfilelist == NULL) {
++    static int init = 0;
++    static iconv_t cd;
++    unsigned char inbuf[16];
++    unsigned char outbuf[4];
++    char *inbufp, *outbufp;
++    size_t inbytesleft, outbytesleft;
++    size_t i;
++    int bytes;
++
++    if (!init) {
++      cd = iconv_open("UCS-4BE", nl_langinfo(CODESET));
++      init = 1;
++    }
++
++    bytes = 0;
++    while (bytes < 16) {
++      ch = Agetchar();
++      if (ch == EOF) return ch;
++      inbuf[bytes++] = ch;
++      inbufp = inbuf;
++      inbytesleft = bytes;
++      outbufp = outbuf;
++      outbytesleft = 4;
++      iconv(cd, NULL, NULL, NULL, NULL);
++      i = iconv(cd, &inbufp, &inbytesleft, &outbufp, &outbytesleft);
++      if (i != (size_t)(-1)) return (outbuf[0]<<24) + (outbuf[1]<<16) + (outbuf[2]<<8) + outbuf[3];
++      if (errno != EINVAL) return '?';
++    }
++    return '?';
++  }
++
+   switch(multibyte) {
+     case 0: /* single-byte */
+       return iso2022();
+@@ -1920,6 +1957,8 @@
+   int wordbreakmode;
+   int char_not_added;
+ 
++  setlocale(LC_CTYPE, "");
++
+   Myargc = argc;
+   Myargv = argv;
+   getparams();

@@ -1,0 +1,4 @@
+#!/usr/bin/env dl
+
+gir-repository-${UB_VERSION}.tar.bz2 gir-repository-${UB_VERSION}/
+	ftp://ftp.gnome.org/pub/GNOME/sources/gir-repository/${UB_VERSION_HEAD2}/

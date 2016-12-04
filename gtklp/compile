@@ -1,0 +1,7 @@
+#!/bin/sh -eux
+
+chmod +x autogen.sh
+
+./autogen.sh
+
+ub_compile

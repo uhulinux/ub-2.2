@@ -1,0 +1,4 @@
+#!/usr/bin/env dl
+
+smpeg-${UB_VERSION}.tar.gz smpeg-${UB_VERSION}/
+	ftp://mirrors.dotsrc.org/lokigames/open-source/smpeg/

@@ -1,0 +1,24 @@
+diff -Naur rsync-3.0.6-orig/loadparm.c rsync-3.0.6/loadparm.c
+--- rsync-3.0.6-orig/loadparm.c	2009-01-17 22:41:35.000000000 +0100
++++ rsync-3.0.6/loadparm.c	2009-06-06 21:37:56.000000000 +0200
+@@ -59,7 +59,7 @@
+ #define LOG_DAEMON 0
+ #endif
+ 
+-#define DEFAULT_DONT_COMPRESS "*.gz *.zip *.z *.rpm *.deb *.iso *.bz2" \
++#define DEFAULT_DONT_COMPRESS "*.gz *.zip *.z *.rpm *.deb *.uhu *.iso *.bz2" \
+ 	" *.t[gb]z *.7z *.mp[34] *.mov *.avi *.ogg *.jpg *.jpeg"
+ 
+ /* the following are used by loadparm for option lists */
+diff -Naur rsync-3.0.6-orig/rsync.yo rsync-3.0.6/rsync.yo
+--- rsync-3.0.6-orig/rsync.yo	2009-05-08 19:07:14.000000000 +0200
++++ rsync-3.0.6/rsync.yo	2009-06-06 21:56:26.000000000 +0200
+@@ -1620,7 +1620,7 @@
+ The default list of suffixes that will not be compressed is this (several
+ of these are newly added for 3.0.0):
+ 
+-verb(    gz/zip/z/rpm/deb/iso/bz2/t[gb]z/7z/mp[34]/mov/avi/ogg/jpg/jpeg)
++verb(    gz/zip/z/rpm/deb/uhu/iso/bz2/t[gb]z/7z/mp[34]/mov/avi/ogg/jpg/jpeg)
+ 
+ This list will be replaced by your bf(--skip-compress) list in all but one
+ situation: a copy from a daemon rsync will add your skipped suffixes to

@@ -1,0 +1,10 @@
+[Desktop Entry]
+Encoding=UTF-8
+Name=X-CD-Roast
+Comment=CD burner
+Comment[hu]=CD-író program
+Exec=xcdroast
+Icon=/usr/lib/xcdroast/icons/xcdricon.png
+Terminal=0
+Type=Application
+Categories=Application;Office;X-UHU-Menu/Multimedia/CDwriters;

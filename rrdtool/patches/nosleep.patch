@@ -1,0 +1,19 @@
+diff -Naurd a/configure b/configure
+--- a/configure	2007-12-04 00:01:15.000000000 +0100
++++ b/configure	2007-12-05 21:27:06.000000000 +0100
+@@ -28597,15 +28597,10 @@
+ echo "${ECHO_T}and out again" >&6; }
+ 
+ echo $ECHO_N "ordering CD from http://tobi.oetiker.ch/wish $ECHO_C" 1>&6
+-sleep 1
+ echo $ECHO_N ".$ECHO_C" 1>&6
+-sleep 1
+ echo $ECHO_N ".$ECHO_C" 1>&6
+-sleep 1
+ echo $ECHO_N ".$ECHO_C" 1>&6
+-sleep 1
+ echo $ECHO_N ".$ECHO_C" 1>&6
+-sleep 1
+ { echo "$as_me:$LINENO: result:  just kidding ;-)" >&5
+ echo "${ECHO_T} just kidding ;-)" >&6; }
+ echo

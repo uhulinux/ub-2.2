@@ -1,0 +1,6 @@
+#!/bin/sh -eux
+
+cp -a bash_completion "$UB_INSTALLDIR"/etc/
+
+mkdir "$UB_INSTALLDIR"/etc/bash_completion.d
+cp -a contrib/. "$UB_INSTALLDIR"/etc/bash_completion.d/

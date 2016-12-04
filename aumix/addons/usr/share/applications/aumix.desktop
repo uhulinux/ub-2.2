@@ -1,0 +1,9 @@
+[Desktop Entry]
+Encoding=UTF-8
+Name=GAumix
+Comment=GTK mixer
+Comment[hu]=GTK felületű hangkeverő
+Exec=gaumix
+Terminal=0
+Type=Application
+Categories=Application;AudioVideo;X-UHU-Menu/Multimedia/Mixers;

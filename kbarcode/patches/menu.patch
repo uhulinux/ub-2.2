@@ -1,0 +1,68 @@
+diff -urN kbarcode-2.0.1.orig/kbarcode/kbarcode-batch.desktop kbarcode-2.0.1/kbarcode/kbarcode-batch.desktop
+--- kbarcode-2.0.1.orig/kbarcode/kbarcode-batch.desktop	2006-01-14 13:21:59.000000000 +0100
++++ kbarcode-2.0.1/kbarcode/kbarcode-batch.desktop	2006-04-10 18:34:51.000000000 +0200
+@@ -6,7 +6,9 @@
+ DocPath=kbarcode/index.html
+ Comment=Barcode and label printing tool (batch printing mode)
+ Comment[de]=Werkzeug zum Barcode und Etiketten Druck (Stapelverarbeitung)
++Comment[hu]=KBarcode kötegelt nyomtató
+ Terminal=false
+ Name=KBarcode Batch Printing
+ Name[de]=KBarcode Batch Druck
+-Categories=Qt;KDE;Office;
++Name[hu]=KBarcode kötegelt nyomtató
++Categories=Qt;KDE;Office;X-UHU-Menu/Tools/Utilities;
+diff -urN kbarcode-2.0.1.orig/kbarcode/kbarcode.desktop kbarcode-2.0.1/kbarcode/kbarcode.desktop
+--- kbarcode-2.0.1.orig/kbarcode/kbarcode.desktop	2006-01-14 13:24:29.000000000 +0100
++++ kbarcode-2.0.1/kbarcode/kbarcode.desktop	2006-04-10 18:34:54.000000000 +0200
+@@ -7,7 +7,8 @@
+ DocPath=kbarcode/index.html
+ Comment=Barcode and label printing tool
+ Comment[de]=Werkzeug zum Barcode und Etiketten Druck
++Comment[hu]=Vonalkódkészítő
+ Terminal=0
+ Name=KBarcode
+ Name[de]=KBarcode
+-Categories=Qt;KDE;Office;
++Categories=Qt;KDE;Office;X-UHU-Menu/Tools/Utilities;
+diff -urN kbarcode-2.0.1.orig/kbarcode/kbarcode-editor.desktop kbarcode-2.0.1/kbarcode/kbarcode-editor.desktop
+--- kbarcode-2.0.1.orig/kbarcode/kbarcode-editor.desktop	2006-01-14 13:23:16.000000000 +0100
++++ kbarcode-2.0.1/kbarcode/kbarcode-editor.desktop	2006-04-10 18:37:17.000000000 +0200
+@@ -6,9 +6,9 @@
+ DocPath=kbarcode/index.html
+ Comment=Barcode and label printing tool (editor)
+ Comment[de]=Werkzeug zum Barcode und Etiketten Druck (Editor)
++Comment[hu]=KBarcode címkeszerkesztő
+ Terminal=false
+ Name=KBarcode Label Editor
+ Name[de]=KBarcode Label Editor
+-Categories=Qt;KDE;Office;
+-
+-
++Name[hu]=KBarcode címkeszerkesztő
++Categories=Qt;KDE;Office;X-UHU-Menu/Tools/Utilities;
+diff -urN kbarcode-2.0.1.orig/kbarcode/kbarcode-label.desktop kbarcode-2.0.1/kbarcode/kbarcode-label.desktop
+--- kbarcode-2.0.1.orig/kbarcode/kbarcode-label.desktop	2004-06-30 10:18:36.000000000 +0200
++++ kbarcode-2.0.1/kbarcode/kbarcode-label.desktop	2006-04-10 18:36:56.000000000 +0200
+@@ -1,6 +1,7 @@
+ [Desktop Entry]
+ Type=MimeType
+ Comment=KBarcode Label
++Comment[hu]=KBarcode címke
+ Encoding=UTF-8
+ Icon=kbarcode
+ MimeType=application/kbarcode-label
+diff -urN kbarcode-2.0.1.orig/kbarcode/kbarcode-single.desktop kbarcode-2.0.1/kbarcode/kbarcode-single.desktop
+--- kbarcode-2.0.1.orig/kbarcode/kbarcode-single.desktop	2006-01-14 13:40:59.000000000 +0100
++++ kbarcode-2.0.1/kbarcode/kbarcode-single.desktop	2006-04-10 18:35:28.000000000 +0200
+@@ -6,7 +6,9 @@
+ DocPath=kbarcode/index.html
+ Comment=Barcode generation tool
+ Comment[de]=Barcode Erstellung
++Comment[hu]=KBarcode vonalkódkészítő
+ Terminal=0
+ Name=KBarcode Barcode Generator
+ Name[de]=KBarcode Barcode Generator
+-Categories=Qt;KDE;Office;
++Name[hu]=KBarcode vonalkódkészítő
++Categories=Qt;KDE;Office;X-UHU-Menu/Tools/Utilities;

@@ -1,0 +1,4 @@
+#!/usr/bin/env dl
+
+aqemu-${UB_VERSION}.tar.bz2 aqemu-${UB_VERSION_MAJOR}.${UB_VERSION_MINOR}/
+	http://downloads.sourceforge.net/aqemu/

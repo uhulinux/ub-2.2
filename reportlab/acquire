@@ -1,0 +1,4 @@
+#!/usr/bin/env dl
+
+ReportLab_${UB_VERSION/./_}.tar.gz ReportLab_${UB_VERSION/./_}/
+	http://www.reportlab.org/ftp/

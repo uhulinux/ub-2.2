@@ -1,0 +1,36 @@
+diff -Naur a/configure b/configure
+--- a/configure	2003-11-16 16:26:56.000000000 +0100
++++ b/configure	2004-01-18 17:15:20.000000000 +0100
+@@ -15775,7 +15775,7 @@
+ cat confdefs.h >>conftest.$ac_ext
+ cat >>conftest.$ac_ext <<_ACEOF
+ /* end confdefs.h.  */
+-#include <libpq-fe.h>
++#include <postgresql/libpq-fe.h>
+ int
+ main ()
+ {
+diff -Naur a/hk_postgresclasses/hk_postgresqlconnection.h b/hk_postgresclasses/hk_postgresqlconnection.h
+--- a/hk_postgresclasses/hk_postgresqlconnection.h	2003-04-13 11:49:14.000000000 +0200
++++ b/hk_postgresclasses/hk_postgresqlconnection.h	2004-01-18 17:14:50.000000000 +0100
+@@ -11,7 +11,7 @@
+ // ****************************************************************************
+ #ifndef HK_POSTGRESQLCONNECTION
+ #define HK_POSTGRESQLCONNECTION
+-#include <libpq-fe.h>
++#include <postgresql/libpq-fe.h>
+ #include <hk_connection.h>
+ #include <list>
+ #include <vector>
+diff -Naur a/hk_postgresclasses/hk_postgresqldatasource.h b/hk_postgresclasses/hk_postgresqldatasource.h
+--- a/hk_postgresclasses/hk_postgresqldatasource.h	2003-01-11 16:30:29.000000000 +0100
++++ b/hk_postgresclasses/hk_postgresqldatasource.h	2004-01-18 17:14:57.000000000 +0100
+@@ -10,7 +10,7 @@
+ // ****************************************************************************
+ #ifndef HK_POSTGRESSQLDATASOURCE
+ #define HK_POSTGRESSQLDATASOURCE
+-#include <libpq-fe.h>
++#include <postgresql/libpq-fe.h>
+ #include <hk_storagedatasource.h>
+ 
+ class hk_column;

@@ -1,0 +1,4 @@
+#!/usr/bin/env dl
+
+xfce-utils-$UB_VERSION.tar.bz2 xfce-utils-$UB_VERSION/
+	http://archive.xfce.org/src/xfce/xfce-utils/${UB_VERSION_HEAD2}/

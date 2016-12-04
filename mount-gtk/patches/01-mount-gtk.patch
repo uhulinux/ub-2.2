@@ -1,0 +1,90 @@
+diff -Naurd orig/mount-gtk.desktop mod/mount-gtk.desktop
+--- orig/mount-gtk.desktop	2009-01-23 20:45:17.000000000 +0100
++++ mod/mount-gtk.desktop	2009-12-29 22:48:40.000000000 +0100
+@@ -1,11 +1,11 @@
+ [Desktop Entry]
+-Version=1.0
+-Encoding=UTF-8
++Version=1.1
+ Name=Mount-gtk
++Comment[hu]=Csatoló eszköz
+ Type=Application
+ Terminal=false
+ Name[en_GB]=Mount-gtk
+ Exec=mount-gtk
+ Icon=drive-removable-media.png
+ Terminal=false
+-Categories=Utility;
++Categories=Utility;X-UHU-Menu/Tools/Utilities;
+diff -Naurd orig/src/internal/c++-gtk-utils/callback.h mod/src/internal/c++-gtk-utils/callback.h
+--- orig/src/internal/c++-gtk-utils/callback.h	2010-05-05 19:18:25.000000000 +0200
++++ mod/src/internal/c++-gtk-utils/callback.h	2010-05-07 06:49:20.000000000 +0200
+@@ -479,8 +479,8 @@
+ 
+ #include <glib.h>
+ 
+-#include <c++-gtk-utils/shared_ptr.h>
+-#include <c++-gtk-utils/cgu_config.h>
++#include "shared_ptr.h"
++#include "cgu_config.h"
+ 
+ namespace Cgu {
+ 
+diff -Naurd orig/src/internal/c++-gtk-utils/emitter.h mod/src/internal/c++-gtk-utils/emitter.h
+--- orig/src/internal/c++-gtk-utils/emitter.h	2010-05-05 19:18:25.000000000 +0200
++++ mod/src/internal/c++-gtk-utils/emitter.h	2010-05-07 06:49:58.000000000 +0200
+@@ -295,9 +295,9 @@
+ #include <algorithm>
+ #include <functional>
+ 
+-#include <c++-gtk-utils/callback.h>
+-#include <c++-gtk-utils/mutex.h>
+-#include <c++-gtk-utils/cgu_config.h>
++#include "callback.h"
++#include "mutex.h"
++#include "cgu_config.h"
+ 
+ namespace Cgu {
+ 
+diff -Naurd orig/src/internal/c++-gtk-utils/fdstream.h mod/src/internal/c++-gtk-utils/fdstream.h
+--- orig/src/internal/c++-gtk-utils/fdstream.h	2010-05-05 19:18:25.000000000 +0200
++++ mod/src/internal/c++-gtk-utils/fdstream.h	2010-05-07 06:50:16.000000000 +0200
+@@ -117,7 +117,7 @@
+ #include <ostream>
+ #include <streambuf>
+ 
+-#include <c++-gtk-utils/cgu_config.h>
++#include "cgu_config.h"
+ 
+ namespace Cgu {
+ 
+diff -Naurd orig/src/internal/c++-gtk-utils/gerror_handle.h mod/src/internal/c++-gtk-utils/gerror_handle.h
+--- orig/src/internal/c++-gtk-utils/gerror_handle.h	2010-05-05 19:18:25.000000000 +0200
++++ mod/src/internal/c++-gtk-utils/gerror_handle.h	2010-05-07 06:50:39.000000000 +0200
+@@ -26,8 +26,8 @@
+ #define CGU_GERROR_HANDLE_H
+ 
+ #include <glib.h>
+-#include <c++-gtk-utils/shared_handle.h>
+-#include <c++-gtk-utils/cgu_config.h>
++#include "shared_handle.h"
++#include "cgu_config.h"
+ 
+ /**
+  * @addtogroup handles handles and smart pointers
+diff -Naurd orig/src/internal/c++-gtk-utils/thread.h mod/src/internal/c++-gtk-utils/thread.h
+--- orig/src/internal/c++-gtk-utils/thread.h	2010-05-05 19:18:25.000000000 +0200
++++ mod/src/internal/c++-gtk-utils/thread.h	2010-05-07 06:51:07.000000000 +0200
+@@ -29,9 +29,9 @@
+ 
+ #include <pthread.h>
+ 
+-#include <c++-gtk-utils/callback.h>
+-#include <c++-gtk-utils/mutex.h>
+-#include <c++-gtk-utils/cgu_config.h>
++#include "callback.h"
++#include "mutex.h"
++#include "cgu_config.h"
+ 
+ namespace Cgu {
+ 

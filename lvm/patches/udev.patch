@@ -1,0 +1,13 @@
+diff -Naurd a/udev/10-dm.rules.in b/udev/10-dm.rules.in
+--- a/udev/10-dm.rules.in	2009-12-07 13:03:47.000000000 +0100
++++ b/udev/10-dm.rules.in	2010-02-17 13:05:58.150567259 +0100
+@@ -49,7 +49,8 @@
+ # recognize this and do our actions in this particular
+ # situation, too. Also, we don't want the nodes to be
+ # created prematurely on "add" events while not coldplugging.
+-ACTION=="add", ENV{STARTUP}!="1", NAME="", GOTO="dm_end"
++# Or not; this is broken, since *nothing ever sets STARTUP*.
++#ACTION=="add", ENV{STARTUP}!="1", NAME="", GOTO="dm_end"
+ 
+ # "dm" sysfs subdirectory is available in newer versions of DM
+ # only (kernels >= 2.6.29). We have to check for its existence

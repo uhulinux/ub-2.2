@@ -1,0 +1,11 @@
+#!/bin/sh -eux
+
+make -C src ROOT="$UB_INSTALLDIR" install
+
+rm "$UB_INSTALLDIR"/usr/include/initreq.h
+
+cd po
+for i in *.mo; do
+	mkdir -p "$UB_INSTALLDIR/usr/share/locale/${i%.mo}/LC_MESSAGES"
+	install -m 644 "$i" "$UB_INSTALLDIR/usr/share/locale/${i%.mo}/LC_MESSAGES/sysvinit.mo"
+done

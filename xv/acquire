@@ -1,0 +1,4 @@
+#!/usr/bin/env dl
+
+xv-${UB_VERSION}.tar.gz xv-${UB_VERSION}/
+	ftp://ftp.trilon.com/pub/xv/

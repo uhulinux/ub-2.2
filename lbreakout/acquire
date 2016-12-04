@@ -1,0 +1,4 @@
+#!/usr/bin/env dl
+
+lbreakout2-${UB_VERSION}.tar.gz lbreakout2-${UB_VERSION}/
+	http://downloads.sourceforge.net/lgames/

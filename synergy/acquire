@@ -1,0 +1,4 @@
+#!/usr/bin/env dl
+
+synergy-${UB_VERSION}.tar.gz synergy-${UB_VERSION}/
+	http://downloads.sourceforge.net/synergy2/

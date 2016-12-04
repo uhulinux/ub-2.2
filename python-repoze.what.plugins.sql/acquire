@@ -1,0 +1,4 @@
+#!/usr/bin/env dl
+
+repoze.what.plugins.sql-${UB_VERSION}.tar.gz repoze.what.plugins.sql-${UB_VERSION}/
+	http://pypi.python.org/packages/source/r/repoze.what.plugins.sql/

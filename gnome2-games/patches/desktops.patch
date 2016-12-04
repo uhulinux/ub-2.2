@@ -1,0 +1,254 @@
+diff -Naurd gnome-games-2.26.1.orig/aisleriot/freecell.desktop.in.in gnome-games-2.26.1/aisleriot/freecell.desktop.in.in
+--- gnome-games-2.26.1.orig/aisleriot/freecell.desktop.in.in	2009-03-23 16:54:51.000000000 +0100
++++ gnome-games-2.26.1/aisleriot/freecell.desktop.in.in	2009-04-15 19:48:31.000000000 +0200
+@@ -5,7 +5,7 @@
+ Icon=gnome-freecell
+ Terminal=false
+ Type=Application
+-Categories=GNOME;GTK;Game;CardGame;
++Categories=GTK;GNOME;Game;CardGame;X-UHU-Menu/Games/Card;
+ X-GNOME-Bugzilla-Bugzilla=GNOME
+ X-GNOME-Bugzilla-Product=gnome-games
+ X-GNOME-Bugzilla-Component=BugBuddyBugs
+diff -Naurd gnome-games-2.26.1.orig/aisleriot/sol.desktop.in.in gnome-games-2.26.1/aisleriot/sol.desktop.in.in
+--- gnome-games-2.26.1.orig/aisleriot/sol.desktop.in.in	2009-03-23 16:54:51.000000000 +0100
++++ gnome-games-2.26.1/aisleriot/sol.desktop.in.in	2009-04-15 19:49:09.000000000 +0200
+@@ -5,7 +5,7 @@
+ Icon=gnome-aisleriot
+ Terminal=false
+ Type=Application
+-Categories=GNOME;GTK;Game;CardGame;
++Categories=GTK;GNOME;Game;CardGame;X-UHU-Menu/Games/Card;
+ X-GNOME-Bugzilla-Bugzilla=GNOME
+ X-GNOME-Bugzilla-Product=gnome-games
+ X-GNOME-Bugzilla-Component=BugBuddyBugs
+diff -Naurd gnome-games-2.26.1.orig/blackjack/data/blackjack.desktop.in.in gnome-games-2.26.1/blackjack/data/blackjack.desktop.in.in
+--- gnome-games-2.26.1.orig/blackjack/data/blackjack.desktop.in.in	2009-03-23 16:54:51.000000000 +0100
++++ gnome-games-2.26.1/blackjack/data/blackjack.desktop.in.in	2009-04-15 19:47:11.000000000 +0200
+@@ -5,7 +5,7 @@
+ Icon=gnome-blackjack
+ Terminal=false
+ Type=Application
+-Categories=GNOME;GTK;Game;CardGame;
++Categories=GTK;GNOME;Game;CardGame;X-UHU-Menu/Games/Card;
+ X-GNOME-Bugzilla-Bugzilla=GNOME
+ X-GNOME-Bugzilla-Product=gnome-games
+ X-GNOME-Bugzilla-Component=BugBuddyBugs
+diff -Naurd gnome-games-2.26.1.orig/glines/glines.desktop.in.in gnome-games-2.26.1/glines/glines.desktop.in.in
+--- gnome-games-2.26.1.orig/glines/glines.desktop.in.in	2009-03-23 16:54:51.000000000 +0100
++++ gnome-games-2.26.1/glines/glines.desktop.in.in	2009-04-15 19:54:05.000000000 +0200
+@@ -1,11 +1,11 @@
+ [Desktop Entry]
+-_Name=Five or More
++_Name=GLines
+ _Comment=Remove colored balls from the board by forming lines
+ Exec=glines
+ Icon=gnome-glines
+ Terminal=false
+ Type=Application
+-Categories=GNOME;GTK;Game;LogicGame;
++Categories=GTK;GNOME;Game;LogicGame;X-UHU-Menu/Games/TacticStrategy;
+ X-GNOME-Bugzilla-Bugzilla=GNOME
+ X-GNOME-Bugzilla-Product=gnome-games
+ X-GNOME-Bugzilla-Component=BugBuddyBugs
+diff -Naurd gnome-games-2.26.1.orig/gnect/data/gnect.desktop.in.in gnome-games-2.26.1/gnect/data/gnect.desktop.in.in
+--- gnome-games-2.26.1.orig/gnect/data/gnect.desktop.in.in	2009-03-23 16:54:51.000000000 +0100
++++ gnome-games-2.26.1/gnect/data/gnect.desktop.in.in	2009-04-15 19:53:56.000000000 +0200
+@@ -1,11 +1,11 @@
+ [Desktop Entry]
+ Icon=gnome-gnect
+-_Name=Four-in-a-Row
++_Name=GNect
+ _Comment=Make lines of the same color to win
+ Exec=gnect
+ Terminal=false
+ Type=Application
+-Categories=GNOME;GTK;Game;LogicGame;
++Categories=GTK;GNOME;Game;LogicGame;X-UHU-Menu/Games/Board;
+ X-GNOME-Bugzilla-Bugzilla=GNOME
+ X-GNOME-Bugzilla-Product=gnome-games
+ X-GNOME-Bugzilla-Component=BugBuddyBugs
+diff -Naurd gnome-games-2.26.1.orig/gnibbles/gnibbles.desktop.in.in gnome-games-2.26.1/gnibbles/gnibbles.desktop.in.in
+--- gnome-games-2.26.1.orig/gnibbles/gnibbles.desktop.in.in	2009-03-23 16:54:51.000000000 +0100
++++ gnome-games-2.26.1/gnibbles/gnibbles.desktop.in.in	2009-04-15 19:53:45.000000000 +0200
+@@ -1,11 +1,11 @@
+ [Desktop Entry]
+-_Name=Nibbles
++_Name=GNibbles
+ _Comment=Guide a worm around a maze
+ Exec=gnibbles
+ Icon=gnome-gnibbles
+ Terminal=false
+ Type=Application
+-Categories=GNOME;GTK;Game;ArcadeGame;
++Categories=GTK;GNOME;Game;ArcadeGame;X-UHU-Menu/Games/Arcade;
+ X-GNOME-Bugzilla-Bugzilla=GNOME
+ X-GNOME-Bugzilla-Product=gnome-games
+ X-GNOME-Bugzilla-Component=BugBuddyBugs
+diff -Naurd gnome-games-2.26.1.orig/gnobots2/gnobots2.desktop.in.in gnome-games-2.26.1/gnobots2/gnobots2.desktop.in.in
+--- gnome-games-2.26.1.orig/gnobots2/gnobots2.desktop.in.in	2009-03-23 16:54:51.000000000 +0100
++++ gnome-games-2.26.1/gnobots2/gnobots2.desktop.in.in	2009-04-15 19:54:47.000000000 +0200
+@@ -1,11 +1,11 @@
+ [Desktop Entry]
+-_Name=Robots
++_Name=GNobots
+ _Comment=Avoid the robots and make them crash into each other
+ Exec=gnobots2
+ Icon=gnome-robots
+ Terminal=false
+ Type=Application
+-Categories=GNOME;GTK;Game;ArcadeGame;
++Categories=GTK;GNOME;Game;ArcadeGame;X-UHU-Menu/Games/Arcade;
+ X-GNOME-Bugzilla-Bugzilla=GNOME
+ X-GNOME-Bugzilla-Product=gnome-games
+ X-GNOME-Bugzilla-Component=BugBuddyBugs
+diff -Naurd gnome-games-2.26.1.orig/gnome-sudoku/gnome-sudoku.desktop.in.in gnome-games-2.26.1/gnome-sudoku/gnome-sudoku.desktop.in.in
+--- gnome-games-2.26.1.orig/gnome-sudoku/gnome-sudoku.desktop.in.in	2009-03-23 16:54:51.000000000 +0100
++++ gnome-games-2.26.1/gnome-sudoku/gnome-sudoku.desktop.in.in	2009-04-15 19:55:33.000000000 +0200
+@@ -1,11 +1,11 @@
+ [Desktop Entry]
+-_Name=Sudoku
++_Name=GNOME Sudoku
+ _Comment=Test your logic skills in this number grid puzzle
+ Exec=gnome-sudoku
+ Icon=gnome-sudoku
+ Terminal=false
+ Type=Application
+-Categories=GNOME;GTK;Game;LogicGame;
++Categories=GTK;GNOME;Game;LogicGame;X-UHU-Menu/Games/TacticStrategy;
+ X-GNOME-Bugzilla-Bugzilla=GNOME
+ X-GNOME-Bugzilla-Product=gnome-games
+ X-GNOME-Bugzilla-Component=BugBuddyBugs
+diff -Naurd gnome-games-2.26.1.orig/gnometris/gnometris.desktop.in.in gnome-games-2.26.1/gnometris/gnometris.desktop.in.in
+--- gnome-games-2.26.1.orig/gnometris/gnometris.desktop.in.in	2009-03-23 16:54:52.000000000 +0100
++++ gnome-games-2.26.1/gnometris/gnometris.desktop.in.in	2009-04-15 19:56:03.000000000 +0200
+@@ -5,7 +5,7 @@
+ Exec=gnometris
+ Terminal=false
+ Type=Application
+-Categories=GNOME;GTK;Game;BlocksGame;
++Categories=GTK;GNOME;Game;BlocksGame;X-UHU-Menu/Games/Arcade;
+ X-GNOME-Bugzilla-Bugzilla=GNOME
+ X-GNOME-Bugzilla-Product=gnome-games
+ X-GNOME-Bugzilla-Component=BugBuddyBugs
+diff -Naurd gnome-games-2.26.1.orig/gnomine/gnomine.desktop.in.in gnome-games-2.26.1/gnomine/gnomine.desktop.in.in
+--- gnome-games-2.26.1.orig/gnomine/gnomine.desktop.in.in	2009-03-23 16:54:52.000000000 +0100
++++ gnome-games-2.26.1/gnomine/gnomine.desktop.in.in	2009-04-15 19:56:53.000000000 +0200
+@@ -1,11 +1,11 @@
+ [Desktop Entry]
+-_Name=Mines
++_Name=Gnomine
+ _Comment=Clear hidden mines from a minefield
+ Exec=gnomine
+ Icon=gnome-mines
+ Terminal=false
+ Type=Application
+-Categories=GNOME;GTK;Game;LogicGame;
++Categories=GTK;GNOME;Game;LogicGame;X-UHU-Menu/Games/Board;
+ X-GNOME-Bugzilla-Bugzilla=GNOME
+ X-GNOME-Bugzilla-Product=gnome-games
+ X-GNOME-Bugzilla-Component=BugBuddyBugs
+diff -Naurd gnome-games-2.26.1.orig/gnotravex/gnotravex.desktop.in.in gnome-games-2.26.1/gnotravex/gnotravex.desktop.in.in
+--- gnome-games-2.26.1.orig/gnotravex/gnotravex.desktop.in.in	2009-03-23 16:54:52.000000000 +0100
++++ gnome-games-2.26.1/gnotravex/gnotravex.desktop.in.in	2009-04-15 19:57:29.000000000 +0200
+@@ -1,11 +1,11 @@
+ [Desktop Entry]
+-_Name=Tetravex
++_Name=Gnotravex
+ _Comment=Complete the puzzle by matching numbered tiles
+ Exec=gnotravex
+ Icon=gnome-tetravex
+ Terminal=false
+ Type=Application
+-Categories=GNOME;GTK;Game;LogicGame;
++Categories=GTK;GNOME;Game;LogicGame;X-UHU-Menu/Games/TacticStrategy;
+ X-GNOME-Bugzilla-Bugzilla=GNOME
+ X-GNOME-Bugzilla-Product=gnome-games
+ X-GNOME-Bugzilla-Component=BugBuddyBugs
+diff -Naurd gnome-games-2.26.1.orig/gnotski/gnotski.desktop.in.in gnome-games-2.26.1/gnotski/gnotski.desktop.in.in
+--- gnome-games-2.26.1.orig/gnotski/gnotski.desktop.in.in	2009-04-08 21:04:08.000000000 +0200
++++ gnome-games-2.26.1/gnotski/gnotski.desktop.in.in	2009-04-15 19:58:19.000000000 +0200
+@@ -1,11 +1,11 @@
+ [Desktop Entry]
+-_Name=Klotski
++_Name=Gnotski
+ _Comment=Slide blocks to solve the puzzle
+ Exec=gnotski
+ Icon=gnome-klotski
+ Terminal=false
+ Type=Application
+-Categories=GNOME;GTK;Game;LogicGame;
++Categories=GTK;GNOME;Game;LogicGame;X-UHU-Menu/Games/Board;
+ X-GNOME-Bugzilla-Bugzilla=GNOME
+ X-GNOME-Bugzilla-Product=gnome-games
+ X-GNOME-Bugzilla-Component=BugBuddyBugs
+diff -Naurd gnome-games-2.26.1.orig/gtali/gtali.desktop.in.in gnome-games-2.26.1/gtali/gtali.desktop.in.in
+--- gnome-games-2.26.1.orig/gtali/gtali.desktop.in.in	2009-04-08 21:04:08.000000000 +0200
++++ gnome-games-2.26.1/gtali/gtali.desktop.in.in	2009-04-15 19:58:49.000000000 +0200
+@@ -1,11 +1,11 @@
+ [Desktop Entry]
+-_Name=Tali
++_Name=GTali
+ _Comment=Beat the odds in a poker-style dice game
+ Exec=gtali
+ Icon=gnome-tali
+ Terminal=false
+ Type=Application
+-Categories=GNOME;GTK;Game;CardGame;
++Categories=GTK;GNOME;Game;CardGame;X-UHU-Menu/Games/Board;
+ X-GNOME-Bugzilla-Bugzilla=GNOME
+ X-GNOME-Bugzilla-Product=gnome-games
+ X-GNOME-Bugzilla-Component=BugBuddyBugs
+diff -Naurd gnome-games-2.26.1.orig/iagno/iagno.desktop.in.in gnome-games-2.26.1/iagno/iagno.desktop.in.in
+--- gnome-games-2.26.1.orig/iagno/iagno.desktop.in.in	2009-04-08 21:04:08.000000000 +0200
++++ gnome-games-2.26.1/iagno/iagno.desktop.in.in	2009-04-15 19:59:28.000000000 +0200
+@@ -5,7 +5,7 @@
+ Exec=iagno
+ Terminal=false
+ Type=Application
+-Categories=GNOME;GTK;Game;BoardGame;
++Categories=GTK;GNOME;Game;BoardGame;X-UHU-Menu/Games/Board;
+ X-GNOME-Bugzilla-Bugzilla=GNOME
+ X-GNOME-Bugzilla-Product=gnome-games
+ X-GNOME-Bugzilla-Component=BugBuddyBugs
+diff -Naurd gnome-games-2.26.1.orig/lightsoff/lightsoff.desktop.in.in gnome-games-2.26.1/lightsoff/lightsoff.desktop.in.in
+--- gnome-games-2.26.1.orig/lightsoff/lightsoff.desktop.in.in	2009-03-23 16:54:52.000000000 +0100
++++ gnome-games-2.26.1/lightsoff/lightsoff.desktop.in.in	2009-04-15 20:00:33.000000000 +0200
+@@ -1,11 +1,11 @@
+ [Desktop Entry]
+-_Name=Lights Off
++_Name=GNOME Lights Off
+ _Comment=Turn off all the lights
+ Icon=gnome-lightsoff
+ Exec=lightsoff
+ Terminal=false
+ Type=Application
+-Categories=GNOME;GTK;Game;PuzzleGame;
++Categories=GTK;GNOME;Game;PuzzleGame;X-UHU-Menu/Games/Board;
+ X-GNOME-Bugzilla-Bugzilla=GNOME
+ X-GNOME-Bugzilla-Product=gnome-games
+ X-GNOME-Bugzilla-Component=BugBuddyBugs
+diff -Naurd gnome-games-2.26.1.orig/mahjongg/mahjongg.desktop.in.in gnome-games-2.26.1/mahjongg/mahjongg.desktop.in.in
+--- gnome-games-2.26.1.orig/mahjongg/mahjongg.desktop.in.in	2009-04-08 21:04:08.000000000 +0200
++++ gnome-games-2.26.1/mahjongg/mahjongg.desktop.in.in	2009-04-15 20:01:00.000000000 +0200
+@@ -5,7 +5,7 @@
+ Icon=gnome-mahjongg
+ Terminal=false
+ Type=Application
+-Categories=GNOME;GTK;Game;BoardGame;
++Categories=GTK;GNOME;Game;BoardGame;X-UHU-Menu/Games/Board;
+ X-GNOME-Bugzilla-Bugzilla=GNOME
+ X-GNOME-Bugzilla-Product=gnome-games
+ X-GNOME-Bugzilla-Component=BugBuddyBugs
+diff -Naurd gnome-games-2.26.1.orig/same-gnome/same-gnome.desktop.in.in gnome-games-2.26.1/same-gnome/same-gnome.desktop.in.in
+--- gnome-games-2.26.1.orig/same-gnome/same-gnome.desktop.in.in	2009-04-08 21:04:08.000000000 +0200
++++ gnome-games-2.26.1/same-gnome/same-gnome.desktop.in.in	2009-04-15 20:01:29.000000000 +0200
+@@ -5,7 +5,7 @@
+ Icon=gnome-samegnome
+ Terminal=false
+ Type=Application
+-Categories=GNOME;GTK;Game;LogicGame;
++Categories=GTK;GNOME;Game;LogicGame;X-UHU-Menu/Games/TacticStrategy;
+ X-GNOME-Bugzilla-Bugzilla=GNOME
+ X-GNOME-Bugzilla-Product=gnome-games
+ X-GNOME-Bugzilla-Component=BugBuddyBugs

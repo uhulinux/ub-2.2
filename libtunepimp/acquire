@@ -1,0 +1,4 @@
+#!/usr/bin/env dl
+
+libtunepimp-${UB_VERSION}.tar.gz libtunepimp-${UB_VERSION}/
+	ftp://ftp.musicbrainz.org/pub/musicbrainz/

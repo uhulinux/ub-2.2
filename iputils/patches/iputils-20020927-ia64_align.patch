@@ -1,0 +1,40 @@
+--- iputils/ping.c	2005-05-18 01:37:05.621810488 -0400
++++ iputils/ping.c.new	2005-05-18 01:41:27.113018222 -0400
+@@ -101,7 +101,7 @@ static struct {
+ int cmsg_len;
+ 
+ struct sockaddr_in source;
+-char *device;
++char *device=NULL;
+ int pmtudisc = -1;
+ 
+ 
+@@ -177,7 +177,7 @@ main(int argc, char **argv)
+ 				ptr[3] = i4;
+ 				options |= F_STRICTSOURCE;
+ 			} else {
+-				device = optarg;
++				device = strdup(optarg);
+ 			}
+ 			break;
+ 		}
+--- iputils/ping6.c	2005-05-18 01:37:05.620833925 -0400
++++ iputils/ping6.c.new	2005-05-18 01:41:23.599346390 -0400
+@@ -155,7 +155,7 @@ static int pr_icmph(__u8 type, __u8 code
+ static void usage(void) __attribute((noreturn));
+ 
+ struct sockaddr_in6 source;
+-char *device;
++char *device=NULL;
+ int pmtudisc=-1;
+ 
+ static int icmp_sock;
+@@ -248,7 +248,7 @@ int main(int argc, char *argv[])
+ 				}
+ 				options |= F_STRICTSOURCE;
+ 			} else {
+-				device = optarg;
++				device = strdup(optarg);
+ 			}
+ 			break;
+ 		case 'M':

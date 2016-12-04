@@ -1,0 +1,24 @@
+diff -Naur e2fsprogs-1.38.orig/MCONFIG.in e2fsprogs-1.38/MCONFIG.in
+--- e2fsprogs-1.38.orig/MCONFIG.in	2005-02-04 16:43:57.000000000 +0100
++++ e2fsprogs-1.38/MCONFIG.in	2006-04-12 15:51:13.000000000 +0200
+@@ -132,16 +132,16 @@
+ #
+ BINGRP=		bin
+ BINOWN=		bin
+-BINMODE=	555
++BINMODE=	755
+ INCGRP=		bin
+ INCOWN=		bin
+-INCMODE=	444
++INCMODE=	644
+ LIBOWN=		bin
+ LIBGRP=		bin
+-LIBMODE=	444
++LIBMODE=	644
+ MANGRP=		bin
+ MANOWN=		bin
+-MANMODE=	444
++MANMODE=	644
+ 
+ #
+ # Autoconf magic...

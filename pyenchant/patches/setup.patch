@@ -1,0 +1,14 @@
+diff -Naur ORIG/setup.py UHU/setup.py
+--- ORIG/setup.py	2010-02-23 01:51:41.000000000 +0100
++++ UHU/setup.py	2010-02-23 20:04:16.000000000 +0100
+@@ -6,8 +6,8 @@
+ #
+ 
+ 
+-import distribute_setup
+-distribute_setup.use_setuptools()
++#import distribute_setup
++#distribute_setup.use_setuptools()
+ from setuptools import setup, find_packages, Extension
+ 
+ import sys

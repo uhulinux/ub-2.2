@@ -1,0 +1,27 @@
+diff -Naur vacation-1.2.7.0-orig/Makefile vacation-1.2.7.0/Makefile
+--- vacation-1.2.7.0-orig/Makefile	2008-01-18 13:24:47.000000000 +0100
++++ vacation-1.2.7.0/Makefile	2009-11-14 20:00:28.000000000 +0100
+@@ -45,7 +45,7 @@
+ BINDIR		= $(PREFIX)/bin
+ VACATION        = $(BINDIR)/vacation
+ VACLOOK         = $(BINDIR)/vaclook
+-MANDIR		= $(PREFIX)/man/man
++MANDIR		= $(PREFIX)/share/man/man
+ MANEXT1		= 1
+ 
+ VERSION 	= 1
+@@ -70,10 +70,10 @@
+ all:	$(BIN)
+ 
+ install:  all
+-	install -s -m 755 $(BIN) $(VACATION)
+-	install -m 755 vaclook $(VACLOOK)
+-	./html2man.pl < vacation.html > $(MANDIR)$(MANEXT1)/vacation.$(MANEXT1)
+-	install -m 444 vaclook.man $(MANDIR)$(MANEXT1)/vaclook.$(MANEXT1)
++	install -s -m 755 $(BIN) $(DESTDIR)$(VACATION)
++	install -m 755 vaclook $(DESTDIR)$(VACLOOK)
++	install -m 444 vacation.man $(DESTDIR)$(MANDIR)$(MANEXT1)/vacation.$(MANEXT1)
++	install -m 444 vaclook.man $(DESTDIR)$(MANDIR)$(MANEXT1)/vaclook.$(MANEXT1)
+ 
+ vacation:	$(SRC) $(HDR)
+ 	$(CC) $(CFLAGS) $(IFLAGS) $(PFLAGS) $(LFLAGS) -D_PATH_VACATION=\"$(VACATION)\" -o $(BIN) $(SRC) $(LIBS)

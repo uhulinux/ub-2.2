@@ -1,0 +1,4 @@
+#!/usr/bin/env dl
+
+Sub-Install-${UB_VERSION}.tar.gz Sub-Install-${UB_VERSION}/
+	http://cpan.metacpan.org/modules/by-module/Sub/

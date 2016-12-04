@@ -1,0 +1,5 @@
+#!/usr/bin/env dl
+
+dhcpcd-${UB_VERSION/pl/-pl}.tar.gz dhcpcd-${UB_VERSION/pl/-pl}/
+	ftp://ftp.phystech.com/pub/
+

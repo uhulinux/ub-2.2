@@ -1,0 +1,10 @@
+diff -Naur usermode-1.85.orig/shutdown.pamd usermode-1.85/shutdown.pamd
+--- usermode-1.85.orig/shutdown.pamd	2005-10-13 18:40:40.000000000 +0200
++++ usermode-1.85/shutdown.pamd	2006-03-20 16:27:13.000000000 +0100
+@@ -1,5 +1,4 @@
+ #%PAM-1.0
+ auth       sufficient	pam_rootok.so
+-auth       required	pam_console.so
+-#auth       include	system-auth
++auth       required	pam_locallogin.so
+ account    required	pam_permit.so

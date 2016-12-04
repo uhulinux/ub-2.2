@@ -1,0 +1,4 @@
+#!/usr/bin/env dl
+
+mysql-connector-python-${UB_VERSION}-devel.tar.gz mysql-connector-python-${UB_VERSION}-devel/
+	http://launchpad.net/myconnpy/${UB_VERSION_HEAD2}/${UB_VERSION}/+download/

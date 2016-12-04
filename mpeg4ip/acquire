@@ -1,0 +1,5 @@
+#!/usr/bin/env dl
+
+mpeg4ip-${UB_VERSION}.tar.gz mpeg4ip-${UB_VERSION}/
+	ftp://ftp.freebsd.org/pub/FreeBSD/ports/local-distfiles/ahze/
+	http://downloads.sourceforge.net/mpeg4ip/

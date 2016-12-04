@@ -1,0 +1,7 @@
+dbus-glib-dev
+hal-dev
+intltool
+libglade2-dev
+libgnomeui2-dev
+libnotify-dev
+nautilus2

@@ -1,0 +1,9 @@
+[Desktop Entry]
+Encoding=UTF-8
+Type=Application
+Name=JDictionary
+Comment=Dictionary
+Comment[hu]=Szótárprogram
+Exec=jdictionary
+Icon=/usr/share/pixmaps/jdictionary.png
+Categories=X-UHU-Menu/Tools/Dictionaries;

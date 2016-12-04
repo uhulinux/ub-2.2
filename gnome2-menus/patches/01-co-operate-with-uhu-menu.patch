@@ -1,0 +1,11 @@
+diff -Naurdp a/layout/Makefile.in b/layout/Makefile.in
+--- a/layout/Makefile.in	2008-09-08 21:31:27.000000000 +0200
++++ b/layout/Makefile.in	2008-09-10 11:32:29.000000000 +0200
+@@ -227,7 +227,6 @@ top_srcdir = @top_srcdir@
+ NULL = 
+ menudir = $(sysconfdir)/xdg/menus
+ menu_DATA = \
+-	applications.menu		\
+ 	settings.menu			\
+ 	$(NULL)
+ 

@@ -1,0 +1,25 @@
+diff -Naurd orig/Makefile mod/Makefile
+--- orig/Makefile	2009-10-13 18:48:00.000000000 +0200
++++ mod/Makefile	2009-10-30 23:33:44.000000000 +0100
+@@ -1,7 +1,7 @@
+ CFLAGS = -Wall -O2 -std=gnu99
+ DEFS = -D_REENTRANT
+ PKG_CFG = `pkg-config --cflags glib-2.0`
+-prefix = /usr/local
++prefix = /usr
+ libdir = /usr/lib
+ includedir = /usr/include
+ 
+@@ -20,9 +20,8 @@
+ 	rm -f *.so
+ 
+ install:
+-	cp -f vterm.h $(includedir)
+-	cp -f libvterm.so $(libdir)
+-	chmod 755 /usr/lib/libvterm.so
+-	ldconfig	
++	cp -f vterm.h $(DESTDIR)$(includedir)
++	cp -f libvterm.so $(DESTDIR)$(libdir)
++	chmod 755 $(DESTDIR)/usr/lib/libvterm.so
+ 	
+ 

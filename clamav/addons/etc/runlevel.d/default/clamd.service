@@ -1,0 +1,10 @@
+Summary=Clamav daemon
+Summary[hu]=Clamav démon
+Description=Virus scan daemon.
+Description[hu]=Víruskereső démon.
+MsgDesc=Virus Scanner Daemon
+MsgDesc[hu]=Vírusszűrő démon
+Script=/etc/init.d/clamd
+SupportsReload=no
+Runlevels=
+Sequence=19

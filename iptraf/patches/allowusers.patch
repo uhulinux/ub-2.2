@@ -1,0 +1,12 @@
+diff -Naurd a/src/Makefile b/src/Makefile
+--- a/src/Makefile	2004-09-27 19:26:02.966827977 +0200
++++ b/src/Makefile	2004-09-27 19:26:33.671440573 +0200
+@@ -58,7 +58,7 @@
+ #
+ # I have no plans to modify this program to be used by other users.
+ 
+-EXECPERM	=# -DALLOWUSERS
++EXECPERM	= -DALLOWUSERS
+ 
+ ###################################################################
+ ############### IPTRAF DIRECTORY DEFINITIONS.  YOU MAY CHANGE THESE

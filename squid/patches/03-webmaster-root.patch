@@ -1,0 +1,17 @@
+diff -Naur squid-3.0.STABLE15-orig/src/cf.data.pre squid-3.0.STABLE15/src/cf.data.pre
+--- squid-3.0.STABLE15-orig/src/cf.data.pre	2009-05-06 13:11:41.000000000 +0200
++++ squid-3.0.STABLE15/src/cf.data.pre	2009-06-07 23:10:50.000000000 +0200
+@@ -3264,11 +3264,11 @@
+ 
+ NAME: cache_mgr
+ TYPE: string
+-DEFAULT: webmaster
++DEFAULT: root
+ LOC: Config.adminEmail
+ DOC_START
+ 	Email-address of local cache manager who will receive
+-	mail if the cache dies.  The default is "webmaster."
++	mail if the cache dies. The default is "root".
+ DOC_END
+ 
+ NAME: mail_from

@@ -1,0 +1,5 @@
+curl-dev
+dbus-dev
+desktop-file-utils
+gtk2-dev
+libnotify-dev

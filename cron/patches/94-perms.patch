@@ -1,0 +1,12 @@
+diff -Naur vixie-cron-4.1.orig/Makefile vixie-cron-4.1/Makefile
+--- vixie-cron-4.1.orig/Makefile	2006-04-26 16:57:10.000000000 +0200
++++ vixie-cron-4.1/Makefile	2006-04-26 17:01:47.000000000 +0200
+@@ -126,7 +126,7 @@
+ install		:	all
+ 			$(INSTALL) -c -m 755 cron    $(DESTSBIN)/crond
+ 			$(INSTALL) -c -m 4755 crontab $(DESTBIN)/
+-			$(INSTALL) -c -m 0600 crond.pam $(DESTETC)/pam.d/crond
++			$(INSTALL) -c -m 0644 crond.pam $(DESTETC)/pam.d/crond
+ #			$(INSTALL) -c -m  111 -o root -g crontab -s cron $(DESTSBIN)/
+ #			$(INSTALL) -c -m 2111 -o root -g crontab -s crontab $(DESTBIN)/
+ 			sh putman.sh crontab.1 $(DESTMAN)

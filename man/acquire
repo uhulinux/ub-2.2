@@ -1,0 +1,4 @@
+#!/usr/bin/env dl
+
+man-${UB_VERSION}.tar.gz man-${UB_VERSION}/
+	http://primates.ximian.com/~flucifredi/man/

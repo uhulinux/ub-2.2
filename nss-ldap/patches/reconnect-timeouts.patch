@@ -1,0 +1,16 @@
+diff -Nuar --exclude '*~' nss_ldap-250.orig/ldap-nss.h nss_ldap-250/ldap-nss.h
+--- nss_ldap-250.orig/ldap-nss.h	2006-04-26 18:19:00.000000000 -0700
++++ nss_ldap-250/ldap-nss.h	2006-06-14 01:58:01.933005492 -0700
+@@ -96,9 +96,9 @@
+  * unacceptable, in which case you may wish to adjust
+  * the constants below.
+  */
+-#define LDAP_NSS_TRIES           5	/* number of sleeping reconnect attempts */
+-#define LDAP_NSS_SLEEPTIME       4	/* seconds to sleep; doubled until max */
+-#define LDAP_NSS_MAXSLEEPTIME    64	/* maximum seconds to sleep */
++#define LDAP_NSS_TRIES           4	/* number of sleeping reconnect attempts */
++#define LDAP_NSS_SLEEPTIME       1	/* seconds to sleep; doubled until max */
++#define LDAP_NSS_MAXSLEEPTIME    16	/* maximum seconds to sleep */
+ #define LDAP_NSS_MAXCONNTRIES    2	/* reconnect attempts before sleeping */
+ 
+ #if defined(HAVE_NSSWITCH_H) || defined(HAVE_IRS_H)

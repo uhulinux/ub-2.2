@@ -1,0 +1,14 @@
+#!/bin/sh
+
+. /etc/init.d/common
+
+case "$1" in
+	start)
+		/usr/sbin/asterisk
+		;;
+	stop)
+		/usr/sbin/asterisk -rx 'stop now'
+		;;
+esac
+
+exit 0

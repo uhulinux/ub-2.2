@@ -1,0 +1,15 @@
+diff -Naurd a/hald/linux/addons/addon-acpi.c b/hald/linux/addons/addon-acpi.c
+--- a/hald/linux/addons/addon-acpi.c	2007-11-26 19:27:53.000000000 +0100
++++ b/hald/linux/addons/addon-acpi.c	2007-11-26 19:31:51.000000000 +0100
+@@ -190,6 +190,11 @@
+ 
+ 		if (sscanf (event, "%s %s %x %x", acpi_path, acpi_name, &acpi_num1, &acpi_num2) == 4) {
+ 			char udi[256];
++			char *cmd;
++
++			asprintf(&cmd, "/usr/libexec/hal-acpi-event %s %s %08x %08x", acpi_path, acpi_name, acpi_num1, acpi_num2);
++			system(cmd);
++			free(cmd);
+ 
+ 			snprintf (udi, sizeof (udi), "/org/freedesktop/Hal/devices/acpi_%s", acpi_name);
+ 

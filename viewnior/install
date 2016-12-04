@@ -1,0 +1,5 @@
+#!/bin/sh -eux
+
+mv data/viewnior.desktop data/v.dsk
+sed s'/;Viewer;/;Viewer;X-UHU-Menu\/Tools\/Viewers;/' data/v.dsk >data/viewnior.desktop
+ub_install

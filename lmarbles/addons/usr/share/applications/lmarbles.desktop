@@ -1,0 +1,8 @@
+[Desktop Entry]
+Encoding=UTF-8
+Type=Application
+Name=LMarbles
+Exec=lmarbles
+Comment=Atomix-like Game
+Comment[hu]=Atomix-szerű játék
+Categories=X-UHU-Menu/Games/TacticStrategy;

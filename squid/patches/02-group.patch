@@ -1,0 +1,12 @@
+diff -Naur squid-3.0.STABLE15-orig/src/cf.data.pre squid-3.0.STABLE15/src/cf.data.pre
+--- squid-3.0.STABLE15-orig/src/cf.data.pre	2009-06-07 23:20:14.000000000 +0200
++++ squid-3.0.STABLE15/src/cf.data.pre	2009-06-07 23:30:40.000000000 +0200
+@@ -3311,7 +3311,7 @@
+ 
+ NAME: cache_effective_group
+ TYPE: string
+-DEFAULT: none
++DEFAULT: squid
+ LOC: Config.effectiveGroup
+ DOC_START
+ 	Squid sets the GID to the effective user's default group ID

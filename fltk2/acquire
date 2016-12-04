@@ -1,0 +1,4 @@
+#!/usr/bin/env dl
+
+fltk-${UB_VERSION/~/-}.tar.gz fltk-${UB_VERSION/~/-}/
+	http://ftp.funet.fi/pub/mirrors/ftp.easysw.com/pub/fltk/snapshots/

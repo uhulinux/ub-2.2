@@ -1,0 +1,4 @@
+#!/usr/bin/env dl
+
+google-gadgets-for-linux-${UB_VERSION}.tar.bz2 google-gadgets-for-linux-${UB_VERSION}/
+	http://google-gadgets-for-linux.googlecode.com/files/

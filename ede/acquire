@@ -1,0 +1,4 @@
+#!/usr/bin/env dl
+
+ede-$UB_VERSION.tar.gz ede/
+	http://downloads.sourceforge.net/ede/

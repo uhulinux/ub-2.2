@@ -1,0 +1,12 @@
+diff -Naurdp a/arping.c b/arping.c
+--- a/arping.c	2009-12-03 14:22:36.071274848 +0100
++++ b/arping.c	2009-12-03 14:24:05.389775416 +0100
+@@ -346,7 +346,7 @@ main(int argc, char **argv)
+ 			timeout = atoi(optarg);
+ 			break;
+ 		case 'I':
+-			device = optarg;
++			device = strdup(optarg);
+ 			break;
+ 		case 'f':
+ 			quit_on_reply=1;

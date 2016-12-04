@@ -1,0 +1,11 @@
+[Desktop Entry]
+Encoding=UTF-8
+Type=Application
+Name=Vim
+Comment=Vi IMproved, console version
+Comment[hu]=Vim, szöveges változat
+Exec=vim %F
+Icon=/usr/share/pixmaps/vim_small.gif
+Terminal=true
+Categories=X-UHU-Menu/Tools/Editors;
+X-UHU-Major=-1

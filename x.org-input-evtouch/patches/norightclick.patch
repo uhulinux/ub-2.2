@@ -1,0 +1,12 @@
+diff -Naurd a/libtouch.c b/libtouch.c
+--- a/libtouch.c	2007-09-09 14:23:31.000000000 +0200
++++ b/libtouch.c	2008-01-06 20:52:47.000000000 +0100
+@@ -109,7 +109,7 @@
+         {enter_longtouched, handle_longtouched, btn_down_action, 1},
+         {enter_moving, handle_moving, NULL, 0},
+         {enter_maybetap, handle_maybetap, btn_click_action, 1},
+-        {enter_oneandahalftap, handle_oneandahalftap, btn_down_action, 3},
++        {enter_oneandahalftap, handle_oneandahalftap, btn_down_action, 1},
+         {NULL, NULL, NULL, -1},
+ };
+ 

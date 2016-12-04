@@ -1,0 +1,9 @@
+libjpeg-dev
+libpng-dev
+libtiff-dev
+libxcursor-dev
+libxft-dev
+libxrandr-dev
+libxrender-dev
+libxt-dev
+mesa-dev

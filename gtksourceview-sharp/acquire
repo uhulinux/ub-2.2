@@ -1,0 +1,5 @@
+#!/usr/bin/env dl
+
+gtksourceview-sharp-${UB_VERSION_HEAD2}-${UB_VERSION_TAIL2}.tar.bz2 gtksourceview-sharp-${UB_VERSION_HEAD2}-${UB_VERSION_TAIL2}/
+	http://go-mono.com/sources/gtksourceview-sharp-${UB_VERSION_HEAD2}/
+

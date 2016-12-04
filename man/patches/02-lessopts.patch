@@ -1,0 +1,12 @@
+diff -urN man-1.5l.orig/configure man-1.5l/configure
+--- man-1.5l.orig/configure	2003-03-10 21:21:00.000000000 +0100
++++ man-1.5l/configure	2003-03-11 22:42:36.000000000 +0100
+@@ -26,7 +26,7 @@
+ # (Indeed, -r may cause the terminal to get into funny states.
+ # Very inconvenient. For viewing pages in strange locales, set LC_*.)
+ #
+-DEFAULTLESSOPT="-is"
++DEFAULTLESSOPT="-iMS"
+ #
+ # Note that not creating any cat directories (/var/cache/man or so)
+ # and not making man suid or sgid is recommended.

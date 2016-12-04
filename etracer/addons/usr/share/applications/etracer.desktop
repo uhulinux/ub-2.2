@@ -1,0 +1,10 @@
+[Desktop Entry]
+Name=Extreme Tux racer
+Comment=Open-source downhill racing game starring Tux, the Linux mascot
+Comment[hu]=Nyílt forrású, lecsúszós verseny Tux, a pingvin főszereplésével
+Terminal=false
+Type=Application
+Exec=etracer
+Icon=etracericon
+StartupNotify=false
+Categories=Games;X-UHU-Menu/Games/Action;

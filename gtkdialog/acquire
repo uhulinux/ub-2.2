@@ -1,0 +1,4 @@
+#!/usr/bin/env dl
+
+gtkdialog-${UB_VERSION}.tar.gz gtkdialog-${UB_VERSION}/
+	ftp://linux.pte.hu/pub/gtkdialog/

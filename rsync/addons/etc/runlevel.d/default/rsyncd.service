@@ -1,0 +1,11 @@
+Summary=Rsync server
+Summary[hu]=Rsync szerver
+Description=Allows file transfers using the rsync protocol.
+Description[hu]=Fájlok le- és feltöltését teszi lehetővé rsync protokoll használatával.
+MsgDesc=Remote File Synchronization Daemon
+MsgDesc[hu]=Távoli fájlszinkronizálás démon
+Script=/etc/init.d/rsyncd
+SupportsReload=no
+Runlevels=
+Sequence=20
+Resources=tcp/rsync

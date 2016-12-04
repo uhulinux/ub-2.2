@@ -1,0 +1,14 @@
+dbus-glib-dev
+devicekit-power-dev
+gconf2-dev
+gnome2-control-center-dev
+gnome2-keyring-dev
+intltool
+libnotify-dev
+libsm-dev
+libusb-dev
+openssl-dev
+startup-notification-dev
+tcp-wrappers-dev
+x.org-xtrans-dev
+xcb-util-dev

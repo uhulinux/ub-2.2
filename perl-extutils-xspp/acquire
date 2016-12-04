@@ -1,0 +1,4 @@
+#!/usr/bin/env dl
+
+ExtUtils-XSpp-${UB_VERSION}.tar.gz ExtUtils-XSpp-${UB_VERSION}/
+	http://search.cpan.org/CPAN/authors/id/M/MB/MBARBON/

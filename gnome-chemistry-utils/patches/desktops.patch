@@ -1,0 +1,95 @@
+diff -Naurd gchemutils.orig/programs/3d/gchem3d.desktop.in.in gchemutils/programs/3d/gchem3d.desktop.in.in
+--- gchemutils.orig/programs/3d/gchem3d.desktop.in.in	2009-09-03 16:06:22.000000000 +0200
++++ gchemutils/programs/3d/gchem3d.desktop.in.in	2009-09-06 17:04:01.000000000 +0200
+@@ -1,10 +1,10 @@
+ [Desktop Entry]
+ Version=1.0
+-_Name=Molecules Viewer @STABILITY_POSTFIX@
++_Name=GChem3D
+ _Comment=Display chemical 3D structures
+ Exec=gchem3d-@GCU_API_VER@ %u
+ Icon=gchem3d
+ Terminal=false
+ Type=Application
+-Categories=GTK;GNOME;Education;Science;Chemistry;
++Categories=GTK;GNOME;Education;Science;Chemistry;X-UHU-Menu/Edutainment/Tools;
+ MimeType=chemical/x-xyz;chemical/x-mdl-molfile;chemical/x-pdb;
+diff -Naurd gchemutils.orig/programs/calc/gchemcalc.desktop.in.in gchemutils/programs/calc/gchemcalc.desktop.in.in
+--- gchemutils.orig/programs/calc/gchemcalc.desktop.in.in	2009-09-03 16:06:22.000000000 +0200
++++ gchemutils/programs/calc/gchemcalc.desktop.in.in	2009-09-06 18:46:24.000000000 +0200
+@@ -1,9 +1,9 @@
+ [Desktop Entry]
+ Version=1.0
+-_Name=Chemical calculator @STABILITY_POSTFIX@
++_Name=GChemCalc
+ _Comment=A simple calculator for chemistry
+ Exec=gchemcalc-@GCU_API_VER@
+ Icon=gchemcalc
+ Terminal=false
+ Type=Application
+-Categories=GTK;GNOME;Education;Science;Chemistry;
++Categories=GTK;GNOME;Education;Science;Chemistry;X-UHU-Menu/Edutainment/Tools;
+diff -Naurd gchemutils.orig/programs/crystal/gcrystal.desktop.in.in gchemutils/programs/crystal/gcrystal.desktop.in.in
+--- gchemutils.orig/programs/crystal/gcrystal.desktop.in.in	2009-09-03 16:06:22.000000000 +0200
++++ gchemutils/programs/crystal/gcrystal.desktop.in.in	2009-09-06 18:49:10.000000000 +0200
+@@ -1,11 +1,11 @@
+ [Desktop Entry]
+ Version=1.0
+-_Name=Gnome Crystal Crystalline Structures Viewer @STABILITY_POSTFIX@
++_Name=Gnome Crystal
+ _Comment=Edit and display crystalline structures
+ Exec=gcrystal-@GCU_API_VER@ %U
+ Icon=gcrystal
+ Terminal=false
+ Type=Application
+ DocPath=gcrystal/gcrystal.xml
+-Categories=GTK;GNOME;Education;Science;Chemistry;
++Categories=GTK;GNOME;Education;Science;Chemistry;X-UHU-Menu/Edutainment/Tools;
+ MimeType=application/x-gcrystal;
+diff -Naurd gchemutils.orig/programs/paint/gchempaint.desktop.in.in gchemutils/programs/paint/gchempaint.desktop.in.in
+--- gchemutils.orig/programs/paint/gchempaint.desktop.in.in	2009-09-03 16:06:22.000000000 +0200
++++ gchemutils/programs/paint/gchempaint.desktop.in.in	2009-09-06 18:50:11.000000000 +0200
+@@ -1,10 +1,10 @@
+ [Desktop Entry]
+ Version=1.0
+-_Name=GChemPaint Chemical Structures Editor @STABILITY_POSTFIX@
++_Name=GChemPaint
+ _Comment=Edit chemical 2D structures
+ Exec=gchempaint-@GCU_API_VER@ %U
+ Terminal=false
+ Type=Application
+ Icon=gchempaint
+-Categories=GTK;GNOME;Education;Science;Chemistry;
++Categories=GTK;GNOME;Education;Science;Chemistry;X-UHU-Menu/Edutainment/Tools;
+ MimeType=application/x-gchempaint;
+diff -Naurd gchemutils.orig/programs/spectra/gspectrum.desktop.in.in gchemutils/programs/spectra/gspectrum.desktop.in.in
+--- gchemutils.orig/programs/spectra/gspectrum.desktop.in.in	2009-09-03 16:06:22.000000000 +0200
++++ gchemutils/programs/spectra/gspectrum.desktop.in.in	2009-09-06 18:51:14.000000000 +0200
+@@ -1,10 +1,10 @@
+ [Desktop Entry]
+ Version=1.0
+-_Name=Spectrum viewer @STABILITY_POSTFIX@
++_Name=GSpectrum
+ _Comment=A spectrum viewer for the GNOME desktop
+ Exec=gspectrum-@GCU_API_VER@
+ Icon=gspectrum
+ Terminal=false
+ Type=Application
+-Categories=GTK;GNOME;Education;Science;Chemistry;
++Categories=GTK;GNOME;Education;Science;Chemistry;X-UHU-Menu/Edutainment/Tools;
+ MimeType=chemical/x-jcamp-dx;
+diff -Naurd gchemutils.orig/programs/table/gchemtable.desktop.in.in gchemutils/programs/table/gchemtable.desktop.in.in
+--- gchemutils.orig/programs/table/gchemtable.desktop.in.in	2009-09-03 16:06:22.000000000 +0200
++++ gchemutils/programs/table/gchemtable.desktop.in.in	2009-09-06 18:52:09.000000000 +0200
+@@ -1,9 +1,9 @@
+ [Desktop Entry]
+ Version=1.0
+-_Name=Periodic table of the elements @STABILITY_POSTFIX@
++_Name=GChemTable
+ _Comment=A Mendeleiev table of the chemical elements
+ Exec=gchemtable-@GCU_API_VER@
+ Icon=gchemtable
+ Terminal=false
+ Type=Application
+-Categories=GTK;GNOME;Education;Science;Chemistry;
++Categories=GTK;GNOME;Education;Science;Chemistry;X-UHU-Menu/Edutainment/Tools;

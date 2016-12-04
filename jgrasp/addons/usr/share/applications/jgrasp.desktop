@@ -1,0 +1,10 @@
+[Desktop Entry]
+Version=1.1
+Type=Application
+Name=jGRASP
+Comment=jGRASP IDE
+Comment[hu]=jGRASP IDE
+Exec=jgrasp
+Icon=jgrasp.png
+Terminal=false
+Categories=X-UHU-Menu/Development/Programming;

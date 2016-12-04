@@ -1,0 +1,4 @@
+#!/usr/bin/env dl
+
+TimeDate-${UB_VERSION}.tar.gz TimeDate-${UB_VERSION}/
+	ftp://ftp.cpan.org/pub/CPAN/modules/by-module/Time/

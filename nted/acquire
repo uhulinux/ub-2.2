@@ -1,0 +1,4 @@
+#!/usr/bin/env dl
+
+nted-${UB_VERSION}.tar.gz nted-${UB_VERSION}/
+	http://vsr.informatik.tu-chemnitz.de/staff/jan/nted/sources/

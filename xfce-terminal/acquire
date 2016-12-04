@@ -1,0 +1,4 @@
+#!/usr/bin/env dl
+
+Terminal-$UB_VERSION.tar.bz2 Terminal-$UB_VERSION/
+	http://archive.xfce.org/src/apps/terminal/${UB_VERSION_HEAD2}/

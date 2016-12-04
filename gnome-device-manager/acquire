@@ -1,0 +1,4 @@
+#!/usr/bin/env dl
+
+gnome-device-manager-${UB_VERSION}.tar.bz2 gnome-device-manager-${UB_VERSION}/
+	http://people.freedesktop.org/~david/dist/

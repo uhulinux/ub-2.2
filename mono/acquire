@@ -1,0 +1,4 @@
+#!/usr/bin/env dl
+
+mono-${UB_VERSION}.tar.bz2 mono-${UB_VERSION}/
+	http://go-mono.com/sources/mono/

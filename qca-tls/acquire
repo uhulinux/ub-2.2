@@ -1,0 +1,4 @@
+#!/usr/bin/env dl
+
+qca-tls-${UB_VERSION}.tar.bz2 qca-tls-${UB_VERSION}/
+	http://delta.affinix.com/download/qca/

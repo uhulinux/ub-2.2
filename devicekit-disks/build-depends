@@ -1,0 +1,15 @@
+dbus-glib-dev
+devicekit
+docbook-xsl
+eggdbus-dev
+expat-dev
+glib2-dev
+intltool
+libatasmart-dev
+libsgutils
+libsm-dev
+libxslt
+lvm-dev
+parted-dev
+polkit-dev
+udev-dev

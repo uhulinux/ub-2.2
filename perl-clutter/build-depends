@@ -1,0 +1,6 @@
+clutter-dev
+perl-cairo
+perl-extutils-depends
+perl-extutils-pkgconfig
+perl-glib2
+perl-pango

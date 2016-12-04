@@ -1,0 +1,20 @@
+#!/bin/bash
+
+args=("$@")
+lastarg="${args[$((${#args[@]}-1))]}"
+tty="$lastarg"
+if [ "${tty:0:1}" != "/" ]; then
+	tty="/dev/$tty"
+fi
+
+num="-num"
+if [ -f /etc/sysconfig/numlock ]; then
+	if [ "$(</etc/sysconfig/numlock)" = "on" ]; then
+		num="+num"
+	fi
+fi
+if [ "$(type -p setleds)" != "" ]; then
+	setleds -D "$num" <"$tty"
+fi
+
+exec "$@"

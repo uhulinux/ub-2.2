@@ -1,0 +1,11 @@
+[Desktop Entry]
+Encoding=UTF-8
+Name=MD5 sum utility
+Comment=Calculate the md5 sum of a file
+Name[hu]=MD5 ellenőrző összeg számoló
+Comment[hu]=Calculate the md5 sum of a file
+Exec=ghasher %F
+Terminal=false
+Type=Application
+Icon=hash.xpm
+Categories=X-UHU-Menu/Tools/Utilities;

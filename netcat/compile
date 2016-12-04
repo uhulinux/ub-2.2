@@ -1,0 +1,3 @@
+#!/bin/sh -eux
+
+make linux STATIC='' DFLAGS='-DLINUX -DTELNET -DGAPING_SECURITY_HOLE'

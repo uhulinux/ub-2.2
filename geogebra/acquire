@@ -1,0 +1,31 @@
+#!/usr/bin/env dl
+
+geogebra.jar g/
+#	http://www.geogebra.org/webstart/unpacked/ #${UB_VERSION}/unpacked/
+	http://www.geogebra.org/webstart/4.0/unpacked/
+
+geogebra_cas.jar cas/
+#	http://www.geogebra.org/webstart/unpacked/ #${UB_VERSION}/unpacked/
+	http://www.geogebra.org/webstart/4.0/unpacked/
+	
+geogebra_export.jar export/
+#	http://www.geogebra.org/webstart/unpacked/ #${UB_VERSION}/unpacked/
+	http://www.geogebra.org/webstart/4.0/unpacked/
+
+geogebra_gui.jar gui/
+#	http://www.geogebra.org/webstart/unpacked/ #${UB_VERSION}/unpacked/
+	http://www.geogebra.org/webstart/4.0/unpacked/
+
+geogebra_main.jar main/
+#	http://www.geogebra.org/webstart/unpacked/ #${UB_VERSION}/unpacked/
+	http://www.geogebra.org/webstart/4.0/unpacked/
+
+geogebra_properties.jar properties/
+#	http://www.geogebra.org/webstart/unpacked/ #${UB_VERSION}/unpacked/
+	http://www.geogebra.org/webstart/4.0/unpacked/
+
+geogebra_javascript.jar javascript/
+	http://www.geogebra.org/webstart/4.0/unpacked/
+
+jlatexmath.jar jlatexmath/
+	http://www.geogebra.org/webstart/4.0/unpacked/

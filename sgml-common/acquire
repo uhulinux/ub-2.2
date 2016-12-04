@@ -1,0 +1,16 @@
+#!/usr/bin/env dl
+
+sgml-common-${UB_VERSION}-27.fc11.src.rpm sgml-common-${UB_VERSION}.tgz sgml-common-${UB_VERSION}/
+	http://download.fedora.redhat.com/pub/fedora/linux/releases/11/Fedora/source/SRPMS/
+
+sgml-common-${UB_VERSION}-27.fc11.src.rpm xml.dcl
+	http://download.fedora.redhat.com/pub/fedora/linux/releases/11/Fedora/source/SRPMS/
+
+sgml-common-${UB_VERSION}-27.fc11.src.rpm xml.soc
+	http://download.fedora.redhat.com/pub/fedora/linux/releases/11/Fedora/source/SRPMS/
+
+sgml-common-${UB_VERSION}-27.fc11.src.rpm html.dcl
+	http://download.fedora.redhat.com/pub/fedora/linux/releases/11/Fedora/source/SRPMS/
+
+sgml-common-${UB_VERSION}-27.fc11.src.rpm html.soc
+	http://download.fedora.redhat.com/pub/fedora/linux/releases/11/Fedora/source/SRPMS/

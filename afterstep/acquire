@@ -1,0 +1,4 @@
+#!/usr/bin/env dl
+
+AfterStep-$UB_VERSION.tar.bz2 AfterStep-$UB_VERSION/
+	ftp://ftp.afterstep.org/stable/

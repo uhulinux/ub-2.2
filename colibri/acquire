@@ -1,0 +1,4 @@
+#!/usr/bin/env dl
+
+colibri.tar.gz colibri/colibri/
+	http://colibri.cvs.sourceforge.net/viewvc/colibri/?view=tar

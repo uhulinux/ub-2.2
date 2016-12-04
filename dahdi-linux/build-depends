@@ -1,0 +1,7 @@
+kernel
+kernel-headers
+module-init-tools
+newt-dev
+procps
+udev
+wget

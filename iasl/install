@@ -1,0 +1,4 @@
+#!/bin/sh -eux
+
+cd compiler
+cp -a iasl "$UB_INSTALLDIR"/usr/bin

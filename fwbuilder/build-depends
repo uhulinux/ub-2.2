@@ -1,0 +1,7 @@
+libfwbuilder
+libfwbuilder-dev
+libnetsnmp-dev
+libxml2-dev
+libxslt-dev
+openssl-dev
+qt4-dev

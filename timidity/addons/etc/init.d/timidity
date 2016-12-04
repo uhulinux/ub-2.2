@@ -1,0 +1,15 @@
+#!/bin/sh
+
+. /etc/init.d/common
+
+DAEMON=/usr/bin/timidity
+PIDFILE="/var/run/timidity.pid"
+DAEMONARGS=(-iAD -B2,8 -Os -q0/0 -k0 --quiet)
+
+function _init() {
+	if [ ! -d /sys/class/sound/sequencer ]; then
+		modprobe snd-seq
+	fi
+}
+
+startstop "$@"

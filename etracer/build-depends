@@ -1,0 +1,12 @@
+freetype2-dev
+libice-dev
+libpng-dev
+libx11-dev
+libxext-dev
+libxi-dev
+libxmu-dev
+mesa-dev
+sdl-dev
+sdl-mixer-dev
+tcl-dev
+unzip

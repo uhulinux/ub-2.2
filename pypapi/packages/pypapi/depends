@@ -1,0 +1,11 @@
+psycopg2 >=
+pyqt4 >=
+python >=
+python-docutils >=
+python-nose >=
+python-sqlalchemy >=
+python-zconfig >=
+python-zope.component >=
+python-zope.event >=
+python-zope.interface >=
+python-zope.schema >=

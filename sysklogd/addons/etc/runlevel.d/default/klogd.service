@@ -1,0 +1,10 @@
+Summary=Kernel Logger
+Summary[hu]=Kernel naplózó
+Description=Feeds kernel log messages into syslogd.
+Description[hu]=A kernel naplóüzeneteit a syslogd-nek továbbítja.
+MsgDesc=Kernel Logger
+MsgDesc[hu]=Kernelnapló-író
+Script=/etc/init.d/klogd
+SupportsReload=no
+Runlevels=2345
+Sequence=04

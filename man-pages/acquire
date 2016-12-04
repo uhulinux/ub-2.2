@@ -1,0 +1,5 @@
+#!/usr/bin/env dl
+
+man-pages-${UB_VERSION}.tar.gz man-pages-${UB_VERSION}/
+	ftp://ftp.win.tue.nl/pub/linux-local/manpages/
+	ftp://ftp.kernel.org/pub/linux/docs/manpages/

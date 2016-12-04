@@ -1,0 +1,14 @@
+enchant-dev
+gconf2-dev
+gst-plugins-base-dev
+gtk2-dev
+intltool
+libjpeg-dev
+libunique-dev
+libwnck-dev
+libxslt-dev
+libxt-dev
+popt-dev
+sqlite-dev
+startup-notification-dev
+webkitgtk-dev

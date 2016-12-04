@@ -1,0 +1,12 @@
+diff -Naurdp a/src/gnome-terminal.schemas.in b/src/gnome-terminal.schemas.in
+--- a/src/gnome-terminal.schemas.in	2008-09-11 15:18:05.000000000 +0200
++++ b/src/gnome-terminal.schemas.in	2008-09-11 15:18:51.000000000 +0200
+@@ -283,7 +283,7 @@
+       <applyto>/apps/gnome-terminal/profiles/Default/scrollback_lines</applyto>
+       <owner>gnome-terminal</owner>
+       <type>int</type>
+-      <default>512</default>
++      <default>20000</default>
+       <locale name="C">
+          <short>Number of lines to keep in scrollback</short>
+          <long>

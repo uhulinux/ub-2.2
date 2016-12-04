@@ -1,0 +1,7 @@
+curl-dev
+libidn-dev
+libsigc++-dev
+libtorrent-dev
+libxml2-dev
+openssl-dev
+xmlrpc-c

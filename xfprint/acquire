@@ -1,0 +1,4 @@
+#!/usr/bin/env dl
+
+xfprint-$UB_VERSION.tar.bz2 xfprint-$UB_VERSION/
+	http://mocha.xfce.org/archive/xfce-$UB_VERSION/src/

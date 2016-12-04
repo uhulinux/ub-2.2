@@ -1,0 +1,220 @@
+diff -Naur sysvinit-2.86.orig/po/hu.po sysvinit-2.86/po/hu.po
+--- sysvinit-2.86.orig/po/hu.po	1970-01-01 01:00:00.000000000 +0100
++++ sysvinit-2.86/po/hu.po	2006-03-21 13:51:21.000000000 +0100
+@@ -0,0 +1,216 @@
++# SOME DESCRIPTIVE TITLE.
++# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
++# This file is distributed under the same license as the PACKAGE package.
++# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
++#
++msgid ""
++msgstr ""
++"Project-Id-Version: SysVinit 2.86\n"
++"Report-Msgid-Bugs-To: \n"
++"POT-Creation-Date: 2006-03-21 13:51+0100\n"
++"PO-Revision-Date: 2006-03-21 12:55+0100\n"
++"Last-Translator: Koblinger Egmont <egmont@uhulinux.hu>\n"
++"Language-Team: Hungarian <hu@li.org>\n"
++"MIME-Version: 1.0\n"
++"Content-Type: text/plain; charset=UTF-8\n"
++"Content-Transfer-Encoding: 8bit\n"
++
++#: src/init.c:223
++msgid "out of memory"
++msgstr ""
++
++#: src/init.c:645
++#, c-format
++msgid "PANIC: segmentation violation at %p%s! sleeping for 30 seconds."
++msgstr ""
++
++#: src/init.c:657
++msgid "PANIC: segmentation violation! sleeping for 30 seconds."
++msgstr ""
++
++#: src/init.c:686
++#, c-format
++msgid "can't open %s"
++msgstr ""
++
++#: src/init.c:866
++#, c-format
++msgid "Id \"%s\" respawning too fast: disabled for %d minutes"
++msgstr "\"%s\" azonosító túl gyakran indul újra, letiltva %d percre"
++
++#: src/init.c:972 src/init.c:1002
++msgid "cannot fork"
++msgstr ""
++
++#: src/init.c:1022
++#, c-format
++msgid "open(%s): %s"
++msgstr ""
++
++#: src/init.c:1048
++#, c-format
++msgid "cannot execute \"%s\""
++msgstr ""
++
++#: src/init.c:1057
++msgid "cannot fork, retry.."
++msgstr ""
++
++#: src/init.c:1144
++msgid "No inittab file found"
++msgstr ""
++
++#: src/init.c:1183
++msgid "missing id field"
++msgstr ""
++
++#: src/init.c:1184
++msgid "missing runlevel field"
++msgstr ""
++
++#: src/init.c:1185
++msgid "missing process field"
++msgstr ""
++
++#: src/init.c:1187
++msgid "missing action field"
++msgstr ""
++
++#: src/init.c:1189
++#, c-format
++msgid "id field too long (max %d characters)"
++msgstr ""
++
++#: src/init.c:1192
++msgid "rlevel field too long (max 11 characters)"
++msgstr ""
++
++#: src/init.c:1194
++msgid "process field too long"
++msgstr ""
++
++#: src/init.c:1196
++msgid "action field too long"
++msgstr ""
++
++#: src/init.c:1198
++#, c-format
++msgid "%s[%d]: %s"
++msgstr ""
++
++#: src/init.c:1213
++#, c-format
++msgid "%s[%d]: %s: unknown action field"
++msgstr ""
++
++#: src/init.c:1223
++#, c-format
++msgid "%s[%d]: duplicate ID field \"%s\""
++msgstr ""
++
++#: src/init.c:1378
++msgid "Sending processes the TERM signal"
++msgstr "TERM szignál küldése a processzeknek"
++
++#: src/init.c:1385
++msgid "Sending processes the KILL signal"
++msgstr "KILL szignál küldése a processzeknek"
++
++#: src/init.c:1425
++#, c-format
++msgid "Pid %d [id %s] seems to hang"
++msgstr ""
++
++#: src/init.c:1588
++#, c-format
++msgid "Initdefault level '%c' is invalid"
++msgstr ""
++
++#: src/init.c:1638 src/init.c:1664
++msgid "Re-reading inittab"
++msgstr "inittab újraolvasása"
++
++#: src/init.c:1654
++#, c-format
++msgid "bad runlevel: %c"
++msgstr "hibás futási szint: %c"
++
++#: src/init.c:1661
++msgid "Going single user"
++msgstr ""
++
++#: src/init.c:1670
++#, c-format
++msgid "Activating demand-procedures for '%c'"
++msgstr ""
++
++#: src/init.c:1673
++msgid "Trying to re-exec init"
++msgstr ""
++
++#: src/init.c:1676
++#, c-format
++msgid "Switching to runlevel: %c"
++msgstr "Váltás új futási szintre: %c"
++
++#: src/init.c:1899
++msgid "Attempt to re-exec failed"
++msgstr ""
++
++#: src/init.c:2039
++#, c-format
++msgid "%s is not a fifo"
++msgstr ""
++
++#: src/init.c:2086
++msgid "error reading initrequest"
++msgstr ""
++
++#: src/init.c:2100
++msgid "got bogus initrequest"
++msgstr ""
++
++#: src/init.c:2140
++msgid "got unimplemented initrequest."
++msgstr ""
++
++#: src/init.c:2219
++msgid "no more processes left in this runlevel"
++msgstr "nincs több processz ezen a futási szinten"
++
++#: src/init.c:2227
++#, c-format
++msgid "Entering runlevel: %c"
++msgstr "Új futási szint: %c"
++
++#: src/init.c:2448
++msgid "reloading"
++msgstr "újratöltés"
++
++#: src/init.c:2495
++#, c-format
++msgid "Usage: %s 0123456SsQqAaBbCcUu\n"
++msgstr "Használat: %s 0123456SsQqAaBbCcUu\n"
++
++#: src/init.c:2521
++#, c-format
++msgid "%s: -e option data too large\n"
++msgstr ""
++
++#: src/init.c:2567
++#, c-format
++msgid "%s: cannot create %s\n"
++msgstr ""
++
++#: src/init.c:2583
++#, c-format
++msgid "timeout opening/writing control channel %s\n"
++msgstr ""
++
++#: src/init.c:2637
++#, c-format
++msgid "%s: must be superuser.\n"
++msgstr "%s: rendszergazdaként kell indítani.\n"
++
++#~ msgid "version %s booting"
++#~ msgstr "%s. verzió indul"

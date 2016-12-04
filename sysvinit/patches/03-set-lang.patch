@@ -1,0 +1,83 @@
+diff -Naur sysvinit-2.86.orig/src/init.c sysvinit-2.86/src/init.c
+--- sysvinit-2.86.orig/src/init.c	2004-07-30 14:16:20.000000000 +0200
++++ sysvinit-2.86/src/init.c	2006-08-09 20:48:18.000000000 +0200
+@@ -123,6 +123,8 @@
+ int oops_error;			/* Used by some of the re-exec code. */
+ const char *Signature = "12567362";	/* Signature for re-exec fd */
+ 
++char lang[37];
++
+ /* Macro to see if this is a special action */
+ #define ISPOWER(i) ((i) == POWERWAIT || (i) == POWERFAIL || \
+ 		    (i) == POWEROKWAIT || (i) == POWERFAILNOW || \
+@@ -784,7 +786,7 @@
+ 
+ 	for (n = 0; environ[n]; n++)
+ 		;
+-	n += NR_EXTRA_ENV + 8;
++	n += NR_EXTRA_ENV + 9;
+ 	e = calloc(n, sizeof(char *));
+ 
+ 	for (n = 0; environ[n]; n++)
+@@ -802,6 +804,9 @@
+ 		e[n++] = istrdup(i_prev);
+ 		e[n++] = istrdup(i_cons);
+ 		e[n++] = istrdup(E_VERSION);
++		if (lang[5] != '\0') {
++			e[n++] = istrdup(lang);
++		}
+ 	}
+ 
+ 	e[n++] = NULL;
+@@ -1102,6 +1107,33 @@
+ }
+ 
+ 
++  /*
++   *	Set LANG for the children if and only if it's not yet set
++   *	via a kernel command line argument
++   *	First put the content of /etc/sysconfig/locale to lang.
++   *	Later LANG will be set to this value.
++   */
++void read_lang(void)
++{
++  int f, i;
++  strcpy(lang, "LANG=");
++  if (getenv("LANG") != NULL)
++	return;
++  f = open("/etc/sysconfig/locale", O_RDONLY);
++  if (f < 0)
++  	return;
++  i = read(f, lang + 5, 32);
++  if (i > 0 && i < 32) {
++	lang[5 + i] = '\0';
++	i = strcspn(lang + 5, " \t\r\n");
++	lang[5 + i] = '\0';
++  } else {
++	lang[5] = '\0';
++  }
++  close(f);
++}
++
++
+ /*
+  *	Read the inittab file.
+  */
+@@ -1135,6 +1167,8 @@
+   INITDBG(L_VB, "Reading inittab");
+ #endif
+ 
++  read_lang();
++
+   /*
+    *	Open INITTAB and real line by line.
+    */
+@@ -2600,6 +2634,8 @@
+ 	int			f;
+ 	int			isinit;
+ 
++	read_lang();
++
+ 	/* Get my own name */
+ 	if ((p = strrchr(argv[0], '/')) != NULL)
+   		p++;

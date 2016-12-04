@@ -1,0 +1,4 @@
+#!/usr/bin/env dl
+
+eventlog-${UB_VERSION}.tar.gz eventlog-${UB_VERSION}/
+	http://www.balabit.hu/downloads/files/syslog-ng/open-source-edition/3.0.4/source/eventlog_${UB_VERSION}.tar.gz

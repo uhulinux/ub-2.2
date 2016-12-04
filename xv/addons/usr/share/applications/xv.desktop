@@ -1,0 +1,7 @@
+[Desktop Entry]
+Encoding=UTF-8
+Type=Application
+Name=xv
+Exec=xv %F
+Icon=/usr/share/pixmaps/xv.png
+Categories=X-UHU-Menu/Graphics/Bitmaps;

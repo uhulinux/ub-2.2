@@ -1,0 +1,8 @@
+[Desktop Entry]
+Encoding=UTF-8
+Type=Application
+Name=tkInfo
+Comment=Info file viewer
+Comment[hu]=Info fájlok megtekintése
+Exec=tkinfo
+Categories=X-UHU-Menu/Documentation;

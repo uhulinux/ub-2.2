@@ -1,0 +1,4 @@
+#!/usr/bin/env dl
+
+deskbar-applet-${UB_VERSION}.tar.gz deskbar-applet-${UB_VERSION}/
+	ftp://ftp.gnome.org/pub/gnome/sources/deskbar-applet/${UB_VERSION_HEAD2}/

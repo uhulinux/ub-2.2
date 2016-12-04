@@ -1,0 +1,73 @@
+diff -Naur man-1.6c.orig/src/man.c man-1.6c/src/man.c
+--- man-1.6c.orig/src/man.c	2005-08-21 01:26:06.000000000 +0200
++++ man-1.6c/src/man.c	2006-03-23 15:34:03.000000000 +0100
+@@ -80,7 +80,6 @@
+ int fsstnd;
+ int noautopath;
+ int nocache;
+-static int is_japanese;
+ static char *language;
+ static char **section_list;
+ 
+@@ -461,17 +460,13 @@
+ parse_roff_directive (char *cp, const char *file, char *buf, int buflen) {
+      char c;
+      int tbl_found = 0;
+-     int use_jroff;
+-
+-     use_jroff = (is_japanese &&
+-		   (strstr(file, "/jman/") || is_lang_page(language, file)));
+ 
+      while ((c = *cp++) != '\0') {
+ 	  switch (c) {
+ 	  case 'e':
+ 	       if (debug)
+ 		    gripe (FOUND_EQN);
+-	       add_directive((do_troff ? "EQN" : use_jroff ? "JNEQN": "NEQN"),
++	       add_directive((do_troff ? "EQN" : "NEQN"),
+ 			     file, buf, buflen);
+ 	       break;
+ 
+@@ -520,7 +515,7 @@
+      if (*buf == 0)
+ 	  return 1;
+ 
+-     add_directive (do_troff ? "TROFF" : use_jroff ? "JNROFF" : "NROFF",
++     add_directive (do_troff ? "TROFF" : "NROFF",
+ 		    "", buf, buflen);
+ 
+      if (tbl_found && !do_troff && *getval("COL"))
+@@ -1181,22 +1176,6 @@
+      return status;
+ }
+ 
+-/* Special code for Japanese (to pick jnroff instead of nroff, etc.) */
+-static void
+-setlang(void) {
+-	char *lang;
+-
+-	/* We use getenv() instead of setlocale(), because of
+-	   glibc 2.1.x security policy for SetUID/SetGID binary. */
+-	if ((lang = getenv("LANG")) == NULL &&
+-	    (lang = getenv("LC_ALL")) == NULL &&
+-	    (lang = getenv("LC_CTYPE")) == NULL)
+-		/* nothing */;
+-
+-	language = lang;
+-	is_japanese = (lang && strncmp(lang, "ja", 2) == 0);
+-}
+-
+ /*
+  * Handle the apropos option.  Cheat by using another program.
+  */
+@@ -1263,10 +1242,6 @@
+      setlocale(LC_MESSAGES, "");
+ #endif
+ 
+-     /* No doubt we'll need some generic language code here later.
+-	For the moment only Japanese support. */
+-     setlang();
+-
+      /* Handle /usr/man/man1.Z/name.1 nonsense from HP */
+      dohp = getenv("MAN_HP_DIREXT");		/* .Z */
+ 

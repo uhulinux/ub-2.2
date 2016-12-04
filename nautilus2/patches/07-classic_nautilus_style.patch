@@ -1,0 +1,24 @@
+diff -urN nautilus-2.6.3.orig/libnautilus-private/apps_nautilus_preferences.schemas.in nautilus-2.6.3/libnautilus-private/apps_nautilus_preferences.schemas.in
+--- nautilus-2.6.3.orig/libnautilus-private/apps_nautilus_preferences.schemas.in	2004-02-20 11:33:46.000000000 +0100
++++ nautilus-2.6.3/libnautilus-private/apps_nautilus_preferences.schemas.in	2004-08-19 10:09:47.977817489 +0200
+@@ -43,7 +43,7 @@
+       <applyto>/apps/nautilus/preferences/always_use_browser</applyto>
+       <owner>nautilus</owner>
+       <type>bool</type>
+-      <default>false</default>
++      <default>true</default>
+       <locale name="C">
+          <short>Enables the classic Nautilus behavior, where all windows are browsers</short>
+          <long>
+diff -urN nautilus-2.6.3.orig/libnautilus-private/nautilus-global-preferences.c nautilus-2.6.3/libnautilus-private/nautilus-global-preferences.c
+--- nautilus-2.6.3.orig/libnautilus-private/nautilus-global-preferences.c	2004-02-20 11:33:46.000000000 +0100
++++ nautilus-2.6.3/libnautilus-private/nautilus-global-preferences.c	2004-08-19 10:10:50.325243472 +0200
+@@ -385,7 +385,7 @@
+ 	},
+ 	{ NAUTILUS_PREFERENCES_ALWAYS_USE_BROWSER,
+ 	  PREFERENCE_BOOLEAN,
+-	  GINT_TO_POINTER (FALSE)
++	  GINT_TO_POINTER (TRUE)
+ 	},
+ 	{ NAUTILUS_PREFERENCES_START_WITH_LOCATION_BAR,
+ 	  PREFERENCE_BOOLEAN,

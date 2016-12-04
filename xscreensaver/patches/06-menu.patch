@@ -1,0 +1,13 @@
+diff -Naurd xscreensaver-5.08.orig/driver/screensaver-properties.desktop.in xscreensaver-5.08/driver/screensaver-properties.desktop.in
+--- xscreensaver-5.08.orig/driver/screensaver-properties.desktop.in	2008-01-27 00:16:59.000000000 +0100
++++ xscreensaver-5.08/driver/screensaver-properties.desktop.in	2009-03-02 22:25:41.000000000 +0100
+@@ -2,7 +2,7 @@
+ Exec=xscreensaver-demo
+ Icon=xscreensaver
+ Terminal=false
+-_Name=Screensaver
++Name=XScreensaver
+ _Comment=Change screensaver properties
+ Type=Application
+-Categories=Settings;DesktopSettings;Security;
++Categories=Settings;DesktopSettings;Security;X-UHU-Menu/Settings;

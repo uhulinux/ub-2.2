@@ -1,0 +1,5 @@
+#!/usr/bin/env dl
+
+audacious-dvb-${UB_VERSION/~/-}.tar.gz trunk-${UB_VERSION#*~}/
+	http://downloads.sourceforge.net/audacious-dvb/
+	svn://audacious-dvb.svn.sourceforge.net/svnroot/audacious-dvb/trunk@${UB_VERSION#*~r}

@@ -1,0 +1,12 @@
+diff -Naur orig/Makefile mod/Makefile
+--- orig/Makefile	2010-04-05 17:48:24.000000000 +0200
++++ mod/Makefile	2010-04-05 17:52:49.000000000 +0200
+@@ -29,7 +29,7 @@
+ # packagers, set DESTDIR to your "package directory" and PREFIX to the prefix you want to have on the end-user system
+ # end-users who build from source: don't care about DESTDIR, update PREFIX if you want to
+ # RUN_PREFIX : what the prefix is when the software is run. usually the same as PREFIX
+-PREFIX?=/usr/local
++PREFIX?=/usr
+ INSTALLDIR?=$(DESTDIR)$(PREFIX)
+ DOCDIR?=$(INSTALLDIR)/share/uzbl/docs
+ RUN_PREFIX?=$(PREFIX)

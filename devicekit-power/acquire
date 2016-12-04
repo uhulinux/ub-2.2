@@ -1,0 +1,4 @@
+#!/usr/bin/env dl
+
+DeviceKit-power-${UB_VERSION}.tar.gz DeviceKit-power-${UB_VERSION}/
+	http://hal.freedesktop.org/releases/

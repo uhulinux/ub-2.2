@@ -1,0 +1,4 @@
+#!/usr/bin/env dl
+
+tea-${UB_VERSION}.tar.bz2 tea-${UB_VERSION}/
+	http://downloads.sourceforge.net/tea-editor/

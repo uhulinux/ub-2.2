@@ -1,0 +1,5 @@
+#!/usr/bin/env dl
+
+fetchmail-${UB_VERSION}.tar.bz2 fetchmail-${UB_VERSION}/
+	http://download.berlios.de/fetchmail/
+	http://download2.berlios.de/fetchmail/

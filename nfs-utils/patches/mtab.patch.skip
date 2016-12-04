@@ -1,0 +1,12 @@
+diff -Naurd a/utils/mount/mount.c b/utils/mount/mount.c
+--- a/utils/mount/mount.c	2007-10-19 05:07:28.000000000 +0200
++++ b/utils/mount/mount.c	2007-10-31 14:24:28.000000000 +0100
+@@ -257,8 +257,6 @@
+ 	}
+ 
+ 	if (fchmod(fileno(mtab), 0644) == -1) {
+-		nfs_error(_("Can't set permissions on mtab: %s"),
+-				strerror(errno));
+ 		goto fail_close;
+ 	}
+ 

@@ -1,0 +1,10 @@
+[Desktop Entry]
+Version=1.1
+Name=Euler
+Comment=Mathematical programming environment like MatLab or Octave
+Comment[hu]=Matematikai programnyelv
+Exec=euler
+Icon=euler-icon.xpm
+Terminal=false
+Type=Application
+Categories=X-UHU-Menu/Edutainment/Mathematics;

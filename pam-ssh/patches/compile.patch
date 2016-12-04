@@ -1,0 +1,22 @@
+diff -Naur pam_ssh-1.91.orig/cipher.c pam_ssh-1.91/cipher.c
+--- pam_ssh-1.91.orig/cipher.c	2004-02-19 19:58:20.000000000 +0100
++++ pam_ssh-1.91/cipher.c	2006-02-23 11:24:12.000000000 +0100
+@@ -39,6 +39,7 @@
+ #include <string.h>
+ 
+ #include <openssl/evp.h>
++#include <openssl/md5.h>
+ 
+ #include <config.h>
+ #include "cipher.h"
+diff -Naur pam_ssh-1.91.orig/pam_ssh.c pam_ssh-1.91/pam_ssh.c
+--- pam_ssh-1.91.orig/pam_ssh.c	2004-04-12 15:55:08.000000000 +0200
++++ pam_ssh-1.91/pam_ssh.c	2006-02-23 11:25:12.000000000 +0100
+@@ -41,6 +41,7 @@
+ #include <sys/param.h>
+ #include <sys/stat.h>
+ #include <config.h>
++#include <syslog.h>
+ #if HAVE_SYS_WAIT_H
+ # include <sys/wait.h>
+ #endif

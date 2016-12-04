@@ -1,0 +1,40 @@
+diff -Naur coreutils-6.9.orig/doc/coreutils.texi coreutils-6.9/doc/coreutils.texi
+--- coreutils-6.9.orig/doc/coreutils.texi	2007-08-14 14:00:26.000000000 +0200
++++ coreutils-6.9/doc/coreutils.texi	2007-08-14 14:01:10.000000000 +0200
+@@ -13514,8 +13514,8 @@
+ supports @code{syslog}.)
+ 
+ This version of @command{su} has support for using PAM for
+-authentication.  You can edit @file{/etc/pam.d/su} to customize its
+-behaviour.
++authentication.  You can edit @file{/etc/pam.d/su} and @file{/etc/pam.d/su-}
++to customize its behaviour.
+ 
+ The program accepts the following options.  Also see @ref{Common options}.
+ 
+diff -Naur coreutils-6.9.orig/src/su.c coreutils-6.9/src/su.c
+--- coreutils-6.9.orig/src/su.c	2007-08-14 14:00:26.000000000 +0200
++++ coreutils-6.9/src/su.c	2007-08-14 14:02:39.000000000 +0200
+@@ -109,8 +109,11 @@
+ 
+ #include "error.h"
+ 
+-/* The official name of this program (e.g., no `g' prefix).  */
++/* The official name of this program (e.g., no `g' prefix).
++ * - Add a "-l" to the name passed to PAM if this is a login simulation
++ */
+ #define PROGRAM_NAME "su"
++#define PROGRAM_NAME_L "su-l"
+ 
+ #define AUTHORS "David MacKenzie"
+ 
+@@ -272,7 +275,8 @@
+ #ifdef USE_PAM
+   struct passwd *caller;
+   char *tty_name, *ttyn;
+-  retval = pam_start(PROGRAM_NAME, pw->pw_name, &conv, &pamh);
++  retval = pam_start(simulate_login ? PROGRAM_NAME_L : PROGRAM_NAME,
++		     pw->pw_name, &conv, &pamh);
+   PAM_BAIL_P;
+ 
+   if (getuid() != 0 && !isatty(0)) {

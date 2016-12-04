@@ -1,0 +1,4 @@
+#!/usr/bin/env dl
+
+Twisted-${UB_VERSION}.tar.bz2 Twisted-${UB_VERSION}/
+	http://tmrc.mit.edu/mirror/twisted/Twisted/${UB_VERSION_HEAD2}/

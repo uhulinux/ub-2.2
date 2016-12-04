@@ -1,0 +1,11 @@
+Summary=IMAP/POP3 Server
+Summary[hu]=IMAP/POP3-szerver
+Description=The Cyrus IMAP Server is a scaleable enterprise mail system designed for use from small to large enterprise environments using standards-based technologies.
+Description[hu]=Nagyteljesítményű levelező-kiszolgáló &IMAP és POP3 hozzáféréssel.
+MsgDesc=IMAP/POP3 Server
+MsgDesc[hu]=IMAP/POP3-szerver
+Script=/etc/init.d/cyrus
+SupportsReload=yes
+Runlevels=
+Sequence=20
+Resources=tcp/imap,tcp/imaps,tcp/pop3,tcp/pop3s,tcp/lmtp

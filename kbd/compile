@@ -1,0 +1,7 @@
+#!/bin/sh -eux
+
+./configure \
+	--prefix=/usr \
+	--datadir=/etc/kbd \
+	--mandir=/usr/share/man
+make

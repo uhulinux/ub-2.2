@@ -1,0 +1,11 @@
+dbus-glib-dev
+eel2-dev
+gamin-dev
+gnome2-keyring-dev
+hal-dev
+intltool
+libglade2-dev
+libnotify-dev
+libusb-dev
+nautilus2-dev
+util-linux-dev

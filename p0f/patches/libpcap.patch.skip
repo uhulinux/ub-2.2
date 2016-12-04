@@ -1,0 +1,11 @@
+diff -Naurd p0f.orig/p0f.c p0f/p0f.c
+--- p0f.orig/p0f.c	2003-10-13 20:57:21.000000000 +0200
++++ p0f/p0f.c	2004-06-14 21:40:07.048586825 +0200
+@@ -35,7 +35,6 @@
+ #include <pcap.h>
+ #include <signal.h>
+ 
+-#include <net/bpf.h>
+ #include <time.h>
+ #include <ctype.h>
+ 

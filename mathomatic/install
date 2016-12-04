@@ -1,0 +1,8 @@
+#!/bin/sh -eux
+
+ub_install
+cd primes
+ub_install
+
+for i in AUTHORS COPYING README.txt VERSION changes.txt; \
+	do rm "$UB_INSTALLDIR"/usr/share/doc/mathomatic/$i; done;

@@ -1,0 +1,23 @@
+diff -urN kbd-1.08.orig/src/findfile.c kbd-1.08/src/findfile.c
+--- kbd-1.08.orig/src/findfile.c	2002-10-11 23:11:00.000000000 +0200
++++ kbd-1.08/src/findfile.c	2003-01-02 21:07:36.000000000 +0100
+@@ -73,6 +73,7 @@
+ 	char *ff, *fdir, *p, *q, **sp;
+ 	struct decompressor *dc;
+ 	int secondpass = 0;
++	struct stat statbuf;
+ 
+ 	ispipe = 0;
+ 
+@@ -137,6 +138,11 @@
+ 
+ 	    sprintf(pathname, "%s/%s", dir, de->d_name);
+ 
++	    if (stat(pathname, &statbuf) == 0 &&
++		S_ISDIR(statbuf.st_mode)) {
++			continue;
++	    }
++
+ 	    /* Does tail consist of a known suffix and possibly
+ 	       a compression suffix? */
+ 	    for(sp = suf; *sp; sp++) {

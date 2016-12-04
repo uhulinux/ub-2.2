@@ -1,0 +1,114 @@
+diff -Naurd hal-0.5.7/tools/hal_find_by_capability.c hal/tools/hal_find_by_capability.c
+--- hal-0.5.7/tools/hal_find_by_capability.c	2005-11-02 16:38:14.000000000 +0100
++++ hal/tools/hal_find_by_capability.c	2006-03-27 18:51:41.000000000 +0200
+@@ -136,6 +136,10 @@
+ 	}
+ 
+ 	dbus_error_init (&error);	
++	if (getenv("HALD_DIRECT_ADDR"))
++		if ((hal_ctx = libhal_ctx_init_direct (&error)))
++			goto hal_ctx_done;
++
+ 	if ((hal_ctx = libhal_ctx_new ()) == NULL) {
+ 		fprintf (stderr, "error: libhal_ctx_new\n");
+ 		return 1;
+@@ -149,7 +153,7 @@
+ 		return 1;
+ 	}
+ 
+-
++hal_ctx_done:
+ 	udis = libhal_find_device_by_capability (hal_ctx, capability, &num_udis, &error);
+ 
+ 	if (dbus_error_is_set (&error)) {
+diff -Naurd hal-0.5.7/tools/hal_find_by_property.c hal/tools/hal_find_by_property.c
+--- hal-0.5.7/tools/hal_find_by_property.c	2005-11-02 16:38:14.000000000 +0100
++++ hal/tools/hal_find_by_property.c	2006-03-27 18:51:37.000000000 +0200
+@@ -144,6 +144,10 @@
+ 	}
+ 
+ 	dbus_error_init (&error);	
++	if (getenv("HALD_DIRECT_ADDR"))
++		if ((hal_ctx = libhal_ctx_init_direct (&error)))
++			goto hal_ctx_done;
++
+ 	if ((hal_ctx = libhal_ctx_new ()) == NULL) {
+ 		fprintf (stderr, "error: libhal_ctx_new\n");
+ 		return 1;
+@@ -157,7 +161,7 @@
+ 		return 1;
+ 	}
+ 
+-
++hal_ctx_done:
+ 	udis = libhal_manager_find_device_string_match (hal_ctx, key, value, &num_udis, &error);
+ 
+ 	if (dbus_error_is_set (&error)) {
+diff -Naurd hal-0.5.7/tools/hal_get_property.c hal/tools/hal_get_property.c
+--- hal-0.5.7/tools/hal_get_property.c	2005-11-02 16:38:14.000000000 +0100
++++ hal/tools/hal_get_property.c	2006-03-27 18:51:34.000000000 +0200
+@@ -153,6 +153,10 @@
+ 	}
+ 
+ 	dbus_error_init (&error);	
++	if (getenv("HALD_DIRECT_ADDR"))
++		if ((hal_ctx = libhal_ctx_init_direct (&error)))
++			goto hal_ctx_done;
++
+ 	if ((hal_ctx = libhal_ctx_new ()) == NULL) {
+ 		fprintf (stderr, "error: libhal_ctx_new\n");
+ 		return 1;
+@@ -166,6 +170,7 @@
+ 		return 1;
+ 	}
+ 
++hal_ctx_done:
+ 	type = libhal_device_get_property_type (hal_ctx, udi, key, &error);
+ 	if (type == LIBHAL_PROPERTY_TYPE_INVALID) {
+ 		fprintf (stderr, "error: libhal_device_get_property_type: %s: %s\n", error.name, error.message);
+diff -Naurd hal-0.5.7/tools/hal_set_property.c hal/tools/hal_set_property.c
+--- hal-0.5.7/tools/hal_set_property.c	2005-11-08 16:47:36.000000000 +0100
++++ hal/tools/hal_set_property.c	2006-03-27 18:51:29.000000000 +0200
+@@ -219,7 +219,11 @@
+ 	
+ 	fprintf (stderr, "\n");
+ 	
+-	dbus_error_init (&error);	
++	dbus_error_init (&error);
++	if (getenv("HALD_DIRECT_ADDR"))
++		if ((hal_ctx = libhal_ctx_init_direct (&error)))
++			goto hal_ctx_done;
++
+ 	if ((hal_ctx = libhal_ctx_new ()) == NULL) {
+ 		fprintf (stderr, "error: libhal_ctx_new\n");
+ 		return 1;
+@@ -233,6 +237,7 @@
+ 		return 1;
+ 	}
+ 
++hal_ctx_done:
+ 	if (remove) {
+ 		rc = libhal_device_remove_property (hal_ctx, udi, key, &error);
+ 		if (rc != 0) {
+diff -Naurd hal-0.5.7/tools/lshal.c hal/tools/lshal.c
+--- hal-0.5.7/tools/lshal.c	2006-02-13 15:35:31.000000000 +0100
++++ hal/tools/lshal.c	2006-03-27 18:51:10.000000000 +0200
+@@ -648,6 +648,10 @@
+ 		loop = NULL;
+ 
+ 	dbus_error_init (&error);
++	if (getenv("HALD_DIRECT_ADDR"))
++		if ((hal_ctx = libhal_ctx_init_direct (&error)))
++			goto hal_ctx_done;
++
+ 	conn = dbus_bus_get (DBUS_BUS_SYSTEM, &error);
+ 	if (conn == NULL) {
+ 		fprintf (stderr, "error: dbus_bus_get: %s: %s\n",
+@@ -675,6 +679,7 @@
+ 		return 1;
+ 	}
+ 
++hal_ctx_done:
+ 	libhal_ctx_set_device_added (hal_ctx, device_added);
+ 	libhal_ctx_set_device_removed (hal_ctx, device_removed);
+ 	libhal_ctx_set_device_new_capability (hal_ctx, device_new_capability);

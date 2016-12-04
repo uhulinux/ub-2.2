@@ -1,0 +1,7 @@
+python-repoze.what
+python-repoze.what.plugins.sql
+python-repoze.who
+python-repoze.who-friendlyform
+python-repoze.who-testutil
+python-repoze.who.plugins.sa
+python-sqlalchemy

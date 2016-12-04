@@ -1,0 +1,20 @@
+diff -Naur orig/Makefile.in patch2/Makefile.in
+--- orig/Makefile.in	2009-02-15 18:50:05.000000000 +0100
++++ patch2/Makefile.in	2009-03-17 16:46:39.000000000 +0100
+@@ -98,7 +98,7 @@
+ 
+ .SUFFIXES: .c .o .os .i
+ 
+-DEFAULT		= $(CDKLIB)
++DEFAULT		= $(CDKLIB) $(CDKSHLIB)
+ 
+ default :: $(DEFAULT)
+ 
+@@ -409,6 +409,7 @@
+ # This installs the CDK shared library.  The rules are for an RPM spec, and
+ # not of general interest.
+ #
++install \
+ installCDKSHLibrary :: $(LIB_DIR) $(CDKSHLIB)
+ 	@echo "Installing CDK library"
+ 	@echo "	$(INSTALL_DATA) $(CDKSHLIB) $(LIB_DIR)"

@@ -1,0 +1,10 @@
+[Desktop Entry]
+Encoding=UTF-8
+Type=Application
+Name=Pilot
+Comment=Pine's file manager
+Comment[hu]=A pine fájlkezelője
+Exec=pilot %f
+Terminal=true
+Categories=X-UHU-Menu/Tools/File_Managers;
+X-UHU-Major=-1

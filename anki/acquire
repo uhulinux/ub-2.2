@@ -1,0 +1,5 @@
+#!/usr/bin/env dl
+
+anki-${UB_VERSION}.tgz anki-${UB_VERSION}/
+	http://anki.googlecode.com/files/
+	http://ichi2.net/anki/download/files/

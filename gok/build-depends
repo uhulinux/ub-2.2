@@ -1,0 +1,14 @@
+at-spi-dev
+dbus-glib-dev
+esound-dev
+gconf2-dev
+gnome2-speech-dev
+intltool
+libcanberra-dev
+libglade2-dev
+libsm-dev
+libwnck-dev
+libxi-dev
+libxtst-dev
+openssl-dev
+rarian-dev

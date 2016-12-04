@@ -1,0 +1,153 @@
+diff -Naurd a/evtouch.c b/evtouch.c
+--- a/evtouch.c	2008-01-20 16:39:19.000000000 +0100
++++ b/evtouch.c	2008-01-20 17:59:35.000000000 +0100
+@@ -869,6 +869,20 @@
+ }
+ 
+ 
++static void
++UpdateConfig (EVTouchPrivatePtr priv)
++{
++	FILE *f;
++
++	if (!priv->autocalibrate)
++		return;
++
++	f = fopen("/etc/X11/evtouch.conf", "w");
++	if (f) {
++		fprintf(f, "%d,%d,%d,%d,%d,%d,%d", priv->min_x, priv->max_x, priv->min_y, priv->max_y, priv->rotate, priv->swap_x, priv->swap_y);
++		fclose(f);
++	}
++}
+ 
+ 
+ static Bool
+@@ -1032,6 +1046,27 @@
+                 xc = ( ((float)xc / max_x) * screen_width ) + dx;
+                 yc = ( ((float)yc / max_y) * screen_height) + dy;
+ 
++				if (xc <= 0) {
++					priv->min_x -= 20;
++					xc = 0;
++					UpdateConfig(priv);
++				}
++				if (xc >= screen_width) {
++					priv->max_x += 20;
++					xc = screen_width;
++					UpdateConfig(priv);
++				}
++				if (yc <= 0) {
++					priv->min_y -= 20;
++					yc = 0;
++					UpdateConfig(priv);
++				}
++				if (yc >= screen_height) {
++					priv->max_y += 20;
++					yc = screen_height;
++					UpdateConfig(priv);
++				}
++
+                 if (priv->swap_y == TRUE)
+                         yc = screen_height - yc;
+ 
+@@ -1054,8 +1089,8 @@
+ 
+ 		switch (rotation) {
+ 			case RR_Rotate_0:
+-                                v0 = xc;
+-                                v1 = yc;
++				v0 = xc;
++				v1 = yc;
+ 				break;
+ 			case RR_Rotate_180:
+ 				v0 = screen_width - xc;
+@@ -1099,6 +1134,9 @@
+         char *s;
+         char tmp_str[8];
+         int timeo = 0;
++		FILE *f;
++		int min_x, max_x, min_y, max_y;
++		int _rotate, _swap_x, _swap_y;
+ 
+         DBGOUT(2, "EVTouch: %s\n", __FUNCTION__);
+ 
+@@ -1144,10 +1182,37 @@
+         priv->phys_width = pScrn->currentMode->HDisplay;  /* physical screen resolution */
+         priv->phys_height = pScrn->currentMode->VDisplay;
+ 
+-        priv->min_x = xf86SetIntOption(local->options, "MinX", 0 );
+-        priv->max_x = xf86SetIntOption(local->options, "MaxX", priv->phys_width );
+-        priv->min_y = xf86SetIntOption(local->options, "MinY", 0 );
+-        priv->max_y = xf86SetIntOption(local->options, "MaxY", priv->phys_height );
++        priv->rotate     = EV_ROTATE_NONE;
++        s = xf86FindOptionValue(local->options, "Rotate");
++        if (s) {
++                if (xf86NameCmp(s, "CW") == 0) {
++                        priv->rotate = EV_ROTATE_CW;                           
++                } else if (xf86NameCmp(s, "CCW") == 0 ) {
++                        priv->rotate = EV_ROTATE_CCW;
++                } 
++        }
++
++        priv->swap_y = xf86SetBoolOption(local->options, "SwapY", FALSE);
++        priv->swap_x = xf86SetBoolOption(local->options, "SwapX", FALSE);
++
++        priv->autocalibrate = xf86SetIntOption(local->options, "AutoCalibrate", 1);
++		if ((f = fopen("/etc/X11/evtouch.conf", "r")) && (fscanf(f, "%d,%d,%d,%d,%d,%d,%d", &min_x, &max_x, &min_y, &max_y, &_rotate, &_swap_x, &_swap_y) == 7)) {
++			priv->min_x = xf86SetIntOption(local->options, "MinX", min_x );
++			priv->max_x = xf86SetIntOption(local->options, "MaxX", max_x );
++			priv->min_y = xf86SetIntOption(local->options, "MinY", min_y );
++			priv->max_y = xf86SetIntOption(local->options, "MaxY", max_y );
++			if ((_rotate >= 0) && (_rotate <= 2))
++				priv->rotate = _rotate;
++			else
++				priv->rotate = 0;
++			priv->swap_x = (_swap_x != 0);
++			priv->swap_y = (_swap_y != 0);
++		} else {
++			priv->min_x = xf86SetIntOption(local->options, "MinX", priv->phys_width/4 );
++			priv->max_x = xf86SetIntOption(local->options, "MaxX", priv->phys_width );
++			priv->min_y = xf86SetIntOption(local->options, "MinY", priv->phys_height/4 );
++			priv->max_y = xf86SetIntOption(local->options, "MaxY", priv->phys_height );
++		}
+ 
+         priv->button_number = xf86SetIntOption(local->options, "ButtonNumber", 2 );
+ 
+@@ -1168,16 +1233,6 @@
+                              xf86SetIntOption( local->options, 
+                                                "MoveLimit", 180 ));
+ 
+-        priv->rotate     = EV_ROTATE_NONE;
+-        s = xf86FindOptionValue(local->options, "Rotate");
+-        if (s) {
+-                if (xf86NameCmp(s, "CW") == 0) {
+-                        priv->rotate = EV_ROTATE_CW;                           
+-                } else if (xf86NameCmp(s, "CCW") == 0 ) {
+-                        priv->rotate = EV_ROTATE_CCW;
+-                } 
+-        }
+-
+         if (priv->rotate == EV_ROTATE_NONE) {
+                 priv->max_rel_x = priv->max_x;
+                 priv->max_rel_y = priv->max_y;
+@@ -1190,9 +1245,6 @@
+                 priv->min_rel_y = priv->min_x;             
+         }
+ 
+-        priv->swap_y = xf86SetBoolOption(local->options, "SwapY", FALSE);
+-        priv->swap_x = xf86SetBoolOption(local->options, "SwapX", FALSE);
+-
+         /* 
+            get calibration parameters from XF86Config 
+         */
+diff -Naurd a/evtouch.h b/evtouch.h
+--- a/evtouch.h	2007-09-09 18:44:56.000000000 +0200
++++ b/evtouch.h	2008-01-20 17:45:34.000000000 +0100
+@@ -89,6 +89,7 @@
+         unsigned char pressed_btn_stat;
+ 
+         int calibrate;
++        int autocalibrate;
+         int fifo;  /*fd of the fifo used for communication with the calibration programm*/
+         int timebase;
+ 

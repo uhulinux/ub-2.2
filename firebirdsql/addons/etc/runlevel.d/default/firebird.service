@@ -1,0 +1,8 @@
+Summary=Firebird Server
+Summary[hu]=Firebird szerver
+Description=Firebird database server.
+Description[hu]=Firebird adatbázis-szerver.
+Script=/etc/init.d/firebird
+SupportsReload=yes
+Runlevels=
+Sequence=20

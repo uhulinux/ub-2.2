@@ -1,0 +1,11 @@
+[Desktop Entry]
+Name=Exchange Connector Setup
+Name[hu]=Exchange Connector beállítások
+Comment=Setup tool to connect exchane servers
+Comment[hu]=Beállítófelület az exchange szerver kapcsolatokhoz
+Exec=exchange-connector-setup
+Icon=/usr/share/evolution-exchange/2.28/images/connector.png
+Terminal=false
+Type=Application
+Categories=GTK;GNOME;Office;Network;X-UHU-Menu/Settings;
+StartupNotify=true

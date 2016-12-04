@@ -1,0 +1,4 @@
+#!/usr/bin/env dl
+
+psycopg2-${UB_VERSION}.tar.gz psycopg2-${UB_VERSION}/
+	http://initd.org/pub/software/psycopg/

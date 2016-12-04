@@ -1,0 +1,10 @@
+Summary=SMART Disk Monitoring Daemon
+Summary[hu]=SMART támogatással rendelkező merevlemezek monitorozója
+Description=SMART Disk Monitoring Daemon
+Description[hu]=SMART támogatással rendelkező merevlemezek monitorozója
+MsgDesc=SMART Disk Monitoring Daemon
+MsgDesc[hu]=SMART diszkfigyelő
+Script=/etc/init.d/smartd
+SupportsReload=yes
+Runlevels=
+Sequence=20

@@ -1,0 +1,17 @@
+#!/bin/sh -eux
+
+rm -rf et
+rm -rf syslog
+ub_compile \
+	--without-bdb \
+	--with-duplicate-db=skiplist \
+	--with-mboxlist-db=skiplist \
+	--with-tls-db=skiplist \
+	--enable-murder \
+	--enable-netscapehack \
+	--enable-listext \
+	--enable-annotatemore \
+	--with-com_err=/usr \
+	--with-syslogfacility=MAIL \
+	--with-service-path=/usr/libexec/cyrus-imapd \
+	--with-cyrus-prefix=/usr/libexec/cyrus-imapd

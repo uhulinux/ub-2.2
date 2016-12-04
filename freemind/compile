@@ -1,0 +1,4 @@
+#!/bin/sh -eux
+
+#/usr/lib/apache-ant/bin/ant dist
+#/usr/lib/apache-ant/bin/ant post

@@ -1,0 +1,71 @@
+--- xmlto-0.0.18/format/docbook/fo.basename	2005-08-08 14:00:24.000000000 +0100
++++ xmlto-0.0.18/format/docbook/fo	2005-08-08 14:01:13.000000000 +0100
+@@ -7,6 +7,6 @@
+   echo "http://docbook.sourceforge.net/release/xsl/current/fo/docbook.xsl"
+   ;;
+ post-process)
+-  cp "$XSLT_PROCESSED" "$OUTPUT_DIR/$(basename ${XSLT_PROCESSED%.*}).fo"
++  cp "$XSLT_PROCESSED" "$OUTPUT_DIR/$(basename "${XSLT_PROCESSED%.*}").fo"
+   ;;
+ esac
+--- xmlto-0.0.18/format/docbook/html-nochunks.basename	2005-08-08 14:01:39.000000000 +0100
++++ xmlto-0.0.18/format/docbook/html-nochunks	2005-08-08 14:01:49.000000000 +0100
+@@ -7,6 +7,6 @@
+   echo "http://docbook.sourceforge.net/release/xsl/current/html/docbook.xsl"
+   ;;
+ post-process)
+-  cp "$XSLT_PROCESSED" "$OUTPUT_DIR/$(basename ${XSLT_PROCESSED%.*}).html"
++  cp "$XSLT_PROCESSED" "$OUTPUT_DIR/$(basename "${XSLT_PROCESSED%.*}").html"
+   ;;
+ esac
+--- xmlto-0.0.18/format/docbook/txt.basename	2005-08-08 14:02:16.000000000 +0100
++++ xmlto-0.0.18/format/docbook/txt	2005-08-08 14:02:26.000000000 +0100
+@@ -29,6 +29,6 @@
+     echo >&2 "Convert HTML to ASCII"
+   fi
+   ${CONVERT} ${ARGS} ${POSTARGS} ${XSLT_PROCESSED} > \
+-   "$OUTPUT_DIR/$(basename ${XSLT_PROCESSED%.*}).txt"
++   "$OUTPUT_DIR/$(basename "${XSLT_PROCESSED%.*}").txt"
+   ;;
+ esac
+--- xmlto-0.0.18/format/fo/dvi.basename	2005-08-08 14:02:39.000000000 +0100
++++ xmlto-0.0.18/format/fo/dvi	2005-08-08 14:02:48.000000000 +0100
+@@ -29,6 +29,6 @@
+       [ "$VERBOSE" -ge 3 ] && cat $OUT
+     fi
+   fi
+-  cp -- *.dvi "$OUTPUT_DIR/$(basename ${XSLT_PROCESSED%.*}).dvi"
++  cp -- *.dvi "$OUTPUT_DIR/$(basename "${XSLT_PROCESSED%.*}").dvi"
+   ;;
+ esac
+--- xmlto-0.0.18/format/fo/pdf.basename	2005-08-08 14:03:01.000000000 +0100
++++ xmlto-0.0.18/format/fo/pdf	2005-08-08 14:03:08.000000000 +0100
+@@ -29,6 +29,6 @@
+       [ "$VERBOSE" -ge 3 ] && cat $OUT
+     fi
+   fi
+-  cp -- *.pdf "$OUTPUT_DIR/$(basename ${XSLT_PROCESSED%.*}).pdf"
++  cp -- *.pdf "$OUTPUT_DIR/$(basename "${XSLT_PROCESSED%.*}").pdf"
+   ;;
+ esac
+--- xmlto-0.0.18/format/fo/ps.basename	2005-08-08 14:03:14.000000000 +0100
++++ xmlto-0.0.18/format/fo/ps	2005-08-08 14:03:23.000000000 +0100
+@@ -33,6 +33,6 @@
+   then
+     echo >&2 "Post-process DVI to PS"
+   fi
+-  dvips -R -q ${POSTPOSTARGS} -o "$OUTPUT_DIR/$(basename ${XSLT_PROCESSED%.*}).ps" *.dvi
++  dvips -R -q ${POSTPOSTARGS} -o "$OUTPUT_DIR/$(basename "${XSLT_PROCESSED%.*}").ps" *.dvi
+   ;;
+ esac
+--- xmlto-0.0.18/xmlto.in.basename	2005-08-08 14:03:38.000000000 +0100
++++ xmlto-0.0.18/xmlto.in	2005-08-08 14:03:52.000000000 +0100
+@@ -339,7 +339,7 @@
+   XSLT_PROCESSED="$INPUT_FILE"
+ else
+   [ "$VERBOSE" -ge 1 ] && echo >&2 "Stylesheet: ${STYLESHEET}"
+-  XSLT_PROCESSED="$XSLT_PROCESSED_DIR/$(basename ${INPUT_FILE%.*}).proc"
++  XSLT_PROCESSED="$XSLT_PROCESSED_DIR/$(basename "${INPUT_FILE%.*}").proc"
+ 
+   if [ "$VERBOSE" -gt 2 ]
+   then

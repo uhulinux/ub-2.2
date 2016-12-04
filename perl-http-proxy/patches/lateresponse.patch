@@ -1,0 +1,118 @@
+diff -Naurd HTTP-Proxy-0.15.orig/lib/HTTP/Proxy.pm HTTP-Proxy-0.15/lib/HTTP/Proxy.pm
+--- HTTP-Proxy-0.15.orig/lib/HTTP/Proxy.pm	2005-04-05 21:22:20.000000000 +0200
++++ HTTP-Proxy-0.15/lib/HTTP/Proxy.pm	2005-04-29 11:27:33.000000000 +0200
+@@ -380,20 +380,20 @@
+         # the header filters created a response,
+         # we won't contact the origin server
+         # FIXME should the response header and body be filtered?
++        my $headresponse = $self->response;
+         goto SEND if defined $self->response;
+ 
+         # FIXME - don't forward requests to ourselves!
+ 
+         # pop a response
+-        my ( $sent, $chunked ) = ( 0, 0 );
++        my ( $init, $sent, $chunked ) = ( 0, 0, 0 );
+         $response = $self->agent->simple_request(
+             $req,
+             sub {
+                 my ( $data, $response, $proto ) = @_;
+ 
+-                # first time, filter the headers
+-                if ( !$sent ) { 
+-                    $sent++;
++                if ( !$init ) { 
++                    $init++;
+                     $self->response( $response );
+                     
+                     # select the response filters
+@@ -402,19 +402,25 @@
+ 
+                     $self->{headers}{response}
+                          ->filter( $response->headers, $response );
+-                    ( $last, $chunked ) =
+-                      $self->_send_response_headers( $served );
++                    $headresponse = $self->response;
+                 }
+-
+                 # filter and send the data
+                 $self->log( DATA, "DATA",
+                     "got " . length($data) . " bytes of body data" );
+                 $self->{body}{response}->filter( \$data, $response, $proto );
++                if (length($data)) {
++                    # first time, filter the headers
++                    if ( !$sent ) { 
++                        $sent++;
++                        ( $last, $chunked ) = $self->_send_response_headers($served);
++                    }
++
+                 if ($chunked) {
+                     printf $conn "%x$CRLF%s$CRLF", length($data), $data
+                       if length($data);    # the filter may leave nothing
+                 }
+                 else { print $conn $data; }
++                }
+             },
+             $self->chunk
+         );
+@@ -424,7 +430,24 @@
+ 
+         # do a last pass, in case there was something left in the buffers
+         my $data = "";    # FIXME $protocol is undef here too
++                if ( !$init ) { 
++                    $init++;
++                    $self->response( $response );
++                    
++                    # select the response filters
++                    $self->{$_}{response}->select_filters( $response )
++                      for qw( headers body );
++
++                    $self->{headers}{response}
++                         ->filter( $response->headers, $response );
++                }
+         $self->{body}{response}->filter_last( \$data, $response, undef );
++					$headresponse ||= $self->response;
++   	             if ( !$sent ) { 
++				 	 $sent++;
++   	                 ( $last, $chunked ) =
++   	                   $self->_send_response_headers( $served);#, $headresponse );
++   	             }
+         if ( length $data ) {
+             if ($chunked) {
+                 printf $conn "%x$CRLF%s$CRLF", length($data), $data;
+@@ -435,11 +469,13 @@
+         # last chunk
+         print $conn "0$CRLF$CRLF" if $chunked;    # no trailers either
+         $self->response($response);
++        $headresponse = $response;
+ 
+         # the callback is not called by LWP::UA->request
+         # in some case (HEAD, error)
+-        if ( !$sent ) {
++        if ( !$init ) {
+             $self->response($response);
++            $headresponse = $response;
+             $self->{$_}{response}->select_filters( $response )
+               for qw( headers body );
+             $self->{headers}{response}
+@@ -454,6 +480,7 @@
+             $response->content_type( "text/plain" );
+             $response->content($died);
+             $self->response($response);
++            $headresponse = $response;
+         }
+ 
+       SEND:
+@@ -470,10 +497,10 @@
+ # expects $served  (number of requests served)
+ # returns $last and $chunked (last request served, chunked encoding)
+ sub _send_response_headers {
+-    my ( $self, $served ) = @_;
++    my ( $self, $served, $response ) = @_;
+     my ( $last, $chunked ) = ( 0, 0 );
+     my $conn = $self->client_socket;
+-    my $response = $self->response;
++    $response ||= $self->response;
+ 
+     # correct headers
+     $response->remove_header("Content-Length")

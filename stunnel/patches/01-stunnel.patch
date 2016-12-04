@@ -1,0 +1,87 @@
+diff -Naur stunnel-4.31-orig/tools/Makefile.in stunnel-4.31/tools/Makefile.in
+--- stunnel-4.31-orig/tools/Makefile.in	2010-01-21 14:26:58.000000000 +0100
++++ stunnel-4.31/tools/Makefile.in	2010-02-05 17:16:24.000000000 +0100
+@@ -382,27 +382,12 @@
+ 	uninstall-examplesDATA uninstall-info-am
+ 
+ install-data-local:
+-	if test ! -r $(DESTDIR)$(confdir)/stunnel.pem; then \
+-		if test -r "$(RANDOM_FILE)"; then \
+-			dd if="$(RANDOM_FILE)" of=stunnel.rnd bs=256 count=1; \
+-			RND="-rand stunnel.rnd"; \
+-		else \
+-			RND=""; \
+-		fi; \
+-		$(openssl) req -new -x509 -days 365 -nodes $$RND \
+-			-config $(srcdir)/stunnel.cnf \
+-			-out stunnel.pem -keyout stunnel.pem; \
+-		test -z "$(USE_DH)" || $(openssl) gendh $$RND 512 >> stunnel.pem; \
+-		$(openssl) x509 -subject -dates -fingerprint -noout -in stunnel.pem; \
+-		${INSTALL} -m 600 stunnel.pem $(DESTDIR)$(confdir)/stunnel.pem; \
+-		rm stunnel.pem; \
+-	fi
+-	${INSTALL} -d -m 1770 $(DESTDIR)$(localstatedir)/lib/stunnel
+-	-chgrp $(DEFAULT_GROUP) $(DESTDIR)$(localstatedir)/lib/stunnel
++	${INSTALL} -d -m 1770 $(DESTDIR)/var/lib/stunnel
++	-chgrp $(DEFAULT_GROUP) $(DESTDIR)/var/lib/stunnel
+ 	if uname | grep SunOS; then \
+-		${INSTALL} -d -m 755 $(DESTDIR)$(localstatedir)/lib/stunnel/dev; \
+-		mknod $(DESTDIR)$(localstatedir)/lib/stunnel/dev/zero c 13 12; \
+-		chmod 666 $(DESTDIR)$(localstatedir)/lib/stunnel/dev/zero; \
++		${INSTALL} -d -m 755 $(DESTDIR)/var/lib/stunnel/dev; \
++		mknod $(DESTDIR)/var/lib/stunnel/dev/zero c 13 12; \
++		chmod 666 $(DESTDIR)/var/lib/stunnel/dev/zero; \
+ 	fi
+ 
+ clean-local:
+diff -Naur stunnel-4.31-orig/tools/stunnel.conf-sample.in stunnel-4.31/tools/stunnel.conf-sample.in
+--- stunnel-4.31-orig/tools/stunnel.conf-sample.in	2010-01-18 14:17:49.000000000 +0100
++++ stunnel-4.31/tools/stunnel.conf-sample.in	2010-02-05 17:25:06.000000000 +0100
+@@ -4,15 +4,15 @@
+ ; please read the manual and make sure you understand them
+ 
+ ; certificate/key is needed in server mode and optional in client mode
+-cert = @prefix@/etc/stunnel/mail.pem
+-;key = @prefix@/etc/stunnel/mail.pem
++cert = /etc/stunnel/mail.pem
++;key = /etc/stunnel/mail.pem
+ 
+ ; protocol version (all, SSLv2, SSLv3, TLSv1)
+ sslVersion = SSLv3
+ 
+ ; security enhancements for UNIX systems - comment them out on Win32
+ ; for chroot a copy of some devices and files is needed within the jail
+-chroot = @prefix@/var/lib/stunnel/
++chroot = /var/lib/stunnel/
+ setuid = nobody
+ setgid = @DEFAULT_GROUP@
+ ; PID is created inside the chroot jail
+@@ -49,17 +49,17 @@
+ 
+ ; service-level configuration
+ 
+-[pop3s]
+-accept  = 995
+-connect = 110
+-
+-[imaps]
+-accept  = 993
+-connect = 143
+-
+-[ssmtp]
+-accept  = 465
+-connect = 25
++;[pop3s]
++;accept  = 995
++;connect = 110
++
++;[imaps]
++;accept  = 993
++;connect = 143
++
++;[ssmtp]
++;accept  = 465
++;connect = 25
+ 
+ ;[https]
+ ;accept  = 443

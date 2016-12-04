@@ -1,0 +1,4 @@
+#!/usr/bin/env dl
+
+libtelepathy-${UB_VERSION}.tar.gz libtelepathy-${UB_VERSION}/
+	http://telepathy.freedesktop.org/releases/libtelepathy/

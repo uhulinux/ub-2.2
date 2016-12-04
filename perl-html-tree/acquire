@@ -1,0 +1,4 @@
+#!/usr/bin/env dl
+
+HTML-Tree-${UB_VERSION}.tar.gz HTML-Tree-${UB_VERSION}/
+	http://search.cpan.org/CPAN/authors/id/P/PE/PETEK/

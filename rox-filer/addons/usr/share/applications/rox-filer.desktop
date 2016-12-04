@@ -1,0 +1,10 @@
+[Desktop Entry]
+Version=1.1
+Type=Application
+Name=ROX-Filer
+Comment=ROX-Filer
+Comment[hu]=ROX-Filer fájlkezelő
+Exec=rox
+Icon=rox.png
+Terminal=false
+Categories=X-UHU-Menu/Tools/File_Managers;

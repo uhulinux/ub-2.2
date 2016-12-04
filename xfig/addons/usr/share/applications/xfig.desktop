@@ -1,0 +1,7 @@
+[Desktop Entry]
+Encoding=UTF-8
+Type=Application
+Name=Xfig
+Exec=xfig %f
+Icon=/usr/share/pixmaps/xfig.png
+Categories=X-UHU-Menu/Graphics/Vectors;

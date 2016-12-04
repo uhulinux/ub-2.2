@@ -1,0 +1,10 @@
+[Desktop Entry]
+Version=1.1
+Type=Application
+Name=Tea Editor
+Comment=Qt based editor
+Comment[hu]=Qt alapú szerkesztő
+Exec=tea %F
+Icon=/usr/share/tea/icons/tea_icon_v2.png
+Terminal=false
+Categories=X-UHU-Menu/Tools/Editors

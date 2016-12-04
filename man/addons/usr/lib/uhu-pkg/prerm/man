@@ -1,0 +1,14 @@
+#!/bin/sh -e
+
+# Szedd ki az exit-et a /usr/lib/uhu-pkg/*/man szkriptek elejéről,
+# ha azt szeretnéd, hogy minden csomagtelepítés és -eltávolítás után
+# újragenerálódjon a whatis adatbázis. (Vigyázz: nagyon lassú.)
+exit 0
+
+if [ ! -f /var/lib/uhu-pkg/man ]; then
+	exit 0
+fi
+
+if grep -q '^/usr/share/man/' /var/lib/dpkg/info/"$1".list; then
+	rm -f /var/lib/uhu-pkg/man
+fi

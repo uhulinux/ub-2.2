@@ -1,0 +1,4 @@
+#!/usr/bin/env dl
+
+telepathy-farsight-${UB_VERSION}.tar.gz telepathy-farsight-${UB_VERSION}/
+	http://telepathy.freedesktop.org/releases/telepathy-farsight/

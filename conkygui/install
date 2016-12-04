@@ -1,0 +1,8 @@
+#!/bin/sh -eux
+
+mkdir -p "$UB_INSTALLDIR"/usr/share/conkygui/lib
+cp -a lib/*.jar "$UB_INSTALLDIR"/usr/share/conkygui/lib/
+cp -a conkygui.* "$UB_INSTALLDIR"/usr/share/conkygui/
+unzip -j conkygui.jar conkygui/resources/images/about.png
+#convert -resize 48x48 about.png conkygui.png
+cp -a about.png "$UB_INSTALLDIR"/usr/share/pixmaps/conkygui.png

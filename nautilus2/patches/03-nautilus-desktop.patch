@@ -1,0 +1,20 @@
+--- nautilus-2.26.2.orig/data/nautilus-browser.desktop.in.in	2008-10-02 14:26:49.000000000 +0200
++++ nautilus-2.26.2/data/nautilus-browser.desktop.in.in	2009-05-08 13:38:02.000000000 +0200
+@@ -1,6 +1,5 @@
+ [Desktop Entry]
+-Encoding=UTF-8
+-_Name=File Browser
++_Name=Nautilus
+ _Comment=Browse the file system with the file manager
+ TryExec=nautilus
+ Exec=nautilus --no-desktop --browser %U
+@@ -8,8 +7,7 @@
+ Terminal=false
+ StartupNotify=true
+ Type=Application
+-Categories=GNOME;GTK;System;Utility;Core;
+-OnlyShowIn=GNOME;
++Categories=GNOME;GTK;System;Utility;Core;X-UHU-Menu/Tools/File_Managers;
+ X-GNOME-Bugzilla-Bugzilla=GNOME
+ X-GNOME-Bugzilla-Product=nautilus
+ X-GNOME-Bugzilla-Component=general

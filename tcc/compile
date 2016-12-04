@@ -1,0 +1,6 @@
+#!/bin/sh -eux
+
+ub_compile
+make CFLAGS="-fPIC" libtcc.o
+ld -shared -soname libtcc.so -o libtcc.so libtcc.o
+    

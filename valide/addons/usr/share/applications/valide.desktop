@@ -1,0 +1,11 @@
+[Desktop Entry]
+Version=1.1
+Type=Application
+Name=Valide
+Comment=Vala IDE
+Comment[hu]=Vala integrált fejlesztő környezet
+Exec=valide
+Icon=/usr/share/pixmaps/valide/icone-64.xpm
+Terminal=false
+StartupNotify=true
+Categories=GTK;Development;IDE;X-UHU-Menu/Development/Programming;

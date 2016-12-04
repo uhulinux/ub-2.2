@@ -1,0 +1,23 @@
+diff -Naur ORIG/Makefile UHU/Makefile
+--- ORIG/Makefile	2008-02-03 03:55:34.000000000 +0100
++++ UHU/Makefile	2009-06-22 21:13:02.000000000 +0200
+@@ -22,8 +22,8 @@
+ libdir = $(exec_prefix)lib/
+ libslibdir = $(libdir)slib/
+ # directory where `make install' will put manual page.
+-man1dir = $(prefix)man/man1/
+-infodir = $(prefix)info/
++man1dir = $(prefix)share/man/man1/
++infodir = $(prefix)share/info/
+ 
+ PREVDOCS = prevdocs/
+ 
+@@ -174,7 +174,7 @@
+ 	mkdir -p $(DESTDIR)$(man1dir)
+ 	-cp slib.1 $(DESTDIR)$(man1dir)
+ 
+-install:	pinstall clrnamdb.scm
++install:	pinstall
+ 	mkdir -p $(DESTDIR)$(libslibdir)
+ 	-cp  $(ifiles) $(sfiles) $(bfiles) $(mkfiles) clrnamdb.scm $(DESTDIR)$(libslibdir)
+ 	mkdir -p $(DESTDIR)$(bindir)

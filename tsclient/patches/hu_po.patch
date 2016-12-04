@@ -1,0 +1,362 @@
+diff -Naurd tsclient.orig/po/hu.po tsclient/po/hu.po
+--- tsclient.orig/po/hu.po	1970-01-01 01:00:00.000000000 +0100
++++ tsclient/po/hu.po	2009-11-17 20:23:06.000000000 +0100
+@@ -0,0 +1,347 @@
++# translation of tsclient.po to Hungarian
++# Terminal Server Client (tsclient)
++# Copyright (C) 2002 Erick Woods
++# This file is distributed under the same license as the tsclient package.
++#
++# Erick Woods <erick@gnomepro.com>, 2002.
++# BÁRTHÁZI András <andras@barthazi.hu>, 2003.
++# Gabor Kelemen <kelemeng@gnome.hu>, 2004.
++# Kalman Kemenczy <kkemenczy@novell.com>, 2008.
++# Németh Tamás <ntomasz@vipmail.hu>, 2009.
++msgid ""
++msgstr ""
++"Project-Id-Version: tsclient\n"
++"Report-Msgid-Bugs-To: \n"
++"POT-Creation-Date: 2009-11-17 20:10+0100\n"
++"PO-Revision-Date: 2009-11-17 20:22+0100\n"
++"Last-Translator: Németh Tamás <ntomasz@vipmail.hu>\n"
++"Language-Team: Hungarian <hu@li.org>\n"
++"MIME-Version: 1.0\n"
++"Content-Type: text/plain; charset=UTF-8\n"
++"Content-Transfer-Encoding: 8bit\n"
++"Plural-Forms:  nplurals=2; plural=(n != 1);\n"
++
++#: ../src/tsc-edit-dialog.c:189
++msgid "<b>This connection must have a name</b>"
++msgstr "<b>A kapcsolatot el kell nevezni</b>"
++
++#: ../src/tsc-edit-dialog.c:261
++msgid "Connection"
++msgstr "Kapcsolat"
++
++#: ../src/tsc-edit-dialog.c:262
++msgid "The TSCConnection to edit"
++msgstr "TSCConnection szerkesztése"
++
++#: ../src/tsc-edit-dialog.c:279 ../src/tsc-window.c:582
++msgid "Edit Connection"
++msgstr "Kapcsolat szerkesztése"
++
++#: ../src/tsc-util.c:32
++#, c-format
++msgid "ERROR: %s: %s\n"
++msgstr "HIBA: %s: %s\n"
++
++#: ../src/tsc-util.c:40
++msgid "Terminal Server Client - Error"
++msgstr "Terminal Server Client - Hiba"
++
++#: ../src/tsc-util.c:52 ../src/tsc-manager.c:643 ../src/tsc-manager.c:683
++#: ../src/tsc-main.c:319 ../src/tsc-main.c:331
++#, c-format
++msgid "Unknown Error"
++msgstr "Ismeretlen hiba"
++
++#: ../src/tsc-util.c:58
++#, c-format
++msgid "Child process crashed"
++msgstr "Az alfolyamat összeomlott"
++
++#: ../src/tsc-util.c:61
++#, c-format
++msgid "Child terminated by signal"
++msgstr "Alfolyamat megszakítva"
++
++#: ../src/tsc-manager.c:208
++#, c-format
++msgid "Failed to load connection file '%s': %s"
++msgstr "A(z) '%s' kapcsolati fájl betöltése sikertelen: %s"
++
++#: ../src/tsc-manager.c:209
++msgid "Unknown Error."
++msgstr "Ismeretlen hiba."
++
++#: ../src/tsc-manager.c:217
++#, c-format
++msgid "Failed to load connection file '%s': No provider specified."
++msgstr ""
++"A(z) %s kapcsolati fájl betöltése sikertelen. Nincs megadva szolgáltató."
++
++#: ../src/tsc-manager.c:225
++#, c-format
++msgid "Failed to load connection file '%s': Provider '%s' is not available."
++msgstr ""
++"A(z) '%s' kapcsolati fájl betöltése sikertelen. A(z) %s szolgáltató nem "
++"érhető el."
++
++#: ../src/tsc-manager.c:400
++#, c-format
++msgid ""
++"<span weight=\"bold\">Reconnect to '%s'?</span>\n"
++"\n"
++"You have been unexpectedly disconnected from '%s'.  Would you like to "
++"reconnect?\n"
++"\n"
++"<i>%s</i>"
++msgstr ""
++"<span weight=\"bold\">Újrakapcsolódik ehhez: '%s'?</span>\n"
++"\n"
++"Váratlanul megszakadt a kapcsolat a következővel: '%s'. Újra kíván "
++"kapcsolódni?\n"
++"\n"
++"<i>%s</i>"
++
++#: ../src/tsc-manager.c:404
++msgid "Terminal Server Client - Reconnect"
++msgstr "Terminal Server Client - Újrakapcsolódás"
++
++#: ../src/tsc-manager.c:428
++#, c-format
++msgid "Connection '%s' failed"
++msgstr "'%s' kapcsolat hibás"
++
++#: ../src/tsc-manager.c:601
++#, c-format
++msgid "No connections specified"
++msgstr "Nincs megadott kapcsolat"
++
++#: ../src/tsc-network.c:37
++msgid "Waiting For Network..."
++msgstr "Várakozás a hálózatra..."
++
++#: ../src/tsc-network.c:39
++msgid "Continue Without Network"
++msgstr "Folytatás hálózat nélkül"
++
++#: ../src/tsc-network.c:43
++msgid "<b>Waiting for network connection, standby...</b>"
++msgstr "<b>Várakozás a hálózati kapcsolatra, készenlét...</b>"
++
++#: ../src/tsc-window.c:181
++msgid "Manager"
++msgstr "Kezelő"
++
++#: ../src/tsc-window.c:182
++msgid "The TSCManager to use"
++msgstr "A TSCManager használata"
++
++#: ../src/tsc-window.c:189
++msgid "chooser"
++msgstr "kiválasztó"
++
++#: ../src/tsc-window.c:190
++msgid "Whether or not the window should only be a chooser"
++msgstr "Az ablaknak kiválasztónak kell-e lennie"
++
++#: ../src/tsc-window.c:355
++msgid ""
++"Are you sure you want to remove the selected connections?  This operation "
++"cannot be reversed."
++msgstr ""
++"Valóban eltávolítja a kiválasztott kapcsolatot?  Ez a művelet nem "
++"visszavonható."
++
++#: ../src/tsc-window.c:467 ../src/tsc-window.c:492
++msgid "Choose Connection File"
++msgstr "Fájl kiválasztása"
++
++#: ../src/tsc-window.c:574
++msgid "Remove Connection"
++msgstr "Kapcsolat eltávolítása"
++
++#: ../src/tsc-window.c:576
++msgid "Remove an existing connection"
++msgstr "Meglévő kapcsolat eltávolítása"
++
++#: ../src/tsc-window.c:584
++msgid "Edit an existing connection"
++msgstr "Meglévő kapcsolat szerkesztése"
++
++#: ../src/tsc-window.c:590
++msgid "Start Connection"
++msgstr "Kapcsolat indítása"
++
++#: ../src/tsc-window.c:592
++msgid "Start a previously configured connection"
++msgstr "Korábban beállított kapcsolat indítása"
++
++#: ../src/tsc-window.c:598
++msgid "Export Connections"
++msgstr "Kapcsolatok exportálása"
++
++#: ../src/tsc-window.c:600
++msgid "Export connections to a file"
++msgstr "Kapcsolatok exportálása fájlba"
++
++#: ../src/tsc-window.c:610
++msgid "Add Connection"
++msgstr "Új kapcsolat hozzáadása"
++
++#: ../src/tsc-window.c:612
++msgid "Add a new connection"
++msgstr "Új kapcsolat hozzáadása"
++
++#: ../src/tsc-window.c:618
++msgid "Import Connections"
++msgstr "Kapcsolatok importálása"
++
++#: ../src/tsc-window.c:620
++msgid "Import connections from a file"
++msgstr "Kapcsolatok importálása fájlból"
++
++#: ../src/tsc-window.c:626
++msgid "Quit"
++msgstr "Kilépés"
++
++#: ../src/tsc-window.c:628
++msgid "Quit the application"
++msgstr "Kilépés az alkalmazásból"
++
++#: ../src/tsc-window.c:748
++msgid "Terminal Server Client"
++msgstr "Távoli asztali kapcsolat"
++
++#: ../src/tsc-main.c:36
++msgid "Start a previously created connection"
++msgstr "Korábban létrehozott kapcsolat indítása"
++
++#: ../src/tsc-main.c:37
++msgid "name-or-file"
++msgstr "név-vagy-fájl"
++
++#: ../src/tsc-main.c:45
++msgid "Start a new connection from a URI"
++msgstr "Új kapcsolat indítása URI-ből"
++
++#: ../src/tsc-main.c:46
++msgid "uri"
++msgstr "uri"
++
++#: ../src/tsc-main.c:54
++msgid "List the configured connections"
++msgstr "Beállított kapcsolatok listája"
++
++#: ../src/tsc-main.c:63
++msgid "Start all connections configured for autostart"
++msgstr "Autostarthoz beállított kapcsolatok indítása"
++
++#: ../src/tsc-main.c:72
++msgid "Initiates a logout after all connections have ended"
++msgstr "Kijelentkezés indítása az összes kapcsolat befejezésével"
++
++#: ../src/tsc-main.c:81
++msgid "Import a set of previously exported connections"
++msgstr "Korábban exportált kapcsolatok importálása"
++
++#: ../src/tsc-main.c:90
++msgid "Export all connections to specified file"
++msgstr "Összes kapcsolat exportálása fájlba"
++
++#: ../src/tsc-main.c:98
++msgid "Only show a connection chooser"
++msgstr "Csak a kapcsolatválasztó megjelenítése"
++
++#: ../src/tsc-main.c:106
++msgid "Configure and initiate connections to remote machines"
++msgstr "Kapcsolat beállítása és indítása távoli géphez"
++
++#: ../src/tsc-main.c:184
++msgid "Would you like to start automatically configured connections?"
++msgstr "Elinduljanak automatikusan a beállított kapcsolatok?"
++
++#: ../src/tsc-main.c:206
++#, c-format
++msgid "No connections are currently available.\n"
++msgstr "Nincs elérhető kapcsolat.\n"
++
++#: ../src/tsc-main.c:208
++#, c-format
++msgid "Available Connections:"
++msgstr "Elérhető kapcsolatok:"
++
++#: ../src/tsc-main.c:265
++msgid "Unable to create connection"
++msgstr "Nem hozható létre kapcsolat"
++
++#: ../src/tsc-main.c:266
++#, c-format
++msgid "Unable to handle URI '%s'"
++msgstr "A(z) '%s' URI nem dolgozható fel"
++
++#: ../src/tsc-main.c:318
++msgid "Unable to import connections"
++msgstr "A kapcsolatok nem importálhatók"
++
++#: ../src/tsc-main.c:330
++msgid "Unable to export connections"
++msgstr "A kapcsolatok nem exportálhatók"
++
++#: ../src/plugins/default/tsc-generic-provider.c:35
++msgid "Custom Command"
++msgstr "Egyedi parancs"
++
++#: ../src/plugins/default/tsc-generic-provider.c:36
++msgid "Create a generic freeform connection"
++msgstr "Általános kapcsolat létrehozása"
++
++#: ../src/plugins/default/tsc-rdp-provider.c:37
++#, c-format
++msgid "RDP on %s"
++msgstr "RDP itt: %s"
++
++#: ../src/plugins/default/tsc-rdp-provider.c:75
++msgid "Windows Terminal Service"
++msgstr "Windows Terminal Service"
++
++#: ../src/plugins/default/tsc-rdp-provider.c:76
++msgid "Connect to Windows machines via Terminal Services"
++msgstr "Kapcsolódás Windows gépekhez Terminal Services-zen keresztül"
++
++#: ../src/plugins/default/tsc-rdp-connection.c:51
++#, c-format
++msgid "Connected to '%s'"
++msgstr "Kapcsolódás ehhez: '%s'"
++
++#: ../src/plugins/default/tsc-rdp-connection.c:53
++#, c-format
++msgid ""
++"You are connected to '%s' in fullscreen mode.  Use Control+Alt+Enter to "
++"switch to and from windowed mode."
++msgstr ""
++"Teljes képernyős módban kapcsolódott ehhez: '%s'. A Ctrl+Alt+Enter "
++"lenyomásával térhet vissza az ablakos módba."
++
++#: ../src/plugins/default/tsc-generic-edit-dialog.c:66
++msgid "Command is a required field"
++msgstr "A parancs megadása szükséges"
++
++#: ../src/plugins/default/tsc-rdp-edit-dialog.c:221
++msgid "Host is a required field"
++msgstr "A gépnév megadása szükséges"
++
++#: ../src/tsc-connection.c:91
++msgid "New Connection"
++msgstr "Új kapcsolat"
++
++#: ../src/tsc-connection.c:171
++#, c-format
++msgid "Network connection is not available."
++msgstr "A hálózati kapcsolat nem elérhető."
++
++#: ../src/tsc-connection.c:532
++msgid "Failed to Save"
++msgstr "Sikertelen mentés"
++
++#: ../src/tsc-connection.c:532
++msgid "Failed to save places.xbel"
++msgstr "A places.xbel mentése nem sikerült"
+diff -Naurd tsclient.orig/po/LINGUAS tsclient/po/LINGUAS
+--- tsclient.orig/po/LINGUAS	2008-11-26 22:19:06.000000000 +0100
++++ tsclient/po/LINGUAS	2009-11-17 20:25:11.000000000 +0100
+@@ -1,6 +1,7 @@
+ de
+ es
+ fr
++hu
+ it
+ ja
+ ko

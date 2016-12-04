@@ -1,0 +1,4 @@
+#!/usr/bin/env dl
+
+akii-${UB_VERSION}.tar.gz akii-${UB_VERSION}/
+	ftp://ftp.frugalware.org/pub/frugalware/frugalware-0.4/extra/source/apps/akii/

@@ -1,0 +1,6 @@
+#!/bin/sh -eux
+
+ub_compile \
+	--sysconfdir=/etc \
+	--enable-32bit \
+	--with-regutil

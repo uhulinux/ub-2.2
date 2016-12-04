@@ -1,0 +1,4 @@
+#!/usr/bin/env dl
+
+PDF-Reuse-${UB_VERSION}.tar.gz PDF-Reuse-${UB_VERSION}/
+	http://search.cpan.org/CPAN/authors/id/L/LA/LARSLUND/

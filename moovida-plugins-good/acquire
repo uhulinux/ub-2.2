@@ -1,0 +1,4 @@
+#!/usr/bin/env dl
+
+moovida-plugins-good-${UB_VERSION}.tar.gz elisa-plugins-good-${UB_VERSION}/
+	http://www.moovida.com/media/public/

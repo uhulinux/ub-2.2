@@ -1,0 +1,703 @@
+diff -Naur e2fsprogs-1.32.orig/misc/fsck.c e2fsprogs-1.32/misc/fsck.c
+--- e2fsprogs-1.32.orig/misc/fsck.c	2002-10-31 09:51:10.000000000 +0100
++++ e2fsprogs-1.32/misc/fsck.c	2003-01-03 01:10:52.000000000 +0100
+@@ -81,6 +81,10 @@
+ 
+ #define BASE_MD "/dev/md"
+ 
++/* fscktris-fsck pipe */  
++
++int pipefds[2];
++
+ /*
+  * Global variables for options
+  */
+@@ -91,6 +95,8 @@
+ int verbose = 0;
+ int doall = 0;
+ int noexecute = 0;
++/* interactive is default */ 
++int interactive = 0;
+ int serialize = 0;
+ int skip_root = 0;
+ int like_mount = 0;
+@@ -1091,6 +1097,11 @@
+ 			case 'P':
+ 				parallel_root++;
+ 				break;
++			case 'a':
++			case 'p':
++				options[++opt] = arg[j];
++				interactive=0;
++				break;
+ 			case 's':
+ 				serialize++;
+ 				break;
+@@ -1137,11 +1148,49 @@
+ 	    max_running = atoi(tmp);
+ }
+ 
+-int main(int argc, char *argv[])
++void do_fsck(void)
+ {
+-	int i;
+ 	int status = 0;
+-	int interactive = 0;
++	int i;
++
++	/* If -A was specified ("check all"), do that! */
++	if (doall)
++		exit(check_all());
++
++	if (num_devices == 0) {
++		serialize++;
++		exit(check_all());
++	}
++	for (i = 0 ; i < num_devices; i++) {
++		if (cancel_requested) {
++			if (!kill_sent) {
++				kill_all(SIGTERM);
++				kill_sent++;
++			}
++			break;
++		}
++		fsck_device(devices[i], interactive);
++		if (serialize ||
++		    (max_running && (num_running >= max_running))) {
++			struct fsck_instance *inst;
++
++			inst = wait_one(0);
++			if (inst) {
++				status |= inst->exit_status;
++				free_instance(inst);
++			}
++			if (verbose > 1) 
++				printf("----------------------------------\n");
++		}
++	}
++	status |= wait_all(0);
++	free(fsck_path);
++	return status;
++}
++
++int main(int argc, char *argv[])
++{
++	pid_t pid;
+ 	char *oldpath = getenv("PATH");
+ 	const char *fstab;
+ 
+@@ -1172,41 +1221,23 @@
+ 		fsck_path = string_copy(fsck_prefix_path);
+ 	}
+ 	
+-	if ((num_devices == 1) || (serialize))
+-		interactive = 1;
+-
+-	/* If -A was specified ("check all"), do that! */
+-	if (doall)
+-		return check_all();
++	if (pipe(pipefds)==-1 || interactive) {
++		do_fsck();
++	} else {
++		if ((pid = fork()) < 0) {
++			do_fsck();
++		} else {
++			if (pid == 0) {
++				/* child */ 
+ 
+-	if (num_devices == 0) {
+-		serialize++;
+-		interactive++;
+-		return check_all();
+-	}
+-	for (i = 0 ; i < num_devices; i++) {
+-		if (cancel_requested) {
+-			if (!kill_sent) {
+-				kill_all(SIGTERM);
+-				kill_sent++;
+-			}
+-			break;
+-		}
+-		fsck_device(devices[i], interactive);
+-		if (serialize ||
+-		    (max_running && (num_running >= max_running))) {
+-			struct fsck_instance *inst;
++				dup2(pipefds[1],1);
++		 		dup2(pipefds[1],2);
+ 
+-			inst = wait_one(0);
+-			if (inst) {
+-				status |= inst->exit_status;
+-				free_instance(inst);
++				do_fsck();
++			} else {
++				free(fsck_path);
++				fscktris_main(pid);
+ 			}
+-			if (verbose > 1) 
+-				printf("----------------------------------\n");
+ 		}
+ 	}
+-	status |= wait_all(0);
+-	free(fsck_path);
+-	return status;
+ }
+diff -Naur e2fsprogs-1.32.orig/misc/fscktris.c e2fsprogs-1.32/misc/fscktris.c
+--- e2fsprogs-1.32.orig/misc/fscktris.c	1970-01-01 01:00:00.000000000 +0100
++++ e2fsprogs-1.32/misc/fscktris.c	2003-01-03 00:38:36.000000000 +0100
+@@ -0,0 +1,330 @@
++#include "fscktris.h"
++
++static int ctype;
++static int crot;
++static int ntype;
++static int nrot;
++static long score=0; 
++static long level=1; 
++static int cx;
++static int cy;
++static long advance_us=700000; 
++static char *fsckbuf;
++static int rem=1023;
++
++extern int pipefds[2];
++
++int collision(int type, int rot, int x, int y)
++{
++	int i,j;
++	 
++	for (i=0;i<4;i++) {
++		for (j=0;j<4;j++) {
++			if (y+j>=0 && penta[type][rot][j][i]!=' ' && board[y+j][x+i]!=' ')
++				return TRUE;
++		}
++	}
++	return FALSE; 
++} 
++
++void add_to_board(int type, int rot, int x, int y)
++{
++	int i,j;
++	for (i=0;i<4;i++) {
++		for (j=0;j<4;j++) {
++			if (y+4>=0 && penta[type][rot][j][i]!=' ')
++				board[y+j][x+i]=penta[type][rot][j][i];
++		}
++	}
++}
++ 
++void clear_board()
++{
++	int j;
++
++	for (j=0;j<BOARD_HEIGHT-1;j++) {
++		strcpy(board[j],"#            #\0");
++	} 
++}
++
++void check_lines()
++{
++	int j,j2;
++	int count=0; 
++	static long lastscore=0; 
++
++	for (j=BOARD_HEIGHT-1;j>-1;j--) {
++		if (!strcmp(board[j],"#OOOOOOOOOOOO#")) {
++			count++; 
++			for (j2=j-1;j2>-1;j2--) {
++				strcpy(board[j2+1],board[j2]);
++			}
++		/* reconsider this line */  
++		j++; 
++		}	
++	} 
++	 
++	if (!count)
++		return;
++
++	if (count==1)
++		score+=100;
++	else if (count==2)
++		score+=500;
++	else 
++		score+=5000;
++	
++	if (score-lastscore>2000) {
++		level++;
++		advance_us /= 0.70;
++		lastscore=score; 
++	}	
++
++}
++ 
++int advance_y(int wait)
++{
++	static long last_advance=0;
++	struct timeval tv;
++	struct timezone tz;
++
++	if (wait<2)
++		wait=2;
++
++	gettimeofday(&tv,&tz);
++	if (abs((1000000*tv.tv_sec+tv.tv_usec) - last_advance) > (advance_us/wait-1))
++		{ 
++		last_advance = 1000000*tv.tv_sec+tv.tv_usec; 
++		return TRUE;
++		}; 
++	return FALSE;
++}
++
++void generate_new_penta()
++{
++	do {
++		ntype = rand() % NUM_TYPES;
++		nrot  = rand() % 4; 
++		} while (collision(ntype,nrot,BOARD_WIDTH/2-1,0));
++}
++
++void init_draw()
++{
++	int j; 
++	
++#ifdef A_COLOR 
++	color_set(COLOR_RED,NULL); 
++#endif 
++	for (j=0;j<BOARD_HEIGHT+1;j++) {
++		mvaddstr(j,0,board[j]); 
++	} 
++
++#ifdef A_COLOR 
++	color_set(COLOR_WHITE,NULL); 
++#endif 
++	mvaddstr(2,BOARD_WIDTH+5,"Score: "); 
++	mvaddstr(5,BOARD_WIDTH+5,"Level: ");
++	mvaddstr(8,BOARD_WIDTH+5,"Next : "); 
++}
++
++
++void draw()
++{
++	int i,j;
++	static char strscore[20]; 
++
++#ifdef A_COLOR 
++	color_set(COLOR_RED,NULL); 
++#endif 
++	for (j=0;j<BOARD_HEIGHT;j++) {
++		mvaddstr(j,1,board[j]+1);
++	}
++
++#ifdef A_COLOR 
++	color_set(COLOR_GREEN,NULL); 
++#endif 
++	for (i=0;i<4;i++) {
++		for (j=0;j<4;j++) { 
++			if (j+cy>=0 && penta[ctype][crot][j][i]!=' ') 
++				mvaddch(j+cy,i+cx,penta[ctype][crot][j][i]);
++		} 
++	}
++	
++#ifdef A_COLOR 
++	color_set(COLOR_GREEN,NULL); 
++#endif 
++ 	snprintf(strscore,20,"%lu",score);  
++	mvaddstr(3,BOARD_WIDTH+5,strscore); 
++	snprintf(strscore,20,"%lu",level); 
++	mvaddstr(6,BOARD_WIDTH+5,strscore); 
++	 
++#ifdef A_COLOR 
++	color_set(COLOR_GREEN,NULL); 
++#endif 
++	for (j=0;j<4;j++) { 
++		mvaddstr(j+10,BOARD_WIDTH+5,penta[ntype][nrot][j]);
++	}
++	  
++	refresh();
++}
++
++void check_fsck(pid_t pid)
++{
++	int count;
++	int waitstatus; 
++
++	/* has fsck finished everything ? */ 
++	if (waitpid(pid,&waitstatus,WNOHANG)==pid) {
++		if (WIFEXITED(waitstatus)) { 
++			endwin(); 
++			free(fsckbuf);
++			exit(WEXITSTATUS(waitstatus)); 
++		}
++	}
++	
++	count = read(pipefds[0],fsckbuf,rem);
++
++	/* FIXME */ 
++	if (count>0) {
++		fsckbuf[count] = '\0';
++#ifdef A_COLOR 
++	color_set(COLOR_WHITE,NULL); 
++#endif 
++		mvaddstr(BOARD_HEIGHT+1,0,fsckbuf);
++	}
++}
++
++void fscktris_main(pid_t pid)
++{
++	int ch;
++	int waitcount=0; 
++	int waitstatus;
++	int paused=FALSE; 
++	
++	/* first see if there's no fscking needed (crap way) */ 
++	
++	sleep(2);
++
++	if (waitpid(pid,&waitstatus,WNOHANG)==pid) {
++       		if (WIFEXITED(waitstatus))
++			exit(WEXITSTATUS(waitstatus)); 
++	}
++	
++	fsckbuf = (char *)malloc(1024);
++	if (fsckbuf==NULL) {
++		wait(NULL);
++		return;
++	}
++
++    	if (fcntl(pipefds[0], F_SETFL, O_NONBLOCK)==-1) {
++		free(fsckbuf);
++		wait(NULL);
++		return;
++	}
++
++	srand((unsigned int)time(NULL));
++	initscr();
++	cbreak();
++	curs_set(0);
++	noecho();
++	nodelay(stdscr,TRUE);
++	keypad(stdscr,TRUE);
++
++#ifdef A_COLOR 
++	if (has_colors()) {
++		int bg = COLOR_BLACK;
++		start_color();
++#ifdef NCURSES_VERSION
++	        if (use_default_colors() == OK)
++			bg = -1;
++#endif     
++		init_pair(COLOR_GREEN,   COLOR_GREEN,   bg);
++		init_pair(COLOR_RED,     COLOR_RED,     bg);
++		init_pair(COLOR_WHITE,   COLOR_WHITE,   bg);
++	}
++#endif
++	 
++	init_draw();  
++	generate_new_penta();
++	ctype=ntype;
++	crot=nrot;
++	generate_new_penta(); 
++	cx = BOARD_WIDTH/2-1;
++	cy = -4;
++	 
++	for (;;) {
++		ch = getch();
++		 
++		if (paused) {
++			check_fsck(pid);
++
++			if (ch==' ') {
++				draw();
++				paused=FALSE; 
++			} 
++			continue;
++		}
++
++		if (ch=='p' || ch=='P') { 
++			paused=TRUE;
++#ifdef A_COLOR 
++			color_set(COLOR_WHITE,NULL); 
++#endif 
++			mvaddstr(4,1,"          "); 
++			mvaddstr(5,1,"  PAUSED  "); 
++			mvaddstr(6,1," Space to ");
++			mvaddstr(7,1," unpause  ");
++			mvaddstr(8,1,"          "); 
++			refresh(); 
++			continue; 
++			} 
++
++		if (advance_y(waitcount)) {
++			check_fsck(pid);
++
++			if (!collision(ctype,crot,cx,cy+1))  
++				cy++;
++			else {
++				waitcount++;
++				if (waitcount==2 || ch==KEY_DOWN) {
++					waitcount=0; 
++					if (cy<1) {
++						paused=TRUE;
++						clear_board(); 
++						draw(); 
++#ifdef A_COLOR 
++						color_set(COLOR_WHITE,NULL); 
++#endif 
++						mvaddstr(4,1,"            "); 
++						mvaddstr(5,1," GAME OVER  "); 
++						mvaddstr(6,1," Space to   ");
++						mvaddstr(7,1," play again ");
++						mvaddstr(8,1,"            "); 
++						refresh();
++						continue;
++					}
++					add_to_board(ctype,crot,cx,cy);
++					draw(); 
++					ctype=ntype;
++					crot=nrot;
++					cx = BOARD_WIDTH/2-1;
++					cy = -4;
++					generate_new_penta();
++					continue;
++				} 
++			} 
++		}
++
++		if (ch==' ' && !collision(ctype,(crot+1)%4,cx,cy))
++			crot = (crot+1) % 4;
++		else if (ch==KEY_DOWN && !collision(ctype,crot,cx,cy+1))
++			cy++;
++		else if (ch==KEY_LEFT && cx>1 && !collision(ctype,crot,cx-1,cy)) 
++			cx--; 
++		else if (ch==KEY_RIGHT && (cy>=0 || !collision(ctype,crot,cx+1,0)) && !collision(ctype,crot,cx+1,cy)) 
++			cx++;
++			 
++		check_lines();
++		draw();
++	}
++}
+diff -Naur e2fsprogs-1.32.orig/misc/fscktris.h e2fsprogs-1.32/misc/fscktris.h
+--- e2fsprogs-1.32.orig/misc/fscktris.h	1970-01-01 01:00:00.000000000 +0100
++++ e2fsprogs-1.32/misc/fscktris.h	2003-01-03 00:38:36.000000000 +0100
+@@ -0,0 +1,184 @@
++#include <sys/time.h>
++#include <sys/types.h>
++#include <sys/wait.h>
++#include <fcntl.h>
++#include <time.h>
++#include <unistd.h> 
++#include <stdlib.h> 
++#include <ncurses.h>
++
++#define NUM_TYPES 7 
++#define BOARD_WIDTH 14 
++#define BOARD_HEIGHT 17 
++ 
++static char board[BOARD_HEIGHT][BOARD_WIDTH+1] = {
++	"#            #\0",
++	"#            #\0",
++	"#            #\0",
++	"#            #\0",
++	"#            #\0",
++	"#            #\0",
++	"#            #\0",
++	"#            #\0",
++	"#            #\0",
++	"#            #\0",
++	"#            #\0",
++	"#            #\0",
++	"#            #\0",
++	"#            #\0",
++	"#            #\0",
++	"#            #\0",
++	"##############\0",
++	};
++
++/* penta[TYPE][ROTATION][LINE][CHAR]*/  
++static char penta[NUM_TYPES][4][4][5] = {
++	{
++		{ "OOO \0", 
++                  "  O \0", 
++		  "    \0", 
++		  "    \0" },
++		
++		{ " O  \0", 
++                  " O  \0", 
++		  "OO  \0", 
++		  "    \0" },
++		   
++	
++	        { "O   \0", 
++		  "OOO \0",
++		  "    \0", 
++		  "    \0" },
++		
++		{ "OO  \0", 
++                  "O   \0", 
++		  "O   \0", 
++		  "    \0" },
++	},
++	{ 
++		{ "OOO \0", 
++                  "O   \0", 
++		  "    \0", 
++		  "    \0" },
++		
++		{ "OO  \0", 
++                  " O  \0", 
++		  " O  \0", 
++		  "    \0" },
++		
++		{ "  O \0", 
++		  "OOO \0",
++		  "    \0",
++		  "    \0" },
++		
++		{ "O   \0", 
++                  "O   \0", 
++		  "OO  \0", 
++		  "    \0" },
++	},
++	{ 
++		{ "OO  \0", 
++                  "OO  \0", 
++		  "    \0", 
++		  "    \0" },
++		
++		{ "OO  \0", 
++                  "OO  \0", 
++		  "    \0", 
++		  "    \0" },
++		
++		{ "OO  \0", 
++                  "OO  \0", 
++		  "    \0", 
++		  "    \0" },
++		
++		{ "OO  \0", 
++                  "OO  \0", 
++		  "    \0", 
++		  "    \0" },
++	},
++	{ 
++		{ "O   \0", 
++                  "O   \0", 
++		  "O   \0", 
++		  "O   \0" },
++		
++		{ "OOOO\0", 
++                  "    \0", 
++		  "    \0", 
++		  "    \0" },
++		
++		{ "O   \0", 
++                  "O   \0", 
++		  "O   \0", 
++		  "O   \0" },
++		
++		{ "OOOO\0", 
++                  "    \0", 
++		  "    \0",
++		  "    \0" },
++	},
++	{ 
++		{ "O   \0", 
++                  "OO  \0", 
++		  " O  \0", 
++		  "    \0" },
++		
++		{ " OO \0", 
++                  "OO  \0", 
++		  "    \0", 
++		  "    \0" },
++		
++		{ "O   \0", 
++                  "OO  \0", 
++		  " O  \0", 
++		  "    \0" },
++		
++		{ " OO \0", 
++                  "OO  \0", 
++		  "    \0", 
++		  "    \0" },
++	},
++	{ 
++		{ " O  \0", 
++                  "OO  \0", 
++		  "O   \0", 
++		  "    \0" },
++		
++		{ "OO  \0", 
++                  " OO \0", 
++		  "    \0", 
++		  "    \0" },
++		
++		{ " O  \0", 
++                  "OO  \0", 
++		  "O   \0", 
++		  "    \0" },
++		
++		{ "OO  \0", 
++                  " OO \0", 
++		  "    \0",
++		  "    \0" },
++	},
++	{ 
++		{ "OOO \0", 
++                  " O  \0", 
++		  "    \0", 
++		  "    \0" },
++		
++		{ " O  \0", 
++                  "OO  \0", 
++		  " O  \0", 
++		  "    \0" },
++		
++		{ " O  \0", 
++                  "OOO \0", 
++		  "    \0", 
++		  "    \0" },
++		
++		{ "O   \0", 
++                  "OO  \0", 
++		  "O   \0",
++		  "    \0" },
++	},
++};
+diff -Naur e2fsprogs-1.32.orig/misc/Makefile.in e2fsprogs-1.32/misc/Makefile.in
+--- e2fsprogs-1.32.orig/misc/Makefile.in	2002-10-31 09:49:21.000000000 +0100
++++ e2fsprogs-1.32/misc/Makefile.in	2003-01-03 00:39:55.000000000 +0100
+@@ -31,12 +31,12 @@
+ DUMPE2FS_OBJS=	dumpe2fs.o
+ BADBLOCKS_OBJS=	badblocks.o
+ E2IMAGE_OBJS=	e2image.o
+-FSCK_OBJS=	fsck.o get_device_by_label.o base_device.o fstype.o
++FSCK_OBJS=	fsck.o get_device_by_label.o base_device.o fstype.o fscktris.o
+ 
+ SRCS=	$(srcdir)/tune2fs.c $(srcdir)/mklost+found.c $(srcdir)/mke2fs.c \
+ 		$(srcdir)/chattr.c $(srcdir)/lsattr.c $(srcdir)/dumpe2fs.c \
+ 		$(srcdir)/badblocks.c $(srcdir)/fsck.c $(srcdir)/util.c \
+-		$(srcdir)/uuidgen.c $(srcdir)/fstype.c
++		$(srcdir)/uuidgen.c $(srcdir)/fstype.c $(srcdir)/fscktris.c
+ 
+ LIBS= $(LIBEXT2FS) $(LIBCOM_ERR) 
+ DEPLIBS= $(LIBEXT2FS) $(LIBCOM_ERR) 
+@@ -99,7 +99,7 @@
+ 	$(CC) $(ALL_LDFLAGS) -o dumpe2fs $(DUMPE2FS_OBJS) $(LIBS_E2P) $(LIBUUID)
+ 
+ fsck: $(FSCK_OBJS)
+-	$(CC) $(ALL_LDFLAGS) -o fsck $(FSCK_OBJS) $(LIBS)
++	$(CC) $(ALL_LDFLAGS) -o fsck $(FSCK_OBJS) $(LIBS) -lncurses
+ 
+ badblocks: $(BADBLOCKS_OBJS) $(DEPLIBS)
+ 	$(CC) $(ALL_LDFLAGS) -o badblocks $(BADBLOCKS_OBJS) $(LIBS)
+@@ -254,7 +254,8 @@
+  $(top_builddir)/lib/ext2fs/ext2_err.h $(top_srcdir)/lib/ext2fs/bitops.h \
+  $(srcdir)/nls-enable.h
+ fsck.o: $(srcdir)/fsck.c $(top_srcdir)/version.h $(srcdir)/nls-enable.h \
+- $(srcdir)/fsck.h $(srcdir)/get_device_by_label.h
++ $(srcdir)/fsck.h $(srcdir)/get_device_by_label.h \
++ $(srcdir)/fscktris.c $(srcdir)/fscktris.h
+ util.o: $(srcdir)/util.c $(top_srcdir)/lib/et/com_err.h \
+  $(top_srcdir)/lib/e2p/e2p.h $(top_srcdir)/lib/ext2fs/ext2_fs.h \
+  $(top_builddir)/lib/ext2fs/ext2_types.h $(top_srcdir)/lib/ext2fs/ext2fs.h \

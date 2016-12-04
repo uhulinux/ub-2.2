@@ -1,0 +1,15 @@
+#!/bin/sh -eux
+
+export HB_ARCHITECTURE=linux
+export HB_COMPILER=gcc
+export HB_INSTALL_PREFIX="$UB_INSTALLDIR"/usr
+export HB_MAIN="$UB_INSTALLDIR"/usr/share/harbour
+export HB_DOC_INSTALL="$UB_INSTALLDIR"/usr/share/doc/harbour
+
+mkdir -p "$UB_INSTALLDIR"/usr/share/harbour
+mkdir -p "$UB_INSTALLDIR"/usr/share/doc/harbour
+
+ub_install
+
+cp -a doc/man/. "$UB_INSTALLDIR"/usr/share/man/man1/
+cp -a contrib/. "$UB_INSTALLDIR"/usr/share/harbour/

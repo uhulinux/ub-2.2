@@ -1,0 +1,7 @@
+#!/usr/bin/env dl
+
+slib-${UB_VERSION}.tar.gz slib/
+	http://swiss.csail.mit.edu/ftpdir/scm/
+
+#slib-${UB_VERSION}-1.src.rpm slibcat
+#	http://download.fedora.redhat.com/pub/fedora/linux/core/development/source/SRPMS/

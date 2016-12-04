@@ -1,0 +1,11 @@
+[Desktop Entry]
+Encoding=UTF-8
+Type=Application
+Name=LinCity
+GenericName=SimCity Clone
+GenericName[hu]=SimCity-klón
+Comment=City builder game
+Comment[hu]=Városépítő játék
+Exec=lincity
+Icon=/usr/share/pixmaps/lincity.png
+Categories=X-UHU-Menu/Games/Action;

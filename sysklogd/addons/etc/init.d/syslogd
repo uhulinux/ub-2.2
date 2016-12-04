@@ -1,0 +1,8 @@
+#!/bin/sh
+
+. /etc/init.d/common
+
+DAEMON=/sbin/syslogd
+PIDFILE="/var/run/syslogd.pid"
+
+startstop "$@"

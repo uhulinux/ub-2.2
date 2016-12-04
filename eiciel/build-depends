@@ -1,0 +1,8 @@
+acl-dev
+gnome2-vfs-dev
+gtk2-dev
+gtkmm2-dev
+libgnome2-dev
+libgnomeui2-dev
+nautilus2-dev
+openssl-dev

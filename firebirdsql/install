@@ -1,0 +1,4 @@
+#!/bin/sh -eux
+
+cp -df gen/firebird/lib/libicu*.so.30* "${UB_INSTALLDIR}"/usr/lib/
+ub_install

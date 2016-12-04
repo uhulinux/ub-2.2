@@ -1,0 +1,10 @@
+Summary=RPC Portmapper
+Summary[hu]=RPC Portmapper
+Description=Manages port numbers of RPC services such as NFS or NIS (YP).
+Description[hu]=RPC szolgáltatások (mint például NFS vagy NIS (YP)) portszámait adminisztráló szerver.
+MsgDesc=Portmapper
+MsgDesc[hu]=Portmapper
+Script=/etc/init.d/portmap
+SupportsReload=no
+Runlevels=
+Sequence=14

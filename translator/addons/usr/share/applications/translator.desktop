@@ -1,0 +1,12 @@
+[Desktop Entry]
+Encoding=UTF-8
+Version=1.0
+Type=Application
+Name=Translator
+Comment=Translates text via Google Translate.
+Comment[hu]=szöveg fordító
+Icon=/usr/share/pixmaps/translator.png
+Exec=translator
+Terminal=false
+Type=Application
+Categories=Qt;KDE;Utility;X-UHU-Menu/Tools/Utilities;

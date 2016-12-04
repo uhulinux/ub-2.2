@@ -1,0 +1,7 @@
+diff -Naur a/codecs/.codec_ilbc.moduleinfo b/codecs/.codec_ilbc.moduleinfo
+--- a/codecs/.codec_ilbc.moduleinfo	2008-10-08 14:57:02.000000000 +0200
++++ b/codecs/.codec_ilbc.moduleinfo	2008-12-16 09:34:17.000000000 +0100
+@@ -1,3 +1,2 @@
+ <member name="codec_ilbc" displayname="iLBC Coder/Decoder" remove_on_change="codecs/codec_ilbc.o codecs/codec_ilbc.so">
+-	<defaultenabled>no</defaultenabled>
+ </member>

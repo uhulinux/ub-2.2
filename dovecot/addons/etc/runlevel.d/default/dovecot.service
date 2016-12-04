@@ -1,0 +1,12 @@
+Summary=IMAP/POP3 Server
+Summary[hu]=IMAP/POP3 Szerver
+Description=Dovecot is an open source IMAP and POP3 server for Linux/UNIX-like systems, written with security primarily in mind.
+Description[hu]=A Dovecot egy nyílt forráskódú IMAP és POP3 szerver, melynek fejlesztésekor a biztonság volt a fő szempont.
+MsgDesc=IMAP/POP3 Server
+MsgDesc[hu]=IMAP/POP3 Szerver
+Script=/etc/init.d/dovecot
+SupportsReload=yes
+Runlevels=
+Sequence=20
+Resources=tcp/imap,tcp/imaps,tcp/pop3,tcp/pop3s
+

@@ -1,0 +1,4 @@
+#!/usr/bin/env dl
+
+Dev86src-${UB_VERSION}.tar.gz dev86-${UB_VERSION}/
+	http://homepage.ntlworld.com/robert.debath/dev86/

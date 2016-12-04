@@ -1,0 +1,730 @@
+diff -urN amavisd-new-2.6.4.orig/amavisd.conf-sample amavisd-new-2.6.4/amavisd.conf-sample
+--- amavisd-new-2.6.4.orig/amavisd.conf-sample	2009-06-25 14:38:38.000000000 +0200
++++ amavisd-new-2.6.4/amavisd.conf-sample	2009-09-02 18:32:54.000000000 +0200
+@@ -63,25 +63,25 @@
+ # $MYHOME serves as a quick default for some other configuration settings.
+ # More refined control is available with each individual setting further down.
+ # $MYHOME is not used directly by the program. No trailing slash!
+-#$MYHOME = '/var/lib/amavis';   # (default is '/var/amavis'), -H
++$MYHOME = '/var/lib/amavis';   # (default is '/var/amavis'), -H
+ 
+ # $mydomain serves as a quick default for some other configuration settings.
+ # More refined control is available with each individual setting further down.
+ # $mydomain is never used directly by the program.
+-$mydomain = 'example.com';      # (no useful default)
++#$mydomain = 'example.com';      # (no useful default)
+ 
+ # $myhostname = 'host.example.com';  # fqdn of this host, default by uname(3)
+ 
+ # Set the user and group to which the daemon will change if started as root
+ # (otherwise just keeps the UID unchanged, and these settings have no effect):
+-$daemon_user  = 'vscan';   # (no default;  customary: vscan or amavis), -u
+-$daemon_group = 'vscan';   # (no default;  customary: vscan or amavis), -g
++$daemon_user  = 'amavis';   # (no default;  customary: vscan or amavis), -u
++$daemon_group = 'amavis';   # (no default;  customary: vscan or amavis), -g
+ 
+ # Runtime working directory (cwd), and a place where
+ # temporary directories for unpacking mail are created.
+ # (no trailing slash, may be a scratch file system)
+-$TEMPBASE = $MYHOME;	        # (must be set if other config vars use is), -T
+-#$TEMPBASE = "$MYHOME/tmp";     # prefer to keep home dir /var/amavis clean?
++#$TEMPBASE = $MYHOME;	        # (must be set if other config vars use is), -T
++$TEMPBASE = "$MYHOME/tmp";     # prefer to keep home dir /var/amavis clean?
+ 
+ #$db_home = "$MYHOME/db";    # DB databases directory, default "$MYHOME/db", -D
+ 
+@@ -93,8 +93,8 @@
+ # Run the daemon in the specified chroot jail if nonempty:
+ #$daemon_chroot_dir = $MYHOME;  # (default is undef, meaning: do not chroot), -R
+ 
+-#$pid_file  = "$MYHOME/amavisd.pid";  # (default is "$MYHOME/amavisd.pid"), -P
+-#$lock_file = "$MYHOME/amavisd.lock"; # (default is "$MYHOME/amavisd.lock"), -L
++$pid_file  = "/var/run/amavis/amavisd.pid";  # (default is "$MYHOME/amavisd.pid"), -P
++$lock_file = "/var/lock/amavis/amavisd.lock"; # (default is "$MYHOME/amavisd.lock"), -L
+ 
+ # set environment variables if you want (no defaults):
+ $ENV{TMPDIR} = $TEMPBASE; # used for SA temporary files, by some decoders, etc.
+@@ -298,7 +298,7 @@
+ #
+ 
+ # true (e.g. 1) => syslog;  false (e.g. 0) => logging to file
+-$DO_SYSLOG = 1;                   # (defaults to 0)
++# $DO_SYSLOG = 1;                   # (defaults to 0)
+ 
+ $syslog_ident = 'amavis';     # Syslog ident string (defaults to 'amavis')
+ $syslog_facility = 'mail';    # Syslog facility as a string
+@@ -307,7 +307,7 @@
+            # choose from: emerg, alert, crit, err, warning, notice, info, debug
+ 
+ # Log file (if not using syslog)
+-$LOGFILE = "$MYHOME/amavis.log";  # (defaults to empty, no log)
++$LOGFILE = "/var/log/amavis/amavis.log";  # (defaults to empty, no log)
+ 
+ #NOTE: levels are not strictly observed and are somewhat arbitrary
+ # 0: startup/exit/failure messages, viruses detected
+@@ -316,7 +316,7 @@
+ # 3: server, client
+ # 4: decompose parts
+ # 5: more debug details
+-$log_level = 2;		   # (defaults to 0), -d
++$log_level = 0;		   # (defaults to 0), -d
+ 
+ # Customizable template for the most interesting log file entry (e.g. with
+ # $log_level=0) (take care to properly quote Perl special characters like '\')
+@@ -501,8 +501,8 @@
+ # backwards compatible and contains references to these traditional variables:
+ #
+ $final_virus_destiny      = D_DISCARD; # (defaults to D_DISCARD)
+-$final_banned_destiny     = D_BOUNCE;  # (defaults to D_BOUNCE)
+-$final_spam_destiny       = D_BOUNCE;  # (defaults to D_BOUNCE)
++$final_banned_destiny     = D_DISCARD;  # (defaults to D_BOUNCE)
++$final_spam_destiny       = D_DISCARD;  # (defaults to D_BOUNCE)
+ $final_bad_header_destiny = D_PASS;    # (defaults to D_PASS)
+ 
+ # to explicitly list all (or most) possible contents category (ccat) keys:
+@@ -623,7 +623,7 @@
+ #   @banned_admin_maps   ... notifications to admin about banned contents
+ #   @bad_header_admin_maps ... notifications to admin about bad headers
+ 
+-$virus_admin = "virusalert\@$mydomain";
++$virus_admin = undef;
+ # $virus_admin = 'virus-admin@example.com';
+ # $virus_admin = undef;   # do not send virus admin notifications (default)
+ #
+@@ -635,7 +635,7 @@
+ 
+ # equivalent to $virus_admin, but for spam admin notifications:
+ # $spam_admin = "spamalert\@$mydomain";
+-# $spam_admin = undef;    # do not send spam admin notifications (default)
++$spam_admin = undef;    # do not send spam admin notifications (default)
+ #@spam_admin_maps = (     # by-recipient maps
+ #  {'not.example.com' => '',
+ #   '.' => 'spamalert@example.com'},
+@@ -664,9 +664,9 @@
+ #   (admin and recip sender addresses default to a null return path).
+ #   If using strings in double quotes, don't forget to quote @, i.e. \@
+ #
+-$mailfrom_notify_admin     = "virusalert\@$mydomain";
+-$mailfrom_notify_recip     = "virusalert\@$mydomain";
+-$mailfrom_notify_spamadmin = "spam.police\@$mydomain";
++$mailfrom_notify_admin     = undef;
++$mailfrom_notify_recip     = undef;
++$mailfrom_notify_spamadmin = undef;
+ 
+ # 'From' HEADER FIELD for sender and admin notifications.
+ # This should be a replyable address, see rfc1894. Not to be confused
+@@ -829,7 +829,7 @@
+ 
+ 
+ # Add X-Virus-Scanned header field to mail?
+-$X_HEADER_TAG = 'X-Virus-Scanned';	# (default: 'X-Virus-Scanned')
++# $X_HEADER_TAG = 'X-Virus-Scanned';	# (default: 'X-Virus-Scanned')
+ 
+ # Set to empty to add no header field	# (dflt "$myproduct_name at $mydomain")
+ # $X_HEADER_LINE = "$myproduct_name at $mydomain";
+@@ -838,7 +838,7 @@
+ 
+ # a string to prepend to Subject (for local recipients only) if mail could
+ # not be decoded or checked entirely, e.g. due to password-protected archives
+-$undecipherable_subject_tag = '***UNCHECKED*** ';  # undef disables it
++# $undecipherable_subject_tag = '***UNCHECKED*** ';  # undef disables it
+ 
+ # MIME defanging wraps the entire original mail in a MIME container of type
+ # 'Content-type: multipart/mixed', where the first part is a text/plain with
+@@ -975,6 +975,7 @@
+ 
+ # qr'.\.(mim|b64|bhx|hqx|xxe|uu|uue)$'i,  # banned extension - WinZip vulnerab.
+ );
++
+ # See http://support.microsoft.com/default.aspx?scid=kb;EN-US;q262631
+ # and http://www.cknow.com/vtutor/vtextensions.htm
+ 
+@@ -1113,17 +1114,17 @@
+ 
+ # use old or new style of banned lookup table; not both to avoid confusion
+ #
+-# @banned_filename_maps = ();   # to disable old-style
++  @banned_filename_maps = ();   # to disable old-style
+   $banned_namepath_re = undef;  # to disable new-style
+ 
+ 
+-%banned_rules = (
+-  'MYNETS-DEFAULT' => new_RE(   # permissive set of rules for internal hosts
+-    [ qr'^\.(rpm|cpio|tar)$' => 0 ],  # allow any name/type in Unix archives
+-    qr'.\.(vbs|pif|scr)$'i,     # banned extension - rudimentary
+-  ),
+-  'DEFAULT' => $banned_filename_re,
+-);
++#%banned_rules = (
++#  'MYNETS-DEFAULT' => new_RE(   # permissive set of rules for internal hosts
++#    [ qr'^\.(rpm|cpio|tar)$' => 0 ],  # allow any name/type in Unix archives
++#    qr'.\.(vbs|pif|scr)$'i,     # banned extension - rudimentary
++#  ),
++#  'DEFAULT' => $banned_filename_re,
++#);
+ 
+ 
+ #
+@@ -1421,7 +1422,7 @@
+ #
+ # NOTE: keep hash keys in lowercase, either manually or by using function lc
+ 
+-@score_sender_maps = ({  # a by-recipient hash lookup table
++#@score_sender_maps = ({  # a by-recipient hash lookup table
+ 
+ # # per-recipient personal tables  (NOTE: positive: black, negative: white)
+ # 'user1@example.com'  => [{'bla-mobile.press@example.com' => 10.0}],
+@@ -1430,60 +1431,60 @@
+ #                           '.cleargreen.com'           => -5.0}],
+ 
+   # site-wide opinions about senders (the '.' matches any recipient)
+-  '.' => [  # the _first_ matching sender determines the score boost
++#  '.' => [  # the _first_ matching sender determines the score boost
+ 
+-   new_RE(  # regexp-type lookup table, just happens to be all soft-blacklist
+-    [qr'^(bulkmail|offers|cheapbenefits|earnmoney|foryou)@'i         => 5.0],
+-    [qr'^(greatcasino|investments|lose_weight_today|market\.alert)@'i=> 5.0],
+-    [qr'^(money2you|MyGreenCard|new\.tld\.registry|opt-out|opt-in)@'i=> 5.0],
+-    [qr'^(optin|saveonlsmoking2002k|specialoffer|specialoffers)@'i   => 5.0],
+-    [qr'^(stockalert|stopsnoring|wantsome|workathome|yesitsfree)@'i  => 5.0],
+-    [qr'^(your_friend|greatoffers)@'i                                => 5.0],
+-    [qr'^(inkjetplanet|marketopt|MakeMoney)\d*@'i                    => 5.0],
+-   ),
++#   new_RE(  # regexp-type lookup table, just happens to be all soft-blacklist
++#    [qr'^(bulkmail|offers|cheapbenefits|earnmoney|foryou)@'i         => 5.0],
++#    [qr'^(greatcasino|investments|lose_weight_today|market\.alert)@'i=> 5.0],
++#    [qr'^(money2you|MyGreenCard|new\.tld\.registry|opt-out|opt-in)@'i=> 5.0],
++#    [qr'^(optin|saveonlsmoking2002k|specialoffer|specialoffers)@'i   => 5.0],
++#    [qr'^(stockalert|stopsnoring|wantsome|workathome|yesitsfree)@'i  => 5.0],
++#    [qr'^(your_friend|greatoffers)@'i                                => 5.0],
++#    [qr'^(inkjetplanet|marketopt|MakeMoney)\d*@'i                    => 5.0],
++#   ),
+ 
+ #  read_hash("/var/amavis/sender_scores_sitewide"),
+ 
+-   { # a hash-type lookup table (associative array)
+-     'nobody@cert.org'                        => -3.0,
+-     'cert-advisory@us-cert.gov'              => -3.0,
+-     'owner-alert@iss.net'                    => -3.0,
+-     'slashdot@slashdot.org'                  => -3.0,
+-     'securityfocus.com'                      => -3.0,
+-     'ntbugtraq@listserv.ntbugtraq.com'       => -3.0,
+-     'security-alerts@linuxsecurity.com'      => -3.0,
+-     'mailman-announce-admin@python.org'      => -3.0,
+-     'amavis-user-admin@lists.sourceforge.net'=> -3.0,
+-     'amavis-user-bounces@lists.sourceforge.net' => -3.0,
+-     'spamassassin.apache.org'                => -3.0,
+-     'notification-return@lists.sophos.com'   => -3.0,
+-     'owner-postfix-users@postfix.org'        => -3.0,
+-     'owner-postfix-announce@postfix.org'     => -3.0,
+-     'owner-sendmail-announce@lists.sendmail.org'   => -3.0,
+-     'sendmail-announce-request@lists.sendmail.org' => -3.0,
+-     'donotreply@sendmail.org'                => -3.0,
+-     'ca+envelope@sendmail.org'               => -3.0,
+-     'noreply@freshmeat.net'                  => -3.0,
+-     'owner-technews@postel.acm.org'          => -3.0,
+-     'ietf-123-owner@loki.ietf.org'           => -3.0,
+-     'cvs-commits-list-admin@gnome.org'       => -3.0,
+-     'rt-users-admin@lists.fsck.com'          => -3.0,
+-     'clp-request@comp.nus.edu.sg'            => -3.0,
+-     'surveys-errors@lists.nua.ie'            => -3.0,
+-     'emailnews@genomeweb.com'                => -5.0,
+-     'yahoo-dev-null@yahoo-inc.com'           => -3.0,
+-     'returns.groups.yahoo.com'               => -3.0,
+-     'clusternews@linuxnetworx.com'           => -3.0,
+-     lc('lvs-users-admin@LinuxVirtualServer.org')    => -3.0,
+-     lc('owner-textbreakingnews@CNNIMAIL12.CNN.COM') => -5.0,
+-
+-     # soft-blacklisting (positive score)
+-     'sender@example.net'                     =>  3.0,
+-     '.example.net'                           =>  1.0,
+-
+-   },
+-  ],  # end of site-wide tables
+-});
++#   { # a hash-type lookup table (associative array)
++#     'nobody@cert.org'                        => -3.0,
++#     'cert-advisory@us-cert.gov'              => -3.0,
++#     'owner-alert@iss.net'                    => -3.0,
++#     'slashdot@slashdot.org'                  => -3.0,
++#     'securityfocus.com'                      => -3.0,
++#     'ntbugtraq@listserv.ntbugtraq.com'       => -3.0,
++#     'security-alerts@linuxsecurity.com'      => -3.0,
++#     'mailman-announce-admin@python.org'      => -3.0,
++#     'amavis-user-admin@lists.sourceforge.net'=> -3.0,
++#     'amavis-user-bounces@lists.sourceforge.net' => -3.0,
++#     'spamassassin.apache.org'                => -3.0,
++#     'notification-return@lists.sophos.com'   => -3.0,
++#     'owner-postfix-users@postfix.org'        => -3.0,
++#     'owner-postfix-announce@postfix.org'     => -3.0,
++#     'owner-sendmail-announce@lists.sendmail.org'   => -3.0,
++#     'sendmail-announce-request@lists.sendmail.org' => -3.0,
++#     'donotreply@sendmail.org'                => -3.0,
++#     'ca+envelope@sendmail.org'               => -3.0,
++#     'noreply@freshmeat.net'                  => -3.0,
++#     'owner-technews@postel.acm.org'          => -3.0,
++#     'ietf-123-owner@loki.ietf.org'           => -3.0,
++#     'cvs-commits-list-admin@gnome.org'       => -3.0,
++#     'rt-users-admin@lists.fsck.com'          => -3.0,
++#     'clp-request@comp.nus.edu.sg'            => -3.0,
++#     'surveys-errors@lists.nua.ie'            => -3.0,
++#     'emailnews@genomeweb.com'                => -5.0,
++#     'yahoo-dev-null@yahoo-inc.com'           => -3.0,
++#     'returns.groups.yahoo.com'               => -3.0,
++#     'clusternews@linuxnetworx.com'           => -3.0,
++#     lc('lvs-users-admin@LinuxVirtualServer.org')    => -3.0,
++#     lc('owner-textbreakingnews@CNNIMAIL12.CNN.COM') => -5.0,
++#
++#     # soft-blacklisting (positive score)
++#     'sender@example.net'                     =>  3.0,
++#     '.example.net'                           =>  1.0,
++#
++#   },
++#  ],  # end of site-wide tables
++#});
+ 
+ 
+ # ENVELOPE SENDER WHITELISTING / BLACKLISTING  - GLOBAL (RECIPIENT-INDEPENDENT)
+@@ -1545,14 +1546,14 @@
+ 
+ # illustrates the use of regexp lookup table:
+ 
+-@blacklist_sender_maps = ( new_RE(
+-    qr'^(bulkmail|offers|cheapbenefits|earnmoney|foryou|greatcasino)@'i,
+-    qr'^(investments|lose_weight_today|market\.alert|money2you|MyGreenCard)@'i,
+-    qr'^(new\.tld\.registry|opt-out|opt-in|optin|saveonlsmoking2002k)@'i,
+-    qr'^(specialoffer|specialoffers|stockalert|stopsnoring|wantsome)@'i,
+-    qr'^(workathome|yesitsfree|your_friend|greatoffers)@'i,
+-    qr'^(inkjetplanet|marketopt|MakeMoney)\d*@'i,
+-));
++#@blacklist_sender_maps = ( new_RE(
++#    qr'^(bulkmail|offers|cheapbenefits|earnmoney|foryou|greatcasino)@'i,
++#    qr'^(investments|lose_weight_today|market\.alert|money2you|MyGreenCard)@'i,
++#    qr'^(new\.tld\.registry|opt-out|opt-in|optin|saveonlsmoking2002k)@'i,
++#    qr'^(specialoffer|specialoffers|stockalert|stopsnoring|wantsome)@'i,
++#    qr'^(workathome|yesitsfree|your_friend|greatoffers)@'i,
++#    qr'^(inkjetplanet|marketopt|MakeMoney)\d*@'i,
++#));
+ 
+ 
+ # NOTE: whitelisting is becoming deprecated because sender address is
+@@ -1796,17 +1797,17 @@
+ # selectively trim down bounces to domains sending their own bounces with
+ # non-null return path, to frequently abused domains, or to those sending
+ # marginal spam
+-@spam_dsn_cutoff_level_bysender_maps = (
+-  { # an associative array (hash) lookup table, use lowercase keys
+-    'virgilio.it' => 7,  'mail.ru'     => 7,  '0451.com' => 7,
+-    'yahoo.co.uk' => 7,  'yahoo.co.jp' => 7,  'nobody@'  => 7,
+-    'noreply@'    => 0,  'no-reply@'   => 0,  'donotreply@'     => 0,
+-    'opt-in@'     => 0,  'opt-out@'    => 0,  'yahoo-dev-null@' => 0,
+-    '.optin-out.com' => 0,  'daily@astrocenter.com' => 0,
+-    'spamadmin@fraunhofer.de'=> 7,  # Sophos PureMessage spam bounces
+-  },
+-  \$sa_dsn_cutoff_level,  # catchall default value
+-);
++#@spam_dsn_cutoff_level_bysender_maps = (
++#  { # an associative array (hash) lookup table, use lowercase keys
++#    'virgilio.it' => 7,  'mail.ru'     => 7,  '0451.com' => 7,
++#    'yahoo.co.uk' => 7,  'yahoo.co.jp' => 7,  'nobody@'  => 7,
++#    'noreply@'    => 0,  'no-reply@'   => 0,  'donotreply@'     => 0,
++#    'opt-in@'     => 0,  'opt-out@'    => 0,  'yahoo-dev-null@' => 0,
++#    '.optin-out.com' => 0,  'daily@astrocenter.com' => 0,
++#    'spamadmin@fraunhofer.de'=> 7,  # Sophos PureMessage spam bounces
++#  },
++#  \$sa_dsn_cutoff_level,  # catchall default value
++#);
+ 
+ # a quick reference:
+ #   tag_level  contents category: CC_CLEAN,
+@@ -1931,10 +1932,10 @@
+ # ['Sophos SAVI', \&sophos_savi ],
+ 
+ # ### http://www.clamav.net/
+-# ['ClamAV-clamd',
+-#   \&ask_daemon, ["CONTSCAN {}\n", "/var/run/clamav/clamd"],
+-#   qr/\bOK$/m, qr/\bFOUND$/m,
+-#   qr/^.*?: (?!Infected Archive)(.*) FOUND$/m ],
++ ['ClamAV-clamd',
++   \&ask_daemon, ["CONTSCAN {}\n", "/var/run/clamav/clamd"],
++   qr/\bOK$/m, qr/\bFOUND$/m,
++   qr/^.*?: (?!Infected Archive)(.*) FOUND$/m ],
+ # # NOTE: run clamd under the same user as amavisd, or run it under its own
+ # #   uid such as clamav, add user clamav to the amavis group, and then add
+ # #   AllowSupplementaryGroups to clamd.conf;
+@@ -2001,32 +2002,32 @@
+ # # length("$TEMPBASE/amavis-milter-xxxxxxxxxxxxxx/parts/pxxx").
+ 
+   ### http://www.kaspersky.com/  (kav4mailservers)
+-  ['KasperskyLab AVP - aveclient',
+-    ['/usr/local/kav/bin/aveclient','/usr/local/share/kav/bin/aveclient',
+-     '/opt/kav/5.5/kav4mailservers/bin/aveclient','aveclient'],
+-    '-p /var/run/aveserver -s {}/*',
+-    [0,3,6,8], qr/\b(INFECTED|SUSPICION|SUSPICIOUS)\b/m,
+-    qr/(?:INFECTED|WARNING|SUSPICION|SUSPICIOUS) (.+)/m,
+-  ],
++#  ['KasperskyLab AVP - aveclient',
++#    ['/usr/local/kav/bin/aveclient','/usr/local/share/kav/bin/aveclient',
++#     '/opt/kav/5.5/kav4mailservers/bin/aveclient','aveclient'],
++#    '-p /var/run/aveserver -s {}/*',
++#    [0,3,6,8], qr/\b(INFECTED|SUSPICION|SUSPICIOUS)\b/m,
++#    qr/(?:INFECTED|WARNING|SUSPICION|SUSPICIOUS) (.+)/m,
++#  ],
+   # NOTE: one may prefer [0],[2,3,4,5], depending on how suspicious,
+   # currupted or protected archives are to be handled
+ 
+   ### http://www.kaspersky.com/
+-  ['KasperskyLab AntiViral Toolkit Pro (AVP)', ['avp'],
+-    '-* -P -B -Y -O- {}', [0,3,6,8], [2,4],    # any use for -A -K   ?
+-    qr/infected: (.+)/m,
+-    sub {chdir('/opt/AVP') or die "Can't chdir to AVP: $!"},
+-    sub {chdir($TEMPBASE) or die "Can't chdir back to $TEMPBASE $!"},
+-  ],
++#  ['KasperskyLab AntiViral Toolkit Pro (AVP)', ['avp'],
++#    '-* -P -B -Y -O- {}', [0,3,6,8], [2,4],    # any use for -A -K   ?
++#    qr/infected: (.+)/m,
++#    sub {chdir('/opt/AVP') or die "Can't chdir to AVP: $!"},
++#    sub {chdir($TEMPBASE) or die "Can't chdir back to $TEMPBASE $!"},
++#  ],
+ 
+   ### The kavdaemon and AVPDaemonClient have been removed from Kasperky
+   ### products and replaced by aveserver and aveclient
+-  ['KasperskyLab AVPDaemonClient',
+-    [ '/opt/AVP/kavdaemon',       'kavdaemon',
+-      '/opt/AVP/AvpDaemonClient', 'AvpDaemonClient',
+-      '/opt/AVP/AvpTeamDream',    'AvpTeamDream',
+-      '/opt/AVP/avpdc', 'avpdc' ],
+-    "-f=$TEMPBASE {}", [0,8], [3,4,5,6], qr/infected: ([^\r\n]+)/m ],
++#  ['KasperskyLab AVPDaemonClient',
++#    [ '/opt/AVP/kavdaemon',       'kavdaemon',
++#      '/opt/AVP/AvpDaemonClient', 'AvpDaemonClient',
++#      '/opt/AVP/AvpTeamDream',    'AvpTeamDream',
++#      '/opt/AVP/avpdc', 'avpdc' ],
++#    "-f=$TEMPBASE {}", [0,8], [3,4,5,6], qr/infected: ([^\r\n]+)/m ],
+     # change the startup-script in /etc/init.d/kavd to:
+     #   DPARMS="-* -Y -dl -f=/var/amavis /var/amavis"
+     #   (or perhaps:   DPARMS="-I0 -Y -* /var/amavis" )
+@@ -2040,12 +2041,12 @@
+     # su - vscan -c "${PREFIX}/kavdaemon ${DPARMS}"
+ 
+   ### http://www.centralcommand.com/
+-  ['CentralCommand Vexira (new) vascan',
+-    ['vascan','/usr/lib/Vexira/vascan'],
+-    "-a s --timeout=60 --temp=$TEMPBASE -y $QUARANTINEDIR ".
+-    "--log=/var/log/vascan.log {}",
+-    [0,3], [1,2,5],
+-    qr/(?x)^\s* (?:virus|iworm|macro|mutant|sequence|trojan)\ found:\ ( [^\]\s']+ )\ \.\.\.\ /m ],
++#  ['CentralCommand Vexira (new) vascan',
++#    ['vascan','/usr/lib/Vexira/vascan'],
++#    "-a s --timeout=60 --temp=$TEMPBASE -y $QUARANTINEDIR ".
++#    "--log=/var/log/vascan.log {}",
++#    [0,3], [1,2,5],
++#    qr/(?x)^\s* (?:virus|iworm|macro|mutant|sequence|trojan)\ found:\ ( [^\]\s']+ )\ \.\.\.\ /m ],
+     # Adjust the path of the binary and the virus database as needed.
+     # 'vascan' does not allow to have the temp directory to be the same as
+     # the quarantine directory, and the quarantine option can not be disabled.
+@@ -2055,29 +2056,29 @@
+ 
+   ### http://www.avira.com/
+   ### Avira AntiVir (formerly H+BEDV) or (old) CentralCommand Vexira Antivirus
+-  ['Avira AntiVir', ['antivir','vexira'],
+-    '--allfiles -noboot -nombr -rs -s -z {}', [0], qr/ALERT:|VIRUS:/m,
+-    qr/(?x)^\s* (?: ALERT: \s* (?: \[ | [^']* ' ) |
+-         (?i) VIRUS:\ .*?\ virus\ '?) ( [^\]\s']+ )/m ],
++#  ['Avira AntiVir', ['antivir','vexira'],
++#    '--allfiles -noboot -nombr -rs -s -z {}', [0], qr/ALERT:|VIRUS:/m,
++#    qr/(?x)^\s* (?: ALERT: \s* (?: \[ | [^']* ' ) |
++#         (?i) VIRUS:\ .*?\ virus\ '?) ( [^\]\s']+ )/m ],
+     # NOTE: if you only have a demo version, remove -z and add 214, as in:
+     #  '--allfiles -noboot -nombr -rs -s {}', [0,214], qr/ALERT:|VIRUS:/,
+ 
+   ### http://www.commandsoftware.com/
+-  ['Command AntiVirus for Linux', 'csav',
+-    '-all -archive -packed {}', [50], [51,52,53],
+-    qr/Infection: (.+)/m ],
++#  ['Command AntiVirus for Linux', 'csav',
++#    '-all -archive -packed {}', [50], [51,52,53],
++#    qr/Infection: (.+)/m ],
+ 
+   ### http://www.symantec.com/
+-  ['Symantec CarrierScan via Symantec CommandLineScanner',
+-    'cscmdline', '-a scan -i 1 -v -s 127.0.0.1:7777 {}',
+-    qr/^Files Infected:\s+0$/m, qr/^Infected\b/m,
+-    qr/^(?:Info|Virus Name):\s+(.+)/m ],
++#  ['Symantec CarrierScan via Symantec CommandLineScanner',
++#    'cscmdline', '-a scan -i 1 -v -s 127.0.0.1:7777 {}',
++#    qr/^Files Infected:\s+0$/m, qr/^Infected\b/m,
++#    qr/^(?:Info|Virus Name):\s+(.+)/m ],
+ 
+   ### http://www.symantec.com/
+-  ['Symantec AntiVirus Scan Engine',
+-    'savsecls', '-server 127.0.0.1:7777 -mode scanrepair -details -verbose {}',
+-    [0], qr/^Infected\b/m,
+-    qr/^(?:Info|Virus Name):\s+(.+)/m ],
++#  ['Symantec AntiVirus Scan Engine',
++#    'savsecls', '-server 127.0.0.1:7777 -mode scanrepair -details -verbose {}',
++#    [0], qr/^Infected\b/m,
++#    qr/^(?:Info|Virus Name):\s+(.+)/m ],
+     # NOTE: check options and patterns to see which entry better applies
+ 
+ # ### http://www.f-secure.com/products/anti-virus/  version 4.65
+@@ -2088,11 +2089,11 @@
+ #   qr/(?:infection|Infected|Suspected): (.+)/m ],
+ 
+   ### http://www.f-secure.com/products/anti-virus/  version 5.52
+-   ['F-Secure Antivirus for Linux servers',
+-    ['/opt/f-secure/fsav/bin/fsav', 'fsav'],
+-    '--virus-action1=report --archive=yes --auto=yes '.
+-    '--dumb=yes --list=no --mime=yes {}', [0], [3,4,6,8],
+-    qr/(?:infection|Infected|Suspected|Riskware): (.+)/m ],
++#   ['F-Secure Antivirus for Linux servers',
++#    ['/opt/f-secure/fsav/bin/fsav', 'fsav'],
++#    '--virus-action1=report --archive=yes --auto=yes '.
++#    '--dumb=yes --list=no --mime=yes {}', [0], [3,4,6,8],
++#    qr/(?:infection|Infected|Suspected|Riskware): (.+)/m ],
+     # NOTE: internal archive handling may be switched off by '--archive=no'
+     #   to prevent fsav from exiting with status 9 on broken archives
+ 
+@@ -2107,27 +2108,27 @@
+ #   '-a /var/run/avast4/mailscanner.sock -n {}', [0], [1],
+ #   qr/\t\[L\]\t([^[ \t\015\012]+)/m ],
+ 
+-  ['CAI InoculateIT', 'inocucmd',  # retired product
+-    '-sec -nex {}', [0], [100],
+-    qr/was infected by virus (.+)/m ],
++#  ['CAI InoculateIT', 'inocucmd',  # retired product
++#    '-sec -nex {}', [0], [100],
++#    qr/was infected by virus (.+)/m ],
+   # see: http://www.flatmtn.com/computer/Linux-Antivirus_CAI.html
+ 
+   ### http://www3.ca.com/Solutions/Product.asp?ID=156  (ex InoculateIT)
+-  ['CAI eTrust Antivirus', 'etrust-wrapper',
+-    '-arc -nex -spm h {}', [0], [101],
+-    qr/is infected by virus: (.+)/m ],
++#  ['CAI eTrust Antivirus', 'etrust-wrapper',
++#    '-arc -nex -spm h {}', [0], [101],
++#    qr/is infected by virus: (.+)/m ],
+     # NOTE: requires suid wrapper around inocmd32; consider flag: -mod reviewer
+     # see http://marc.theaimsgroup.com/?l=amavis-user&m=109229779912783
+ 
+   ### http://mks.com.pl/english.html
+-  ['MkS_Vir for Linux (beta)', ['mks32','mks'],
+-    '-s {}/*', [0], [1,2],
+-    qr/--[ \t]*(.+)/m ],
++#  ['MkS_Vir for Linux (beta)', ['mks32','mks'],
++#    '-s {}/*', [0], [1,2],
++#    qr/--[ \t]*(.+)/m ],
+ 
+   ### http://mks.com.pl/english.html
+-  ['MkS_Vir daemon', 'mksscan',
+-    '-s -q {}', [0], [1..7],
+-    qr/^... (\S+)/m ],
++#  ['MkS_Vir daemon', 'mksscan',
++#    '-s -q {}', [0], [1..7],
++#    qr/^... (\S+)/m ],
+ 
+ # ### http://www.nod32.com/,  version v2.52 (old)
+ # ['ESET NOD32 for Linux Mail servers',
+@@ -2148,17 +2149,17 @@
+ #   '--subdir {}', [0], [1,2,3], qr/virus="([^"]+)"/m ],
+ 
+   ### http://www.eset.com/, version 3.0
+-  ['ESET Software ESETS Command Line Interface',
+-    ['/usr/bin/esets_cli', 'esets_cli'],
+-    '--subdir {}', [0], [1,2,3],
+-    qr/:\s*action="(?!accepted)[^"]*"\n.*:\s*virus="([^"]*)"/m ],
++#  ['ESET Software ESETS Command Line Interface',
++#    ['/usr/bin/esets_cli', 'esets_cli'],
++#    '--subdir {}', [0], [1,2,3],
++#    qr/:\s*action="(?!accepted)[^"]*"\n.*:\s*virus="([^"]*)"/m ],
+ 
+   ## http://www.nod32.com/,  NOD32LFS version 2.5 and above
+-  ['ESET NOD32 for Linux File servers',
+-    ['/opt/eset/nod32/sbin/nod32','nod32'],
+-    '--files -z --mail --sfx --rtp --adware --unsafe --pattern --heur '.
+-    '-w -a --action=1 -b {}',
+-    [0], [1,10], qr/^object=.*, virus="(.*?)",/m ],
++#  ['ESET NOD32 for Linux File servers',
++#    ['/opt/eset/nod32/sbin/nod32','nod32'],
++#    '--files -z --mail --sfx --rtp --adware --unsafe --pattern --heur '.
++#    '-w -a --action=1 -b {}',
++#    [0], [1,10], qr/^object=.*, virus="(.*?)",/m ],
+ 
+ # Experimental, based on posting from Rado Dibarbora (Dibo) on 2002-05-31
+ # ['ESET Software NOD32 Client/Server (NOD32SS)',
+@@ -2167,17 +2168,17 @@
+ #   qr/^200 File OK/m, qr/^201 /m, qr/^201 (.+)/m ],
+ 
+   ### http://www.norman.com/products_nvc.shtml
+-  ['Norman Virus Control v5 / Linux', 'nvcc',
+-    '-c -l:0 -s -u -temp:$TEMPBASE {}', [0,10,11], [1,2,14],
+-    qr/(?i).* virus in .* -> \'(.+)\'/m ],
++#  ['Norman Virus Control v5 / Linux', 'nvcc',
++#    '-c -l:0 -s -u -temp:$TEMPBASE {}', [0,10,11], [1,2,14],
++#    qr/(?i).* virus in .* -> \'(.+)\'/m ],
+ 
+   ### http://www.pandasoftware.com/
+-  ['Panda CommandLineSecure 9 for Linux',
+-    ['/opt/pavcl/usr/bin/pavcl','pavcl'],
+-    '-auto -aex -heu -cmp -nbr -nor -nos -eng -nob {}',
+-    qr/Number of files infected[ .]*: 0+(?!\d)/m,
+-    qr/Number of files infected[ .]*: 0*[1-9]/m,
+-    qr/Found virus :\s*(\S+)/m ],
++#  ['Panda CommandLineSecure 9 for Linux',
++#    ['/opt/pavcl/usr/bin/pavcl','pavcl'],
++#    '-auto -aex -heu -cmp -nbr -nor -nos -eng -nob {}',
++#    qr/Number of files infected[ .]*: 0+(?!\d)/m,
++#    qr/Number of files infected[ .]*: 0*[1-9]/m,
++#    qr/Found virus :\s*(\S+)/m ],
+   # NOTE: for efficiency, start the Panda in resident mode with 'pavcl -tsr'
+   # before starting amavisd - the bases are then loaded only once at startup.
+   # To reload bases in a signature update script:
+@@ -2199,15 +2200,15 @@
+ # # (btw, assigning stdin to /dev/null causes RAV to fail)
+ 
+   ### http://www.nai.com/
+-  ['NAI McAfee AntiVirus (uvscan)', 'uvscan',
+-    '--secure -rv --mime --summary --noboot - {}', [0], [13],
+-    qr/(?x) Found (?:
+-        \ the\ (.+)\ (?:virus|trojan)  |
+-        \ (?:virus|trojan)\ or\ variant\ ([^ ]+)  |
+-        :\ (.+)\ NOT\ a\ virus)/m,
++#  ['NAI McAfee AntiVirus (uvscan)', 'uvscan',
++#    '--secure -rv --mime --summary --noboot - {}', [0], [13],
++#    qr/(?x) Found (?:
++#        \ the\ (.+)\ (?:virus|trojan)  |
++#        \ (?:virus|trojan)\ or\ variant\ ([^ ]+)  |
++#        :\ (.+)\ NOT\ a\ virus)/m,
+   # sub {$ENV{LD_PRELOAD}='/lib/libc.so.6'},
+   # sub {delete $ENV{LD_PRELOAD}},
+-  ],
++#  ],
+   # NOTE1: with RH9: force the dynamic linker to look at /lib/libc.so.6 before
+   # anything else by setting environment variable LD_PRELOAD=/lib/libc.so.6
+   # and then clear it when finished to avoid confusing anything else.
+@@ -2215,9 +2216,9 @@
+   #  qr/^\s{5,}(Found|is password-protected|.*(virus|trojan))/
+ 
+   ### http://www.virusbuster.hu/en/
+-  ['VirusBuster', ['vbuster', 'vbengcl'],
+-    "{} -ss -i '*' -log=$MYHOME/vbuster.log", [0], [1],
+-    qr/: '(.*)' - Virus/m ],
++#  ['VirusBuster', ['vbuster', 'vbengcl'],
++#    "{} -ss -i '*' -log=$MYHOME/vbuster.log", [0], [1],
++#    qr/: '(.*)' - Virus/m ],
+   # VirusBuster Ltd. does not support the daemon version for the workstation
+   # engine (vbuster-eng-1.12-linux-i386-libc6.tgz) any longer. The names of
+   # binaries, some parameters AND return codes have changed (from 3 to 1).
+@@ -2231,37 +2232,37 @@
+ # # although the man-page tells a different story
+ 
+   ### http://www.cyber.com/
+-  ['CyberSoft VFind', 'vfind',
+-    '--vexit {}/*', [0], [23], qr/##==>>>> VIRUS ID: CVDL (.+)/m,
++#  ['CyberSoft VFind', 'vfind',
++#    '--vexit {}/*', [0], [23], qr/##==>>>> VIRUS ID: CVDL (.+)/m,
+   # sub {$ENV{VSTK_HOME}='/usr/lib/vstk'},
+-  ],
++#  ],
+ 
+   ### http://www.avast.com/
+-  ['avast! Antivirus', ['/usr/bin/avastcmd','avastcmd'],
+-    '-a -i -n -t=A {}', [0], [1], qr/\binfected by:\s+([^ \t\n\[\]]+)/m ],
++#  ['avast! Antivirus', ['/usr/bin/avastcmd','avastcmd'],
++#    '-a -i -n -t=A {}', [0], [1], qr/\binfected by:\s+([^ \t\n\[\]]+)/m ],
+ 
+   ### http://www.ikarus-software.com/
+-  ['Ikarus AntiVirus for Linux', 'ikarus',
+-    '{}', [0], [40], qr/Signature (.+) found/m ],
++#  ['Ikarus AntiVirus for Linux', 'ikarus',
++#    '{}', [0], [40], qr/Signature (.+) found/m ],
+ 
+   ### http://www.bitdefender.com/
+-  ['BitDefender', 'bdscan',  # new version
+-    '--action=ignore --no-list {}', qr/^Infected files\s*:\s*0+(?!\d)/m,
+-    qr/^(?:Infected files|Identified viruses|Suspect files)\s*:\s*0*[1-9]/m,
+-    qr/(?:suspected|infected)\s*:\s*(.*)(?:\033|$)/m ],
++#  ['BitDefender', 'bdscan',  # new version
++#    '--action=ignore --no-list {}', qr/^Infected files\s*:\s*0+(?!\d)/m,
++#    qr/^(?:Infected files|Identified viruses|Suspect files)\s*:\s*0*[1-9]/m,
++#    qr/(?:suspected|infected)\s*:\s*(.*)(?:\033|$)/m ],
+ 
+   ### http://www.bitdefender.com/
+-  ['BitDefender', 'bdc',  # old version
+-    '--arc --mail {}', qr/^Infected files *:0+(?!\d)/m,
+-    qr/^(?:Infected files|Identified viruses|Suspect files) *:0*[1-9]/m,
+-    qr/(?:suspected|infected): (.*)(?:\033|$)/m ],
++#  ['BitDefender', 'bdc',  # old version
++#    '--arc --mail {}', qr/^Infected files *:0+(?!\d)/m,
++#    qr/^(?:Infected files|Identified viruses|Suspect files) *:0*[1-9]/m,
++#    qr/(?:suspected|infected): (.*)(?:\033|$)/m ],
+   # consider also: --all --nowarn --alev=15 --flev=15.  The --all argument may
+   # not apply to your version of bdc, check documentation and see 'bdc --help'
+ 
+   ### ArcaVir for Linux and Unix http://www.arcabit.pl/
+-  ['ArcaVir for Linux', ['arcacmd','arcacmd.static'],
+-    '-v 1 -summary 0 -s {}', [0], [1,2],
+-    qr/(?:VIR|WIR):[ \t]*(.+)/m ],
++#  ['ArcaVir for Linux', ['arcacmd','arcacmd.static'],
++#    '-v 1 -summary 0 -s {}', [0], [1,2],
++#    qr/(?:VIR|WIR):[ \t]*(.+)/m ],
+ 
+ # ### a generic SMTP-client interface to a SMTP-based virus scanner
+ # ['av_smtp', \&ask_av_smtp,
+@@ -2343,36 +2344,36 @@
+     [0], qr/:.*\sFOUND$/m, qr/^.*?: (?!Infected Archive)(.*) FOUND$/m ],
+ 
+   ### http://www.f-prot.com/   - backs up F-Prot Daemon, V6
+-  ['F-PROT Antivirus for UNIX', ['fpscan'],
+-    '--report --mount --adware {}',  # consider: --applications -s 4 -u 3 -z 10
+-    [0,8,64],  [1,2,3, 4+1,4+2,4+3, 8+1,8+2,8+3, 12+1,12+2,12+3],
+-    qr/^\[Found\s+[^\]]*\]\s+<([^ \t(>]*)/m ],
++#  ['F-PROT Antivirus for UNIX', ['fpscan'],
++#    '--report --mount --adware {}',  # consider: --applications -s 4 -u 3 -z 10
++#    [0,8,64],  [1,2,3, 4+1,4+2,4+3, 8+1,8+2,8+3, 12+1,12+2,12+3],
++#    qr/^\[Found\s+[^\]]*\]\s+<([^ \t(>]*)/m ],
+ 
+   ### http://www.f-prot.com/   - backs up F-Prot Daemon (old)
+-  ['FRISK F-Prot Antivirus', ['f-prot','f-prot.sh'],
+-    '-dumb -archive -packed {}', [0,8], [3,6],   # or: [0], [3,6,8],
+-    qr/(?:Infection:|security risk named) (.+)|\s+contains\s+(.+)$/m ],
++#  ['FRISK F-Prot Antivirus', ['f-prot','f-prot.sh'],
++#    '-dumb -archive -packed {}', [0,8], [3,6],   # or: [0], [3,6,8],
++#    qr/(?:Infection:|security risk named) (.+)|\s+contains\s+(.+)$/m ],
+ 
+   ### http://www.trendmicro.com/   - backs up Trophie
+-  ['Trend Micro FileScanner', ['/etc/iscan/vscan','vscan'],
+-    '-za -a {}', [0], qr/Found virus/m, qr/Found virus (.+) in/m ],
++#  ['Trend Micro FileScanner', ['/etc/iscan/vscan','vscan'],
++#    '-za -a {}', [0], qr/Found virus/m, qr/Found virus (.+) in/m ],
+ 
+   ### http://www.sald.com/, http://drweb.imshop.de/   - backs up DrWebD
+-  ['drweb - DrWeb Antivirus',  # security LHA hole in Dr.Web 4.33 and earlier
+-    ['/usr/local/drweb/drweb', '/opt/drweb/drweb', 'drweb'],
+-    '-path={} -al -go -ot -cn -upn -ok-',
+-    [0,32], [1,9,33], qr' infected (?:with|by)(?: virus)? (.*)$'m ],
++#  ['drweb - DrWeb Antivirus',  # security LHA hole in Dr.Web 4.33 and earlier
++#    ['/usr/local/drweb/drweb', '/opt/drweb/drweb', 'drweb'],
++#    '-path={} -al -go -ot -cn -upn -ok-',
++#    [0,32], [1,9,33], qr' infected (?:with|by)(?: virus)? (.*)$'m ],
+ 
+    ### http://www.kaspersky.com/
+-   ['Kaspersky Antivirus v5.5',
+-     ['/opt/kaspersky/kav4fs/bin/kav4fs-kavscanner',
+-      '/opt/kav/5.5/kav4unix/bin/kavscanner',
+-      '/opt/kav/5.5/kav4mailservers/bin/kavscanner', 'kavscanner'],
+-     '-i0 -xn -xp -mn -R -ePASBME {}/*', [0,10,15], [5,20,21,25],
+-     qr/(?:INFECTED|WARNING|SUSPICION|SUSPICIOUS) (.*)/m,
++#   ['Kaspersky Antivirus v5.5',
++#     ['/opt/kaspersky/kav4fs/bin/kav4fs-kavscanner',
++#      '/opt/kav/5.5/kav4unix/bin/kavscanner',
++#      '/opt/kav/5.5/kav4mailservers/bin/kavscanner', 'kavscanner'],
++#     '-i0 -xn -xp -mn -R -ePASBME {}/*', [0,10,15], [5,20,21,25],
++#     qr/(?:INFECTED|WARNING|SUSPICION|SUSPICIOUS) (.*)/m,
+ #    sub {chdir('/opt/kav/bin') or die "Can't chdir to kav: $!"},
+ #    sub {chdir($TEMPBASE) or die "Can't chdir back to $TEMPBASE $!"},
+-   ],
++#   ],
+ 
+ # Commented out because the name 'sweep' clashes with Debian and FreeBSD
+ # package/port of an audio editor. Make sure the correct 'sweep' is found

@@ -1,0 +1,11 @@
+[Desktop Entry]
+Version=1.1
+Name=WineXS
+Comment=Graphical frontend for Wine
+Comment[hu]=Grafikus előtétprogram a Wine nevű Windows emulátorhoz
+Type=Application
+Exec=winexs
+Icon=winexs
+Terminal=false
+StartupNotify=false
+Categories=System;Emulator;X-UHU-Menu/Tools/Emulators;

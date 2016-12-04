@@ -1,0 +1,8 @@
+#!/bin/sh -eux
+
+usrdir=`echo -E "$UB_INSTALLDIR" | sed s/\\\//\\\\\\\\\\\//g`\\/usr
+sed -i s/\\/usr\\/local/$usrdir/ src/src.pro
+qmake-qt4 -makefile -unix -o Makefile "DEFINES *= H5_USE_16_API" udav.pro
+make sub-src-qmake_all
+MGLDOCDIR=/usr/share/doc/udav/ make 
+ub_make

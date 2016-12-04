@@ -1,0 +1,8 @@
+dbus-glib-dev
+glib2-dev
+hal-dev
+libgtop2-dev
+libsgutils
+libusb-dev
+libx11-dev
+libxml2-dev

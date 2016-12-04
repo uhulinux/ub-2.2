@@ -1,0 +1,12 @@
+diff -Naur tcptrack-1.3.0-orig/src/util.cc tcptrack-1.3.0/src/util.cc
+--- tcptrack-1.3.0-orig/src/util.cc	2006-11-08 16:58:18.000000000 +0100
++++ tcptrack-1.3.0/src/util.cc	2009-11-30 23:51:25.000000000 +0100
+@@ -27,6 +27,8 @@
+ #elif HAVE_EXT_HASH_MAP
+ # include <ext/hash_map>
+ #endif
++#include <cstring>
++
+ 
+ // this takes an IPv4 address (an in_addr struct) and returns it as a
+ // string in dotted quad form.

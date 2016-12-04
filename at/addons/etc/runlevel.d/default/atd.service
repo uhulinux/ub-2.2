@@ -1,0 +1,10 @@
+Summary=At Daemon
+Summary[hu]=At démon
+Description=Schedules execution of one-time jobs.
+Description[hu]=Feladatok egyszeri időzített végrehajtását látja el.
+MsgDesc=Job Scheduler
+MsgDesc[hu]=Feladat-időzítő
+Script=/etc/init.d/atd
+SupportsReload=yes
+Runlevels=2345
+Sequence=20

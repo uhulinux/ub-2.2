@@ -1,0 +1,24 @@
+diff -Naurdp a/util/Makefile.in b/util/Makefile.in
+--- a/util/Makefile.in	2007-02-04 15:31:02.000000000 +0100
++++ b/util/Makefile.in	2007-02-27 19:31:13.000000000 +0100
+@@ -489,11 +489,6 @@ uninstall-am: uninstall-binPROGRAMS unin
+ install-exec-hook:
+ 	-chown root $(DESTDIR)$(bindir)/fusermount
+ 	-chmod u+s $(DESTDIR)$(bindir)/fusermount
+-	@if test ! -e $(DESTDIR)/dev/fuse; then \
+-		$(mkdir_p) $(DESTDIR)/dev; \
+-		echo "mknod $(DESTDIR)/dev/fuse -m 0666 c 10 229 || true"; \
+-		mknod $(DESTDIR)/dev/fuse -m 0666 c 10 229 || true; \
+-	fi
+ 
+ install-exec-local:
+ 	$(mkdir_p) $(DESTDIR)$(MOUNT_FUSE_PATH)
+@@ -506,8 +501,6 @@ install-exec-local:
+ 	fi
+ 
+ install-data-local:
+-	$(mkdir_p) $(DESTDIR)$(UDEV_RULES_PATH)
+-	$(INSTALL_DATA) $(srcdir)/udev.rules $(DESTDIR)$(UDEV_RULES_PATH)/99-fuse.rules
+ 
+ uninstall-local:
+ 	rm -f $(DESTDIR)$(MOUNT_FUSE_PATH)/mount.fuse

@@ -1,0 +1,75 @@
+diff -Naurd orig/data/bs-ng.desktop mod/data/bs-ng.desktop
+--- orig/data/bs-ng.desktop	2010-01-21 19:55:15.000000000 +0100
++++ mod/data/bs-ng.desktop	2009-12-29 15:58:31.000000000 +0100
+@@ -1,9 +1,10 @@
+ [Desktop Entry]
+-Version=1.0
++Version=1.1
+ Type=Application
+ Terminal=false
+ Icon=bs-ng
+ Name=BashStyle-NG
+ Exec=bashstyle
+ Comment=Configure Bash, ReadLine, Vim and Nano
+-Categories=GTK;GNOME;Utility;
++Comment[hu]=Bash, ReadLine, Vim és Nano beállító
++Categories=GTK;GNOME;Utility;X-UHU-Menu/Tools/Utilities;
+diff -Naurd orig/Makefile.in mod/Makefile.in
+--- orig/Makefile.in	2010-01-21 19:55:15.000000000 +0100
++++ mod/Makefile.in	2010-01-21 22:39:32.000000000 +0100
+@@ -14,7 +14,7 @@
+ 
+ EARGS=""
+ 
+-all: mo
++all: #mo
+ 	@echo$(EARGS) "$(MAGENTA)compiling: 	$(SMOOTHBLUE)terminfo files:	$(CYAN)mostlike bold nebula"
+ 	@tic $(PWD)/data/terminfo/mostlike.terminfo -o $(PWD)/data/terminfo/
+ 	@tic $(PWD)/data/terminfo/bold.terminfo -o $(PWD)/data/terminfo/
+@@ -84,7 +84,7 @@
+ 	@mkdir -p $(DESTDIR)@PREFIX@/share/doc/bashstyle-ng/
+ 	@mkdir -p $(DESTDIR)@PREFIX@/share/gconf/schemas
+ 	@mkdir -p $(DESTDIR)/usr/share/icons/hicolor/32x32/apps/
+-	@mkdir -p $(DESTDIR)/usr/lib/pkgconfig/
++#	@mkdir -p $(DESTDIR)/usr/lib/pkgconfig/
+ 	@echo$(EARGS) "$(GREEN)installing:$(YELLOW) 	bashstyle-ng"
+ 	@install -m644 code/*[!.in] $(DESTDIR)@PREFIX@/share/bashstyle-ng/code/
+ 	@echo$(EARGS) "$(GREEN)installing:$(YELLOW) 	terminfos"
+@@ -117,7 +117,7 @@
+ 	@echo$(EARGS) "$(GREEN)installing:$(YELLOW)	functions"
+ 	@install -m755 rc/functions/* $(DESTDIR)@PREFIX@/share/bashstyle-ng/rc/functions/
+ 	@echo$(EARGS) "$(GREEN)installing:$(YELLOW)	pc file"
+-	@install -m644 data/bashstyle-ng.pc $(DESTDIR)/usr/lib/pkgconfig/
++#	@install -m644 data/bashstyle-ng.pc $(DESTDIR)/usr/lib/pkgconfig/
+ 	@echo$(EARGS) "$(GREEN)installing:$(YELLOW)	gconf schemas"
+ 	@install -m644 data/deprecated.schemas $(DESTDIR)@PREFIX@/share/gconf/schemas/bashstyle-deprecated.schemas
+ 	@install -m644 data/bashstyle.schemas $(DESTDIR)@PREFIX@/share/gconf/schemas/
+@@ -130,28 +130,11 @@
+ 			fi; \
+ 		done; \
+ 	fi
+-	@echo$(EARGS) "$(GREEN)installing:$(CYAN)	translations:$(BLUE) de it ru"
+-	@install -m644 translations/mo/bs-ng-de.mo $(DESTDIR)/usr/share/locale/de/LC_MESSAGES/bashstyle-ng.mo
+-	@install -m644 translations/mo/bs-ng-it.mo $(DESTDIR)/usr/share/locale/it/LC_MESSAGES/bashstyle-ng.mo
+-	@install -m644 translations/mo/bs-ng-ru.mo $(DESTDIR)/usr/share/locale/ru/LC_MESSAGES/bashstyle-ng.mo
+ 	@if test ! $(GCONF_DISABLE) ; then \
+ 		echo$(EARGS) "$(MAGENTA)deregistering:	$(SMOOTHBLUE)deprecated gconf schemas" ; \
+ 		GCONF_CONFIG_SOURCE=xml:merged:/etc/gconf/gconf.xml.defaults \
+ 			gconftool-2 --makefile-uninstall-rule data/deprecated.schemas >/dev/null ; \
+ 	fi
+-	@if test ! $(GCONF_DISABLE) ; then \
+-		echo$(EARGS) "$(MAGENTA)registering:	$(SMOOTHBLUE)gconf schemas" ; \
+-		GCONF_CONFIG_SOURCE=xml:merged:/etc/gconf/gconf.xml.defaults \
+-			gconftool-2 --makefile-install-rule data/bashstyle.schemas >/dev/null ; \
+-	fi
+-	@if test ! $(CACHE_DISABLE) ; then \
+-		echo$(EARGS) "$(MAGENTA)updating:	$(SMOOTHBLUE)icon cache" ; \
+-		gtk-update-icon-cache -f /usr/share/icons/hicolor >/dev/null ; \
+-	fi
+-	@if test ! $(KILL_DISABLE) ; then \
+-		echo$(EARGS) "$(RED)killing:	$(SMOOTHBLUE)gconf daemon" ; \
+-		killall -qw gconfd-2 >/dev/null || exit 0; \
+-	fi
+ 	@tput sgr0
+ 
+ uninstall:

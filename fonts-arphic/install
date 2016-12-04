@@ -1,0 +1,8 @@
+#!/bin/sh -eux
+
+mkdir -p "$UB_INSTALLDIR/usr/share/fonts/TTF"
+cp -a ttf-arphic-ukai-$UB_VERSION/ukai.ttf "$UB_INSTALLDIR/usr/share/fonts/TTF"
+cp -a ttf-arphic-ukai-$UB_VERSION/fonts.dir "$UB_INSTALLDIR/usr/share/fonts/TTF/fonts.dir.ukai"
+cp -a ttf-arphic-uming-$UB_VERSION/uming.ttf "$UB_INSTALLDIR/usr/share/fonts/TTF"
+cp -a ttf-arphic-uming-$UB_VERSION/fonts.dir "$UB_INSTALLDIR/usr/share/fonts/TTF/fonts.dir.uming"
+

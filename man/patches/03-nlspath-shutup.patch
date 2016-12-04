@@ -1,0 +1,14 @@
+diff -Naurdp a/src/gripes.c b/src/gripes.c
+--- a/src/gripes.c	2006-11-21 20:53:44.000000000 +0100
++++ b/src/gripes.c	2009-12-03 14:34:28.554775085 +0100
+@@ -55,10 +55,6 @@ catinit (void) {
+ 	    if (!lg)
+ 		    lg = getenv("LC_ALL");
+ 	    if (lg && strncmp(lg, "en", 2) && strcmp(lg, "C") && strcmp(lg, "POSIX")) {
+-		fprintf(stderr,
+-		  "Cannot open the message catalog \"%s\" for locale \"%s\"\n"
+-		  "(NLSPATH=\"%s\")\n\n",
+-			mantexts, lg, s ? s : "<none>");
+ 	    } else if (debug) {
+ 		fprintf(stderr,
+ "Looked whether there exists a message catalog %s, but there is none\n"

@@ -1,0 +1,24 @@
+diff -Naurdp SVG-TT-Graph-0.16/lib/SVG/TT/Graph/Line.pm SVG-TT-Graph-0.16.dataPoint/lib/SVG/TT/Graph/Line.pm
+--- SVG-TT-Graph-0.16/lib/SVG/TT/Graph/Line.pm	2010-04-17 14:01:33.000000000 +0200
++++ SVG-TT-Graph-0.16.dataPoint/lib/SVG/TT/Graph/Line.pm	2011-04-29 16:45:44.903666067 +0200
+@@ -808,7 +808,7 @@ __DATA__
+     [% FOREACH field = config.fields %]
+       [% IF config.show_data_points %]
+         <!-- datapoint shown -->
+-        <circle cx="[% (dw * xcount) + x %]" cy="[% base_line - ((dataset.data.$field - min_scale_value) * divider) %]" r="2.5" class="fill[% line %]"/>
++        <circle cx="[% (dw * xcount) + x %]" cy="[% base_line - ((dataset.data.$field - min_scale_value) * divider) %]" r="2.5" class="dataPoint[% line %]"/>
+       [% END %]
+             
+       [% IF config.show_data_values %]
+diff -Naurdp SVG-TT-Graph-0.16/lib/SVG/TT/Graph/TimeSeries.pm SVG-TT-Graph-0.16.dataPoint/lib/SVG/TT/Graph/TimeSeries.pm
+--- SVG-TT-Graph-0.16/lib/SVG/TT/Graph/TimeSeries.pm	2010-04-17 18:01:50.000000000 +0200
++++ SVG-TT-Graph-0.16.dataPoint/lib/SVG/TT/Graph/TimeSeries.pm	2011-04-29 16:49:28.844666469 +0200
+@@ -1021,7 +1021,7 @@ __DATA__
+       [% IF ((pair.0 >= calc.min_timescale_value) && (pair.0 <= calc.max_timescale_value)) %]
+         <g class="dataLabel[% line %]" [% IF config.rollover_values %] opacity="0" [% END %]>
+         [% IF config.show_data_points %]
+-          <circle cx="[% (dw * (pair.0 - calc.min_timescale_value)) + x %]" cy="[% base_line - (dh * (pair.1 - calc.min_scale_value)) %]" r="2.5" class="fill[% line %]"
++          <circle cx="[% (dw * (pair.0 - calc.min_timescale_value)) + x %]" cy="[% base_line - (dh * (pair.1 - calc.min_scale_value)) %]" r="2.5" class="dataPoint[% line %]"
+           [% IF config.rollover_values %]
+             onmouseover="evt.target.parentNode.setAttribute('opacity',1);"
+             onmouseout="evt.target.parentNode.setAttribute('opacity',0);"

@@ -1,0 +1,4 @@
+#!/usr/bin/env dl
+
+at-spi-${UB_VERSION}.tar.gz at-spi-${UB_VERSION}/
+	ftp://ftp.gnome.org/pub/GNOME/sources/at-spi/${UB_VERSION_HEAD2}/

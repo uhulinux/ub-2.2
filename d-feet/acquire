@@ -1,0 +1,4 @@
+#!/usr/bin/env dl
+
+d-feet-${UB_VERSION}.tar.bz2 d-feet-${UB_VERSION}/
+	http://johnp.fedorapeople.org/downloads/d-feet/

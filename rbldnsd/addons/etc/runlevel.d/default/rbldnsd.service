@@ -1,0 +1,11 @@
+Summary=Fast DNS daemon
+Summary[hu]=Gyors DNS démon
+Description=Rbldnsd is a small and fast DNS daemon which is especially made to serve DNSBL zones.
+Description[hu]=Az rbldnsd egy kicsi es gyors DNS démon, ami kifejezetten DNSBL zónák kiszolgálására lett tervezve.
+MsgDesc=Fast DNS daemon
+MsgDesc[hu]=Gyors DNS démon
+Script=/etc/init.d/rbldnsd
+SupportsReload=yes
+Runlevels=2345
+Sequence=20
+Resources=udp/650

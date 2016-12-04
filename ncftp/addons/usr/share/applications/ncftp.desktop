@@ -1,0 +1,10 @@
+[Desktop Entry]
+Encoding=UTF-8
+Type=Application
+Name=NcFTP
+Comment=Command-line FTP client
+Comment[hu]=Parancssoros FTP-kliens
+Exec=ncftp
+Terminal=true
+Categories=X-UHU-Menu/Internet/Downloaders;
+X-UHU-Major=-1

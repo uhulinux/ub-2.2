@@ -1,0 +1,4 @@
+#!/bin/sh -eux
+
+gcc -O4 -march=native -Wall -o dcraw dcraw.c \
+    -lm -ljpeg -llcms -s -DLOCALEDIR=\"/usr/share/locale/\"

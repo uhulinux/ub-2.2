@@ -1,0 +1,4 @@
+#!/usr/bin/env dl
+
+sqlalchemy-migrate-${UB_VERSION}.tar.gz sqlalchemy-migrate-${UB_VERSION}/
+	http://sqlalchemy-migrate.googlecode.com/files/

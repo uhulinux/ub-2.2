@@ -1,0 +1,4 @@
+#!/usr/bin/env dl
+
+microcode-${UB_VERSION}.tgz .
+	http://downloadmirror.intel.com/14303/eng/

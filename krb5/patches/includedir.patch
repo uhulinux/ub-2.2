@@ -1,0 +1,12 @@
+diff -Naurdp a/src/krb5-config.in b/src/krb5-config.in
+--- a/src/krb5-config.in	2006-06-16 02:26:49.000000000 +0200
++++ b/src/krb5-config.in	2007-10-23 18:51:12.000000000 +0200
+@@ -168,7 +168,7 @@ fi
+ 
+ if test -n "$do_cflags"; then
+     if test x"$includedir" != x"/usr/include" ; then
+-        echo "-I${includedir}"
++        echo "-I${includedir} -I/usr/include/et"
+     else
+         echo ''
+     fi

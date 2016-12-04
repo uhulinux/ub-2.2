@@ -1,0 +1,7 @@
+doxygen
+glibmm2-dev
+gnome-doc-utils-dev
+intltool
+libgnome2-dev
+libgnomeui2-dev
+openssl-dev

@@ -1,0 +1,22 @@
+diff -Naur tetex-src-3.0.orig/texk/xdvik/xdvi-sh.in tetex-src-3.0/texk/xdvik/xdvi-sh.in
+--- tetex-src-3.0.orig/texk/xdvik/xdvi-sh.in	2004-03-22 20:26:25.000000000 +0100
++++ tetex-src-3.0/texk/xdvik/xdvi-sh.in	2006-02-28 18:06:56.000000000 +0100
+@@ -1,9 +1,17 @@
+-#!/bin/sh
++#!/bin/bash
+ 
+ # This is the xdvi wrapper script for teTeX, version 0.2.
+ # Copyright Thomas Esser, 1998. Permission to distribute under the terms
+ # of the GNU general public license version 2 or later.
+ 
++# Startup is painfully slow with UTF-8 locales. Use legacy 8-bit locales
++# instead.
++for i in LANG ${!LC_*}; do
++	if [ "${!i}" != "${!i%.UTF-8}" ]; then
++		export "$i"="${!i%.UTF-8}"
++	fi
++done
++
+ # This script sets some environment variables to make sure that xdvi's
+ # resource file in $XDVIINPUTS/xdvi is read by xdvi.bin.
+ 

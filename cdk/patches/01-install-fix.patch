@@ -1,0 +1,12 @@
+diff -Naur orig/Makefile.in patch1/Makefile.in
+--- orig/Makefile.in	2009-02-15 18:50:05.000000000 +0100
++++ patch1/Makefile.in	2009-03-17 15:53:29.000000000 +0100
+@@ -62,7 +62,7 @@
+ libdir		= @libdir@
+ mandir		= @mandir@
+ 
+-DOCUMENT_DIR	= $(prefix)/doc/cdk
++DOCUMENT_DIR	= $(DESTDIR)$(prefix)/share/doc/cdk
+ BIN_DIR		= $(DESTDIR)$(bindir)
+ INCLUDE_DIR	= $(DESTDIR)$(includedir)/cdk
+ LIB_DIR		= $(DESTDIR)$(libdir)

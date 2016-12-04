@@ -1,0 +1,4 @@
+#!/usr/bin/env dl
+
+cssutils-${UB_VERSION}.zip cssutils-${UB_VERSION}/
+	http://cssutils.googlecode.com/files/

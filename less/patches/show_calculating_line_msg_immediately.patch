@@ -1,0 +1,12 @@
+diff -urN less-394.orig/linenum.c less-394/linenum.c
+--- less-394.orig/linenum.c	2005-12-03 21:20:32.000000000 +0100
++++ less-394/linenum.c	2009-10-06 14:32:04.000000000 +0200
+@@ -58,7 +58,7 @@
+ 
+ #define	NPOOL	50			/* Size of line number pool */
+ 
+-#define	LONGTIME	(2)		/* In seconds */
++#define	LONGTIME	(0)		/* In seconds */
+ 
+ public int lnloop = 0;			/* Are we in the line num loop? */
+ 

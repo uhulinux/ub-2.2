@@ -1,0 +1,30 @@
+diff -Naurd f/tools/hal-system-storage-mount g/tools/hal-system-storage-mount
+--- f/tools/hal-system-storage-mount	2006-06-25 22:20:06.000000000 +0200
++++ g/tools/hal-system-storage-mount	2006-06-25 22:22:46.000000000 +0200
+@@ -126,6 +126,26 @@
+     MOUNTTYPE=$HAL_PROP_VOLUME_FSTYPE
+ fi
+ 
++case "$MOUNTTYPE" in
++	msdos)
++		MOUNTOPTIONS=",dmask=0000,fmask=1111";;
++	vfat)
++		MOUNTOPTIONS=",dmask=0000,fmask=1111";;
++	ntfs)
++		MOUNTOPTIONS=",dmask=0000,fmask=1111";;
++esac
++
++if [ "$(hal-get-property --udi "$HAL_PROP_BLOCK_STORAGE_DEVICE" --key storage.hotpluggable)" == "true" ] \
++	|| [ "$(hal-get-property --udi "$HAL_PROP_BLOCK_STORAGE_DEVICE" --key storage.removable)" == "true" ]; then
++	case "$MOUNTTYPE" in
++		vfat)
++			MOUNTOPTIONS="$MOUNTOPTIONS,flush";;
++		ext3)
++			MOUNTOPTIONS="$MOUNTOPTIONS,commit=1";;
++	esac
++	MOUNTOPTIONS="$MOUNTOPTIONS,noatime"
++fi
++
+ # retrieve white-list from device properties (see fdi/policy/osvendor/20-storage-methods.fdi)
+ LEGAL_MOUNT_OPTIONS="$HAL_PROP_VOLUME_MOUNT_VALID_OPTIONS "
+ # pass only whitelisted mount options, bail out on anything not in the whitelist

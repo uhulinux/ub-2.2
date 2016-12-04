@@ -1,0 +1,11 @@
+--- gedit-2.26.0.orig/data/gedit.desktop.in.in	2009-03-02 17:16:24.000000000 +0100
++++ gedit-2.26.0/data/gedit.desktop.in.in	2009-03-15 20:17:55.000000000 +0100
+@@ -8,7 +8,7 @@
+ StartupNotify=true
+ MimeType=text/plain;
+ Icon=accessories-text-editor
+-Categories=GNOME;GTK;Utility;TextEditor;
++Categories=GTK;GNOME;Utility;TextEditor;X-UHU-Menu/Tools/Editors;
+ X-GNOME-DocPath=gedit/gedit.xml
+ X-GNOME-Bugzilla-Bugzilla=GNOME
+ X-GNOME-Bugzilla-Product=gedit

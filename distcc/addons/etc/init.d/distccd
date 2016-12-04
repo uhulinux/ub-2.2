@@ -1,0 +1,9 @@
+#!/bin/sh
+
+. /etc/init.d/common
+
+DAEMON=/usr/bin/distccd
+PIDFILE="/var/run/distccd/pid"
+DAEMONARGS=(--pid-file "$PIDFILE" --user distccd --daemon --allow 127.0.0.1 --zeroconf)
+
+startstop "$@"

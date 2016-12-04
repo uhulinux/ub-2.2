@@ -1,0 +1,16 @@
+diff -Naurd orig/packaging/shared/efte.desktop mod/packaging/shared/efte.desktop
+--- orig/packaging/shared/efte.desktop	2009-06-16 18:46:45.000000000 +0200
++++ mod/packaging/shared/efte.desktop	2009-06-16 21:26:16.000000000 +0200
+@@ -27,10 +27,11 @@
+ Comment[nl]=Snelle, uitbreidbare tekst editor voor programmeurs
+ Comment[pl]=Szybki, zaawansowany i elastyczny edytor tekstu dla programistów
+ Comment[sv]=Snabb, utbyggbar textredigerare för programmerare
++Comment[hu]=Programkód szerkesztő
+ MimeType=text/english;text/plain;text/x-makefile;text/x-c++hdr;text/x-c++src;text/x-chdr;text/x-csrc;text/x-java;text/x-pascal;text/x-tcl;text/x-tex;application/x-shellscript;text/x-c;text/x-c++;
+ Exec=efte %f
+ Icon=efte
+ Type=Application
+ Terminal=false
+-Categories=Development;TextEditor;
++Categories=Development;TextEditor;X-UHU-Menu/Tools/Editors;
+ StartupWMClass=Efte

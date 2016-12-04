@@ -1,0 +1,10 @@
+Summary=Anacron Daemon
+Summary[hu]=Anacron démon
+Description=Scheduler for periodic jobs.
+Description[hu]=Ütemező periodikusan elvégzendő feladatok számára.
+MsgDesc=Job Scheduler
+MsgDesc[hu]=Időzített programfutattó
+Script=/etc/init.d/anacron
+SupportsReload=no
+Runlevels=
+Sequence=20

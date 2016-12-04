@@ -1,0 +1,10 @@
+[Desktop Entry]
+Encoding=UTF-8
+Type=Application
+Name=Python Documentation
+Name[hu]=Python dokumentáció
+Comment=Python Documentation
+Comment[hu]=Python dokumentáció
+Exec=browser /usr/share/doc/python/html/index.html
+Icon=/usr/share/doc/python/html/_static/py.png
+Categories=X-UHU-Menu/Documentation;

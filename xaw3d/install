@@ -1,0 +1,4 @@
+#!/bin/sh -eux
+
+cd lib/Xaw3d
+ub_install

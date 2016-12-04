@@ -1,0 +1,10 @@
+[Desktop Entry]
+Name=Truecrypt
+Comment=Truecrypt
+Comment[hu]=Truecrypt titkosító
+Exec=truecrypt
+Icon=truecrypt
+Terminal=false
+Type=Application
+StartupNotify=true
+Categories=Application;Office;X-UHU-Menu/Tools/More;

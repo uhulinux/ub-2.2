@@ -1,0 +1,4 @@
+#!/usr/bin/env dl
+
+searchmonkey-$UB_VERSION.tar.gz searchmonkey-$UB_VERSION/
+	http://prdownloads.sourceforge.net/searchmonkey/

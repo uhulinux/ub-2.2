@@ -1,0 +1,10 @@
+Summary=Freshclam daemon
+Summary[hu]=Freshclam démon
+Description=Virus scan update daemon.
+Description[hu]=Víruskereső frissítő démon.
+MsgDesc=Virus Scanner Update Daemon
+MsgDesc[hu]=Vírusszűrő frissítő démon
+Script=/etc/init.d/freshclam
+SupportsReload=no
+Runlevels=
+Sequence=19

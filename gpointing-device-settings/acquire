@@ -1,0 +1,4 @@
+#!/usr/bin/env dl
+
+gpointing-device-settings-${UB_VERSION}.tar.gz gpointing-device-settings-${UB_VERSION}/
+	http://en.sourceforge.jp/frs/redir.php?m=osdn&f=/gsynaptics/45812/

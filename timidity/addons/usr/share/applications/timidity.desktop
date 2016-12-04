@@ -1,0 +1,9 @@
+[Desktop Entry]
+Encoding=UTF-8
+Name=TiMidity
+Comment=MIDI Player
+Comment[hu]=MIDI-lejátszó
+Icon=/usr/share/pixmaps/timidity.png
+Exec=timidity -ig %F
+Type=Application
+Categories=X-UHU-Menu/Multimedia/MusicPlayers;

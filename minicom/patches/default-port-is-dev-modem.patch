@@ -1,0 +1,122 @@
+diff -Naurd minicom-2.1.orig/configure minicom-2.1/configure
+--- minicom-2.1.orig/configure	2003-05-16 22:08:41.000000000 +0200
++++ minicom-2.1/configure	2003-08-12 21:40:55.000000000 +0200
+@@ -8809,118 +8809,6 @@
+ if test "x$DFL_PORT" = x
+ then
+ 	DFL_PORT=/dev/modem
+-	if test -c $DFL_PORT
+-	then
+-		echo "$as_me:$LINENO: result: $DFL_PORT" >&5
+-echo "${ECHO_T}$DFL_PORT" >&6
+-		cat >>confdefs.h <<_ACEOF
+-#define DFL_PORT "$DFL_PORT"
+-_ACEOF
+-
+-	else
+-		DFL_PORT=""
+-	fi
+-fi
+-
+-if test "x$DFL_PORT" = x
+-then
+-	DFL_PORT=/dev/cua/b
+-	if test -c $DFL_PORT
+-	then
+-		echo "$as_me:$LINENO: result: $DFL_PORT" >&5
+-echo "${ECHO_T}$DFL_PORT" >&6
+-		cat >>confdefs.h <<_ACEOF
+-#define DFL_PORT "$DFL_PORT"
+-_ACEOF
+-
+-	else
+-		DFL_PORT=""
+-	fi
+-fi
+-
+-if test "x$DFL_PORT" = x
+-then
+-	DFL_PORT=/dev/cua2p0
+-	if test -c $DFL_PORT
+-	then
+-		echo "$as_me:$LINENO: result: $DFL_PORT" >&5
+-echo "${ECHO_T}$DFL_PORT" >&6
+-		cat >>confdefs.h <<_ACEOF
+-#define DFL_PORT "$DFL_PORT"
+-_ACEOF
+-
+-	else
+-		DFL_PORT=""
+-	fi
+-fi
+-
+-if test "x$DFL_PORT" = x
+-then
+-	DFL_PORT=/dev/ttyS1
+-	if test -c $DFL_PORT
+-	then
+-		echo "$as_me:$LINENO: result: $DFL_PORT" >&5
+-echo "${ECHO_T}$DFL_PORT" >&6
+-		cat >>confdefs.h <<_ACEOF
+-#define DFL_PORT "$DFL_PORT"
+-_ACEOF
+-
+-	else
+-		DFL_PORT=""
+-	fi
+-fi
+-
+-if test "x$DFL_PORT" = x
+-then
+-	DFL_PORT=/dev/com0
+-	if test -c $DFL_PORT
+-	then
+-		echo "$as_me:$LINENO: result: $DFL_PORT" >&5
+-echo "${ECHO_T}$DFL_PORT" >&6
+-		cat >>confdefs.h <<_ACEOF
+-#define DFL_PORT "$DFL_PORT"
+-_ACEOF
+-
+-	else
+-		DFL_PORT=""
+-	fi
+-fi
+-
+-if test "x$DFL_PORT" = x
+-then
+-	DFL_PORT=/dev/tty01
+-	if test -c $DFL_PORT
+-	then
+-		echo "$as_me:$LINENO: result: $DFL_PORT" >&5
+-echo "${ECHO_T}$DFL_PORT" >&6
+-		cat >>confdefs.h <<_ACEOF
+-#define DFL_PORT "$DFL_PORT"
+-_ACEOF
+-
+-	else
+-		DFL_PORT=""
+-	fi
+-fi
+-
+-if test "x$DFL_PORT" = x
+-then
+-	DFL_PORT=/dev/tty8
+-	if test -c $DFL_PORT
+-	then
+-		echo "$as_me:$LINENO: result: $DFL_PORT" >&5
+-echo "${ECHO_T}$DFL_PORT" >&6
+-		cat >>confdefs.h <<_ACEOF
+-#define DFL_PORT "$DFL_PORT"
+-_ACEOF
+-
+-	else
+-		DFL_PORT=""
+-	fi
+-fi
+-
+-if test "x$DFL_PORT" = x
+-then
+-	DFL_PORT=/dev/modem
+ 	cat >>confdefs.h <<_ACEOF
+ #define DFL_PORT "$DFL_PORT"
+ _ACEOF

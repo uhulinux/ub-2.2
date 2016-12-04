@@ -1,0 +1,5 @@
+#!/usr/bin/env dl
+
+gnome-mount-${UB_VERSION}.tar.gz gnome-mount-${UB_VERSION}/
+	http://hal.freedesktop.org/releases/
+	http://www.freedesktop.org/~david/dist/

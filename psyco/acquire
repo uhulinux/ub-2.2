@@ -1,0 +1,4 @@
+#!/usr/bin/env dl
+
+psyco-${UB_VERSION}-src.tar.gz psyco-${UB_VERSION}/
+	http://downloads.sourceforge.net/psyco/

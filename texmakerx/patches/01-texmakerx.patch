@@ -1,0 +1,23 @@
+diff -Naurd orig/texmakerx.pro mod/texmakerx.pro
+--- orig/texmakerx.pro	2010-05-06 13:33:41.000000000 +0200
++++ mod/texmakerx.pro	2010-05-07 06:33:28.000000000 +0200
+@@ -1,6 +1,6 @@
+ TEMPLATE = app
+ LANGUAGE = C++
+-DESTDIR = ./
++#DESTDIR = ./
+ CONFIG = $$unique(CONFIG)
+ CONFIG -= debug \
+     debug_and_release \
+@@ -177,9 +177,9 @@
+     OBJECTS_DIR = .obj
+     isEmpty( PREFIX ):PREFIX = /usr
+     DEFINES += PREFIX=\\\"$${PREFIX}\\\"
+-    target.path = $${PREFIX}/bin
++    target.path = $${DESTDIR}/bin
+     INSTALLS = target
+-    utilities.path = $${PREFIX}/share/texmakerx
++    utilities.path = $${DESTDIR}/share/texmakerx
+     utilities.files = utilities/doc1.png \
+         utilities/doc10.png \
+         utilities/doc11.png \

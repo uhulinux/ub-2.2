@@ -1,0 +1,9 @@
+[Desktop Entry]
+Encoding=UTF-8
+Type=Application
+Name=Dalí clock
+Name[hu]=Dalí óra
+Comment=Clock in the style of Salvador Dalí
+Comment[hu]=Óra Salvador Dalí stílusában
+Exec=xdaliclock
+Categories=X-UHU-Menu/Tools/Utilities;

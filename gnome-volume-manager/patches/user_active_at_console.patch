@@ -1,0 +1,173 @@
+diff -urN gnome-volume-manager-2.24.0.orig/is_on_vt/gnome-volume-manager-is-on-vt.c gnome-volume-manager-2.24.0/is_on_vt/gnome-volume-manager-is-on-vt.c
+--- gnome-volume-manager-2.24.0.orig/is_on_vt/gnome-volume-manager-is-on-vt.c	1970-01-01 01:00:00.000000000 +0100
++++ gnome-volume-manager-2.24.0/is_on_vt/gnome-volume-manager-is-on-vt.c	2008-10-21 21:36:37.000000000 +0200
+@@ -0,0 +1,42 @@
++#include <stdlib.h>
++#include <string.h>
++#include <stdio.h>
++#include <unistd.h>
++#include <fcntl.h>
++#include <sys/ioctl.h>
++#include <linux/vt.h>
++
++#define PARENT_EXE "/usr/bin/gnome-volume-manager"
++
++int main (int argc, char *argv[])
++{
++	int fd, i, parent_exe_len;
++	pid_t ppid;
++	struct vt_stat vtstat;
++	char buf[64];
++	char buf2[64];
++
++	/* usage */
++	if (argc != 2) exit(1);
++
++	/* check if parent process is gnome-volume-manager */
++	parent_exe_len = strlen(PARENT_EXE);
++	ppid = getppid();
++	sprintf(buf, "/proc/%d/exe", ppid);
++	i = readlink(buf, buf2, 64);
++	if (i != parent_exe_len) exit(1);
++	if (strncmp(buf2, PARENT_EXE, parent_exe_len) != 0) exit(1);
++	/* make sure ppid is still the same to avoid race condition */
++	if (getppid() != ppid) exit(1);
++
++	/* check if the vt number equals to argv[1] */
++	fd = open("/dev/console", O_RDONLY|O_NOCTTY);
++	if (fd < 0) exit(1);
++	i = ioctl(fd, VT_GETSTATE, &vtstat);
++	if (i < 0) exit(1);
++	sprintf(buf, "%d", vtstat.v_active);
++	if (strcmp(buf, argv[1]) != 0) exit(1);
++
++	/* okay */
++	return 0;
++}
+diff -urN gnome-volume-manager-2.24.0.orig/is_on_vt/Makefile gnome-volume-manager-2.24.0/is_on_vt/Makefile
+--- gnome-volume-manager-2.24.0.orig/is_on_vt/Makefile	1970-01-01 01:00:00.000000000 +0100
++++ gnome-volume-manager-2.24.0/is_on_vt/Makefile	2008-10-21 21:36:37.000000000 +0200
+@@ -0,0 +1,11 @@
++all: gnome-volume-manager-is-on-vt
++
++gnome-volume-manager-is-on-vt: gnome-volume-manager-is-on-vt.c
++	gcc -Wall -O2 -o gnome-volume-manager-is-on-vt gnome-volume-manager-is-on-vt.c
++
++install: all
++	mkdir -p $(DESTDIR)/usr/libexec
++	install -m 4755 gnome-volume-manager-is-on-vt $(DESTDIR)/usr/libexec/
++
++clean:
++	rm -f gnome-volume-manager-is-on-vt
+diff -urN gnome-volume-manager-2.24.0.orig/Makefile.in gnome-volume-manager-2.24.0/Makefile.in
+--- gnome-volume-manager-2.24.0.orig/Makefile.in	2008-09-23 23:38:05.000000000 +0200
++++ gnome-volume-manager-2.24.0/Makefile.in	2008-10-21 21:37:14.000000000 +0200
+@@ -221,7 +221,7 @@
+ target_alias = @target_alias@
+ top_builddir = @top_builddir@
+ top_srcdir = @top_srcdir@
+-SUBDIRS = src po
++SUBDIRS = src po is_on_vt
+ pkgdata_DATA = gnome-volume-properties.glade
+ schemadir = $(sysconfdir)/gconf/schemas
+ schema_in_files = gnome-volume-manager.schemas.in
+diff -urN gnome-volume-manager-2.24.0.orig/src/manager.c gnome-volume-manager-2.24.0/src/manager.c
+--- gnome-volume-manager-2.24.0.orig/src/manager.c	2008-09-23 23:34:39.000000000 +0200
++++ gnome-volume-manager-2.24.0/src/manager.c	2008-10-21 21:41:10.000000000 +0200
+@@ -23,6 +23,7 @@
+ #include <stdio.h>
+ #include <sys/types.h>
+ #include <sys/stat.h>
++#include <fcntl.h>
+ #include <dirent.h>
+ #include <signal.h>
+ #include <unistd.h>
+@@ -60,6 +61,10 @@
+ 
+ #define NAUTILUS_COMMAND "nautilus -n --no-desktop %m"
+ 
++#define VT_MAGIC_STRING "using VT number " /* vt number must immediately follow this string */
++static char myvt[32];
++static int localdisplay;
++
+ static struct gvm_configuration config;
+ static DBusConnection *dbus_connection = NULL;
+ static char *gnome_mount = NULL;
+@@ -4060,19 +4065,9 @@
+ static gboolean
+ gvm_user_is_active (void)
+ {
+-#ifdef ENABLE_MULTIUSER
+-	guint32 result = 0;
+-	
+-	if (gvm_query_console_kit (USER_IS_ACTIVE, &result) != -1)
+-		return (result & USER_IS_ACTIVE);
+-	
+-	/* querying ConsoleKit failed, fall back to old behavior */
+-	
+-	return TRUE;
+-#else
+-	/* for the non-multiuser configuration, we assume we're always on the active console */
+-	return TRUE;
+-#endif
++	char buf[128];
++	sprintf(buf, "exec /usr/libexec/gnome-volume-manager-is-on-vt %s", myvt);
++	return localdisplay && myvt[0] != '\0' && system(buf) == 0;
+ }
+ 
+ 
+@@ -4100,6 +4095,7 @@
+ 	gboolean daemonize = TRUE;
+ 	GnomeProgram *program;
+ 	GnomeClient *client;
++	const char *display;
+ 	GOptionContext *ctx;
+ 	
+ 	bindtextdomain (PACKAGE, GNOMELOCALEDIR);
+@@ -4108,6 +4104,46 @@
+ 	
+ 	ctx = g_option_context_new (PACKAGE);
+ 	g_option_context_add_main_entries (ctx, options, NULL);
++
++	localdisplay = 0;
++	myvt[0] = '\0';
++	display = getenv("DISPLAY");
++	if (display[0] == ':') {
++		int i;
++		localdisplay = 1;
++		display++;
++		i = strspn(display, "0123456789");
++		if (i < 32) {
++			char logfile[64];
++			sprintf(logfile, "/var/log/Xorg.%.*s.log", i, display);
++			/* find the vt number in this log file */
++			int fd = open(logfile, O_RDONLY);
++			if (fd >= 0) {
++				struct stat st;
++				if (fstat(fd, &st) == 0 && st.st_size > 0 && st.st_size <= 1048576) {
++					char *content;
++					content = malloc(st.st_size + 1);
++					if (content != NULL) {
++						if (read(fd, content, st.st_size) == st.st_size) {
++							char *vt;
++							content[st.st_size] = 0;
++							vt = strstr(content, VT_MAGIC_STRING);
++							if (vt != NULL) {
++								vt += strlen(VT_MAGIC_STRING);
++								i = strspn(vt, "0123456789");
++								if (i > 0 && i < 32) {
++									sprintf(myvt, "%.*s", i, vt);
++								}
++							}
++						}
++						free(content);
++					}
++				}
++				close(fd);
++			}
++		}
++	}
++
+ 	
+ 	program = gnome_program_init (PACKAGE, VERSION, LIBGNOMEUI_MODULE, argc, argv,
+ 				      GNOME_PARAM_GOPTION_CONTEXT, ctx, GNOME_PARAM_NONE);

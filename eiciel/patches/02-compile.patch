@@ -1,0 +1,11 @@
+diff -Naurd a/src/gestor_acl.hpp b/src/gestor_acl.hpp
+--- a/src/gestor_acl.hpp	2008-04-12 19:17:23.000000000 +0200
++++ b/src/gestor_acl.hpp	2009-12-02 00:06:00.000000000 +0100
+@@ -42,6 +42,7 @@
+ #include <sstream>
+ #include <algorithm>
+ #include <gettext.h>
++#include <string.h>
+ 
+ using namespace std;
+ 

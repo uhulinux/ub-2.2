@@ -1,0 +1,4 @@
+#!/usr/bin/env dl
+
+FoxitReader-$UB_VERSION.0.tar.bz2 $UB_VERSION-release/
+	http://mirrors.foxitsoftware.com/pub/foxit/reader/desktop/linux/1.x/$UB_VERSION/enu/

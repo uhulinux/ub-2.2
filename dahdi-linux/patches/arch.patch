@@ -1,0 +1,12 @@
+diff -urN dahdi-linux-2.2.0.2.orig/Makefile dahdi-linux-2.2.0.2/Makefile
+--- dahdi-linux-2.2.0.2.orig/Makefile	2009-05-12 23:57:44.000000000 +0200
++++ dahdi-linux-2.2.0.2/Makefile	2010-02-17 20:40:53.844879657 +0100
+@@ -51,7 +51,7 @@
+ 
+ DAHDI_BUILD_ALL:=m
+ 
+-KMAKE=$(MAKE) -C $(KSRC) SUBDIRS=$(PWD)/drivers/dahdi DAHDI_INCLUDE=$(PWD)/include DAHDI_MODULES_EXTRA="$(DAHDI_MODULES_EXTRA)" HOTPLUG_FIRMWARE=$(HOTPLUG_FIRMWARE)
++KMAKE=$(MAKE) -C $(KSRC) V=0 SUBDIRS=$(PWD)/drivers/dahdi DAHDI_INCLUDE=$(PWD)/include DAHDI_MODULES_EXTRA="$(DAHDI_MODULES_EXTRA)" HOTPLUG_FIRMWARE=$(HOTPLUG_FIRMWARE) ARCH=$(ARCH)
+ 
+ ifneq (,$(wildcard $(DESTDIR)/etc/udev/rules.d))
+   DYNFS:=yes

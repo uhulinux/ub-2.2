@@ -1,0 +1,8 @@
+[Desktop Entry]
+Encoding=UTF-8
+Type=Application
+Name=blast
+Comment=Shooting the screen
+Comment[hu]=Monitorlyukasztó
+Exec=blast
+Categories=X-UHU-Menu/Tools/Toys;

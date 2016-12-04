@@ -1,0 +1,24 @@
+diff -Naurd mpeg4ip-1.6.1.orig/configure mpeg4ip-1.6.1/configure
+--- mpeg4ip-1.6.1.orig/configure	2007-10-08 17:11:23.000000000 +0200
++++ mpeg4ip-1.6.1/configure	2009-07-18 14:42:17.000000000 +0200
+@@ -29211,7 +29211,7 @@
+    if test x$USENASM = xtrue; then
+ 	{ echo "$as_me:$LINENO: checking nasm version..." >&5
+ echo $ECHO_N "checking nasm version...... $ECHO_C" >&6; }
+-	BILLSNASM_arg=`nasm -r | tr '.' ' '`
++	BILLSNASM_arg=`nasm -v | tr '.' ' '`
+         BILLSNASM_ret=`util/testnasm.sh $BILLSNASM_arg`
+ 	if test x$BILLSNASM_ret = x"yes"; then
+ 	   USENASM=true
+diff -Naurd mpeg4ip-1.6.1.orig/configure.in mpeg4ip-1.6.1/configure.in
+--- mpeg4ip-1.6.1.orig/configure.in	2007-09-28 22:45:08.000000000 +0200
++++ mpeg4ip-1.6.1/configure.in	2009-07-18 14:42:25.000000000 +0200
+@@ -769,7 +769,7 @@
+ 
+    if test x$USENASM = xtrue; then
+ 	AC_MSG_CHECKING(nasm version...)
+-	BILLSNASM_arg=`nasm -r | tr '.' ' '`
++	BILLSNASM_arg=`nasm -v | tr '.' ' '`
+         BILLSNASM_ret=`util/testnasm.sh $BILLSNASM_arg`
+ 	if test x$BILLSNASM_ret = x"yes"; then
+ 	   USENASM=true

@@ -1,0 +1,8 @@
+#!/bin/sh
+
+. /etc/init.d/common
+
+DAEMON=/usr/bin/stunnel
+PIDFILE="/var/lib/stunnel/stunnel.pid"
+
+startstop "$@"

@@ -1,0 +1,58 @@
+diff -Naurdp perl-5.10.1.orig/installperl perl-5.10.1/installperl
+--- perl-5.10.1.orig/installperl	2009-08-14 00:40:10.000000000 +0200
++++ perl-5.10.1/installperl	2009-10-01 18:03:32.000000000 +0200
+@@ -418,9 +418,9 @@ foreach my $file (@corefiles) {
+     if (copy_if_diff($file,"$installarchlib/CORE/$file")) {
+ 	if ($file =~ /\.(\Q$so\E|\Q$dlext\E)$/) {
+ 	    strip("-S", "$installarchlib/CORE/$file") if $^O =~ /^(rhapsody|darwin)$/;
+-	    chmod(0555, "$installarchlib/CORE/$file");
++	    chmod(0755, "$installarchlib/CORE/$file");
+ 	} else {
+-	    chmod(0444, "$installarchlib/CORE/$file");
++	    chmod(0644, "$installarchlib/CORE/$file");
+ 	}
+     }
+ }
+@@ -798,18 +798,18 @@ sub installlib {
+ 		# the check !$nwinstall
+ 		if (!(/\.(?:nlp|nlm|bs)$/)) {
+ 		    copy_if_diff($_, "$installlib/$name")
+-			and chmod($name =~ /\.(so|$dlext)$/o ? 0555 : 0444,
++			and chmod($name =~ /\.(so|$dlext)$/o ? 0755 : 0644,
+ 				  "$installlib/$name");
+ 		}
+ 	   } else {
+ 		if (copy_if_diff($_, "$installlib/$name")) {
+ 		    if ($name =~ /\.(so|$dlext)$/o) {
+ 			strip("-S", "$installlib/$name") if $^O =~ /^(rhapsody|darwin)$/;
+-			chmod(0555, "$installlib/$name");
++			chmod(0755, "$installlib/$name");
+ 		    } else {
+ 			strip("-S", "$installlib/$name")
+ 			    if ($name =~ /\.a$/o and $^O =~ /^(rhapsody|darwin)$/);
+-			chmod(0444, "$installlib/$name");
++			chmod(0644, "$installlib/$name");
+ 		    }
+ 		}
+ 	    } #if ($Is_NetWare)
+diff -Naurdp perl-5.10.1.orig/lib/ExtUtils/Install.pm perl-5.10.1/lib/ExtUtils/Install.pm
+--- perl-5.10.1.orig/lib/ExtUtils/Install.pm	2009-08-03 21:36:03.000000000 +0200
++++ perl-5.10.1/lib/ExtUtils/Install.pm	2009-10-01 18:05:59.000000000 +0200
+@@ -813,7 +813,7 @@ sub install { #XXX OS-SPECIFIC
+                 utime($atime,$mtime + $Is_VMS,$targetfile) unless $dry_run>1;
+ 
+ 
+-                $mode = 0444 | ( $mode & 0111 ? 0111 : 0 );
++                $mode = 0644 | ( $mode & 0111 ? 0111 : 0 );
+                 $mode = $mode | 0222
+                     if $realtarget ne $targetfile;
+                 _chmod( $mode, $targetfile, $verbose );
+@@ -1215,7 +1215,7 @@ sub pm_to_blib {
+         }
+         my($mode,$atime,$mtime) = (stat $from)[2,8,9];
+         utime($atime,$mtime+$Is_VMS,$to);
+-        _chmod(0444 | ( $mode & 0111 ? 0111 : 0 ),$to);
++        _chmod(0644 | ( $mode & 0111 ? 0111 : 0 ),$to);
+         next unless $from =~ /\.pm$/;
+         _autosplit($to,$autodir);
+     }

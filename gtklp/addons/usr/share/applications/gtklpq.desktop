@@ -1,0 +1,11 @@
+[Desktop Entry]
+Encoding=UTF-8
+Name=GtkLPQ
+Comment=GTK frontend to CUPS Queue
+Comment[hu]=Grafikus előtét program a CUPS nyomtatás tárolóhoz
+Exec=gtklpq
+Icon=gtklpq
+Terminal=false
+Type=Application
+Categories=GTK;Printing;X-UHU-Menu/Tools/Utilities;
+StartupNotify=false

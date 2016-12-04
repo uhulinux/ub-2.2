@@ -1,0 +1,30 @@
+diff -Naur ORIG/datafiles/applications/nted.desktop UHU/datafiles/applications/nted.desktop
+--- ORIG/datafiles/applications/nted.desktop	2010-05-11 11:24:14.000000000 +0200
++++ UHU/datafiles/applications/nted.desktop	2010-07-15 15:05:34.000000000 +0200
+@@ -5,7 +5,7 @@
+ StartupNotify=true
+ Terminal=false
+ Type=Application
+-Categories=GNOME;Application;AudioVideo;
++Categories=GNOME;Application;AudioVideo;X-UHU-Menu/Multimedia/SoundEdit;
+ 
+ Name=NtEd
+ Name[ar]=
+@@ -32,7 +32,7 @@
+ Name[he]=
+ Name[hi]=
+ Name[hr]=
+-Name[hu]=
++Name[hu]=NtEd
+ Name[id]=
+ Name[it]=NtEd
+ Name[ja]=
+@@ -77,7 +77,7 @@
+ GenericName[es]=Editor de partituras
+ GenericName[en]=Score Editor
+ GenericName[fr]=Édieur de partition
+-GenericName[hu]=
++GenericName[hu]=Kottaszerkesztő
+ GenericName[it]=Redattore di spartiti
+ GenericName[ja]=
+ GenericName[ko]=

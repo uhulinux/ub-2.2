@@ -1,0 +1,12 @@
+diff -Naurd a/gnome-mount.schemas.in b/gnome-mount.schemas.in
+--- a/gnome-mount.schemas.in	2007-08-01 02:49:20.000000000 +0200
++++ b/gnome-mount.schemas.in	2007-11-19 12:47:01.000000000 +0100
+@@ -52,7 +52,7 @@
+         <key>/schemas/system/storage/default_options/ntfs/fstype_override</key>
+         <applyto>/system/storage/default_options/ntfs/fstype_override</applyto>
+         <type>string</type>
+-        <default>ntfs-3g</default>
++        <default>ntfs</default>
+         <locale name="C">
+           <short>When 'ntfs' is detected, what file system driver to use by default</short>
+           <long>The name of the file system driver to use by default when 'ntfs' is detected. This is useful for configuring the system to use the 'ntfs-3g' driver for all 'ntfs' file systems by default. User can still choose to use the 'ntfs' file system driver by overriding it per-volume or on the command line.</long>

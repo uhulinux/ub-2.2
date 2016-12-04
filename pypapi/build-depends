@@ -1,0 +1,12 @@
+psycopg2
+pyqt4
+python-dev
+python-docutils
+python-nose
+python-setuptools
+python-sqlalchemy
+python-zconfig
+python-zope.component
+python-zope.event
+python-zope.interface
+python-zope.schema

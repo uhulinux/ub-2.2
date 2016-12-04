@@ -1,0 +1,10 @@
+dbus-glib-dev
+gconf2-dev
+gnome-doc-utils-dev
+gtk2-dev
+intltool
+libsm-dev
+openssl-dev
+rarian-dev
+startup-notification-dev
+xcb-util-dev

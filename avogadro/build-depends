@@ -1,0 +1,8 @@
+boost-dev
+cmake
+eigen2
+openbabel-dev
+python-dev
+python-numpy
+qt4-dev
+sip

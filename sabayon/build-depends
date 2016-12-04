@@ -1,0 +1,7 @@
+gtk2-dev
+intltool
+libsm-dev
+pygobject-dev
+python-dev
+pyxdg
+x.org-server

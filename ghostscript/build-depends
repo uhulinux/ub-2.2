@@ -1,0 +1,15 @@
+cairo-dev
+cups-dev
+fontconfig-dev
+freetype2-dev
+gnutls-dev
+gtk2-dev
+gutenprint-dev
+libgcrypt-dev
+libjpeg-dev
+libpng-dev
+libtiff-dev
+libx11-dev
+libxext-dev
+libxt-dev
+sdl-dev

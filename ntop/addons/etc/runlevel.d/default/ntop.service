@@ -1,0 +1,11 @@
+Summary=Network Monitoring Daemon
+Summary[hu]=Hálózatfigyelő program
+Description=Detailed and comprehesive network traffic monitor and analizer
+Description[hu]=Nagyon részletes és átfogó hálózati forgalom figyelő és analizátor
+MsgDesc=Network Monitoring Daemon
+MsgDesc[hu]=Hálózatfigyelő program
+Script=/etc/init.d/ntop
+SupportsReload=no
+Runlevels=
+Sequence=20
+Resources=tcp/3000

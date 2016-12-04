@@ -1,0 +1,4 @@
+#!/usr/bin/env dl
+
+gnome-volume-manager-${UB_VERSION}.tar.gz gnome-volume-manager-${UB_VERSION}/
+	ftp://ftp.gnome.org/pub/GNOME/sources/gnome-volume-manager/${UB_VERSION_HEAD2}/

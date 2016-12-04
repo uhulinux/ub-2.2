@@ -1,0 +1,9 @@
+[Desktop Entry]
+Encoding=UTF-8
+Name=BitchX
+Comment=IRC Client
+Comment[hu]=IRC-kliens
+Exec=bitchx
+Terminal=true
+Type=Application
+Categories=X-UHU-Menu/Internet/Messengers;

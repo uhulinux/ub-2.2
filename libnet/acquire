@@ -1,0 +1,5 @@
+#!/usr/bin/env dl
+
+libnet-${UB_VERSION}.tar.gz libnet/
+	http://www.packetfactory.net/libnet/dist/
+	http://www.packetfactory.net/libnet/dist/deprecated/

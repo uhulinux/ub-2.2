@@ -1,0 +1,4 @@
+#!/usr/bin/env dl
+
+acpitool-${UB_VERSION}.tar.gz acpitool-${UB_VERSION}/
+	http://freeunix.dyndns.org:8088/ftp_site/pub/unix/acpitool/

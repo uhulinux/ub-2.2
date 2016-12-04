@@ -1,0 +1,11 @@
+diff -Naurd orig/gui/gui.pro mod/gui/gui.pro
+--- orig/gui/gui.pro	2010-03-09 07:36:36.000000000 +0100
++++ mod/gui/gui.pro	2010-03-09 17:10:28.000000000 +0100
+@@ -83,6 +83,6 @@
+ }
+ 
+ # run lrelease before build
+-lrelease.commands = lrelease gui.pro
++lrelease.commands = /usr/lib/qt4/bin/lrelease gui.pro
+ QMAKE_EXTRA_TARGETS += lrelease
+ PRE_TARGETDEPS += lrelease

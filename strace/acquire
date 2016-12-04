@@ -1,0 +1,4 @@
+#!/usr/bin/env dl
+
+strace-${UB_VERSION}.tar.bz2 strace-${UB_VERSION}/
+	http://downloads.sourceforge.net/strace/

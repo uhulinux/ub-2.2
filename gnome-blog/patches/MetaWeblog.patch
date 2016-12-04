@@ -1,0 +1,12 @@
+
+--- gnome-blog-0.9.1.orig/protocols/MetaWeblog.py
++++ gnome-blog-0.9.1/protocols/MetaWeblog.py
+@@ -26,6 +26,7 @@
+             return False
+ 
+         blog_id  = client.get_string(gconf_prefix + "/blog_id")
++        if not blog_id: blog_id = "/"
+ 
+         success = True
+ 
+

@@ -1,0 +1,6 @@
+libgnomecanvas2-dev
+perl-extutils-depends
+perl-extutils-pkgconfig
+perl-glib2
+perl-gnome2
+perl-gtk2

@@ -1,0 +1,26 @@
+diff -Naur mined-2000.15.4-orig/usrshare/setup_install/mined.desktop mined-2000.15.4/usrshare/setup_install/mined.desktop
+--- mined-2000.15.4-orig/usrshare/setup_install/mined.desktop	2007-08-13 00:00:00.000000000 +0200
++++ mined-2000.15.4/usrshare/setup_install/mined.desktop	2009-11-28 21:51:36.000000000 +0100
+@@ -2,7 +2,7 @@
+ Encoding=UTF-8
+ 
+ Name=Mined
+-Categories=TextEditor
++Categories=TextEditor;X-UHU-Menu/Tools/Editors;
+ GenericName=Text Editor
+ GenericName[af]=Teks Redigeerder
+ GenericName[ar]=محرر نصوص
+@@ -76,11 +76,7 @@
+ Type=Application
+ MimeType=text/plain;
+ 
+-Path=/usr/share/mined/bin:/usr/local/share/mined/bin
+-X-Terminal-ownterm=false
+-X-Exec-ownterm=umined %f
++Exec=mined %F
+ Terminal=true
+-Exec=mined
+ 
+-X-no-Icon=mined.xpm
+-X-KDE-StartupNotify=true
++X-UHU-Major=-1

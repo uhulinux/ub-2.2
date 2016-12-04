@@ -1,0 +1,4 @@
+#!/usr/bin/env dl
+
+gnomeicu-${UB_VERSION}.tar.gz gnomeicu-${UB_VERSION}/
+	http://download.sourceforge.net/gnomeicu/

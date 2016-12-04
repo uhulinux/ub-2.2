@@ -1,0 +1,4 @@
+#!/usr/bin/env dl
+
+BeautifulSoup-${UB_VERSION}.tar.gz BeautifulSoup-${UB_VERSION}/
+	http://www.crummy.com/software/BeautifulSoup/download/

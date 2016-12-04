@@ -1,0 +1,8 @@
+#!/bin/sh -eux
+
+cd src
+ub_install INSTALL_ROOT="$UB_INSTALLDIR"
+cd ..
+cp -a figtoipe-20091205/figtoipe "$UB_INSTALLDIR"/usr/bin/
+cp -a pdftoipe-20091014/pdftoipe "$UB_INSTALLDIR"/usr/bin/
+cp -a svgtoipe-20091018/svgtoipe "$UB_INSTALLDIR"/usr/bin/

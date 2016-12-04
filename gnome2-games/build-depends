@@ -1,0 +1,17 @@
+clutter-gtk-dev
+docbook-dtds
+gconf2-dev
+ggz-client-libs-dev
+gnome-doc-utils-dev
+gnome-python-desktop
+guile-dev
+intltool
+libcanberra-dev
+libcroco-dev
+libgsf-dev
+librsvg2-dev
+libsm-dev
+openssl-dev
+pygtk-dev
+sdl-dev
+sdl-mixer-dev

@@ -1,0 +1,42 @@
+diff -Naurd a/tools/hal-system-storage-eject b/tools/hal-system-storage-eject
+--- a/tools/hal-system-storage-eject	2006-02-22 07:26:00.000000000 +0100
++++ b/tools/hal-system-storage-eject	2006-07-03 19:42:18.000000000 +0200
+@@ -13,16 +13,6 @@
+     exit 1
+ fi
+ 
+-if [ "$HAL_METHOD_INVOKED_BY_UID" != "0" ]; then
+-    if [ "$HAL_PROP_INFO_HAL_MOUNT_CREATED_MOUNT_POINT" != "" ]; then
+-	if [ "$HAL_METHOD_INVOKED_BY_UID" != "$HAL_PROP_INFO_HAL_MOUNT_MOUNTED_BY_UID" ]; then
+-	    echo "org.freedesktop.Hal.Device.Volume.PermissionDenied" >&2
+-	    echo "Volume mounted by uid $HAL_PROP_INFO_HAL_MOUNT_MOUNTED_BY_UID cannot be ejected by uid $HAL_METHOD_INVOKED_BY_UID." >&2
+-	    exit 1
+-	fi
+-    fi
+-fi
+-
+ # read parameters
+ # "<option1>\t<option2>\n"
+ # Only allow ^a-zA-Z0-9_= in the string because otherwise someone may
+diff -Naurd a/tools/hal-system-storage-unmount b/tools/hal-system-storage-unmount
+--- a/tools/hal-system-storage-unmount	2006-07-03 19:43:24.000000000 +0200
++++ b/tools/hal-system-storage-unmount	2006-07-03 19:34:53.000000000 +0200
+@@ -33,18 +33,6 @@
+     fi
+ fi
+ 
+-if [ "$HAL_METHOD_INVOKED_BY_UID" != "0" ]; then
+-    if [ "$HAL_METHOD_INVOKED_BY_UID" != "$HAL_PROP_INFO_HAL_MOUNT_MOUNTED_BY_UID" ]; then
+-	UID_MOUNTED="$HAL_PROP_INFO_HAL_MOUNT_MOUNTED_BY_UID"
+-	if [ "$UID_MOUNTED" == "" ]; then
+-	    UID_MOUNTED="UNKNOWN"
+-	fi
+-	echo "org.freedesktop.Hal.Device.Volume.PermissionDenied" >&2
+-	echo "Volume mounted by uid $UID_MOUNTED cannot be unmounted by uid $HAL_METHOD_INVOKED_BY_UID." >&2
+-	exit 1
+-    fi
+-fi
+-
+ # read parameters
+ # "lazy\tforce\n"
+ # Only allow ^a-zA-Z0-9_= in the string because otherwise someone may

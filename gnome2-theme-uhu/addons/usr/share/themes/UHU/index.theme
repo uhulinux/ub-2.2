@@ -1,0 +1,12 @@
+[Desktop Entry]
+Encoding=UTF-8
+Type=X-GNOME-Metatheme
+Name=UHU
+Comment=UHU-Linux default theme
+Comment[hu]=UHU-Linux alapértelmezett téma
+
+[X-GNOME-Metatheme]
+GtkTheme=UHU
+IconTheme=UHU
+MetacityTheme=UHU
+ApplicationFont=Nimbus Sans L, 10

@@ -1,0 +1,25 @@
+diff -Naurdp linuxwacom-0.8.4-3.orig/src/xdrv/wcmUSB.c linuxwacom-0.8.4-3/src/xdrv/wcmUSB.c
+--- linuxwacom-0.8.4-3.orig/src/xdrv/wcmUSB.c	2009-10-07 15:57:31.000000000 +0200
++++ linuxwacom-0.8.4-3/src/xdrv/wcmUSB.c	2009-10-29 18:39:38.000000000 +0100
+@@ -853,12 +853,6 @@ static void usbParseEvent(LocalDevicePtr
+ 	if ((event->type == EV_MSC) && (event->code == MSC_SERIAL))
+ 	{
+ 		/* save the serial number so we can look up the channel number later */
+-		if (event->value == 0) /* serial number should never be 0 */
+-		{
+-			ErrorF("usbParse: Ignoring event from invalid serial 0\n");
+-			goto skipEvent;
+-			return;
+-		}
+ 		common->wcmLastToolSerial = event->value;
+ 
+ 		/* if SYN_REPORT is end of record indicator, we are done */
+@@ -897,7 +891,7 @@ static void usbParseEvent(LocalDevicePtr
+ 		else
+ 			channel = 0;
+ 	}
+-	else if (common->wcmLastToolSerial) /* serial number should never be 0 */
++	else if (1 == 1)
+ 	{
+ 		/* ignore events without information */
+ 		if (common->wcmEventCnt <= 2) 

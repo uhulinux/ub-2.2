@@ -1,0 +1,8 @@
+#!/bin/sh
+
+. /etc/init.d/common
+
+DAEMON=/usr/bin/ntop
+DAEMONARGS=(-d -L)
+
+startstop "$@"

@@ -1,0 +1,32 @@
+diff -Naur ipsec-tools-0.7.2-orig/configure ipsec-tools-0.7.2/configure
+--- ipsec-tools-0.7.2-orig/configure	2009-04-21 16:41:45.000000000 +0200
++++ ipsec-tools-0.7.2/configure	2009-11-11 17:23:02.000000000 +0100
+@@ -11961,9 +11961,7 @@
+ echo "${ECHO_T}$ac_cv_path_EGREP" >&6; }
+  EGREP="$ac_cv_path_EGREP"
+ 
+-
+-
+-CFLAGS_ADD="$CFLAGS_ADD -Wall -Werror -Wno-unused"
++CFLAGS_ADD="$CFLAGS_ADD -Wall -Wno-unused"
+ 
+ case $host in
+ *netbsd*)
+@@ -14546,7 +14544,7 @@
+ { echo "$as_me:$LINENO: checking if printf accepts %z" >&5
+ echo $ECHO_N "checking if printf accepts %z... $ECHO_C" >&6; }
+ saved_CFLAGS=$CFLAGS
+-CFLAGS="$CFLAGS -Wall -Werror"
++CFLAGS="$CFLAGS -Wall"
+ cat >conftest.$ac_ext <<_ACEOF
+ /* confdefs.h.  */
+ _ACEOF
+@@ -17967,7 +17965,7 @@
+ 	LIBS="$LIBS -L$libldap_dir/lib -R$libldap_dir/lib -lldap"
+ 
+ 	saved_CFLAGS=$CFLAGS
+-	CFLAGS="$CFLAGS -Wall -Werror"
++	CFLAGS="$CFLAGS -Wall"
+ 	saved_CPPFLAGS=$CPPFLAGS
+         CPPFLAGS="$CPPFLAGS $CPPFLAGS_ADD"
+ 	cat >conftest.$ac_ext <<_ACEOF

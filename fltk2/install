@@ -1,0 +1,6 @@
+#!/bin/sh -eux
+
+ub_install
+ln -s fltk2-config "$UB_INSTALLDIR"/usr/bin/fltk-config
+install -d "$UB_INSTALLDIR"/usr/share/doc/fltk
+cp -a documentation/html/. "$UB_INSTALLDIR"/usr/share/doc/fltk/

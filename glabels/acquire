@@ -1,0 +1,4 @@
+#!/usr/bin/env dl
+
+glabels-${UB_VERSION}.tar.gz glabels-${UB_VERSION}/
+	http://downloads.sourceforge.net/glabels/

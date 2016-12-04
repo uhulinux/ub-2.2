@@ -1,0 +1,4 @@
+#!/usr/bin/env dl
+
+zui-${UB_VERSION}.tar.gz zui-${UB_VERSION}/
+	ftp://ftp.uhulinux.hu/pub/sources/zui/

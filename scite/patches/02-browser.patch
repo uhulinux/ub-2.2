@@ -1,0 +1,45 @@
+diff -Naur ORIG/scite/src/Embedded.properties UHU/scite/src/Embedded.properties
+--- ORIG/scite/src/Embedded.properties	2009-04-25 02:43:54.000000000 +0200
++++ UHU/scite/src/Embedded.properties	2009-05-02 13:13:06.000000000 +0200
+@@ -87,7 +87,7 @@
+ 	command.scite.help.subsystem=2
+ if PLAT_GTK
+ 	command.print.*=a2ps "$(FileNameExt)"
+-	command.scite.help=netscape "file://$(SciteDefaultHome)/SciTEDoc.html"
++	command.scite.help=browser "file://$(SciteDefaultHome)/SciTEDoc.html"
+ 
+ code.page=0
+ 
+@@ -3312,7 +3312,7 @@
+ 	command.go.$(file.patterns.web)="file://$(FilePath)"
+ 	command.go.subsystem.$(file.patterns.web)=2
+ if PLAT_GTK
+-	command.go.$(file.patterns.web)=firefox "file://$(FilePath)"
++	command.go.$(file.patterns.web)=browser "file://$(FilePath)"
+ 
+ command.go.$(file.patterns.php)=php -f "$(FileNameExt)"
+ command.compile.$(file.patterns.php)=php -l "$(FileNameExt)"
+diff -Naur ORIG/scite/src/html.properties UHU/scite/src/html.properties
+--- ORIG/scite/src/html.properties	2009-02-26 12:12:43.000000000 +0100
++++ UHU/scite/src/html.properties	2009-05-02 13:08:41.000000000 +0200
+@@ -519,7 +519,7 @@
+ 	command.go.$(file.patterns.web)="file://$(FilePath)"
+ 	command.go.subsystem.$(file.patterns.web)=2
+ if PLAT_GTK
+-	command.go.$(file.patterns.web)=firefox "file://$(FilePath)"
++	command.go.$(file.patterns.web)=browser "file://$(FilePath)"
+ 
+ command.go.$(file.patterns.php)=php -f "$(FileNameExt)"
+ command.compile.$(file.patterns.php)=php -l "$(FileNameExt)"
+diff -Naur ORIG/scite/src/SciTEGlobal.properties UHU/scite/src/SciTEGlobal.properties
+--- ORIG/scite/src/SciTEGlobal.properties	2009-04-25 02:20:04.000000000 +0200
++++ UHU/scite/src/SciTEGlobal.properties	2009-05-02 13:07:25.000000000 +0200
+@@ -228,7 +228,7 @@
+ 	command.scite.help.subsystem=2
+ if PLAT_GTK
+ 	command.print.*=a2ps "$(FileNameExt)"
+-	command.scite.help=netscape "file://$(SciteDefaultHome)/SciTEDoc.html"
++	command.scite.help=browser "file://$(SciteDefaultHome)/SciTEDoc.html"
+ 
+ # Internationalisation
+ # Japanese input code page 932 and ShiftJIS character set 128

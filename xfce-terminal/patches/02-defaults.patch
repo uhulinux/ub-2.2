@@ -1,0 +1,75 @@
+diff -Naur ORIG/terminal/terminal-preferences.c UHU/terminal/terminal-preferences.c
+--- ORIG/terminal/terminal-preferences.c	2009-07-20 20:03:50.000000000 +0200
++++ UHU/terminal/terminal-preferences.c	2009-07-21 11:41:58.000000000 +0200
+@@ -944,7 +944,7 @@
+                                    g_param_spec_boolean ("command-update-records",
+                                                          "command-update-records",
+                                                          "CommandUpdateRecords",
+-                                                         TRUE,
++                                                         FALSE,
+                                                          EXO_PARAM_READWRITE));
+ 
+   /**
+@@ -966,7 +966,7 @@
+                                    g_param_spec_boolean ("font-allow-bold",
+                                                          "font-allow-bold",
+                                                          "FontAllowBold",
+-                                                         TRUE,
++                                                         FALSE,
+                                                          EXO_PARAM_READWRITE));
+ 
+ #if TERMINAL_HAS_ANTI_ALIAS_SETTING
+@@ -1100,7 +1100,7 @@
+                                    g_param_spec_boolean ("misc-toolbars-default",
+                                                          "misc-toolbars-default",
+                                                          "MiscToolbarsDefault",
+-                                                         FALSE,
++                                                         TRUE,
+                                                          EXO_PARAM_READWRITE));
+ 
+   /**
+@@ -1190,7 +1190,7 @@
+                                    g_param_spec_uint ("scrolling-lines",
+                                                       "scrolling-lines",
+                                                       "ScrollingLines",
+-                                                      0u, 1024u * 1024u, 1000u,
++                                                      0u, 1024u * 1024u, 2000u,
+                                                       EXO_PARAM_READWRITE));
+ 
+   /**
+@@ -1201,7 +1201,7 @@
+                                    g_param_spec_boolean ("scrolling-on-output",
+                                                          "scrolling-on-output",
+                                                          "ScrollingOnOutput",
+-                                                         TRUE,
++                                                         FALSE,
+                                                          EXO_PARAM_READWRITE));
+ 
+   /**
+@@ -1238,7 +1238,7 @@
+                                    g_param_spec_boolean ("shortcuts-no-menukey",
+                                                          "shortcuts-no-menukey",
+                                                          "ShortcutsNoMenukey",
+-                                                         FALSE,
++                                                         TRUE,
+                                                          EXO_PARAM_READWRITE));
+ 
+   /**
+@@ -1249,7 +1249,7 @@
+                                    g_param_spec_boolean ("shortcuts-no-mnemonics",
+                                                          "shortcuts-no-mnemonics",
+                                                          "ShortcutsNoMnemonics",
+-                                                         FALSE,
++                                                         TRUE,
+                                                          EXO_PARAM_READWRITE));
+ 
+   /**
+@@ -1294,7 +1294,7 @@
+                                    g_param_spec_string ("word-chars",
+                                                         "word-chars",
+                                                         "WordChars",
+-                                                        "-A-Za-z0-9,./?%&#:_~",
++                                                        "-,./?%&#:_~",
+                                                         EXO_PARAM_READWRITE));
+ }
+ 

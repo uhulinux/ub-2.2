@@ -1,0 +1,16 @@
+cssutils >=
+gnome-python-extras >=
+gst-python >=
+pylirc >=
+pyopenssl >=
+python-coherence >=
+python-configobj >=
+python-pigment >=
+python-pil >=
+python-setuptools >=
+python-simplejson >=
+python-twill >=
+python-zope.interface >=
+pyxdg >=
+twisted >=
+twisted-web2 >=

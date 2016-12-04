@@ -1,0 +1,4 @@
+#!/bin/sh -eux
+
+./configure -d -confdir /etc +lang all +fhs
+make

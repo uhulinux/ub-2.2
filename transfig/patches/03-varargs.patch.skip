@@ -1,0 +1,11 @@
+diff -urN transfig.3.2.4.orig/fig2dev/fig2dev.h transfig.3.2.4/fig2dev/fig2dev.h
+--- transfig.3.2.4.orig/fig2dev/fig2dev.h	2002-12-18 23:45:28.000000000 +0100
++++ transfig.3.2.4/fig2dev/fig2dev.h	2003-05-14 18:26:29.000000000 +0200
+@@ -22,7 +22,6 @@
+ #include <sys/file.h>
+ #include <signal.h>
+ #include <string.h>
+-#include <varargs.h>
+ #include <pwd.h>
+ #include <errno.h>
+ #include <time.h>

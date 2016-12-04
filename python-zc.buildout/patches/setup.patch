@@ -1,0 +1,12 @@
+diff -Naur ORIG/setup.py UHU/setup.py
+--- ORIG/setup.py	2009-11-01 20:32:51.000000000 +0100
++++ UHU/setup.py	2009-11-04 23:18:27.000000000 +0100
+@@ -76,7 +76,7 @@
+     keywords = "development build",
+     url='http://buildout.org',
+ 
+-    data_files = [('.', ['README.txt'])],
++#    data_files = [('.', ['README.txt'])],
+     packages = ['zc', 'zc.buildout'],
+     package_dir = {'': 'src'},
+     namespace_packages = ['zc'],

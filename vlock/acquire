@@ -1,0 +1,4 @@
+#!/usr/bin/env dl
+
+vlock-${UB_VERSION}.tar.gz vlock-${UB_VERSION}/
+	ftp://tsx-11.mit.edu/pub/linux/sources/usr.bin/

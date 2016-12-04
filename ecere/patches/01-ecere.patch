@@ -1,0 +1,20 @@
+diff -Naurd orig/share/applications/ecere.desktop mod/share/applications/ecere.desktop
+--- orig/share/applications/ecere.desktop	2010-01-29 17:24:58.000000000 +0100
++++ mod/share/applications/ecere.desktop	2010-03-07 22:08:46.000000000 +0100
+@@ -1,12 +1,12 @@
+ [Desktop Entry]
+-Encoding=UTF-8
+-Version=
++Version=1.1
+ Name=Ecere IDE
+ Type=Application
+ Comment=Ecere IDE
++Comment[hu]=eC fejlesztői környezet
+ Terminal=false
+-Exec=ide
++Exec=ecere
+ #Path=$(HOME)
+ Icon=ecere
+-Categories=Development
++Categories=X-UHU-Menu/Development/Programming;
+ GenericName=Ecere IDE

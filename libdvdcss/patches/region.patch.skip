@@ -1,0 +1,25 @@
+diff -Naurdp a/src/css.c b/src/css.c
+--- a/src/css.c	2005-07-11 14:24:09.000000000 +0200
++++ b/src/css.c	2007-12-31 01:44:13.000000000 +0100
+@@ -289,7 +289,9 @@ int _dvdcss_disckey( dvdcss_t dvdcss )
+     if( ioctl_ReadDiscKey( dvdcss->i_fd, &dvdcss->css.i_agid, p_buffer ) < 0 )
+     {
+         print_error( dvdcss, "ioctl ReadDiscKey failed" );
+-        return -1;
++        dvdcss->i_method = DVDCSS_METHOD_TITLE;
++        memset( dvdcss->css.p_disc_key, 0, KEY_SIZE );
++        return 0;
+     }
+ 
+     /* This should have invaidated the AGID and got us ASF=1. */
+@@ -299,7 +301,9 @@ int _dvdcss_disckey( dvdcss_t dvdcss )
+         print_error( dvdcss,
+                      "ASF not 1 after reading disc key (region mismatch?)" );
+         ioctl_InvalidateAgid( dvdcss->i_fd, &dvdcss->css.i_agid );
+-        return -1;
++        dvdcss->i_method = DVDCSS_METHOD_TITLE;
++        memset( dvdcss->css.p_disc_key, 0, KEY_SIZE );
++        return 0;
+     }
+ 
+     /* Shuffle disc key using bus key */

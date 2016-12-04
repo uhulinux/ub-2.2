@@ -1,0 +1,4 @@
+#!/usr/bin/env dl
+
+Net-SNMP-${UB_VERSION}.tar.gz Net-SNMP-${UB_VERSION}/
+	http://search.cpan.org/CPAN/authors/id/D/DT/DTOWN/

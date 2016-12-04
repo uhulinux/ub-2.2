@@ -1,0 +1,12 @@
+[Desktop Entry]
+Version=1.1
+Name=udav
+Comment=data arrays visualization
+Comment[en_US]=Data handling and plotting tool
+Comment[ru_RU]=Обработка и отображение данных
+Comment[hu]=Adat megjelenítő és rajzoló eszköz
+Exec=udav
+Icon=udav
+Terminal=false
+Type=Application
+Categories=Education;Science;Math;X-UHU-Menu/Edutainment/Mathematics;

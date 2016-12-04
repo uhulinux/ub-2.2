@@ -1,0 +1,4 @@
+#!/usr/bin/env dl
+
+evolution-exchange-${UB_VERSION}.tar.gz evolution-exchange-${UB_VERSION}/
+	ftp://ftp.gnome.org/pub/GNOME/sources/evolution-exchange/${UB_VERSION_HEAD2}/

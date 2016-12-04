@@ -1,0 +1,4 @@
+#!/usr/bin/env dl
+
+vwm-$UB_VERSION.tar.gz vwm/
+	http://downloads.sourceforge.net/vwm/

@@ -1,0 +1,4 @@
+#!/usr/bin/env dl
+
+moovida-${UB_VERSION}.tar.gz elisa-${UB_VERSION}/
+	http://www.moovida.com/media/public/

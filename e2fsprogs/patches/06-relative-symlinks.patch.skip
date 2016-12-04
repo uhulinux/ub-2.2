@@ -1,0 +1,14 @@
+diff -Naur e2fsprogs-1.41.4.orig/lib/Makefile.elf-lib e2fsprogs-1.41.4/lib/Makefile.elf-lib
+--- e2fsprogs-1.41.4.orig/lib/Makefile.elf-lib	2008-10-07 16:22:39.000000000 +0200
++++ e2fsprogs-1.41.4/lib/Makefile.elf-lib	2009-02-23 18:33:46.000000000 +0100
+@@ -42,8 +42,8 @@
+ install-shlibs install:: $(ELF_LIB) installdirs-elf-lib
+ 	@echo "	INSTALL-ELF-LIB $(ELF_INSTALL_DIR)/$(ELF_LIB)"
+ 	@$(INSTALL_PROGRAM) $(ELF_LIB) $(DESTDIR)$(ELF_INSTALL_DIR)/$(ELF_LIB)
+-	@echo "	SYMLINK $(ELF_INSTALL_DIR)/$(ELF_SONAME)"
+-	@$(LN_S) -f $(ELF_LIB) $(DESTDIR)$(ELF_INSTALL_DIR)/$(ELF_SONAME)
++	@echo "	SYMLINK $(ELF_SONAME)"
++	@$(LN_S) -f $(ELF_LIB) $(DESTDIR)$(ELF_SONAME)
+ 	@echo "	SYMLINK $(libdir)/$(ELF_IMAGE).so"
+ 	@if test "$(ELF_INSTALL_DIR)" = "$(libdir)"; then \
+ 		$(LN_S) -f $(ELF_SONAME) $(DESTDIR)$(libdir)/$(ELF_IMAGE).so ; \

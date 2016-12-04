@@ -1,0 +1,73 @@
+#!/bin/sh
+#
+# /etc/init.d/nfs-kserver
+#
+# (C) 2001-2006
+#	Pozsár Balázs	<pozsy@uhulinux.hu>
+#
+# This file is originally part of the UHU-Linux distribution.
+# Distributable under GPL v2.
+#
+# Ez a fájl eredetileg az UHU-Linux disztribúció része.
+# A GPL v2 licenc szerint terjeszthető.
+#
+
+. /etc/init.d/common
+
+DAEMON1=/usr/sbin/rpc.nfsd
+DAEMON2=/usr/sbin/rpc.mountd
+DAEMON3=/usr/sbin/exportfs
+NAME1="rpc.nfsd"
+NAME2="rpc.mountd"
+NAME3="exportfs"
+
+NAME="$NAME1"
+MsgStart1=$"Starting $MsgDesc ($NAME)"
+MsgStop1=$"Stopping $MsgDesc ($NAME)"
+
+NAME="$NAME2"
+MsgStart2=$"Starting $MsgDesc ($NAME)"
+MsgStop2=$"Stopping $MsgDesc ($NAME)"
+
+NAME="$NAME3"
+MsgStart3=$"Starting $MsgDesc ($NAME)"
+MsgStop3=$"Stopping $MsgDesc ($NAME)"
+MsgReload3=$"Reloading configuration of $MsgDesc ($NAME)"
+
+case "$1" in
+	start)
+		if [ -f /etc/exports ]; then
+			echo -n "$MsgStart3"
+			try $DAEMON3 -r
+			echo "$OK"
+
+			echo -n "$MsgStart1"
+			try "$DAEMON1"
+			echo "$OK"
+
+			echo -n "$MsgStart2"
+			try "$DAEMON2"
+			echo "$OK"
+		else
+			# XXX TODO: internationalize this text
+			echo -n "Unable to start NFS kernel server: /etc/exports is missing."
+			echo "$ERR"
+		fi
+		;;
+	stop)
+		# no need to stop rpc.nfsd
+
+		echo -n "$MsgStop2"
+		killall -q "$DAEMON2"
+		echo "$OK"
+
+		echo -n "$MsgStop3"
+		try "$DAEMON3" -au
+		echo "$OK"
+		;;
+	reload)
+		echo -n "$MsgReload3"
+		try "$DAEMON3" -r
+		echo "$OK"
+		;;
+esac

@@ -1,0 +1,5 @@
+#!/usr/bin/env dl
+
+Pylons-${UB_VERSION/~/}.tar.gz Pylons-${UB_VERSION/~/}/
+	http://pylonshq.com/download/${UB_VERSION/~/}/
+	http://pypi.python.org/packages/source/P/Pylons/

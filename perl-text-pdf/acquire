@@ -1,0 +1,4 @@
+#!/usr/bin/env dl
+
+Text-PDF-${UB_VERSION}.tar.gz Text-PDF-${UB_VERSION/a/}/
+	http://search.cpan.org/CPAN/authors/id/M/MH/MHOSKEN/

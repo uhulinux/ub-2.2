@@ -1,0 +1,17 @@
+diff -urN glabels-2.0.4.orig/data/desktop/glabels.desktop.in glabels-2.0.4/data/desktop/glabels.desktop.in
+--- glabels-2.0.4.orig/data/desktop/glabels.desktop.in	2004-09-26 18:40:41.000000000 +0200
++++ glabels-2.0.4/data/desktop/glabels.desktop.in	2006-04-10 13:50:22.000000000 +0200
+@@ -1,11 +1,10 @@
+ [Desktop Entry]
+-Encoding=UTF-8
+-_Name=gLabels Label Designer
++_Name=gLabels
+ _Comment=Create labels, business cards and media covers
+ Exec=glabels %F
+ Icon=glabels.png
+ Terminal=false
+ Type=Application
+-Categories=GNOME;Application;Office;
++Categories=GTK;GNOME;Office;X-UHU-Menu/Graphics;
+ StartupNotify=true
+ MimeType=application/x-glabels;

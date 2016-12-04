@@ -1,0 +1,14 @@
+#!/bin/sh -eux
+
+msgfmt -o po/hu.gmo po/hu.po
+
+CFLAGS="-fPIC -O2" \
+SGML2TXT=no \
+SGML2LATEX=no \
+PS2PDF=no \
+SGML2PS=no \
+ub_compile \
+	--bindir=/bin \
+	--libdir=/lib \
+	--sbindir=/sbin \
+	--docdir=/usr/share/doc/Packages/pam

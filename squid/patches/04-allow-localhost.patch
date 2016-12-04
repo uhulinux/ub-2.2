@@ -1,0 +1,13 @@
+diff -Naur squid-3.0.STABLE15-orig/src/cf.data.pre squid-3.0.STABLE15/src/cf.data.pre
+--- squid-3.0.STABLE15-orig/src/cf.data.pre	2009-06-07 23:14:25.000000000 +0200
++++ squid-3.0.STABLE15/src/cf.data.pre	2009-06-07 23:17:40.000000000 +0200
+@@ -702,6 +702,9 @@
+ # from where browsing should be allowed
+ http_access allow localnet
+ 
++# Allow access from localhost
++http_access allow localhost
++
+ # And finally deny all other access to this proxy
+ http_access deny all
+ NOCOMMENT_END

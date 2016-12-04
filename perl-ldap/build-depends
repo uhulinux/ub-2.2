@@ -1,0 +1,5 @@
+perl-convert-asn1
+perl-io-socket-ssl
+perl-net-ssleay
+perl-uri
+perl-xml-parser

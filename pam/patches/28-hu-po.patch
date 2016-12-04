@@ -1,0 +1,66 @@
+diff -Naur Linux-PAM-0.99.8.1.orig/po/hu.po Linux-PAM-0.99.8.1/po/hu.po
+--- Linux-PAM-0.99.8.1.orig/po/hu.po	2007-07-18 10:59:39.000000000 +0200
++++ Linux-PAM-0.99.8.1/po/hu.po	2007-08-14 17:14:13.000000000 +0200
+@@ -189,7 +189,7 @@
+ 
+ #: modules/pam_cracklib/pam_cracklib.c:427
+ msgid "is the same as the old one"
+-msgstr "ugyanaz, mint a régi"
++msgstr "Ugyanaz, mint a régi"
+ 
+ #: modules/pam_cracklib/pam_cracklib.c:440
+ msgid "is a palindrome"
+@@ -217,7 +217,7 @@
+ 
+ #: modules/pam_cracklib/pam_cracklib.c:493
+ msgid "has been already used"
+-msgstr "A jelszót már használta. Válasszon egy másikat."
++msgstr "A jelszót már használta"
+ 
+ #: modules/pam_cracklib/pam_cracklib.c:521
+ #: modules/pam_unix/pam_unix_passwd.c:977
+@@ -253,7 +253,7 @@
+ #. TRANSLATORS: "strftime options for date of last login"
+ #: modules/pam_lastlog/pam_lastlog.c:190
+ msgid " %a %b %e %H:%M:%S %Z %Y"
+-msgstr "%Y. %b %e, %a  %H:%M:%S %Z "
++msgstr " %c"
+ 
+ #. TRANSLATORS: " from <host>"
+ #: modules/pam_lastlog/pam_lastlog.c:199
+@@ -301,22 +301,22 @@
+ #: modules/pam_mail/pam_mail.c:330
+ #, c-format
+ msgid "You have no mail in folder %s."
+-msgstr "%s könyvtárban nincs levél."
++msgstr "%s levelesláda üres."
+ 
+ #: modules/pam_mail/pam_mail.c:334
+ #, c-format
+ msgid "You have new mail in folder %s."
+-msgstr "%s könyvtárban új levél van."
++msgstr "%s levelesládában új levél van."
+ 
+ #: modules/pam_mail/pam_mail.c:338
+ #, c-format
+ msgid "You have old mail in folder %s."
+-msgstr "%s könyvtárban régi levél van."
++msgstr "%s levelesládában régi levél van."
+ 
+ #: modules/pam_mail/pam_mail.c:343
+ #, c-format
+ msgid "You have mail in folder %s."
+-msgstr "%s könyvtárban levelek vannak."
++msgstr "%s levelesládában levelek vannak."
+ 
+ #: modules/pam_mkhomedir/pam_mkhomedir.c:142
+ #, c-format
+@@ -428,7 +428,7 @@
+ 
+ #: modules/pam_stress/pam_stress.c:493
+ msgid "Retype new STRESS password: "
+-msgstr "Írja be mégegyszer az új STRESS jelszót: "
++msgstr "Írja be még egyszer az új STRESS jelszót: "
+ 
+ #: modules/pam_stress/pam_stress.c:522
+ msgid "Verification mis-typed; password unchanged"

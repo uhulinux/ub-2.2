@@ -1,0 +1,7 @@
+/etc/pam.d/consolehelper
+/etc/pam.d/halt
+/etc/pam.d/poweroff
+/etc/pam.d/reboot
+/etc/security/console.apps/halt
+/etc/security/console.apps/poweroff
+/etc/security/console.apps/reboot

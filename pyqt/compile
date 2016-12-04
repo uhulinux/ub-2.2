@@ -1,0 +1,5 @@
+#!/bin/sh -eux
+
+export QTLIB=/usr/lib/qt
+yes yes | /usr/bin/python configure.py -y qt-mt
+ub_make

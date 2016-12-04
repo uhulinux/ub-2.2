@@ -1,0 +1,12 @@
+diff -Naur a/channels/chan_misdn.c b/channels/chan_misdn.c
+--- a/channels/chan_misdn.c	2009-01-13 20:27:54.000000000 +0100
++++ b/channels/chan_misdn.c	2009-04-14 14:56:37.000000000 +0200
+@@ -3457,7 +3457,7 @@
+ 					
+ 					if (port <= port_start && next_chan) {
+ 						int maxbchans=misdn_lib_get_maxchans(port);
+-						if (++robin_channel >= maxbchans) {
++						if (++robin_channel > maxbchans) {
+ 							robin_channel = 1;
+ 						}
+ 						next_chan = 0;

@@ -1,0 +1,18 @@
+diff -Naur quassel-0.6.1-orig/data/quasselclient.desktop quassel-0.6.1/data/quasselclient.desktop
+--- quassel-0.6.1-orig/data/quasselclient.desktop	2010-04-16 17:44:13.000000000 +0200
++++ quassel-0.6.1/data/quasselclient.desktop	2010-04-19 16:06:03.000000000 +0200
+@@ -72,4 +72,4 @@
+ Icon=quassel
+ TryExec=quasselclient
+ Exec=quasselclient
+-Categories=Qt;Network;Chat;IRCClient;
++Categories=Qt;Network;Chat;IRCClient;X-UHU-Menu/Internet/Messengers;
+diff -Naur quassel-0.6.1-orig/data/quassel.desktop quassel-0.6.1/data/quassel.desktop
+--- quassel-0.6.1-orig/data/quassel.desktop	2010-04-16 17:44:13.000000000 +0200
++++ quassel-0.6.1/data/quassel.desktop	2010-04-19 16:07:21.000000000 +0200
+@@ -72,4 +72,4 @@
+ Icon=quassel
+ TryExec=quassel
+ Exec=quassel
+-Categories=Qt;Network;Chat;IRCClient;
++Categories=Qt;Network;Chat;IRCClient;X-UHU-Menu/Internet/Messengers;

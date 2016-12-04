@@ -1,0 +1,11 @@
+diff -Naur ORIG/simple-ccsm.desktop.in UHU/simple-ccsm.desktop.in
+--- ORIG/simple-ccsm.desktop.in	2009-03-05 04:29:27.000000000 +0100
++++ UHU/simple-ccsm.desktop.in	2009-04-21 20:19:33.000000000 +0200
+@@ -6,6 +6,6 @@
+ Exec=simple-ccsm
+ Terminal=false
+ Type=Application
+-Categories=Compiz;Settings;DesktopSettings;
++Categories=Compiz;Settings;DesktopSettings;X-UHU-Menu/Settings;
+ StartupNotify=true
+ NotShowIn=KDE;

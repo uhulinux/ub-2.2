@@ -1,0 +1,4 @@
+#!/usr/bin/env dl
+
+Term-ReadLine-Perl-${UB_VERSION}.tar.gz Term-ReadLine-Perl-${UB_VERSION}/
+	http://jumbo.kfki.hu/packages/perl/CPAN/authors/id/I/IL/ILYAZ/modules/

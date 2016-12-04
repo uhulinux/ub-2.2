@@ -1,0 +1,59 @@
+diff -Naur procps-3.2.3.orig/Makefile procps-3.2.3/Makefile
+--- procps-3.2.3.orig/Makefile	2004-07-20 02:22:22.000000000 +0200
++++ procps-3.2.3/Makefile	2004-08-12 14:01:00.182263765 +0200
+@@ -202,10 +202,10 @@
+ ###### install
+ 
+ $(BINFILES) : all
+-	$(install) --mode a=rx $(notdir $@) $@
++	$(install) --mode a=rx,u+w $(notdir $@) $@
+ 
+ $(MANFILES) : all
+-	$(install) --mode a=r $(notdir $@) $@
++	$(install) --mode a=r,u+w $(notdir $@) $@
+ 
+ install: $(filter-out $(SKIP) $(addprefix $(DESTDIR),$(SKIP)),$(INSTALL))
+ 	cd $(usr/bin) && $(ln_f) skill snice
+diff -Naur procps-3.2.3.orig/proc/module.mk procps-3.2.3/proc/module.mk
+--- procps-3.2.3.orig/proc/module.mk	2004-07-20 22:56:47.000000000 +0200
++++ procps-3.2.3/proc/module.mk	2004-08-12 14:01:48.041731175 +0200
+@@ -92,7 +92,7 @@
+ #################### install rules ###########################
+ 
+ $(lib)$(SOFILE) : proc/$(SONAME)
+-	$(install) --mode a=rx $< $@
++	$(install) --mode a=rx,u+w $< $@
+ 
+ ifneq ($(SOLINK),$(SOFILE))
+ .PHONY: $(lib)$(SOLINK)
+@@ -111,14 +111,14 @@
+ 	$(ldconfig)
+ 
+ $(usr/lib)$(ANAME) : proc/$(ANAME)
+-	$(install) --mode a=r $< $@
++	$(install) --mode a=r,u+w $< $@
+ 
+ # Junk anyway... supposed to go in /usr/include/$(NAME)
+ #INSTALL += $(addprefix $(include),$(HDRFILES))
+ #
+ #$(addprefix $(include),$(HDRFILES)): $(include)% : proc/%
+ #$(include)% : proc/%
+-#	$(install) --mode a=r $< $@
++#	$(install) --mode a=r,u+w $< $@
+ 
+ ##################################################################
+ 
+diff -Naur procps-3.2.3.orig/ps/module.mk procps-3.2.3/ps/module.mk
+--- procps-3.2.3.orig/ps/module.mk	2004-07-15 00:20:06.000000000 +0200
++++ procps-3.2.3/ps/module.mk	2004-08-12 14:01:00.183263649 +0200
+@@ -33,8 +33,8 @@
+ 
+ 
+ $(bin)ps: ps/ps
+-	$(install) --mode a=rx $< $@
++	$(install) --mode a=rx,u+w $< $@
+ 
+ $(man1)ps.1 : ps/ps.1
+-	$(install) --mode a=r $< $@
++	$(install) --mode a=r,u+w $< $@
+ 	-rm -f $(DESTDIR)/var/catman/cat1/ps.1.gz $(DESTDIR)/var/man/cat1/ps.1.gz

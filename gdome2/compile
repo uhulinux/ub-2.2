@@ -1,0 +1,4 @@
+#!/bin/sh -eux
+
+export GLIB_CONFIG="pkg-config glib-2.0" # to fix gdome-config(1)
+ub_compile

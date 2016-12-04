@@ -1,0 +1,32 @@
+diff -Naurdp a/ext/Encode/lib/Encode/MIME/Header.pm b/ext/Encode/lib/Encode/MIME/Header.pm
+--- a/ext/Encode/lib/Encode/MIME/Header.pm	2007-12-18 11:47:07.000000000 +0100
++++ b/ext/Encode/lib/Encode/MIME/Header.pm	2008-02-19 12:06:46.000000000 +0100
+@@ -127,12 +127,12 @@ sub encode($$;$) {
+         my $subline = '';
+         for my $word (@word) {
+             use bytes ();
+-            if ( bytes::length($subline) + bytes::length($word) >
+-                $obj->{bpl} )
++            if ( bytes::length($subline) + bytes::length($word) > $obj->{bpl} - 1 )
+             {
+                 push @subline, $subline;
+                 $subline = '';
+             }
++            $subline .= ' ' if ($subline =~ /\?=$/ and $word =~ /^=\?/);
+             $subline .= $word;
+         }
+         $subline and push @subline, $subline;
+diff -Naurdp a/ext/Encode/t/mime-header.t b/ext/Encode/t/mime-header.t
+--- a/ext/Encode/t/mime-header.t	2007-12-18 11:47:07.000000000 +0100
++++ b/ext/Encode/t/mime-header.t	2008-02-19 12:03:58.000000000 +0100
+@@ -74,8 +74,8 @@ EOS
+ 
+ my $bheader =<<'EOS';
+ From:=?UTF-8?B?IOWwj+mjvCDlvL4g?=<dankogai@dan.co.jp>
+-To: dankogai@dan.co.jp (=?UTF-8?B?5bCP6aO8?==Kogai,=?UTF-8?B?IOW8vg==?==Dan
+- )
++To: dankogai@dan.co.jp (=?UTF-8?B?5bCP6aO8?==Kogai,=?UTF-8?B?IOW8vg==?==
++ Dan)
+ Subject:
+  =?UTF-8?B?IOa8ouWtl+OAgeOCq+OCv+OCq+ODiuOAgeOBsuOCieOBjOOBquOCkuWQq+OCgA==?=
+  =?UTF-8?B?44CB6Z2e5bi444Gr6ZW344GE44K/44Kk44OI44Or6KGM44GM5LiA5L2T5YWo?=

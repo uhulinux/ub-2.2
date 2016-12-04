@@ -1,0 +1,4 @@
+#!/usr/bin/env dl
+
+gnome-games-${UB_VERSION}.tar.gz gnome-games-${UB_VERSION}/
+	ftp://ftp.gnome.org/pub/GNOME/sources/gnome-games/${UB_VERSION_HEAD2}/

@@ -1,0 +1,4 @@
+#!/usr/bin/env dl
+
+kipi-plugins-${UB_VERSION/~/-}.tar.bz2 kipi-plugins-${UB_VERSION/~/-}/
+	http://downloads.sourceforge.net/kipi/

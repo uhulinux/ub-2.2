@@ -1,0 +1,13 @@
+diff -Naur transfig.3.2.4.orig/fig2dev/fig2dev.c transfig.3.2.4/fig2dev/fig2dev.c
+--- transfig.3.2.4.orig/fig2dev/fig2dev.c	2002-12-18 23:32:13.000000000 +0100
++++ transfig.3.2.4/fig2dev/fig2dev.c	2006-02-27 12:03:11.000000000 +0100
+@@ -707,7 +707,8 @@
+       depth_usage();
+     switch(*s) {		/* what's the delim? */
+       case ':':			/* parse a range */
+-	d->d2 = strtol(++s,&s,10);
++	s++;
++	d->d2 = strtol(s,&s,10);
+ 	if (d->d2 < d->d1) 
+ 	    depth_usage();
+ 	break;

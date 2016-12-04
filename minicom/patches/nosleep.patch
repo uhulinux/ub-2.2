@@ -1,0 +1,34 @@
+diff -Naurd a/src/functions.c b/src/functions.c
+--- a/src/functions.c	2003-03-30 20:55:49.000000000 +0200
++++ b/src/functions.c	2007-03-02 15:00:20.000000000 +0100
+@@ -61,7 +61,6 @@
+   	m_dtrtoggle(portfd, sec);  /* jl 22.06.97 */
+   } else {
+   	m_puts(P_MHANGUP);
+-  	sleep(1);
+   }
+   /* If we don't have DCD support fake DCD dropped */
+   bogus_dcd = 0;
+diff -Naurd a/src/rwconf.c b/src/rwconf.c
+--- a/src/rwconf.c	2003-04-13 00:52:20.000000000 +0200
++++ b/src/rwconf.c	2007-03-02 16:00:35.000000000 +0100
+@@ -121,8 +121,8 @@
+   /* The script program */
+   { "runscript",	PUBLIC,   "scriptprog" },
+   /* Modem parameters */
+-  { "~^M~AT S7=45 S0=0 L1 V1 X4 &c1 E1 Q0^M",   PUBLIC,   "minit" },
+-  { "^M~ATZ^M~",	PUBLIC,   "mreset" },
++  { "^MAT S7=45 S0=0 L1 V1 X4 &c1 E1 Q0^M",   PUBLIC,   "minit" },
++  { "^MATZ^M",	PUBLIC,   "mreset" },
+   { "ATDT",		PUBLIC,   "mdialpre" },
+   { "^M",		PUBLIC,   "mdialsuf" },
+   { "ATDP",		PUBLIC,   "mdialpre2" },
+@@ -134,7 +134,7 @@
+   { "BUSY",		PUBLIC,   "mnocon2" },
+   { "NO DIALTONE",	PUBLIC,   "mnocon3" },
+   { "VOICE",		PUBLIC,   "mnocon4" },
+-  { "~~+++~~ATH^M",	PUBLIC,   "mhangup" },
++  { "+++ATH^M",	PUBLIC,   "mhangup" },
+   { "^M",		PUBLIC,   "mdialcan" },
+   { "45",		PUBLIC,   "mdialtime" },
+   { "2",		PUBLIC,   "mrdelay" },

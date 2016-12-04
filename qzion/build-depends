@@ -1,0 +1,5 @@
+cmake
+pyqt4
+python-dev
+qt4-dev
+sip

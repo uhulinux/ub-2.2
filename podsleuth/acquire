@@ -1,0 +1,5 @@
+#!/usr/bin/env dl
+
+podsleuth-${UB_VERSION}.tar.gz podsleuth-${UB_VERSION}/
+	http://banshee-project.org/files/podsleuth/
+	http://download.banshee-project.org/podsleuth/LATEST-IS-${UB_VERSION}/

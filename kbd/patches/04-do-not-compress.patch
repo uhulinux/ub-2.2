@@ -1,0 +1,28 @@
+diff -urN kbd-1.15.orig/data/Makefile.in kbd-1.15/data/Makefile.in
+--- kbd-1.15.orig/data/Makefile.in	2008-11-28 23:35:58.000000000 +0100
++++ kbd-1.15/data/Makefile.in	2009-12-03 14:12:34.119275221 +0100
+@@ -327,12 +327,12 @@
+ 	pdf-am ps ps-am uninstall uninstall-am uninstall-hook
+ 
+ 
+-install-data-hook: $(KEYMAPDIR)_Z $(FONTDIR)_Z
++install-data-hook:
+ 	install -d -m 755 $(DESTDIR)$(datadir)
+ 	install -d -m 755 $(DESTDIR)$(datadir)/$(FONTDIR)
+-	install -m 644 $(FONTDIR)_Z/* $(DESTDIR)$(datadir)/$(FONTDIR)
++	install -m 644 $(FONTDIR)/* $(DESTDIR)$(datadir)/$(FONTDIR)
+ 	install -d -m 755 $(DESTDIR)$(datadir)/$(FONTDIR)/$(PARTIALDIR)
+-	install -m 644 $(PARTIALDIR)_Z/* $(DESTDIR)$(datadir)/$(FONTDIR)/$(PARTIALDIR)
++	install -m 644 $(PARTIALDIR)/* $(DESTDIR)$(datadir)/$(FONTDIR)/$(PARTIALDIR)
+ 	install -d -m 755 $(DESTDIR)$(datadir)/$(TRANSDIR)
+ 	install -m 644 $(srcdir)/$(TRANSDIR)/* $(DESTDIR)$(datadir)/$(TRANSDIR)
+ 	install -d -m 755 $(DESTDIR)$(datadir)/$(UNIMAPDIR)
+@@ -342,7 +342,7 @@
+ 	install -d -m 755 $(DESTDIR)$(datadir)/$(KEYMAPDIR)/mac
+ 	for i in $(KEYMAPSUBDIRS); do \
+ 		install -d -m 755 $(DESTDIR)$(datadir)/$(KEYMAPDIR)/$$i ;\
+-		install -m 644 $(KEYMAPDIR)_Z/$$i/* $(DESTDIR)$(datadir)/$(KEYMAPDIR)/$$i ;\
++		install -m 644 $(KEYMAPDIR)/$$i/* $(DESTDIR)$(datadir)/$(KEYMAPDIR)/$$i ;\
+ 	done
+ 	rm -f $(DESTDIR)$(datadir)/$(KEYMAPDIR)/ppc; ln -s mac $(DESTDIR)$(datadir)/$(KEYMAPDIR)/ppc
+ 	@if [ -f $(DESTDIR)$(datadir)/$(OLDKEYMAPDIR) ]; then \

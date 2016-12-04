@@ -1,0 +1,8 @@
+#!/bin/sh
+
+. /etc/init.d/common
+
+DAEMON=/usr/sbin/gpm
+PIDFILE="/var/run/gpm.pid"
+
+startstop "$@"

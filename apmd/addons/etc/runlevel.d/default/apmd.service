@@ -1,0 +1,10 @@
+Summary=APM Handler
+Summary[hu]=APM-kezelő
+Description=Handles APM (Advanced Power Management) events supported by newer motherboards such as pressing the poweroff button of the computer.
+Description[hu]=Az APM (Advanced Power Management) eseményeket, például a számítógép házán lévő kikapcsoló gomb megnyomását kezeli modern alaplapok esetén.
+MsgDesc=APM Handler
+MsgDesc[hu]=APM-kezelő
+Script=/etc/init.d/apmd
+SupportsReload=yes
+Runlevels=2345
+Sequence=20

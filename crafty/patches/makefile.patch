@@ -1,0 +1,12 @@
+diff -Naur ORIG/Makefile UHU/Makefile
+--- ORIG/Makefile	2010-03-04 03:11:15.000000000 +0100
++++ UHU/Makefile	2010-04-29 12:34:34.000000000 +0200
+@@ -129,7 +129,7 @@
+ 		CFLAGS='-pg -Wall -pipe' \
+ 		CXFLAGS='' \
+ 		LDFLAGS='$(LDFLAGS) -pg -lstdc++ -lpthread' \
+-		opt='$(opt) -DTRACE -DINLINE64 -DCPUS=2' \
++		opt='$(opt)' \
+ 		crafty-make
+ 
+ linux-profile:

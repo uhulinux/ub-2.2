@@ -1,0 +1,12 @@
+diff -urN gnome-terminal-2.2.1.orig/src/gnome-terminal.schemas.in gnome-terminal-2.2.1/src/gnome-terminal.schemas.in
+--- gnome-terminal-2.2.1.orig/src/gnome-terminal.schemas.in	2002-12-03 04:49:37.000000000 +0100
++++ gnome-terminal-2.2.1/src/gnome-terminal.schemas.in	2003-03-24 21:28:40.000000000 +0100
+@@ -356,7 +356,7 @@
+       <applyto>/apps/gnome-terminal/profiles/Default/update_records</applyto>
+       <owner>gnome-terminal</owner>
+       <type>bool</type>
+-      <default>true</default>
++      <default>false</default>
+       <locale name="C">
+          <short>Whether to update utmp/wtmp when launching terminal command</short>
+          <long>

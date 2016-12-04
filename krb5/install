@@ -1,0 +1,16 @@
+#!/bin/sh -eux
+
+cd src
+ub_install
+
+# chmod u-s "$UB_INSTALLDIR"/usr/bin/v4rcp
+rm "$UB_INSTALLDIR"/usr/share/man/man1/tmac.doc
+
+for i in ftp rcp rlogin rsh telnet; do
+	mv "$UB_INSTALLDIR"/usr/bin/"$i" "$UB_INSTALLDIR"/usr/bin/"$i".krb5
+	mv "$UB_INSTALLDIR"/usr/share/man/man1/"$i".1 "$UB_INSTALLDIR"/usr/share/man/man1/"$i".krb5.1
+done
+for i in ftpd telnetd; do
+	mv "$UB_INSTALLDIR"/usr/sbin/"$i" "$UB_INSTALLDIR"/usr/sbin/"$i".krb5
+	mv "$UB_INSTALLDIR"/usr/share/man/man8/"$i".8 "$UB_INSTALLDIR"/usr/share/man/man8/"$i".krb5.8
+done

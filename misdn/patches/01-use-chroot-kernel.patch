@@ -1,0 +1,22 @@
+diff -Naur a/std2kern b/std2kern
+--- a/std2kern	2007-07-02 11:31:35.000000000 +0200
++++ b/std2kern	2007-08-14 13:56:41.000000000 +0200
+@@ -1,6 +1,6 @@
+ #!/bin/sh
+ 
+-KERNELDIR=/lib/modules/$(uname -r)/build
++KERNELDIR=/lib/modules/$(ls /lib/modules)/build
+ PREPARSER="./preparser"
+ UNIQUE=false
+ VERBOSE=false
+diff -Naur a/stddiff b/stddiff
+--- a/stddiff	2007-06-14 10:41:20.000000000 +0200
++++ b/stddiff	2007-08-14 13:56:51.000000000 +0200
+@@ -1,6 +1,6 @@
+ #!/bin/sh
+ 
+-KERNELDIR=/lib/modules/$(uname -r)/build
++KERNELDIR=/lib/modules/$(ls /lib/modules)/build
+ KERNFIRST=false
+ PREPARSER="./preparser"
+ DODIFF=dodiff

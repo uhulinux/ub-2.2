@@ -1,0 +1,12 @@
+diff -Naur gnome-panel-2.4.1.orig/applets/clock/clock.schemas.in gnome-panel-2.4.1/applets/clock/clock.schemas.in
+--- gnome-panel-2.4.1.orig/applets/clock/clock.schemas.in	2003-07-09 12:36:53.000000000 +0200
++++ gnome-panel-2.4.1/applets/clock/clock.schemas.in	2003-11-21 17:16:38.000000000 +0100
+@@ -96,7 +96,7 @@
+         <key>/schemas/apps/clock_applet/prefs/config_tool</key>
+         <owner>clock-applet</owner>
+         <type>string</type>
+-        <default> </default>
++        <default>clock-config</default>
+         <locale name="C">
+           <short>Time configuration tool</short>
+           <long>

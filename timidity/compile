@@ -1,0 +1,10 @@
+#!/bin/sh -eux
+
+ub_compile \
+	--enable-audio=alsa,oss,arts,esd,vorbis \
+	--with-default-output=alsa \
+	--enable-interface=ncurses,gtk,alsaseq,server,network \
+	--enable-dynamic \
+	--enable-network \
+	--enable-spectogram \
+	--with-default-path=/etc

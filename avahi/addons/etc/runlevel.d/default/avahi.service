@@ -1,0 +1,10 @@
+Summary=Avahi mDNS/DNS-SD daemon
+Summary[hu]=Avahi mDNS/DNS-SD démon
+Description=The Avahi mDNS/DNS-SD daemon implementing Apple's ZeroConf architecture (also known as "Rendezvous" or "Bonjour"). The daemon registers local IP addresses and static services using mDNS/DNS-SD and provides two IPC APIs for local programs to make use of the mDNS record cache the avahi-daemon maintains.
+Description[hu]=Avahi mDNS/DNS-SD démon, amely megvalósítja az Apple ZeroConf architektúráját (más néven "Rendezvous" vagy "Bonjour"). A program az mDNS/DNS-SD segítségével beregisztrálja a helyi IP címét és két IPC API-t biztosít a többi program számára hogy elérhessék az mDNS rekord cache-t.
+MsgDesc=Avahi mDNS/DNS-SD daemon
+MsgDesc[hu]=Avahi mDNS/DNS-SD démon
+Script=/etc/init.d/avahi
+SupportsReload=yes
+Runlevels=345
+Sequence=19

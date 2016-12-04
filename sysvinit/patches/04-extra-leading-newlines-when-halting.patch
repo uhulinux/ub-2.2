@@ -1,0 +1,12 @@
+diff -Naur sysvinit-2.86.orig/src/init.c sysvinit-2.86/src/init.c
+--- sysvinit-2.86.orig/src/init.c	2006-08-09 20:05:03.000000000 +0200
++++ sysvinit-2.86/src/init.c	2006-08-09 20:09:04.000000000 +0200
+@@ -1673,6 +1673,8 @@
+ 			initlog(L_SY, _("Trying to re-exec init"));
+ 			return 'U';
+ 		default:
++			if (foo == '0' || foo == '6')
++				print("\r\n\r\n");
+ 		  	initlog(L_VB, _("Switching to runlevel: %c"), foo);
+ 	}
+ 

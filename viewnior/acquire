@@ -1,0 +1,4 @@
+#!/usr/bin/env dl
+
+viewnior-$UB_VERSION.tar.gz viewnior-$UB_VERSION/
+	http://cloud.github.com/downloads/xsisqox/Viewnior/

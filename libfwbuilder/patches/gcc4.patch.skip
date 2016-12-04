@@ -1,0 +1,23 @@
+diff -Naur libfwbuilder-2.1.13.orig/src/fwbuilder/dns.h libfwbuilder-2.1.13/src/fwbuilder/dns.h
+--- libfwbuilder-2.1.13.orig/src/fwbuilder/dns.h	2006-05-17 02:20:37.000000000 +0200
++++ libfwbuilder-2.1.13/src/fwbuilder/dns.h	2007-08-16 09:42:40.000000000 +0200
+@@ -69,6 +69,7 @@
+ {
+ 
+     void init_dns() throw(FWException);
++    void* DNS_bulkBackResolve_Thread(void *);
+ 
+ 
+ class HostEnt
+diff -Naur libfwbuilder-2.1.13.orig/src/fwbuilder/IPAddress.h libfwbuilder-2.1.13/src/fwbuilder/IPAddress.h
+--- libfwbuilder-2.1.13.orig/src/fwbuilder/IPAddress.h	2006-08-18 05:59:32.000000000 +0200
++++ libfwbuilder-2.1.13/src/fwbuilder/IPAddress.h	2007-08-16 09:47:58.000000000 +0200
+@@ -48,6 +48,8 @@
+ 
+     class Netmask;
+ 
++    Netmask operator~(const Netmask &);
++
+ class IPAddress
+ {
+     protected:

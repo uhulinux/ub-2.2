@@ -1,0 +1,70 @@
+# Alapértelmezett futási szint.
+id:5:initdefault:
+
+# A rendszer boot folyamatát konfiguráló/inicializáló szkript.
+# Vész esetében ez fut le először (-b mód).
+si::sysinit:/sbin/runlevelchange
+
+# Mit csináljak egyfelhasználós (single user) módban.
+~~:S:wait:/sbin/sulogin
+
+# /etc/init.d-ben lévő szkripteket futtatjuk a különböző futási szinteken.
+#
+# 0. futási szint: kikapcsolás
+# 1. futási szint: egyfelhasználós mód
+# 2. futási szint: többfelhasználós mód hálózat és grafikus bejelentkezés nélkül
+# 3. futási szint: többfelhasználós mód hálózattal, grafikus bejelentkezés nélkül
+# 4. futási szint: egyéni
+# 5. futási szint: többfelhasználós mód hálózattal és grafikus bejelentkezéssel
+# 6. futási szint: újraindítás
+
+l0:0:wait:/sbin/runlevelchange
+l1:1:wait:/sbin/runlevelchange
+l2:2:wait:/sbin/runlevelchange
+l3:3:wait:/sbin/runlevelchange
+l4:4:wait:/sbin/runlevelchange
+l5:5:wait:/sbin/runlevelchange
+l6:6:wait:/sbin/runlevelchange
+
+# Alap esetben nem elérhető, de vészhelyzetben használható.
+z6:6:respawn:/sbin/sulogin
+
+# Mit csináljak CTRL-ALT-DEL lenyomásakor.
+ca:12345:ctrlaltdel:/sbin/shutdown -t1 -a -r now
+
+# Mit csináljak a speciális gombkombináció (ALT-FelNyíl) lenyomásakor.
+#kb::kbrequest:/bin/echo "Billentyűzet kérés -- szerkeszd meg az /etc/inittab-ot."
+
+# Mit csináljak áramkimaradás esetén.
+#pf::powerwait:/etc/init.d/powerfail start
+#pn::powerfailnow:/etc/init.d/powerfail now
+#po::powerokwait:/etc/init.d/powerfail stop
+
+# /sbin/fbgetty hívások a futási szinteken.
+#
+# Az "id" mező ugyanaz kell hogy legyen, mint a terminál sorszáma (ttyN).
+#
+# Megadás:
+#  <id>:<futási szint>:<akció>:<parancs>
+1:12345:respawn:/sbin/getty-wrapper /sbin/fbgetty tty1
+2:2345:respawn:/sbin/getty-wrapper /sbin/fbgetty tty2
+3:2345:respawn:/sbin/getty-wrapper /sbin/fbgetty tty3
+4:2345:respawn:/sbin/getty-wrapper /sbin/fbgetty tty4
+5:2345:respawn:/sbin/getty-wrapper /sbin/fbgetty tty5
+6:2345:respawn:/sbin/getty-wrapper /sbin/fbgetty tty6
+# Ha az alábbiakat is használod, ne felejtsd el az /etc/gdm/custom.conf
+# és/vagy /usr/share/config/kdm/Xservers fájlokat is átírni.
+#7:2345:respawn:/sbin/getty-wrapper /sbin/fbgetty tty7
+#8:2345:respawn:/sbin/getty-wrapper /sbin/fbgetty tty8
+#9:2345:respawn:/sbin/getty-wrapper /sbin/fbgetty tty9
+#10:2345:respawn:/sbin/getty-wrapper /sbin/fbgetty tty10
+
+# Példa: hogyan tegyünk getty-t soros portra (terminálhoz).
+#
+#T0:23:respawn:/sbin/getty -L ttyS0 9600 vt100
+#T1:23:respawn:/sbin/getty -L ttyS1 9600 vt100
+
+# Példa: hogyan tegyünk getty-t modemre.
+#
+#T3:23:respawn:/sbin/mgetty -x0 -s 57600 ttyS3
+

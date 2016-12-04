@@ -1,0 +1,4 @@
+#!/bin/sh -eux
+
+python ./waf-light configure --prefix=/usr
+python ./waf-light --make-waf

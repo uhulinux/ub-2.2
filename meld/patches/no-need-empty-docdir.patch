@@ -1,0 +1,10 @@
+--- meld.orig/Makefile	2008-10-16 23:55:45.000000000 +0200
++++ meld/Makefile	2009-03-07 17:58:32.000000000 +0100
+@@ -47,7 +47,6 @@
+ 		$(DESTDIR)$(libdir_)/meld/vc \
+ 		$(DESTDIR)$(sharedir_)/ui \
+ 		$(DESTDIR)$(sharedir_)/icons \
+-		$(DESTDIR)$(docdir_) \
+ 		$(DESTDIR)$(sharedir)/applications \
+ 		$(DESTDIR)$(sharedir)/pixmaps \
+		$(DESTDIR)$(sharedir)/icons/hicolor/16x16/apps \

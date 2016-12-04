@@ -1,0 +1,5 @@
+#!/usr/bin/env dl
+
+valide-${UB_VERSION/~/-}.tar.gz trunk-r${UB_VERSION#*~}/
+	http://valide.googlecode.com/files/
+	svn://valide.googlecode.com/svn/trunk@${UB_VERSION#*~}

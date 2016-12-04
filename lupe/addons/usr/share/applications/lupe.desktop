@@ -1,0 +1,11 @@
+[Desktop Entry]
+Version=1.1
+Type=Application
+Name=lupe
+Comment=magnifier
+Name[hu]=lupe
+Comment[hu]=nagyító
+Exec=lupe
+Terminal=False
+Icon=/usr/share/pixmaps/lupe.png
+Categories=X-UHU-Menu/Tools/Toys;

@@ -1,0 +1,12 @@
+diff -Naur ORIG/setup.py UHU/setup.py
+--- ORIG/setup.py	2009-05-14 02:28:39.000000000 +0200
++++ UHU/setup.py	2009-06-12 14:31:43.000000000 +0200
+@@ -59,7 +59,7 @@
+     download_url = \
+     'http://somethingaboutorange.com/mrl/projects/nose/nose-%s.tar.gz' \
+     % VERSION,
+-    data_files = [('man/man1', ['nosetests.1'])],
++    data_files = [('share/man/man1', ['nosetests.1'])],
+     package_data = {'': ['*.txt',
+                          'examples/*.py',
+                          'examples/*/*.py']},

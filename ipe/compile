@@ -1,0 +1,10 @@
+#!/bin/sh -eux
+
+cd src
+ub_make
+
+cd ../figtoipe-20091205
+ub_make
+
+cd ../pdftoipe-20091014
+ub_make

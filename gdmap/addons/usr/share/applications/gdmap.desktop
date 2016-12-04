@@ -1,0 +1,10 @@
+[Desktop Entry]
+Version=1.1
+Type=Application
+Name=GdMap
+Comment=GdMap
+Comment[hu]=Vizuális lemezfoglaltság mutató
+Exec=gdmap
+Icon=/usr/share/tea/pixmaps/gdmap_icon.png
+Terminal=false
+Categories=X-UHU-Menu/Tools/Utilities

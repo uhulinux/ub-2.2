@@ -1,0 +1,8 @@
+#!/bin/sh -eux
+
+export MONO_SHARED_DIR=/tmp/
+ub_install \
+	libdir="$UB_INSTALLDIR"/usr
+
+rm $UB_INSTALLDIR/usr/share/gtksourceview-1.0/language-specs/*
+

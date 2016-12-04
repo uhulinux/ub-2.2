@@ -1,0 +1,131 @@
+Patch by Robert Scheck <redhat@linuxnetz.de> for iputils >= 20070202, which adds
+IDN support (umlaut domains) to ping and ping6. For ping this requires the libidn
+package installed. For ping6, glibc >= 2.3.4 or glibc 2.3.3 CVS >= 20031001 is
+needed.
+
+--- iputils-s20070202/ping.c			2007-03-11 12:22:08.000000000 +0100
++++ iputils-s20070202/ping.c.idn		2007-03-11 14:05:40.000000000 +0100
+@@ -58,6 +58,12 @@
+  *	This program has to run SUID to ROOT to access the ICMP socket.
+  */
+ 
++#define LIBIDN
++#ifdef LIBIDN
++#include <idna.h>
++#include <locale.h>
++#endif
++
+ #include "ping_common.h"
+ 
+ #include <linux/icmp.h>
+@@ -115,6 +121,12 @@
+ 	char *target, hnamebuf[MAXHOSTNAMELEN];
+ 	char rspace[3 + 4 * NROUTES + 1];	/* record route space */
+ 
++#ifdef LIBIDN
++	char *idn;
++	int rc = 0;
++	setlocale(LC_ALL, "");
++#endif
++
+ 	icmp_sock = socket(AF_INET, SOCK_RAW, IPPROTO_ICMP);
+ 	socket_errno = errno;
+ 
+@@ -236,13 +248,35 @@
+ 			if (argc == 1)
+ 				options |= F_NUMERIC;
+ 		} else {
++#ifdef LIBIDN
++			rc = idna_to_ascii_lz (target, &idn, 0);
++			if (rc == IDNA_SUCCESS)
++				hp = gethostbyname (idn);
++			else {
++				fprintf(stderr, "ping: IDN encoding of '%s' failed with error code %d\n", target, rc);
++				exit(2);
++			}
++			free(idn);
++#else
+ 			hp = gethostbyname(target);
++#endif
+ 			if (!hp) {
+ 				fprintf(stderr, "ping: unknown host %s\n", target);
+ 				exit(2);
+ 			}
+ 			memcpy(&whereto.sin_addr, hp->h_addr, 4);
++#ifdef LIBIDN
++			rc = idna_to_unicode_lzlz (hp->h_name, &idn, 0);
++			if (rc == IDNA_SUCCESS)
++				strncpy(hnamebuf, idn, sizeof(hnamebuf) - 1);
++			else {
++				fprintf(stderr, "ping: IDN encoding of '%s' failed with error code %d\n", hp->h_name, rc);
++				exit(2);
++			}
++			free(idn);
++#else
+ 			strncpy(hnamebuf, hp->h_name, sizeof(hnamebuf) - 1);
++#endif
+ 			hnamebuf[sizeof(hnamebuf) - 1] = 0;
+ 			hostname = hnamebuf;
+ 		}
+--- iputils-s20070202/Makefile			2007-03-11 12:22:08.000000000 +0100 
++++ iputils-s20070202/Makefile.idn		2007-03-11 14:16:56.000000000 +0100
+@@ -35,8 +35,13 @@
+ 
+ 
+ tftpd: tftpd.o tftpsubs.o
++
+ ping: ping.o ping_common.o
++	$(CC) $(CFLAGS) ping.o ping_common.o -lidn -o ping
++
+ ping6: ping6.o ping_common.o
++	$(CC) $(CFLAGS) ping6.o ping_common.o -o ping6
++
+ ping.o ping6.o ping_common.o: ping_common.h
+ tftpd.o tftpsubs.o: tftp.h
+ 
+--- iputils-s20070202/ping6.c			2007-03-25 13:21:27.000000000 +0200
++++ iputils-s20070202/ping6.c.idn		2007-03-25 13:53:16.000000000 +0200
+@@ -66,6 +66,12 @@
+  *	More statistics could always be gathered.
+  *	This program has to run SUID to ROOT to access the ICMP socket.
+  */
++#define IDN
++#ifdef IDN
++#define _GNU_SOURCE
++#include <locale.h>
++#endif
++
+ #include "ping_common.h"
+ 
+ #include <linux/filter.h>
+@@ -210,6 +216,10 @@
+ 	int err, csum_offset, sz_opt;
+ 	static uint32_t scope_id = 0;
+ 
++#ifdef IDN
++	setlocale(LC_ALL, "");
++#endif
++
+ 	icmp_sock = socket(AF_INET6, SOCK_RAW, IPPROTO_ICMPV6);
+ 	socket_errno = errno;
+ 
+@@ -296,6 +306,9 @@
+ 
+ 		memset(&hints, 0, sizeof(hints));
+ 		hints.ai_family = AF_INET6;
++#ifdef IDN
++		hints.ai_flags = AI_IDN;
++#endif
+ 		gai = getaddrinfo(target, NULL, &hints, &ai);
+ 		if (gai) {
+ 			fprintf(stderr, "unknown host\n");
+@@ -328,6 +341,9 @@
+ 
+ 	memset(&hints, 0, sizeof(hints));
+ 	hints.ai_family = AF_INET6;
++#ifdef IDN
++	hints.ai_flags = AI_IDN;
++#endif
+ 	gai = getaddrinfo(target, NULL, &hints, &ai);
+ 	if (gai) {
+ 		fprintf(stderr, "unknown host\n");

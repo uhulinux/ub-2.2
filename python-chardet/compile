@@ -1,0 +1,5 @@
+#!/bin/sh -eux
+
+chmod -x COPYING
+
+ub_compile

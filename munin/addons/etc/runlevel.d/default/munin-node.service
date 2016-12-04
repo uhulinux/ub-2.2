@@ -1,0 +1,7 @@
+Summary=Munin node
+Description=Munin node service
+MsgDesc=Munin node service
+Script=/etc/init.d/munin-node
+SupportsReload=no
+Runlevels=
+Sequence=19

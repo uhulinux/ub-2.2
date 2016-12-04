@@ -1,0 +1,11 @@
+--- supertuxkart.orig/src/Makefile.in	2009-02-19 00:30:42.000000000 +0100
++++ supertuxkart/src/Makefile.in	2009-06-15 23:00:33.000000000 +0200
+@@ -226,7 +226,7 @@
+ am__quote = @am__quote@
+ am__tar = @am__tar@
+ am__untar = @am__untar@
+-bindir = $(prefix)/games
++bindir = @bindir@
+ build = @build@
+ build_alias = @build_alias@
+ build_cpu = @build_cpu@

@@ -1,0 +1,4 @@
+#!/usr/bin/env dl
+
+gnome-netstatus-${UB_VERSION}.tar.gz gnome-netstatus-${UB_VERSION}/
+	ftp://ftp.gnome.org/pub/GNOME/sources/gnome-netstatus/${UB_VERSION_HEAD2}/

@@ -1,0 +1,10 @@
+[Desktop Entry]
+Encoding=UTF-8
+Type=Application
+Terminal=0
+Name=E-Szignó
+Name[hu]=E-Szignó
+Comment=MicroSec E-Szignó
+Comment[hu]=MicroSec E-Szignó
+Exec=e-szigno
+Categories=Application;Office;X-UHU-Menu/Tools/More;

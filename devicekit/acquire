@@ -1,0 +1,4 @@
+#!/usr/bin/env dl
+
+DeviceKit-${UB_VERSION}.tar.gz DeviceKit-${UB_VERSION}/
+	http://hal.freedesktop.org/releases/

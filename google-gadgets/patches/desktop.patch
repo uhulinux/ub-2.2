@@ -1,0 +1,53 @@
+diff -Naur google-gadgets-for-linux-0.10.5.orig/gadgets/designer/ggl-designer.desktop.in google-gadgets-for-linux-0.10.5/gadgets/designer/ggl-designer.desktop.in
+--- google-gadgets-for-linux-0.10.5.orig/gadgets/designer/ggl-designer.desktop.in	2008-11-27 12:50:31.000000000 +0100
++++ google-gadgets-for-linux-0.10.5/gadgets/designer/ggl-designer.desktop.in	2009-02-09 16:06:38.000000000 +0100
+@@ -2,10 +2,10 @@
+ Encoding=UTF-8
+ _Name=GADGET_DESIGNER_NAME
+ _Comment=GADGET_DESIGNER_COMMENT
+-TryExec=@bindir@/ggl-gtk
+-Exec=@bindir@/ggl-gtk -sa -nd -gp @datadir@/google-gadgets/designer.gg
++TryExec=ggl-gtk
++Exec=ggl-gtk -sa -nd -gp @datadir@/google-gadgets/designer.gg
+ Icon=google-gadgets
+ Terminal=false
+ StartupNotify=true
+ Type=Application
+-Categories=GNOME;GTK;Development;GUIDesigner;
++Categories=GNOME;GTK;Development;GUIDesigner;X-UHU-Menu/Tools/Toys;
+diff -Naur google-gadgets-for-linux-0.10.5.orig/hosts/gtk/ggl-gtk.desktop.in google-gadgets-for-linux-0.10.5/hosts/gtk/ggl-gtk.desktop.in
+--- google-gadgets-for-linux-0.10.5.orig/hosts/gtk/ggl-gtk.desktop.in	2008-12-18 05:18:41.000000000 +0100
++++ google-gadgets-for-linux-0.10.5/hosts/gtk/ggl-gtk.desktop.in	2009-02-09 16:06:23.000000000 +0100
+@@ -2,11 +2,11 @@
+ Encoding=UTF-8
+ _Name=HOST_GTK_DESKTOP_NAME
+ _Comment=HOST_GTK_DESKTOP_COMMENT
+-TryExec=@bindir@/ggl-gtk
+-Exec=@bindir@/ggl-gtk %F
++TryExec=ggl-gtk
++Exec=ggl-gtk %F
+ Icon=google-gadgets
+ Terminal=false
+ StartupNotify=true
+ Type=Application
+-Categories=GNOME;GTK;Network;News;
++Categories=GNOME;GTK;Network;News;X-UHU-Menu/Tools/Toys;
+ MimeType=application/x-google-gadget;app/gg;
+diff -Naur google-gadgets-for-linux-0.10.5.orig/hosts/qt/ggl-qt.desktop.in google-gadgets-for-linux-0.10.5/hosts/qt/ggl-qt.desktop.in
+--- google-gadgets-for-linux-0.10.5.orig/hosts/qt/ggl-qt.desktop.in	2008-12-18 05:18:50.000000000 +0100
++++ google-gadgets-for-linux-0.10.5/hosts/qt/ggl-qt.desktop.in	2009-02-09 16:06:09.000000000 +0100
+@@ -2,11 +2,11 @@
+ Encoding=UTF-8
+ _Name=HOST_QT_DESKTOP_NAME
+ _Comment=HOST_QT_DESKTOP_COMMENT
+-TryExec=@bindir@/ggl-qt
+-Exec=@bindir@/ggl-qt %F
++TryExec=ggl-qt
++Exec=ggl-qt %F
+ Icon=google-gadgets
+ Terminal=false
+ StartupNotify=true
+ Type=Application
+-Categories=KDE;Qt;Network;News;
++Categories=KDE;Qt;Network;News;X-UHU-Menu/Tools/Toys;
+ MimeType=application/x-google-gadget;app/gg;

@@ -1,0 +1,4 @@
+#!/usr/bin/env dl
+
+sk1libs-${UB_VERSION}.tar.gz sk1libs-0.9.1/
+	http://sk1project.org/downloads/sk1/${UB_VERSION}/

@@ -1,0 +1,12 @@
+diff -urN transfig.3.2.4.orig/fig2dev/Imakefile transfig.3.2.4/fig2dev/Imakefile
+--- transfig.3.2.4.orig/fig2dev/Imakefile	2002-12-19 18:33:44.000000000 +0100
++++ transfig.3.2.4/fig2dev/Imakefile	2003-04-23 19:27:08.000000000 +0200
+@@ -73,7 +73,7 @@
+ XCOMM Change XPMINC if necessary to point to the include file for xpm (xpm.h)
+ XCOMM
+ 
+-XCOMM #define USEXPM
++#define USEXPM
+ 
+ #ifdef USEXPM
+ XPMLIBDIR = $(USRLIBDIR)

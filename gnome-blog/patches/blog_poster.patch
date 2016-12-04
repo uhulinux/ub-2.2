@@ -1,0 +1,31 @@
+
+--- gnome-blog-0.9.1.orig/blog_poster.py
++++ gnome-blog-0.9.1/blog_poster.py
+@@ -1,6 +1,7 @@
+ import gtk
+ import pango
+ import gconf
++import gobject
+ 
+ from gettext import gettext as _
+ 
+@@ -25,7 +26,7 @@
+ 
+         self.on_entry_posted = on_entry_posted
+ 
+-        global gconf_prefix
++        global gconf_prefix, use_gtkspell
+         gconf_prefix = prefs_key
+ 
+         print "Using gconf_prefix %s" % (gconf_prefix)
+@@ -37,6 +38,9 @@
+         self.blogEntry   = rich_entry.RichEntry()
+ 
+         #if we are using gtkspell, attach it to the blogEntry
++        client = gconf.client_get_default()
++        # use global gconf pref location; not per applet settings
++        use_gtkspell = client.get_bool("/apps/gnome-blog/enable_spellchecking")
+         if use_gtkspell:
+             self._attach_gtkspell()
+ 
+

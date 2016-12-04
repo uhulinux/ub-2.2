@@ -1,0 +1,10 @@
+[Desktop Entry]
+Encoding=UTF-8
+Type=Application
+Name=Pine
+Comment=Console mail utility
+Comment[hu]=Konzolos levelezőkliens
+Exec=pine
+Terminal=true
+Categories=X-UHU-Menu/Internet/Email;
+X-UHU-Major=-1

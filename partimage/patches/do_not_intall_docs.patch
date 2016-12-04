@@ -1,0 +1,26 @@
+--- partimage.orig/Makefile.in	2009-09-24 22:12:36.000000000 +0200
++++ partimage/Makefile.in	2009-12-03 21:50:49.000000000 +0100
+@@ -291,23 +291,6 @@
+ 
+ distclean-libtool:
+ 	-rm -f libtool
+-install-docDATA: $(doc_DATA)
+-	@$(NORMAL_INSTALL)
+-	test -z "$(docdir)" || $(MKDIR_P) "$(DESTDIR)$(docdir)"
+-	@list='$(doc_DATA)'; for p in $$list; do \
+-	  if test -f "$$p"; then d=; else d="$(srcdir)/"; fi; \
+-	  f=$(am__strip_dir) \
+-	  echo " $(docDATA_INSTALL) '$$d$$p' '$(DESTDIR)$(docdir)/$$f'"; \
+-	  $(docDATA_INSTALL) "$$d$$p" "$(DESTDIR)$(docdir)/$$f"; \
+-	done
+-
+-uninstall-docDATA:
+-	@$(NORMAL_UNINSTALL)
+-	@list='$(doc_DATA)'; for p in $$list; do \
+-	  f=$(am__strip_dir) \
+-	  echo " rm -f '$(DESTDIR)$(docdir)/$$f'"; \
+-	  rm -f "$(DESTDIR)$(docdir)/$$f"; \
+-	done
+ 
+ # This directory's subdirectories are mostly independent; you can cd
+ # into them and run `make' without going through this Makefile.

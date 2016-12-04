@@ -1,0 +1,30 @@
+diff -Naur htop-0.6.5.orig/Hashtable.c htop-0.6.5/Hashtable.c
+--- htop-0.6.5.orig/Hashtable.c	2006-11-13 19:03:29.000000000 +0100
++++ htop-0.6.5/Hashtable.c	2007-03-26 13:18:20.000000000 +0200
+@@ -105,7 +105,7 @@
+ }
+ 
+ void Hashtable_put(Hashtable* this, int key, void* value) {
+-   int index = key % this->size;
++   int index = (key % this->size + this->size) % this->size;
+    HashtableItem** bucketPtr = &(this->buckets[index]);
+    while (true)
+       if (*bucketPtr == NULL) {
+@@ -123,7 +123,7 @@
+ }
+ 
+ void* Hashtable_remove(Hashtable* this, int key) {
+-   int index = key % this->size;
++   int index = (key % this->size + this->size) % this->size;
+    
+    assert(Hashtable_isConsistent(this));
+ 
+@@ -150,7 +150,7 @@
+ }
+ 
+ inline void* Hashtable_get(Hashtable* this, int key) {
+-   int index = key % this->size;
++   int index = (key % this->size + this->size) % this->size;
+    HashtableItem* bucketPtr = this->buckets[index];
+    while (true) {
+       if (bucketPtr == NULL) {

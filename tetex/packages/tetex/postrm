@@ -1,0 +1,6 @@
+#!/bin/sh -e
+
+if [ "$1" = "remove" ]; then
+	rm -f /usr/share/texmf/ls-R
+	rm -rf /var/cache/texmf
+fi

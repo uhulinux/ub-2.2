@@ -1,0 +1,14 @@
+#!/bin/sh -eux
+
+ub_compile
+
+for i in auto-reply console email qt-gui rms; do
+	cd plugins/"$i"
+		case "$i" in
+			qt-gui)
+				ub_compile --with-kde;;
+			*)
+				ub_compile;;
+		esac
+	cd ../..
+done

@@ -1,0 +1,10 @@
+dbus-glib-dev
+gdl-dev
+gtk2-dev
+gtksourceview-dev
+intltool
+libunique-dev
+libxml2-dev
+libxslt-dev
+sqlite-dev
+vala-dev

@@ -1,0 +1,7 @@
+#!/usr/bin/env dl
+
+#freemind-src-${UB_VERSION//[~|+]/_}.tar.gz freemind/
+#	http://downloads.sourceforge.net/sourceforge/freemind/
+
+freemind-bin-${UB_VERSION}.zip .
+	http://downloads.sourceforge.net/sourceforge/freemind/

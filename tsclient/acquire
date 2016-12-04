@@ -1,0 +1,5 @@
+#!/usr/bin/env dl
+
+tsclient-${UB_VERSION}-5.fc12.src.rpm tsclient-${UB_VERSION}.tar.bz2 tsclient-${UB_VERSION}/
+	http://downloads.sourceforge.net/tsclient/
+	ftp://194.199.20.114/linux/fedora/development/source/SRPMS/

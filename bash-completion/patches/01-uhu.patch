@@ -1,0 +1,21 @@
+diff -Naur bash_completion.orig/bash_completion bash_completion/bash_completion
+--- bash_completion.orig/bash_completion	2004-05-26 09:20:56.000000000 +0200
++++ bash_completion/bash_completion	2004-05-30 21:41:45.000000000 +0200
+@@ -1760,7 +1760,7 @@
+ 	if [ -n "$special" ]; then
+ 		case $special in
+ 		remove)
+-			if [ -f /etc/debian_version ]; then
++			if [ -f /etc/debian_version -o -f /etc/uhu-release ]; then
+ 				# Debian system
+ 				COMPREPLY=( $( _comp-dpkg-installed-packages \
+ 						$cur ) )
+@@ -3385,7 +3385,7 @@
+ 	case "$prev" in 
+ 	-@(c|i|A|I|f|e|x|X|-@(install|unpack|record-avail|contents|info| \
+ 			  fsys-tarfile|field|control|extract)))
+-		_filedir '?(u)deb'
++		_filedir '@(?(u)deb|uhu)'
+ 		return 0
+ 		;;
+ 	-@(b|-build))

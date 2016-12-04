@@ -1,0 +1,46 @@
+diff -Naurd a/Sources/GL/canvas_opengl.cpp b/Sources/GL/canvas_opengl.cpp
+--- a/Sources/GL/canvas_opengl.cpp	2007-10-21 02:14:01.000000000 +0200
++++ b/Sources/GL/canvas_opengl.cpp	2009-12-02 01:07:19.000000000 +0100
+@@ -48,6 +48,8 @@
+ #include "graphic_context_opengl.h"
+ #include "surface_target_opengl.h"
+ #include <cstring>
++#include <stdio.h>
++#include <string.h>
+ 
+ /////////////////////////////////////////////////////////////////////////////
+ // CL_Canvas_OpenGL construction:
+diff -Naurd a/Sources/GL/GLX/input_device_linuxevent.cpp b/Sources/GL/GLX/input_device_linuxevent.cpp
+--- a/Sources/GL/GLX/input_device_linuxevent.cpp	2007-10-21 02:14:01.000000000 +0200
++++ b/Sources/GL/GLX/input_device_linuxevent.cpp	2009-12-02 01:20:27.000000000 +0100
+@@ -35,6 +35,7 @@
+ #include <iostream>
+ #include <errno.h>
+ #include <cstring>
++#include <stdio.h>
+ 
+ #include "API/Core/System/error.h"
+ #include "API/Core/System/clanstring.h"
+diff -Naurd a/Sources/GL/GLX/input_device_xinput.cpp b/Sources/GL/GLX/input_device_xinput.cpp
+--- a/Sources/GL/GLX/input_device_xinput.cpp	2007-10-21 02:14:01.000000000 +0200
++++ b/Sources/GL/GLX/input_device_xinput.cpp	2009-12-02 01:25:24.000000000 +0100
+@@ -36,6 +36,7 @@
+ #include "API/Core/System/error.h"
+ #include "input_device_xinput.h"
+ #include "display_window_opengl.h"
++#include <stdio.h>
+ 
+ #define INVALID_EVENT_TYPE	-1
+ 
+diff -Naurd a/Sources/GL/opengl.cpp b/Sources/GL/opengl.cpp
+--- a/Sources/GL/opengl.cpp	2006-10-27 03:55:01.000000000 +0200
++++ b/Sources/GL/opengl.cpp	2009-12-02 00:33:46.000000000 +0100
+@@ -51,6 +51,8 @@
+ #endif
+ #endif
+ 
++#include <string.h>
++
+ std::vector<std::string> CL_OpenGL::m_ignored_gl_extension;
+ 
+ CL_ProcAddress *CL_OpenGL::get_proc_address(const std::string& function_name)

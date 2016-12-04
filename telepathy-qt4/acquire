@@ -1,0 +1,4 @@
+#!/usr/bin/env dl
+
+telepathy-qt4-${UB_VERSION/~/-}.tar.gz telepathy-qt4-${UB_VERSION/~/-}/
+	http://telepathy.freedesktop.org/releases/telepathy-qt4/

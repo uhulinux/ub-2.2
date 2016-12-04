@@ -1,0 +1,81 @@
+diff -Naur ebtables-v2.0.6.orig/ebtables.c ebtables-v2.0.6/ebtables.c
+--- ebtables-v2.0.6.orig/ebtables.c	2003-11-02 19:22:56.000000000 +0100
++++ ebtables-v2.0.6/ebtables.c	2005-11-11 14:17:06.000000000 +0100
+@@ -1171,6 +1171,7 @@
+ 			continue;
+ 		return i;
+ letscontinue:
++	;
+ 	}
+ 	return -1;
+ }
+diff -Naur ebtables-v2.0.6.orig/extensions/ebt_ip.c ebtables-v2.0.6/extensions/ebt_ip.c
+--- ebtables-v2.0.6.orig/extensions/ebt_ip.c	2003-11-02 19:22:56.000000000 +0100
++++ ebtables-v2.0.6/extensions/ebt_ip.c	2005-11-11 14:17:50.000000000 +0100
+@@ -313,7 +313,7 @@
+ 			ipinfo->invflags |= EBT_IP_PROTO;
+ 		if (optind > argc)
+ 			print_error("Missing IP protocol argument");
+-		(unsigned char) i = strtoul(argv[optind - 1], &end, 10);
++		i = strtoul(argv[optind - 1], &end, 10);
+ 		if (*end != '\0') {
+ 			struct protoent *pe;
+ 
+diff -Naur ebtables-v2.0.6.orig/extensions/ebt_limit.c ebtables-v2.0.6/extensions/ebt_limit.c
+--- ebtables-v2.0.6.orig/extensions/ebt_limit.c	2003-11-02 19:22:56.000000000 +0100
++++ ebtables-v2.0.6/extensions/ebt_limit.c	2005-11-11 14:20:00.000000000 +0100
+@@ -203,15 +203,15 @@
+ 
+ static struct ebt_u_match limit_match =
+ {
+-	.name		EBT_LIMIT_MATCH,
+-	.size		sizeof(struct ebt_limit_info),
+-	.help		print_help,
+-	.init		init,
+-	.parse		parse,
+-	.final_check	final_check,
+-	.print		print,
+-	.compare	compare,
+-	.extra_ops	opts,
++	.name=		EBT_LIMIT_MATCH,
++	.size=		sizeof(struct ebt_limit_info),
++	.help=		print_help,
++	.init=		init,
++	.parse=		parse,
++	.final_check=	final_check,
++	.print=		print,
++	.compare=	compare,
++	.extra_ops=	opts,
+ };
+ 
+ static void _init(void) __attribute((constructor));
+diff -Naur ebtables-v2.0.6.orig/extensions/ebt_vlan.c ebtables-v2.0.6/extensions/ebt_vlan.c
+--- ebtables-v2.0.6.orig/extensions/ebt_vlan.c	2003-11-02 19:22:56.000000000 +0100
++++ ebtables-v2.0.6/extensions/ebt_vlan.c	2005-11-11 14:18:24.000000000 +0100
+@@ -141,7 +141,7 @@
+ 		check_option(flags, OPT_VLAN_ID);
+ 		CHECK_INV_FLAG(EBT_VLAN_ID);
+ 		CHECK_IF_MISSING_VALUE;
+-		(unsigned short) local.id =
++		local.id =
+ 		    strtoul(argv[optind - 1], &end, 10);
+ 		CHECK_RANGE(local.id > 4094 || *end != '\0');
+ 		vlaninfo->id = local.id;
+@@ -152,7 +152,7 @@
+ 		check_option(flags, OPT_VLAN_PRIO);
+ 		CHECK_INV_FLAG(EBT_VLAN_PRIO);
+ 		CHECK_IF_MISSING_VALUE;
+-		(unsigned char) local.prio =
++		local.prio =
+ 		    strtoul(argv[optind - 1], &end, 10);
+ 		CHECK_RANGE(local.prio >= 8 || *end != '\0');
+ 		vlaninfo->prio = local.prio;
+@@ -163,7 +163,7 @@
+ 		check_option(flags, OPT_VLAN_ENCAP);
+ 		CHECK_INV_FLAG(EBT_VLAN_ENCAP);
+ 		CHECK_IF_MISSING_VALUE;
+-		(unsigned short) local.encap =
++		local.encap =
+ 		    strtoul(argv[optind - 1], &end, 16);
+ 		if (*end != '\0') {
+ 			ethent = getethertypebyname(argv[optind - 1]);

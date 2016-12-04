@@ -1,0 +1,9 @@
+cups-dev
+glib2-dev
+gnutls-dev
+intltool
+libart-lgpl-dev
+libgnomecups-dev
+libxml2-dev
+pango-dev
+popt-dev

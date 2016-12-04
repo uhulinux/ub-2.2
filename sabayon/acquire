@@ -1,0 +1,4 @@
+#!/usr/bin/env dl
+
+sabayon-${UB_VERSION}.tar.gz sabayon-${UB_VERSION}/
+	ftp://ftp.gnome.org/pub/GNOME/sources/sabayon/${UB_VERSION_HEAD2}/

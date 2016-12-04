@@ -1,0 +1,12 @@
+diff -urN workrave-1.9.0.orig/frontend/common/share/images/Makefile.in workrave-1.9.0/frontend/common/share/images/Makefile.in
+--- workrave-1.9.0.orig/frontend/common/share/images/Makefile.in	2008-07-21 09:53:34.000000000 +0200
++++ workrave-1.9.0/frontend/common/share/images/Makefile.in	2008-12-26 15:07:47.000000000 +0100
+@@ -422,7 +422,7 @@
+ imagesdir = $(pkgdatadir)/images
+ images_DATA = $(wildcard *.png) $(wildcard *.ico) $(wildcard *.xpm)
+ iconsdir = $(datadir)/pixmaps/workrave
+-icons_DATA = workrave-icon-huge.png workrave.xpm
++icons_DATA = workrave-icon-small.png  workrave-icon-medium.png workrave-icon-large.png workrave-icon-huge.png workrave.xpm
+ EXTRA_DIST = ${images_DATA}
+ all: all-recursive
+ 

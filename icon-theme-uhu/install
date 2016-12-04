@@ -1,0 +1,19 @@
+#!/bin/sh -eux
+
+mkdir -p "$UB_INSTALLDIR"/usr/share/icons
+cp -a UHU "$UB_INSTALLDIR"/usr/share/icons/
+
+for i in 16x16 22x22 24x24 36x36 48x48; do
+	ln -s icon-panel-menu.png "$UB_INSTALLDIR"/usr/share/icons/UHU/$i/apps/gnome-main-menu.png
+	ln -s icon-panel.png      "$UB_INSTALLDIR"/usr/share/icons/UHU/$i/apps/gnome-panel.png
+	ln -s uhu.png             "$UB_INSTALLDIR"/usr/share/icons/UHU/$i/apps/icon-panel-menu.png
+	ln -s icon-panel-menu.png "$UB_INSTALLDIR"/usr/share/icons/UHU/$i/apps/kmenu.png
+	ln -s icon-panel-menu.png "$UB_INSTALLDIR"/usr/share/icons/UHU/$i/apps/redhat-main-menu.png
+done
+
+for i in 12x12 16x16 20x20 22x22 24x24 32x32 36x36 48x48 64x64 72x72 96x96 128x128 192x192; do
+	mkdir -p "$UB_INSTALLDIR"/usr/share/icons/hicolor/$i/apps
+	for file in mla.png uhu.png uhu-yellow.png; do
+		ln -s ../../../UHU/$i/apps/$file "$UB_INSTALLDIR"/usr/share/icons/hicolor/$i/apps/
+	done
+done

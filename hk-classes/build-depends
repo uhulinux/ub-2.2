@@ -1,0 +1,11 @@
+fontconfig-dev
+freetype2-dev
+glib2-dev
+libxml2-dev
+mysql-dev
+mysql-server
+postgresql-dev
+postgresql-server
+python-dev
+sqlite-dev
+unixodbc-dev

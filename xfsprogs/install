@@ -1,0 +1,5 @@
+#!/bin/sh -eux
+
+export DIST_ROOT="$UB_INSTALLDIR"
+/usr/bin/make install
+/usr/bin/make install-dev

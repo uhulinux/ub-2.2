@@ -1,0 +1,80 @@
+diff -Naur optipng-0.6.3-orig/lib/pngxtern/scripts/gcc.mak optipng-0.6.3/lib/pngxtern/scripts/gcc.mak
+--- optipng-0.6.3-orig/lib/pngxtern/scripts/gcc.mak	2008-06-18 01:29:00.000000000 +0200
++++ optipng-0.6.3/lib/pngxtern/scripts/gcc.mak	2009-12-04 19:15:23.000000000 +0100
+@@ -43,7 +43,7 @@
+ all: pngxtern$(A)
+ 
+ .c$(O):
+-	$(CC) -c $(CFLAGS) $(INCS) $<
++	$(CC) -c $(CFLAGS) $<
+ 
+ pngxtern$(A): $(OBJS)
+ 	$(AR_RC) $@ $(OBJS)
+diff -Naur optipng-0.6.3-orig/src/scripts/gcc.mak optipng-0.6.3/src/scripts/gcc.mak
+--- optipng-0.6.3-orig/src/scripts/gcc.mak	2009-05-18 02:14:00.000000000 +0200
++++ optipng-0.6.3/src/scripts/gcc.mak	2009-12-04 19:24:05.000000000 +0100
+@@ -19,26 +19,22 @@
+ ZLIB    = libz.a
+ PNGLIB  = libpng.a
+ PNGXLIB = pngxtern.a
+-ZMAK    = Makefile
+-PNGMAK  = scripts/makefile.gcc
+ PNGXMAK = scripts/gcc.mak
+-ZDIR    = ../lib/zlib
+-PNGDIR  = ../lib/libpng
+ PNGXDIR = ../lib/pngxtern
+ BACKDIR = ../../src
+ 
+ OBJS = optipng.o opngoptim.o opngreduc.o cbitset.o osys.o strutil.o
+ INCS = -I$(ZDIR) -I$(PNGDIR) -I$(PNGXDIR)
+-LIBS = $(PNGXDIR)/$(PNGXLIB) $(PNGDIR)/$(PNGLIB) $(ZDIR)/$(ZLIB)
++LIBS = $(PNGXDIR)/$(PNGXLIB)
+ SYSLIBS =
+ 
+ 
+ $(OPTIPNG): $(OBJS) $(LIBS)
+-	$(LD) -o $(OPTIPNG) $(LDFLAGS) $(OBJS) $(LIBS) $(SYSLIBS)
++	$(LD) -o $(OPTIPNG) $(LDFLAGS) $(OBJS) $(LIBS) -lpng -lz
+ 
+ 
+ .c.o:
+-	$(CC) -c $(CFLAGS) $(INCS) $*.c
++	$(CC) -c $(CFLAGS) -I$(PNGXDIR) $*.c
+ 
+ optipng.o  : optipng.c proginfo.h optipng.h cbitset.h osys.h strutil.h
+ opngoptim.o: opngoptim.c optipng.h opngreduc.h cexcept.h cbitset.h osys.h
+@@ -48,21 +44,11 @@
+ strutil.o  : strutil.c strutil.h
+ 
+ 
+-$(PNGXDIR)/$(PNGXLIB): $(ZDIR)/$(ZLIB) $(PNGDIR)/$(PNGLIB)
++$(PNGXDIR)/$(PNGXLIB):
+ 	cd $(PNGXDIR); \
+ 	$(MAKE) -f $(PNGXMAK) $(PNGXLIB); \
+ 	cd $(BACKDIR)
+ 
+-$(PNGDIR)/$(PNGLIB): $(ZDIR)/$(ZLIB)
+-	cd $(PNGDIR); \
+-	$(MAKE) -f $(PNGMAK) $(PNGLIB); \
+-	cd $(BACKDIR)
+-
+-$(ZDIR)/$(ZLIB):
+-	cd $(ZDIR); \
+-	$(MAKE) -f $(ZMAK) $(ZLIB); \
+-	cd $(BACKDIR)
+-
+ 
+ install: $(OPTIPNG)
+ 	mkdir -p $(DESTDIR)$(bindir)
+@@ -83,9 +69,4 @@
+ 	cd $(PNGXDIR); \
+ 	$(MAKE) -f $(PNGXMAK) clean; \
+ 	cd $(BACKDIR)
+-	cd $(PNGDIR); \
+-	$(MAKE) -f $(PNGMAK) clean; \
+-	cd $(BACKDIR)
+-	cd $(ZDIR); \
+-	$(MAKE) -f $(ZMAK) clean; \
+-	cd $(BACKDIR)
++	
+\ No newline at end of file

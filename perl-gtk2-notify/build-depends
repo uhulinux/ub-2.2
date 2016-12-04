@@ -1,0 +1,5 @@
+libnotify-dev
+perl-extutils-depends
+perl-extutils-pkgconfig
+perl-glib2
+perl-gtk2

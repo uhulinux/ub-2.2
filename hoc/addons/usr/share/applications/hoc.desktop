@@ -1,0 +1,10 @@
+[Desktop Entry]
+Name=HOC
+Comment=High-order calculator
+Comment[hu]=interaktív lebegőpontos nyelv
+Exec=hoc
+Icon=
+Terminal=1
+Type=Application
+Encoding=UTF-8
+Categories=X-UHU-Menu/Edutainment/Mathematics;

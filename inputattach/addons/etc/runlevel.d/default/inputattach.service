@@ -1,0 +1,13 @@
+Summary=Handle serial mouse
+Summary[hu]=Soros egér kezelése
+Description=Connects a serial mouse to the kernel's mouse handling system so that applications (typically X and gpm) can access its events via /dev/input/mice.
+Description[hu]=A soros egeret hozzácsatolja a kernel egérkezelő rendszeréhez, így az alkalmazások (tipikusan az X és a gpm) megkapják az egéreseményeket a /dev/input/mice eszközön keresztül.
+MsgDesc=Serial Mouse
+MsgDesc[hu]=Soros egér
+MsgStart=Initializing Serial Mouse (inputattach)
+MsgStart[en_GB]=Initialising Serial Mouse (inputattach)
+MsgStart[hu]=Soros egér (inputattach) inicializálása
+Script=/etc/init.d/inputattach
+SupportsReload=no
+Runlevels=2345
+Sequence=18

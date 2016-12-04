@@ -1,0 +1,4 @@
+#!/usr/bin/env dl
+
+mod_ruby-${UB_VERSION}.tar.gz mod_ruby-${UB_VERSION}/
+	http://modruby.net/archive/

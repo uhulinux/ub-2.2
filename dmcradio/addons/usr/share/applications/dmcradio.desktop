@@ -1,0 +1,8 @@
+[Desktop Entry]
+Name=DMCRadio
+Comment=FM-Tuner
+Exec=DMCRadio
+Icon=radio.png
+Terminal=1
+Type=Application
+Categories=Application;AudioVideo;X-UHU-Menu/Multimedia/TVRadio;

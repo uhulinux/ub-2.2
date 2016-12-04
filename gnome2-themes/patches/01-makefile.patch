@@ -1,0 +1,65 @@
+diff -Naurd gnome-themes-2.26.0.orig/desktop-themes/HighContrastLargePrint/Makefile.in gnome-themes-2.26.0/desktop-themes/HighContrastLargePrint/Makefile.in
+--- gnome-themes-2.26.0.orig/desktop-themes/HighContrastLargePrint/Makefile.in	2009-03-17 15:08:28.000000000 +0100
++++ gnome-themes-2.26.0/desktop-themes/HighContrastLargePrint/Makefile.in	2009-03-17 21:14:45.000000000 +0100
+@@ -384,9 +384,7 @@
+ @INTLTOOL_THEME_RULE@ 
+ 
+ @CORE_THEMES_ONLY_TRUE@install: install-am
+-@CORE_THEMES_ONLY_TRUE@	mv $(DESTDIR)$(themedir)/index.theme $(DESTDIR)$(themedir)/index.theme.disabled
+ @CORE_THEMES_ONLY_TRUE@uninstall: uninstall-am
+-@CORE_THEMES_ONLY_TRUE@	rm -f $(DESTDIR)$(themedir)/index.theme.disabled
+ # Tell versions [3.59,3.63) of GNU make to not export all variables.
+ # Otherwise a system limit (for SysV at least) may be exceeded.
+ .NOEXPORT:
+diff -Naurd gnome-themes-2.26.0.orig/desktop-themes/HighContrastLargePrintInverse/Makefile.in gnome-themes-2.26.0/desktop-themes/HighContrastLargePrintInverse/Makefile.in
+--- gnome-themes-2.26.0.orig/desktop-themes/HighContrastLargePrintInverse/Makefile.in	2009-03-17 15:08:28.000000000 +0100
++++ gnome-themes-2.26.0/desktop-themes/HighContrastLargePrintInverse/Makefile.in	2009-03-17 21:14:57.000000000 +0100
+@@ -384,9 +384,7 @@
+ @INTLTOOL_THEME_RULE@ 
+ 
+ @CORE_THEMES_ONLY_TRUE@install: install-am
+-@CORE_THEMES_ONLY_TRUE@	mv $(DESTDIR)$(themedir)/index.theme $(DESTDIR)$(themedir)/index.theme.disabled
+ @CORE_THEMES_ONLY_TRUE@uninstall: uninstall-am
+-@CORE_THEMES_ONLY_TRUE@	rm -f $(DESTDIR)$(themedir)/index.theme.disabled
+ # Tell versions [3.59,3.63) of GNU make to not export all variables.
+ # Otherwise a system limit (for SysV at least) may be exceeded.
+ .NOEXPORT:
+diff -Naurd gnome-themes-2.26.0.orig/desktop-themes/LargePrint/Makefile.in gnome-themes-2.26.0/desktop-themes/LargePrint/Makefile.in
+--- gnome-themes-2.26.0.orig/desktop-themes/LargePrint/Makefile.in	2009-03-17 15:08:28.000000000 +0100
++++ gnome-themes-2.26.0/desktop-themes/LargePrint/Makefile.in	2009-03-17 21:15:06.000000000 +0100
+@@ -384,9 +384,7 @@
+ @INTLTOOL_THEME_RULE@ 
+ 
+ @CORE_THEMES_ONLY_TRUE@install: install-am
+-@CORE_THEMES_ONLY_TRUE@	mv $(DESTDIR)$(themedir)/index.theme $(DESTDIR)$(themedir)/index.theme.disabled
+ @CORE_THEMES_ONLY_TRUE@uninstall: uninstall-am
+-@CORE_THEMES_ONLY_TRUE@	rm -f $(DESTDIR)$(themedir)/index.theme.disabled
+ # Tell versions [3.59,3.63) of GNU make to not export all variables.
+ # Otherwise a system limit (for SysV at least) may be exceeded.
+ .NOEXPORT:
+diff -Naurd gnome-themes-2.26.0.orig/desktop-themes/LowContrast/Makefile.in gnome-themes-2.26.0/desktop-themes/LowContrast/Makefile.in
+--- gnome-themes-2.26.0.orig/desktop-themes/LowContrast/Makefile.in	2009-03-17 15:08:28.000000000 +0100
++++ gnome-themes-2.26.0/desktop-themes/LowContrast/Makefile.in	2009-03-17 21:15:15.000000000 +0100
+@@ -381,9 +381,7 @@
+ @INTLTOOL_THEME_RULE@ 
+ 
+ @CORE_THEMES_ONLY_TRUE@install: install-am
+-@CORE_THEMES_ONLY_TRUE@	mv $(DESTDIR)$(themedir)/index.theme $(DESTDIR)$(themedir)/index.theme.disabled
+ @CORE_THEMES_ONLY_TRUE@uninstall: uninstall-am
+-@CORE_THEMES_ONLY_TRUE@	rm -f $(DESTDIR)$(themedir)/index.theme.disabled
+ # Tell versions [3.59,3.63) of GNU make to not export all variables.
+ # Otherwise a system limit (for SysV at least) may be exceeded.
+ .NOEXPORT:
+diff -Naurd gnome-themes-2.26.0.orig/desktop-themes/LowContrastLargePrint/Makefile.in gnome-themes-2.26.0/desktop-themes/LowContrastLargePrint/Makefile.in
+--- gnome-themes-2.26.0.orig/desktop-themes/LowContrastLargePrint/Makefile.in	2009-03-17 15:08:28.000000000 +0100
++++ gnome-themes-2.26.0/desktop-themes/LowContrastLargePrint/Makefile.in	2009-03-17 21:15:25.000000000 +0100
+@@ -384,9 +384,7 @@
+ @INTLTOOL_THEME_RULE@ 
+ 
+ @CORE_THEMES_ONLY_TRUE@install: install-am
+-@CORE_THEMES_ONLY_TRUE@	mv $(DESTDIR)$(themedir)/index.theme $(DESTDIR)$(themedir)/index.theme.disabled
+ @CORE_THEMES_ONLY_TRUE@uninstall: uninstall-am
+-@CORE_THEMES_ONLY_TRUE@	rm -f $(DESTDIR)$(themedir)/index.theme.disabled
+ # Tell versions [3.59,3.63) of GNU make to not export all variables.
+ # Otherwise a system limit (for SysV at least) may be exceeded.
+ .NOEXPORT:

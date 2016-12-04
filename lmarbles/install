@@ -1,0 +1,6 @@
+#!/bin/sh -eux
+
+ub_install
+
+mv "$UB_INSTALLDIR"/var/lib/games/{,l}marbles.prfs
+chmod 644 "$UB_INSTALLDIR"//var/lib/games/lmarbles.prfs

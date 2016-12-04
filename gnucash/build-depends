@@ -1,0 +1,11 @@
+goffice-dev
+gtkhtml-dev
+guile-dev
+intltool
+libdbi
+libglade2-dev
+libgnomeprintui2-dev
+libgnomeui2-dev
+libofx-dev
+openssl-dev
+slib

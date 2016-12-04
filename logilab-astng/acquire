@@ -1,0 +1,5 @@
+#!/usr/bin/env dl
+
+logilab-astng-${UB_VERSION}.tar.gz logilab-astng-${UB_VERSION}/
+	http://pypi.python.org/packages/source/l/logilab-astng/
+	http://ftp.logilab.org/pub/astng/

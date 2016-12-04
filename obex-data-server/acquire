@@ -1,0 +1,4 @@
+#!/usr/bin/env dl
+
+obex-data-server-${UB_VERSION}.tar.gz obex-data-server-${UB_VERSION}/
+	http://tadas.dailyda.com/software/

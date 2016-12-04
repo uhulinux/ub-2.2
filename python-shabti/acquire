@@ -1,0 +1,4 @@
+#!/usr/bin/env dl
+
+Shabti-${UB_VERSION}.tar.gz Shabti-${UB_VERSION}/
+	http://pypi.python.org/packages/source/S/Shabti/

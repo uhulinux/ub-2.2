@@ -1,0 +1,6 @@
+#!/usr/bin/env dl
+
+iptraf-${UB_VERSION}.tar.gz iptraf-${UB_VERSION}/
+	ftp://ftp.cebu.mozcom.com/pub/linux/net/
+	ftp://iptraf.seul.org/pub/iptraf/
+	ftp://the.wiretapped.net/pub/security/network-monitoring/iptraf/

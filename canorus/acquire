@@ -1,0 +1,4 @@
+#!/usr/bin/env dl
+
+canorus_${UB_VERSION}_source.tar.bz2 canorus-${UB_VERSION}/
+	http://download.berlios.de/canorus/

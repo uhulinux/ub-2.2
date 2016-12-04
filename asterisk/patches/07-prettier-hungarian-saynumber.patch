@@ -1,0 +1,103 @@
+diff -Naur a/main/say.c b/main/say.c
+--- a/main/say.c	2010-01-04 22:52:11.000000000 +0100
++++ b/main/say.c	2010-03-24 15:53:43.000000000 +0100
+@@ -347,7 +347,7 @@
+ static int ast_say_number_full_gr(struct ast_channel *chan, int num, const char *ints, const char *language, int audiofd, int ctrlfd);
+ static int ast_say_number_full_ru(struct ast_channel *chan, int num, const char *ints, const char *language, const char *options, int audiofd, int ctrlfd);
+ static int ast_say_number_full_ka(struct ast_channel *chan, int num, const char *ints, const char *language, const char *options, int audiofd, int ctrlfd);
+-static int ast_say_number_full_hu(struct ast_channel *chan, int num, const char *ints, const char *language, int audiofd, int ctrlfd);
++static int ast_say_number_full_hu(struct ast_channel *chan, int num, const char *ints, const char *language, int audiofd, int ctrlfd, int up);
+ static int ast_say_number_full_th(struct ast_channel *chan, int num, const char *ints, const char *language, int audiofd, int ctrlfd);
+ 
+ /* Forward declarations of language specific variants of ast_say_enumeration_full */
+@@ -460,7 +460,7 @@
+ 	} else if (!strncasecmp(language, "he", 2)) { /* Hebrew syntax */
+ 	   return ast_say_number_full_he(chan, num, ints, language, options, audiofd, ctrlfd);
+ 	} else if (!strncasecmp(language, "hu", 2)) { /* Hungarian syntax */
+-		return ast_say_number_full_hu(chan, num, ints, language, audiofd, ctrlfd);
++		return ast_say_number_full_hu(chan, num, ints, language, audiofd, ctrlfd, 0);
+ 	} else if (!strncasecmp(language, "it", 2)) { /* Italian syntax */
+ 	   return ast_say_number_full_it(chan, num, ints, language, audiofd, ctrlfd);
+ 	} else if (!strncasecmp(language, "ka", 2)) { /* Georgian syntax */
+@@ -1385,7 +1385,7 @@
+ 	10en: "tizen"
+ 	20on: "huszon"
+ */
+-static int ast_say_number_full_hu(struct ast_channel *chan, int num, const char *ints, const char *language, int audiofd, int ctrlfd)
++static int ast_say_number_full_hu(struct ast_channel *chan, int num, const char *ints, const char *language, int audiofd, int ctrlfd, int up)
+ {
+ 	int res = 0;
+ 	int playh = 0;
+@@ -1406,41 +1406,61 @@
+ 				num = -num;
+ 			} else {
+ 				num = 0;
+-			}	
++			}
+ 		} else if (playh) {
+-			ast_copy_string(fn, "digits/hundred", sizeof(fn));
++			if (num || up) {
++				ast_copy_string(fn, "digits/hundred_up", sizeof(fn));
++			} else {
++				ast_copy_string(fn, "digits/hundred_down", sizeof(fn));
++			}
+ 			playh = 0;
+ 		} else if (num < 11 || num == 20) {
+-			snprintf(fn, sizeof(fn), "digits/%d", num);
++			if (up) {
++				snprintf(fn, sizeof(fn), "digits/%d_up", num);
++			} else {
++				snprintf(fn, sizeof(fn), "digits/%d_down", num);
++			}
+ 			num = 0;
+ 		} else if (num < 20) {
+-			ast_copy_string(fn, "digits/10en", sizeof(fn));
++			ast_copy_string(fn, "digits/10en_up", sizeof(fn));
+ 			num -= 10;
+ 		} else if (num < 30) {
+-			ast_copy_string(fn, "digits/20on", sizeof(fn));
++			ast_copy_string(fn, "digits/20on_up", sizeof(fn));
+ 			num -= 20;
+ 		} else	if (num < 100) {
+-			snprintf(fn, sizeof(fn), "digits/%d", (num /10) * 10);
++			if ((num % 10) || up) { /* this is not the last so we play up */
++				snprintf(fn, sizeof(fn), "digits/%d_up", (num /10) * 10);
++			} else {
++				snprintf(fn, sizeof(fn), "digits/%d_down", (num /10) * 10);
++			}
+ 			num %= 10;
+ 		} else {
+ 			if (num < 1000){
+-				snprintf(fn, sizeof(fn), "digits/%d", (num/100));
++				snprintf(fn, sizeof(fn), "digits/%d_up", (num/100));
+ 				playh++;
+ 				num %= 100;
+ 			} else {
+ 				if (num < 1000000) { /* 1,000,000 */
+-					res = ast_say_number_full_hu(chan, num / 1000, ints, language, audiofd, ctrlfd);
++					res = ast_say_number_full_hu(chan, num / 1000, ints, language, audiofd, ctrlfd, 1);
+ 					if (res)
+ 						return res;
+ 					num %= 1000;
+-					ast_copy_string(fn, "digits/thousand", sizeof(fn));
++					if (num || up) {
++						ast_copy_string(fn, "digits/thousand_up", sizeof(fn));
++					} else {
++						ast_copy_string(fn, "digits/thousand_down", sizeof(fn));
++					}
+ 				} else {
+ 					if (num < 1000000000) {	/* 1,000,000,000 */
+-						res = ast_say_number_full_hu(chan, num / 1000000, ints, language, audiofd, ctrlfd);
++						res = ast_say_number_full_hu(chan, num / 1000000, ints, language, audiofd, ctrlfd, 1);
+ 						if (res)
+ 							return res;
+ 						num %= 1000000;
+-						ast_copy_string(fn, "digits/million", sizeof(fn));
++						if (num || up) {
++							ast_copy_string(fn, "digits/million_up", sizeof(fn));
++						} else {
++							ast_copy_string(fn, "digits/million_down", sizeof(fn));
++						}
+ 					} else {
+ 						ast_debug(1, "Number '%d' is too big for me\n", num);
+ 						res = -1;

@@ -1,0 +1,4 @@
+#!/usr/bin/env dl
+
+p2c_$UB_VERSION.orig.tar.gz p2c-$UB_VERSION/
+	http://ftp.debian.org/debian/pool/main/p/p2c/

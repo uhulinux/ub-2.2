@@ -1,0 +1,8 @@
+#!/bin/sh
+
+. /etc/init.d/common
+
+DAEMON=/usr/sbin/amavisd
+PIDFILE="/var/run/amavis/amavisd.pid"
+
+startstop "$@"

@@ -1,0 +1,7 @@
+#!/bin/sh -eux
+
+autoreconf --force
+intltoolize --force
+
+UB_UPDATELIBTOOL=yes \
+ub_compile

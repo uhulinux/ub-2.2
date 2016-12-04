@@ -1,0 +1,4 @@
+#!/usr/bin/env dl
+
+pinentry-${UB_VERSION}.tar.gz pinentry-${UB_VERSION}/
+	ftp://ftp.gnupg.org/gcrypt/pinentry/

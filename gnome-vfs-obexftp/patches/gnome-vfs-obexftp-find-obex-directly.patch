@@ -1,0 +1,32 @@
+=== modified file 'src/om-bluetooth.c'
+--- a/src/om-bluetooth.c	2007-06-10 11:23:36 +0000
++++ a/src/om-bluetooth.c	2007-11-26 14:57:38 +0000
+@@ -179,8 +179,25 @@
+ 					 SDP_ATTR_REQ_INDIVIDUAL, attrs,
+ 					 &recs)) {
+ 		d(g_printerr("find_obexftp_channel: "
+-			     "Could not browse services"));
+-		goto end;
++			     "Could not browse services, trying direct search"));
++
++		sdp_list_free (recs, (sdp_free_func_t)sdp_record_free);
++		sdp_list_free (search, NULL);
++		sdp_list_free (attrs, NULL);
++
++		sdp_uuid16_create(&obex_uuid, OBEX_FILETRANS_SVCLASS_ID);
++		search = sdp_list_append(NULL, &obex_uuid);
++
++		attrs = sdp_list_append (NULL, &proto_desc_list);
++		attrs = sdp_list_append (attrs, &svclass_id_list);
++
++		if (sdp_service_search_attr_req (sdp, search,
++						 SDP_ATTR_REQ_INDIVIDUAL, attrs,
++						 &recs)) {
++			d(g_printerr("find_obexftp_channel: "
++				     "Could not browse services, finding obex"));
++			goto end;
++		}
+ 	}
+ 	for (tmp = recs; tmp != NULL; tmp = tmp->next) {
+ 		sdp_record_t *rec = tmp->data;
+

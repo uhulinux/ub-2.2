@@ -1,0 +1,4 @@
+#!/usr/bin/env dl
+
+udav-$UB_VERSION.tgz udav-$UB_VERSION/
+	http://downloads.sourceforge.net/udav/

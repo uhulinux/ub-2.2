@@ -1,0 +1,5 @@
+#!/usr/bin/env dl
+
+xf86-input-evtouch-${UB_VERSION}.tar.bz2 xf86-input-evtouch-${UB_VERSION}/
+	http://www.conan.de/touchscreen/
+	http://stz-softwaretechnik.com/~ke/touchscreen/

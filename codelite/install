@@ -1,0 +1,5 @@
+#!/bin/sh -eux
+
+mv Makefile Makefile.old
+sed 's/install: uninstall core_install plugins_install/install: core_install plugins_install/g' <Makefile.old >Makefile
+ub_install

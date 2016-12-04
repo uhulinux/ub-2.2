@@ -1,0 +1,35 @@
+diff -urN postgresql-8.2.4.orig/src/bin/pg_ctl/pg_ctl.c postgresql-8.2.4/src/bin/pg_ctl/pg_ctl.c
+--- postgresql-8.2.4.orig/src/bin/pg_ctl/pg_ctl.c	2006-10-12 07:14:49.000000000 +0200
++++ postgresql-8.2.4/src/bin/pg_ctl/pg_ctl.c	2007-07-19 11:14:27.000000000 +0200
+@@ -681,7 +681,7 @@
+ 		}
+ 		print_msg(_(" done\n"));
+ 
+-		printf(_("server stopped\n"));
++		print_msg(_("server stopped\n"));
+ 	}
+ }
+ 
+@@ -753,7 +753,7 @@
+ 		}
+ 
+ 		print_msg(_(" done\n"));
+-		printf(_("server stopped\n"));
++		print_msg(_("server stopped\n"));
+ 	}
+ 	else
+ 	{
+@@ -1707,11 +1707,8 @@
+ 	if (pg_data == NULL &&
+ 		ctl_command != KILL_COMMAND && ctl_command != UNREGISTER_COMMAND)
+ 	{
+-		write_stderr(_("%s: no database directory specified "
+-					   "and environment variable PGDATA unset\n"),
+-					 progname);
+-		do_advice();
+-		exit(1);
++		pg_data = strdup("/var/lib/postgres/data");
++		setenv("PGDATA", "/var/lib/postgres/data", 1);
+ 	}
+ 
+ 	if (!wait_set)

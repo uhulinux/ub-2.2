@@ -1,0 +1,4 @@
+#!/usr/bin/env dl
+
+gd-${UB_VERSION}.tar.gz gd-${UB_VERSION}/
+	http://www.libgd.org/releases/

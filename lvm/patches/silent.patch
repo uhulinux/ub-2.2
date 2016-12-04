@@ -1,0 +1,30 @@
+diff -Naurdp a/lib/device/dev-io.c b/lib/device/dev-io.c
+--- a/lib/device/dev-io.c	2009-05-20 13:09:49.000000000 +0200
++++ b/lib/device/dev-io.c	2010-02-23 21:19:52.713476437 +0100
+@@ -242,6 +242,7 @@ static int _dev_get_size_dev(const struc
+ 	const char *name = dev_name(dev);
+ 
+ 	if ((fd = open(name, O_RDONLY)) < 0) {
++		if (errno != ENOMEDIUM)
+ 		log_sys_error("open", name);
+ 		return 0;
+ 	}
+diff -Naurdp a/tools/toollib.c b/tools/toollib.c
+--- a/tools/toollib.c	2010-02-03 15:08:40.000000000 +0100
++++ b/tools/toollib.c	2010-02-23 21:21:14.973476122 +0100
+@@ -276,6 +276,7 @@ int process_each_lv(struct cmd_context *
+ 	if (!argc || !dm_list_empty(&tags)) {
+ 		log_verbose("Finding all logical volumes");
+ 		if (!(vgnames = get_vgnames(cmd, 0, 0)) || dm_list_empty(vgnames)) {
++			if (cmd->current_settings.verbose >= 0)
+ 			log_error("No volume groups found");
+ 			return ret_max;
+ 		}
+@@ -519,6 +520,7 @@ int process_each_vg(struct cmd_context *
+ 	if (!argc || !dm_list_empty(&tags)) {
+ 		log_verbose("Finding all volume groups");
+ 		if (!(vgids = get_vgids(cmd, 0, 0)) || dm_list_empty(vgids)) {
++			if (cmd->current_settings.verbose >= 0)
+ 			log_error("No volume groups found");
+ 			return ret_max;
+ 		}

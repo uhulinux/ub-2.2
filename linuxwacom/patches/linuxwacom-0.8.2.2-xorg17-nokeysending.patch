@@ -1,0 +1,33 @@
+From 5cc0f164ba7766cac746ffb4e8be49325c1ea19a Mon Sep 17 00:00:00 2001
+From: whot <whot@distributions-rawhide.(none)>
+Date: Tue, 15 Sep 2009 16:02:18 +1000
+Subject: [PATCH] undef keysending support
+
+---
+ src/xdrv/xf86Wacom.h |    5 +++++
+ 1 files changed, 5 insertions(+), 0 deletions(-)
+
+diff --git a/src/xdrv/xf86Wacom.h b/src/xdrv/xf86Wacom.h
+index f302c73..ba26998 100644
+--- a/src/xdrv/xf86Wacom.h
++++ b/src/xdrv/xf86Wacom.h
+@@ -26,11 +26,16 @@
+ #ifdef WCM_XORG
+    #include <xorg-server.h>
+    #include <xorgVersion.h>
++   #include <xf86Module.h>
+ #else
+    #include <xf86Version.h>
+ #endif
+ #include "../include/Xwacom.h"
+ 
++#if GET_ABI_MAJOR(ABI_XINPUT_VERSION) >= 7
++#undef WCM_KEY_SENDING_SUPPORT
++#endif
++
+ /*****************************************************************************
+  * Linux Input Support
+  ****************************************************************************/
+-- 
+1.6.4.2
+

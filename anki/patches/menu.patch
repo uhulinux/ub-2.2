@@ -1,0 +1,12 @@
+diff -Naur ORIG/anki.desktop UHU/anki.desktop
+--- ORIG/anki.desktop	2009-07-04 09:58:19.000000000 +0200
++++ UHU/anki.desktop	2010-04-26 18:10:47.000000000 +0200
+@@ -5,7 +5,7 @@
+ Exec=anki %f
+ TryExec=anki
+ Icon=anki
+-Categories=Education;Languages;KDE;
++Categories=Education;Languages;KDE;X-UHU-Menu/Edutainment/Misc;
+ Terminal=false
+ Type=Application
+ Version=1.0

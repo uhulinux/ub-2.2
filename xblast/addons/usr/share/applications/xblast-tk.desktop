@@ -1,0 +1,10 @@
+[Desktop Entry]
+Encoding=UTF-8
+Type=Application
+Name=XBlast (tk frontend)
+Name[hu]=XBlast (tk felület)
+Comment=Blast the Others game (graphical setup)
+Comment[hu]=Robbantsd fel a többieket (régi változat, grafikus indítás)
+Exec=tkXBlast
+Icon=/usr/share/pixmaps/xblast-bomb.png
+Categories=X-UHU-Menu/Games/Action;

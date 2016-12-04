@@ -1,0 +1,17 @@
+python
+python-beaker
+python-decorator
+python-formencode
+python-mako
+python-nose
+python-paste
+python-pastedeploy
+python-pastescript
+python-pygments
+python-routes
+python-simplejson
+python-tempita
+python-weberror
+python-webhelpers
+python-webob
+python-webtest

@@ -1,0 +1,10 @@
+Summary=Asterisk IP PBX
+Summary[hu]=Asterisk IP PBX
+Description=An IP software PBX.
+Description[hu]=IP-t is támogató telefonközpont.
+MsgDesc=Asterisk PBX
+MsgDesc[hu]=Asterisk telefonközpont
+Script=/etc/init.d/asterisk
+SupportsReload=No
+Runlevels=
+Sequence=20

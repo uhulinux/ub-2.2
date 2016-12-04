@@ -1,0 +1,4 @@
+#!/usr/bin/env dl
+
+bluez-hcidump-${UB_VERSION}.tar.gz bluez-hcidump-${UB_VERSION}/
+	http://bluez.sourceforge.net/download/

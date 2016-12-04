@@ -1,0 +1,8 @@
+Summary=Firefly Media Server
+Description=Daap server.
+Description[hu]=Daap szerver.
+MsgDesc=Firefly Media Server
+Script=/etc/init.d/mt-daapd
+SupportsReload=no
+Runlevels=
+Sequence=20

@@ -1,0 +1,4 @@
+#!/usr/bin/env dl
+
+v86d-${UB_VERSION}.tar.bz2 v86d-${UB_VERSION}/
+	http://dev.gentoo.org/~spock/projects/uvesafb/archive/

@@ -1,0 +1,18 @@
+#!/bin/sh -eux
+
+ub_install
+
+mkdir -p "$UB_INSTALLDIR"/usr/share/THE
+ln -sf xthe "$UB_INSTALLDIR"/usr/bin/the
+ln -sf nthe "$UB_INSTALLDIR"/usr/bin/the-nox
+cp -a nthe "$UB_INSTALLDIR"/usr/bin/
+chmod 644 plsql.tld
+cp -a *.tld "$UB_INSTALLDIR"/usr/share/THE/
+cp THE_Help.txt "$UB_INSTALLDIR"/usr/share/THE/
+mkdir -p "$UB_INSTALLDIR"/usr/share/doc/the
+#cp -a ./doc/combined/THE-"$UB_VERSION".html "$UB_INSTALLDIR"/usr/share/doc/the/
+cp -a ./doc/combined/THE-3.3B3.html "$UB_INSTALLDIR"/usr/share/doc/the/
+chmod 644 images/the64.png
+cp -a ./images/the64.png "$UB_INSTALLDIR"/usr/share/doc/the/
+cp -a ./doc/the64.gif "$UB_INSTALLDIR"/usr/share/pixmaps/
+#ln -sf ../usr/share/THE/.therc "$UB_INSTALLDIR"/etc/.therc

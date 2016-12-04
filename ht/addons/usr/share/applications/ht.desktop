@@ -1,0 +1,10 @@
+[Desktop Entry]
+Version=1.1
+Type=Application
+Name=HT Editor
+Comment=binary editor
+Comment[hu]=szöveges és bináris fájlok szerkesztője
+Exec=ht
+Icon=
+Terminal=true
+Categories=X-UHU-Menu/Tools/Editors

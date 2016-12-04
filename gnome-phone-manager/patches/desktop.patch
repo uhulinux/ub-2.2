@@ -1,0 +1,16 @@
+--- gpm.orig/src/gnome-phone-manager.desktop.in	2007-11-14 22:27:29.000000000 +0100
++++ gpm/src/gnome-phone-manager.desktop.in	2009-05-03 20:17:58.000000000 +0200
+@@ -1,11 +1,11 @@
+ [Desktop Entry]
+-_Name=Phone Manager
++_Name=GNOME Phone Manager
+ _Comment=Receive and send text messages from your mobile phone
+ Icon=phone
+ Exec=gnome-phone-manager
+ Terminal=false
+ Type=Application
+-Categories=System;Telephony;
++Categories=GTK;GNOME;System;Telephony;X-UHU-Menu/Tools/Utilities;
+ X-GNOME-Bugzilla-Bugzilla=GNOME
+ X-GNOME-Bugzilla-Product=gnome-phone-manager
+ X-GNOME-Bugzilla-Component=general

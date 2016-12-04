@@ -1,0 +1,4 @@
+#!/usr/bin/env dl
+
+squid-${UB_VERSION_HEAD2}.STABLE${UB_VERSION_MICRO}.tar.gz squid-${UB_VERSION_HEAD2}.STABLE${UB_VERSION_MICRO}/
+	http://www.squid-cache.org/Versions/v${UB_VERSION_HEAD1}/${UB_VERSION_HEAD2}/

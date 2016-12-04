@@ -1,0 +1,11 @@
+--- tetex-src-3.0/texk/tetex/texconfig.texconfig-sortfix	2005-11-04 11:19:47.000000000 +0100
++++ tetex-src-3.0/texk/tetex/texconfig	2005-11-04 14:22:18.000000000 +0100
+@@ -627,7 +627,7 @@
+       echoLocateBinary kpsewhich updmap fmtutil texconfig tex pdfetex mktexpk dvips dvipdfm
+       echo
+       echo '=========================== active config files =========================='
+-      echoLocateCfgfile texmf.cnf updmap.cfg fmtutil.cnf config.ps mktex.cnf XDvi pdftexconfig.tex config | sort +1
++      echoLocateCfgfile texmf.cnf updmap.cfg fmtutil.cnf config.ps mktex.cnf XDvi pdftexconfig.tex config | sort -k 2
+       echo
+       echo '============================= font map files ============================='
+       for m in psfonts.map pdftex.map ps2pk.map dvipdfm.map; do

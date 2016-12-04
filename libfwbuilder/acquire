@@ -1,0 +1,4 @@
+#!/usr/bin/env dl
+
+libfwbuilder-${UB_VERSION}.tar.gz libfwbuilder-${UB_VERSION}/
+	http://downloads.sourceforge.net/fwbuilder/

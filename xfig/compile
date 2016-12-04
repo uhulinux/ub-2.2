@@ -1,0 +1,8 @@
+#!/bin/sh -eux
+
+xmkmf -a
+sed -i 's,$(EXTRAXAWREQS) ,,' Makefile
+sed -i 's,$(EXTRAXAWCLIENTDEPLIBS) ,,' Makefile
+sed -i 's,$(EXTRAXAWCLIENTLIBS) ,,' Makefile
+make \
+	XFIGLIBDIR=/usr/share/xfig

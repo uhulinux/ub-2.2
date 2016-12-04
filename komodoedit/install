@@ -1,0 +1,4 @@
+#!/bin/sh -eux
+
+./install.sh -s -I "$UB_INSTALLDIR"/usr/share/Komodo-Edit-5
+ln -sf ../share/Komodo-Edit-5/bin/komodo "$UB_INSTALLDIR"/usr/bin/komodo

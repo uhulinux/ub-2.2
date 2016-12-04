@@ -1,0 +1,12 @@
+diff -Naur ORIG/setup.py UHU/setup.py
+--- ORIG/setup.py	2009-08-30 12:40:28.000000000 +0200
++++ UHU/setup.py	2010-04-01 10:17:16.000000000 +0200
+@@ -32,7 +32,7 @@
+     name='cssutils',
+     version=VERSION,
+     package_dir={'':'src'},
+-    packages=find_packages('src', exclude='tests'),
++    packages=find_packages('src', exclude=['tests.*', 'tests']),
+     test_suite='tests', #'nose.collector'
+     entry_points={
+         'console_scripts': [

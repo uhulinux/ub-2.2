@@ -1,0 +1,14 @@
+diff -urN dhcpcd-1.3.22-pl4.orig/dhcpconfig.c dhcpcd-1.3.22-pl4/dhcpconfig.c
+--- dhcpcd-1.3.22-pl4.orig/dhcpconfig.c	2002-12-29 23:05:44.000000000 +0100
++++ dhcpcd-1.3.22-pl4/dhcpconfig.c	2003-01-13 20:32:40.000000000 +0100
+@@ -447,8 +447,9 @@
+ 	      fprintf(f, "fudge 127.127.1.0 stratum 3\n");
+  	      fprintf(f, "server 127.127.1.0\n");
+ 	    }
+- 	  fprintf(f, "driftfile /etc/ntp.drift\n");
++ 	  fprintf(f, "driftfile /var/lib/ntp/ntp.drift\n");
+  	  fprintf(f, "logfile /var/log/ntp.log\n");
++ 	  fprintf(f, "pidfile /var/run/ntpd.pid\n");
+  	  fclose(f);
+  	}
+        else

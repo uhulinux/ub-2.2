@@ -1,0 +1,14 @@
+doc/BUGS
+doc/CHANGELOG
+doc/COPYING
+doc/CREDITS
+doc/HINTS
+doc/README
+doc/README-1.2.0
+doc/README.FIFO
+doc/README.SOCKS
+doc/UTILITIES.HOWTO
+plugins/auto-reply/licq_autoreply.conf
+plugins/console/licq_console.conf
+plugins/email/licq_forwarder.conf
+plugins/rms/licq_rms.conf

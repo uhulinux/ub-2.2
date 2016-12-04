@@ -1,0 +1,7 @@
+#!/bin/sh -eux
+
+make \
+	DESTDIR="$UB_INSTALLDIR"/usr/bin \
+	DEFAULTFONTDIR="$UB_INSTALLDIR"/usr/share/figlet \
+	MANDIR="$UB_INSTALLDIR"/usr/share/man/man6 \
+	install

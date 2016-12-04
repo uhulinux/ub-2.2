@@ -1,0 +1,16 @@
+diff -Naur dcraw-orig/install dcraw/install
+--- dcraw-orig/install	2009-12-25 19:14:19.000000000 +0100
++++ dcraw/install	2010-01-08 20:16:43.000000000 +0100
+@@ -5,11 +5,7 @@
+ # You will need these:
+ # apt-get install libjpeg-dev liblcms-dev gettext
+ 
+-prefix=/usr/local
+-
+-gcc -O4 -march=native -o $prefix/bin/dcraw dcraw.c \
+-	-Wall -Wno-unused-result -Wno-array-bounds \
+-	-lm -ljpeg -llcms -s -DLOCALEDIR=\"$prefix/share/locale/\"
++prefix="$DESTDIR"/usr
+ 
+ mkdir -p -m 755 $prefix/share/man/man1
+ cp dcraw.1 $prefix/share/man/man1

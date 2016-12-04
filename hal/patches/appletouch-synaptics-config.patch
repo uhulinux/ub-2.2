@@ -1,0 +1,45 @@
+diff -urN hal-0.5.13.orig/fdi/policy/10osvendor/10-x11-input.fdi hal-0.5.13/fdi/policy/10osvendor/10-x11-input.fdi
+--- hal-0.5.13.orig/fdi/policy/10osvendor/10-x11-input.fdi	2009-06-26 09:28:39.000000000 +0200
++++ hal-0.5.13/fdi/policy/10osvendor/10-x11-input.fdi	2009-10-02 16:31:26.000000000 +0200
+@@ -32,5 +32,41 @@
+         <merge key="input.x11_driver" type="string">evdev</merge>
+       </match>
+     </match>
++    
++	<match key="input.product" contains="appletouch">
++        <merge key="input.x11_driver" type="string">synaptics</merge>
++	    <merge key="input.x11_options.VertTwoFingerScroll" type="string">true</merge>
++	    <merge key="input.x11_options.HorizTwoFingerScroll" type="string">true</merge>
++	    <merge key="input.x11_options.Device" type="string">/dev/input/synaptics</merge>
++	    <merge key="input.x11_options.Protocol" type="string">event</merge>
++	    <merge key="input.x11_options.SHMConfig" type="string">on</merge>
++	    <merge key="input.x11_options.AccelFactor" type="string">0.1</merge>
++	    <merge key="input.x11_options.MinSpeed" type="string">0.3</merge>
++	    <merge key="input.x11_options.MaxSpeed" type="string">2</merge>
++	    <merge key="input.x11_options.MaxTapMove" type="string">20</merge>
++	    <merge key="input.x11_options.MaxTapTime" type="string">100</merge>
++	    <merge key="input.x11_options.SingleTapTimeout" type="string">100</merge>
++	    <merge key="input.x11_options.VertEdgeScroll" type="string">1</merge>
++	    <merge key="input.x11_options.HorizEdgeScroll" type="string">1</merge>
++	    <merge key="input.x11_options.RightEdge" type="string">1150</merge>
++	    <merge key="input.x11_options.VertTwoFingerScroll" type="string">1</merge>
++	    <merge key="input.x11_options.HorizTwoFingerScroll" type="string">1</merge>
++	    <merge key="input.x11_options.VertScrollDelta" type="string">20</merge>
++	    <merge key="input.x11_options.HorizScrollDelta" type="string">150</merge>
++	    <merge key="input.x11_options.LTCornerButton" type="string">0</merge>
++	    <merge key="input.x11_options.RTCornerButton" type="string">0</merge>
++	    <merge key="input.x11_options.LBCornerButton" type="string">0</merge>
++	    <merge key="input.x11_options.RBCornerButton" type="string">0</merge>
++	    <merge key="input.x11_options.ClickFinger1" type="string">1</merge>
++	    <merge key="input.x11_options.ClickFinger2" type="string">3</merge>
++	    <merge key="input.x11_options.ClickFinger3" type="string">2</merge>
++	    <merge key="input.x11_options.PalmDetect" type="string">1</merge>
++	    <merge key="input.x11_options.CircularScrolling" type="string">0</merge>
++	    <merge key="input.x11_options.CoastingSpeed" type="string">1</merge>
++	</match>
++
++	<match key="input.product" contains="Acer T230H">
++        <merge key="input.x11_driver" type="string">evdev</merge>
++	</match>
+   </device>
+ </deviceinfo>

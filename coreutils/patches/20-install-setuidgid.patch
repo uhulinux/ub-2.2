@@ -1,0 +1,15 @@
+diff -Naurdp a/src/Makefile.in b/src/Makefile.in
+--- a/src/Makefile.in	2009-12-02 22:35:42.512403387 +0100
++++ b/src/Makefile.in	2009-12-02 22:44:45.033903240 +0100
+@@ -58,8 +58,9 @@ EXTRA_PROGRAMS = $(am__EXEEXT_1) $(am__E
+ 	test$(EXEEXT) timeout$(EXEEXT) touch$(EXEEXT) tr$(EXEEXT) \
+ 	true$(EXEEXT) truncate$(EXEEXT) tsort$(EXEEXT) tty$(EXEEXT) \
+ 	uname$(EXEEXT) unexpand$(EXEEXT) uniq$(EXEEXT) unlink$(EXEEXT) \
+-	vdir$(EXEEXT) wc$(EXEEXT) whoami$(EXEEXT) yes$(EXEEXT)
+-noinst_PROGRAMS = setuidgid$(EXEEXT) getlimits$(EXEEXT)
++	vdir$(EXEEXT) wc$(EXEEXT) whoami$(EXEEXT) yes$(EXEEXT) \
++	setuidgid$(EXEEXT) getlimits$(EXEEXT)
++noinst_PROGRAMS = 
+ subdir = src
+ DIST_COMMON = $(noinst_HEADERS) $(srcdir)/Makefile.am \
+ 	$(srcdir)/Makefile.in

@@ -1,0 +1,19 @@
+#!/usr/bin/env dl
+
+linux.hla-${UB_VERSION}.tar.gz .
+	http://homepage.mac.com/randyhyde/webster.cs.ucr.edu/HighLevelAsm/HLAv${UB_VERSION}/linux.hla.tar.gz
+
+#HLARef_html.zip .
+#	http://homepage.mac.com/randyhyde/webster.cs.ucr.edu/HighLevelAsm/HLADoc/HLARef/
+
+linux.hlalibsrc-${UB_VERSION}.tar.gz .
+	http://homepage.mac.com/randyhyde/webster.cs.ucr.edu/HighLevelAsm/HLAv${UB_VERSION}/linux.hlalibsrc.tar.gz
+
+hlaexamples-${UB_VERSION}.zip .
+	http://homepage.mac.com/randyhyde/webster.cs.ucr.edu/HighLevelAsm/HLAv${UB_VERSION}/hlaexamples.zip
+
+HIDE13xxxSrc.zip .
+	http://sites.google.com/site/highlevelassembly/downloads/
+
+#HLAstdlibRefHTML.zip .
+#	http://homepage.mac.com/randyhyde/webster.cs.ucr.edu/HighLevelAsm/HLADoc/HLAStdlib/

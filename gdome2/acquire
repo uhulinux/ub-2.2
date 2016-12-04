@@ -1,0 +1,4 @@
+#!/usr/bin/env dl
+
+gdome2-${UB_VERSION}.tar.gz gdome2-${UB_VERSION}/
+	http://gdome2.cs.unibo.it/tarball/

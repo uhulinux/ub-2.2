@@ -1,0 +1,10 @@
+Summary=General Purpose Mouse
+Summary[hu]=Egérkezelő program
+Description=Provides mouse support for console.
+Description[hu]=Egérkezelés a szöveges konzolra.
+MsgDesc=Console Mouse Driver
+MsgDesc[hu]=Konzol egérkezelő
+Script=/etc/init.d/gpm
+SupportsReload=no
+Runlevels=2345
+Sequence=19

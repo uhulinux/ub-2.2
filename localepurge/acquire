@@ -1,0 +1,4 @@
+#!/usr/bin/env dl
+
+localepurge_${UB_VERSION}.tar.gz localepurge-${UB_VERSION}/
+	ftp://ftp.debian.org/debian/pool/main/l/localepurge/

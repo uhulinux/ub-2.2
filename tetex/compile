@@ -1,0 +1,10 @@
+#!/bin/sh -eux
+
+ub_compile \
+	--disable-multiplatform \
+	--without-texinfo \
+	--without-dialog \
+	--without-psutils \
+	--with-system-ncurses \
+	--with-system-pnglib \
+	--with-system-zlib

@@ -1,0 +1,23 @@
+diff -Naurdp a/Makefile.in b/Makefile.in
+--- a/Makefile.in	2005-07-05 22:10:15.000000000 +0200
++++ b/Makefile.in	2005-10-13 19:21:32.000000000 +0200
+@@ -715,8 +715,8 @@ certificates:
+ 	rm -f $(DESTDIR)${sysconfdir}/partimaged/partimaged.csr ;\
+ 	chmod 600 $(DESTDIR)${sysconfdir}/partimaged/partimaged.key || true;\
+ 	chmod 600 $(DESTDIR)${sysconfdir}/partimaged/partimaged.cert || true;\
+-	chown partimag:root $(DESTDIR)${sysconfdir}/partimaged/partimaged.key || true;\
+-	chown partimag:root $(DESTDIR)${sysconfdir}/partimaged/partimaged.cert || true;\
++	chown root:root $(DESTDIR)${sysconfdir}/partimaged/partimaged.key || true;\
++	chown root:root $(DESTDIR)${sysconfdir}/partimaged/partimaged.cert || true;\
+ 	else \
+ 	echo "SSL disabled, no certificate will be generated." ;\
+ 	fi
+@@ -748,7 +748,7 @@ install-data-local:
+ 	echo "#sample # user 'sample' is allowed to connect partimaged" >> \
+            $(DESTDIR)${sysconfdir}/partimaged/partimagedusers ;\
+ 	chmod 600 $(DESTDIR)${sysconfdir}/partimaged/partimagedusers || true;\
+-	chown partimag:root $(DESTDIR)${sysconfdir}/partimaged/partimagedusers || true ;\
++	chown root:root $(DESTDIR)${sysconfdir}/partimaged/partimagedusers || true ;\
+ 	fi 
+ 
+ distclean-local:

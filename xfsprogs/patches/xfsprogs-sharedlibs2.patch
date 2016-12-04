@@ -1,0 +1,45 @@
+diff -urN xfsprogs-3.0.0.orig/libdisk/Makefile xfsprogs-3.0.0/libdisk/Makefile
+--- xfsprogs-3.0.0.orig/libdisk/Makefile	2009-02-04 23:29:25.000000000 +0100
++++ xfsprogs-3.0.0/libdisk/Makefile	2009-02-26 14:45:47.000000000 +0100
+@@ -25,8 +25,9 @@
+ include $(BUILDRULES)
+ 
+ install: default
++		$(INSTALL_LTLIB)
+ 
+ install-dev: default
+-	$(INSTALL_LTLIB_STATIC)
++	$(INSTALL_LTLIB_DEV)
+ 
+ install-qa: install-dev
+diff -urN xfsprogs-3.0.0.orig/libxcmd/Makefile xfsprogs-3.0.0/libxcmd/Makefile
+--- xfsprogs-3.0.0.orig/libxcmd/Makefile	2009-02-04 23:29:25.000000000 +0100
++++ xfsprogs-3.0.0/libxcmd/Makefile	2009-02-26 15:11:00.000000000 +0100
+@@ -25,3 +25,5 @@
+ include $(BUILDRULES)
+ 
+ install install-dev install-qa: default
++	$(INSTALL_LTLIB)
++	$(INSTALL_LTLIB_DEV)
+diff -urN xfsprogs-3.0.0.orig/libxfs/Makefile xfsprogs-3.0.0/libxfs/Makefile
+--- xfsprogs-3.0.0.orig/libxfs/Makefile	2009-02-04 23:29:25.000000000 +0100
++++ xfsprogs-3.0.0/libxfs/Makefile	2009-02-26 14:46:28.000000000 +0100
+@@ -41,7 +41,9 @@
+ include $(BUILDRULES)
+ 
+ install: default
++	$(INSTALL_LTLIB)
+ 
+ install-dev: default
++	$(INSTALL_LTLIB_DEV)
+ 
+ install-qa: default
+diff -urN xfsprogs-3.0.0.orig/libxlog/Makefile xfsprogs-3.0.0/libxlog/Makefile
+--- xfsprogs-3.0.0.orig/libxlog/Makefile	2009-02-04 23:29:25.000000000 +0100
++++ xfsprogs-3.0.0/libxlog/Makefile	2009-02-26 15:09:48.000000000 +0100
+@@ -20,3 +20,5 @@
+ include $(BUILDRULES)
+ 
+ install install-dev install-qa: default
++	$(INSTALL_LTLIB)
++	$(INSTALL_LTLIB_DEV)

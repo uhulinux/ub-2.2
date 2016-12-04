@@ -1,0 +1,9 @@
+diff -Naurd a/data/gnome-device-manager.desktop.in b/data/gnome-device-manager.desktop.in
+--- a/data/gnome-device-manager.desktop.in	2007-03-24 04:52:56.000000000 +0100
++++ b/data/gnome-device-manager.desktop.in	2007-09-07 14:01:42.000000000 +0200
+@@ -7,4 +7,4 @@
+ Terminal=false
+ Type=Application
+ X-GNOME-DocPath=gnome-device-manager/gnome-device-manager.xml
+-Categories=GNOME;GTK;Application;System
++Categories=GNOME;GTK;Application;System;X-UHU-Menu/Tools/Utilities;

@@ -1,0 +1,5 @@
+#!/usr/bin/env dl
+
+mod_fastcgi-${UB_VERSION}.tar.gz mod_fastcgi-${UB_VERSION}/
+	http://www.fastcgi.com/dist/old/
+	http://www.fastcgi.com/dist/

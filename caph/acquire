@@ -1,0 +1,7 @@
+#!/usr/bin/env dl
+
+caph-src-$UB_VERSION.tar.bz2 caph-src/
+	http://downloads.sourceforge.net/caphgame/
+
+caph-data-$UB_VERSION.tar.bz2 .
+	http://downloads.sourceforge.net/caphgame/

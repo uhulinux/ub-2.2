@@ -1,0 +1,4 @@
+#!/usr/bin/env dl
+
+eigen2-${UB_VERSION/~/-}.tar.gz eigen2-${UB_VERSION#*~}/
+	svn://anonsvn.kde.org/home/kde/trunk/kdesupport/eigen2/@${UB_VERSION#*r}

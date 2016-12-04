@@ -1,0 +1,10 @@
+Summary=System Logger
+Summary[hu]=Rendszer naplózó
+Description=Collects and writes system log messages.
+Description[hu]=A rendszer naplóüzeneteit gyűjti és rögzíti.
+MsgDesc=System Logger
+MsgDesc[hu]=Rendszernapló-író
+Script=/etc/init.d/syslogd
+SupportsReload=yes
+Runlevels=2345
+Sequence=03

@@ -1,0 +1,7 @@
+Summary=ACPI Daemon
+Description=ACPI event handler
+MsgDesc=ACPI Daemon
+Script=/etc/init.d/acpid
+SupportsReload=yes
+Runlevels=345
+Sequence=20

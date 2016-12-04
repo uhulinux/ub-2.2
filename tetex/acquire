@@ -1,0 +1,15 @@
+#!/usr/bin/env dl
+
+tetex-src-${UB_VERSION}.tar.gz tetex-src-${UB_VERSION}/
+	ftp://ftp.uhulinux.hu/pub/sources/tetex/
+	ftp://cam.ctan.org/tex-archive/systems/unix/teTeX/${UB_VERSION}/distrib/
+	ftp://dante.ctan.org/tex-archive/systems/unix/teTeX/${UB_VERSION}/distrib/
+	ftp://tug.ctan.org/tex-archive/systems/unix/teTeX/${UB_VERSION}/distrib/
+	http://www.tug.org/ftp/historic/systems/teTeX/teTeX-${UB_VERSION}/distrib/
+
+tetex-texmf-${UB_VERSION}.tar.gz . :tetex-texmf/
+	ftp://ftp.uhulinux.hu/pub/sources/tetex/
+	ftp://cam.ctan.org/tex-archive/systems/unix/teTeX/${UB_VERSION}/distrib/
+	ftp://dante.ctan.org/tex-archive/systems/unix/teTeX/${UB_VERSION}/distrib/
+	ftp://tug.ctan.org/tex-archive/systems/unix/teTeX/${UB_VERSION}/distrib/
+	http://www.tug.org/ftp/historic/systems/teTeX/teTeX-${UB_VERSION}/distrib/

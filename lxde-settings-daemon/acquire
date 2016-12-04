@@ -1,0 +1,4 @@
+#!/usr/bin/env dl
+
+lxde-settings-daemon-$UB_VERSION.tar.bz2 lxde-settings-daemon-$UB_VERSION/
+	http://downloads.sourceforge.net/lxde/

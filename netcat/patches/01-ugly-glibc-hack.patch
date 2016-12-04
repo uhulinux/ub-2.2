@@ -1,0 +1,12 @@
+diff -urN netcat.orig/netcat.c netcat/netcat.c
+--- netcat.orig/netcat.c	1996-03-21 01:38:04.000000000 +0100
++++ netcat/netcat.c	2002-10-22 16:27:39.000000000 +0200
+@@ -1316,7 +1316,7 @@
+ 
+ #ifdef HAVE_BIND
+ /* can *you* say "cc -yaddayadda netcat.c -lresolv -l44bsd" on SunLOSs? */
+-  res_init();
++  __res_init();
+ #endif
+ /* I was in this barbershop quartet in Skokie IL ... */
+ /* round up the usual suspects, i.e. malloc up all the stuff we need */

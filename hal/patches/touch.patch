@@ -1,0 +1,17 @@
+diff -Naurd a/fdi/policy/10osvendor/10-x11-input.fdi b/fdi/policy/10osvendor/10-x11-input.fdi
+--- a/fdi/policy/10osvendor/10-x11-input.fdi	2010-02-23 20:58:37.577477038 +0100
++++ b/fdi/policy/10osvendor/10-x11-input.fdi	2010-02-23 21:00:02.762476228 +0100
+@@ -32,6 +32,13 @@
+         <merge key="input.x11_driver" type="string">evdev</merge>
+       </match>
+     </match>
++
++    <match key="info.capabilities" contains="input.touch">
++      <match key="/org/freedesktop/Hal/devices/computer:system.kernel.name"
++             string="Linux">
++        <merge key="input.x11_driver" type="string">evdev</merge>
++      </match>
++    </match>
+     
+ 	<match key="input.product" contains="appletouch">
+         <merge key="input.x11_driver" type="string">synaptics</merge>

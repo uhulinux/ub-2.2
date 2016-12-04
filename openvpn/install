@@ -1,0 +1,7 @@
+#!/bin/sh -eux
+
+# self-test
+./openvpn --genkey --secret key
+./openvpn --test-crypto --secret key
+
+ub_install

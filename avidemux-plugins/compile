@@ -1,0 +1,21 @@
+#!/bin/sh -eux
+
+QTDIR=/usr/lib/qt4
+mkdir -p buildMain
+cd buildMain
+cmake \
+	-DLRELEASE_EXECUTABLE:FILEPATH=/usr/lib/qt4/bin/lrelease \
+	-DAVIDEMUX_SOURCE_DIR=${UB_COMPILEDIR} \
+	-DAVIDEMUX_INSTALL_PREFIX=/usr \
+	..
+cd ..
+
+mkdir -p buildPlugins
+cd buildPlugins
+cmake \
+	-DAVIDEMUX_SOURCE_DIR=${UB_COMPILEDIR} \
+	-DAVIDEMUX_INSTALL_PREFIX=/usr \
+	-DCMAKE_INSTALL_PREFIX=${UB_INSTALLDIR}/usr \
+	-DAVIDEMUX_CORECONFIG_DIR=${UB_COMPILEDIR}/buildMain/config/ \
+	../plugins
+make

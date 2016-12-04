@@ -1,0 +1,4 @@
+#!/usr/bin/env dl
+
+RDFAlchemy-${UB_VERSION/~/}.tar.gz RDFAlchemy-${UB_VERSION/~/}dev-r106/
+	http://www.openvest.com/public/downloads/

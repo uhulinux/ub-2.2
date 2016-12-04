@@ -1,0 +1,19 @@
+diff -Naurd gnome-media-2.26.0.orig/grecord/gnome-sound-recorder.desktop.in.in gnome-media-2.26.0/grecord/gnome-sound-recorder.desktop.in.in
+--- gnome-media-2.26.0.orig/grecord/gnome-sound-recorder.desktop.in.in	2008-09-23 06:00:15.000000000 +0200
++++ gnome-media-2.26.0/grecord/gnome-sound-recorder.desktop.in.in	2009-05-27 16:14:58.000000000 +0200
+@@ -1,5 +1,5 @@
+ [Desktop Entry]
+-_Name=Sound Recorder
++_Name=GNOME Sound Recorder
+ _Comment=Record sound clips
+ Exec=gnome-sound-recorder
+ Icon=gnome-sound-recorder
+@@ -8,7 +8,7 @@
+ Terminal=false
+ Type=Application
+ X-GNOME-DocPath=grecord/grecord.xml
+-Categories=GNOME;GTK;AudioVideo;Audio;Recorder;
++Categories=GTK;GNOME;AudioVideo;Audio;Recorder;X-UHU-Menu/Multimedia/Soundrecorders;
+ X-GNOME-Bugzilla-Bugzilla=GNOME
+ X-GNOME-Bugzilla-Product=gnome-media
+ X-GNOME-Bugzilla-Component=Gnome-Sound-Recorder

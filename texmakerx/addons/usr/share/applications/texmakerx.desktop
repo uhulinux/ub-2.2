@@ -1,0 +1,11 @@
+[Desktop Entry]
+Version=1.1
+Type=Application
+Name=texmakerx
+GenericName=texmakerx
+Comment=LaTeX editor
+Comment[hu]=LaTeX editor
+Exec=texmakerx
+Icon=/usr/share/texmakerx/texmaker32x32.png
+Terminal=false
+Categories=X-UHU-Menu/Tools/Editors;

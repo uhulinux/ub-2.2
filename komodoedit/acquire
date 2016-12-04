@@ -1,0 +1,4 @@
+#!/usr/bin/env dl
+
+Komodo-Edit-${UB_VERSION}-4343-linux-libcpp6-x86.tar.gz Komodo-Edit-${UB_VERSION}-4343-linux-libcpp6-x86/
+	http://downloads.activestate.com/Komodo/releases/${UB_VERSION}/

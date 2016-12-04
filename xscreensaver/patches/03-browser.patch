@@ -1,0 +1,24 @@
+diff -Naur xscreensaver-5.00.orig/driver/XScreenSaver_ad.h xscreensaver-5.00/driver/XScreenSaver_ad.h
+--- xscreensaver-5.00.orig/driver/XScreenSaver_ad.h	2006-05-24 01:01:34.000000000 +0200
++++ xscreensaver-5.00/driver/XScreenSaver_ad.h	2006-06-30 14:57:55.000000000 +0200
+@@ -44,7 +44,7 @@
+ "*demoCommand: xscreensaver-demo",
+ "*prefsCommand: xscreensaver-demo -prefs",
+ "*helpURL: http://www.jwz.org/xscreensaver/man.html",
+-"*loadURL: firefox '%s' || mozilla '%s' || netscape '%s'",
++"*loadURL: browser '%s'",
+ "*manualCommand: xterm -sb -fg black -bg gray75 -T '%s manual' \
+ 		    -e /bin/sh -c 'man \"%s\" ; read foo'",
+ "*dateFormat:		%d-%b-%y (%a); %I:%M %p",
+diff -Naur xscreensaver-5.00.orig/driver/XScreenSaver.ad.in xscreensaver-5.00/driver/XScreenSaver.ad.in
+--- xscreensaver-5.00.orig/driver/XScreenSaver.ad.in	2006-05-24 01:01:34.000000000 +0200
++++ xscreensaver-5.00/driver/XScreenSaver.ad.in	2006-06-30 14:57:30.000000000 +0200
+@@ -110,7 +110,7 @@
+ !
+ !   non-Gnome systems:
+ !
+-@NOGNOME@*loadURL: firefox '%s' || mozilla '%s' || netscape '%s'
++@NOGNOME@*loadURL: browser '%s'
+ @NOGNOME@*manualCommand: xterm -sb -fg black -bg gray75 -T '%s manual' \
+ @NOGNOME@		    -e /bin/sh -c 'man "%s" ; read foo'
+ 

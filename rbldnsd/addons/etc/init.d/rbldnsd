@@ -1,0 +1,25 @@
+#!/bin/sh
+
+. /etc/init.d/common
+
+DAEMON=/usr/sbin/rbldnsd
+PIDFILE="/var/run/rbldnsd.pid"
+
+function _init() {
+	for i in ip4set ip4tset ip4trie dnset generic combined; do
+		[ -d /var/lib/rbldnsd/"$i" ] && cd /var/lib/rbldnsd/"$i" && for j in *.rbldnsd; do
+			if [ -f "$j" ]; then
+				args[${#args[@]}]="${j%.rbldnsd}:$i:/$i/$j"
+			fi
+		done
+	done
+
+	if [ "${#args[@]}" -gt 0 ]; then
+		DAEMONARGS=(-q -r /var/lib/rbldnsd -w / -4 -b 127.0.0.1/650 -p "$PIDFILE" -f "${args[@]}")
+	else
+		echo "No zone files." >&2
+		exit 1
+	fi
+}
+
+startstop "$@"

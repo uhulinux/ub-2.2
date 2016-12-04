@@ -1,0 +1,11 @@
+--- pam_ldap.orig/Makefile.in	2009-11-06 11:29:34.000000000 +0100
++++ pam_ldap/Makefile.in	2009-12-01 22:58:52.000000000 +0100
+@@ -611,7 +611,7 @@
+ 	@$(NORMAL_UNINSTALL)
+ 
+ vers.c: $(top_srcdir)/CVSVersionInfo.txt
+-	CVSVERSIONDIR=$(top_srcdir) vers_string -v
++	CVSVERSIONDIR=$(top_srcdir) ./vers_string -v
+ # Tell versions [3.59,3.63) of GNU make to not export all variables.
+ # Otherwise a system limit (for SysV at least) may be exceeded.
+ .NOEXPORT:

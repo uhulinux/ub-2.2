@@ -1,0 +1,8 @@
+[Desktop Entry]
+Encoding=UTF-8
+Name=Xdvi
+Comment=DVI Viewer
+Comment[hu]=DVI-megjelenítő
+Exec=xdvi %f
+Type=Application
+Categories=X-UHU-Menu/Tools/Viewers;

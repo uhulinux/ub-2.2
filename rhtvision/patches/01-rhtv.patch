@@ -1,0 +1,14 @@
+diff -Naurd orig/include/tv.h mod/include/tv.h
+--- orig/include/tv.h	2010-02-18 13:50:15.000000000 +0100
++++ mod/include/tv.h	2010-02-23 20:20:00.000000000 +0100
+@@ -12,6 +12,10 @@
+  *
+  */
+ 
++#ifndef EOF
++# define EOF (-1)
++#endif
++
+ // SET: We still need to add a lot of TV 2.0 functionality
+ #define _TV_VERSION 0x0103
+ 

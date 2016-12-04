@@ -1,0 +1,13 @@
+#!/usr/bin/env dl
+
+figtoipe-20091205.tar.gz .
+	http://downloads.sourceforge.net/ipe7/tools/
+
+pdftoipe-20091014.tar.gz .
+	http://downloads.sourceforge.net/ipe7/tools/
+
+svgtoipe-20091018.tar.gz .
+	http://downloads.sourceforge.net/ipe7/tools/
+
+ipe-$UB_VERSION-src.tar.gz ipe-$UB_VERSION/
+	http://downloads.sourceforge.net/ipe7/

@@ -1,0 +1,6 @@
+graphicsmagick
+gtkmm2-dev
+libdvdread-dev
+libxml++2-dev
+mjpegtools-dev
+scons

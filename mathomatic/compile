@@ -1,0 +1,5 @@
+#!/bin/sh -eux
+
+make READLINE=1
+cd primes
+make

@@ -1,0 +1,5 @@
+#!/usr/bin/env dl
+
+usbutils-${UB_VERSION}.tar.gz usbutils-${UB_VERSION}/
+	http://downloads.sourceforge.net/linux-usb/
+	http://usb.cs.tum.edu/download/usbutils/

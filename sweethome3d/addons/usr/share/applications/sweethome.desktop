@@ -1,0 +1,10 @@
+[Desktop Entry]
+Version=1.1
+Name=SweetHome3D
+Comment=SweetHome3D
+Comment[hu]=Lakberendező program
+Exec=sweethome3d
+Icon=/usr/share/pixmaps/SweetHome3DIcon.gif
+Type=Application
+Terminal=false
+Categories=GTK;Graphics;X-UHU-Menu/Graphics;

@@ -1,0 +1,4 @@
+#!/usr/bin/env dl
+
+pa_stable_v${UB_VERSION}.tar.gz portaudio/
+	http://www.portaudio.com/archives/

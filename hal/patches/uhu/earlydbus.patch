@@ -1,0 +1,27 @@
+diff -Naurd a/hald/hald.c b/hald/hald.c
+--- a/hald/hald.c	2006-02-18 18:53:33.000000000 +0100
++++ b/hald/hald.c	2006-06-30 11:09:49.000000000 +0200
+@@ -572,6 +572,11 @@
+ 
+ 	hald_is_initialising = TRUE;
+ 
++	if (!hald_dbus_init ()) {
++		hald_runner_kill_all();
++		exit (1);
++	}
++
+ 	/* detect devices */
+ 	osspec_probe ();
+ 
+@@ -615,11 +620,6 @@
+ 
+ 	HAL_INFO (("Device probing completed"));
+ 
+-	if (!hald_dbus_init ()) {
+-		hald_runner_kill_all();
+-		exit (1);
+-	}
+-
+ 	/* tell parent to exit */
+ 	written = write (startup_daemonize_pipe[1], buf, sizeof (buf));
+ 	close (startup_daemonize_pipe[0]);

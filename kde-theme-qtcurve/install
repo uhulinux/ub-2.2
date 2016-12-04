@@ -1,0 +1,6 @@
+#!/bin/sh -eux
+
+ub_install
+
+## Translations provided by qt4-theme-qtcurve
+rm -rf ${UB_INSTALLDIR}/usr/share/locale

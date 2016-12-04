@@ -1,0 +1,24 @@
+#!/bin/bash
+
+case "$1" in
+	button*)
+		case "$2" in
+			PWRF|PWB)
+				# WARNING: Do not use /sbin/poweroff here, because it does not
+				# handle being called twice properly (which is what some buggy
+				# bioses do in real life when only pressed once...)
+				/sbin/init 0
+				;;
+		esac
+		;;
+	ac_adapter)
+		case "$4" in
+			00000000)
+				# do something when ac adapter is unplugged
+				;;
+			00000001)
+				# do something when ac adapter is definitely plugged in
+				;;
+		esac
+		;;
+esac

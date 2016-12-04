@@ -1,0 +1,10 @@
+[Desktop Entry]
+Version=1.1
+Type=Application
+Name=Eclipse
+Comment=Java development environment
+Comment[hu]=Java fejlesztői környezet
+Exec=eclipse
+Icon=/usr/share/pixmaps/eclipse.jpg
+Terminal=false
+Categories=X-UHU-Menu/Development/Programming;

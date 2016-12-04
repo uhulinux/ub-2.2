@@ -1,0 +1,4 @@
+#!/usr/bin/env dl
+
+telepathy-stream-engine-${UB_VERSION}.tar.gz telepathy-stream-engine-${UB_VERSION}/
+	http://telepathy.freedesktop.org/releases/stream-engine/

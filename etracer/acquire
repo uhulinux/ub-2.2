@@ -1,0 +1,4 @@
+#!/usr/bin/env dl
+
+extremetuxracer-${UB_VERSION/~/}.tar.gz extreme-tuxracer-${UB_VERSION/~/}/
+	http://downloads.sourceforge.net/extremetuxracer/

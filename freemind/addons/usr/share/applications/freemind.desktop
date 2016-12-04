@@ -1,0 +1,11 @@
+[Desktop Entry]
+Version=1.1
+Name=FreeMind
+Comment=A free mind mapping tool
+Comment[hu]=elmetérkép-készítő
+Exec=freemind
+Terminal=false
+Icon=/usr/share/pixmaps/FreeMindWindowIcon.xpm
+Type=Application
+MimeType=application/x-freemind
+Categories=Application;Office;X-UHU-Menu/Tools/More;

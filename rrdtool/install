@@ -1,0 +1,12 @@
+#!/bin/sh -eux
+
+ub_install site-perl-install
+
+cd bindings/perl-piped
+ub_install
+
+cd ../perl-shared
+ub_install
+
+cd ../ruby
+ub_install

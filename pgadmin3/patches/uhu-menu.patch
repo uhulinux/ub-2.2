@@ -1,0 +1,17 @@
+--- pgadmin3-1.8.4.orig/pkg/pgadmin3.desktop	2008-06-04 10:19:22.000000000 +0200
++++ pgadmin3-1.8.4/pkg/pgadmin3.desktop	2009-02-05 22:40:49.000000000 +0100
+@@ -1,10 +1,10 @@
+ [Desktop Entry]
+ Encoding=UTF-8
+ Name=pgAdmin III
+-Exec=/usr/bin/pgadmin3
+-Icon=/usr/share/pgadmin3/pgadmin3.xpm
++Exec=pgadmin3
++Icon=pgadmin3.xpm
+ Type=Application
+-Categories=Application;Development;
++Categories=GTK;Database;X-UHU-Menu/Tools/Databases;
+-MimeType=text/html
+ DocPath=/usr/share/pgadmin3/docs/en_US/index.html
+ Comment=PostgreSQL Tools
++Comment[hu]=Adminisztrációs eszköz a PostgreSQL-hez

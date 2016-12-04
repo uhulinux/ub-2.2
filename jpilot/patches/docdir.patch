@@ -1,0 +1,12 @@
+diff -Naurdp a/docs/Makefile.in b/docs/Makefile.in
+--- a/docs/Makefile.in	2008-05-25 18:47:39.000000000 +0200
++++ b/docs/Makefile.in	2008-09-05 17:17:02.000000000 +0200
+@@ -232,7 +232,7 @@ raw_mans = jpilot.man jpilot-dial.man jp
+ man_MANS = jpilot.1 jpilot-dial.1 jpilot-sync.1 jpilot-dump.1
+ 
+ # Install the standard GNU doc files
+-miscdir = $(datadir)/doc/$(PACKAGE)
++miscdir = $(datadir)/doc/Packages/$(PACKAGE)
+ misc_DATA = \
+ 	../BUGS \
+ 	../ChangeLog \

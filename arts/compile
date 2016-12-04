@@ -1,0 +1,5 @@
+#!/bin/sh -eux
+
+export QTDIR=/usr/lib/qt
+ub_compile \
+	--with-alsa

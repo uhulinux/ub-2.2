@@ -1,0 +1,60 @@
+diff -Naurd orig/examples/ex1.c mod/examples/ex1.c
+--- orig/examples/ex1.c	2009-05-18 16:27:06.000000000 +0200
++++ mod/examples/ex1.c	2009-05-31 08:35:16.000000000 +0200
+@@ -1,4 +1,4 @@
+-#! /usr/local/bin/tcc -run
++#! /usr/bin/tcc -run
+ #include <tcclib.h>
+ 
+ int main()
+diff -Naurd orig/examples/ex4.c mod/examples/ex4.c
+--- orig/examples/ex4.c	2009-05-18 16:27:06.000000000 +0200
++++ mod/examples/ex4.c	2009-05-31 08:35:55.000000000 +0200
+@@ -1,4 +1,4 @@
+-#!./tcc -run -L/usr/X11R6/lib -lX11
++#!/usr/bin/tcc -run -L/usr/lib/X11 -lX11
+ #include <stdlib.h>
+ #include <stdio.h>
+ #include <X11/Xlib.h>
+diff -Naurd orig/Makefile mod/Makefile
+--- orig/Makefile	2009-05-18 16:27:06.000000000 +0200
++++ mod/Makefile	2009-05-31 08:40:09.000000000 +0200
+@@ -198,24 +198,24 @@
+ ifndef CONFIG_WIN32
+ install: $(PROGS) $(LIBTCC1) $(BCHECK_O) libtcc.a tcc.1 tcc-doc.html
+ 	mkdir -p "$(bindir)"
+-	$(INSTALL) -s -m755 $(PROGS) "$(bindir)"
+-	mkdir -p "$(mandir)/man1"
+-	$(INSTALL) tcc.1 "$(mandir)/man1"
+-	mkdir -p "$(tccdir)"
+-	mkdir -p "$(tccdir)/include"
++	$(INSTALL) -s -m755 $(PROGS) "$(DESTDIR)/$(bindir)"
++	mkdir -p "$(DESTDIR)/$(mandir)/man1"
++	$(INSTALL) tcc.1 "$(DESTDIR)/$(mandir)/man1"
++	mkdir -p "$(DESTDIR)/$(tccdir)"
++	mkdir -p "$(DESTDIR)/$(tccdir)/include"
+ ifneq ($(LIBTCC1),)
+-	$(INSTALL) -m644 $(LIBTCC1) "$(tccdir)"
++	$(INSTALL) -m644 $(LIBTCC1) "$(DESTDIR)/$(tccdir)"
+ endif
+ ifneq ($(BCHECK_O),)
+-	$(INSTALL) -m644 $(BCHECK_O) "$(tccdir)"
++	$(INSTALL) -m644 $(BCHECK_O) "$(DESTDIR)/$(tccdir)"
+ endif
+-	$(INSTALL) -m644 $(addprefix include/,$(TCC_INCLUDES)) "$(tccdir)/include"
+-	mkdir -p "$(docdir)"
+-	$(INSTALL) -m644 tcc-doc.html "$(docdir)"
+-	mkdir -p "$(libdir)"
+-	$(INSTALL) -m644 libtcc.a "$(libdir)"
+-	mkdir -p "$(includedir)"
+-	$(INSTALL) -m644 libtcc.h "$(includedir)"
++	$(INSTALL) -m644 $(addprefix include/,$(TCC_INCLUDES)) "$(DESTDIR)/$(tccdir)/include"
++	mkdir -p "$(DESTDIR)/$(docdir)"
++	$(INSTALL) -m644 tcc-doc.html "$(DESTDIR)/$(docdir)"
++	mkdir -p "$(DESTDIR)/$(libdir)"
++	$(INSTALL) -m644 libtcc.a "$(DESTDIR)/$(libdir)"
++	mkdir -p "$(DESTDIR)/$(includedir)"
++	$(INSTALL) -m644 libtcc.h "$(DESTDIR)/$(includedir)"
+ 
+ uninstall:
+ 	rm -fv $(foreach P,$(PROGS),"$(bindir)/$P")

@@ -1,0 +1,4 @@
+	/usr/bin/ggl-qt
+	/usr/lib/google-gadgets/modules/qt*.so
+	/usr/lib/libggadget-qt*
+	/usr/share/applications/ggl-qt.desktop

@@ -1,0 +1,9 @@
+#!/bin/sh
+
+. /etc/init.d/common
+
+DAEMON=/usr/sbin/avahi-daemon
+PIDFILE="/var/run/avahi-daemon/pid"
+DAEMONARGS=(-D)
+
+startstop "$@"

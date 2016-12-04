@@ -1,0 +1,4 @@
+#!/usr/bin/env dl
+
+guarddog-${UB_VERSION}.tar.gz guarddog-${UB_VERSION}/
+	http://www.simonzone.com/software/guarddog/

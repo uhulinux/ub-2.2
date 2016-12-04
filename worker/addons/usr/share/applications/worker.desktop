@@ -1,0 +1,10 @@
+[Desktop Entry]
+Version=1.1
+Type=Application
+Name=worker
+Comment=worker file manager
+Comment[hu]=worker fájl-kezelő
+Exec=worker
+Icon=WorkerIcon.xpm
+Terminal=false
+Categories=X-UHU-Menu/Tools/File_Managers;

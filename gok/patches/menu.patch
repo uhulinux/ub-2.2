@@ -1,0 +1,16 @@
+--- gok.orig/gok.desktop.in	2009-03-16 16:50:54.000000000 +0100
++++ gok/gok.desktop.in	2009-03-16 20:52:47.000000000 +0100
+@@ -1,11 +1,11 @@
+ [Desktop Entry]
+-_Name=On-Screen Keyboard
++_Name=GOK
+ _Comment=Navigate applications and type using alternative input devices
+ Exec=gok
+ Terminal=false
+ Type=Application
+ Icon=gok
+-Categories=GNOME;GTK;Utility;Accessibility;
++Categories=GTK;GNOME;Utility;Accessibility;X-UHU-Menu/Tools/More;
+ X-GNOME-Bugzilla-Bugzilla=GNOME
+ X-GNOME-Bugzilla-Product=gok
+ X-GNOME-Bugzilla-Component=general

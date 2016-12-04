@@ -1,0 +1,6 @@
+gnome2-vfs-dev
+perl-extutils-depends
+perl-extutils-pkgconfig
+perl-glib2
+perl-gtk2
+pkgconfig

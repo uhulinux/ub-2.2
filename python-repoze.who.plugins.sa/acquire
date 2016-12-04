@@ -1,0 +1,4 @@
+#!/usr/bin/env dl
+
+repoze.who.plugins.sa-${UB_VERSION/~/}.tar.gz repoze.who.plugins.sa-${UB_VERSION/~/}/
+	http://pypi.python.org/packages/source/r/repoze.who.plugins.sa/

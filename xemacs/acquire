@@ -1,0 +1,7 @@
+#!/usr/bin/env dl
+
+#xemacs-all-packages.tar.bz2 .
+#	http://ftp.xemacs.org/pub/packages/
+
+xemacs-$UB_VERSION.tar.gz xemacs-$UB_VERSION/
+	http://ftp.xemacs.org/xemacs-21.5/

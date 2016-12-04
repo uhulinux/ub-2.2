@@ -1,0 +1,8 @@
+#!/bin/sh -eux
+
+./configure \
+	--prefix=/usr \
+	--fhs \
+	--libset \
+	--with-aa
+ub_make

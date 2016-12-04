@@ -1,0 +1,9 @@
+[Desktop Entry]
+Encoding=UTF-8
+Type=Application
+Name=GVim
+Comment=Vi IMproved, graphical version
+Comment[hu]=Vim, grafikus felület
+Icon=/usr/share/pixmaps/vim_small.gif
+Exec=gvim %F
+Categories=X-UHU-Menu/Tools/Editors;

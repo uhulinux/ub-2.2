@@ -1,0 +1,6 @@
+#!/bin/sh -eux
+
+ub_compile \
+	--enable-password-save \
+	--with-iproute-path=/usr/sbin/ip \
+	--enable-iproute2

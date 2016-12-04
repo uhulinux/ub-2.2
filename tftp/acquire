@@ -1,0 +1,5 @@
+#!/usr/bin/env dl
+
+tftp-hpa-${UB_VERSION}.tar.gz tftp-hpa-${UB_VERSION}/
+	ftp://ftp.kernel.org/pub/software/network/tftp/
+	http://www.kernel.org/pub/software/network/tftp/

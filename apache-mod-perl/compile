@@ -1,0 +1,5 @@
+#!/bin/sh -eux
+
+MP_APXS=/usr/sbin/apxs \
+MP_INST_APACHE2=1 \
+ub_compile

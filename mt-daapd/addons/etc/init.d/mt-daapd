@@ -1,0 +1,8 @@
+#!/bin/sh
+
+. /etc/init.d/common
+
+DAEMON=/usr/sbin/mt-daapd
+PIDFILE="/var/run/mt-daapd.pid"
+
+startstop "$@"

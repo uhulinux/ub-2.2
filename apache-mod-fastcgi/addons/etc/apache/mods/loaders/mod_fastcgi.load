@@ -1,0 +1,3 @@
+<IfModule !mod_fastcgi.c>
+LoadModule fastcgi_module /usr/lib/apache/mod_fastcgi.so
+</IfModule>

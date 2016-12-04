@@ -1,0 +1,9 @@
+[Desktop Entry]
+Encoding=UTF-8
+Type=Application
+Name=DvorakNG
+Comment=Dvorak typing tutor
+Comment[hu]=Dvorak gépírás-oktató
+Exec=dvorakng
+Terminal=true
+Categories=X-UHU-Menu/Edutainment/Miscellaneous;

@@ -1,0 +1,5 @@
+#!/usr/bin/env dl
+
+bashstyle-ng-${UB_VERSION}.tar.bz2 bashstyle-ng-${UB_VERSION}/
+	http://www.nanolx.org/free/
+	http://download.tuxfamily.org/bashstyleng/

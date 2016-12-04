@@ -1,0 +1,10 @@
+[Desktop Entry]
+Encoding=UTF-8
+Type=Application
+Name=XBlast-TNT (16 players)
+Name[hu]=XBlast-TNT (16 játékosig)
+Comment=Blast the Others game (new version, up to 16 players)
+Comment[hu]=Robbantsd fel a többieket (új változat, akár 16 játékossal is)
+Exec=xblast-tnt-smpf
+Icon=/usr/share/pixmaps/xblast-bomb.png
+Categories=X-UHU-Menu/Games/Action;

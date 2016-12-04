@@ -1,0 +1,8 @@
+#!/bin/sh
+
+. /etc/init.d/common
+
+DAEMON=/usr/sbin/clamd
+PIDFILE="/var/run/clamd.pid"
+
+startstop "$@"

@@ -1,0 +1,9 @@
+gtk2-dev
+gtkglext-dev
+libgnomeui2-dev
+libjpeg-dev
+libtheora-dev
+libxi-dev
+lua-dev
+openssl-dev
+zlib-dev

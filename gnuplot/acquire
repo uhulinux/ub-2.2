@@ -1,0 +1,8 @@
+#!/usr/bin/env dl
+
+gnuplot-${UB_VERSION}.tar.gz gnuplot-${UB_VERSION}/
+	http://downloads.sourceforge.net/gnuplot/
+	ftp://ftp.gnuplot.info/pub/gnuplot/
+	ftp://ftp.gnuplot.info/pub/gnuplot/${UB_VERSION_HEAD2}/
+	ftp://ftp.irisa.fr/pub/gnuplot/
+	ftp://ftp.irisa.fr/pub/gnuplot/${UB_VERSION_HEAD2}/

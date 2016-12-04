@@ -1,0 +1,11 @@
+Summary=ProFTPD FTP Server
+Summary[hu]=ProFTPD FTP-szerver
+Description=Enables FTP connections to this machine. It's recommended to consult the documentation (/usr/share/doc/Packages/proftpd) and craete an /etc/proftpd.conf configuration file before activating this service.
+Description[hu]=FTP kapcsolatok fogadását teszi lehetővé. Indítása előtt ajánlott a dokumentáció (/usr/share/doc/Packages/proftpd) alapján egy megfelelő /etc/proftpd.conf konfigurációs fájl elkészítése.
+MsgDesc=FTP Server
+MsgDesc[hu]=FTP-szerver
+Script=/etc/init.d/proftpd
+SupportsReload=yes
+Runlevels=
+Sequence=20
+Resources=tcp/ftp

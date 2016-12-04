@@ -1,0 +1,10 @@
+[Desktop Entry]
+Version=1.1
+Type=Application
+Name=bclock
+Comment=Bezier-clock
+Comment[hu]=Bezier-óra
+Exec=bezierclock
+Terminal=False
+Icon=/usr/share/pixmaps/bezier.jpg
+Categories=X-UHU-Menu/Tools/Toys;

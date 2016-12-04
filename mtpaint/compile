@@ -1,0 +1,6 @@
+#!/bin/sh -eux
+
+./configure gtk2 man pod \
+	--prefix=/usr \
+	--mandir=/usr/share/man/man1
+make

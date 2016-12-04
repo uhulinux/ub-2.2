@@ -1,0 +1,24 @@
+
+--- gnome-blog-0.9.1.orig/blog.py
++++ gnome-blog-0.9.1/blog.py
+@@ -50,6 +50,19 @@
+     protocol = client.get_string(gconf_prefix + "/blog_protocol")
+     url      = client.get_string(gconf_prefix + "/xmlrpc_url")
+ 
++    if not username:
++        import hig_alert
++        hig_alert.reportError("Error: no username given", "please use the Preferences window to set a username and a password")
++        return
++    if not password:
++        import hig_alert
++        hig_alert.reportError("Error: no password given", "please use the Preferences window to set a password")
++        return
++    if not url:
++        import hig_alert
++        hig_alert.reportError("Error: no url given", "please use the Preferences window to set an URL")
++        return
++
+     return username, password, protocol, url
+ 
+ def _getBlogBackend(protocol):
+

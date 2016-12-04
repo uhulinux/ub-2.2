@@ -1,0 +1,6 @@
+ACTION!="add|change", GOTO="wacom_rules_end"
+SUBSYSTEM!="input", GOTO="wacom_rules_end"
+
+SUBSYSTEM=="input", KERNEL=="event[0-9]*", ATTRS{idVendor}=="056a", SYMLINK+="input/wacom"
+
+LABEL="wacom_rules_end"

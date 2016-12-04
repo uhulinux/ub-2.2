@@ -1,0 +1,27 @@
+diff -Naur e16-0.16.8.9.orig/scripts/e_gen_menu e16-0.16.8.9/scripts/e_gen_menu
+--- e16-0.16.8.9.orig/scripts/e_gen_menu	2007-05-28 19:19:08.000000000 +0200
++++ e16-0.16.8.9/scripts/e_gen_menu	2007-08-13 11:48:41.000000000 +0200
+@@ -81,10 +81,7 @@
+ 
+ @MainMenu = (
+ 	"t:User Menus",
+-	"m:User Application List:user_apps.menu",
+-	"m:GNOME:menus_GNOME/index.menu",
+-	"m:KDE:menus_KDE/index.menu",
+-	"m:Other:menus_Other/index.menu",
++	"m:UHU menu:/usr/lib/menu/enlightenment/UHU.menu",
+ 	"m:Enlightenment Epplets:epplets.menu",
+ 	"c:Restart Enlightenment:exit restart",
+ 	"c:Log Out:exit logout"
+@@ -461,11 +458,7 @@
+ 
+ # Make the menus
+ MakeMenu("file.menu", \@MainMenu);
+-MakeMenu("user_apps.menu", \@UserAppsMenu);
+ MakeEppsMenu("epplets.menu");
+-MakeAppsMenu("GNOME");
+-MakeAppsMenu("KDE");
+-MakeAppsMenu("Other");
+ 
+ CloseMessageWindows();
+ system("eesh -e 'menus reload'");

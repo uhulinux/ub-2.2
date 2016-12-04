@@ -1,0 +1,8 @@
+dbus-glib-dev
+gtk2-dev
+intltool
+libbonobo2-dev
+libsm-dev
+libxi-dev
+libxtst-dev
+popt-dev

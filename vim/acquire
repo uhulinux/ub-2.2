@@ -1,0 +1,11 @@
+#!/usr/bin/env dl
+
+vim-${UB_VERSION_HEAD2}.tar.bz2 vim${UB_VERSION_MAJOR}${UB_VERSION_MINOR}/
+	ftp://ftp.vim.org/pub/vim/unix/
+
+vim-${UB_VERSION_HEAD2}-extra.tar.gz vim${UB_VERSION_MAJOR}${UB_VERSION_MINOR}/
+	ftp://ftp.vim.org/pub/vim/extra/
+
+vim-${UB_VERSION_HEAD2}-lang.tar.gz vim${UB_VERSION_MAJOR}${UB_VERSION_MINOR}/
+	ftp://ftp.vim.org/pub/vim/extra/
+

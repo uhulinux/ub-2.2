@@ -1,0 +1,5 @@
+#!/bin/sh -e
+
+if [ "$1" = "remove" ]; then
+	rm -f /usr/share/man/whatis /usr/X11R6/man/whatis
+fi

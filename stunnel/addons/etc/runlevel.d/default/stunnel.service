@@ -1,0 +1,10 @@
+Summary=SSL Tunnel Server
+Summary[hu]=SSL Tunnel Szerver
+Description=Allows accessing services via a secure channel
+Description[hu]=Szolgáltatások biztonságos csatornán keresztüli elérését teszi lehetővé.
+MsgDesc=SSL Tunnel Server
+MsgDesc[hu]=SSL Tunnel Szerver
+Script=/etc/init.d/stunnel
+SupportsReload=yes
+Runlevels=
+Sequence=20

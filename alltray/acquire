@@ -1,0 +1,4 @@
+#!/usr/bin/env dl
+
+alltray-${UB_VERSION}.tar.gz alltray-${UB_VERSION}/
+	http://download.sourceforge.net/alltray/

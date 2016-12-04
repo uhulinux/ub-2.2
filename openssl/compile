@@ -1,0 +1,10 @@
+#!/bin/sh -eux
+
+./Configure \
+	--prefix=/usr \
+	--openssldir=/usr/lib/ssl \
+	enable-tlsext \
+	shared \
+	no-sse2 \
+	linux-elf
+make

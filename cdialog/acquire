@@ -1,0 +1,5 @@
+#!/usr/bin/env dl
+
+dialog-${UB_VERSION/_/-}.tgz dialog-${UB_VERSION/_/-}/
+	ftp://invisible-island.net/dialog/
+	ftp://invisible-island.net/temp/

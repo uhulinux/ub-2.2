@@ -1,0 +1,92 @@
+diff -Naur libcddb-1.2.1.orig/include/cddb/cddb_disc.h libcddb-1.2.1/include/cddb/cddb_disc.h
+--- libcddb-1.2.1.orig/include/cddb/cddb_disc.h	2005-07-23 09:32:08.000000000 +0200
++++ libcddb-1.2.1/include/cddb/cddb_disc.h	2006-02-06 14:06:46.000000000 +0100
+@@ -74,7 +74,22 @@
+  * The CDDB disc structure.  Contains all information associated with
+  * a full CD.
+  */
+-typedef struct cddb_disc_s cddb_disc_t;
++typedef struct cddb_disc_s 
++/** Actual definition of disc structure. */
++/* moved here from cddb_ni.h */
++{
++    unsigned int discid;        /**< four byte disc ID */
++    cddb_cat_t category;        /**< CDDB category */
++    char *genre;                /**< disc genre */
++    char *title;                /**< disc title */
++    char *artist;               /**< disc artist */
++    unsigned int length;        /**< disc length in seconds */
++    unsigned int year;          /**< (optional) disc year YYYY */
++    char *ext_data;             /**< (optional) extended disc data  */
++    int track_cnt;              /**< number of tracks on the disc */
++    cddb_track_t *tracks;       /**< pointer to the first track */
++    cddb_track_t *iterator;     /**< track iterator */
++} cddb_disc_t;
+ 
+ 
+ /* --- construction / destruction */
+diff -Naur libcddb-1.2.1.orig/include/cddb/cddb_ni.h libcddb-1.2.1/include/cddb/cddb_ni.h
+--- libcddb-1.2.1.orig/include/cddb/cddb_ni.h	2005-07-23 09:32:08.000000000 +0200
++++ libcddb-1.2.1/include/cddb/cddb_ni.h	2006-02-06 14:11:29.000000000 +0100
+@@ -88,36 +88,6 @@
+ /* --- type definitions */
+ 
+ 
+-/** Actual definition of track structure. */
+-struct cddb_track_s
+-{
+-    int num;                    /**< track number on the disc */
+-    int frame_offset;           /**< frame offset of the track on the disc */
+-    int length;                 /**< track length in seconds */
+-    char *title;                /**< track title */
+-    char *artist;               /**< (optional) track artist */
+-    char *ext_data;             /**< (optional) extended disc data */
+-    struct cddb_track_s *prev;  /**< pointer to previous track, or NULL */
+-    struct cddb_track_s *next;  /**< pointer to next track, or NULL */
+-    struct cddb_disc_s *disc;   /**< disc of which this is a track */
+-};
+-
+-/** Actual definition of disc structure. */
+-struct cddb_disc_s
+-{
+-    unsigned int discid;        /**< four byte disc ID */
+-    cddb_cat_t category;        /**< CDDB category */
+-    char *genre;                /**< disc genre */
+-    char *title;                /**< disc title */
+-    char *artist;               /**< disc artist */
+-    unsigned int length;        /**< disc length in seconds */
+-    unsigned int year;          /**< (optional) disc year YYYY */
+-    char *ext_data;             /**< (optional) extended disc data  */
+-    int track_cnt;              /**< number of tracks on the disc */
+-    cddb_track_t *tracks;       /**< pointer to the first track */
+-    cddb_track_t *iterator;     /**< track iterator */
+-};
+-
+ 
+ /* --- global variables */
+ 
+diff -Naur libcddb-1.2.1.orig/include/cddb/cddb_track.h libcddb-1.2.1/include/cddb/cddb_track.h
+--- libcddb-1.2.1.orig/include/cddb/cddb_track.h	2005-07-23 09:32:08.000000000 +0200
++++ libcddb-1.2.1/include/cddb/cddb_track.h	2006-02-06 14:19:22.000000000 +0100
+@@ -32,7 +32,20 @@
+  * a single CD track.  This structure will be used to populate the
+  * tracks linked list of the cddb_disc_s structure.
+  */
+-typedef struct cddb_track_s cddb_track_t;
++typedef struct cddb_track_s
++/** Actual definition of track structure. */
++/* moved here from cddb_ni.h */
++{
++    int num;                    /**< track number on the disc */
++    int frame_offset;           /**< frame offset of the track on the disc */
++    int length;                 /**< track length in seconds */
++    char *title;                /**< track title */
++    char *artist;               /**< (optional) track artist */
++    char *ext_data;             /**< (optional) extended disc data */
++    struct cddb_track_s *prev;  /**< pointer to previous track, or NULL */
++    struct cddb_track_s *next;  /**< pointer to next track, or NULL */
++    struct cddb_disc_s *disc;   /**< disc of which this is a track */
++} cddb_track_t;
+ 
+ 
+ /* --- construction / destruction */

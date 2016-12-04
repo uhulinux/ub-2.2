@@ -1,0 +1,4 @@
+#!/usr/bin/env dl
+
+kbarcode-${UB_VERSION}.tar.gz kbarcode-${UB_VERSION}/
+	http://downloads.sourceforge.net/kbarcode/

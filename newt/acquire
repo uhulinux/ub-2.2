@@ -1,0 +1,4 @@
+#!/usr/bin/env dl
+
+newt-${UB_VERSION}.tar.bz2 newt-${UB_VERSION}/
+	ftp://ftp.uhulinux.hu/pub/sources/newt/

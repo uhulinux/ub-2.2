@@ -1,0 +1,4 @@
+#!/usr/bin/env dl
+
+bash-completion-${UB_VERSION}.tar.gz bash_completion/
+	http://www.caliban.org/files/bash/

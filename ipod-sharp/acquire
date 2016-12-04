@@ -1,0 +1,6 @@
+#!/usr/bin/env dl
+
+ipod-sharp-${UB_VERSION}.tar.gz ipod-sharp-${UB_VERSION}/
+	http://banshee-project.org/files/ipod-sharp/
+	http://download.banshee-project.org/ipod-sharp/${UB_VERSION}/
+

@@ -1,0 +1,12 @@
+diff -Naurdp transfig.3.2.5.orig/fig2dev/Imakefile transfig.3.2.5/fig2dev/Imakefile
+--- transfig.3.2.5.orig/fig2dev/Imakefile	2005-10-27 18:56:02.000000000 +0200
++++ transfig.3.2.5/fig2dev/Imakefile	2009-06-25 19:03:38.000000000 +0200
+@@ -141,7 +141,7 @@ XCOMM Comment out the next line if you h
+ 
+ #ifdef I18N
+ I18N_DEFS = -DI18N 
+-FIG2DEV_LIBDIR = /usr/local/lib/fig2dev
++FIG2DEV_LIBDIR = /usr/share/fig2dev
+ I18N_DEV_DEFS = $(I18N_DEFS) -DFIG2DEV_LIBDIR=$(FIG2DEV_LIBDIR) -DFIG2DEV_LIBDIR_STR=\\\"$(FIG2DEV_LIBDIR)\\\"
+ 
+ #endif /* I18N */

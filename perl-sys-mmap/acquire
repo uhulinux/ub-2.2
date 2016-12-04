@@ -1,0 +1,4 @@
+#!/usr/bin/env dl
+
+Sys-Mmap-${UB_VERSION}.tar.gz Sys-Mmap-${UB_VERSION}/
+	http://search.cpan.org/CPAN/authors/id/S/SW/SWALTERS/

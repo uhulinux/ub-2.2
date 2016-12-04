@@ -1,0 +1,17 @@
+docbook-dtds
+evolution-data-server-dev
+gconf2-dev
+gedit2-dev
+gnome-doc-utils-dev
+gnome2-keyring-dev
+gnome2-panel-dev
+gpg
+gpgme-dev
+gtk2-dev
+intltool
+libgpg-error-dev
+libnotify-dev
+libsm-dev
+nautilus2-dev
+openssl-dev
+seahorse-dev

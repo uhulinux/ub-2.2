@@ -1,0 +1,8 @@
+#!/bin/sh
+
+. /etc/init.d/common
+
+DAEMON=/sbin/klogd
+PIDFILE="/var/run/klogd.pid"
+
+startstop "$@"

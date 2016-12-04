@@ -1,0 +1,92 @@
+diff -Naur rsync-3.0.6-orig/options.c rsync-3.0.6/options.c
+--- rsync-3.0.6-orig/options.c	2009-04-12 22:01:14.000000000 +0200
++++ rsync-3.0.6/options.c	2009-06-07 16:59:06.000000000 +0200
+@@ -212,6 +212,8 @@
+  * address, or a hostname. **/
+ char *bind_address;
+ 
++/** Print information needed for APT rsync method */
++int apt_support = 0;
+ 
+ static void print_rsync_version(enum logcode f)
+ {
+@@ -655,6 +657,7 @@
+   {"daemon",           0,  POPT_ARG_NONE,   0, OPT_DAEMON, 0, 0 },
+   {"detach",           0,  POPT_ARG_NONE,   0, OPT_DAEMON, 0, 0 },
+   {"no-detach",        0,  POPT_ARG_NONE,   0, OPT_DAEMON, 0, 0 },
++  {"apt-support",      0,  POPT_ARG_NONE,   &apt_support, 0, 0, 0 },
+   {0,0,0,0, 0, 0, 0}
+ };
+ 
+diff -Naur rsync-3.0.6-orig/proto.h rsync-3.0.6/proto.h
+--- rsync-3.0.6-orig/proto.h	2009-05-08 19:43:22.000000000 +0200
++++ rsync-3.0.6/proto.h	2009-06-07 17:00:24.000000000 +0200
+@@ -356,6 +356,7 @@
+ int change_dir(const char *dir, int set_path_only);
+ char *normalize_path(char *path, BOOL force_newbuf, unsigned int *len_ptr);
+ char *full_fname(const char *fn);
++char *full_fname_simple(const char *fn);
+ char *partial_dir_fname(const char *fname);
+ int handle_partial_dir(const char *fname, int create);
+ int unsafe_symlink(const char *dest, const char *src);
+diff -Naur rsync-3.0.6-orig/receiver.c rsync-3.0.6/receiver.c
+--- rsync-3.0.6-orig/receiver.c	2009-04-12 21:48:59.000000000 +0200
++++ rsync-3.0.6/receiver.c	2009-06-07 17:18:39.000000000 +0200
+@@ -21,6 +21,7 @@
+ 
+ #include "rsync.h"
+ 
++extern int apt_support;
+ extern int verbose;
+ extern int dry_run;
+ extern int do_xfers;
+@@ -702,6 +703,12 @@
+ 				cleanup_set(fnametmp, partialptr, file, fd1, fd2);
+ 		}
+ 
++		if (apt_support) {
++			rprintf(FINFO,"Tmp-Filename: %s\n",full_fname_simple(fnametmp));
++
++			rprintf(FINFO,"Start: %s\n",full_fname_simple(fname));
++		}
++
+ 		if (fd2 == -1) {
+ 			discard_receive_data(f_in, F_LENGTH(file));
+ 			if (fd1 != -1)
+@@ -714,6 +721,8 @@
+ 		/* log the transfer */
+ 		if (log_before_transfer)
+ 			log_item(FCLIENT, file, &initial_stats, iflags, NULL);
++		if (apt_support) rprintf(FINFO,"Done: %s\n",full_fname_simple(fname));
++			
+ 		else if (!am_server && verbose && do_progress)
+ 			rprintf(FINFO, "%s\n", fname);
+ 
+diff -Naur rsync-3.0.6-orig/util.c rsync-3.0.6/util.c
+--- rsync-3.0.6-orig/util.c	2009-03-03 17:57:43.000000000 +0100
++++ rsync-3.0.6/util.c	2009-06-07 17:12:23.000000000 +0200
+@@ -977,6 +977,24 @@
+ 	return dest;
+ }
+ 
++/**
++ * Similar to full_fname, but avoids quotes and comments.
++ **/
++char *full_fname_simple(const char *fn)
++{
++	static char *result = NULL;
++
++	if (result)
++		free(result);
++
++	if (*fn == '/')
++		asprintf(&result, "%s", fn);
++	else
++		asprintf(&result, "%s/%s", curr_dir, fn);
++
++	return result;
++}
++
+ /* Like chdir(), but it keeps track of the current directory (in the
+  * global "curr_dir"), and ensures that the path size doesn't overflow.
+  * Also cleans the path using the clean_fname() function. */

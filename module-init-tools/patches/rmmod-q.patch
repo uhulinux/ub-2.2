@@ -1,0 +1,67 @@
+diff -Naurd a/rmmod.c b/rmmod.c
+--- a/rmmod.c	2004-02-25 08:10:51.000000000 +0100
++++ b/rmmod.c	2006-03-30 15:37:20.000000000 +0200
+@@ -34,7 +34,7 @@
+ #define error(log, fmt, ...) message(log, "ERROR: ", fmt , ## __VA_ARGS__)
+ #define warn(log, fmt, ...) message(log, "WARNING: ", fmt , ## __VA_ARGS__)
+ #define info(log, fmt, ...) \
+-	do { if (verbose) message(log, "", fmt , ## __VA_ARGS__); } while(0)
++	do { if (verbose>0) message(log, "", fmt , ## __VA_ARGS__); } while(0)
+ #define fatal(log, fmt, ...) \
+ 	do { message(log, "FATAL: ", fmt , ## __VA_ARGS__); exit(1); } while(0)
+ 
+@@ -107,7 +107,7 @@
+ }
+ 
+ /* If we can check usage without entering kernel, do so. */
+-static int check_usage(int log, const char *modname)
++static int check_usage(int log, const char *modname, int verbose)
+ {
+ 	FILE *module_list;
+ 	char line[10240], name[64];
+@@ -143,7 +143,8 @@
+ 				   next_field(next_field(next_field(line))));
+ 		goto out;
+ 	}
+-	error(log, "Module %s does not exist in /proc/modules\n", modname);
++	if (verbose >= 0)
++		error(log, "Module %s does not exist in /proc/modules\n", modname);
+ 	refs = 1;
+  out:
+ 	fclose(module_list);
+@@ -179,7 +180,7 @@
+ 	filename2modname(name, path);
+ 
+ 	if ((flags & O_NONBLOCK) && !(flags & O_TRUNC)) {
+-		if (check_usage(log, name) != 0)
++		if (check_usage(log, name, verbose) != 0)
+ 			return 1;
+ 	}
+ 
+@@ -196,6 +197,7 @@
+ static struct option options[] = { { "all", 0, NULL, 'a' },
+ 				   { "force", 0, NULL, 'f' },
+ 				   { "help", 0, NULL, 'h' },
++				   { "quiet", 0, NULL, 'q' },
+ 				   { "syslog", 0, NULL, 's' },
+ 				   { "verbose", 0, NULL, 'v' },
+ 				   { "version", 0, NULL, 'V' },
+@@ -231,7 +233,7 @@
+ 	try_old_version("rmmod", argv);
+ 
+ 	while ((opt = getopt_long(argc, argv,
+-			"afh?swvV", options, NULL)) != EOF) {
++			"afh?qswvV", options, NULL)) != EOF) {
+ 		switch (opt) {
+ 		case 'a':	// --all
+ 			all = 1;
+@@ -239,6 +241,9 @@
+ 		case 'f':	// --force
+ 			flags |= O_TRUNC;
+ 			break;
++		case 'q':	// --quiet
++			verbose--;
++			break;
+ 		case 's':	// --syslog
+ 			openlog("rmmod", LOG_CONS, LOG_DAEMON);
+ 			log = 1;

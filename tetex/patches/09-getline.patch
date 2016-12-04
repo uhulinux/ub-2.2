@@ -1,0 +1,130 @@
+diff -Naurdp tetex-src-3.0.orig/texk/dvipsk/afm2tfm.c tetex-src-3.0/texk/dvipsk/afm2tfm.c
+--- tetex-src-3.0.orig/texk/dvipsk/afm2tfm.c	2005-01-30 14:17:09.000000000 +0100
++++ tetex-src-3.0/texk/dvipsk/afm2tfm.c	2009-12-08 19:38:57.394749767 +0100
+@@ -257,7 +257,7 @@ transform P2C(register int, x, register 
+ }
+ 
+ int
+-getline P1H(void) {
++tgetline P1H(void) {
+    register char *p ;
+    register int c ;
+ 
+@@ -606,7 +606,7 @@ readadobe P1H(void) {
+    ai = newchar() ;
+    ai->adobenum = -1 ;
+    ai->adobename = "||" ; /* boundary character name */
+-   while (getline()) {
++   while (tgetline()) {
+       switch(interest(paramstring())) {
+ case FontName:
+          fontname = paramnewstring() ;
+@@ -1882,7 +1882,7 @@ char *gettoken() {
+ 
+    while (1) {
+       while (param == 0 || *param == 0) {
+-         if (getline() == 0)
++         if (tgetline() == 0)
+             error("! premature end in encoding file") ;
+          for (p=buffer; *p; p++)
+             if (*p == '%') {
+@@ -1973,7 +1973,7 @@ struct encoding *readencoding P1C(char *
+       p = gettoken() ;
+       if (strcmp(p, "]"))
+          error("! token 258 in encoding must be make-array (])") ;
+-      while (getline()) {
++      while (tgetline()) {
+          for (p=buffer; *p; p++)
+             if (*p == '%') {
+                if (ignoreligkern == 0)
+diff -Naurdp tetex-src-3.0.orig/texk/web2c/cpascal.h tetex-src-3.0/texk/web2c/cpascal.h
+--- tetex-src-3.0.orig/texk/web2c/cpascal.h	2004-08-28 22:49:59.000000000 +0200
++++ tetex-src-3.0/texk/web2c/cpascal.h	2009-12-08 21:20:47.946275802 +0100
+@@ -14,6 +14,7 @@
+ 
+ /* We must include this first, to resolve many C issues.  */
+ #include "config.h"
++#define getline tgetline
+ 
+ /* We only use getopt in the applications, not in web2c itself.  */
+ #include <kpathsea/getopt.h>
+diff -Naurdp tetex-src-3.0.orig/texk/web2c/mpware/mpto.c tetex-src-3.0/texk/web2c/mpware/mpto.c
+--- tetex-src-3.0.orig/texk/web2c/mpware/mpto.c	2004-07-14 19:40:35.000000000 +0200
++++ tetex-src-3.0/texk/web2c/mpware/mpto.c	2009-12-08 19:19:15.334775331 +0100
+@@ -95,7 +95,7 @@ void err P1C(char *, msg)
+ 	exit(1);
+ }
+ 
+-char *getline()	/* returns NULL on EOF or error, otherwise buf */
++char *tgetline()	/* returns NULL on EOF or error, otherwise buf */
+ {
+ 	int c;
+ 	unsigned loc = 0;
+@@ -203,10 +203,10 @@ void copytex()
+ 
+ 	while (*aa==' ' || *aa=='\t') aa++;
+ 	if (*aa==0)
+-		if ((aa=getline())==NULL)
++		if ((aa=tgetline())==NULL)
+ 			err("btex section does not end");
+ 	do {	if (*aa==0)
+-			if ((aa=getline())==NULL)
++			if ((aa=tgetline())==NULL)
+ 				err("btex section does not end");
+ 			else printf("\n");
+ 		if (getbta(aa) && *tt=='e') {
+@@ -372,7 +372,7 @@ WEB2CVERSION);
+           postverb = troff_postverb;
+ 	}
+ 	printf("%s",predoc);
+-	while (getline()!=NULL)
++	while (tgetline()!=NULL)
+ 		do_line();
+ 	printf("%s",postdoc);
+         free(buf);
+diff -Naurdp tetex-src-3.0.orig/texk/web2c/tangleboot.p tetex-src-3.0/texk/web2c/tangleboot.p
+--- tetex-src-3.0.orig/texk/web2c/tangleboot.p	2004-07-14 19:47:22.000000000 +0200
++++ tetex-src-3.0/texk/web2c/tangleboot.p	2009-12-08 19:17:32.002275274 +0100
+@@ -577,7 +577,7 @@ line:=templine;line:=line+1;
+ if not inputln(webfile)then begin begin writeln(stdout);
+ write(stdout,'! WEB file ended during a change');error;end;
+ inputhasended:=true;goto 10;end;if linesdontmatch then n:=n+1;end;
+-10:end;{:132}{135:}procedure getline;label 20;
++10:end;{:132}{135:}procedure tgetline;label 20;
+ begin 20:if changing then{137:}begin line:=line+1;
+ if not inputln(changefile)then begin begin writeln(stdout);
+ write(stdout,'! Change file ended without @z');error;end;buffer[0]:=64;
+@@ -604,13 +604,13 @@ controlcode:=136;end;68,100:controlcode:
+ 60:controlcode:=135;61:controlcode:=2;92:controlcode:=3;
+ others:controlcode:=0 end;end;{:139}{140:}function skipahead:eightbits;
+ label 30;var c:eightbits;
+-begin while true do begin if loc>limit then begin getline;
++begin while true do begin if loc>limit then begin tgetline;
+ if inputhasended then begin c:=136;goto 30;end;end;buffer[limit+1]:=64;
+ while buffer[loc]<>64 do loc:=loc+1;if loc<=limit then begin loc:=loc+2;
+ c:=controlcode(buffer[loc-1]);if(c<>0)or(buffer[loc-1]=62)then goto 30;
+ end;end;30:skipahead:=c;end;{:140}{141:}procedure skipcomment;label 10;
+ var bal:eightbits;c:ASCIIcode;begin bal:=0;
+-while true do begin if loc>limit then begin getline;
++while true do begin if loc>limit then begin tgetline;
+ if inputhasended then begin begin writeln(stdout);
+ write(stdout,'! Input ended in mid-comment');error;end;goto 10;end;end;
+ c:=buffer[loc];loc:=loc+1;{142:}if c=64 then begin c:=buffer[loc];
+@@ -622,7 +622,7 @@ end end else if(c=92)and(buffer[loc]<>64
+ then bal:=bal+1 else if c=125 then begin if bal=0 then goto 10;
+ bal:=bal-1;end{:142};end;10:end;{:141}{145:}function getnext:eightbits;
+ label 20,30,31;var c:eightbits;d:eightbits;j,k:0..longestname;
+-begin 20:if loc>limit then begin getline;
++begin 20:if loc>limit then begin tgetline;
+ if inputhasended then begin c:=136;goto 31;end;end;c:=buffer[loc];
+ loc:=loc+1;
+ if scanninghex then{146:}if((c>=48)and(c<=57))or((c>=65)and(c<=70))then
+@@ -647,7 +647,7 @@ until d=34;idloc:=loc-1;c:=130;end{:149}
+ 64:{150:}begin c:=controlcode(buffer[loc]);loc:=loc+1;
+ if c=0 then goto 20 else if c=13 then scanninghex:=true else if c=135
+ then{151:}begin{153:}k:=0;
+-while true do begin if loc>limit then begin getline;
++while true do begin if loc>limit then begin tgetline;
+ if inputhasended then begin begin writeln(stdout);
+ write(stdout,'! Input ended in section name');error;end;goto 30;end;end;
+ d:=buffer[loc];{154:}if d=64 then begin d:=buffer[loc+1];

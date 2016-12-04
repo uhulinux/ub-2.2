@@ -1,0 +1,14 @@
+diff -Naurdp a/Build.PL b/Build.PL
+--- a/Build.PL	2009-11-07 21:47:35.000000000 +0100
++++ b/Build.PL	2010-02-26 02:39:15.667269547 +0100
+@@ -12,8 +12,8 @@ use lib  'make/lib';
+ use Data::Dumper;
+ use SDL::Build;
+ use SDL::Utility;
+-use YAML;
+-use YAML::Node;
++use Module::Build::YAML;
++#use Module::Build::YAML::Node;
+ 
+ print STDERR <<BROKENWIN if ($^O =~ /MSWin.*|cygwin/ );
+ *************************** !!!WARNING!!! *****************************

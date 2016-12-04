@@ -1,0 +1,12 @@
+diff -Naur syslinux-3.83-orig/MCONFIG syslinux-3.83/MCONFIG
+--- syslinux-3.83-orig/MCONFIG	2009-10-06 00:06:06.000000000 +0200
++++ syslinux-3.83/MCONFIG	2009-12-12 15:41:51.000000000 +0100
+@@ -23,7 +23,7 @@
+ LIBDIR   = /usr/lib
+ DATADIR  = /usr/share
+ AUXDIR   = $(DATADIR)/syslinux
+-MANDIR	 = /usr/man
++MANDIR	 = /usr/share/man
+ INCDIR   = /usr/include
+ TFTPBOOT = /tftpboot
+ COM32DIR = $(AUXDIR)/com32

@@ -1,0 +1,14 @@
+diff -Naur scite-1.70.orig/scite/src/SciTEGlobal.properties scite-1.70/scite/src/SciTEGlobal.properties
+--- scite-1.70.orig/scite/src/SciTEGlobal.properties	2006-06-08 13:39:52.000000000 +0200
++++ scite-1.70/scite/src/SciTEGlobal.properties	2006-08-15 20:01:54.000000000 +0200
+@@ -210,8 +210,8 @@
+ #code.page=932
+ #character.set=128
+ # Unicode
+-#code.page=65001
+-code.page=0
++code.page=65001
++#code.page=0
+ #character.set=204
+ # Required for Unicode to work on GTK+:
+ #LC_CTYPE=en_US.UTF-8

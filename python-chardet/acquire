@@ -1,0 +1,4 @@
+#!/usr/bin/env dl
+
+python2-chardet-${UB_VERSION}.tgz python2-chardet-${UB_VERSION}/
+	http://chardet.feedparser.org/download/

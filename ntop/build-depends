@@ -1,0 +1,16 @@
+fontconfig-dev
+freetype2-dev
+gdbm-dev
+glib2-dev
+libgd-dev
+libjpeg-dev
+libpcap-dev
+libpng-dev
+libx11-dev
+libxext-dev
+libxml2-dev
+libxpm-dev
+libxt-dev
+openssl-dev
+rrdtool-dev
+tcp-wrappers-dev

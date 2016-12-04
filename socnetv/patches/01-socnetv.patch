@@ -1,0 +1,17 @@
+diff -Naurd orig/socnetv.desktop.in mod/socnetv.desktop.in
+--- orig/socnetv.desktop.in	2009-02-26 18:02:30.000000000 +0100
++++ mod/socnetv.desktop.in	2010-01-28 17:04:54.000000000 +0100
+@@ -1,10 +1,11 @@
+ [Desktop Entry]
+-X-SuSE-translate=true
++Version=1.1
+ Name=SocNetV
+ GenericName=Social Networks Analysis and Visualisation
+ Comment=Social Networks Visualisation and Analysis.
++Comment[hu]=Szociális hálózat analízis
+ Exec=socnetv
+ Icon=socnetv
+-Categories=Education;Science;Math;Qt;
++Categories=Education;Science;Math;Qt;X-UHU-Menu/Edutainment/Mathematics;
+ Terminal=false
+ Type=Application

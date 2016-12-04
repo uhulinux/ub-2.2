@@ -1,0 +1,14 @@
+#!/bin/sh -eux
+
+#mkdir -p "$UB_INSTALLDIR"/usr/lib/xemacs/xemacs-packages/
+#cp -a xemacs-packages/.  "$UB_INSTALLDIR"/usr/lib/xemacs/xemacs-packages/
+
+ub_install
+ln -sf /usr/share/xemacs-21.5-b29/etc/xemacs-icon.xpm "$UB_INSTALLDIR"/usr/share/pixmaps/
+rm "$UB_INSTALLDIR"/usr/bin/{b2m,ctags,etags,rcs-checkin}
+rm "$UB_INSTALLDIR"/usr/share/man/{ctags.1,etags.1}
+rm "$UB_INSTALLDIR"/usr/lib/xemacs-21.5-b29/i686-uhu-linux/modules/auto-autoloads.el~
+mv "$UB_INSTALLDIR"/usr/share/man/*.1 "$UB_INSTALLDIR"/usr/share/man/man1/
+rm "$UB_INSTALLDIR"/usr/share/info/dir
+gzip "$UB_INSTALLDIR"/usr/share/info/*
+rm "$UB_INSTALLDIR"/usr/share/info/{info.info.gz,texinfo.info-2.gz,cl.info.gz,texinfo.info-1.gz,texinfo.info.gz,standards.info.gz,widget.info.gz}

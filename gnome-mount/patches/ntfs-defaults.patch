@@ -1,0 +1,21 @@
+diff -Naurd a/gnome-mount.schemas.in b/gnome-mount.schemas.in
+--- a/gnome-mount.schemas.in	2007-12-05 13:56:41.000000000 +0100
++++ b/gnome-mount.schemas.in	2007-12-05 13:57:46.000000000 +0100
+@@ -42,7 +42,7 @@
+         <applyto>/system/storage/default_options/ntfs/mount_options</applyto>
+         <type>list</type>
+         <list_type>string</list_type>
+-        <default>[umask=222]</default>
++        <default>[umask=000]</default>
+         <locale name="C">
+           <short>Default mount options for ntfs fs</short>
+           <long>A list of default mount options for volumes formatted with the ntfs file system.</long>
+@@ -64,7 +64,7 @@
+         <applyto>/system/storage/default_options/ntfs-3g/mount_options</applyto>
+         <type>list</type>
+         <list_type>string</list_type>
+-        <default>[locale=]</default>
++        <default>[locale=C.UTF8]</default>
+         <locale name="C">
+           <short>Default mount options for ntfs-3g fs</short>
+           <long>A list of default mount options for volumes formatted with the ntfs file system using ntfs-3g.</long>

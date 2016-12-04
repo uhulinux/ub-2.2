@@ -1,0 +1,67 @@
+diff -Naurdp a/Documentation/iptraf.8 b/Documentation/iptraf.8
+--- a/Documentation/iptraf.8	2002-03-18 09:05:19.000000000 +0100
++++ b/Documentation/iptraf.8	2005-10-26 12:40:31.000000000 +0200
+@@ -86,7 +86,7 @@ shows a command summary
+ 
+ .SH FILES
+  /var/log/iptraf/*.log - log file
+- /var/local/iptraf/* - important IPTraf data files
++ /var/lib/iptraf/* - important IPTraf data files
+ 
+ .SH SEE ALSO
+  Documentation/* - complete documentation written by the author
+diff -Naurdp a/Documentation/rvnamed.8 b/Documentation/rvnamed.8
+--- a/Documentation/rvnamed.8	2000-03-13 13:03:59.000000000 +0100
++++ b/Documentation/rvnamed.8	2005-10-26 12:40:31.000000000 +0200
+@@ -11,7 +11,7 @@ is a supplementary program distributed w
+ This program is only used by iptraf and, therefore, is useless alone.
+ 
+ .SH FILES
+- /var/local/iptraf/rvnamed.log - log file
++ /var/log/iptraf/rvnamed.log - log file
+ 
+ .SH SEE ALSO
+ README.rvnamed - documentation from the author
+diff -Naurdp a/src/fltselect.c b/src/fltselect.c
+--- a/src/fltselect.c	2005-09-13 08:42:54.000000000 +0200
++++ b/src/fltselect.c	2005-10-26 12:40:31.000000000 +0200
+@@ -23,6 +23,7 @@ details.
+ #include <unistd.h>
+ #include <fcntl.h>
+ #include <string.h>
++#include <stdint.h>
+ #include <sys/stat.h>
+ #include <netinet/udp.h>
+ #include <netinet/in.h>
+diff -Naurdp a/src/fltselect.h b/src/fltselect.h
+--- a/src/fltselect.h	2005-09-13 08:42:54.000000000 +0200
++++ b/src/fltselect.h	2005-10-26 12:40:31.000000000 +0200
+@@ -7,6 +7,7 @@ Copyright (c) Gerard Paul Java 1997
+ 			
+ ***/
+ 
++#include <stdint.h>
+ #include <sys/types.h>
+ #include <netinet/udp.h>
+ #include "ipfilter.h"
+diff -Naurdp a/src/Makefile b/src/Makefile
+--- a/src/Makefile	2005-10-26 12:40:31.000000000 +0200
++++ b/src/Makefile	2005-10-26 12:41:04.000000000 +0200
+@@ -31,7 +31,7 @@ PROF		= #-pg
+ # options to be passed to the compiler.  I don't believe they need to be
+ # modified (except for -m486 on non-Intel x86 platforms).
+ 
+-CFLAGS		= -Wall #-O2 #-m486
++CFLAGS		= -Wall -O3
+ DIRS		= -DWORKDIR=\"$(WORKDIR)\" \
+ 		  -DLOGDIR=\"$(LOGDIR)\" -DEXECDIR=\"$(TARGET)\"
+ LDOPTS		= #-static
+@@ -39,7 +39,7 @@ LDOPTS		= #-static
+ # you may want to change this to point to your ncurses include directory
+ # if the ncurses include files are not in the default location.
+ 
+-INCLUDEDIR	= -I/usr/include/ncurses -I../support
++INCLUDEDIR	= -I../support #-I/usr/include/ncurses 
+ 
+ # You can uncomment this one to disable the backspace key in input fields.
+ # This means you must use the Del key or Ctrl+H combination to erase the

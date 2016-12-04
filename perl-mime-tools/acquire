@@ -1,0 +1,5 @@
+#!/usr/bin/env dl
+
+MIME-tools-${UB_VERSION}.tar.gz MIME-tools-${UB_VERSION%a}/
+	http://search.cpan.org/CPAN/authors/id/E/ER/ERYQ/
+	ftp://ftp.cpan.org/pub/CPAN/modules/by-module/MIME/

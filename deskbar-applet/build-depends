@@ -1,0 +1,17 @@
+dbus-python-dev
+docbook-dtds
+evolution-data-server-dev
+gnome-doc-utils-dev
+gnome-python-desktop
+gnome-python-dev
+gnome-python-extras-dev
+gnome2-applets
+gnome2-desktop-dev
+intltool
+krb5-dev
+libsm-dev
+libtasn1-dev
+pygtk
+pygtk-dev
+python-dev
+xcb-util-dev

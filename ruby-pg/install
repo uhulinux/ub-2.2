@@ -1,0 +1,7 @@
+#!/bin/sh -eux
+
+gemdir="$(ruby -rubygems -e 'puts Gem::dir')"
+
+gem install --local --install-dir="$UB_INSTALLDIR/$gemdir" pg-"$UB_VERSION".gem
+
+#mv "$UB_INSTALLDIR/$gemdir"/bin/rails "$UB_INSTALLDIR"/usr/bin/

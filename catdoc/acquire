@@ -1,0 +1,4 @@
+#!/usr/bin/env dl
+
+catdoc-${UB_VERSION}.tar.gz catdoc-${UB_VERSION}/
+	http://ftp.wagner.pp.ru/pub/catdoc/

@@ -1,0 +1,14 @@
+alsa-lib-dev
+docbook-dtds
+e2fsprogs-dev
+gnome-doc-utils-dev
+gnome2-desktop-dev
+gnome2-panel-dev
+intltool
+libcanberra-dev
+libgtop2-dev
+libsm-dev
+libxslt-dev
+openssl-dev
+rarian-dev
+xcb-util-dev

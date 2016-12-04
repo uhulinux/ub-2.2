@@ -1,0 +1,7 @@
+[Desktop Entry]
+Encoding=UTF-8
+Type=Application
+Name=Emacs
+Icon=/usr/share/pixmaps/emacs.png
+Exec=emacs %F
+Categories=X-UHU-Menu/Tools/Editors;

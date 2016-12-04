@@ -1,0 +1,20 @@
+diff -Naur sysvinit-2.86.orig/src/last.c sysvinit-2.86/src/last.c
+--- sysvinit-2.86.orig/src/last.c	2004-07-30 14:16:26.000000000 +0200
++++ sysvinit-2.86/src/last.c	2007-03-05 14:57:06.000000000 +0100
+@@ -17,6 +17,7 @@
+  *		2 of the License, or (at your option) any later version.
+  */
+ 
++#define _FILE_OFFSET_BITS 64
+ #include <sys/types.h>
+ #include <sys/stat.h>
+ #include <sys/fcntl.h>
+@@ -211,7 +212,7 @@
+ 
+ 	if (u == NULL) {
+ 		r = oldfmt ? sizeof(struct oldutmp) : sizeof(struct utmp);
+-		fseek(fp, -1 * r, SEEK_END);
++		fseeko(fp, -1 * r, SEEK_END);
+ 		return 1;
+ 	}
+ 

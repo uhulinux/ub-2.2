@@ -1,0 +1,4 @@
+#!/usr/bin/env dl
+
+anacron-${UB_VERSION}.tar.gz anacron-${UB_VERSION}/
+	http://downloads.sourceforge.net/anacron/

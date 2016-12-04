@@ -1,0 +1,24 @@
+diff -Naur orig/src/usr/share/applications/diffuse.desktop mod/src/usr/share/applications/diffuse.desktop
+--- orig/src/usr/share/applications/diffuse.desktop	2010-04-13 14:30:04.000000000 +0200
++++ mod/src/usr/share/applications/diffuse.desktop	2010-04-13 22:46:04.000000000 +0200
+@@ -1,4 +1,5 @@
+ [Desktop Entry]
++Version=1.1
+ Name=Diffuse Merge Tool
+ Name[de]=Diffuse Mischwerkzeug
+ Name[es]=Diffuse utillaje de textos
+@@ -7,6 +8,7 @@
+ Comment=Graphical tool for merging and comparing text files
+ Comment[de]=Werzeug zum Mischen und Vergleichen von Textdateien
+ Comment[es]=Un utillaje para juntar y comparar archivos de texto
++Comment[hu]=Text fájlok összehasonlítása, összefésülése
+ Comment[ja]=テキストファイルをマージして比較するためのグラフィックツール
+ Comment[zh_CN]=图形化的比较和合并文本文件的工具
+ Exec=diffuse -s %F
+@@ -14,5 +16,5 @@
+ Terminal=false
+ Type=Application
+ MimeType=text/plain;text/x-csrc;text/x-chdr;
+-Categories=Development;GTK;TextEditor;TextTools;
++Categories=Development;GTK;TextEditor;TextTools;X-UHU-Menu/Tools/Utilities;
+ StartupNotify=true

@@ -1,0 +1,8 @@
+[Desktop Entry]
+Encoding=UTF-8
+Type=Application
+Name=GKrellM
+Comment=System Monitor
+Comment[hu]=Rendszermonitorozó
+Exec=gkrellm
+Categories=X-UHU-Menu/Tools/Utilities;

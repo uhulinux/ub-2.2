@@ -1,0 +1,7 @@
+#!/bin/sh -eux
+
+make \
+	FACILITY=LOG_AUTH \
+	ZOMBIES='-DIGNORE_SIGCHLD -Dlint' \
+	LIBS="-Wl,-Bstatic -lwrap -Wl,-Bdynamic -lnsl" \
+	AUX=""

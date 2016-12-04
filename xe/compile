@@ -1,0 +1,12 @@
+#!/bin/sh -eux
+
+chmod -R -x ./doc/xehelp/*.*
+chmod -R -x ./doc/xehelp/html/*.*
+chmod -x ./doc/en/xereadme.txt
+chmod -x ./AUTHORS
+chmod -x ./README
+
+autoconf
+
+ub_configure
+ub_make all

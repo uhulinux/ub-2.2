@@ -1,0 +1,93 @@
+diff -Naurd smpeg.orig/audio/Makefile.in smpeg/audio/Makefile.in
+--- smpeg.orig/audio/Makefile.in	2001-06-18 22:59:15.000000000 +0200
++++ smpeg/audio/Makefile.in	2009-07-17 23:02:00.000000000 +0200
+@@ -116,9 +116,9 @@
+ mpegtoraw.lo
+ CXXFLAGS = @CXXFLAGS@
+ CXXCOMPILE = $(CXX) $(DEFS) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CXXFLAGS) $(CXXFLAGS)
+-LTCXXCOMPILE = $(LIBTOOL) --mode=compile $(CXX) $(DEFS) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CXXFLAGS) $(CXXFLAGS)
++LTCXXCOMPILE = $(LIBTOOL) --mode=compile --tag=CXX $(CXX) $(DEFS) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CXXFLAGS) $(CXXFLAGS)
+ CXXLD = $(CXX)
+-CXXLINK = $(LIBTOOL) --mode=link $(CXXLD) $(AM_CXXFLAGS) $(CXXFLAGS) $(LDFLAGS) -o $@
++CXXLINK = $(LIBTOOL) --mode=link --tag=CXX $(CXXLD) $(AM_CXXFLAGS) $(CXXFLAGS) $(LDFLAGS) -o $@
+ DIST_COMMON =  README AUTHORS COPYING.LIB Makefile.am Makefile.in
+ 
+ 
+diff -Naurd smpeg.orig/Makefile.in smpeg/Makefile.in
+--- smpeg.orig/Makefile.in	2001-06-18 22:59:14.000000000 +0200
++++ smpeg/Makefile.in	2009-07-17 23:09:18.000000000 +0200
+@@ -167,14 +167,14 @@
+ 
+ CXXFLAGS = @CXXFLAGS@
+ CXXCOMPILE = $(CXX) $(DEFS) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CXXFLAGS) $(CXXFLAGS)
+-LTCXXCOMPILE = $(LIBTOOL) --mode=compile $(CXX) $(DEFS) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CXXFLAGS) $(CXXFLAGS)
++LTCXXCOMPILE = $(LIBTOOL) --mode=compile --tag=CXX $(CXX) $(DEFS) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CXXFLAGS) $(CXXFLAGS)
+ CXXLD = $(CXX)
+-CXXLINK = $(LIBTOOL) --mode=link $(CXXLD) $(AM_CXXFLAGS) $(CXXFLAGS) $(LDFLAGS) -o $@
++CXXLINK = $(LIBTOOL) --mode=link --tag=CXX $(CXXLD) $(AM_CXXFLAGS) $(CXXFLAGS) $(LDFLAGS) -o $@
+ CFLAGS = @CFLAGS@
+ COMPILE = $(CC) $(DEFS) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS)
+-LTCOMPILE = $(LIBTOOL) --mode=compile $(CC) $(DEFS) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS)
++LTCOMPILE = $(LIBTOOL) --mode=compile --tag=CC $(CC) $(DEFS) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS)
+ CCLD = $(CC)
+-LINK = $(LIBTOOL) --mode=link $(CCLD) $(AM_CFLAGS) $(CFLAGS) $(LDFLAGS) -o $@
++LINK = $(LIBTOOL) --mode=link --tag=CC $(CCLD) $(AM_CFLAGS) $(CFLAGS) $(LDFLAGS) -o $@
+ man1dir = $(mandir)/man1
+ MANS = $(man_MANS)
+ 
+@@ -262,13 +262,13 @@
+ maintainer-clean-compile:
+ 
+ .c.lo:
+-	$(LIBTOOL) --mode=compile $(COMPILE) -c $<
++	$(LIBTOOL) --mode=compile --tag=CC $(COMPILE) -c $<
+ 
+ .s.lo:
+-	$(LIBTOOL) --mode=compile $(COMPILE) -c $<
++	$(LIBTOOL) --mode=compile --tag=CC $(COMPILE) -c $<
+ 
+ .S.lo:
+-	$(LIBTOOL) --mode=compile $(COMPILE) -c $<
++	$(LIBTOOL) --mode=compile --tag=CC $(COMPILE) -c $<
+ 
+ mostlyclean-libtool:
+ 	-rm -f *.lo
+diff -Naurd smpeg.orig/video/Makefile.in smpeg/video/Makefile.in
+--- smpeg.orig/video/Makefile.in	2001-06-18 22:59:15.000000000 +0200
++++ smpeg/video/Makefile.in	2009-07-17 23:06:29.000000000 +0200
+@@ -116,14 +116,14 @@
+ vhar128.lo mmxflags_asm.lo mmxidct_asm.lo
+ CXXFLAGS = @CXXFLAGS@
+ CXXCOMPILE = $(CXX) $(DEFS) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CXXFLAGS) $(CXXFLAGS)
+-LTCXXCOMPILE = $(LIBTOOL) --mode=compile $(CXX) $(DEFS) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CXXFLAGS) $(CXXFLAGS)
++LTCXXCOMPILE = $(LIBTOOL) --mode=compile --tag=CXX $(CXX) $(DEFS) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CXXFLAGS) $(CXXFLAGS)
+ CXXLD = $(CXX)
+-CXXLINK = $(LIBTOOL) --mode=link $(CXXLD) $(AM_CXXFLAGS) $(CXXFLAGS) $(LDFLAGS) -o $@
++CXXLINK = $(LIBTOOL) --mode=link --tag=CXX $(CXXLD) $(AM_CXXFLAGS) $(CXXFLAGS) $(LDFLAGS) -o $@
+ CFLAGS = @CFLAGS@
+ COMPILE = $(CC) $(DEFS) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS)
+-LTCOMPILE = $(LIBTOOL) --mode=compile $(CC) $(DEFS) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS)
++LTCOMPILE = $(LIBTOOL) --mode=compile --tag=CC $(CC) $(DEFS) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS)
+ CCLD = $(CC)
+-LINK = $(LIBTOOL) --mode=link $(CCLD) $(AM_CFLAGS) $(CFLAGS) $(LDFLAGS) -o $@
++LINK = $(LIBTOOL) --mode=link --tag=CC $(CCLD) $(AM_CFLAGS) $(CFLAGS) $(LDFLAGS) -o $@
+ DIST_COMMON =  README Makefile.am Makefile.in
+ 
+ 
+@@ -174,13 +174,13 @@
+ maintainer-clean-compile:
+ 
+ .c.lo:
+-	$(LIBTOOL) --mode=compile $(COMPILE) -c $<
++	$(LIBTOOL) --mode=compile --tag=CC $(COMPILE) -c $<
+ 
+ .s.lo:
+-	$(LIBTOOL) --mode=compile $(COMPILE) -c $<
++	$(LIBTOOL) --mode=compile --tag=CC $(COMPILE) -c $<
+ 
+ .S.lo:
+-	$(LIBTOOL) --mode=compile $(COMPILE) -c $<
++	$(LIBTOOL) --mode=compile --tag=CC $(COMPILE) -c $<
+ 
+ mostlyclean-libtool:
+ 	-rm -f *.lo

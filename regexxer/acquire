@@ -1,0 +1,4 @@
+#!/usr/bin/env dl
+
+regexxer-$UB_VERSION.tar.gz regexxer-$UB_VERSION/
+	http://downloads.sourceforge.net/regexxer/

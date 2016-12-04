@@ -1,0 +1,12 @@
+diff -Naurd gnome-panel-2.28.0.orig/applets/clock/org.gnome.clockapplet.mechanism.policy.in gnome-panel-2.28.0/applets/clock/org.gnome.clockapplet.mechanism.policy.in
+--- gnome-panel-2.28.0.orig/applets/clock/org.gnome.clockapplet.mechanism.policy.in	2009-08-11 20:33:52.000000000 +0200
++++ gnome-panel-2.28.0/applets/clock/org.gnome.clockapplet.mechanism.policy.in	2009-12-02 19:33:44.000000000 +0100
+@@ -13,7 +13,7 @@
+     <_message>Privileges are required to change the system time zone.</_message>
+     <defaults>
+       <allow_inactive>no</allow_inactive>
+-      <allow_active>auth_self_keep</allow_active>
++      <allow_active>auth_admin_keep</allow_active>
+     </defaults>
+   </action>
+ 

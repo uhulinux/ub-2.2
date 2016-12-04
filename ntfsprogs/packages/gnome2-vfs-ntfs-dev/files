@@ -1,0 +1,2 @@
+	/usr/lib/gnome-vfs-*/modules/*.a
+	/usr/lib/gnome-vfs-*/modules/*.la

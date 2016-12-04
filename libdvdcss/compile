@@ -1,0 +1,6 @@
+#!/bin/sh -eux
+
+autoreconf -fi
+ub_compile
+make test/csstest
+# make test/dvd_region

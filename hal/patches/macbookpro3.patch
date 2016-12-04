@@ -1,0 +1,165 @@
+diff -Naurdp a/fdi/policy/10osvendor/10-macbookpro-utils.fdi b/fdi/policy/10osvendor/10-macbookpro-utils.fdi
+--- a/fdi/policy/10osvendor/10-macbookpro-utils.fdi	2008-08-10 15:50:10.000000000 +0200
++++ b/fdi/policy/10osvendor/10-macbookpro-utils.fdi	2010-02-23 17:43:24.225477347 +0100
+@@ -13,6 +13,11 @@
+         <match key="system.hardware.product" string_outof="MacBookPro1,1;MacBookPro1,2;MacBookPro2,1;MacBookPro2,2">
+           <spawn udi="/org/freedesktop/Hal/devices/macbook_pro_lcd_panel"/>
+         </match>
++        <match key="system.hardware.product" string="MacBookPro3,1">
++          <spawn udi="/org/freedesktop/Hal/devices/macbook_pro_light_sensor"/>
++          <spawn udi="/org/freedesktop/Hal/devices/macbook_pro_keyboard_backlight"/>
++          <spawn udi="/org/freedesktop/Hal/devices/macbook_pro_lcd_panel"/>
++        </match>
+       </match>
+     </match>
+   </device>
+@@ -23,6 +28,9 @@
+       <merge key="info.product" type="string">MacBook Pro Laptop Panel</merge>
+       <merge key="laptop_panel.access_method" type="string">custom</merge>
+       <merge key="laptop_panel.num_levels" type="int">229</merge>
++      <match key="@info.parent:system.hardware.product" string="MacBookPro3,1">
++        <merge key="laptop_panel.num_levels" type="int">16</merge>
++      </match>
+       <append key="info.addons" type="strlist">hald-addon-macbookpro-backlight</append>
+     </match>
+   </device>
+diff -Naurdp a/hald/linux/addons/addon-macbookpro-backlight.c b/hald/linux/addons/addon-macbookpro-backlight.c
+--- a/hald/linux/addons/addon-macbookpro-backlight.c	2009-08-24 14:42:30.000000000 +0200
++++ b/hald/linux/addons/addon-macbookpro-backlight.c	2010-02-23 17:45:45.285516832 +0100
+@@ -53,6 +53,14 @@ static char *udi;
+ static DBusConnection *conn;
+ 
+ static char* memory;
++
++enum {
++	GPU_NONE = 0,
++	GPU_ATI_X1600 = 1,
++	GPU_NVIDIA_8600MGT = 2,
++};
++
++static int gpu_type = GPU_NONE;
+  
+ static inline unsigned int readl(const volatile void *addr)
+ {
+@@ -70,13 +78,45 @@ static inline void writel(unsigned int b
+ static unsigned char 
+ read_backlight (void)
+ {
+- 	return INREG(0x7af8) >> 8;
++	unsigned char value;
++
++	switch (gpu_type) {
++		case GPU_ATI_X1600:
++		 	value = INREG(0x7af8) >> 8;
++			value -= 27;
++			if (value < 0)
++				value = 0;
++			if (value > 228)
++				value = 228;
++			break;
++		case GPU_NVIDIA_8600MGT:
++			outb(0x03, 0xB3);
++			outb(0xBF, 0xB2);
++			value = (inb(0xB3) >> 4);
++			break;
++	}
++
++	HAL_DEBUG (("backlight level is %d", value));
++	return value;
+ }
+ 
+ static void 
+ write_backlight (unsigned char value)
+ {
+- 	OUTREG(0x7af8, 0x00000001 | ((unsigned int)value << 8));
++	HAL_DEBUG (("setting backlight level to %d", value));
++
++	switch (gpu_type) {
++		case GPU_ATI_X1600:
++			value += 27;
++		 	OUTREG(0x7af8, 0x00000001 | ((unsigned int)value << 8));
++			break;
++		case GPU_NVIDIA_8600MGT:
++			value <<= 4;
++			value |= 4;
++			outb(value, 0xB3);
++			outb(0xBF, 0xB2);
++			break;
++	}
+ }
+ 
+ 
+@@ -262,7 +302,7 @@ filter_function (DBusConnection *connect
+ 			} else {
+ 				int return_code;
+ 
+-				write_backlight (brightness + 27);
++				write_backlight (brightness);
+ 
+ 				reply = dbus_message_new_method_return (message);
+ 				if (reply == NULL)
+@@ -289,11 +329,7 @@ filter_function (DBusConnection *connect
+ 					   &err,
+ 					   DBUS_TYPE_INVALID)) {
+ 
+-			brightness = read_backlight () - 27;
+-			if (brightness < 0)
+-				brightness = 0;
+-			if (brightness > 228)
+-				brightness = 228;
++			brightness = read_backlight ();
+ 
+ 			/* dbg ("getting brightness, it's %d", brightness); */
+ 
+@@ -472,21 +508,28 @@ main (int argc, char *argv[])
+  	for(dev=pacc->devices; dev; dev=dev->next) {	/* Iterate over all devices */
+  		pci_fill_info(dev, PCI_FILL_IDENT | PCI_FILL_BASES);
+  		if ((dev->vendor_id == 0x1002) && (dev->device_id == 0x71c5)) { // ATI X1600
++			gpu_type = GPU_ATI_X1600;
+  			address = dev->base_addr[2];
+  			length = dev->size[2];
++		} else if ((dev->vendor_id == 0x10de) && (dev->device_id == 0x0407)) { // nVidia 8600M GT
++		gpu_type = GPU_NVIDIA_8600MGT;
+  		}
+  	}
+  	pci_cleanup(pacc);
+ 
+-	HAL_DEBUG (("addr 0x%x len=%d", address, length));
+- 
+- 	if (!address) {
+- 		HAL_DEBUG (("Failed to detect ATI X1600, aborting..."));
++	if (gpu_type == GPU_NONE) {
++		HAL_DEBUG (("Failed to detect a MacBook Pro GPU, aborting..."));
+ 		retval = 1;
+ 		goto out;
+  	}
++
++	HAL_DEBUG (("gpu_type=%d", gpu_type));
+  
+- 	fd = open ("/dev/mem", O_RDWR);
++switch (gpu_type) {
++  case GPU_ATI_X1600:
++	HAL_DEBUG (("addr 0x%x len=%d", address, length));
++
++	fd = open ("/dev/mem", O_RDWR);
+  	
+  	if (fd < 0) {
+  		HAL_DEBUG (("cannot open /dev/mem"));
+@@ -507,6 +550,17 @@ main (int argc, char *argv[])
+  	state = INREG(0x7ae4);
+  	OUTREG(0x7ae4, state);
+ 
++	break;
++
++  case GPU_NVIDIA_8600MGT:
++	if (ioperm (0xB2, 0xB3, 1) < 0) {
++		HAL_ERROR (("ioperm failed (you should be root)."));
++		exit(1);
++	}
++
++	break;
++}
++
+ 	if (ioperm (0x300, 0x304, 1) < 0) {
+ 		HAL_ERROR (("ioperm failed (you should be root)."));
+ 		exit(1);

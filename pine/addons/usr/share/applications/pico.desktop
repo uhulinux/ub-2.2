@@ -1,0 +1,10 @@
+[Desktop Entry]
+Encoding=UTF-8
+Type=Application
+Name=Pico
+Comment=Pine's text editor
+Comment[hu]=A Pine szövegszerkesztője
+Exec=pico %f
+Terminal=true
+Categories=X-UHU-Menu/Tools/Editors;
+X-UHU-Major=-1

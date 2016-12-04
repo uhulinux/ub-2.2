@@ -1,0 +1,24 @@
+diff -urN asd.orig/tex/latex/base/latex.ltx asd/tex/latex/base/latex.ltx
+--- tetex-src-3.0.orig/tetex-texmf/tex/latex/base/latex.ltx	2004-03-14 03:19:52.000000000 +0100
++++ tetex-src-3.0/tetex-texmf/asd/tex/latex/base/latex.ltx	2009-09-03 18:37:56.000000000 +0200
+@@ -525,20 +525,6 @@
+   \advance\count@\month
+   \advance\count@-#2\relax}
+ \expandafter\reserved@a\fmtversion\@nil
+-\ifnum\count@>65
+-  \typeout{^^J%
+-!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!^^J%
+-!  You are attempting to make a LaTeX format from a source file^^J%
+-!  That is more than five years old.^^J%
+-!^^J%
+-!  If you enter <return> to scroll past this message then the format^^J%
+-!  will be built, but please consider obtaining newer source files^^J%
+-!  before continuing to build LaTeX.^^J%
+-!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!^^J%
+-}
+-   \errhelp{To avoid this error message, obtain new LaTeX sources.}
+-   \errmessage{LaTeX source files more than 5 years old!}
+-\fi
+ \let\reserved@a\relax
+ \fi
+ \everyjob{\typeout{\fmtname

@@ -1,0 +1,11 @@
+--- seahorse-plugins.orig/configure	2009-04-13 18:17:49.000000000 +0200
++++ seahorse-plugins/configure	2009-05-01 11:17:46.000000000 +0200
+@@ -17415,7 +17415,7 @@
+ if test	"$DO_CHECK" = "yes"; then
+   accepted_versions="1.2 1.4 2.0"
+   # Extract the first word of "gpg", so it can be a program name with args.
+-set dummy gpg; ac_word=$2
++set dummy gpg2; ac_word=$2
+ { $as_echo "$as_me:${as_lineno-$LINENO}: checking for $ac_word" >&5
+ $as_echo_n "checking for $ac_word... " >&6; }
+ if test "${ac_cv_path_GNUPG+set}" = set; then

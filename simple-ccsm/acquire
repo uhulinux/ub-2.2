@@ -1,0 +1,4 @@
+#!/usr/bin/env dl
+
+simple-ccsm-${UB_VERSION}.tar.gz simple-ccsm-${UB_VERSION}/
+	http://releases.compiz-fusion.org/${UB_VERSION}/

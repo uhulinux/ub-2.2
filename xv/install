@@ -1,0 +1,9 @@
+#!/bin/sh -eux
+
+make \
+	BINDIR="$UB_INSTALLDIR"/usr/bin \
+	MANDIR="$UB_INSTALLDIR"/usr/share/man/man1 \
+	LIBDIR="$UB_INSTALLDIR"/tmp \
+	install
+
+rm -rf "$UB_INSTALLDIR"/tmp

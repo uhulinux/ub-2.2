@@ -1,0 +1,90 @@
+diff -Naur xv-3.10a.orig/Makefile xv-3.10a/Makefile
+--- xv-3.10a.orig/Makefile	2005-11-10 15:01:02.000000000 +0100
++++ xv-3.10a/Makefile	2005-11-10 15:00:43.000000000 +0100
+@@ -64,14 +64,15 @@
+ ###
+ JPEG    = -DDOJPEG
+ #JPEGDIR = jpeg
+-JPEGDIR = /usr
++#JPEGDIR = /usr
+ #JPEGDIR = /usr/local
+ #JPEGDIR = ../../libjpeg
+ ###
+-JPEGINC = -I$(JPEGDIR)/include
++#JPEGINC = -I$(JPEGDIR)/include
+ #JPEGINC = -I$(JPEGDIR)
+ ###
+-JPEGLIB = -L$(JPEGDIR)/lib -ljpeg
++#JPEGLIB = -L$(JPEGDIR)/lib -ljpeg
++JPEGLIB = -ljpeg
+ #JPEGLIB = -L$(JPEGDIR) -ljpeg
+ #JPEGLIB = $(JPEGDIR)/libjpeg.a
+ ###
+@@ -89,14 +90,15 @@
+ ### on your machine, *COMMENT OUT* the following lines
+ ###
+ PNG    = -DDOPNG
+-PNGDIR = /usr
++#PNGDIR = /usr
+ #PNGDIR = /usr/local
+ #PNGDIR = ../../libpng
+ ###
+-PNGINC = -I$(PNGDIR)/include
++#PNGINC = -I$(PNGDIR)/include
+ #PNGINC = -I$(PNGDIR)
+ ###
+-PNGLIB = -L$(PNGDIR)/lib -lpng
++#PNGLIB = -L$(PNGDIR)/lib -lpng
++PNGLIB = -lpng
+ #PNGLIB = -L$(PNGDIR) -lpng
+ #PNGLIB = $(PNGDIR)/libpng.a
+ 
+@@ -106,14 +108,15 @@
+ ### (newer versions of) the TIFF library to compile on your machine, *COMMENT
+ ### OUT* the following lines
+ ###
+-ZLIBDIR = /usr
++#ZLIBDIR = /usr
+ #ZLIBDIR = /usr/local
+ #ZLIBDIR = ../../zlib
+ ###
+-ZLIBINC = -I$(ZLIBDIR)/include
++#ZLIBINC = -I$(ZLIBDIR)/include
+ #ZLIBINC = -I$(ZLIBDIR)
+ ###
+-ZLIBLIB = -L$(ZLIBDIR)/lib -lz
++#ZLIBLIB = -L$(ZLIBDIR)/lib -lz
++ZLIBLIB = -lz
+ #ZLIBLIB = -L$(ZLIBDIR) -lz
+ #ZLIBLIB = $(ZLIBDIR)/libz.a
+ 
+@@ -131,17 +134,18 @@
+ #TIFF    = -DDOTIFF
+ TIFF    = -DDOTIFF -DUSE_TILED_TIFF_BOTLEFT_FIX
+ #TIFFDIR = tiff
+-TIFFDIR = /usr
++#TIFFDIR = /usr
+ #TIFFDIR = /usr/local
+ #TIFFDIR = ../../libtiff
+ ###
+-TIFFINC = -I$(TIFFDIR)/include
++#TIFFINC = -I$(TIFFDIR)/include
+ #TIFFINC = -I$(TIFFDIR)
+ ###
+ ### libtiff 3.5 and up may be compiled with zlib and libjpeg, but dependency
+ ### is properly handled in LIBS line ~143 lines below
+ ###
+-TIFFLIB = -L$(TIFFDIR)/lib -ltiff
++#TIFFLIB = -L$(TIFFDIR)/lib -ltiff
++TIFFLIB = -ltiff
+ #TIFFLIB = -L$(TIFFDIR) -ltiff
+ #TIFFLIB = $(TIFFDIR)/libtiff.a
+ ###
+@@ -201,6 +205,7 @@
+ 
+ ### for LINUX, uncomment the following line
+ #MCHN = -DLINUX -L/usr/X11R6/lib
++MCHN = -DLINUX
+ 
+ 
+ # For SCO 1.1 (UNIX 3.2v2) machines, uncomment the following:

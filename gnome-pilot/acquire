@@ -1,0 +1,4 @@
+#!/usr/bin/env dl
+
+gnome-pilot-${UB_VERSION}.tar.gz gnome-pilot-${UB_VERSION}/
+	ftp://ftp.gnome.org/pub/gnome/sources/gnome-pilot/${UB_VERSION_HEAD2}/

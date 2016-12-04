@@ -1,0 +1,22 @@
+diff -Naur fillets-ng-0.9.3-orig/configure fillets-ng-0.9.3/configure
+--- fillets-ng-0.9.3-orig/configure	2010-02-25 21:33:57.000000000 +0100
++++ fillets-ng-0.9.3/configure	2010-03-08 16:33:19.000000000 +0100
+@@ -6179,7 +6179,7 @@
+            cat >>confdefs.h <<\_ACEOF
+ #define HAVE_X11 1
+ _ACEOF
+-
++	   LIBS="-lX11 $LIBS"
+            X_LIBS="-lX11"
+        fi
+    fi
+@@ -7143,7 +7143,8 @@
+ if test -n "$CONFIG_FILES"; then
+ 
+ 
+-ac_cr=''
++ac_cr='
++'
+ ac_cs_awk_cr=`$AWK 'BEGIN { print "a\rb" }' </dev/null 2>/dev/null`
+ if test "$ac_cs_awk_cr" = "a${ac_cr}b"; then
+   ac_cs_awk_cr='\\r'

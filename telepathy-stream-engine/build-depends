@@ -1,0 +1,9 @@
+ghostscript
+gst-plugins-base-dev
+gtk2-dev
+imagemagick
+libxslt
+plotutils
+python-dev
+telepathy-farsight-dev
+telepathy-glib-dev

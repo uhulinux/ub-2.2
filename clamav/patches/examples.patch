@@ -1,0 +1,46 @@
+diff -urN clamav-0.98.7.orig/etc/clamd.conf.sample clamav-0.98.7/etc/clamd.conf.sample
+--- clamav-0.98.7.orig/etc/clamd.conf.sample	2015-04-22 21:50:01.000000000 +0200
++++ clamav-0.98.7/etc/clamd.conf.sample	2015-08-24 10:19:59.366318856 +0200
+@@ -5,7 +5,6 @@
+ 
+ 
+ # Comment or remove the line below.
+-Example
+ 
+ # Uncomment this option to enable logging.
+ # LogFile must be writable for the user running daemon.
+@@ -71,7 +70,7 @@
+ 
+ # Path to the database directory.
+ # Default: hardcoded (depends on installation options)
+-#DatabaseDirectory /var/lib/clamav
++DatabaseDirectory /usr/share/clamav
+ 
+ # Only load the official signatures published by the ClamAV project.
+ # Default: no
+@@ -82,7 +81,7 @@
+ 
+ # Path to a local socket file the daemon will listen on.
+ # Default: disabled (must be specified by a user)
+-#LocalSocket /tmp/clamd.socket
++LocalSocket /var/run/clamav/clamd.socket
+ 
+ # Sets the group ownership on the unix socket.
+ # Default: disabled (the primary group of the user running clamd)
+diff -urN clamav-0.98.7.orig/etc/freshclam.conf.sample clamav-0.98.7/etc/freshclam.conf.sample
+--- clamav-0.98.7.orig/etc/freshclam.conf.sample	2015-04-22 21:50:01.000000000 +0200
++++ clamav-0.98.7/etc/freshclam.conf.sample	2015-08-24 10:20:30.455301281 +0200
+@@ -5,12 +5,11 @@
+ 
+ 
+ # Comment or remove the line below.
+-Example
+ 
+ # Path to the database directory.
+ # WARNING: It must match clamd.conf's directive!
+ # Default: hardcoded (depends on installation options)
+-#DatabaseDirectory /var/lib/clamav
++DatabaseDirectory /usr/share/clamav
+ 
+ # Path to the log file (make sure it has proper permissions)
+ # Default: disabled

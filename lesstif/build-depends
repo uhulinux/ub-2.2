@@ -1,0 +1,11 @@
+freetype2-dev
+glibc-dev
+libice-dev
+libsm-dev
+libx11-dev
+libxau-dev
+libxcb-dev
+libxdmcp-dev
+libxext-dev
+libxt-dev
+util-linux-dev

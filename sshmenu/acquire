@@ -1,0 +1,4 @@
+#!/usr/bin/env dl
+
+sshmenu-${UB_VERSION}.tar.gz sshmenu-${UB_VERSION}/
+	http://downloads.sourceforge.net/sshmenu/

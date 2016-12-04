@@ -1,0 +1,4 @@
+#!/usr/bin/env dl
+
+xfmedia-$UB_VERSION.tar.bz2 xfmedia-$UB_VERSION/
+	http://spuriousinterrupt.org/files/xfmedia/

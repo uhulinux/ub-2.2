@@ -1,0 +1,10 @@
+--- sword-1.5.9.orig/src/modules/swmodule.cpp	2006-06-30 07:37:16.000000000 +0200
++++ sword-1.5.9/src/modules/swmodule.cpp	2006-10-21 11:32:14.000000000 +0200
+@@ -20,6 +20,7 @@
+ #ifdef USELUCENE
+ #include <CLucene.h>
+ #include <CLucene/CLBackwards.h>
++#include <../lib/CLucene/clucene-config.h>
+ 
+ //Lucence includes
+ //#include "CLucene.h"

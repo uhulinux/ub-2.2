@@ -1,0 +1,33 @@
+diff -Naurd orig/config.pkg mod/config.pkg
+--- orig/config.pkg	2010-02-13 11:03:26.000000000 +0100
++++ mod/config.pkg	2010-02-15 19:51:00.000000000 +0100
+@@ -94,7 +94,7 @@
+ 	clean .config.diff
+ 	if not rundiff .config.a .config.b || rundiff .config.a .config.c || not checkdiff ; then
+ 		check_message_result "no"
+-		exit 1
++#		exit 1
+ 	fi
+ 	check_message_result "yes"
+ 
+diff -Naurd orig/Makefile.in mod/Makefile.in
+--- orig/Makefile.in	2010-02-13 11:03:26.000000000 +0100
++++ mod/Makefile.in	2010-02-15 19:48:56.000000000 +0100
+@@ -17,7 +17,7 @@
+ CFLAGS=-O2
+ 
+ # Installation prefix
+-prefix=/usr/local
++prefix=/usr
+ 
+ # Gettext configuration
+ # GETTEXTFLAGS should contain -DUSE_GETTEXT to enable gettext translations
+@@ -102,8 +102,6 @@
+ 	$(INSTALL) -d "$(mandir)/man1"
+ 	$(INSTALL) -m 644 "man/dwdiff.1" "$(mandir)/man1"
+ 	if [ -n "$(DWFILTER)" ] ; then $(INSTALL) -m 644 "man/dwfilter.1" "$(mandir)/man1" ; fi
+-	$(INSTALL) -d "$(docdir)"
+-	$(INSTALL) -m 644 README COPYING Changelog "$(docdir)"
+ 
+ # Work around empty LINGUAS list. Some shells don't like empty lists in for-loops
+ lingua-install:

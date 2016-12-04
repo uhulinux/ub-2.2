@@ -1,0 +1,5 @@
+#!/usr/bin/env dl
+
+lshw-${UB_VERSION}.tar.gz lshw-${UB_VERSION}/
+	http://ezix.org/software/files/
+	http://downloads.sourceforge.net/ezix/

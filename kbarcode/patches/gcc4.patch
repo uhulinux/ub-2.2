@@ -1,0 +1,34 @@
+diff -Naur kbarcode-1.6.2.orig/kbarcode/label.cpp kbarcode-1.6.2/kbarcode/label.cpp
+--- kbarcode-1.6.2.orig/kbarcode/label.cpp	2003-12-22 14:29:17.000000000 +0100
++++ kbarcode-1.6.2/kbarcode/label.cpp	2005-12-13 19:22:17.000000000 +0100
+@@ -369,5 +369,5 @@
+         return d->getId();
+ 
+     return -1;
+-};
++}
+ 
+diff -Naur kbarcode-1.6.2.orig/kbarcode/mybarcode.cpp kbarcode-1.6.2/kbarcode/mybarcode.cpp
+--- kbarcode-1.6.2.orig/kbarcode/mybarcode.cpp	2004-02-09 19:13:04.000000000 +0100
++++ kbarcode-1.6.2/kbarcode/mybarcode.cpp	2005-12-13 19:24:14.000000000 +0100
+@@ -58,7 +58,7 @@
+     b = b && colors ==  d.colors;
+     
+     return b;
+-};
++}
+ 
+ BarCode::BarCode( const barcodeData* data )
+ {
+diff -Naur kbarcode-1.6.2.orig/kbarcode/printersettings.cpp kbarcode-1.6.2/kbarcode/printersettings.cpp
+--- kbarcode-1.6.2.orig/kbarcode/printersettings.cpp	2003-10-23 11:36:56.000000000 +0200
++++ kbarcode-1.6.2/kbarcode/printersettings.cpp	2005-12-13 19:25:21.000000000 +0100
+@@ -146,7 +146,7 @@
+ int PrinterSettings::getQuality() const
+ {
+     return lpdata->quality == Middle || lpdata->quality == VeryHigh? High : lpdata->quality;
+-};
++}
+ 
+ KPrinter* PrinterSettings::setupPrinter( QWidget* parent, bool immediately, const QString & prn )
+ {

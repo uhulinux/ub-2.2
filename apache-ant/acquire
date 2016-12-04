@@ -1,0 +1,8 @@
+#!/usr/bin/env dl
+
+apache-ant-${UB_VERSION}-src.tar.gz apache-ant-${UB_VERSION}/
+	http://apache.mirrors.crysys.hit.bme.hu/dist/
+	http://apache.webhelyek.hu/ant/source/
+	http://xenia.sote.hu/ftp/mirrors/www.apache.org/
+	http://www.apache.org/dist/
+	http://www.eu.apache.org/dist/

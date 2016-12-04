@@ -1,0 +1,76 @@
+diff -Naurdp a/ssh_config b/ssh_config
+--- a/ssh_config	2006-06-13 05:01:10.000000000 +0200
++++ b/ssh_config	2007-06-05 21:52:32.000000000 +0200
+@@ -19,18 +19,19 @@
+ 
+ # Host *
+ #   ForwardAgent no
+-#   ForwardX11 no
++    ForwardX11 yes
++    ForwardX11Trusted yes
+ #   RhostsRSAAuthentication no
+ #   RSAAuthentication yes
+ #   PasswordAuthentication yes
+ #   HostbasedAuthentication no
+ #   GSSAPIAuthentication no
+ #   GSSAPIDelegateCredentials no
+ #   BatchMode no
+ #   CheckHostIP yes
+ #   AddressFamily any
+ #   ConnectTimeout 0
+-#   StrictHostKeyChecking ask
++    StrictHostKeyChecking no
+ #   IdentityFile ~/.ssh/identity
+ #   IdentityFile ~/.ssh/id_rsa
+ #   IdentityFile ~/.ssh/id_dsa
+diff -Naurdp openssh-5.2p1.orig/sshd_config openssh-5.2p1/sshd_config
+--- openssh-5.2p1.orig/sshd_config	2008-07-02 14:35:43.000000000 +0200
++++ openssh-5.2p1/sshd_config	2009-09-18 17:25:48.000000000 +0200
+@@ -38,7 +38,7 @@ Protocol 2
+ # Authentication:
+ 
+ #LoginGraceTime 2m
+-#PermitRootLogin yes
++PermitRootLogin no
+ #StrictModes yes
+ #MaxAuthTries 6
+ #MaxSessions 10
+@@ -71,7 +71,7 @@ Protocol 2
+ #KerberosGetAFSToken no
+ 
+ # GSSAPI options
+-#GSSAPIAuthentication no
++GSSAPIAuthentication yes
+ #GSSAPICleanupCredentials yes
+ 
+ # Set this to 'yes' to enable PAM authentication, account processing, 
+@@ -83,16 +83,16 @@ Protocol 2
+ # If you just want the PAM account and session checks to run without
+ # PAM authentication, then enable this but set PasswordAuthentication
+ # and ChallengeResponseAuthentication to 'no'.
+-#UsePAM no
++UsePAM yes
+ 
+ #AllowAgentForwarding yes
+ #AllowTcpForwarding yes
+ #GatewayPorts no
+-#X11Forwarding no
++X11Forwarding yes
+ #X11DisplayOffset 10
+ #X11UseLocalhost yes
+-#PrintMotd yes
+-#PrintLastLog yes
++PrintMotd no
++PrintLastLog no
+ #TCPKeepAlive yes
+ #UseLogin no
+ #UsePrivilegeSeparation yes
+@@ -100,7 +100,7 @@ Protocol 2
+ #Compression delayed
+ #ClientAliveInterval 0
+ #ClientAliveCountMax 3
+-#UseDNS yes
++UseDNS no
+ #PidFile /var/run/sshd.pid
+ #MaxStartups 10
+ #PermitTunnel no

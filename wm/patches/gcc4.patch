@@ -1,0 +1,42 @@
+diff -Naur wm.orig/test.c wm/test.c
+--- wm.orig/test.c	1988-09-07 08:54:44.000000000 +0200
++++ wm/test.c	2005-11-16 17:13:31.000000000 +0100
+@@ -13,6 +13,8 @@
+  *	your user interface.
+  */
+ #include <stdio.h>
++#include <string.h>
++#include <stdlib.h>
+ #include <X11/Xlib.h>
+ #include <X11/Xutil.h>
+ #include <X11/Xatom.h>
+@@ -31,9 +33,9 @@
+ Display *dpy;
+ int ErrorFunc();
+ 
+-extern char *malloc();
+-
+-void MoveOutline();
++static SetupDefaults();
++static int FindColor();
++static void MoveOutline();
+ 
+ RootInfoRec *findRootInfo(win)
+     Window win;
+@@ -154,7 +156,7 @@
+ 	"ClientMessage",
+ 	"MappingNotify",
+ };
+-#endif	debug
++#endif
+ Pixmap
+ MakeNewPixmap(dpy, root, opix, width, height, depth, fg, bg)
+     Display *dpy;
+@@ -1657,7 +1659,6 @@
+     Bool        noname = False;
+     int         len;
+     Bool        res;
+-    extern char *strncpy();
+ 
+     status = XFetchName(dpy, ga->client, &name);
+     if (!status || !name || !(*name)) {

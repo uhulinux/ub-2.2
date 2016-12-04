@@ -1,0 +1,4 @@
+#!/usr/bin/env dl
+
+Protocol-WebSocket-${UB_VERSION}.tar.gz Protocol-WebSocket-${UB_VERSION}/
+	https://cpan.metacpan.org/authors/id/V/VT/VTI/

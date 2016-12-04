@@ -1,0 +1,30 @@
+diff -Naur gkrellm-2.3.2-orig/src/client.c gkrellm-2.3.2/src/client.c
+--- gkrellm-2.3.2-orig/src/client.c	2008-10-04 02:33:37.000000000 +0200
++++ gkrellm-2.3.2/src/client.c	2009-09-30 19:28:53.000000000 +0200
+@@ -1620,7 +1620,7 @@
+ 
+ 
+ static gint
+-getline(gint fd, gchar *buf, gint len)
++gkrellm_getline(gint fd, gchar *buf, gint len)
+ 	{
+ 	fd_set			read_fds;
+ 	struct timeval	tv;
+@@ -1714,7 +1714,7 @@
+ 
+ 	while (1)
+ 		{
+-		rs=getline(fd, buf, sizeof(buf));
++		rs=gkrellm_getline(fd, buf, sizeof(buf));
+         if(rs<0)
+             return FALSE;
+ 		if (!strcmp(buf, "</gkrellmd_setup>"))
+@@ -1732,7 +1732,7 @@
+ 	table_size = sizeof(update_table) / sizeof(KeyTable);
+ 	while (1)
+ 		{
+-		rs=getline(fd, buf, sizeof(buf));
++		rs=gkrellm_getline(fd, buf, sizeof(buf));
+         if(rs<0)
+             return FALSE;
+ 		if (!strcmp(buf, "</initial_update>"))

@@ -1,0 +1,14 @@
+diff -Naurd mod_fastcgi-2.4.0.orig/Makefile.AP2 mod_fastcgi-2.4.0/Makefile.AP2
+--- mod_fastcgi-2.4.0.orig/Makefile.AP2	2002-07-29 03:36:34.000000000 +0200
++++ mod_fastcgi-2.4.0/Makefile.AP2	2003-03-01 18:11:29.000000000 +0100
+@@ -14,9 +14,7 @@
+ APXS      = apxs
+ APACHECTL = apachectl
+ 
+-#DEFS=-Dmy_define=my_value
+-#INCLUDES=-Imy/include/dir
+-#LIBS=-Lmy/lib/dir -lmylib
++INCLUDES=-I/usr/include/apache
+ 
+ all: local-shared-build
+ 

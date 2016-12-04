@@ -1,0 +1,4 @@
+#!/usr/bin/env dl
+
+gamin-${UB_VERSION}.tar.gz gamin-${UB_VERSION}/
+	http://www.gnome.org/~veillard/gamin/sources/

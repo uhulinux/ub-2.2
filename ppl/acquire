@@ -1,0 +1,5 @@
+#!/usr/bin/env dl
+
+ppl-${UB_VERSION}.tar.gz ppl-${UB_VERSION}/
+	ftp://ftp.cs.unipr.it/pub/ppl/releases/${UB_VERSION}/
+	http://www.cs.unipr.it/ppl/Download/ftp/releases/${UB_VERSION}/

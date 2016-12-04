@@ -1,0 +1,11 @@
+curl
+curl-dev
+gmp
+gmp-dev
+libidn
+libidn-dev
+libxml2-dev
+openssl-dev
+pcre-dev
+tcp-wrappers
+tcp-wrappers-dev

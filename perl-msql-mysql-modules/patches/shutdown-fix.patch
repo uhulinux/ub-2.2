@@ -1,0 +1,12 @@
+diff -Naurd Msql-Mysql-modules-1.2219/dbd/myMsql.h Msql-Mysql-modules-1.2219-2/dbd/myMsql.h
+--- Msql-Mysql-modules-1.2219/dbd/myMsql.h	2001-10-31 04:35:03.000000000 +0100
++++ Msql-Mysql-modules-1.2219-2/dbd/myMsql.h	2004-11-02 12:18:36.226440110 +0100
+@@ -117,7 +117,7 @@
+ #define MyGetHostInfo(s) mysql_get_host_info(s)
+ #define MyGetServerInfo(s) mysql_get_server_info(s)
+ #define MyGetProtoInfo(s) mysql_get_proto_info(s)
+-#define MyShutdown(s) mysql_shutdown(s)
++#define MyShutdown(s) mysql_shutdown(s, SHUTDOWN_DEFAULT)
+ #ifdef REFRESH_GRANT
+ #define MyReload(s) mysql_refresh(s, \
+ 				  REFRESH_GRANT|REFRESH_LOG|REFRESH_TABLES)

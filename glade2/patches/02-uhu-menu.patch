@@ -1,0 +1,21 @@
+diff -Naur a/data/glade-3.desktop.in.in b/data/glade-3.desktop.in.in
+--- a/data/glade-3.desktop.in.in	2007-08-07 18:09:39.000000000 +0200
++++ b/data/glade-3.desktop.in.in	2007-08-30 12:28:54.000000000 +0200
+@@ -1,14 +1,13 @@
+ [Desktop Entry]
+-Encoding=UTF-8
+-_Name=Glade Interface Designer
++_Name=Glade
+ _GenericName=User Interface Designer
+ _Comment=Create or open user interface designs for GTK+ applications
+-Exec=glade-3 %F
++Exec=glade %F
+ Terminal=false
+ StartupNotify=true
+ Type=Application
+ Icon=glade-3
+-Categories=GNOME;GTK;Development;GUIDesigner;
++Categories=GNOME;GTK;Development;GUIDesigner;X-UHU-Menu/Development/Programming;
+ MimeType=application/x-glade;
+ X-GNOME-DocPath=glade/glade.xml
+ X-GNOME-Bugzilla-Bugzilla=GNOME

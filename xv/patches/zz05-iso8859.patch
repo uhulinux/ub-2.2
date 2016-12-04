@@ -1,0 +1,30 @@
+diff -urN xv-3.10a.orig/xv.c xv-3.10a/xv.c
+--- xv-3.10a.orig/xv.c	2004-05-24 23:39:43.000000000 +0200
++++ xv-3.10a/xv.c	2004-05-24 23:58:01.000000000 +0200
+@@ -25,17 +25,17 @@
+ 
+ 
+ /* program needs one of the following fonts.  Trys them in ascending order */
+-#define FONT1 "-*-lucida-medium-r-*-*-12-*-*-*-*-*-*-*"
+-#define FONT2 "-*-helvetica-medium-r-*-*-12-*-*-*-*-*-*-*"
+-#define FONT3 "-*-helvetica-medium-r-*-*-11-*-*-*-*-*-*-*"
+-#define FONT4 "6x13"
+-#define FONT5 "fixed"
++#define FONT1 "-*-lucida-medium-r-*-*-12-*-*-*-*-*-iso8859-*"
++#define FONT2 "-*-helvetica-medium-r-*-*-12-*-*-*-*-*-iso8859-*"
++#define FONT3 "-*-helvetica-medium-r-*-*-11-*-*-*-*-*-iso8859-*"
++#define FONT4 "-misc-fixed-medium-r-semicondensed--13-120-75-75-c-60-iso8859-*"
++#define FONT5 "-misc-fixed-medium-r-semicondensed--13-120-75-75-c-60-iso8859-*"
+ 
+ /* a mono-spaced font needed for the 'pixel value tracking' feature */
+-#define MFONT1 "-misc-fixed-medium-r-normal-*-13-*"
+-#define MFONT2 "6x13"
+-#define MFONT3 "-*-courier-medium-r-*-*-12-*"
+-#define MFONT4 "fixed"
++#define MFONT1 "-misc-fixed-medium-r-normal-*-13-*-*-*-*-*-iso8859-*"
++#define MFONT2 "-misc-fixed-medium-r-semicondensed--13-120-75-75-c-60-iso8859-*"
++#define MFONT3 "-*-courier-medium-r-*-*-12-*-*-*-*-*-iso8859-*"
++#define MFONT4 "-misc-fixed-medium-r-semicondensed--13-120-75-75-c-60-iso8859-*"
+ 
+ 
+ /* default positions for various windows */

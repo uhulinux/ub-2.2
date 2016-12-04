@@ -1,0 +1,11 @@
+--- distcc-2.18.3/Makefile.in	2004-10-24 07:05:48.000000000 +0200
++++ distcc-2.18.3.lennart/Makefile.in	2007-12-30 16:05:58.000000000 +0100
+@@ -257,7 +259,7 @@ HEADERS = src/access.h							\
+ 	src/util.h							\
+ 	src/exec.h src/lock.h src/where.h src/srvnet.h
+ 
+-man1_MEN = man/distcc.1 man/distccd.1 man/distccmon-text.1 man/distccmon-gnome.1
++man1_MEN = man/distcc.1 man/distccd.1 man/distccmon-text.1 
+ man_HTML = man/distcc_1.html man/distccd_1.html man/distccmon_text_1.html
+ MEN = $(man1_MEN) 
+ 

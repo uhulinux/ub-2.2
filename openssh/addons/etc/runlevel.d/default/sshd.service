@@ -1,0 +1,11 @@
+Summary=SSH server
+Summary[hu]=SSH-szerver
+Description=Allows secure incoming logins from remote machines.
+Description[hu]=Távolról történő biztonságos bejelentkezést tesz lehetővé.
+MsgDesc=Secure Shell server
+MsgDesc[hu]=Secure Shell szerver
+Script=/etc/init.d/sshd
+SupportsReload=yes
+Runlevels=
+Sequence=20
+Resources=tcp/ssh

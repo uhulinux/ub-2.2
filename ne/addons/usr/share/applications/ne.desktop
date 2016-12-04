@@ -1,0 +1,11 @@
+[Desktop Entry]
+Version=1.1
+Type=Application
+Name=ne
+GenericName=Text Editor
+GenericName[hu]=Szövegszerkesztő
+Comment=The nice editor
+Exec=ne %F
+Terminal=true
+Categories=X-UHU-Menu/Tools/Editors;
+X-UHU-Major=-1

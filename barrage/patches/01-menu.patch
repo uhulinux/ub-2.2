@@ -1,0 +1,14 @@
+diff -Naur barrage-1.0.1.orig/barrage.desktop barrage-1.0.1/barrage.desktop
+--- barrage-1.0.1.orig/barrage.desktop	2003-04-23 10:37:37.000000000 +0200
++++ barrage-1.0.1/barrage.desktop	2003-11-16 16:56:29.000000000 +0100
+@@ -1,7 +1,9 @@
+ [Desktop Entry]
++Encoding=UTF-8
+ Name=Barrage
+-Categories=X-Red-Hat-Base;Application;Game;ArcadeGame;
++Categories=X-Red-Hat-Base;Application;Game;ArcadeGame;X-UHU-Menu/Games/Action;
+ Comment=Kill and destroy as many targets as possible within 3 minutes
++Comment[hu]=Semmisíts meg minél több célpontot 3 perc alatt
+ Exec=barrage
+ Terminal=0
+ Type=Application

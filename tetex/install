@@ -1,0 +1,18 @@
+#!/bin/sh -eux
+
+LD_LIBRARY_PATH="$UB_INSTALLDIR"/usr/lib \
+make \
+	prefix="$UB_INSTALLDIR"/usr \
+	infodir="$UB_INSTALLDIR"/usr/share/info \
+	mandir="$UB_INSTALLDIR"/usr/share/man \
+	install
+
+cp -a tetex-texmf/. "$UB_INSTALLDIR"/usr/share/texmf/
+
+mv "$UB_INSTALLDIR"/usr/share/texmf/tex/generic/babel/magyar.ldf{,-official}
+ln -s magyar.ldf-pts "$UB_INSTALLDIR"/usr/share/texmf/tex/generic/babel/magyar.ldf
+
+rm "$UB_INSTALLDIR"/usr/share/texmf/tex/generic/hyphen/huhyphn.tex
+ln -s /usr/share/hyphenation/huhyphn.tex "$UB_INSTALLDIR"/usr/share/texmf/tex/generic/hyphen/huhyphn.tex
+
+rm -r "$UB_INSTALLDIR"/usr/share/texmf/tex/texinfo

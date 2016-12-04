@@ -1,0 +1,12 @@
+diff -Naur orig/src.pro mod/src.pro
+--- orig/src.pro	2010-04-11 21:45:22.000000000 +0200
++++ mod/src.pro	2010-04-12 18:13:53.000000000 +0200
+@@ -66,7 +66,7 @@
+ #target.path = /usr/local/bin
+ 
+ isEmpty( PREFIX ) {
+-  PREFIX = /usr/local/bin
++  PREFIX = /usr/bin
+    }
+ 
+ target.path = $$PREFIX

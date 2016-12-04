@@ -1,0 +1,18 @@
+diff -Naurd a/fdi/policy/10osvendor/10-x11-input.fdi b/fdi/policy/10osvendor/10-x11-input.fdi
+--- a/fdi/policy/10osvendor/10-x11-input.fdi	2010-03-02 17:34:34.254927394 +0100
++++ b/fdi/policy/10osvendor/10-x11-input.fdi	2010-03-02 18:25:07.000000000 +0100
+@@ -71,6 +71,14 @@
+ 	    <merge key="input.x11_options.CircularScrolling" type="string">0</merge>
+ 	    <merge key="input.x11_options.CoastingSpeed" type="string">1</merge>
+ 	</match>
++    
++	<match key="input.product" contains="AlpsPS/2">
++        <merge key="input.x11_driver" type="string">synaptics</merge>
++	</match>
++    
++	<match key="input.product" contains="SynPS/2">
++        <merge key="input.x11_driver" type="string">synaptics</merge>
++	</match>
+ 
+ 	<match key="input.product" contains="Acer T230H">
+         <merge key="input.x11_driver" type="string">evdev</merge>

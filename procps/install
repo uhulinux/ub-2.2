@@ -1,0 +1,7 @@
+#!/bin/sh -eux
+
+make \
+	DESTDIR="$UB_INSTALLDIR" \
+	MANDIR="$UB_INSTALLDIR"/usr/share/man \
+	ldconfig=/bin/true \
+	install

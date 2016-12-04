@@ -1,0 +1,9 @@
+diff -Naur pam_usb-0.3.1.orig/tools/usbhotplug/files/usbhotplug.pam pam_usb-0.3.1/tools/usbhotplug/files/usbhotplug.pam
+--- pam_usb-0.3.1.orig/tools/usbhotplug/files/usbhotplug.pam	2004-07-01 16:18:15.000000000 +0200
++++ pam_usb-0.3.1/tools/usbhotplug/files/usbhotplug.pam	2006-02-07 20:56:05.000000000 +0100
+@@ -1,3 +1,2 @@
+-auth	   sufficient   /lib/security/pam_usb.so !check_device debug
+-
+-
++#%PAM-1.0
++auth	   sufficient   pam_usb.so !check_device debug

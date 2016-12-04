@@ -1,0 +1,12 @@
+diff -Naur libuser-0.56.12-orig/Makefile.in libuser-0.56.12/Makefile.in
+--- libuser-0.56.12-orig/Makefile.in	2009-10-02 00:56:49.000000000 +0200
++++ libuser-0.56.12/Makefile.in	2009-11-25 20:33:24.000000000 +0100
+@@ -562,7 +562,7 @@
+ AM_CPPFLAGS = $(GOBJECT_CFLAGS)
+ LOCALEDIR_CPPFLAGS = -DLOCALEDIR='"$(localedir)"'
+ PYTHON_CPPFLAGS = -I/usr/include/python$(PYTHON_VERSION)
+-SUBDIRS = po docs
++SUBDIRS = po
+ TESTS = tests/config_test.sh tests/files_test tests/pwhash_test \
+ 	tests/utils_test $(am__append_1)
+ EXTRA_DIST = \

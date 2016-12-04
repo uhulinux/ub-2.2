@@ -1,0 +1,11 @@
+diff -Naurd a/hal.pc.in b/hal.pc.in
+--- a/hal.pc.in	2007-07-26 20:00:28.000000000 +0200
++++ b/hal.pc.in	2007-10-24 19:01:59.000000000 +0200
+@@ -8,6 +8,6 @@
+ Name: hal
+ Description: Free desktop hardware abstraction layer
+ Version: @VERSION@
+-Requires: dbus-1
++Requires: dbus-1 libusb
+ Libs: -L${libdir} -lhal
+ Cflags: -DDBUS_API_SUBJECT_TO_CHANGE -I${includedir}/hal

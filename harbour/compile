@@ -1,0 +1,7 @@
+#!/bin/sh -eux
+
+export HB_ARCHITECTURE=linux
+export HB_COMPILER=gcc
+export HB_INSTALL_PREFIX=/usr
+
+ub_make

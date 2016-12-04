@@ -1,0 +1,12 @@
+diff -Naur LVM2.2.02.56-orig/tools/lvmcmdline.c LVM2.2.02.56/tools/lvmcmdline.c
+--- LVM2.2.02.56-orig/tools/lvmcmdline.c	2009-11-03 16:50:44.000000000 +0100
++++ LVM2.2.02.56/tools/lvmcmdline.c	2009-11-28 16:47:29.000000000 +0100
+@@ -777,7 +777,7 @@
+ 
+ 	if (arg_count(cmd, quiet_ARG)) {
+ 		cmd->current_settings.debug = 0;
+-		cmd->current_settings.verbose = 0;
++		cmd->current_settings.verbose = -1;
+ 	}
+ 
+ 	if (arg_count(cmd, test_ARG))

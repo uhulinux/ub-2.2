@@ -1,0 +1,29 @@
+#!/bin/sh
+
+. /etc/init.d/common
+
+case "$1" in
+	start)
+		echo -n "$MsgStart"
+		if [ ! -s /var/lib/postgres/data/postmaster.pid ]; then
+			rm -f /var/lib/postgres/data/postmaster.pid
+		fi
+		try pg_ctl start -s -w -l /var/log/postgres/postgres.log
+		echo "$OK"
+		;;
+	stop)
+		echo -n "$MsgStop"
+		if [ -f /var/lib/postgres/data/postmaster.pid ]; then
+			try pg_ctl stop -s -m fast
+		fi
+		echo "$OK"
+		;;
+	reload)
+		echo -n "$MsgReload"
+		try pg_ctl reload -s
+		echo "$OK"
+		;;
+	status)
+		pg_ctl status -s
+		;;
+esac

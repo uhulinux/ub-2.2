@@ -1,0 +1,10 @@
+Summary=Amavis
+Summary[hu]=Amavis
+Description=Amavis Interface.
+Description[hu]=Amavis keretrendszer.
+MsgDesc=Virus Scanner
+MsgDesc[hu]=Vírusszűrő
+Script=/etc/init.d/amavisd
+SupportsReload=no
+Runlevels=
+Sequence=19

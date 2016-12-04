@@ -1,0 +1,16 @@
+cdparanoia-dev
+dbus-glib-dev
+eel2-dev
+exempi-dev
+gnome2-desktop-dev
+gnome2-menus-dev
+gvfs
+intltool
+libbeagle-dev
+libexif-dev
+libgsf-dev
+librsvg2-dev
+libsm-dev
+libunique-dev
+openssl-dev
+xcb-util-dev

@@ -1,0 +1,9 @@
+#!/bin/sh
+
+. /etc/init.d/common
+
+DAEMON=/usr/libexec/cyrus-imapd/cyrus-master
+PIDFILE="/var/run/cyrus.pid"
+DAEMONARGS=(-p "$PIDFILE" -d)
+
+startstop "$@"

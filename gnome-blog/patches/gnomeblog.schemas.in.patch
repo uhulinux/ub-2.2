@@ -1,0 +1,22 @@
+
+--- gnome-blog-0.9.1.orig/gnomeblog.schemas.in
++++ gnome-blog-0.9.1/gnomeblog.schemas.in
+@@ -77,5 +77,17 @@
+       </locale>
+     </schema>
+ 
++    <schema>
++      <key>/schemas/apps/gnome-blog/enable_spellchecking</key>
++      <applyto>/apps/gnome-blog/enable_spellchecking</applyto>
++      <owner>gnome-blog</owner>
++      <type>bool</type>
++      <default>true</default>
++      <locale name="C">
++         <short>If true, misspellings will be underlined in red, and correct
++	 spelling suggestions shown in the right-click menu.</short>
++      </locale>
++    </schema>
++
+ </schemalist>
+ </gconfschemafile>
+

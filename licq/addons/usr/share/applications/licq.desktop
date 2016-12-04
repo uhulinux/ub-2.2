@@ -1,0 +1,10 @@
+[Desktop Entry]
+Encoding=UTF-8
+Name=Licq
+Comment=Chat program
+Comment[hu]=Csevejkliens
+Exec=licq
+Icon=/usr/share/licq/qt-gui/icons.thomas/invisible.xpm
+Terminal=false
+Type=Application
+Categories=Application;Network;X-UHU-Menu/Internet/Messengers;

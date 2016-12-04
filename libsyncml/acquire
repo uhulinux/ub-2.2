@@ -1,0 +1,4 @@
+#!/usr/bin/env dl
+
+libsyncml-${UB_VERSION}.tar.bz2 libsyncml-${UB_VERSION}/
+	http://downloads.sourceforge.net/libsyncml/

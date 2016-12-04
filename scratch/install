@@ -1,0 +1,10 @@
+#!/bin/sh -eux
+
+mkdir -p "$UB_INSTALLDIR"/usr/share/icons/hicolor/48x48/apps
+mkdir -p "$UB_INSTALLDIR"/usr/share/icons/hicolor/48x48/mimetypes
+mkdir -p "$UB_INSTALLDIR"/usr/share/icons/hicolor/128x128/apps
+mkdir -p "$UB_INSTALLDIR"/usr/share/icons/hicolor/128x128/mimetypes
+mkdir -p "$UB_INSTALLDIR"/usr/share/mime/packages
+
+ub_install
+

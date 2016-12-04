@@ -1,0 +1,13 @@
+#!/bin/sh -eux
+
+# workaround for perl 5.10, see https://bugzilla.redhat.com/show_bug.cgi?id=441359
+perl -pi.orig -e 's|1.299907080300|1.29990708|' bindings/perl-shared/RRDs.pm bindings/perl-piped/RRDp.pm
+
+ub_compile \
+	--enable-tcl-site
+
+cd bindings/perl-piped
+ub_compile
+
+cd ../perl-shared
+ub_compile

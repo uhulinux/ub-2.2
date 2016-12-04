@@ -1,0 +1,9 @@
+[Desktop Entry]
+Encoding=UTF-8
+Name=eFluid
+GenericName=extended-FLTK user-interface designer
+Comment[hu]=FLTK felhasználóifelület-szerkesztő
+Exec=efluid
+Icon=/usr/share/pixmaps/efltk.gif
+Type=Application
+Categories=X-UHU-Menu/Development/Programming;

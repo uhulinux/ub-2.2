@@ -1,0 +1,9 @@
+[Desktop Entry]
+Encoding=UTF-8
+Type=Application
+Name=The Easiest Game Around The World
+Exec=theeasiestgamearoundtheworld
+Comment=In this game only You can win...
+Comment[hu]=Ebben a programban csak Te nyerhetsz...
+Icon=/usr/lib/theeasiestgamearoundtheworld/hunter4.gif
+Categories=X-UHU-Menu/Games/Arcade;

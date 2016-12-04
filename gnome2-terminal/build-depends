@@ -1,0 +1,11 @@
+gconf2-dev
+gnome-doc-utils-dev
+gtk2-dev
+intltool
+libsm-dev
+libxslt-dev
+openssl-dev
+rarian-dev
+startup-notification-dev
+vte-dev
+xcb-util-dev

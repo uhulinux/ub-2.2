@@ -1,0 +1,4 @@
+#!/usr/bin/env dl
+
+freealut-${UB_VERSION}.tar.gz freealut-${UB_VERSION}/
+	http://connect.creativelabs.com/openal/Downloads/ALUT/

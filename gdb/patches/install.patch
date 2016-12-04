@@ -1,0 +1,243 @@
+diff -Naur gdb-7.0-orig/bfd/doc/Makefile.in gdb-7.0/bfd/doc/Makefile.in
+--- gdb-7.0-orig/bfd/doc/Makefile.in	2009-08-27 07:24:43.000000000 +0200
++++ gdb-7.0/bfd/doc/Makefile.in	2009-11-05 19:36:25.000000000 +0100
+@@ -656,36 +656,7 @@
+ install-info: install-info-am
+ 
+ install-info-am: $(INFO_DEPS)
+-	@$(NORMAL_INSTALL)
+-	test -z "$(infodir)" || $(MKDIR_P) "$(DESTDIR)$(infodir)"
+-	@srcdirstrip=`echo "$(srcdir)" | sed 's|.|.|g'`; \
+-	list='$(INFO_DEPS)'; test -n "$(infodir)" || list=; \
+-	for file in $$list; do \
+-	  case $$file in \
+-	    $(srcdir)/*) file=`echo "$$file" | sed "s|^$$srcdirstrip/||"`;; \
+-	  esac; \
+-	  if test -f $$file; then d=.; else d=$(srcdir); fi; \
+-	  file_i=`echo "$$file" | sed 's|\.info$$||;s|$$|.i|'`; \
+-	  for ifile in $$d/$$file $$d/$$file-[0-9] $$d/$$file-[0-9][0-9] \
+-	               $$d/$$file_i[0-9] $$d/$$file_i[0-9][0-9] ; do \
+-	    if test -f $$ifile; then \
+-	      echo "$$ifile"; \
+-	    else : ; fi; \
+-	  done; \
+-	done | $(am__base_list) | \
+-	while read files; do \
+-	  echo " $(INSTALL_DATA) $$files '$(DESTDIR)$(infodir)'"; \
+-	  $(INSTALL_DATA) $$files "$(DESTDIR)$(infodir)" || exit $$?; done
+-	@$(POST_INSTALL)
+-	@if (install-info --version && \
+-	     install-info --version 2>&1 | sed 1q | grep -i -v debian) >/dev/null 2>&1; then \
+-	  list='$(INFO_DEPS)'; test -n "$(infodir)" || list=; \
+-	  for file in $$list; do \
+-	    relfile=`echo "$$file" | sed 's|^.*/||'`; \
+-	    echo " install-info --info-dir='$(DESTDIR)$(infodir)' '$(DESTDIR)$(infodir)/$$relfile'";\
+-	    install-info --info-dir="$(DESTDIR)$(infodir)" "$(DESTDIR)$(infodir)/$$relfile" || :;\
+-	  done; \
+-	else : ; fi
++
+ install-man:
+ 
+ install-pdf: install-pdf-am
+@@ -934,7 +905,7 @@
+ 
+ # We want install to imply install-info as per GNU standards, despite the
+ # cygnus option.
+-install: install-info
++install:
+ 
+ # Tell versions [3.59,3.63) of GNU make to not export all variables.
+ # Otherwise a system limit (for SysV at least) may be exceeded.
+diff -Naur gdb-7.0-orig/bfd/Makefile.in gdb-7.0/bfd/Makefile.in
+--- gdb-7.0-orig/bfd/Makefile.in	2009-09-07 11:15:27.000000000 +0200
++++ gdb-7.0/bfd/Makefile.in	2009-11-05 19:40:05.000000000 +0100
+@@ -1739,7 +1739,7 @@
+ 
+ install-html-am:
+ 
+-install-info: install-info-recursive
++install-info:
+ 
+ install-info-am:
+ 
+diff -Naur gdb-7.0-orig/bfd/po/Make-in gdb-7.0/bfd/po/Make-in
+--- gdb-7.0-orig/bfd/po/Make-in	2009-09-02 09:18:38.000000000 +0200
++++ gdb-7.0/bfd/po/Make-in	2009-11-05 19:43:31.000000000 +0100
+@@ -131,58 +131,6 @@
+ install-data: install-data-@USE_NLS@
+ install-data-no: all
+ install-data-yes: all
+-	if test -r $(MKINSTALLDIRS); then \
+-	  $(MKINSTALLDIRS) $(DESTDIR)$(datadir); \
+-	else \
+-	  $(top_srcdir)/mkinstalldirs $(DESTDIR)$(datadir); \
+-	fi
+-	@catalogs='$(CATALOGS)'; \
+-	for cat in $$catalogs; do \
+-	  cat=`basename $$cat`; \
+-	  case "$$cat" in \
+-	    *.gmo) destdir=$(gnulocaledir);; \
+-	    *)     destdir=$(localedir);; \
+-	  esac; \
+-	  lang=`echo $$cat | sed 's/\$(CATOBJEXT)$$//'`; \
+-	  dir=$(DESTDIR)$$destdir/$$lang/LC_MESSAGES; \
+-	  if test -r $(MKINSTALLDIRS); then \
+-	    $(MKINSTALLDIRS) $$dir; \
+-	  else \
+-	    $(top_srcdir)/mkinstalldirs $$dir; \
+-	  fi; \
+-	  if test -r $$cat; then \
+-	    $(INSTALL_DATA) $$cat $$dir/$(PACKAGE)$(INSTOBJEXT); \
+-	    echo "installing $$cat as $$dir/$(PACKAGE)$(INSTOBJEXT)"; \
+-	  else \
+-	    $(INSTALL_DATA) $(srcdir)/$$cat $$dir/$(PACKAGE)$(INSTOBJEXT); \
+-	    echo "installing $(srcdir)/$$cat as" \
+-		 "$$dir/$(PACKAGE)$(INSTOBJEXT)"; \
+-	  fi; \
+-	  if test -r $$cat.m; then \
+-	    $(INSTALL_DATA) $$cat.m $$dir/$(PACKAGE)$(INSTOBJEXT).m; \
+-	    echo "installing $$cat.m as $$dir/$(PACKAGE)$(INSTOBJEXT).m"; \
+-	  else \
+-	    if test -r $(srcdir)/$$cat.m ; then \
+-	      $(INSTALL_DATA) $(srcdir)/$$cat.m \
+-		$$dir/$(PACKAGE)$(INSTOBJEXT).m; \
+-	      echo "installing $(srcdir)/$$cat as" \
+-		   "$$dir/$(PACKAGE)$(INSTOBJEXT).m"; \
+-	    else \
+-	      true; \
+-	    fi; \
+-	  fi; \
+-	done
+-	if test "$(PACKAGE)" = "gettext"; then \
+-	  if test -r $(MKINSTALLDIRS); then \
+-	    $(MKINSTALLDIRS) $(DESTDIR)$(gettextsrcdir); \
+-	  else \
+-	    $(top_srcdir)/mkinstalldirs $(DESTDIR)$(gettextsrcdir); \
+-	  fi; \
+-	  $(INSTALL_DATA) $(srcdir)/Makefile.in.in \
+-			  $(DESTDIR)$(gettextsrcdir)/Makefile.in.in; \
+-	else \
+-	  : ; \
+-	fi
+ 
+ # Define this as empty until I found a useful application.
+ installcheck:
+diff -Naur gdb-7.0-orig/etc/Makefile.in gdb-7.0/etc/Makefile.in
+--- gdb-7.0-orig/etc/Makefile.in	2009-07-31 00:44:48.000000000 +0200
++++ gdb-7.0/etc/Makefile.in	2009-11-05 19:45:39.000000000 +0100
+@@ -64,7 +64,7 @@
+ HTMLFILES = standards.html configure.html
+ 
+ all: info
+-install: install-info
++install:
+ 
+ uninstall:
+ 
+@@ -80,19 +80,6 @@
+ 	done
+ 
+ install-info: info
+-	$(SHELL) $(srcdir)/../mkinstalldirs $(DESTDIR)$(infodir)
+-	if test ! -f standards.info; then cd $(srcdir); fi; \
+-	if test -f standards.info; then \
+-	  for i in standards.info*; do \
+-	    $(INSTALL_DATA) $$i $(DESTDIR)$(infodir)/$$i; \
+-	  done; \
+-	fi
+-	if test ! -f configure.info; then cd $(srcdir); fi; \
+-	if test -f configure.info; then \
+-	  for i in configure.info*; do \
+-	    $(INSTALL_DATA) $$i $(DESTDIR)$(infodir)/$$i; \
+-	  done; \
+-	fi
+ 
+ html:
+ 	for f in $(HTMLFILES); do \
+diff -Naur gdb-7.0-orig/libiberty/Makefile.in gdb-7.0/libiberty/Makefile.in
+--- gdb-7.0-orig/libiberty/Makefile.in	2009-08-23 21:03:58.000000000 +0200
++++ gdb-7.0/libiberty/Makefile.in	2009-11-05 19:47:07.000000000 +0100
+@@ -329,21 +329,6 @@
+ # since it will be passed the multilib flags.
+ MULTIOSDIR = `$(CC) $(CFLAGS) -print-multi-os-directory`
+ install_to_libdir: all
+-	${mkinstalldirs} $(DESTDIR)$(libdir)/$(MULTIOSDIR)
+-	$(INSTALL_DATA) $(TARGETLIB) $(DESTDIR)$(libdir)/$(MULTIOSDIR)/$(TARGETLIB)n
+-	( cd $(DESTDIR)$(libdir)/$(MULTIOSDIR) ; chmod 644 $(TARGETLIB)n ;$(RANLIB) $(TARGETLIB)n )
+-	mv -f $(DESTDIR)$(libdir)/$(MULTIOSDIR)/$(TARGETLIB)n $(DESTDIR)$(libdir)/$(MULTIOSDIR)/$(TARGETLIB)
+-	if test -n "${target_header_dir}"; then \
+-	  case "${target_header_dir}" in \
+-	    /*)    thd=${target_header_dir};; \
+-	    *)     thd=${includedir}/${target_header_dir};; \
+-	  esac; \
+-	  ${mkinstalldirs} $(DESTDIR)$${thd}; \
+-	  for h in ${INSTALLED_HEADERS}; do \
+-	    ${INSTALL_DATA} $$h $(DESTDIR)$${thd}; \
+-	  done; \
+-	fi
+-	@$(MULTIDO) $(FLAGS_TO_PASS) multi-do DO=install
+ 
+ install_to_tooldir: all
+ 	${mkinstalldirs} $(DESTDIR)$(tooldir)/lib/$(MULTIOSDIR)
+diff -Naur gdb-7.0-orig/opcodes/po/Make-in gdb-7.0/opcodes/po/Make-in
+--- gdb-7.0-orig/opcodes/po/Make-in	2009-09-02 09:20:30.000000000 +0200
++++ gdb-7.0/opcodes/po/Make-in	2009-11-05 19:55:04.000000000 +0100
+@@ -117,58 +117,6 @@
+ install-data: install-data-@USE_NLS@
+ install-data-no: all
+ install-data-yes: all
+-	if test -r $(MKINSTALLDIRS); then \
+-	  $(MKINSTALLDIRS) $(DESTDIR)$(datadir); \
+-	else \
+-	  $(top_srcdir)/mkinstalldirs $(DESTDIR)$(datadir); \
+-	fi
+-	@catalogs='$(CATALOGS)'; \
+-	for cat in $$catalogs; do \
+-	  cat=`basename $$cat`; \
+-	  case "$$cat" in \
+-	    *.gmo) destdir=$(gnulocaledir);; \
+-	    *)     destdir=$(localedir);; \
+-	  esac; \
+-	  lang=`echo $$cat | sed 's/\$(CATOBJEXT)$$//'`; \
+-	  dir=$(DESTDIR)$$destdir/$$lang/LC_MESSAGES; \
+-	  if test -r $(MKINSTALLDIRS); then \
+-	    $(MKINSTALLDIRS) $$dir; \
+-	  else \
+-	    $(top_srcdir)/mkinstalldirs $$dir; \
+-	  fi; \
+-	  if test -r $$cat; then \
+-	    $(INSTALL_DATA) $$cat $$dir/$(PACKAGE)$(INSTOBJEXT); \
+-	    echo "installing $$cat as $$dir/$(PACKAGE)$(INSTOBJEXT)"; \
+-	  else \
+-	    $(INSTALL_DATA) $(srcdir)/$$cat $$dir/$(PACKAGE)$(INSTOBJEXT); \
+-	    echo "installing $(srcdir)/$$cat as" \
+-		 "$$dir/$(PACKAGE)$(INSTOBJEXT)"; \
+-	  fi; \
+-	  if test -r $$cat.m; then \
+-	    $(INSTALL_DATA) $$cat.m $$dir/$(PACKAGE)$(INSTOBJEXT).m; \
+-	    echo "installing $$cat.m as $$dir/$(PACKAGE)$(INSTOBJEXT).m"; \
+-	  else \
+-	    if test -r $(srcdir)/$$cat.m ; then \
+-	      $(INSTALL_DATA) $(srcdir)/$$cat.m \
+-		$$dir/$(PACKAGE)$(INSTOBJEXT).m; \
+-	      echo "installing $(srcdir)/$$cat as" \
+-		   "$$dir/$(PACKAGE)$(INSTOBJEXT).m"; \
+-	    else \
+-	      true; \
+-	    fi; \
+-	  fi; \
+-	done
+-	if test "$(PACKAGE)" = "gettext"; then \
+-	  if test -r $(MKINSTALLDIRS); then \
+-	    $(MKINSTALLDIRS) $(DESTDIR)$(gettextsrcdir); \
+-	  else \
+-	    $(top_srcdir)/mkinstalldirs $(DESTDIR)$(gettextsrcdir); \
+-	  fi; \
+-	  $(INSTALL_DATA) $(srcdir)/Makefile.in.in \
+-			  $(DESTDIR)$(gettextsrcdir)/Makefile.in.in; \
+-	else \
+-	  : ; \
+-	fi
+ 
+ # Define this as empty until I found a useful application.
+ installcheck:

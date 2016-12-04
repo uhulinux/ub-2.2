@@ -1,0 +1,9 @@
+#!/bin/sh
+
+. /etc/init.d/common
+
+DAEMON=/usr/sbin/smartd
+PIDFILE="/var/run/smartd.pid"
+DAEMONARGS=(-p "$PIDFILE")
+
+startstop "$@"

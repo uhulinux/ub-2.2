@@ -1,0 +1,4 @@
+#!/usr/bin/env dl
+
+rubygems-${UB_VERSION}.tgz rubygems-${UB_VERSION}/
+	http://rubyforge.org/frs/download.php/55066/

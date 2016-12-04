@@ -1,0 +1,4 @@
+#!/bin/sh -eux
+
+chmod -x LICENSE README
+ub_compile

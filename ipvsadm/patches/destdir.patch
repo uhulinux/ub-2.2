@@ -1,0 +1,18 @@
+diff -urN ipvsadm-1.24.orig/Makefile ipvsadm-1.24/Makefile
+--- ipvsadm-1.24.orig/Makefile	2004-01-10 10:39:03.000000000 +0100
++++ ipvsadm-1.24/Makefile	2004-06-18 14:56:29.000000000 +0200
+@@ -33,10 +33,10 @@
+ CC		= gcc
+ CFLAGS		= -Wall -Wunused -Wstrict-prototypes -g -O2
+ INCLUDE		= -I/usr/src/linux/include -I.. -I.
+-SBIN		= $(BUILD_ROOT)/sbin
+-MANDIR		= usr/man
+-MAN		= $(BUILD_ROOT)/$(MANDIR)/man8
+-INIT		= $(BUILD_ROOT)/etc/rc.d/init.d
++SBIN		= $(DESTDIR)/sbin
++MANDIR		= usr/share/man
++MAN		= $(DESTDIR)/$(MANDIR)/man8
++INIT		= $(DESTDIR)/etc/rc.d/init.d
+ MKDIR		= mkdir
+ INSTALL		= install
+ STATIC_LIBS	= libipvs/libipvs.a

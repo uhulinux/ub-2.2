@@ -1,0 +1,26 @@
+diff -Naur mined-2000.16-orig/src/makefile.gcc mined-2000.16/src/makefile.gcc
+--- mined-2000.16-orig/src/makefile.gcc	2006-07-01 00:00:00.000000000 +0200
++++ mined-2000.16/src/makefile.gcc	2010-04-12 16:56:46.000000000 +0200
+@@ -23,7 +23,7 @@
+ #docdir	= $(prefix)/share/doc/mined
+ # SuSE:
+ #docdir	= $(prefix)/share/doc/packages/mined
+-
++desktopdir = $(prefix)/share/applications
+ # directories for target "make localinstall"
+ lprefix	= $(root)/usr/local
+ lbindir	= $(lprefix)/bin
+diff -Naur mined-2000.16-orig/src/mkinclud.mak mined-2000.16/src/mkinclud.mak
+--- mined-2000.16-orig/src/mkinclud.mak	2010-02-22 00:00:00.000000000 +0100
++++ mined-2000.16/src/mkinclud.mak	2010-04-12 17:07:15.000000000 +0200
+@@ -519,7 +519,9 @@
+ 	$(installscript) ../usrshare/bin/umined $(DESTDIR)$(bindir)
+ 	$(makelinks) linkdir=$(DESTDIR)$(bindir)
+ 	mkdir -p $(DESTDIR)$(rundir)
+-	/bin/cp -pr ../usrshare/*/ $(DESTDIR)$(rundir)
++	/bin/cp -pr ../usrshare/help $(rundir)
++	mkdir -p $(desktopdir)
++	$(INSTALL) --mode=+r,u+w ../usrshare/setup_install/mined.desktop $(desktopdir)
+ 	mkdir -p $(DESTDIR)$(mandir)/man1
+ 	$(INSTALL) ../man/*.1 $(DESTDIR)$(mandir)/man1
+ 	# zip man if mans are zipped in actual mandir (not DESTDIR)

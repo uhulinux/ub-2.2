@@ -1,0 +1,12 @@
+diff -ruN postgresql-7.4.6.orig/src/include/pg_config_manual.h postgresql-7.4.6/src/include/pg_config_manual.h
+--- postgresql-7.4.6.orig/src/include/pg_config_manual.h	2003-09-21 19:57:21.000000000 +0200
++++ postgresql-7.4.6/src/include/pg_config_manual.h	2004-11-08 11:57:11.968970907 +0100
+@@ -165,7 +165,7 @@
+  * here's where to twiddle it.  You can also override this at runtime
+  * with the postmaster's -k switch.
+  */
+-#define DEFAULT_PGSOCKET_DIR  "/tmp"
++#define DEFAULT_PGSOCKET_DIR  "/var/run/postgresql"
+ 
+ /*
+  * Defining this will make float4 and float8 operations faster by

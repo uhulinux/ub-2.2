@@ -1,0 +1,33 @@
+diff -Naurd iptraf-2.7.0.orig/src/Makefile iptraf-2.7.0/src/Makefile
+--- iptraf-2.7.0.orig/src/Makefile	2002-05-11 09:27:36.000000000 +0200
++++ iptraf-2.7.0/src/Makefile	2003-08-08 19:28:29.000000000 +0200
+@@ -68,17 +68,17 @@
+ # installation target directory.  The iptraf and rvnamed programs get
+ # stored here.  iptraf also exec's rvnamed from this directory.
+ 
+-TARGET		= /usr/local/bin
++TARGET		= $(DESTDIR)/usr/sbin
+ 
+ # The IPTraf working directory; if you change this.  Starting with this
+ # version, this definition overrides dirs.h.
+ 
+-WORKDIR		= /var/local/iptraf
++WORKDIR		= $(DESTDIR)/var/lib/iptraf
+ 
+ # The IPTraf log file directory.  IPTraf log files are placed here.
+ # This definition overrides dirs.h
+ 
+-LOGDIR		= /var/log/iptraf
++LOGDIR		= $(DESTDIR)/var/log/iptraf
+ 
+ #
+ # IPTraf lock file directory.  This is /var/run/iptraf/ and will not
+@@ -89,7 +89,7 @@
+ # DO NOT MAKE THIS POINT TO AN EXISTING/SYSTEM DIRECTORY!!!!  THE
+ # LOCK OVERRIDE (iptraf -f) WILL ERASE FILES HERE!
+ #*****************************************************************
+-LOCKDIR		= /var/run/iptraf
++LOCKDIR		= $(DESTDIR)/var/run/iptraf
+ 
+ #####################################################################
+ ############### IPTRAF COMPILATION AND LINK RULES

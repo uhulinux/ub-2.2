@@ -1,0 +1,4 @@
+#!/usr/bin/env dl
+
+gtk-xfce-engine-$UB_VERSION.tar.bz2 gtk-xfce-engine-$UB_VERSION/
+	http://www.xfce.org/archive/xfce-4.6.0/src/

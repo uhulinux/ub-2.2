@@ -1,0 +1,6 @@
+#!/usr/bin/env dl
+
+le-${UB_VERSION}.tar.gz le-${UB_VERSION}/
+	ftp://ftp.yar.ru/pub/source/le/
+	ftp://ftp.ibiblio.org/pub/Linux/apps/editors/terminal/
+	http://www.ibiblio.org/pub/Linux/apps/editors/terminal/

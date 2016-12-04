@@ -1,0 +1,5 @@
+#!/bin/sh -eux
+
+ub_install
+
+ln -s ../usr/sbin/dhclient "$UB_INSTALLDIR"/sbin/

@@ -1,0 +1,21 @@
+diff -Naurd minicom-2.1/src/config.c minicom-2.1.b/src/config.c
+--- minicom-2.1/src/config.c	2003-04-22 01:56:46.000000000 +0200
++++ minicom-2.1.b/src/config.c	2005-06-18 14:37:43.000000000 +0200
+@@ -49,16 +49,7 @@
+ 
+   /* Read global parameters */
+   if ((fp = fopen(parfile, "r")) == (FILE *)NULL) {
+-  	if (real_uid == 0) {
+-  		fputs(
+-  _("minicom: WARNING: configuration file not found, using defaults\n"),stderr);
+-  		sleep(2);
+-  		return;
+-  	}
+-  	fprintf(stderr,
+-	_("minicom: there is no global configuration file %s\n"), parfile);
+-  	fputs(_("Ask your sysadm to create one (with minicom -s).\n"), stderr);
+-  	exit(1);
++	return;
+   }
+   readpars(fp, 1);
+   fclose(fp);

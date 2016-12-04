@@ -1,0 +1,10 @@
+#!/bin/sh
+
+. /etc/init.d/common
+
+DAEMON=/usr/sbin/apmd
+PIDFILE="/var/run/apmd.pid"
+
+[ -f "/proc/apm" ] || exit 0
+
+startstop "$@"

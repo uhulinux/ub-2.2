@@ -1,0 +1,11 @@
+[Desktop Entry]
+Version=1.1
+Name=tkpaint
+Comment=tk draw
+Comment[hu]=Rajzoló
+Exec=tkpaint
+Terminal=false
+Icon=/usr/lib/tkpaint/tkpaint.jpg
+Type=Application
+Categories=Graphics;X-UHU-Menu/Graphics;
+X-UHU-Major=-1

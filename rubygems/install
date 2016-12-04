@@ -1,0 +1,4 @@
+#!/bin/sh -eux
+
+ruby setup.rb \
+	--destdir="$UB_INSTALLDIR"

@@ -1,0 +1,20 @@
+diff -Naur orig/Makefile mod/Makefile
+--- orig/Makefile	2004-08-07 17:50:43.000000000 +0200
++++ mod/Makefile	2008-06-13 21:18:49.000000000 +0200
+@@ -15,6 +15,7 @@
+ SOURCES = $(CODE) $(SCRIPTS) $(DOCS) $(EXTRAS) $(TEST) comparator.spec Makefile
+ CFLAGS  = -O3
+ LDFLAGS = 
++ROOT=$(UB_INSTALLDIR)
+ 
+ all: comparator comparator.1
+ 
+@@ -83,7 +84,7 @@
+ 	install -m 755 -o 0 -g 0 filterator $(ROOT)/usr/bin/filterator
+ 	install -m 755 -o 0 -g 0 -d $(ROOT)/usr/share/man/man1/
+ 	install -m 755 -o 0 -g 0 comparator.1 $(ROOT)/usr/share/man/man1/comparator.1
+-	python setup.py install
++#	python setup.py install
+ 
+ uninstall:
+ 	rm -f ${ROOT}/usr/bin/comparator 

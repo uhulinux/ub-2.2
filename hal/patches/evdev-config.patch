@@ -1,0 +1,15 @@
+diff -urN hal-0.5.13.orig/fdi/policy/10osvendor/10-keymap.fdi hal-0.5.13/fdi/policy/10osvendor/10-keymap.fdi
+--- hal-0.5.13.orig/fdi/policy/10osvendor/10-keymap.fdi	2008-08-10 15:50:10.000000000 +0200
++++ hal-0.5.13/fdi/policy/10osvendor/10-keymap.fdi	2009-10-02 16:30:47.000000000 +0200
+@@ -16,8 +16,10 @@
+         <merge key="input.xkb.model" type="string">evdev</merge>
+       </match>
+ 
+-      <merge key="input.xkb.layout" type="string">us</merge>
++      <merge key="input.xkb.layout" type="string">hu,us</merge>
+       <merge key="input.xkb.variant" type="string" />
++      <merge key="input.xkb.geometry" type="string">pc(pc105)</merge>
++      <merge key="input.xkb.options" type="string">grp:alt_shift_toggle,terminate:ctrl_alt_bksp</merge>
+     </match>
+   </device>
+ </deviceinfo>

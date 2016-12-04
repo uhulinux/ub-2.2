@@ -1,0 +1,70 @@
+diff -urN mono-2.6.4.orig/data/mint.pc.in mono-2.6.4/data/mint.pc.in
+--- mono-2.6.4.orig/data/mint.pc.in	2010-04-22 17:37:47.000000000 +0200
++++ mono-2.6.4/data/mint.pc.in	2010-06-11 09:27:16.000000000 +0200
+@@ -1,5 +1,5 @@
+-prefix=${pcfiledir}/../..
+-exec_prefix=${pcfiledir}/../..
++prefix=/usr
++exec_prefix=/usr
+ libdir=${prefix}/lib
+ includedir=${prefix}/include/mono-@API_VER@
+ 
+diff -urN mono-2.6.4.orig/data/mono-cairo.pc.in mono-2.6.4/data/mono-cairo.pc.in
+--- mono-2.6.4.orig/data/mono-cairo.pc.in	2010-04-22 17:37:47.000000000 +0200
++++ mono-2.6.4/data/mono-cairo.pc.in	2010-06-11 09:27:16.000000000 +0200
+@@ -1,5 +1,5 @@
+-prefix=${pcfiledir}/../..
+-exec_prefix=${pcfiledir}/../..
++prefix=/usr
++exec_prefix=/usr
+ libdir=${prefix}/@reloc_libdir@
+ includedir=${prefix}/include
+ 
+diff -urN mono-2.6.4.orig/data/mono-lineeditor.pc.in mono-2.6.4/data/mono-lineeditor.pc.in
+--- mono-2.6.4.orig/data/mono-lineeditor.pc.in	2010-04-22 17:37:47.000000000 +0200
++++ mono-2.6.4/data/mono-lineeditor.pc.in	2010-06-11 09:27:16.000000000 +0200
+@@ -1,4 +1,4 @@
+-prefix=${pcfiledir}/../..
++prefix=/usr
+ assemblies_dir=${prefix}/lib/mono-source-libs
+ Sources=${assemblies_dir}/getline.cs
+ 
+diff -urN mono-2.6.4.orig/data/mono-nunit.pc.in mono-2.6.4/data/mono-nunit.pc.in
+--- mono-2.6.4.orig/data/mono-nunit.pc.in	2010-04-22 17:37:47.000000000 +0200
++++ mono-2.6.4/data/mono-nunit.pc.in	2010-06-11 09:27:16.000000000 +0200
+@@ -1,4 +1,4 @@
+-prefix=${pcfiledir}/../..
++prefix=/usr
+ exec_prefix=${prefix}
+ libdir=${exec_prefix}/lib
+ 
+diff -urN mono-2.6.4.orig/data/mono-options.pc.in mono-2.6.4/data/mono-options.pc.in
+--- mono-2.6.4.orig/data/mono-options.pc.in	2010-04-22 17:37:47.000000000 +0200
++++ mono-2.6.4/data/mono-options.pc.in	2010-06-11 09:27:16.000000000 +0200
+@@ -1,4 +1,4 @@
+-prefix=${pcfiledir}/../..
++prefix=/usr
+ assemblies_dir=${prefix}/lib/mono-source-libs
+ Sources=${assemblies_dir}/Options.cs
+ 
+diff -urN mono-2.6.4.orig/data/mono.pc.in mono-2.6.4/data/mono.pc.in
+--- mono-2.6.4.orig/data/mono.pc.in	2010-04-22 17:37:47.000000000 +0200
++++ mono-2.6.4/data/mono.pc.in	2010-06-11 09:27:42.000000000 +0200
+@@ -1,5 +1,5 @@
+-prefix=${pcfiledir}/../..
+-exec_prefix=${pcfiledir}/../..
++prefix=/usr
++exec_prefix=/usr
+ libdir=${prefix}/@reloc_libdir@
+ includedir=${prefix}/include/mono-@API_VER@
+ sysconfdir=@sysconfdir@
+@@ -7,8 +7,6 @@
+ Name: Mono
+ Description: Mono Runtime
+ Version: @VERSION@
+-## Commented out because SLE hides devel files in the SLE SDK,
+-## which not all customers will have.
+-#Requires: glib-2.0 gthread-2.0
++Requires: glib-2.0 gthread-2.0
+ Libs: -L${libdir} @export_ldflags@ -lmono @libmono_ldflags@
+ Cflags: -I${includedir} @libmono_cflags@

@@ -1,0 +1,9 @@
+[Desktop Entry]
+Encoding=UTF-8
+Name=Citrix ICA Client
+Comment=Connect to BME Neptun
+Comment[hu]=Csatlakozás a BME Neptun rendszerhez
+Exec=neptun
+Icon=/usr/lib/ICAClient/icons/ica48.xpm
+Type=Application
+Categories=X-UHU-Menu/Internet/Tools;

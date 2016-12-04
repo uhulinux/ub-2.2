@@ -1,0 +1,12 @@
+diff -Naurd orig/Makefile mod/Makefile
+--- orig/Makefile	2009-01-22 16:03:11.000000000 +0100
++++ mod/Makefile	2009-09-30 23:39:05.000000000 +0200
+@@ -14,7 +14,7 @@
+ TREE_DEST=tree
+ BINDIR=${prefix}/bin
+ MAN=tree.1
+-MANDIR=${prefix}/man/man1
++MANDIR=${prefix}/share/man/man1
+ 
+ # Uncomment options below for your particular OS:
+ 

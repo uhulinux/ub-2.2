@@ -1,0 +1,50 @@
+diff -Naur e2fsprogs-1.41.4.orig/misc/fsck.c e2fsprogs-1.41.4/misc/fsck.c
+--- e2fsprogs-1.41.4.orig/misc/fsck.c	2008-10-07 16:22:39.000000000 +0200
++++ e2fsprogs-1.41.4/misc/fsck.c	2009-02-23 18:31:03.000000000 +0100
+@@ -57,6 +57,9 @@
+ #ifdef HAVE_SIGNAL_H
+ #include <signal.h>
+ #endif
++#include <fcntl.h>
++#include <sys/ioctl.h>
++#include <linux/fs.h>
+ 
+ #include "../version.h"
+ #include "nls-enable.h"
+@@ -432,6 +435,19 @@
+ }
+ 
+ /*
++ * UHU-hack: force flushing the device both before and after running fsck.
++ */
++static void flush_device(const char *device)
++{
++	int fd;
++	fd = open(device, O_RDONLY);
++	if (fd >= 0) {
++		ioctl(fd, BLKFLSBUF, 0);
++		close(fd);
++	}
++}
++
++/*
+  * Execute a particular fsck program, and link it into the list of
+  * child processes we are waiting for.
+  */
+@@ -491,6 +507,8 @@
+ 		printf("\n");
+ 	}
+ 
++	flush_device(device);
++	
+ 	/* Fork and execute the correct program. */
+ 	if (noexecute)
+ 		pid = -1;
+@@ -664,6 +682,7 @@
+ 		printf(_("Finished with %s (exit status %d)\n"),
+ 		       inst->device, inst->exit_status);
+ 	num_running--;
++	flush_device(inst->device);
+ 	return inst;
+ }
+ 

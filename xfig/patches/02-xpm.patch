@@ -1,0 +1,14 @@
+diff -urN xfig.3.2.4.orig/Imakefile xfig.3.2.4/Imakefile
+--- xfig.3.2.4.orig/Imakefile	2002-12-19 18:57:11.000000000 +0100
++++ xfig.3.2.4/Imakefile	2003-04-23 19:31:09.000000000 +0200
+@@ -87,8 +87,8 @@
+ XCOMM Change XPMLIBDIR if necessary to point to the xpm library (libXpm)
+ XCOMM Change XPMINC if necessary to point to the include file for xpm (xpm.h)
+ 
+-XCOMM #define USEXPM
+-XCOMM #define USEXPM_ICON
++#define USEXPM
++#define USEXPM_ICON
+ 
+ #ifdef USEXPM
+ XPMLIBDIR = $(USRLIBDIR)

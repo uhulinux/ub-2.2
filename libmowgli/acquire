@@ -1,0 +1,4 @@
+#!/usr/bin/env dl
+
+libmowgli-${UB_VERSION}.tgz libmowgli-${UB_VERSION}/
+	http://distfiles.atheme.org/

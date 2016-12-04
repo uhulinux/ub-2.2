@@ -1,0 +1,452 @@
+diff -Naurd mpeg4ip-1.6.1.orig/common/video/iso-mpeg4/configure mpeg4ip-1.6.1/common/video/iso-mpeg4/configure
+--- mpeg4ip-1.6.1.orig/common/video/iso-mpeg4/configure	2009-07-18 15:07:45.000000000 +0200
++++ mpeg4ip-1.6.1/common/video/iso-mpeg4/configure	2009-07-18 17:07:40.000000000 +0200
+@@ -23943,7 +23943,7 @@
+ 
+ 
+ 
+-BASE_ERR="-Wall"
++BASE_ERR=""
+ 
+ # Check whether --enable-warns-as-err was given.
+ if test "${enable_warns_as_err+set}" = set; then
+diff -Naurd mpeg4ip-1.6.1.orig/common/video/iso-mpeg4/configure.in mpeg4ip-1.6.1/common/video/iso-mpeg4/configure.in
+--- mpeg4ip-1.6.1.orig/common/video/iso-mpeg4/configure.in	2005-05-09 23:29:44.000000000 +0200
++++ mpeg4ip-1.6.1/common/video/iso-mpeg4/configure.in	2009-07-18 17:07:22.000000000 +0200
+@@ -62,8 +62,8 @@
+ [
+ save_CFLAG="$CFLAGS"
+ save_CXXFLAG="$CXXFLAGS"
+-CFLAGS="$CFLAGS -Werror $1"
+-CXXFLAGS="$CXXFLAGS -Werror $1"
++CFLAGS="$CFLAGS $1"
++CXXFLAGS="$CXXFLAGS $1"
+    AC_MSG_CHECKING([whether $3 accepts $1])
+    AC_COMPILE_IFELSE(
+ [extern void f(void); void f(void){}],
+@@ -105,14 +105,14 @@
+ ])
+ 
+ dnl
+-BASE_ERR="-Wall"
++BASE_ERR=""
+ 
+ AC_ARG_ENABLE(warns-as-err,
+ [AC_HELP_STRING([--enable-warns-as-err],[enable warnings as errors])],
+ 	[if test x$enableval = xno; then
+ 	   AC_MSG_NOTICE([compiler warnings will not be errors])
+          else 
+-           BASE_ERR="$BASE_ERR -Werror"
++           BASE_ERR="$BASE_ERR"
+ 	   AC_MSG_NOTICE([enabling compiler warnings as errors])
+          fi
+ 	 ],
+@@ -134,7 +134,6 @@
+ MY_CHECK_CC_OPT_SET([-Wformat=2],BILLS_CWARNINGS, [c compiler])
+ BILLS_CPPWARNINGS="$BASE_ERR"
+ AC_LANG_PUSH(C++)
+-MY_CHECK_CC_OPT_SET([-Wmissing-prototypes], BILLS_CPPWARNINGS,[c++ compiler])
+ MY_CHECK_CC_OPT_SET([-Wno-char-subscripts], BILLS_CPPWARNINGS,[c++ compiler])
+ MY_CHECK_CC_OPT_SET([-Woverloaded-virtual], BILLS_CPPWARNINGS,[c++ compiler])
+ MY_CHECK_CC_OPT_SET([-Wno-unknown-pragmas], BILLS_CPPWARNINGS,[c++ compiler])
+diff -Naurd mpeg4ip-1.6.1.orig/common/video/iso-mpeg4/src/Makefile.am mpeg4ip-1.6.1/common/video/iso-mpeg4/src/Makefile.am
+--- mpeg4ip-1.6.1.orig/common/video/iso-mpeg4/src/Makefile.am	2006-02-09 18:57:29.000000000 +0100
++++ mpeg4ip-1.6.1/common/video/iso-mpeg4/src/Makefile.am	2009-07-18 17:17:04.000000000 +0200
+@@ -1,5 +1,5 @@
+ 
+-AM_CXXFLAGS = -D__TRACE_AND_STATS_ -D__DOUBLE_PRECISION_ -D_REENTRANT -DNOCONTROLS -fexceptions -Wall -Werror -D_OBSS_ @BILLS_CPPWARNINGS@
++AM_CXXFLAGS = -D__TRACE_AND_STATS_ -D__DOUBLE_PRECISION_ -D_REENTRANT -DNOCONTROLS -fexceptions -D_OBSS_ @BILLS_CPPWARNINGS@
+ 
+ INCLUDES = -I$(srcdir)/../include
+ 
+diff -Naurd mpeg4ip-1.6.1.orig/common/video/iso-mpeg4/src/Makefile.in mpeg4ip-1.6.1/common/video/iso-mpeg4/src/Makefile.in
+--- mpeg4ip-1.6.1.orig/common/video/iso-mpeg4/src/Makefile.in	2007-10-08 17:10:47.000000000 +0200
++++ mpeg4ip-1.6.1/common/video/iso-mpeg4/src/Makefile.in	2009-07-18 17:16:47.000000000 +0200
+@@ -262,7 +262,7 @@
+ target_cpu = @target_cpu@
+ target_os = @target_os@
+ target_vendor = @target_vendor@
+-AM_CXXFLAGS = -D__TRACE_AND_STATS_ -D__DOUBLE_PRECISION_ -D_REENTRANT -DNOCONTROLS -fexceptions -Wall -Werror -D_OBSS_ @BILLS_CPPWARNINGS@
++AM_CXXFLAGS = -D__TRACE_AND_STATS_ -D__DOUBLE_PRECISION_ -D_REENTRANT -DNOCONTROLS -fexceptions -D_OBSS_ @BILLS_CPPWARNINGS@
+ INCLUDES = -I$(srcdir)/../include
+ lib_LTLIBRARIES = libmpeg4ip_mpeg4_iso.la
+ mp4vdec_SOURCES = \
+diff -Naurd mpeg4ip-1.6.1.orig/configure mpeg4ip-1.6.1/configure
+--- mpeg4ip-1.6.1.orig/configure	2007-10-08 17:11:23.000000000 +0200
++++ mpeg4ip-1.6.1/configure	2009-07-18 17:08:14.000000000 +0200
+@@ -30610,7 +30610,7 @@
+ 
+ 
+ 
+-BASE_ERR="-Wall"
++BASE_ERR=""
+ 
+ # Check whether --enable-warns-as-err was given.
+ if test "${enable_warns_as_err+set}" = set; then
+@@ -30618,7 +30618,7 @@
+ 	   { echo "$as_me:$LINENO: compiler warnings will not be errors" >&5
+ echo "$as_me: compiler warnings will not be errors" >&6;}
+          else
+-           BASE_ERR="$BASE_ERR -Werror"
++           BASE_ERR="$BASE_ERR"
+ 	   { echo "$as_me:$LINENO: enabling compiler warnings as errors" >&5
+ echo "$as_me: enabling compiler warnings as errors" >&6;}
+          fi
+@@ -30646,8 +30646,8 @@
+ 
+ save_CFLAG="$CFLAGS"
+ save_CXXFLAG="$CXXFLAGS"
+-CFLAGS="$CFLAGS -Werror $temp_val"
+-CXXFLAGS="$CXXFLAGS -Werror $temp_val"
++CFLAGS="$CFLAGS $temp_val"
++CXXFLAGS="$CXXFLAGS $temp_val"
+    { echo "$as_me:$LINENO: checking whether c compiler accepts $temp_val" >&5
+ echo $ECHO_N "checking whether c compiler accepts $temp_val... $ECHO_C" >&6; }
+    cat >conftest.$ac_ext <<_ACEOF
+@@ -30704,8 +30704,8 @@
+ 
+ save_CFLAG="$CFLAGS"
+ save_CXXFLAG="$CXXFLAGS"
+-CFLAGS="$CFLAGS -Werror $temp_val"
+-CXXFLAGS="$CXXFLAGS -Werror $temp_val"
++CFLAGS="$CFLAGS $temp_val"
++CXXFLAGS="$CXXFLAGS $temp_val"
+    { echo "$as_me:$LINENO: checking whether c compiler accepts $temp_val" >&5
+ echo $ECHO_N "checking whether c compiler accepts $temp_val... $ECHO_C" >&6; }
+    cat >conftest.$ac_ext <<_ACEOF
+@@ -30789,8 +30789,8 @@
+ 
+ save_CFLAG="$CFLAGS"
+ save_CXXFLAG="$CXXFLAGS"
+-CFLAGS="$CFLAGS -Werror $temp_val"
+-CXXFLAGS="$CXXFLAGS -Werror $temp_val"
++CFLAGS="$CFLAGS $temp_val"
++CXXFLAGS="$CXXFLAGS $temp_val"
+    { echo "$as_me:$LINENO: checking whether c compiler accepts $temp_val" >&5
+ echo $ECHO_N "checking whether c compiler accepts $temp_val... $ECHO_C" >&6; }
+    cat >conftest.$ac_ext <<_ACEOF
+@@ -30847,8 +30847,8 @@
+ 
+ save_CFLAG="$CFLAGS"
+ save_CXXFLAG="$CXXFLAGS"
+-CFLAGS="$CFLAGS -Werror $temp_val"
+-CXXFLAGS="$CXXFLAGS -Werror $temp_val"
++CFLAGS="$CFLAGS $temp_val"
++CXXFLAGS="$CXXFLAGS $temp_val"
+    { echo "$as_me:$LINENO: checking whether c compiler accepts $temp_val" >&5
+ echo $ECHO_N "checking whether c compiler accepts $temp_val... $ECHO_C" >&6; }
+    cat >conftest.$ac_ext <<_ACEOF
+@@ -30932,8 +30932,8 @@
+ 
+ save_CFLAG="$CFLAGS"
+ save_CXXFLAG="$CXXFLAGS"
+-CFLAGS="$CFLAGS -Werror $temp_val"
+-CXXFLAGS="$CXXFLAGS -Werror $temp_val"
++CFLAGS="$CFLAGS $temp_val"
++CXXFLAGS="$CXXFLAGS $temp_val"
+    { echo "$as_me:$LINENO: checking whether c compiler accepts $temp_val" >&5
+ echo $ECHO_N "checking whether c compiler accepts $temp_val... $ECHO_C" >&6; }
+    cat >conftest.$ac_ext <<_ACEOF
+@@ -30990,8 +30990,8 @@
+ 
+ save_CFLAG="$CFLAGS"
+ save_CXXFLAG="$CXXFLAGS"
+-CFLAGS="$CFLAGS -Werror $temp_val"
+-CXXFLAGS="$CXXFLAGS -Werror $temp_val"
++CFLAGS="$CFLAGS $temp_val"
++CXXFLAGS="$CXXFLAGS $temp_val"
+    { echo "$as_me:$LINENO: checking whether c compiler accepts $temp_val" >&5
+ echo $ECHO_N "checking whether c compiler accepts $temp_val... $ECHO_C" >&6; }
+    cat >conftest.$ac_ext <<_ACEOF
+@@ -31065,8 +31065,8 @@
+ 
+ save_CFLAG="$CFLAGS"
+ save_CXXFLAG="$CXXFLAGS"
+-CFLAGS="$CFLAGS -Werror -Wmissing-prototypes"
+-CXXFLAGS="$CXXFLAGS -Werror -Wmissing-prototypes"
++CFLAGS="$CFLAGS -Wmissing-prototypes"
++CXXFLAGS="$CXXFLAGS -Wmissing-prototypes"
+    { echo "$as_me:$LINENO: checking whether c compiler accepts -Wmissing-prototypes" >&5
+ echo $ECHO_N "checking whether c compiler accepts -Wmissing-prototypes... $ECHO_C" >&6; }
+    cat >conftest.$ac_ext <<_ACEOF
+@@ -31113,8 +31113,8 @@
+ 
+ save_CFLAG="$CFLAGS"
+ save_CXXFLAG="$CXXFLAGS"
+-CFLAGS="$CFLAGS -Werror -Wstrict-prototypes"
+-CXXFLAGS="$CXXFLAGS -Werror -Wstrict-prototypes"
++CFLAGS="$CFLAGS -Wstrict-prototypes"
++CXXFLAGS="$CXXFLAGS -Wstrict-prototypes"
+    { echo "$as_me:$LINENO: checking whether c compiler accepts -Wstrict-prototypes" >&5
+ echo $ECHO_N "checking whether c compiler accepts -Wstrict-prototypes... $ECHO_C" >&6; }
+    cat >conftest.$ac_ext <<_ACEOF
+@@ -31161,8 +31161,8 @@
+ 
+ save_CFLAG="$CFLAGS"
+ save_CXXFLAG="$CXXFLAGS"
+-CFLAGS="$CFLAGS -Werror -Wmissing-declarations"
+-CXXFLAGS="$CXXFLAGS -Werror -Wmissing-declarations"
++CFLAGS="$CFLAGS -Wmissing-declarations"
++CXXFLAGS="$CXXFLAGS -Wmissing-declarations"
+    { echo "$as_me:$LINENO: checking whether c compiler accepts -Wmissing-declarations" >&5
+ echo $ECHO_N "checking whether c compiler accepts -Wmissing-declarations... $ECHO_C" >&6; }
+    cat >conftest.$ac_ext <<_ACEOF
+@@ -31209,8 +31209,8 @@
+ 
+ save_CFLAG="$CFLAGS"
+ save_CXXFLAG="$CXXFLAGS"
+-CFLAGS="$CFLAGS -Werror -Wmissing-field-initializers"
+-CXXFLAGS="$CXXFLAGS -Werror -Wmissing-field-initializers"
++CFLAGS="$CFLAGS -Wmissing-field-initializers"
++CXXFLAGS="$CXXFLAGS -Wmissing-field-initializers"
+    { echo "$as_me:$LINENO: checking whether c compiler accepts -Wmissing-field-initializers" >&5
+ echo $ECHO_N "checking whether c compiler accepts -Wmissing-field-initializers... $ECHO_C" >&6; }
+    cat >conftest.$ac_ext <<_ACEOF
+@@ -31257,8 +31257,8 @@
+ 
+ save_CFLAG="$CFLAGS"
+ save_CXXFLAG="$CXXFLAGS"
+-CFLAGS="$CFLAGS -Werror -Wno-char-subscripts"
+-CXXFLAGS="$CXXFLAGS -Werror -Wno-char-subscripts"
++CFLAGS="$CFLAGS -Wno-char-subscripts"
++CXXFLAGS="$CXXFLAGS -Wno-char-subscripts"
+    { echo "$as_me:$LINENO: checking whether c compiler accepts -Wno-char-subscripts" >&5
+ echo $ECHO_N "checking whether c compiler accepts -Wno-char-subscripts... $ECHO_C" >&6; }
+    cat >conftest.$ac_ext <<_ACEOF
+@@ -31305,8 +31305,8 @@
+ 
+ save_CFLAG="$CFLAGS"
+ save_CXXFLAG="$CXXFLAGS"
+-CFLAGS="$CFLAGS -Werror -Wno-unknown-pragmas"
+-CXXFLAGS="$CXXFLAGS -Werror -Wno-unknown-pragmas"
++CFLAGS="$CFLAGS -Wno-unknown-pragmas"
++CXXFLAGS="$CXXFLAGS -Wno-unknown-pragmas"
+    { echo "$as_me:$LINENO: checking whether c compiler accepts -Wno-unknown-pragmas" >&5
+ echo $ECHO_N "checking whether c compiler accepts -Wno-unknown-pragmas... $ECHO_C" >&6; }
+    cat >conftest.$ac_ext <<_ACEOF
+@@ -31353,8 +31353,8 @@
+ 
+ save_CFLAG="$CFLAGS"
+ save_CXXFLAG="$CXXFLAGS"
+-CFLAGS="$CFLAGS -Werror -Wformat=2"
+-CXXFLAGS="$CXXFLAGS -Werror -Wformat=2"
++CFLAGS="$CFLAGS -Wformat=2"
++CXXFLAGS="$CXXFLAGS -Wformat=2"
+    { echo "$as_me:$LINENO: checking whether c compiler accepts -Wformat=2" >&5
+ echo $ECHO_N "checking whether c compiler accepts -Wformat=2... $ECHO_C" >&6; }
+    cat >conftest.$ac_ext <<_ACEOF
+@@ -31401,8 +31401,8 @@
+ 
+ save_CFLAG="$CFLAGS"
+ save_CXXFLAG="$CXXFLAGS"
+-CFLAGS="$CFLAGS -Werror -Wdeclaration-after-statement"
+-CXXFLAGS="$CXXFLAGS -Werror -Wdeclaration-after-statement"
++CFLAGS="$CFLAGS -Wdeclaration-after-statement"
++CXXFLAGS="$CXXFLAGS -Wdeclaration-after-statement"
+    { echo "$as_me:$LINENO: checking whether c compiler accepts -Wdeclaration-after-statement" >&5
+ echo $ECHO_N "checking whether c compiler accepts -Wdeclaration-after-statement... $ECHO_C" >&6; }
+    cat >conftest.$ac_ext <<_ACEOF
+@@ -31449,8 +31449,8 @@
+ 
+ save_CFLAG="$CFLAGS"
+ save_CXXFLAG="$CXXFLAGS"
+-CFLAGS="$CFLAGS -Werror -Wpointer-arith"
+-CXXFLAGS="$CXXFLAGS -Werror -Wpointer-arith"
++CFLAGS="$CFLAGS -Wpointer-arith"
++CXXFLAGS="$CXXFLAGS -Wpointer-arith"
+    { echo "$as_me:$LINENO: checking whether c compiler accepts -Wpointer-arith" >&5
+ echo $ECHO_N "checking whether c compiler accepts -Wpointer-arith... $ECHO_C" >&6; }
+    cat >conftest.$ac_ext <<_ACEOF
+@@ -31497,8 +31497,8 @@
+ 
+ save_CFLAG="$CFLAGS"
+ save_CXXFLAG="$CXXFLAGS"
+-CFLAGS="$CFLAGS -Werror -Wsign-compare"
+-CXXFLAGS="$CXXFLAGS -Werror -Wsign-compare"
++CFLAGS="$CFLAGS -Wsign-compare"
++CXXFLAGS="$CXXFLAGS -Wsign-compare"
+    { echo "$as_me:$LINENO: checking whether c compiler accepts -Wsign-compare" >&5
+ echo $ECHO_N "checking whether c compiler accepts -Wsign-compare... $ECHO_C" >&6; }
+    cat >conftest.$ac_ext <<_ACEOF
+@@ -31545,8 +31545,8 @@
+ 
+ save_CFLAG="$CFLAGS"
+ save_CXXFLAG="$CXXFLAGS"
+-CFLAGS="$CFLAGS -Werror -Wswitch-enum"
+-CXXFLAGS="$CXXFLAGS -Werror -Wswitch-enum"
++CFLAGS="$CFLAGS -Wswitch-enum"
++CXXFLAGS="$CXXFLAGS -Wswitch-enum"
+    { echo "$as_me:$LINENO: checking whether c compiler accepts -Wswitch-enum" >&5
+ echo $ECHO_N "checking whether c compiler accepts -Wswitch-enum... $ECHO_C" >&6; }
+    cat >conftest.$ac_ext <<_ACEOF
+@@ -31593,8 +31593,8 @@
+ 
+ save_CFLAG="$CFLAGS"
+ save_CXXFLAG="$CXXFLAGS"
+-CFLAGS="$CFLAGS -Werror -Wtraditional"
+-CXXFLAGS="$CXXFLAGS -Werror -Wtraditional"
++CFLAGS="$CFLAGS -Wtraditional"
++CXXFLAGS="$CXXFLAGS -Wtraditional"
+    { echo "$as_me:$LINENO: checking whether c compiler accepts -Wtraditional" >&5
+ echo $ECHO_N "checking whether c compiler accepts -Wtraditional... $ECHO_C" >&6; }
+    cat >conftest.$ac_ext <<_ACEOF
+@@ -31641,8 +31641,8 @@
+ 
+ save_CFLAG="$CFLAGS"
+ save_CXXFLAG="$CXXFLAGS"
+-CFLAGS="$CFLAGS -Werror -Wnested-externs"
+-CXXFLAGS="$CXXFLAGS -Werror -Wnested-externs"
++CFLAGS="$CFLAGS -Wnested-externs"
++CXXFLAGS="$CXXFLAGS -Wnested-externs"
+    { echo "$as_me:$LINENO: checking whether c compiler accepts -Wnested-externs" >&5
+ echo $ECHO_N "checking whether c compiler accepts -Wnested-externs... $ECHO_C" >&6; }
+    cat >conftest.$ac_ext <<_ACEOF
+@@ -31697,8 +31697,8 @@
+ 
+ save_CFLAG="$CFLAGS"
+ save_CXXFLAG="$CXXFLAGS"
+-CFLAGS="$CFLAGS -Werror -Wmissing-prototypes"
+-CXXFLAGS="$CXXFLAGS -Werror -Wmissing-prototypes"
++CFLAGS="$CFLAGS -Wmissing-prototypes"
++CXXFLAGS="$CXXFLAGS -Wmissing-prototypes"
+    { echo "$as_me:$LINENO: checking whether c++ compiler accepts -Wmissing-prototypes" >&5
+ echo $ECHO_N "checking whether c++ compiler accepts -Wmissing-prototypes... $ECHO_C" >&6; }
+    cat >conftest.$ac_ext <<_ACEOF
+@@ -31745,8 +31745,8 @@
+ 
+ save_CFLAG="$CFLAGS"
+ save_CXXFLAG="$CXXFLAGS"
+-CFLAGS="$CFLAGS -Werror -Wmissing-field-initializers"
+-CXXFLAGS="$CXXFLAGS -Werror -Wmissing-field-initializers"
++CFLAGS="$CFLAGS -Wmissing-field-initializers"
++CXXFLAGS="$CXXFLAGS -Wmissing-field-initializers"
+    { echo "$as_me:$LINENO: checking whether c++ compiler accepts -Wmissing-field-initializers" >&5
+ echo $ECHO_N "checking whether c++ compiler accepts -Wmissing-field-initializers... $ECHO_C" >&6; }
+    cat >conftest.$ac_ext <<_ACEOF
+@@ -31793,8 +31793,8 @@
+ 
+ save_CFLAG="$CFLAGS"
+ save_CXXFLAG="$CXXFLAGS"
+-CFLAGS="$CFLAGS -Werror -Wno-char-subscripts"
+-CXXFLAGS="$CXXFLAGS -Werror -Wno-char-subscripts"
++CFLAGS="$CFLAGS -Wno-char-subscripts"
++CXXFLAGS="$CXXFLAGS -Wno-char-subscripts"
+    { echo "$as_me:$LINENO: checking whether c++ compiler accepts -Wno-char-subscripts" >&5
+ echo $ECHO_N "checking whether c++ compiler accepts -Wno-char-subscripts... $ECHO_C" >&6; }
+    cat >conftest.$ac_ext <<_ACEOF
+@@ -31841,8 +31841,8 @@
+ 
+ save_CFLAG="$CFLAGS"
+ save_CXXFLAG="$CXXFLAGS"
+-CFLAGS="$CFLAGS -Werror -Woverloaded-virtual"
+-CXXFLAGS="$CXXFLAGS -Werror -Woverloaded-virtual"
++CFLAGS="$CFLAGS -Woverloaded-virtual"
++CXXFLAGS="$CXXFLAGS -Woverloaded-virtual"
+    { echo "$as_me:$LINENO: checking whether c++ compiler accepts -Woverloaded-virtual" >&5
+ echo $ECHO_N "checking whether c++ compiler accepts -Woverloaded-virtual... $ECHO_C" >&6; }
+    cat >conftest.$ac_ext <<_ACEOF
+@@ -31889,8 +31889,8 @@
+ 
+ save_CFLAG="$CFLAGS"
+ save_CXXFLAG="$CXXFLAGS"
+-CFLAGS="$CFLAGS -Werror -Wno-unknown-pragmas"
+-CXXFLAGS="$CXXFLAGS -Werror -Wno-unknown-pragmas"
++CFLAGS="$CFLAGS -Wno-unknown-pragmas"
++CXXFLAGS="$CXXFLAGS -Wno-unknown-pragmas"
+    { echo "$as_me:$LINENO: checking whether c++ compiler accepts -Wno-unknown-pragmas" >&5
+ echo $ECHO_N "checking whether c++ compiler accepts -Wno-unknown-pragmas... $ECHO_C" >&6; }
+    cat >conftest.$ac_ext <<_ACEOF
+@@ -31937,8 +31937,8 @@
+ 
+ save_CFLAG="$CFLAGS"
+ save_CXXFLAG="$CXXFLAGS"
+-CFLAGS="$CFLAGS -Werror -Wno-deprecated"
+-CXXFLAGS="$CXXFLAGS -Werror -Wno-deprecated"
++CFLAGS="$CFLAGS -Wno-deprecated"
++CXXFLAGS="$CXXFLAGS -Wno-deprecated"
+    { echo "$as_me:$LINENO: checking whether c++ compiler accepts -Wno-deprecated" >&5
+ echo $ECHO_N "checking whether c++ compiler accepts -Wno-deprecated... $ECHO_C" >&6; }
+    cat >conftest.$ac_ext <<_ACEOF
+@@ -31985,8 +31985,8 @@
+ 
+ save_CFLAG="$CFLAGS"
+ save_CXXFLAG="$CXXFLAGS"
+-CFLAGS="$CFLAGS -Werror -Wformat=2"
+-CXXFLAGS="$CXXFLAGS -Werror -Wformat=2"
++CFLAGS="$CFLAGS -Wformat=2"
++CXXFLAGS="$CXXFLAGS -Wformat=2"
+    { echo "$as_me:$LINENO: checking whether c++ compiler accepts -Wformat=2" >&5
+ echo $ECHO_N "checking whether c++ compiler accepts -Wformat=2... $ECHO_C" >&6; }
+    cat >conftest.$ac_ext <<_ACEOF
+@@ -32033,8 +32033,8 @@
+ 
+ save_CFLAG="$CFLAGS"
+ save_CXXFLAG="$CXXFLAGS"
+-CFLAGS="$CFLAGS -Werror -Wpointer-arith"
+-CXXFLAGS="$CXXFLAGS -Werror -Wpointer-arith"
++CFLAGS="$CFLAGS -Wpointer-arith"
++CXXFLAGS="$CXXFLAGS -Wpointer-arith"
+    { echo "$as_me:$LINENO: checking whether c++ compiler accepts -Wpointer-arith" >&5
+ echo $ECHO_N "checking whether c++ compiler accepts -Wpointer-arith... $ECHO_C" >&6; }
+    cat >conftest.$ac_ext <<_ACEOF
+@@ -32081,8 +32081,8 @@
+ 
+ save_CFLAG="$CFLAGS"
+ save_CXXFLAG="$CXXFLAGS"
+-CFLAGS="$CFLAGS -Werror -Wsign-compare"
+-CXXFLAGS="$CXXFLAGS -Werror -Wsign-compare"
++CFLAGS="$CFLAGS -Wsign-compare"
++CXXFLAGS="$CXXFLAGS -Wsign-compare"
+    { echo "$as_me:$LINENO: checking whether c++ compiler accepts -Wsign-compare" >&5
+ echo $ECHO_N "checking whether c++ compiler accepts -Wsign-compare... $ECHO_C" >&6; }
+    cat >conftest.$ac_ext <<_ACEOF
+@@ -32129,8 +32129,8 @@
+ 
+ save_CFLAG="$CFLAGS"
+ save_CXXFLAG="$CXXFLAGS"
+-CFLAGS="$CFLAGS -Werror -fno-strict-aliasing"
+-CXXFLAGS="$CXXFLAGS -Werror -fno-strict-aliasing"
++CFLAGS="$CFLAGS -fno-strict-aliasing"
++CXXFLAGS="$CXXFLAGS -fno-strict-aliasing"
+    { echo "$as_me:$LINENO: checking whether c++ compiler accepts -fno-strict-aliasing" >&5
+ echo $ECHO_N "checking whether c++ compiler accepts -fno-strict-aliasing... $ECHO_C" >&6; }
+    cat >conftest.$ac_ext <<_ACEOF
+diff -Naurd mpeg4ip-1.6.1.orig/configure.in mpeg4ip-1.6.1/configure.in
+--- mpeg4ip-1.6.1.orig/configure.in	2007-09-28 22:45:08.000000000 +0200
++++ mpeg4ip-1.6.1/configure.in	2009-07-18 17:07:59.000000000 +0200
+@@ -303,8 +303,8 @@
+ [
+ save_CFLAG="$CFLAGS"
+ save_CXXFLAG="$CXXFLAGS"
+-CFLAGS="$CFLAGS -Werror $1"
+-CXXFLAGS="$CXXFLAGS -Werror $1"
++CFLAGS="$CFLAGS $1"
++CXXFLAGS="$CXXFLAGS $1"
+    AC_MSG_CHECKING([whether $3 accepts $1])
+    AC_COMPILE_IFELSE(
+ [extern void f(void); void f(void){}],
+@@ -816,14 +816,14 @@
+ AC_SUBST(SUN_LIBS)
+ 
+ dnl
+-BASE_ERR="-Wall"
++BASE_ERR=""
+ 
+ AC_ARG_ENABLE(warns-as-err,
+ [AC_HELP_STRING([--enable-warns-as-err],[enable warnings as errors])],
+ 	[if test x$enableval = xno; then
+ 	   AC_MSG_NOTICE([compiler warnings will not be errors])
+          else 
+-           BASE_ERR="$BASE_ERR -Werror"
++           BASE_ERR="$BASE_ERR"
+ 	   AC_MSG_NOTICE([enabling compiler warnings as errors])
+          fi
+ 	 ],
+@@ -854,7 +854,6 @@
+ 
+ BILLS_CPPWARNINGS="$BASE_ERR"
+ AC_LANG_PUSH(C++)
+-MY_CHECK_CC_OPT_SET([-Wmissing-prototypes], BILLS_CPPWARNINGS,[c++ compiler])
+ MY_CHECK_CC_OPT_SET([-Wmissing-field-initializers], BILLS_CWARNINGS, [c++ compiler])
+ MY_CHECK_CC_OPT_SET([-Wno-char-subscripts], BILLS_CPPWARNINGS,[c++ compiler])
+ MY_CHECK_CC_OPT_SET([-Woverloaded-virtual], BILLS_CPPWARNINGS,[c++ compiler])

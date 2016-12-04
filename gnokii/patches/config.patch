@@ -1,0 +1,34 @@
+diff -Naurd b/Docs/sample/gnokiirc c/Docs/sample/gnokiirc
+--- b/Docs/sample/gnokiirc	2006-08-28 00:36:54.000000000 +0200
++++ c/Docs/sample/gnokiirc	2007-04-12 17:36:37.000000000 +0200
+@@ -7,7 +7,7 @@
+ 
+ # Set port to the physical port used to connect to your phone.
+ # Linux version is:
+-port = /dev/ttyS0
++port = /dev/modem
+ #
+ # For MacOSX you will need something like:
+ # port = /dev/cu.USA28X1P1.1
+@@ -42,10 +42,10 @@
+ # model = series60
+ # For other non-Nokia phones and when you want to use AT
+ # mode use:
+-# model = AT
++model = AT
+ # If you can't figure out what to put here read the FAQ.
+ # If it still doesn't help, consult gnokii-ml or #gnokii at freenode.
+-model = 6510
++# model = 6510
+ # There are few main models that should make use of the certain drivers.
+ # These are: 6110, 7110, 6510, 3110, 2110, 6160.
+ 
+@@ -158,7 +158,7 @@
+ # permissions 4750, owned by root, group gnokii.  Ensure you
+ # are in the gnokii group and that the group exists...
+ [gnokiid]
+-bindir = /usr/local/sbin/
++bindir = /usr/sbin/
+ 
+ # Any entries in the following two sections will be set as environment
+ # variables when running the scripts.

@@ -1,0 +1,11 @@
+[Desktop Entry]
+Encoding=UTF-8
+Type=Application
+Name=listpatron
+Comment=list of information
+Comment[hu]=lista-adatkezelő
+Exec=listpatron
+Icon=
+Terminal=false
+Categories=X-UHU-Menu/Tools/Databases;
+X-UHU-Major=-1

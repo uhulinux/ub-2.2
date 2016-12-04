@@ -1,0 +1,14 @@
+curl-dev
+libjpeg-dev
+libode-dev
+libpng-dev
+libx11-dev
+libxdg-basedir-dev
+lua
+lua-dev
+mesa-dev
+sdl-dev
+sdl-mixer-dev
+sdl-net-dev
+sdl-ttf-dev
+sqlite-dev

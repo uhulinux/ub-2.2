@@ -1,0 +1,4 @@
+#!/usr/bin/env dl
+
+flite-${UB_VERSION}-release.tar.gz flite-${UB_VERSION}-release/
+	http://www.speech.cs.cmu.edu/flite/packed/flite-${UB_VERSION}/

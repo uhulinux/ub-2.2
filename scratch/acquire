@@ -1,0 +1,5 @@
+#!/usr/bin/env dl
+
+scratch_${UB_VERSION}.debian.14.tar.gz scratchonlinux/
+	https://launchpad.net/~scratch/+archive/ppa/+files/
+

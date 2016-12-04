@@ -1,0 +1,30 @@
+diff -Naurdp a/gnome-volume-manager.schemas.in b/gnome-volume-manager.schemas.in
+--- a/gnome-volume-manager.schemas.in	2005-10-26 19:35:55.000000000 +0200
++++ b/gnome-volume-manager.schemas.in	2005-11-17 18:24:25.000000000 +0100
+@@ -87,7 +87,7 @@
+         <key>/schemas/desktop/gnome/volume_manager/autoburn</key>
+ 	<applyto>/desktop/gnome/volume_manager/autoburn</applyto>
+ 	<type>bool</type>
+-	<default>false</default>
++	<default>true</default>
+ 	<locale name="C">
+ 	  <short>Run a program to burn CDs/DVDs</short>
+ 	  <long>Whether, when a blank CD or DVD is inserted, gnome-volume-manager
+@@ -180,7 +180,7 @@
+         <key>/schemas/desktop/gnome/volume_manager/autophoto_command</key>
+ 	<applyto>/desktop/gnome/volume_manager/autophoto_command</applyto>
+ 	<type>string</type>
+-	<default></default>
++	<default>gthumb --import-photos</default>
+ 	<locale name="C">
+ 	  <short>Photo management command</short>
+ 	  <long>Command to run when a digital camera is connected or media 
+@@ -238,7 +238,7 @@
+         <key>/schemas/desktop/gnome/volume_manager/autoscanner</key>
+ 	<applyto>/desktop/gnome/volume_manager/autoscanner</applyto>
+ 	<type>bool</type>
+-	<default>true</default>
++	<default>false</default>
+ 	<locale name="C">
+ 	  <short>Run scanner program</short>
+ 	  <long>Whether, when a scanner is connected, gnome-volume-manager should run

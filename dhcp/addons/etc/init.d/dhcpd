@@ -1,0 +1,9 @@
+#!/bin/sh
+
+. /etc/init.d/common
+
+DAEMON=/usr/sbin/dhcpd
+PIDFILE="/var/run/dhcpd.pid"
+DAEMONARGS=(-q)
+
+startstop "$@"

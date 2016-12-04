@@ -1,0 +1,4 @@
+#!/usr/bin/env dl
+
+Parse-RecDescent-${UB_VERSION}.tar.gz Parse-RecDescent-${UB_VERSION}/
+	http://cpan.uwinnipeg.ca/cpan/authors/id/D/DC/DCONWAY/

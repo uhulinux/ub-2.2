@@ -1,0 +1,73 @@
+If all hyphenations are enabled, TeX eats up too much internal memory,
+causing the postinst script of this package to fail.
+
+diff -Naur tetex-src-3.0.orig/tetex-texmf/tex/generic/config/language.dat tetex-src-3.0/tetex-texmf/tex/generic/config/language.dat
+--- tetex-src-3.0.orig/tetex-texmf/tex/generic/config/language.dat	2005-01-13 15:40:02.000000000 +0100
++++ tetex-src-3.0/tetex-texmf/tex/generic/config/language.dat	2005-10-06 14:48:27.000000000 +0200
+@@ -50,38 +50,38 @@
+ % The following languages are disabled by default. Uncomment, what you need.
+ % To enable, remove %! and the space.
+ %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+-bahasa	inhyph.tex
+-basque	bahyph.tex
+-bulgarian bghyphen.tex
+-catalan	cahyph.tex
+-croatian	hrhyph.tex
+-czech	czhyph.tex  % depends on other files from tex/csplain
+-danish	dkhyphen.tex
+-dutch	nehyph.tex
+-esperanto	eohyph.tex
+-estonian	eehyph.tex
+-finnish	fi8hyph.tex
+-greek	grhyph.tex
+-icelandic	icehyph.tex
+-irish	gahyph.tex
+-italian	ithyph.tex
+-latin	lahyph.tex
++%! bahasa	inhyph.tex
++%! basque	bahyph.tex
++%! bulgarian bghyphen.tex
++%! catalan	cahyph.tex
++%! croatian	hrhyph.tex
++%! czech	czhyph.tex  % depends on other files from tex/csplain
++%! danish	dkhyphen.tex
++%! dutch	nehyph.tex
++%! esperanto	eohyph.tex
++%! estonian	eehyph.tex
++%! finnish	fi8hyph.tex
++%! greek	grhyph.tex
++%! icelandic	icehyph.tex
++%! irish	gahyph.tex
++%! italian	ithyph.tex
++%! latin	lahyph.tex
+ magyar	huhyphn.tex
+-norsk	nohyphbx.tex % see http://home.c2i.net/omselberg/pub/nohyphbx_intro.htm (in Norwegian)
+-polish	plhyph.tex
+-portuges	pt8hyph.tex
+-romanian	rohyphen.tex
+-russian	ruhyphen.tex	% note: edit ruhyphen.tex for your encoding!
+-serbian	srhyphc.tex     % Serbian Cyrillic Hyphenation Patterns
+-slovak	skhyph.tex      % depends on csplain being installed
+-slovene	sihyph23.tex
+-spanish	eshyph.tex
+-swedish	sehyph.tex
+-turkish	trhyph.tex
++%! norsk	nohyphbx.tex % see http://home.c2i.net/omselberg/pub/nohyphbx_intro.htm (in Norwegian)
++%! polish	plhyph.tex
++%! portuges	pt8hyph.tex
++%! romanian	rohyphen.tex
++%! russian	ruhyphen.tex	% note: edit ruhyphen.tex for your encoding!
++%! serbian	srhyphc.tex     % Serbian Cyrillic Hyphenation Patterns
++%! slovak	skhyph.tex      % depends on csplain being installed
++%! slovene	sihyph23.tex
++%! spanish	eshyph.tex
++%! swedish	sehyph.tex
++%! turkish	trhyph.tex
+ 
+ % For Ukrainian, either use ukrhyph.tex (and edit that file for the encoding
+ % that you need) or use one of the ukrhyph.ENC files.
+-ukrainian	ukrhyph.tex
++%! ukrainian	ukrhyph.tex
+ %! ukrainian	ukrhyph.t2a
+ %! ukrainian	ukrhyph.lcy
+ %! ukrainian	ukrhyph.ot2

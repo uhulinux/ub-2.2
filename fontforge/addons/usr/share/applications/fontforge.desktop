@@ -1,0 +1,9 @@
+[Desktop Entry]
+Encoding=UTF-8
+Type=Application
+Name=FontForge
+GenericName=Font Editor
+GenericName[hu]=Betűszerkesztő
+Exec=fontforge
+Icon=fontforge.png
+Categories=X-UHU-Menu/Tools/Utilities;

@@ -1,0 +1,4 @@
+#!/usr/bin/env dl
+
+Msql-Mysql-modules-${UB_VERSION}.tar.gz Msql-Mysql-modules-${UB_VERSION}/
+	ftp://ftp.cpan.org/pub/CPAN/modules/by-module/Msql/

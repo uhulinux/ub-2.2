@@ -1,0 +1,8 @@
+#!/bin/sh
+
+. /etc/init.d/common
+
+DAEMON=/usr/sbin/atd
+PIDFILE="/var/run/atd.pid"
+
+startstop "$@"

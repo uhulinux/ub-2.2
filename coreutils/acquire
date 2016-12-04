@@ -1,0 +1,4 @@
+#!/usr/bin/env dl
+
+coreutils-${UB_VERSION}.tar.gz coreutils-${UB_VERSION}/
+	ftp://ftp.gnu.org/gnu/coreutils/

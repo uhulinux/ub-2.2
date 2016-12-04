@@ -1,0 +1,4 @@
+#!/usr/bin/env dl
+
+kodos-${UB_VERSION}.tar.gz kodos-${UB_VERSION}/
+	http://downloads.sourceforge.net/kodos/

@@ -1,0 +1,4 @@
+#!/usr/bin/env dl
+
+cdk-${UB_VERSION_HEAD2}-${UB_VERSION_TAIL1}.tgz cdk-${UB_VERSION_HEAD2}-${UB_VERSION_TAIL1}/
+	ftp://invisible-island.net/cdk/

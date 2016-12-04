@@ -1,0 +1,10 @@
+[Desktop Entry]
+Version=1.1
+Type=Application
+Name=Jasspa
+Comment=MicroEmacs
+Comment[hu]=MicroEmacs
+Exec=me %F
+Icon=/usr/share/pixmaps/me.xpm
+Terminal=false
+Categories=X-UHU-Menu/Tools/Editors;

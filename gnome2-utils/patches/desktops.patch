@@ -1,0 +1,94 @@
+diff -Naurd gnome-utils-2.26.0.orig/baobab/data/baobab.desktop.in.in gnome-utils-2.26.0/baobab/data/baobab.desktop.in.in
+--- gnome-utils-2.26.0.orig/baobab/data/baobab.desktop.in.in	2008-09-14 15:43:47.000000000 +0200
++++ gnome-utils-2.26.0/baobab/data/baobab.desktop.in.in	2009-03-22 10:14:27.000000000 +0100
+@@ -1,5 +1,5 @@
+ [Desktop Entry]
+-_Name=Disk Usage Analyzer
++Name=Baobab
+ _Comment=Check folder sizes and available disk space
+ _GenericName=Disk Usage Analyzer
+ TryExec=baobab
+@@ -8,7 +9,7 @@
+ Terminal=false
+ Type=Application
+ StartupNotify=true
+-Categories=GTK;GNOME;System;Filesystem;
++Categories=GTK;GNOME;System;Filesystem;X-UHU-Menu/Tools/Utilities;
+ NotShowIn=KDE;
+ X-GNOME-Bugzilla-Bugzilla=GNOME
+ X-GNOME-Bugzilla-Product=gnome-utils
+diff -Naurd gnome-utils-2.26.0.orig/gnome-dictionary/data/gnome-dictionary.desktop.in.in gnome-utils-2.26.0/gnome-dictionary/data/gnome-dictionary.desktop.in.in
+--- gnome-utils-2.26.0.orig/gnome-dictionary/data/gnome-dictionary.desktop.in.in	2008-11-04 00:37:43.000000000 +0100
++++ gnome-utils-2.26.0/gnome-dictionary/data/gnome-dictionary.desktop.in.in	2009-03-22 10:17:22.000000000 +0100
+@@ -1,12 +1,13 @@
+ [Desktop Entry]
+-_Name=Dictionary
++_Name=GNOME Dictionary
++_GenericName=Dictionary
+ _Comment=Check word definitions and spellings in an online dictionary
+ Exec=gnome-dictionary
+ Terminal=false
+ Type=Application
+ Icon=accessories-dictionary
+ StartupNotify=true
+-Categories=GNOME;GTK;Office;Dictionary;
++Categories=GNOME;GTK;Office;Dictionary;X-UHU-Menu/Tools/Dictionaries;
+ NotShowIn=KDE;
+ X-GNOME-DocPath=gnome-dictionary/gnome-dictionary.xml
+ X-GNOME-Bugzilla-Bugzilla=GNOME
+diff -Naurd gnome-utils-2.26.0.orig/gnome-screenshot/gnome-screenshot.desktop.in gnome-utils-2.26.0/gnome-screenshot/gnome-screenshot.desktop.in
+--- gnome-utils-2.26.0.orig/gnome-screenshot/gnome-screenshot.desktop.in	2008-03-07 09:43:11.000000000 +0100
++++ gnome-utils-2.26.0/gnome-screenshot/gnome-screenshot.desktop.in	2009-03-22 10:18:52.000000000 +0100
+@@ -1,12 +1,12 @@
+ [Desktop Entry]
+-_Name=Take Screenshot
++_Name=GNOME Screenshot
+ _Comment=Save images of your desktop or individual windows
+ Exec=gnome-screenshot --interactive
+ Terminal=false
+ Type=Application
+ Icon=applets-screenshooter
+ StartupNotify=true
+-Categories=GTK;GNOME;Utility;
++Categories=GTK;GNOME;Utility;X-UHU-Menu/Graphics/Capture;
+ NotShowIn=KDE;
+ X-GNOME-Bugzilla-Bugzilla=GNOME
+ X-GNOME-Bugzilla-Product=gnome-utils
+diff -Naurd gnome-utils-2.26.0.orig/gsearchtool/gnome-search-tool.desktop.in gnome-utils-2.26.0/gsearchtool/gnome-search-tool.desktop.in
+--- gnome-utils-2.26.0.orig/gsearchtool/gnome-search-tool.desktop.in	2008-03-07 09:42:36.000000000 +0100
++++ gnome-utils-2.26.0/gsearchtool/gnome-search-tool.desktop.in	2009-03-22 10:22:37.000000000 +0100
+@@ -1,12 +1,13 @@
+ [Desktop Entry]
+-_Name=Search for Files...
++Name=GNOME Search
++Name[hu]=GNOME Kereső
+ _Comment=Locate documents and folders on this computer by name or content
+ Exec=gnome-search-tool
+ Icon=system-search
+ Terminal=false
+ Type=Application
+ StartupNotify=true
+-Categories=GNOME;GTK;Utility;Core;
++Categories=GTK;GNOME;Utility;Core;X-UHU-Menu/Tools/Utilities;
+ NotShowIn=KDE;
+ X-GNOME-DocPath=gnome-search-tool/gnome-search-tool.xml
+ X-GNOME-Bugzilla-Bugzilla=GNOME
+diff -Naurd gnome-utils-2.26.0.orig/logview/data/gnome-system-log.desktop.in.in gnome-utils-2.26.0/logview/data/gnome-system-log.desktop.in.in
+--- gnome-utils-2.26.0.orig/logview/data/gnome-system-log.desktop.in.in	2008-12-23 15:55:03.000000000 +0100
++++ gnome-utils-2.26.0/logview/data/gnome-system-log.desktop.in.in	2009-03-22 10:22:22.000000000 +0100
+@@ -1,12 +1,13 @@
+ [Desktop Entry]
+-_Name=Log File Viewer
++Name=GNOME LogView
++Name[hu]=GNOME Naplófigyelő
+ _Comment=View or monitor system log files
+ Exec=gnome-system-log
+ Icon=logviewer
+ Terminal=false
+ Type=Application
+ StartupNotify=true
+-Categories=GTK;GNOME;System;Monitor;
++Categories=GTK;GNOME;System;Monitor;X-UHU-Menu/Tools/Utilities;
+ NotShowIn=KDE;
+ X-GNOME-DocPath=gnome-system-log/gnome-system-log.xml
+ X-GNOME-Bugzilla-Bugzilla=GNOME

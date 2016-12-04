@@ -1,0 +1,4 @@
+#!/usr/bin/env dl
+
+iso-codes_${UB_VERSION}.orig.tar.gz iso-codes-${UB_VERSION}/
+	ftp://ftp.debian.org/debian/pool/main/i/iso-codes/

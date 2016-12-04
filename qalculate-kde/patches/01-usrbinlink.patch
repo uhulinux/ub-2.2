@@ -1,0 +1,13 @@
+diff -urN qalculate-kde-0.9.6.orig/src/Makefile.in qalculate-kde-0.9.6/src/Makefile.in
+--- qalculate-kde-0.9.6.orig/src/Makefile.in	2007-06-17 13:34:19.000000000 +0200
++++ qalculate-kde-0.9.6/src/Makefile.in	2008-03-25 12:20:42.000000000 +0100
+@@ -824,7 +824,8 @@
+ 	$(XGETTEXT) *.cpp -o $(podir)/qalculate_kde.pot
+ 
+ install-exec-local:
+-	cd $(DESTDIR)$(bindir) && rm -f qalculate; $(LN_S) qalculate-kde qalculate
++	cd $(DESTDIR)$(bindir) && rm -f qalculate
++# $(LN_S) qalculate-kde qalculate
+ # Tell versions [3.59,3.63) of GNU make to not export all variables.
+ # Otherwise a system limit (for SysV at least) may be exceeded.
+ .NOEXPORT:

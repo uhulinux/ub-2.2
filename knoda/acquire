@@ -1,0 +1,4 @@
+#!/usr/bin/env dl
+
+knoda-${UB_VERSION}.tar.gz knoda-${UB_VERSION}/
+	http://downloads.sourceforge.net/knoda/

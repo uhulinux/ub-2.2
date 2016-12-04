@@ -1,0 +1,5 @@
+#!/bin/sh -eux
+
+mkdir -p "$UB_INSTALLDIR"/usr/share/themes/UHU
+ln -s ../Clearlooks/gtk-2.0    "$UB_INSTALLDIR"/usr/share/themes/UHU/
+ln -s ../Clearlooks/metacity-1 "$UB_INSTALLDIR"/usr/share/themes/UHU/

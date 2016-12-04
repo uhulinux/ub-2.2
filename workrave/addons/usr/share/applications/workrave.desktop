@@ -1,0 +1,9 @@
+[Desktop Entry]
+Encoding=UTF-8
+Type=Application
+Name=Workrave
+Comment=Take regular breaks during your work
+Comment[hu]=Rendszeres pihenők beiktatása
+Icon=/usr/share/pixmaps/workrave-icon-large.png
+Exec=workrave
+Categories=X-UHU-Menu/Tools/Utilities;

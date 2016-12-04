@@ -1,0 +1,4 @@
+#!/usr/bin/env dl
+
+touchcal-${UB_VERSION}.tar.gz touchcal-${UB_VERSION}/
+	http://download.sourceforge.net/touchcal/

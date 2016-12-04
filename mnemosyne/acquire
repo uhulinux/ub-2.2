@@ -1,0 +1,4 @@
+#!/usr/bin/env dl
+
+mnemosyne-${UB_VERSION}.tgz mnemosyne-${UB_VERSION}/
+	http://downloads.sourceforge.net/mnemosyne-proj/

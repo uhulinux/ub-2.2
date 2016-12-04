@@ -1,0 +1,24 @@
+diff -Naur orig/makefile mod/makefile
+--- orig/makefile	2010-04-23 12:13:14.000000000 +0200
++++ mod/makefile	2010-04-23 14:11:25.000000000 +0200
+@@ -7,7 +7,7 @@
+ # to install ne locally into the directory <dir>.
+ 
+ 
+-PREFIX=/usr/local
++PREFIX=/usr
+ 
+ PROGRAM       = ne
+ 
+diff -Naur orig/src/makefile mod/src/makefile
+--- orig/src/makefile	2010-03-17 13:42:43.000000000 +0100
++++ mod/src/makefile	2010-04-23 14:12:21.000000000 +0200
+@@ -34,7 +34,7 @@
+ # where ne tries to read system-wide information (configuration
+ # files, etc.).
+ 
+-NE_GLOBAL_DIR = /usr/local/share/ne
++NE_GLOBAL_DIR = /usr/share/ne
+ 
+ PROGRAM       = ne
+ 

@@ -1,0 +1,4 @@
+#!/bin/sh -eux
+
+mkdir -p "$UB_INSTALLDIR"/usr/share/gimp/2.0/help
+cp -a html/en "$UB_INSTALLDIR"/usr/share/gimp/2.0/help

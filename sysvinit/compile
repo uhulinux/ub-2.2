@@ -1,0 +1,8 @@
+#!/bin/sh -eux
+
+make -C src
+
+cd po
+for i in *.po; do
+	msgfmt -c -o "${i%.po}.mo" "$i"
+done

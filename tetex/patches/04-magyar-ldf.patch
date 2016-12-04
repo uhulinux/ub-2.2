@@ -1,0 +1,12 @@
+diff -Naur tetex-src-3.0.orig/tetex-texmf/tex/generic/babel/magyar.ldf tetex-src-3.0/tetex-texmf/tex/generic/babel/magyar.ldf
+--- tetex-src-3.0.orig/tetex-texmf/tex/generic/babel/magyar.ldf	2004-11-18 20:06:26.000000000 +0100
++++ tetex-src-3.0/tetex-texmf/tex/generic/babel/magyar.ldf	2005-10-06 13:38:20.000000000 +0200
+@@ -65,7 +65,7 @@
+   \def\abstractname{Kivonat}%
+   \def\bibname{Irodalomjegyz\'ek}%
+   \def\chaptername{fejezet}%
+-  \def\appendixname{F\"uggel\'ek}%
++  \def\appendixname{f\"uggel\'ek}% Eredetileg nagy F-fel van, az UHU-Linuxban átírtuk kis f-re.
+   \def\contentsname{Tartalomjegyz\'ek}%
+   \def\listfigurename{\'Abr\'ak jegyz\'eke}%
+   \def\listtablename{T\'abl\'azatok jegyz\'eke}%

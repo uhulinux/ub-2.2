@@ -1,0 +1,4 @@
+#!/bin/sh -eux
+
+install -m 755 portmap "$UB_INSTALLDIR"/sbin/
+install -m 755 pmap_dump pmap_set "$UB_INSTALLDIR"/usr/sbin/

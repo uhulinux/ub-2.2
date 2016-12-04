@@ -1,0 +1,9 @@
+cdparanoia-dev
+curl-dev
+dbus-glib-dev
+krb5-dev
+libgnomeui2-dev
+libid3tag-dev
+libidn-dev
+libjpeg-dev
+vte-dev

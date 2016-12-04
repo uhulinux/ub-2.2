@@ -1,0 +1,6 @@
+#!/bin/sh -eux
+
+./configure.rb \
+	--with-apr-includes=/usr/include/apr \
+	--with-apxs=/usr/sbin/apxs
+ub_make

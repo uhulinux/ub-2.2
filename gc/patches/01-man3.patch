@@ -1,0 +1,9 @@
+diff -Naur gc6.6.orig/doc/gc.man gc6.6/doc/gc.man
+--- gc6.6.orig/doc/gc.man	2004-03-23 01:36:15.000000000 +0100
++++ gc6.6/doc/gc.man	2006-01-05 12:53:55.000000000 +0100
+@@ -1,4 +1,4 @@
+-.TH GC_MALLOC 1L "2 October 2003"
++.TH GC_MALLOC 3L "2 October 2003"
+ .SH NAME
+ GC_malloc, GC_malloc_atomic, GC_free, GC_realloc, GC_enable_incremental, GC_register_finalizer, GC_malloc_ignore_off_page, GC_malloc_atomic_ignore_off_page, GC_set_warn_proc \- Garbage collecting malloc replacement
+ .SH SYNOPSIS

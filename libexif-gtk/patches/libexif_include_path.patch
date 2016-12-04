@@ -1,0 +1,21 @@
+diff -urN libexif-gtk-0.3.5.orig/configure libexif-gtk-0.3.5/configure
+--- libexif-gtk-0.3.5.orig/configure	2004-10-18 21:13:47.000000000 +0200
++++ libexif-gtk-0.3.5/configure	2007-10-15 16:30:02.000000000 +0200
+@@ -27340,7 +27340,7 @@
+ cat >>conftest.$ac_ext <<_ACEOF
+ /* end confdefs.h.  */
+ $ac_includes_default
+-#include <exif-mem.h>
++#include <libexif/exif-mem.h>
+ _ACEOF
+ rm -f conftest.$ac_objext
+ if { (eval echo "$as_me:$LINENO: \"$ac_compile\"") >&5
+@@ -27383,7 +27383,7 @@
+ cat confdefs.h >>conftest.$ac_ext
+ cat >>conftest.$ac_ext <<_ACEOF
+ /* end confdefs.h.  */
+-#include <exif-mem.h>
++#include <libexif/exif-mem.h>
+ _ACEOF
+ if { (eval echo "$as_me:$LINENO: \"$ac_cpp conftest.$ac_ext\"") >&5
+   (eval $ac_cpp conftest.$ac_ext) 2>conftest.er1

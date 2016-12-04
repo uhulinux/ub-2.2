@@ -1,0 +1,14 @@
+diff -urN knoda-0.8.orig/knoda/knoda.desktop knoda-0.8/knoda/knoda.desktop
+--- knoda-0.8.orig/knoda/knoda.desktop	2005-06-19 21:38:23.000000000 +0200
++++ knoda-0.8/knoda/knoda.desktop	2006-04-10 11:38:35.000000000 +0200
+@@ -10,7 +10,8 @@
+ Comment[es]=Una Aplicación base de datos
+ Comment[fi]=Tietokantakäyttöliittymä
+ Comment[fr]=Application base de données
++Comment[hu]=Adatbáziskezelő
+ Comment[it]=Un'applicazione base di dati
+ Terminal=false
+ Encoding=UTF-8
+-Categories=Qt;KDE;Office;Database;
+\ No newline at end of file
++Categories=Qt;KDE;Office;Database;X-UHU-Menu/Tools/Databases;

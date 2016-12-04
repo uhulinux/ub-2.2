@@ -1,0 +1,4 @@
+#!/usr/bin/env dl
+
+kerneloops-${UB_VERSION}.tar.gz kerneloops-${UB_VERSION}/
+	http://www.kerneloops.org/download/

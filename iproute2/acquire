@@ -1,0 +1,4 @@
+#!/usr/bin/env dl
+
+iproute2-${UB_VERSION/~/-}.tar.bz2 iproute2-${UB_VERSION/~/-}/
+	http://developer.osdl.org/dev/iproute2/download/

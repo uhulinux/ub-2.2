@@ -1,0 +1,4 @@
+#!/usr/bin/env dl
+
+libipoddevice-${UB_VERSION}.tar.gz libipoddevice-${UB_VERSION}/
+	 http://download.banshee-project.org/legacy/libipoddevice/

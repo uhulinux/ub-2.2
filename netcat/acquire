@@ -1,0 +1,6 @@
+#!/usr/bin/env dl
+
+nc110.tgz .
+	ftp://coast.cs.purdue.edu/pub/tools/unix/netutils/netcat/
+	ftp://avian.org/src/hacks/
+	ftp://ftp-stud.fht-esslingen.de/pub/Mirrors/gentoo/distfiles/

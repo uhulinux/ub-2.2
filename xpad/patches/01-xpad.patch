@@ -1,0 +1,10 @@
+diff -Naurd orig/xpad.desktop mod/xpad.desktop
+--- orig/xpad.desktop	2009-05-11 14:32:01.000000000 +0200
++++ mod/xpad.desktop	2009-06-23 06:10:52.000000000 +0200
+@@ -78,5 +78,4 @@
+ StartupWMClass=xpad
+ 
+ Type=Application
+-Categories=GTK;Utility;
+-
++Categories=GTK;Utility;X-UHU-Menu/Tools/Editors

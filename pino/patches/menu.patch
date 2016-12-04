@@ -1,0 +1,18 @@
+--- a.orig/pino.desktop	2010-03-26 14:00:41.000000000 +0100
++++ a/pino.desktop	2010-03-26 19:44:54.000000000 +0100
+@@ -1,12 +1,13 @@
+ [Desktop Entry]
+ Exec=pino
+-Name=Pino - Twitter and Identi.ca client
++Name=Pino
+ Name[ua]=Pino - клієнт для Twitter і Identi.ca
+ Name[ru]=Pino - клиент для Twitter и Identi.ca
+ Icon=pino
+ Type=Application
+-Categories=GTK;Network;InstantMessaging;
++Categories=GTK;Network;InstantMessaging;X-UHU-Menu/Internet/Messengers;
+ Comment=Fast, easy, and free Twitter and Identi.ca client
++Comment[hu]=Gyors, könnyen használható Twitter és Identi.ca kliens
+ Comment[ua]=Швидкий, простий та вільний Twitter клієнт
+ Comment[ru]=Быстрый, простой и свободный Twitter клиент
+ GenericName=Twitter Client

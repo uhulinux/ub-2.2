@@ -1,0 +1,4 @@
+#!/usr/bin/env dl
+
+texmakerx${UB_VERSION}.tar.gz ${UB_VERSION}/
+	http://downloads.sourceforge.net/texmakerx/

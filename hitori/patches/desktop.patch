@@ -1,0 +1,9 @@
+--- hitori.orig/data/hitori.desktop.in	2009-03-02 00:30:52.000000000 +0100
++++ hitori/data/hitori.desktop.in	2009-05-07 20:27:06.000000000 +0200
+@@ -5,5 +5,5 @@
+ Icon=hitori
+ Terminal=false
+ Type=Application
+-Categories=GTK;Game;LogicGame;
++Categories=GTK;Game;LogicGame;X-UHU-Menu/Games/Board;
+ StartupNotify=true

@@ -1,0 +1,7 @@
+cmake
+gsl
+hdf5
+libx11-dev
+libxext-dev
+mathgl
+qt4-dev

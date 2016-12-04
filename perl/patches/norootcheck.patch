@@ -1,0 +1,11 @@
+diff -Naurdp perl-5.10.1.orig/installperl perl-5.10.1/installperl
+--- perl-5.10.1.orig/installperl	2009-08-14 00:40:10.000000000 +0200
++++ perl-5.10.1/installperl	2009-10-01 18:20:34.000000000 +0200
+@@ -235,7 +235,6 @@ if ($Is_VMS) {  # Hang in there until Fi
+ 
+ # Do some quick sanity checks.
+ 
+-if (!$opts{notify} && $d_dosuid && $>) { die "You must run as root to install suidperl\n"; }
+ 
+    $installbin		|| die "No installbin directory in config.sh\n";
+ -d $installbin		|| mkpath($installbin, $opts{verbose}, 0777);

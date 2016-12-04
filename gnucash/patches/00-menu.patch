@@ -1,0 +1,12 @@
+diff -Naur ORIG/src/gnome/gnucash.desktop.in.in UHU/src/gnome/gnucash.desktop.in.in
+--- ORIG/src/gnome/gnucash.desktop.in.in	2008-09-21 05:20:52.000000000 +0200
++++ UHU/src/gnome/gnucash.desktop.in.in	2009-06-20 21:23:17.000000000 +0200
+@@ -8,7 +8,7 @@
+ Icon=gnucash-icon
+ StartupNotify=true
+ Terminal=false
+-Categories=Office;Finance;
++Categories=Office;Finance;X-UHU-Menu/Tools/Money;
+ X-GNOME-Bugzilla-Bugzilla=GNOME
+ X-GNOME-Bugzilla-Product=GnuCash
+ X-GNOME-Bugzilla-Component=General

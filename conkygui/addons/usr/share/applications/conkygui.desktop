@@ -1,0 +1,10 @@
+[Desktop Entry]
+Version=1.1
+Name=conkygui
+Comment=conkygui
+Comment[hu]=Conky grafikus szerkesztő
+Exec=conkygui
+Icon=conkygui
+Terminal=false
+Type=Application
+Categories=X-UHU-Menu/Tools/Utilities;

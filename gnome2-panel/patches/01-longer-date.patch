@@ -1,0 +1,12 @@
+diff -Naur gnome-panel-2.6.2.orig/po/hu.po gnome-panel-2.6.2/po/hu.po
+--- gnome-panel-2.6.2.orig/po/hu.po	2004-06-14 18:48:06.000000000 +0200
++++ gnome-panel-2.6.2/po/hu.po	2004-08-03 20:23:45.017797336 +0200
+@@ -108,7 +108,7 @@
+ #.
+ #: applets/clock/clock.c:295
+ msgid "%a %b %e"
+-msgstr "%b. %e., %a"
++msgstr "%B %-e., %A"
+ 
+ #. translators: reverse the order of these arguments
+ #. *              if the time should come before the

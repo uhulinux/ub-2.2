@@ -1,0 +1,36 @@
+diff -Naur tse3-0.3.1.orig/demos/Makefile.in tse3-0.3.1/demos/Makefile.in
+--- tse3-0.3.1.orig/demos/Makefile.in	2005-08-23 15:27:36.000000000 +0200
++++ tse3-0.3.1/demos/Makefile.in	2006-01-05 14:05:40.000000000 +0100
+@@ -200,7 +200,7 @@
+ 	Demo.tse2
+ 
+ @INSTALL_TSE3_DOC_TRUE@docs_DATA = $(SONG_FILES)
+-@INSTALL_TSE3_DOC_TRUE@docsdir = ${prefix}/doc/${PACKAGE}-${VERSION}/songs
++@INSTALL_TSE3_DOC_TRUE@docsdir = ${datadir}/doc/Packages/${PACKAGE}/songs
+ 
+ ###############################################################################
+ # Distribute them
+diff -Naur tse3-0.3.1.orig/doc/Makefile.in tse3-0.3.1/doc/Makefile.in
+--- tse3-0.3.1.orig/doc/Makefile.in	2005-08-23 15:27:36.000000000 +0200
++++ tse3-0.3.1/doc/Makefile.in	2006-01-05 14:06:07.000000000 +0100
+@@ -270,7 +270,7 @@
+ ###############################################################################
+ # And this is how they are installed
+ @INSTALL_TSE3_DOC_TRUE@docs_DATA = $(HTML_FILES) $(VERBATIM_FILES)
+-@INSTALL_TSE3_DOC_TRUE@docsdir = ${prefix}/doc/${PACKAGE}-${VERSION}
++@INSTALL_TSE3_DOC_TRUE@docsdir = ${datadir}/doc/Packages/${PACKAGE}
+ all: all-am
+ 
+ .SUFFIXES:
+diff -Naur tse3-0.3.1.orig/Makefile.in tse3-0.3.1/Makefile.in
+--- tse3-0.3.1.orig/Makefile.in	2005-08-23 15:27:40.000000000 +0200
++++ tse3-0.3.1/Makefile.in	2006-01-05 14:06:15.000000000 +0100
+@@ -222,7 +222,7 @@
+ ###############################################################################
+ # Documentation
+ @INSTALL_TSE3_DOC_TRUE@docs_DATA = AUTHORS COPYING
+-@INSTALL_TSE3_DOC_TRUE@docsdir = ${prefix}/doc/${PACKAGE}-${VERSION}
++@INSTALL_TSE3_DOC_TRUE@docsdir = ${datadir}/doc/Packages/${PACKAGE}
+ all: config.h
+ 	$(MAKE) $(AM_MAKEFLAGS) all-recursive
+ 

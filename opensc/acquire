@@ -1,0 +1,5 @@
+#!/usr/bin/env dl
+
+opensc-${UB_VERSION/~/-}.tar.gz opensc-${UB_VERSION/~/-}/
+	http://www.opensc-project.org/files/opensc/
+	http://www.opensc-project.org/files/opensc/testing/

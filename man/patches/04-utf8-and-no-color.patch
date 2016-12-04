@@ -1,0 +1,36 @@
+diff -Naur man-1.6a.orig/configure man-1.6a/configure
+--- man-1.6a.orig/configure	2005-08-21 01:26:06.000000000 +0200
++++ man-1.6a/configure	2005-09-11 11:15:30.351605163 +0200
+@@ -467,24 +467,24 @@
+   then
+     if test $Fnroff = "missing"
+     then
+-      nroff="nroff -Tlatin1 -mandoc"
++      nroff="groff-utf8 -P-c -Tutf8 -mandoc"
+     else
+-      nroff="$Fnroff -Tlatin1 -mandoc"
++      nroff="groff-utf8 -P-c -Tutf8 -mandoc"
+     fi
+-    troff="troff -mandoc"
++    troff="troff -c -mandoc"
+     echo "Warning: could not find groff"
+   else
+     if test $Fnroff = "missing"
+     then
+-      nroff="$Fgroff -Tlatin1 -mandoc"
++      nroff="groff-utf8 -P-c -Tutf8 -mandoc"
+     else
+-      nroff="$Fnroff -Tlatin1 -mandoc"
++      nroff="groff-utf8 -P-c -Tutf8 -mandoc"
+     fi
+-    troff="$Fgroff -Tps -mandoc"
+-    jnroff="$Fgroff -Tnippon -mandocj"
++    troff="groff-utf8 -P-c -Tutf8 -Tps -mandoc"
++    jnroff="$Fgroff -P-c -Tnippon -mandocj"
+   fi
+   eqn="$Fgeqn -Tps"
+-  neqn="$Fgeqn -Tlatin1"
++  neqn="$Fgeqn -Tutf8"
+   jneqn="$Fgeqn -Tnippon"
+   tbl="$Fgtbl"
+   col="$Fcol"

@@ -1,0 +1,12 @@
+Summary=PostgreSQL Server
+Summary[hu]=PostgreSQL szerver
+Description=PostgreSQL database server.
+Description[hu]=PostgreSQL adatbázis-szerver.
+MsgDesc=PostgreSQL server
+MsgDesc[hu]=PostgreSQL szerver
+Script=/etc/init.d/postgresql
+SupportsReload=yes
+Runlevels=
+Sequence=20
+UID=31
+GID=31

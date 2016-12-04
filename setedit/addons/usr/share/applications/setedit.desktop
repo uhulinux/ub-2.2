@@ -1,0 +1,10 @@
+[Desktop Entry]
+Version=1.1
+Type=Application
+Name=SETedit
+Comment=Borland style editor
+Comment[hu]=Borland stílusú szerkesztő
+Exec=setedit %F
+Icon=/usr/share/pixmaps/setedit.png
+Terminal=0
+Categories=X-UHU-Menu/Tools/Editors

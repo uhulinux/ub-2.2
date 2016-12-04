@@ -1,0 +1,4 @@
+#!/bin/sh -eux
+
+ub_compile \
+	--with-libgdiplus=/usr/lib

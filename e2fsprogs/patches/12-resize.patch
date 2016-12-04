@@ -1,0 +1,112 @@
+http://marc.info/?l=linux-ext4&m=125336276831276&w=2
+
+diff -Naurdp a/lib/ext2fs/ext2fs.h b/lib/ext2fs/ext2fs.h
+--- a/lib/ext2fs/ext2fs.h	2009-08-23 04:44:35.000000000 +0200
++++ b/lib/ext2fs/ext2fs.h	2010-02-18 01:14:56.298190044 +0100
+@@ -506,6 +506,7 @@ typedef struct ext2_icount *ext2_icount_
+ 					 EXT3_FEATURE_COMPAT_HAS_JOURNAL|\
+ 					 EXT2_FEATURE_COMPAT_RESIZE_INODE|\
+ 					 EXT2_FEATURE_COMPAT_DIR_INDEX|\
++					 EXT2_FEATURE_COMPAT_LAZY_BG|\
+ 					 EXT2_FEATURE_COMPAT_EXT_ATTR)
+ 
+ /* This #ifdef is temporary until compression is fully supported */
+diff -Naurdp a/misc/mke2fs.c b/misc/mke2fs.c
+--- a/misc/mke2fs.c	2009-08-23 04:44:35.000000000 +0200
++++ b/misc/mke2fs.c	2010-02-18 01:14:28.666187054 +0100
+@@ -1687,6 +1687,12 @@ got_size:
+ 		fs_param.s_log_groups_per_flex = int_log2(flex_bg_size);
+ 	}
+ 
++	/* Mark the filesystem as friendly to uninit_bg during later resizing. */
++	if (lazy_itable_init &&
++	    EXT2_HAS_RO_COMPAT_FEATURE(&fs_param,
++	                               EXT4_FEATURE_RO_COMPAT_GDT_CSUM))
++		fs_param.s_feature_compat |= EXT2_FEATURE_COMPAT_LAZY_BG;
++
+ 	if (inode_size && fs_param.s_rev_level >= EXT2_DYNAMIC_REV) {
+ 		if (inode_size < EXT2_GOOD_OLD_INODE_SIZE ||
+ 		    inode_size > EXT2_BLOCK_SIZE(&fs_param) ||
+diff -Naurdp a/resize/resize2fs.c b/resize/resize2fs.c
+--- a/resize/resize2fs.c	2009-08-23 04:44:35.000000000 +0200
++++ b/resize/resize2fs.c	2010-02-18 01:14:28.670189565 +0100
+@@ -302,7 +302,7 @@ errcode_t adjust_fs_info(ext2_filsys fs,
+ 	int		adj, old_numblocks, numblocks, adjblocks;
+ 	unsigned long	i, j, old_desc_blocks, max_group;
+ 	unsigned int	meta_bg, meta_bg_size;
+-	int		has_super, csum_flag;
++	int		has_super, csum_flag, lazy_flag;
+ 	unsigned long long new_inodes;	/* u64 to check for overflow */
+ 	double		percent;
+ 
+@@ -482,6 +482,8 @@ retry:
+ 
+ 	csum_flag = EXT2_HAS_RO_COMPAT_FEATURE(fs->super,
+ 					       EXT4_FEATURE_RO_COMPAT_GDT_CSUM);
++	lazy_flag = EXT2_HAS_COMPAT_FEATURE(fs->super,
++					       EXT2_FEATURE_COMPAT_LAZY_BG);
+ 	adj = old_fs->group_desc_count;
+ 	max_group = fs->group_desc_count - adj;
+ 	if (fs->super->s_feature_incompat & EXT2_FEATURE_INCOMPAT_META_BG)
+@@ -496,9 +498,12 @@ retry:
+ 		adjblocks = 0;
+ 
+ 		fs->group_desc[i].bg_flags = 0;
+-		if (csum_flag)
+-			fs->group_desc[i].bg_flags |= EXT2_BG_INODE_UNINIT |
+-				EXT2_BG_INODE_ZEROED;
++		if (csum_flag) {
++			fs->group_desc[i].bg_flags |= EXT2_BG_INODE_UNINIT;
++			if (!lazy_flag) {
++				fs->group_desc[i].bg_flags |= EXT2_BG_INODE_ZEROED;
++			}
++		}
+ 		if (i == fs->group_desc_count-1) {
+ 			numblocks = (fs->super->s_blocks_count -
+ 				     fs->super->s_first_data_block) %
+@@ -568,7 +573,7 @@ errout:
+ static errcode_t adjust_superblock(ext2_resize_t rfs, blk_t new_size)
+ {
+ 	ext2_filsys fs;
+-	int		adj = 0;
++	int		adj = 0, csum_flag = 0, lazy_flag = 0, num = 0;
+ 	errcode_t	retval;
+ 	blk_t		group_block;
+ 	unsigned long	i;
+@@ -624,6 +629,11 @@ static errcode_t adjust_superblock(ext2_
+ 				&rfs->itable_buf);
+ 	if (retval)
+ 		goto errout;
++	/* Track if we can get by with a lazy init */
++	csum_flag = EXT2_HAS_RO_COMPAT_FEATURE(fs->super,
++					       EXT4_FEATURE_RO_COMPAT_GDT_CSUM);
++	lazy_flag = EXT2_HAS_COMPAT_FEATURE(fs->super,
++					       EXT2_FEATURE_COMPAT_LAZY_BG);
+ 
+ 	memset(rfs->itable_buf, 0, fs->blocksize * fs->inode_blocks_per_group);
+ 	group_block = fs->super->s_first_data_block +
+@@ -642,10 +652,21 @@ static errcode_t adjust_superblock(ext2_
+ 		/*
+ 		 * Write out the new inode table
+ 		 */
++		if (csum_flag && lazy_flag) {
++			/* These are _new_ inode tables. No inodes should be in use. */
++			fs->group_desc[i].bg_itable_unused = fs->super->s_inodes_per_group;
++			num = ((((fs->super->s_inodes_per_group -
++				  fs->group_desc[i].bg_itable_unused) *
++				 EXT2_INODE_SIZE(fs->super)) +
++				EXT2_BLOCK_SIZE(fs->super) - 1) /
++			       EXT2_BLOCK_SIZE(fs->super));
++		} else {
++			num = fs->inode_blocks_per_group;
++		}
+ 		retval = io_channel_write_blk(fs->io,
+-					      fs->group_desc[i].bg_inode_table,
+-					      fs->inode_blocks_per_group,
+-					      rfs->itable_buf);
++					      fs->group_desc[i].bg_inode_table, /* blk */
++					      num,  /* count */
++					      rfs->itable_buf);  /* contents */
+ 		if (retval) goto errout;
+ 
+ 		io_channel_flush(fs->io);

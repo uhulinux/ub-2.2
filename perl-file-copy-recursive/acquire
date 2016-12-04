@@ -1,0 +1,4 @@
+#!/usr/bin/env dl
+
+File-Copy-Recursive-${UB_VERSION}.tar.gz File-Copy-Recursive-${UB_VERSION}/
+	http://search.cpan.org/CPAN/authors/id/D/DM/DMUEY/

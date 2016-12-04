@@ -1,0 +1,11 @@
+[Desktop Entry]
+Version=1.1
+Name=xzgv
+Comment=Image viewer
+Comment[hu]=Képnéző
+Exec=xzgv
+Terminal=false
+Icon=xzgv-48.xpm
+Type=Application
+Categories=GTK;Graphics;Viewer;X-UHU-Menu/Graphics;
+X-UHU-Major=-1

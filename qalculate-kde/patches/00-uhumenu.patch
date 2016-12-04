@@ -1,0 +1,12 @@
+diff -urN qalculate-kde-0.9.6.orig/src/qalculate_kde.desktop qalculate-kde-0.9.6/src/qalculate_kde.desktop
+--- qalculate-kde-0.9.6.orig/src/qalculate_kde.desktop	2006-03-17 08:33:21.000000000 +0100
++++ qalculate-kde-0.9.6/src/qalculate_kde.desktop	2008-03-20 16:29:47.000000000 +0100
+@@ -6,7 +6,7 @@
+ Icon=qalculate_kde
+ Type=Application
+ DocPath=qalculate_kde/index.html
+-Categories=Qt;KDE;Utility;Science;
++Categories=Qt;KDE;Utility;Science;X-UHU-Menu/Tools/Calculators
+ Terminal=false
+ X-DCOP-ServiceType=Unique
+ X-DCOP-ServiceName=qalculate_kde

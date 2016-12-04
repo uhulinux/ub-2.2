@@ -1,0 +1,10 @@
+Summary=Internet Services Daemon
+Summary[hu]=Internet meta-szerver
+Description=Daemon that listens on any configured ports and launches the real server when a connection attempt is made.
+Description[hu]=Démon, amely a konfigurációs fájlban felsorolt portokon hallgat, és kapcsolati kérelem esetén elindítja a megfelelő kiszolgáló programot.
+MsgDesc=Internet Services Daemon
+MsgDesc[hu]=Internet szuperszerver
+Script=/etc/init.d/xinetd
+SupportsReload=yes
+Runlevels=
+Sequence=20

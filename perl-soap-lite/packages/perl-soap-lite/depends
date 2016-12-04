@@ -1,0 +1,6 @@
+perl-crypt-ssleay
+perl-io-socket-ssl
+perl-libwww
+perl-mime-tools
+perl-uri
+perl-xml-parser

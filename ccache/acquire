@@ -1,0 +1,4 @@
+#!/usr/bin/env dl
+
+ccache-${UB_VERSION}.tar.gz ccache-${UB_VERSION}/
+	http://samba.org/ftp/ccache/

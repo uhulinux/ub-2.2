@@ -1,0 +1,4 @@
+#!/usr/bin/env dl
+
+hal-cups-utils-${UB_VERSION}.tar.gz hal-cups-utils-${UB_VERSION}/
+	https://fedorahosted.org/releases/h/a/hal-cups-utils/

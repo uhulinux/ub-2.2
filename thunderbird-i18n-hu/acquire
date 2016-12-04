@@ -1,0 +1,4 @@
+#!/usr/bin/env dl
+
+hu-${UB_VERSION}.xpi .
+	ftp://ftp.mozilla.org/pub/thunderbird/releases/${UB_VERSION/~/}/linux-i686/xpi/hu.xpi

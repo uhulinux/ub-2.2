@@ -1,0 +1,40 @@
+diff -Naurdp a/src/install.sh b/src/install.sh
+--- a/src/install.sh	2002-12-26 04:07:18.000000000 +0100
++++ b/src/install.sh	2005-10-26 12:41:44.000000000 +0200
+@@ -23,9 +23,9 @@ echo
+ echo "*** Installing executable programs and preparing work directories"
+ echo
+ echo ">>> Installing iptraf in $TARGET"
+-$INSTALL -m 0700 -o root -g root -s iptraf $TARGET
++$INSTALL -m 0755 -o root -g root -s iptraf $TARGET
+ echo ">>> Installing rvnamed in $TARGET"
+-$INSTALL -m 0700 -o root -g root -s rvnamed $TARGET
++$INSTALL -m 0755 -o root -g root -s rvnamed $TARGET
+ 
+ if [ ! -d $WORKDIR ]; then
+     echo ">>> Creating IPTraf work directory $WORKDIR"
+@@ -34,21 +34,21 @@ else
+     rm -f $WORKDIR/othfilter.dat
+ fi
+ 
+-$INSTALL -m 0700 -o root -g root -d $WORKDIR
++$INSTALL -m 0755 -o root -g root -d $WORKDIR
+ 
+ if [ ! -d $LOGDIR ]; then
+     echo ">>> Creating IPTraf log directory $LOGDIR"
+ else
+     echo ">>> IPTraf log directory $LOGDIR already exists"
+ fi
+-$INSTALL -m 0700 -o root -g root -d $LOGDIR
++$INSTALL -m 0755 -o root -g root -d $LOGDIR
+ 
+ if [ ! -d $LOCKDIR ]; then
+     echo ">>> Creating IPTraf lockfile directory $LOCKDIR"
+ else
+     echo ">>> IPTraf lockfile directory $LOCKDIR already exists"
+ fi
+-$INSTALL -m 0700 -o root -g root -d $LOCKDIR
++$INSTALL -m 0755 -o root -g root -d $LOCKDIR
+ echo
+ echo
+ echo "*** iptraf, and rvnamed executables are in $TARGET"

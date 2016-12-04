@@ -1,0 +1,6 @@
+#!/usr/bin/env dl
+
+xfig.${UB_VERSION}.full.tar.gz xfig.${UB_VERSION}/
+	ftp://epb.lbl.gov/xfig/
+	http://www.xfig.org/xfigdist/
+	http://www.xfig.org/software/xfig/3.2.4/

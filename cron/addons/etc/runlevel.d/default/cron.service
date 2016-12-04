@@ -1,0 +1,10 @@
+Summary=Cron Daemon
+Summary[hu]=Cron démon
+Description=Scheduler for periodic jobs.
+Description[hu]=Ütemező periodikusan elvégzendő feladatok számára.
+MsgDesc=Job Scheduler
+MsgDesc[hu]=Feladat-ütemező
+Script=/etc/init.d/cron
+SupportsReload=yes
+Runlevels=2345
+Sequence=20

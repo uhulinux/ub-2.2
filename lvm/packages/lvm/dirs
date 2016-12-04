@@ -1,0 +1,4 @@
+/etc/lvm/archive
+/etc/lvm/backup
+/etc/lvm/cache
+/var/lock/lvm

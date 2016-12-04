@@ -1,0 +1,9 @@
+[Desktop Entry]
+Version=1.1
+Type=Application
+Name=rxvt-unicode
+Comment=Terminal Emulator
+Comment[hu]=Grafikus terminál
+Exec=urxvt
+Icon=rxvt-unicode.png
+Categories=X-UHU-Menu/Tools/Terminals;

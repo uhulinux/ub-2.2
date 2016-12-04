@@ -1,0 +1,9 @@
+#!/bin/sh -e
+
+shopt -s nullglob
+
+if [ "$1" = "tetex" -o "$1" = "+" ]; then
+	mktexlsr
+elif grep -q '^/usr/share/texmf/' /var/lib/dpkg/info/"$1".list; then
+	mktexlsr
+fi

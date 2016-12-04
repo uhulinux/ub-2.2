@@ -1,0 +1,49 @@
+diff -Naurd a/modprobe.c b/modprobe.c
+--- a/modprobe.c	2004-02-12 07:56:34.000000000 +0100
++++ b/modprobe.c	2004-08-19 15:13:42.572057692 +0200
+@@ -48,6 +48,8 @@
+ extern long init_module(void *, unsigned long, const char *);
+ extern long delete_module(const char *, unsigned int);
+ 
++int unknown_silent = 0;
++
+ struct module {
+ 	struct list_head list;
+ 	char *modname;
+@@ -82,7 +84,8 @@
+ {
+ 	va_list arglist;
+ 	va_start(arglist, fmt);
+-	message("WARNING: ", fmt, &arglist);
++	if (unknown_silent < 2)
++		message("WARNING: ", fmt, &arglist);
+ 	va_end(arglist);
+ }
+ 
+@@ -90,7 +93,8 @@
+ {
+ 	va_list arglist;
+ 	va_start(arglist, fmt);
+-	message("FATAL: ", fmt, &arglist);
++	if (unknown_silent < 3)
++		message("FATAL: ", fmt, &arglist);
+ 	va_end(arglist);
+ 	exit(1);
+ }
+@@ -1111,7 +1115,6 @@
+ 	int dry_run = 0;
+ 	int remove = 0;
+ 	int verbose = 0;
+-	int unknown_silent = 0;
+ 	int list_only = 0;
+ 	int all = 0;
+ 	int ignore_commands = 0;
+@@ -1177,7 +1180,7 @@
+ 				break;
+ 			}
+ 		case 'q':
+-			unknown_silent = 1;
++			unknown_silent++;
+ 			add_to_env_var("-q");
+ 			break;
+ 		case 'D':

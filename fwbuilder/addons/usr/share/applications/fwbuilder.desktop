@@ -1,0 +1,8 @@
+[Desktop Entry]
+Encoding=UTF-8
+Name=Firewall Builder
+Comment=Firewall utility
+Comment[hu]=Tűzfalbeállító program
+Exec=fwbuilder
+Type=Application
+Categories=X-UHU-Menu/Internet/Firewall;

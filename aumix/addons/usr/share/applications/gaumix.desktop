@@ -1,0 +1,10 @@
+[Desktop Entry]
+Encoding=UTF-8
+Name=Aumix
+Comment=Console mixer
+Comment[hu]=Szöveges hangkeverő
+Exec=aumix
+Terminal=1
+Type=Application
+Categories=Application;AudioVideo;X-UHU-Menu/Multimedia/Mixers;
+X-UHU-Major=-1

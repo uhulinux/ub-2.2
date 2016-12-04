@@ -1,0 +1,4 @@
+#!/usr/bin/env dl
+
+kinterbasdb-${UB_VERSION}.tar.bz2 kinterbasdb-${UB_VERSION}/
+	http://downloads.sourceforge.net/firebird/

@@ -1,0 +1,11 @@
+[Window Manager]
+SessionManaged=true
+
+[Desktop Entry]
+Name=AfterStep
+Terminal=False
+Type=Application
+Comment=AfterStep is feature rich NeXTish window manager.
+
+Exec=/usr/bin/afterstep
+Icon=/usr/share/afterstep/desktop/icons/large/AfterStep3

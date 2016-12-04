@@ -1,0 +1,4 @@
+#!/usr/bin/env dl
+
+libvterm-$UB_VERSION.tar.gz libvterm/
+	http://downloads.sourceforge.net/libvterm/

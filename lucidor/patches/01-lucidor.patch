@@ -1,0 +1,22 @@
+diff -Naurd orig/data/lucidor.desktop mod/data/lucidor.desktop
+--- orig/data/lucidor.desktop	2009-09-23 00:33:54.000000000 +0200
++++ mod/data/lucidor.desktop	2010-05-01 09:26:05.000000000 +0200
+@@ -1,5 +1,5 @@
+ [Desktop Entry]
+-Version=1.0
++Version=1.1
+ Type=Application
+ Name=Lucidor E-book Reader
+ Name[sv]=E-bokläsaren Lucidor
+@@ -7,9 +7,10 @@
+ GenericName[sv]=E-bokläsare
+ Comment=Read and organize e-books
+ Comment[sv]=Läs och organisera e-böcker
++Comment[hu]=E-könyv olvasó
+ Icon=lucidor
+ Exec=lucidor %F
+-Categories=Office;Viewer;
++Categories=Office;Viewer;X-UHU-Menu/Tools/Viewers;
+ MimeType=application/epub+zip;
+ StartupNotify=true
+ Terminal=false

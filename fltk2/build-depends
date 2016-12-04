@@ -1,0 +1,11 @@
+alsa-lib-dev
+doxygen
+libjpeg-dev
+libpng-dev
+libx11-dev
+libxcursor-dev
+libxext-dev
+libxft-dev
+libxi-dev
+libxinerama-dev
+mesa-dev

@@ -1,0 +1,10 @@
+#!/bin/sh -eux
+
+ub_compile \
+	--with-screen=Xaw3d \
+	--with-Xaw-scrollbars \
+	--with-locale \
+	--with-iconv \
+	--enable-plugins \
+	--with-perl
+

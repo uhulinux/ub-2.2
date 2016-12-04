@@ -1,0 +1,6 @@
+#!/bin/sh -eux
+
+make \
+	DESTDIR=/usr/bin \
+	DEFAULTFONTDIR=/usr/share/figlet \
+	MANDIR=/usr/share/man/man6

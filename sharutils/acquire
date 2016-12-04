@@ -1,0 +1,5 @@
+#!/usr/bin/env dl
+
+sharutils-${UB_VERSION}.tar.gz sharutils-${UB_VERSION}/
+	ftp://ftp.gnu.org/gnu/sharutils/REL-${UB_VERSION}/
+	ftp://ftp.gnu.org/gnu/sharutils/

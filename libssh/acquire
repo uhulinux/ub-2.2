@@ -1,0 +1,5 @@
+#!/usr/bin/env dl
+
+libssh-${UB_VERSION}.tar.gz libssh-${UB_VERSION}/
+	http://www.libssh.org/files/
+	http://www.libssh.org/files/rc/

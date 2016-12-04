@@ -1,0 +1,11 @@
+dbus-dev
+gtk2-dev
+libexo-dev
+libxfcegui4-dev
+libxinerama-dev
+libxt-dev
+startup-notification-dev
+taglib-dev
+xcb-util-dev
+xfce-utils
+xine-lib-dev

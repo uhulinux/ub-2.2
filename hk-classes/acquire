@@ -1,0 +1,4 @@
+#!/usr/bin/env dl
+
+hk_classes-${UB_VERSION}.tar.gz hk_classes-${UB_VERSION}/
+	http://downloads.sourceforge.net/hk-classes/

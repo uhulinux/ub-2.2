@@ -1,0 +1,6 @@
+gst-plugins-base-dev
+gtk2-dev
+pigment-dev
+pygobject-dev
+python-dev
+pyxml

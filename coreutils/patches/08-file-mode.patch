@@ -1,0 +1,12 @@
+diff -Naurdp a/src/Makefile.in b/src/Makefile.in
+--- a/src/Makefile.in	2009-09-11 08:15:39.000000000 +0200
++++ b/src/Makefile.in	2009-11-11 19:11:07.000000000 +0100
+@@ -1651,7 +1651,7 @@ RELEASE_YEAR = \
+     $(top_srcdir)/lib/version-etc.c`
+ 
+ installed_su = $(DESTDIR)$(bindir)/`echo su|sed '$(transform)'`
+-setuid_root_mode = a=rx,u+s
++setuid_root_mode = a=rx,u+ws
+ install_su = \
+   if test "$(INSTALL_SU)" = yes; then			\
+     p=su;						\

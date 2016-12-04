@@ -1,0 +1,11 @@
+[Desktop Entry]
+Version=1.1
+Name=searchmonkey
+Comment=Text search utility
+Comment[hu]=Szöveg kereső
+GenericName[hu]=Szöveg kereső
+Exec=searchmonkey
+Icon=/usr/share/pixmaps/searchmonkey/searchmonkey-32x32.png
+Terminal=false
+Type=Application
+Categories=X-UHU-Menu/Tools/Utilities;

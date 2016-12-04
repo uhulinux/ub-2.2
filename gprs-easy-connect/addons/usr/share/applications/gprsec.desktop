@@ -1,0 +1,7 @@
+[Desktop Entry]
+Encoding=UTF-8
+Type=Application
+Name=GPRS Easy Connect
+Icon=gprsec.png
+Exec=gprsec
+Categories=X-UHU-Menu/Internet/Tools;

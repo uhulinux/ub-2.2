@@ -1,0 +1,11 @@
+diff -Naur minicom-2.1.orig/src/window.c minicom-2.1/src/window.c
+--- minicom-2.1.orig/src/window.c	2003-05-16 22:06:26.000000000 +0200
++++ minicom-2.1/src/window.c	2005-11-15 21:36:47.000000000 +0100
+@@ -62,6 +62,7 @@
+ static char *CS, *SF, *SR, *VB, *BL;
+ static char *VE, *VI, *KS, *KE;
+ static char *CD, *CL, *IC, *DC;
++#define BC BC_minicom
+ static char *BC, *CR, *NL;
+ #if ST_LINE
+ static char *TS, *FS, *DS;

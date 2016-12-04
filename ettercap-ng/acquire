@@ -1,0 +1,4 @@
+#!/usr/bin/env dl
+
+ettercap-NG-${UB_VERSION}.tar.gz ettercap-NG-${UB_VERSION}/
+	http://download.sourceforge.net/ettercap/

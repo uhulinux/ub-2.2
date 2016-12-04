@@ -1,0 +1,29 @@
+diff -Naurd a/tools/hal-system-storage-mount b/tools/hal-system-storage-mount
+--- a/tools/hal-system-storage-mount	2006-07-13 18:46:30.000000000 +0200
++++ b/tools/hal-system-storage-mount	2006-07-13 18:47:23.000000000 +0200
+@@ -257,6 +257,10 @@
+ 
+ if [ "$(hal-get-property --udi "$HAL_PROP_BLOCK_STORAGE_DEVICE" --key storage.drive_type)" == "cdrom" ]; then
+ 	CDROM="$HAL_PROP_BLOCK_DEVICE" cdctl -o0
++	/sbin/hdparm -d1 "$HAL_PROP_BLOCK_DEVICE"
++	mkdir -p /media/.dev
++	rm -f /media/.dev/cdrom
++	ln -s "$MOUNT_ROOT/$MOUNTPOINT" /media/.dev/cdrom
+ fi
+ hal-set-property --udi $UDI --key info.hal_mount.created_mount_point --string "$MOUNT_ROOT/$MOUNTPOINT" > /dev/null 2>&1
+ hal-set-property --udi $UDI --key info.hal_mount.mounted_by_uid --int "$HAL_METHOD_INVOKED_BY_UID" > /dev/null 2>&1
+diff -Naurd a/tools/hal-system-storage-unmount b/tools/hal-system-storage-unmount
+--- a/tools/hal-system-storage-unmount	2006-07-13 18:46:30.000000000 +0200
++++ b/tools/hal-system-storage-unmount	2006-07-13 18:47:51.000000000 +0200
+@@ -96,6 +96,11 @@
+   rmdir --ignore-fail-on-non-empty "$MOUNT_POINT"
+ fi
+ 
++if [ "$(readlink -f /media/.dev/cdrom 2>/dev/null)" = "$MOUNT_POINT" ]; then
++	rm -f /media/.dev/cdrom
++	rmdir --ignore-fail-on-non-empty /media/.dev
++fi
++
+ hal-set-property --udi $UDI --key info.hal_mount.created_mount_point --remove > /dev/null 2>&1
+ hal-set-property --udi $UDI --key info.hal_mount.mounted_by_uid --remove > /dev/null 2>&1
+ 

@@ -1,0 +1,7 @@
+#!/bin/sh
+
+. /etc/init.d/common
+
+DAEMON=/sbin/portmap
+
+startstop "$@"

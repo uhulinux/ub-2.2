@@ -1,0 +1,9 @@
+gdbm-dev
+glib2-dev
+libnetsnmp-dev
+openssl-dev
+popt-dev
+python-dev
+python-tkinter
+swig
+tcl-dev

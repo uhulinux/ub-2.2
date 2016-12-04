@@ -1,0 +1,139 @@
+diff -Naurdp dahdi-linux-2.2.0.2.orig/drivers/dahdi/dahdi-base.c dahdi-linux-2.2.0.2/drivers/dahdi/dahdi-base.c
+--- dahdi-linux-2.2.0.2.orig/drivers/dahdi/dahdi-base.c	2009-07-21 20:11:53.000000000 +0200
++++ dahdi-linux-2.2.0.2/drivers/dahdi/dahdi-base.c	2009-11-26 22:44:56.000000000 +0100
+@@ -46,6 +46,7 @@
+ #include <linux/kmod.h>
+ #include <linux/moduleparam.h>
+ #include <linux/list.h>
++#include <linux/sched.h>
+ 
+ #include <linux/ppp_defs.h>
+ 
+diff -Naurdp dahdi-linux-2.2.0.2.orig/drivers/dahdi/pciradio.c dahdi-linux-2.2.0.2/drivers/dahdi/pciradio.c
+--- dahdi-linux-2.2.0.2.orig/drivers/dahdi/pciradio.c	2008-10-28 22:49:02.000000000 +0100
++++ dahdi-linux-2.2.0.2/drivers/dahdi/pciradio.c	2009-11-26 22:47:45.000000000 +0100
+@@ -51,6 +51,7 @@ With driver:	303826  (1.5 %)
+ #include <linux/pci.h>
+ #include <linux/interrupt.h>
+ #include <linux/moduleparam.h>
++#include <linux/sched.h>
+ #include <asm/io.h>
+ #include <asm/delay.h> 
+ 
+diff -Naurdp dahdi-linux-2.2.0.2.orig/drivers/dahdi/wctdm24xxp/base.c dahdi-linux-2.2.0.2/drivers/dahdi/wctdm24xxp/base.c
+--- dahdi-linux-2.2.0.2.orig/drivers/dahdi/wctdm24xxp/base.c	2009-06-18 20:03:26.000000000 +0200
++++ dahdi-linux-2.2.0.2/drivers/dahdi/wctdm24xxp/base.c	2009-11-26 23:00:31.000000000 +0100
+@@ -41,6 +41,7 @@ Tx Gain - W/Pre-Emphasis: -23.99 to 0.00
+ #include <linux/init.h>
+ #include <linux/errno.h>
+ #include <linux/pci.h>
++#include <linux/sched.h>
+ #include <linux/interrupt.h>
+ #include <linux/workqueue.h>
+ #include <linux/delay.h>
+diff -Naurdp dahdi-linux-2.2.0.2.orig/drivers/dahdi/wctdm.c dahdi-linux-2.2.0.2/drivers/dahdi/wctdm.c
+--- dahdi-linux-2.2.0.2.orig/drivers/dahdi/wctdm.c	2009-06-18 20:03:26.000000000 +0200
++++ dahdi-linux-2.2.0.2/drivers/dahdi/wctdm.c	2009-11-26 22:46:53.000000000 +0100
+@@ -31,6 +31,7 @@
+ #include <linux/pci.h>
+ #include <linux/interrupt.h>
+ #include <linux/moduleparam.h>
++#include <linux/sched.h>
+ #include <asm/io.h>
+ #include "proslic.h"
+ 
+diff -Naurdp dahdi-linux-2.2.0.2.orig/drivers/dahdi/xpp/xbus-core.c dahdi-linux-2.2.0.2/drivers/dahdi/xpp/xbus-core.c
+--- dahdi-linux-2.2.0.2.orig/drivers/dahdi/xpp/xbus-core.c	2009-05-19 18:09:06.000000000 +0200
++++ dahdi-linux-2.2.0.2/drivers/dahdi/xpp/xbus-core.c	2009-11-26 23:01:59.000000000 +0100
+@@ -35,6 +35,7 @@
+ #include <linux/workqueue.h>
+ #include <linux/device.h>
+ #include <linux/delay.h>	/* for msleep() to debug */
++#include <linux/sched.h>
+ #include "xpd.h"
+ #include "xpp_dahdi.h"
+ #include "xbus-core.h"
+diff -Naurdp dahdi-linux-2.2.0.2.orig/drivers/dahdi/xpp/xbus-sysfs.c dahdi-linux-2.2.0.2/drivers/dahdi/xpp/xbus-sysfs.c
+--- dahdi-linux-2.2.0.2.orig/drivers/dahdi/xpp/xbus-sysfs.c	2009-05-19 18:01:27.000000000 +0200
++++ dahdi-linux-2.2.0.2/drivers/dahdi/xpp/xbus-sysfs.c	2009-11-27 18:04:01.000000000 +0100
+@@ -707,7 +707,7 @@ int xpd_device_register(xbus_t *xbus, xp
+ 	dev->parent = &xbus->astribank;
+ 	dev_set_name(dev, "%02d:%1x:%1x", xbus->num, xpd->addr.unit, 
+ 			xpd->addr.subunit);
+-	dev->driver_data = xpd;
++	dev_set_drvdata(dev, xpd);
+ 	dev->release = xpd_release;
+ 	ret = device_register(dev);
+ 	if(ret) {
+@@ -728,11 +728,11 @@ void xpd_device_unregister(xpd_t *xpd)
+ 	BUG_ON(!xbus);
+ 	XPD_DBG(DEVICES, xpd, "SYSFS\n");
+ 	dev = &xpd->xpd_dev;
+-	if(!dev->driver_data)
++	if(!dev_get_drvdata(dev))
+ 		return;
+-	BUG_ON(dev->driver_data != xpd);
++	BUG_ON(dev_get_drvdata(dev) != xpd);
+ 	device_unregister(dev);
+-	dev->driver_data = NULL;
++	dev_set_drvdata(dev, NULL);
+ }
+ 
+ /*--------- Sysfs Device handling ----*/
+@@ -746,9 +746,9 @@ void xbus_sysfs_remove(xbus_t *xbus)
+ 	astribank = &xbus->astribank;
+ 	BUG_ON(!astribank);
+ 	sysfs_remove_link(&astribank->kobj, "transport");
+-	if(!astribank->driver_data)
++	if(!dev_get_drvdata(astribank))
+ 		return;
+-	BUG_ON(astribank->driver_data != xbus);
++	BUG_ON(dev_get_drvdata(astribank) != xbus);
+ 	device_unregister(&xbus->astribank);
+ }
+ 
+@@ -764,18 +764,18 @@ int xbus_sysfs_create(xbus_t *xbus)
+ 	astribank->bus = &toplevel_bus_type;
+ 	astribank->parent = xbus->transport.transport_device;
+ 	dev_set_name(astribank, "xbus-%02d", xbus->num);
+-	astribank->driver_data = xbus;
++	dev_set_drvdata(astribank, xbus);
+ 	astribank->release = astribank_release;
+ 	ret = device_register(astribank);
+ 	if(ret) {
+ 		XBUS_ERR(xbus, "%s: device_register failed: %d\n", __FUNCTION__, ret);
+-		astribank->driver_data = NULL;
++		dev_set_drvdata(astribank, NULL);
+ 		goto out;
+ 	}
+ 	ret = sysfs_create_link(&astribank->kobj, &astribank->parent->kobj, "transport");
+ 	if(ret < 0) {
+ 		XBUS_ERR(xbus, "%s: sysfs_create_link failed: %d\n", __FUNCTION__, ret);
+-		astribank->driver_data = NULL;
++		dev_set_drvdata(astribank, NULL);
+ 		goto out;
+ 	}
+ out:
+diff -Naurdp dahdi-linux-2.2.0.2.orig/drivers/dahdi/xpp/xpp_dahdi.c dahdi-linux-2.2.0.2/drivers/dahdi/xpp/xpp_dahdi.c
+--- dahdi-linux-2.2.0.2.orig/drivers/dahdi/xpp/xpp_dahdi.c	2009-05-19 18:09:06.000000000 +0200
++++ dahdi-linux-2.2.0.2/drivers/dahdi/xpp/xpp_dahdi.c	2009-11-27 18:49:26.000000000 +0100
+@@ -865,8 +865,7 @@ int xpp_open(struct dahdi_chan *chan)
+ #endif
+ 	spin_lock_irqsave(&xbus->lock, flags);
+ 	atomic_inc(&xpd->open_counter);
+-	LINE_DBG(DEVICES, xpd, pos, "%s[%d]: open_counter=%d\n",
+-		current->comm, current->pid,
++	LINE_DBG(DEVICES, xpd, pos, "comm[pid]: open_counter=%d\n",
+ 		atomic_read(&xpd->open_counter));
+ 	spin_unlock_irqrestore(&xbus->lock, flags);
+ 	if(xpd->xops->card_open)
+@@ -885,8 +884,7 @@ int xpp_close(struct dahdi_chan *chan)
+ 	spin_unlock_irqrestore(&xbus->lock, flags);
+ 	if(xpd->xops->card_close)
+ 		xpd->xops->card_close(xpd, pos);
+-	LINE_DBG(DEVICES, xpd, pos, "%s[%d]: open_counter=%d\n",
+-		current->comm, current->pid,
++	LINE_DBG(DEVICES, xpd, pos, "comm[pid]: open_counter=%d\n",
+ 		atomic_read(&xpd->open_counter));
+ 	atomic_dec(&xpd->open_counter);		/* from xpp_open() */
+ 	put_xpd(__FUNCTION__, xpd);					/* from xpp_open() */

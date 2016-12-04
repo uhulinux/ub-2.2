@@ -1,0 +1,17 @@
+diff -urN iscsitarget-1.4.19.orig/kernel/conn.c iscsitarget-1.4.19/kernel/conn.c
+--- iscsitarget-1.4.19.orig/kernel/conn.c	2009-10-08 20:32:02.000000000 +0200
++++ iscsitarget-1.4.19/kernel/conn.c	2010-02-17 21:36:12.620879609 +0100
+@@ -43,11 +43,11 @@
+ 		switch (sk->sk_family) {
+ 		case AF_INET:
+ 			snprintf(buf, sizeof(buf),
+-				 "%u.%u.%u.%u", NIPQUAD(inet_sk(sk)->daddr));
++				 "%u.%u.%u.%u", NIPQUAD(inet_sk(sk)->inet_daddr));
+ 			break;
+ 		case AF_INET6:
+ 			snprintf(buf, sizeof(buf), "[%pI6]",
+-				 &inet6_sk(sk)->daddr);
++				 &inet6_sk(sk)->daddr);
+ 			break;
+ 		default:
+ 			break;

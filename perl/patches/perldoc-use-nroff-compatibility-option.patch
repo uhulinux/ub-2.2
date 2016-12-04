@@ -1,0 +1,12 @@
+diff -Naur perl-5.8.5.orig/lib/Pod/Perldoc/ToMan.pm perl-5.8.5/lib/Pod/Perldoc/ToMan.pm
+--- perl-5.8.5.orig/lib/Pod/Perldoc/ToMan.pm	2004-06-23 17:18:23.000000000 +0200
++++ perl-5.8.5/lib/Pod/Perldoc/ToMan.pm	2004-07-20 12:56:24.167915037 +0200
+@@ -60,7 +60,7 @@
+       unless -e $pod2man;
+   }
+ 
+-  my $command = "$pod2man $switches --lax $file | $render -man";
++  my $command = "$pod2man $switches --lax $file | $render -c -man";
+          # no temp file, just a pipe!
+ 
+   # Thanks to Brendan O'Dea for contributing the following block

@@ -1,0 +1,101 @@
+diff -Naurd a/src/hostmon.c b/src/hostmon.c
+--- a/src/hostmon.c	2002-04-16 04:15:25.000000000 +0200
++++ b/src/hostmon.c	2004-11-18 17:28:21.697587290 +0100
+@@ -30,6 +30,7 @@
+ #include <netinet/in.h>
+ #include <linux/if_packet.h>
+ #include <linux/if_ether.h>
++#include "net_device_stats.h"
+ #include <linux/if_fddi.h>
+ #include <linux/if_tr.h>
+ #include <net/if_arp.h>
+diff -Naurd a/src/net_device_stats.h b/src/net_device_stats.h
+--- a/src/net_device_stats.h	1970-01-01 01:00:00.000000000 +0100
++++ b/src/net_device_stats.h	2004-11-18 17:28:03.687995641 +0100
+@@ -0,0 +1,53 @@
++#ifndef _NET_DEVICE_STATS_H
++#define _NET_DEVICE_STATS_H
++
++#ifndef _LINUX_TYPES_H
++typedef __u16 __le16;
++typedef __u16 __be16;
++typedef __u32 __le32;
++typedef __u32 __be32;
++#if defined(__GNUC__) && !defined(__STRICT_ANSI__)
++typedef __u64 __le64;
++typedef __u64 __be64;
++#endif
++#endif
++
++/*
++ *	Network device statistics. Akin to the 2.0 ether stats but
++ *	with byte counters.
++ */
++ 
++struct net_device_stats
++{
++	unsigned long	rx_packets;		/* total packets received	*/
++	unsigned long	tx_packets;		/* total packets transmitted	*/
++	unsigned long	rx_bytes;		/* total bytes received 	*/
++	unsigned long	tx_bytes;		/* total bytes transmitted	*/
++	unsigned long	rx_errors;		/* bad packets received		*/
++	unsigned long	tx_errors;		/* packet transmit problems	*/
++	unsigned long	rx_dropped;		/* no space in linux buffers	*/
++	unsigned long	tx_dropped;		/* no space available in linux	*/
++	unsigned long	multicast;		/* multicast packets received	*/
++	unsigned long	collisions;
++
++	/* detailed rx_errors: */
++	unsigned long	rx_length_errors;
++	unsigned long	rx_over_errors;		/* receiver ring buff overflow	*/
++	unsigned long	rx_crc_errors;		/* recved pkt with crc error	*/
++	unsigned long	rx_frame_errors;	/* recv'd frame alignment error */
++	unsigned long	rx_fifo_errors;		/* recv'r fifo overrun		*/
++	unsigned long	rx_missed_errors;	/* receiver missed packet	*/
++
++	/* detailed tx_errors */
++	unsigned long	tx_aborted_errors;
++	unsigned long	tx_carrier_errors;
++	unsigned long	tx_fifo_errors;
++	unsigned long	tx_heartbeat_errors;
++	unsigned long	tx_window_errors;
++	
++	/* for cslip etc */
++	unsigned long	rx_compressed;
++	unsigned long	tx_compressed;
++};
++
++#endif /*_NET_DEVICE_STATS_H*/
+diff -Naurd a/src/othptab.c b/src/othptab.c
+--- a/src/othptab.c	2001-12-28 03:23:59.000000000 +0100
++++ b/src/othptab.c	2004-11-18 17:28:28.642045219 +0100
+@@ -19,6 +19,7 @@
+ #include <asm/types.h>
+ #include <linux/if_ether.h>
+ #include <linux/if_tr.h>
++#include "net_device_stats.h"
+ #include <linux/if_fddi.h>
+ #include <winops.h>
+ #include "arphdr.h"
+diff -Naurd a/src/packet.c b/src/packet.c
+--- a/src/packet.c	2002-05-08 11:44:08.000000000 +0200
++++ b/src/packet.c	2004-11-18 17:28:34.670575082 +0100
+@@ -35,6 +35,7 @@
+ #include <sys/ioctl.h>
+ #include <linux/if_packet.h>
+ #include <linux/if_ether.h>
++#include "net_device_stats.h"
+ #include <linux/if_fddi.h>
+ #include <linux/if_tr.h>
+ #include <linux/isdn.h>
+diff -Naurd a/src/tcptable.h b/src/tcptable.h
+--- a/src/tcptable.h	2001-12-28 03:16:39.000000000 +0100
++++ b/src/tcptable.h	2004-11-18 17:28:45.767710710 +0100
+@@ -22,6 +22,7 @@
+ #include <asm/types.h>
+ #include <linux/if_packet.h>
+ #include <linux/if_ether.h>
++#include "net_device_stats.h"
+ #include <linux/if_fddi.h>
+ #include <linux/if_tr.h>
+ #include <net/if.h>

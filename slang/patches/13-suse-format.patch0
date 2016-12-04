@@ -1,0 +1,11 @@
+--- src/slang.c
++++ src/slang.c
+@@ -2012,7 +2012,7 @@
+    SLMEMSET (prefix, ' ', len);
+    prefix[len] = 0;
+ 
+-   _pSLerr_dump_msg (prefix);
++   _pSLerr_dump_msg ("%s", prefix);
+    _pSLerr_dump_msg (format, name, n);
+ 
+    if (n > 0)

@@ -1,0 +1,4 @@
+#!/usr/bin/env dl
+
+clamtk-${UB_VERSION}.tar.gz clamtk-${UB_VERSION}/
+	http://downloads.sourceforge.net/clamtk/

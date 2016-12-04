@@ -1,0 +1,5 @@
+#!/usr/bin/env dl
+
+mod_python-${UB_VERSION}.tgz mod_python-${UB_VERSION}/
+	http://archive.apache.org/dist/httpd/modpython/
+	http://www.apache.org/dist/httpd/modpython/

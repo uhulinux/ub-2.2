@@ -1,0 +1,6 @@
+#!/usr/bin/env dl
+
+module-init-tools-${UB_VERSION/~/-}.tar.gz module-init-tools-${UB_VERSION/~/-}/
+	http://www.kerneltools.org/pub/downloads/module-init-tools/
+	ftp://ftp.kernel.org/pub/linux/kernel/people/rusty/modules/
+	ftp://ftp.kernel.org/pub/linux/kernel/people/rusty/modules/old/

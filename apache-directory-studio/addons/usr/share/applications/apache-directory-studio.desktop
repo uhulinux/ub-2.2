@@ -1,0 +1,11 @@
+[Desktop Entry]
+Version=1.1
+Name=Apache Directory Studio
+Comment=LDAP client with many features
+Comment[hu]=Sok funkcióval ellátott LDAP kliens
+Exec=apache-directory-studio
+Icon=ApacheDirectoryStudio.xpm
+Type=Application
+Terminal=false
+StartupNotify=true
+Categories=GTK;Database;X-UHU-Menu/Tools/Databases;

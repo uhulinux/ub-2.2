@@ -1,0 +1,19 @@
+diff -Naurd a/madt/Makefile b/madt/Makefile
+--- a/madt/Makefile	2005-11-11 18:07:04.000000000 +0100
++++ b/madt/Makefile	2007-02-27 17:15:02.000000000 +0100
+@@ -2,5 +2,6 @@
+ 	./madt < APIC
+ madt: madt.c acpi.h tables.c
+ 	cc -o madt madt.c
++all: madt
+ clean:
+ 	rm madt
+diff -Naurd a/Makefile b/Makefile
+--- a/Makefile	2006-11-30 13:44:09.000000000 +0100
++++ b/Makefile	2007-02-27 17:12:39.000000000 +0100
+@@ -1,4 +1,4 @@
+-DIRS = acpidump acpixtract
++DIRS = acpidump acpixtract madt
+ 
+ all:
+ 	for i in $(DIRS); do $(MAKE) -C $$i $@; done

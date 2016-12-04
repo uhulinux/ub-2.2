@@ -1,0 +1,30 @@
+diff -urN gnome-terminal-2.2.1.orig/src/gnome-terminal.schemas.in gnome-terminal-2.2.1/src/gnome-terminal.schemas.in
+--- gnome-terminal-2.2.1.orig/src/gnome-terminal.schemas.in	2002-12-03 04:49:37.000000000 +0100
++++ gnome-terminal-2.2.1/src/gnome-terminal.schemas.in	2003-03-24 23:37:10.000000000 +0100
+@@ -149,7 +149,7 @@
+       <applyto>/apps/gnome-terminal/profiles/Default/foreground_color</applyto>
+       <owner>gnome-terminal</owner>
+       <type>string</type>
+-      <default>#000000</default>
++      <default>#AAAAAA</default>
+       <locale name="C">
+          <short>Default color of text in the terminal</short>
+          <long>
+@@ -165,7 +165,7 @@
+       <applyto>/apps/gnome-terminal/profiles/Default/background_color</applyto>
+       <owner>gnome-terminal</owner>
+       <type>string</type>
+-      <default>#FFFFDD</default>
++      <default>#000000</default>
+       <locale name="C">
+          <short>Default color of terminal background</short>
+          <long>
+@@ -565,7 +565,7 @@
+       <applyto>/apps/gnome-terminal/profiles/Default/use_theme_colors</applyto>
+       <owner>gnome-terminal</owner>
+       <type>bool</type>
+-      <default>true</default>
++      <default>false</default>
+       <locale name="C">
+          <short>Whether to use the colors from the theme for the terminal widget</short>
+          <long>

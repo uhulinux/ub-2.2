@@ -1,0 +1,5 @@
+#!/usr/bin/env dl
+
+lilo-${UB_VERSION}.src.tar.gz lilo-${UB_VERSION}/
+	http://home.san.rr.com/johninsd/pub/linux/lilo/
+	http://home.san.rr.com/johninsd/pub/linux/lilo/obsolete/

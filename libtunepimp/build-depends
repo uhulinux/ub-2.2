@@ -1,0 +1,9 @@
+curl-dev
+expat-dev
+flac-dev
+libmad-dev
+libmusicbrainz-dev
+libofa-dev
+libvorbis-dev
+mpeg4ip-dev
+taglib-dev

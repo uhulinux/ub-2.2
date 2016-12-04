@@ -1,0 +1,10 @@
+Summary=MIDI Emulator
+Summary[hu]=MIDI-emulátor
+Description=Software MIDI emulator using ALSA as backend.
+Description[hu]=Szoftveres MIDI-emulátor, mely az ALSA-t használja lejátszásra.
+MsgDesc=MIDI Emulator
+MsgDesc[hu]=MIDI-emulátor
+Script=/etc/init.d/timidity
+SupportsReload=yes
+Runlevels=
+Sequence=20

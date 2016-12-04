@@ -1,0 +1,8 @@
+cmake
+gtk2-dev
+gtkmm2-dev
+lcms2-dev
+libiptcdata-dev
+libjpeg-dev
+libtiff-dev
+mercurial

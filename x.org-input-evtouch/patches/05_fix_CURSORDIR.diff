@@ -1,0 +1,35 @@
+The code uses CURSORDIRECTORY but the build rules define CURSORDIR.
+
+Index: xserver-xorg-input-evtouch/ev_calibrate.c
+===================================================================
+--- xserver-xorg-input-evtouch.orig/ev_calibrate.c	2010-02-14 14:08:33.000000000 +0900
++++ xserver-xorg-input-evtouch/ev_calibrate.c	2010-02-14 14:14:06.000000000 +0900
+@@ -16,8 +16,8 @@
+ #include "ev_calibrate.h"
+ #include "config.h"
+ 
+-#ifndef CURSORDIRECTORY
+-#define CURSORDIRECTORY ""
++#ifndef CURSORDIR
++#define CURSORDIR ""
+ #endif
+ 
+ pthread_mutex_t got_min_max_mtx;
+@@ -287,7 +287,7 @@
+         }
+ 
+         rc = XReadBitmapFile(display, win,
+-                             CURSORDIRECTORY"/empty_cursor.xbm",
++                             CURSORDIR"/empty_cursor.xbm",
+                              &cursor_width, &cursor_height,
+                              &cursor_pic,
+                              &hotspot_x, &hotspot_y);
+@@ -295,7 +295,7 @@
+         /* check for failure or success. */
+         switch (rc) {
+         case BitmapOpenFailed:
+-                fprintf(stderr, "XReadBitmapFile - could not open file '%s/empty_cursor.xbm'.\n", CURSORDIRECTORY);
++                fprintf(stderr, "XReadBitmapFile - could not open file '%s/empty_cursor.xbm'.\n", CURSORDIR);
+                 break;
+         case BitmapFileInvalid:
+                 fprintf(stderr,

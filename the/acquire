@@ -1,0 +1,4 @@
+#!/usr/bin/env dl
+
+THE-${UB_VERSION/~/}.tar.gz THE-${UB_VERSION/~/}/
+	http://prdownloads.sourceforge.net/hessling-editor/

@@ -1,0 +1,4 @@
+#!/usr/bin/env dl
+
+gok-${UB_VERSION}.tar.gz gok-${UB_VERSION}/
+	ftp://ftp.gnome.org/pub/GNOME/sources/gok/${UB_VERSION_HEAD2}/

@@ -1,0 +1,4 @@
+#!/usr/bin/env dl
+
+sympy-${UB_VERSION}.tar.gz sympy-${UB_VERSION}/
+	http://sympy.googlecode.com/files/

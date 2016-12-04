@@ -1,0 +1,7 @@
+#!/bin/sh -eux
+
+qmake-qt4 \
+	-unix \
+	DESTDIR="$UB_INSTALLDIR"/usr \
+	texmakerx.pro
+ub_make

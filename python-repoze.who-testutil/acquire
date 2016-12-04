@@ -1,0 +1,4 @@
+#!/usr/bin/env dl
+
+repoze.who-testutil-${UB_VERSION}.tar.gz repoze.who-testutil-${UB_VERSION}/
+	http://pypi.python.org/packages/source/r/repoze.who-testutil/

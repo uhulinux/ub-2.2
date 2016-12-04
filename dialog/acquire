@@ -1,0 +1,5 @@
+#!/usr/bin/env dl
+
+dialog-${UB_VERSION}.tar.gz dialog-${UB_VERSION}/
+	http://www.hightek.org/dialog/
+

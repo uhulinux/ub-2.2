@@ -1,0 +1,177 @@
+diff -Naur LVM2.2.02.56-orig/daemons/clvmd/Makefile.in LVM2.2.02.56/daemons/clvmd/Makefile.in
+--- LVM2.2.02.56-orig/daemons/clvmd/Makefile.in	2009-10-05 15:46:00.000000000 +0200
++++ LVM2.2.02.56/daemons/clvmd/Makefile.in	2009-11-28 16:30:49.000000000 +0100
+@@ -98,7 +98,7 @@
+ .PHONY: install_clvmd
+ 
+ install_clvmd: $(TARGETS)
+-	$(INSTALL) -D $(OWNER) $(GROUP) -m 555 $(STRIP) clvmd \
++	$(INSTALL) -D $(OWNER) $(GROUP) -m 755 $(STRIP) clvmd \
+ 		$(usrsbindir)/clvmd
+ 
+ install: $(INSTALL_TARGETS)
+diff -Naur LVM2.2.02.56-orig/lib/format1/Makefile.in LVM2.2.02.56/lib/format1/Makefile.in
+--- LVM2.2.02.56-orig/lib/format1/Makefile.in	2009-10-02 21:10:34.000000000 +0200
++++ LVM2.2.02.56/lib/format1/Makefile.in	2009-11-28 16:31:49.000000000 +0100
+@@ -32,7 +32,7 @@
+ include ../../make.tmpl
+ 
+ install: liblvm2format1.so
+-	$(INSTALL) -D $(OWNER) $(GROUP) -m 555 $(STRIP) $< \
++	$(INSTALL) -D $(OWNER) $(GROUP) -m 755 $(STRIP) $< \
+ 		$(libdir)/liblvm2format1.so.$(LIB_VERSION)
+ 	$(LN_S) -f liblvm2format1.so.$(LIB_VERSION) $(libdir)/liblvm2format1.so
+ 
+diff -Naur LVM2.2.02.56-orig/lib/format_pool/Makefile.in LVM2.2.02.56/lib/format_pool/Makefile.in
+--- LVM2.2.02.56-orig/lib/format_pool/Makefile.in	2009-10-02 21:10:35.000000000 +0200
++++ LVM2.2.02.56/lib/format_pool/Makefile.in	2009-11-28 16:32:18.000000000 +0100
+@@ -29,7 +29,7 @@
+ include ../../make.tmpl
+ 
+ install: liblvm2formatpool.so
+-	$(INSTALL) -D $(OWNER) $(GROUP) -m 555 $(STRIP) $< \
++	$(INSTALL) -D $(OWNER) $(GROUP) -m 755 $(STRIP) $< \
+ 		$(libdir)/liblvm2formatpool.so.$(LIB_VERSION)
+ 	$(LN_S) -f liblvm2formatpool.so.$(LIB_VERSION) \
+ 		$(libdir)/liblvm2formatpool.so
+diff -Naur LVM2.2.02.56-orig/lib/locking/Makefile.in LVM2.2.02.56/lib/locking/Makefile.in
+--- LVM2.2.02.56-orig/lib/locking/Makefile.in	2009-10-02 21:10:35.000000000 +0200
++++ LVM2.2.02.56/lib/locking/Makefile.in	2009-11-28 16:33:15.000000000 +0100
+@@ -25,7 +25,7 @@
+ include ../../make.tmpl
+ 
+ install install_cluster: liblvm2clusterlock.so
+-	$(INSTALL) -D $(OWNER) $(GROUP) -m 555 $(STRIP) $< \
++	$(INSTALL) -D $(OWNER) $(GROUP) -m 755 $(STRIP) $< \
+ 		$(libdir)/liblvm2clusterlock.so.$(LIB_VERSION)
+ 	$(LN_S) -f liblvm2clusterlock.so.$(LIB_VERSION) \
+ 		$(libdir)/liblvm2clusterlock.so
+diff -Naur LVM2.2.02.56-orig/lib/mirror/Makefile.in LVM2.2.02.56/lib/mirror/Makefile.in
+--- LVM2.2.02.56-orig/lib/mirror/Makefile.in	2009-10-02 21:10:35.000000000 +0200
++++ LVM2.2.02.56/lib/mirror/Makefile.in	2009-11-28 16:33:55.000000000 +0100
+@@ -25,7 +25,7 @@
+ include ../../make.tmpl
+ 
+ install: liblvm2mirror.so
+-	$(INSTALL) -D $(OWNER) $(GROUP) -m 555 $(STRIP) $< \
++	$(INSTALL) -D $(OWNER) $(GROUP) -m 755 $(STRIP) $< \
+ 		$(libdir)/liblvm2mirror.so.$(LIB_VERSION)
+ 	$(LN_S) -f liblvm2mirror.so.$(LIB_VERSION) $(libdir)/liblvm2mirror.so
+ 
+diff -Naur LVM2.2.02.56-orig/lib/snapshot/Makefile.in LVM2.2.02.56/lib/snapshot/Makefile.in
+--- LVM2.2.02.56-orig/lib/snapshot/Makefile.in	2009-10-02 21:10:35.000000000 +0200
++++ LVM2.2.02.56/lib/snapshot/Makefile.in	2009-11-28 16:34:18.000000000 +0100
+@@ -25,7 +25,7 @@
+ include ../../make.tmpl
+ 
+ install: liblvm2snapshot.so
+-	$(INSTALL) -D $(OWNER) $(GROUP) -m 555 $(STRIP) $< \
++	$(INSTALL) -D $(OWNER) $(GROUP) -m 755 $(STRIP) $< \
+ 		$(libdir)/liblvm2snapshot.so.$(LIB_VERSION)
+ 	$(LN_S) -f liblvm2snapshot.so.$(LIB_VERSION) \
+ 		$(libdir)/liblvm2snapshot.so
+diff -Naur LVM2.2.02.56-orig/man/Makefile.in LVM2.2.02.56/man/Makefile.in
+--- LVM2.2.02.56-orig/man/Makefile.in	2009-10-02 21:10:36.000000000 +0200
++++ LVM2.2.02.56/man/Makefile.in	2009-11-28 16:37:24.000000000 +0100
+@@ -63,14 +63,14 @@
+ 	@for f in $(MAN8); \
+ 	do \
+ 	   $(RM) $(MAN8DIR)/$$f; \
+-	   @INSTALL@ -D $(OWNER) $(GROUP) -m 444 $$f $(MAN8DIR)/$$f; \
++	   @INSTALL@ -D $(OWNER) $(GROUP) -m 644 $$f $(MAN8DIR)/$$f; \
+ 	done
+ 
+ 	@echo "Installing $(MAN5) in $(MAN5DIR)"
+ 	@for f in $(MAN5); \
+ 	do \
+ 	   $(RM) $(MAN5DIR)/$$f; \
+-	   @INSTALL@ -D $(OWNER) $(GROUP) -m 444 $$f $(MAN5DIR)/$$f; \
++	   @INSTALL@ -D $(OWNER) $(GROUP) -m 644 $$f $(MAN5DIR)/$$f; \
+ 	done
+ 
+ install_cluster:
+@@ -78,7 +78,7 @@
+ 	@for f in $(MAN8CLUSTER); \
+ 	do \
+ 	   $(RM) $(MAN8DIR)/$$f; \
+-	   @INSTALL@ -D $(OWNER) $(GROUP) -m 444 $$f $(MAN8DIR)/$$f; \
++	   @INSTALL@ -D $(OWNER) $(GROUP) -m 644 $$f $(MAN8DIR)/$$f; \
+ 	done
+ 
+ install_device-mapper:
+@@ -86,7 +86,7 @@
+ 	@for f in $(MAN8DM); \
+ 	do \
+ 	   $(RM) $(MAN8DIR)/$$f; \
+-	   @INSTALL@ -D $(OWNER) $(GROUP) -m 444 $$f $(MAN8DIR)/$$f; \
++	   @INSTALL@ -D $(OWNER) $(GROUP) -m 644 $$f $(MAN8DIR)/$$f; \
+ 	done
+ 
+ install: install_lvm2 install_device-mapper
+diff -Naur LVM2.2.02.56-orig/po/Makefile.in LVM2.2.02.56/po/Makefile.in
+--- LVM2.2.02.56-orig/po/Makefile.in	2009-10-02 21:10:37.000000000 +0200
++++ LVM2.2.02.56/po/Makefile.in	2009-11-28 16:38:14.000000000 +0100
+@@ -54,13 +54,13 @@
+ 	@echo Installing translation files in $(localedir)
+ 	@( \
+ 		for lang in $(LANGS); do \
+-			$(INSTALL) -D $(OWNER) $(GROUP) -m 444 $$lang.mo \
++			$(INSTALL) -D $(OWNER) $(GROUP) -m 644 $$lang.mo \
+ 			    $(localedir)/$$lang/LC_MESSAGES/lvm2.mo;\
+ 	  done; \
+ 	)
+ 	@( \
+ 		for lang in $(LANGS); do \
+-			$(INSTALL) -D $(OWNER) $(GROUP) -m 444 $$lang.mo \
++			$(INSTALL) -D $(OWNER) $(GROUP) -m 644 $$lang.mo \
+ 			    $(localedir)/$$lang/LC_MESSAGES/device-mapper.mo;\
+ 	  done; \
+ 	)
+diff -Naur LVM2.2.02.56-orig/tools/Makefile.in LVM2.2.02.56/tools/Makefile.in
+--- LVM2.2.02.56-orig/tools/Makefile.in	2009-10-13 03:31:10.000000000 +0200
++++ LVM2.2.02.56/tools/Makefile.in	2009-11-28 16:40:26.000000000 +0100
+@@ -165,21 +165,21 @@
+ endif
+ 
+ install_cmdlib_dynamic: liblvm2cmd.$(LIB_SUFFIX)
+-	$(INSTALL) -D $(OWNER) $(GROUP) -m 555 $(STRIP) $< \
++	$(INSTALL) -D $(OWNER) $(GROUP) -m 755 $(STRIP) $< \
+ 		$(libdir)/liblvm2cmd.$(LIB_SUFFIX).$(LIB_VERSION)
+ 	$(LN_S) -f liblvm2cmd.$(LIB_SUFFIX).$(LIB_VERSION) $(libdir)/liblvm2cmd.$(LIB_SUFFIX)
+-	$(INSTALL) -D $(OWNER) $(GROUP) -m 444 $(srcdir)/lvm2cmd.h \
++	$(INSTALL) -D $(OWNER) $(GROUP) -m 644 $(srcdir)/lvm2cmd.h \
+ 		$(includedir)/lvm2cmd.h
+ 
+ install_cmdlib_static: liblvm2cmd-static.a
+-	$(INSTALL) -D $(OWNER) $(GROUP) -m 555 $(STRIP) $< \
++	$(INSTALL) -D $(OWNER) $(GROUP) -m 755 $(STRIP) $< \
+ 		$(libdir)/liblvm2cmd.a.$(LIB_VERSION)
+ 	$(LN_S) -f liblvm2cmd.a.$(LIB_VERSION) $(libdir)/liblvm2cmd.a
+-	$(INSTALL) -D $(OWNER) $(GROUP) -m 444 $(srcdir)/lvm2cmd.h \
++	$(INSTALL) -D $(OWNER) $(GROUP) -m 644 $(srcdir)/lvm2cmd.h \
+ 		$(includedir)/lvm2cmd.h
+ 
+ install_tools_dynamic: lvm .commands
+-	$(INSTALL) -D $(OWNER) $(GROUP) -m 555 $(STRIP) lvm \
++	$(INSTALL) -D $(OWNER) $(GROUP) -m 755 $(STRIP) lvm \
+ 		$(sbindir)/lvm
+ 	@echo Creating symbolic links for individual commands in $(sbindir)
+ 	@( \
+@@ -190,14 +190,14 @@
+ 	)
+ 
+ install_tools_static: lvm.static
+-	$(INSTALL) -D $(OWNER) $(GROUP) -m 555 $(STRIP) $< \
++	$(INSTALL) -D $(OWNER) $(GROUP) -m 755 $(STRIP) $< \
+ 		$(staticdir)/lvm.static
+ 
+ install_dmsetup_dynamic: dmsetup
+-	$(INSTALL) -D $(OWNER) $(GROUP) -m 555 $(STRIP) $< $(sbindir)/$<
++	$(INSTALL) -D $(OWNER) $(GROUP) -m 755 $(STRIP) $< $(sbindir)/$<
+ 
+ install_dmsetup_static: dmsetup.static
+-	$(INSTALL) -D $(OWNER) $(GROUP) -m 555 $(STRIP) $< $(sbindir)/$<
++	$(INSTALL) -D $(OWNER) $(GROUP) -m 755 $(STRIP) $< $(sbindir)/$<
+ 
+ install_device-mapper: $(INSTALL_DMSETUP_TARGETS)
+ 

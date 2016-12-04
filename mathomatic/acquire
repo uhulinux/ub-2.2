@@ -1,0 +1,4 @@
+#!/usr/bin/env dl
+
+mathomatic-${UB_VERSION}.tar.bz2 mathomatic-${UB_VERSION}/
+	http://www.panix.com/~gesslein/

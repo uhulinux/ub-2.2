@@ -1,0 +1,10 @@
+[Desktop Entry]
+Encoding=UTF-8
+Type=Application
+Name=teapot
+Name[hu]=teapot
+Comment[hu]=karakteres táblázatkezelő
+Icon=
+Exec=teapot
+Categories=X-UHU-Menu/Tools/Spreadsheets;
+Terminal=true

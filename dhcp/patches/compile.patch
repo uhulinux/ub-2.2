@@ -1,0 +1,11 @@
+diff -Naurd a/dst/prandom.c b/dst/prandom.c
+--- a/dst/prandom.c	2010-03-04 20:36:43.623003784 +0100
++++ b/dst/prandom.c	2010-03-04 20:38:54.568106224 +0100
+@@ -19,6 +19,7 @@
+  * WITH THE USE OR PERFORMANCE OF THE SOFTWARE.
+  */
+ 
++#define _GNU_SOURCE
+ #include <stdio.h>
+ #include <sys/types.h>
+ #include <stdlib.h>

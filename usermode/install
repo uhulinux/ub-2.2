@@ -1,0 +1,9 @@
+#!/bin/sh -eux
+
+ub_install
+
+for i in halt poweroff reboot; do
+	ln -s consolehelper "$UB_INSTALLDIR"/usr/bin/$i
+	install -m 644 $i "$UB_INSTALLDIR"/etc/security/console.apps/
+	install -m 644 shutdown.pamd "$UB_INSTALLDIR"/etc/pam.d/$i
+done

@@ -1,0 +1,11 @@
+dbus-glib-dev
+dbus-python-dev
+gdbm-dev
+gtk2-dev
+gtk2-sharp
+intltool
+libdaemon-dev
+libglade2-dev
+mono-dev
+perl-xml-parser
+pygtk-dev

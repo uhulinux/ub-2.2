@@ -1,0 +1,28 @@
+diff -Naur xf86-video-vmware-10.11.1.orig/src/vmware.c xf86-video-vmware-10.11.1/src/vmware.c
+--- xf86-video-vmware-10.11.1.orig/src/vmware.c	2005-11-09 22:31:21.000000000 +0100
++++ xf86-video-vmware-10.11.1/src/vmware.c	2005-11-30 17:47:04.000000000 +0100
+@@ -746,6 +746,24 @@
+     clockRanges->ClockMulFactor = 1;
+     clockRanges->ClockDivFactor = 1;
+ 
++    /*
++     * Set HorizSync and VertRefresh if they are not yet set, otherwise
++     * xf86ValidateModes() in xorg-server/hw/xfree86/common/xf86Mode.c
++     * would set them to 28-33 kHz and 43-72 Hz which are not really useful
++     * values for VMware.
++     */
++
++    if (pScrn->monitor->nHsync <= 0) {
++        pScrn->monitor->hsync[0].lo = 1;
++        pScrn->monitor->hsync[0].hi = 999;
++        pScrn->monitor->nHsync = 1;
++    }
++    if (pScrn->monitor->nVrefresh <= 0) {
++        pScrn->monitor->vrefresh[0].lo = 1;
++        pScrn->monitor->vrefresh[0].hi = 999;
++        pScrn->monitor->nVrefresh = 1;
++    }
++
+     i = xf86ValidateModes(pScrn, pScrn->monitor->Modes, pScrn->display->modes,
+                           clockRanges, NULL, 256, pVMWARE->maxWidth, 32 * 32,
+                           128, pVMWARE->maxHeight,

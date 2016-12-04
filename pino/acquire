@@ -1,0 +1,4 @@
+#!/usr/bin/env dl
+
+pino-${UB_VERSION}.tar.bz2 pino-${UB_VERSION}/
+	http://pino-twitter.googlecode.com/files/

@@ -1,0 +1,12 @@
+gnome-doc-utils-dev
+libexif-dev
+libglade2-dev
+libgnomeui2-dev
+libgphoto2-dev
+libiptcdata-dev
+libjpeg-dev
+libpng-dev
+libtiff-dev
+libxtst-dev
+libxxf86vm-dev
+perl-xml-parser

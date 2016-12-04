@@ -1,0 +1,11 @@
+Summary=DNS Server
+Summary[hu]=DNS-szerver
+Description=Domain Name Service Server.
+Description[hu]=Domain nevek szolgáltatását végző szerver.
+MsgDesc=Domain Name Server
+MsgDesc[hu]=Domainnév-szerver
+Script=/etc/init.d/named
+SupportsReload=yes
+Runlevels=
+Sequence=19
+Resources=tcp/domain,udp/domain

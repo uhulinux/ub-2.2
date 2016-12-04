@@ -1,0 +1,10 @@
+[Desktop Entry]
+Type=Application
+Name=Fish Fillets
+Comment=Sokoban-style game with two fish
+Comment[hu]=Sokoban típusú játék két halacskával
+Exec=fillets
+Icon=fillets.png
+Categories=X-UHU-Menu/Games/TacticStrategy;
+Terminal=false
+StartupNotify=false

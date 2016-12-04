@@ -1,0 +1,49 @@
+diff -Naur groff-1.19.2.orig/font/devutf8/R.proto groff-1.19.2/font/devutf8/R.proto
+--- groff-1.19.2.orig/font/devutf8/R.proto	2005-03-28 06:52:12.000000000 +0200
++++ groff-1.19.2/font/devutf8/R.proto	2006-07-19 14:45:55.000000000 +0200
+@@ -205,7 +205,7 @@
+ t+-	"
+ S2	24	0	0x00B2
+ S3	24	0	0x00B3
+-aa	24	0	0x00B4
++aa	24	0	0x0027
+ \'	"
+ mc	24	0	0x00B5
+ ps	24	0	0x00B6
+@@ -667,13 +667,13 @@
+ u050D	24	0	0x050D
+ u050E	24	0	0x050E
+ u050F	24	0	0x050F
+--	24	0	0x2010
++-	24	0	0x002D
+ hy	"
+-en	24	0	0x2013
+-em	24	0	0x2014
+-`	24	0	0x2018
++en	24	0	0x002D
++em	24	0	0x002D
++`	24	0	0x0060
+ oq	"
+-'	24	0	0x2019
++'	24	0	0x0027
+ cq	"
+ bq	24	0	0x201A
+ lq	24	0	0x201C
+@@ -726,7 +726,7 @@
+ product	24	0	0x220F
+ coproduct	24	0	0x2210
+ sum	24	0	0x2211
+-\-	24	0	0x2212
++\-	24	0	0x002D
+ mi	"
+ -+	24	0	0x2213
+ **	24	0	0x2217
+@@ -787,7 +787,7 @@
+ braceleftmid	"
+ lb	24	0	0x23A9
+ braceleftbt	"
+-bv	24	0	0x23AA
++bv	24	0	0x007C
+ braceex	"
+ braceleftex	"
+ bracerightex	"

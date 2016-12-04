@@ -1,0 +1,4 @@
+#!/usr/bin/env dl
+
+synaptiks-${UB_VERSION/~/-}.tar.bz2 synaptiks-${UB_VERSION/~/-}/
+	http://bitbucket.org/lunar/synaptiks/downloads/

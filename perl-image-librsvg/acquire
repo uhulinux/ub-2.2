@@ -1,0 +1,4 @@
+#!/usr/bin/env dl
+
+Image-LibRSVG-${UB_VERSION}.tar.gz Image-LibRSVG-${UB_VERSION}/
+	http://search.cpan.org/CPAN/authors/id/T/TO/TOMSON/

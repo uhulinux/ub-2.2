@@ -1,0 +1,5 @@
+dbus-glib-dev
+gtk2-dev
+libnotify-dev
+libstdc++-dev
+pmount

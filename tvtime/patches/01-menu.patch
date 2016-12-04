@@ -1,0 +1,29 @@
+diff -Naur tvtime-1.0.2.orig/docs/Makefile.in tvtime-1.0.2/docs/Makefile.in
+--- tvtime-1.0.2.orig/docs/Makefile.in	2005-09-14 23:41:51.000000000 +0200
++++ tvtime-1.0.2/docs/Makefile.in	2006-06-08 12:09:28.000000000 +0200
+@@ -260,6 +260,7 @@
+ 	@list='$(dist_desktopdata_DATA)'; for p in $$list; do \
+ 	  if test -f "$$p"; then d=; else d="$(srcdir)/"; fi; \
+ 	  f="`echo $$p | sed -e 's|^.*/||'`"; \
++	  f="`echo $$f | sed -e 's|net-||'`"; \
+ 	  echo " $(dist_desktopdataDATA_INSTALL) $$d$$p $(DESTDIR)$(desktopdatadir)/$$f"; \
+ 	  $(dist_desktopdataDATA_INSTALL) $$d$$p $(DESTDIR)$(desktopdatadir)/$$f; \
+ 	done
+diff -Naur tvtime-1.0.2.orig/docs/net-tvtime.desktop tvtime-1.0.2/docs/net-tvtime.desktop
+--- tvtime-1.0.2.orig/docs/net-tvtime.desktop	2003-09-12 23:18:41.000000000 +0200
++++ tvtime-1.0.2/docs/net-tvtime.desktop	2006-06-08 12:10:46.000000000 +0200
+@@ -1,10 +1,12 @@
+ [Desktop Entry]
+ Encoding=UTF-8
+ Comment=High quality video deinterlacer
++Comment[hu]=Magas minőségű TV-néző program
+ Icon=tvtime.png
+ Exec=tvtime
+-Name=TVtime Television Viewer
++Name=TVtime
+ GenericName=Television Viewer
++GenericName[hu]=TV-néző
+ Terminal=false
+ Type=Application
+-Categories=Application;AudioVideo;
++Categories=Application;AudioVideo;X-UHU-Menu/Multimedia/TVRadio;

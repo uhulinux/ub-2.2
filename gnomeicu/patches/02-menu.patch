@@ -1,0 +1,17 @@
+diff -urN gnomeicu-0.99.10.orig/GnomeICU.desktop.in gnomeicu-0.99.10/GnomeICU.desktop.in
+--- gnomeicu-0.99.10.orig/GnomeICU.desktop.in	2005-01-05 02:32:07.000000000 +0100
++++ gnomeicu-0.99.10/GnomeICU.desktop.in	2006-04-10 15:06:03.000000000 +0200
+@@ -1,11 +1,11 @@
+ [Desktop Entry]
+-_Name=GnomeICU ICQ Instant Messenger
++_Name=GnomeICU
+ _Comment=Communicate with your friends
+ Exec=gnomeicu
+ Icon=gnomeicu.png
+ Terminal=0
+ Type=Application
+-Categories=Application;Network;InstantMessaging;GNOME;GTK;
++Categories=Application;Network;InstantMessaging;GNOME;GTK;X-UHU-Menu/Internet/Messengers;
+ X-GNOME-Bugzilla-Bugzilla=GNOME
+ X-GNOME-Bugzilla-Product=GnomeICU
+ X-GNOME-Bugzilla-Component=

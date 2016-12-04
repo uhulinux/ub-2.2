@@ -1,0 +1,4 @@
+#!/usr/bin/env dl
+
+lucidor_$UB_VERSION.tar.gz lucidor-$UB_VERSION/
+	http://lucidor.org/lucidor/

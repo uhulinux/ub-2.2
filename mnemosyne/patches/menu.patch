@@ -1,0 +1,14 @@
+diff -Naur ORIG/mnemosyne.desktop UHU/mnemosyne.desktop
+--- ORIG/mnemosyne.desktop	2008-11-17 20:41:41.000000000 +0100
++++ UHU/mnemosyne.desktop	2008-11-28 12:39:04.000000000 +0100
+@@ -1,8 +1,9 @@
+ [Desktop Entry]
+ Name=Mnemosyne
++Comment[hu]=Memorizáló/szótanuló
+ Comment=A flash card program to make your review process more efficient
+ Exec=mnemosyne %f
+ Icon=mnemosyne
+-Categories=Education
++Categories=X-UHU-Menu/Edutainment;
+ Terminal=false
+ Type=Application

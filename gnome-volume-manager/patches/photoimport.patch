@@ -1,0 +1,64 @@
+diff -urN gnome-volume-manager-2.24.0.orig/src/manager.c gnome-volume-manager-2.24.0/src/manager.c
+--- gnome-volume-manager-2.24.0.orig/src/manager.c	2008-09-23 23:34:39.000000000 +0200
++++ gnome-volume-manager-2.24.0/src/manager.c	2008-10-21 21:45:22.000000000 +0200
+@@ -380,7 +380,7 @@
+ 	  N_("There are photos on the camera. Would you like to add these pictures to your album?"), FALSE, FALSE,
+ 	  GCONF_ROOT "prompts/storage_camera_import_photos", N_("_Always perform this action") },
+ 	{ 0, "camera-photo", NULL,
+-	  GVM_BUTTONS_CAMERA, G_N_ELEMENTS (GVM_BUTTONS_CAMERA),
++	  GVM_BUTTONS_STORAGE_CAMERA, G_N_ELEMENTS (GVM_BUTTONS_STORAGE_CAMERA),
+ 	  GVM_RESPONSE_IMPORT_PHOTOS,
+ 	  N_("Photo Import"),
+ 	  N_("A photo card has been detected."),
+@@ -1290,10 +1290,18 @@
+ }
+ 
+ static void
+-import_photos_cb (GvmPromptCtx *ctx, int action)
++import_storage_camera_cb (GvmPromptCtx *ctx, int action)
+ {
+-	if (action == GVM_RESPONSE_IMPORT_PHOTOS)
++	switch (action) {
++	case GVM_RESPONSE_IMPORT_PHOTOS:
+ 		gvm_run_camera (ctx->udi, ctx->device, ctx->mount_point);
++		break;
++	case GVM_RESPONSE_BROWSE:
++		gvm_run_command (NAUTILUS_COMMAND, ctx->udi, ctx->device, ctx->mount_point);
++		break;
++	default:
++		break;
++	}
+ }
+ 
+ static void
+@@ -1741,7 +1749,7 @@
+ #endif /* ENABLE_AUTOMOUNT */
+ 	
+ 	if (config.autophoto && gvm_check_photos (udi, device, mount_point)) {
+-		ctx = gvm_prompt_ctx_new (GVM_PROMPT_IMPORT_PHOTOS, import_photos_cb, udi, device, mount_point, NULL);
++		ctx = gvm_prompt_ctx_new (GVM_PROMPT_IMPORT_PHOTOS, import_storage_camera_cb, udi, device, mount_point, NULL);
+ 		gvm_prompt (ctx, 0, NULL);
+ 		return;
+ 	}
+@@ -1862,21 +1870,6 @@
+ 	return is_cdrom;
+ }
+ 
+-static void
+-import_storage_camera_cb (GvmPromptCtx *ctx, int action)
+-{
+-	switch (action) {
+-	case GVM_RESPONSE_IMPORT_PHOTOS:
+-		gvm_run_camera (ctx->udi, ctx->device, ctx->mount_point);
+-		break;
+-	case GVM_RESPONSE_BROWSE:
+-		gvm_run_filemanager (ctx->udi, ctx->device, ctx->mount_point);
+-		break;
+-	default:
+-		break;
+-	}
+-}
+-
+ #ifdef ENABLE_AUTOMOUNT
+ static void
+ ipod_photo_cb (GvmPromptCtx *ctx, int action)

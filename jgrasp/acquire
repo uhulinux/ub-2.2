@@ -1,0 +1,4 @@
+#!/usr/bin/env dl
+
+jgrasp${UB_VERSION//.}.zip jgrasp/
+	ftp://ftp.eng.auburn.edu/pub/grasp/jgrasp/

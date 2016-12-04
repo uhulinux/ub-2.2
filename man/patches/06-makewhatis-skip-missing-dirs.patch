@@ -1,0 +1,28 @@
+diff -Naurdp a/src/makewhatis.sh b/src/makewhatis.sh
+--- a/src/makewhatis.sh	2009-12-03 14:34:39.265775276 +0100
++++ b/src/makewhatis.sh	2009-12-03 14:37:11.137775141 +0100
+@@ -170,7 +170,9 @@ if [ x$update = x ]; then
+       eval path="\$$pages"path
+       for mandir in $path
+       do
+-	 cp /dev/null $mandir/whatis
++	 if [ -d "$mandir" ]; then
++	    cp /dev/null $mandir/whatis
++	 fi
+       done
+    done
+ fi
+@@ -184,6 +186,13 @@ do
+      if [ x$verbose != x ]; then
+ 	echo "about to enter $mandir" > /dev/stderr
+      fi
++	 
++     if [ ! -d ${mandir} ]; then
++	if [ x$verbose != x ]; then
++	   echo "no such mandir: $mandir - skipping" > /dev/tty
++ 	fi
++	continue
++     fi
+ 
+      # kludge for Slackware's /usr/man/preformat
+      if [ $mandir = /usr/man/preformat ]

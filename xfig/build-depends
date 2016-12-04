@@ -1,0 +1,9 @@
+imake
+libjpeg-dev
+libpng-dev
+libx11-dev
+libxaw-dev
+libxext-dev
+libxi-dev
+libxmu-dev
+libxt-dev

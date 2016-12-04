@@ -1,0 +1,12 @@
+diff -Naur LVM2.2.02.56-orig/tools/pvscan.c LVM2.2.02.56/tools/pvscan.c
+--- LVM2.2.02.56-orig/tools/pvscan.c	2009-09-15 00:47:49.000000000 +0200
++++ LVM2.2.02.56/tools/pvscan.c	2009-11-28 16:43:17.000000000 +0100
+@@ -167,7 +167,7 @@
+ 			size_new += pv_size(pv);
+ 			size_total += pv_size(pv);
+ 		} else
+-			size_total += pv_pe_count(pv) * pv_pe_size(pv);
++			size_total += (uint64_t)pv_pe_count(pv) * pv_pe_size(pv);
+ 	}
+ 
+ 	/* find maximum pv name length */

@@ -1,0 +1,4 @@
+#!/usr/bin/env dl
+
+gtkdatabox-${UB_VERSION}.tar.gz gtkdatabox-${UB_VERSION}/
+	http://downloads.sourceforge.net/gtkdatabox/

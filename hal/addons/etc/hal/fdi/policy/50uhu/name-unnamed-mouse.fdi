@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<deviceinfo version="0.2">
+	<device>
+		<match key="info.capabilities" contains="input.mouse">
+			<match key="info.product" empty="true">
+				<merge key="info.product" type="string">Mouse</merge>
+			</match>
+			<match key="input.product" empty="true">
+				<merge key="input.product" type="string">Mouse</merge>
+			</match>
+		</match>
+	</device>
+</deviceinfo>
+
+

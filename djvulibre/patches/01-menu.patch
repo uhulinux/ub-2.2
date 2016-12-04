@@ -1,0 +1,17 @@
+diff -urN djvulibre-3.5.21.orig/desktopfiles/djvulibre-djview3.desktop djvulibre-3.5.21/desktopfiles/djvulibre-djview3.desktop
+--- djvulibre-3.5.21.orig/desktopfiles/djvulibre-djview3.desktop	2007-09-13 15:44:10.000000000 +0200
++++ djvulibre-3.5.21/desktopfiles/djvulibre-djview3.desktop	2008-12-01 18:25:36.000000000 +0100
+@@ -1,12 +1,10 @@
+-#!/usr/bin/env xdg-open
+ [Desktop Entry]
+-Encoding=UTF-8
+ Type=Application
+-Categories=Qt;Graphics;Viewer;
++Categories=Qt;Graphics;Viewer;X-UHU-Menu/Tools/Viewers;
+ MimeType=image/x-djvu;image/x.djvu;image/vnd.djvu;
+ Name=DjView3
+-Exec=djview3 %f
++Exec=djview %f
+ Terminal=false
+ Icon=djvulibre-djview3
+ StartupWMClass=Djview

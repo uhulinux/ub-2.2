@@ -1,0 +1,4 @@
+#!/usr/bin/env dl
+
+telepathy-sofiasip-${UB_VERSION}.tar.gz telepathy-sofiasip-${UB_VERSION}/
+	http://telepathy.freedesktop.org/releases/telepathy-sofiasip/

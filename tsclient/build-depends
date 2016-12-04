@@ -1,0 +1,11 @@
+gnome2-desktop-dev
+gnome2-panel-dev
+intltool
+libglade2-dev
+libgnomeui2-dev
+libnotify-dev
+libsm-dev
+networkmanager-dev
+openssl-dev
+udev-dev
+xcb-util-dev

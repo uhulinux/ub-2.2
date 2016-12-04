@@ -1,0 +1,23 @@
+#!/bin/sh -eux
+
+./configure \
+	--enable-32bit \
+	--prefix=/usr \
+	--mandir=/usr/share/man \
+	--with-ncurses \
+	--with-rexx=regina
+make the
+mv the nthe
+
+make clean
+./configure \
+	--enable-32bit \
+	--prefix=/usr \
+	--mandir=/usr/share/man \
+	--with-xcurses \
+	--with-rexx=regina
+make the
+mv the xthe
+
+make THE_Help.txt
+make combined

@@ -1,0 +1,6 @@
+#!/bin/sh -eux
+
+chmod +x install
+DESTDIR="$UB_INSTALLDIR" ./install
+
+cp -a dcraw "$UB_INSTALLDIR"/usr/bin

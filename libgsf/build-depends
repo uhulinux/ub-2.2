@@ -1,0 +1,13 @@
+dbus-glib-dev
+gconf2-dev
+glib2-dev
+gnome2-vfs-dev
+intltool
+libbonobo2-dev
+libxml2-dev
+openssl-dev
+orbit2-dev
+perl-xml-parser
+popt-dev
+pygtk-dev
+python-dev

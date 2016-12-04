@@ -1,0 +1,6 @@
+	/usr/bin/ggl-gtk
+	/usr/lib/google-gadgets/modules/gst*.so
+	/usr/lib/google-gadgets/modules/gtk*.so
+	/usr/lib/libggadget-gtk*
+	/usr/share/applications/ggl-designer.desktop
+	/usr/share/applications/ggl-gtk.desktop

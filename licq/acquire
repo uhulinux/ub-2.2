@@ -1,0 +1,4 @@
+#!/usr/bin/env dl
+
+licq-${UB_VERSION}.tar.bz2 licq-${UB_VERSION}/
+	http://downloads.sourceforge.net/licq/

@@ -1,0 +1,36 @@
+diff -Naurdp a/src/ifaces.c b/src/ifaces.c
+--- a/src/ifaces.c	2005-09-13 08:42:54.000000000 +0200
++++ b/src/ifaces.c	2005-10-26 14:23:36.000000000 +0200
+@@ -32,14 +32,14 @@ details.
+ #include "error.h"
+ 
+ extern int accept_unsupported_interfaces;
+-#define NUM_SUPPORTED_IFACES 26
++#define NUM_SUPPORTED_IFACES 29
+ 
+ extern int daemonized;
+ 
+ char ifaces[][6] =
+     { "lo", "eth", "sl", "ppp", "ippp", "plip", "fddi", "isdn", "dvb",
+     "pvc", "hdlc", "ipsec", "sbni", "tr", "wvlan", "wlan", "sm2", "sm3",
+-    "pent", "lec", "brg", "tun", "tap", "cipcb", "tunl", "vlan"
++    "pent", "lec", "brg", "tun", "tap", "cipcb", "tunl", "vlan", "hsi", "ctc", "ath"
+ };
+ 
+ char *ltrim(char *buf)
+diff -Naurdp a/src/packet.c b/src/packet.c
+--- a/src/packet.c	2005-10-26 14:22:40.000000000 +0200
++++ b/src/packet.c	2005-10-26 14:23:54.000000000 +0200
+@@ -100,6 +100,12 @@ unsigned short getlinktype(unsigned shor
+             result = LINK_ETHERNET;
+         else if (strncmp(ifname, "lec", 3) == 0)
+             result = LINK_ETHERNET;
++	else if (strncmp(ifname, "ctc", 3) == 0)
++	    result = LINK_ETHERNET;
++	else if (strncmp(ifname, "hsi", 3) == 0)
++	    result = LINK_ETHERNET;
++	else if (strncmp(ifname, "ath", 3) == 0)
++	    result = LINK_ETHERNET;
+         else if (strncmp(ifname, "tun", 3) == 0)
+             result = LINK_ETHERNET;
+         else if (strncmp(ifname, "vlan", 3) == 0)

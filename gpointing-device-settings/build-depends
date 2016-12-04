@@ -1,0 +1,5 @@
+gconf2-dev
+gnome-settings-daemon-dev
+gtk2-dev
+intltool
+libxi-dev

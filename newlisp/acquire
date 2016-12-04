@@ -1,0 +1,5 @@
+#!/usr/bin/env dl
+
+newlisp-${UB_VERSION}.tgz newlisp-${UB_VERSION}/
+	http://downloads.sourceforge.net/newlisp/
+

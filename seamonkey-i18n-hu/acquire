@@ -1,0 +1,4 @@
+#!/usr/bin/env dl
+
+seamonkey-${UB_VERSION}.hu.langpack.xpi .
+	ftp://ftp.mozilla.org/pub/mozilla.org/seamonkey/releases/${UB_VERSION}/langpack/

@@ -1,0 +1,10 @@
+diff -urN newt-0.52.7.orig/Makefile.in newt-0.52.7/Makefile.in
+--- newt-0.52.7.orig/Makefile.in	2007-03-02 13:00:51.000000000 +0100
++++ newt-0.52.7/Makefile.in	2008-12-01 22:45:26.000000000 +0100
+@@ -1,5 +1,5 @@
+ LIBS = -lslang
+-LIBTCL = -ltcl8.4
++LIBTCL = -ltcl8.5
+ 
+ CC = @CC@
+ CPP = @CPP@

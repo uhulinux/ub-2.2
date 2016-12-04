@@ -1,0 +1,13 @@
+#!/bin/sh
+
+. /etc/init.d/common
+
+DAEMON=/usr/sbin/squid
+PIDFILE="/var/run/squid.pid"
+DAEMONARGS=(-D)
+
+function _init() {
+	/usr/sbin/squid -z -F
+}
+
+startstop "$@"

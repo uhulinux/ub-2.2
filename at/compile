@@ -1,0 +1,4 @@
+#!/bin/sh -eux
+
+SENDMAIL=/usr/sbin/sendmail \
+ub_compile

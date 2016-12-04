@@ -1,0 +1,4 @@
+#!/usr/bin/env dl
+
+qalculate-kde-${UB_VERSION}.tar.gz qalculate-kde-${UB_VERSION}/
+	http://downloads.sourceforge.net/qalculate/

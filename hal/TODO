@@ -1,0 +1,12 @@
+- most akkor /etc/hal/fdi vagy /usr/share/hal/fdi ?
+- dbus at_console problemakor
+
++ skip volume label "NO NAME", "Untitled"
++ append device name
+- volume.ignore listat atnezni
+- user tudjon umountolni/ejectelni
+- MOUNTTYPE mindig legyen atadva a mountnak
+- dmwrap eseten lehessen forcolni a media hibat
+- noatime, flush (fat), commit=0 (ext3) opciok removable/hotpluggable eseten
+- a nautilus ketszer latja a cf cuccot... (mivel a /dev/mapper/akarmi van
+  bemountolva, es azt is latja szepen)

@@ -1,0 +1,10 @@
+[Desktop Entry]
+Encoding=UTF-8
+Type=Application
+Name=LXlogo
+Comment=Interactive LOGO
+Comment[hu]=Interaktív LOGO
+Exec=lxlogo-start
+Icon=/usr/share/pixmaps/lxlogo.gif
+Terminal=false
+Categories=X-UHU-Menu/Development/Programming;

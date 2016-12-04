@@ -1,0 +1,10 @@
+#!/bin/sh
+
+. /etc/init.d/common
+
+[ -f /etc/sysconfig/mice/protocol -a -f /etc/sysconfig/mice/port ] || exit 0
+
+DAEMON=/sbin/inputattach
+DAEMONARGS=(--"$(</etc/sysconfig/mice/protocol)" "/dev/$(</etc/sysconfig/mice/port)" --daemon)
+
+startstop "$@"

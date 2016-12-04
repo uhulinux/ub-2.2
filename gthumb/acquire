@@ -1,0 +1,5 @@
+#!/usr/bin/env dl
+
+gthumb-${UB_VERSION}.tar.gz gthumb-${UB_VERSION}/
+	ftp://ftp.gnome.org/pub/GNOME/sources/gthumb/${UB_VERSION_HEAD2}/
+	http://downloads.sourceforge.net/gthumb/

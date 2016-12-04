@@ -1,0 +1,13 @@
+#!/bin/sh -eux
+
+ub_install
+
+# install icons
+mkdir -p "$UB_INSTALLDIR"/usr/share/icons/hicolor/scalable/apps
+cp -a etracericon.svg "$UB_INSTALLDIR"/usr/share/icons/hicolor/scalable/apps/
+
+unzip -j etracericons
+for i in 16 22 32 48; do
+	mkdir -p "$UB_INSTALLDIR"/usr/share/icons/hicolor/"$i"x"$i"
+	install -m 644 etracericon_"$i".png "$UB_INSTALLDIR"/usr/share/icons/hicolor/"$i"x"$i"/etracericon.png
+done

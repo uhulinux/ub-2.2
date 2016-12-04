@@ -1,0 +1,4 @@
+#!/usr/bin/env dl
+
+sK1-${UB_VERSION}.tar.gz sK1-0.9.1pre/
+	http://sk1project.org/downloads/sk1/${UB_VERSION}/

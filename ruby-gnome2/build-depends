@@ -1,0 +1,15 @@
+gnome2-panel-dev
+gst-plugins-base-dev
+gtk2-dev
+gtkglext-dev
+gtksourceview-dev
+libglade2-dev
+libgnomeprintui2-dev
+libgnomeui2-dev
+libgtkhtml2-dev
+libjpeg-dev
+librsvg2-dev
+poppler-glib-dev
+ruby-dev
+vte-dev
+xulrunner-dev

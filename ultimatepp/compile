@@ -1,0 +1,7 @@
+#!/bin/sh -eux
+
+sed -i '/^CC\ =/s/\(.*\)/\1\ -O2\ -march=native/' uppsrc/Makefile
+sed -i '/^cp uppsrc/d' domake
+sed -i '/RELEASE_OPTIONS/s/-O1/-O2\ -march=native/' GCC.bm
+	
+ub_compile

@@ -1,0 +1,78 @@
+diff -ru optipng-0.5.4/lib/pngxtern/scripts/gcc.mak optipng-0.5.4.patched/lib/pngxtern/scripts/gcc.mak
+--- optipng-0.5.4/lib/pngxtern/scripts/gcc.mak	2006-11-23 12:05:53.000000000 +0100
++++ optipng-0.5.4.patched/lib/pngxtern/scripts/gcc.mak	2006-11-23 12:05:55.000000000 +0100
+@@ -39,7 +39,7 @@
+ all: pngxtern$(A)
+ 
+ .c$(O):
+-	$(CC) -c $(CFLAGS) -I$(ZDIR) -I$(PNGDIR) $<
++	$(CC) -c $(CFLAGS)  $<
+ 
+ pngxtern$(A): $(OBJS)
+ 	$(AR_RC) $@ $(OBJS)
+diff -ru optipng-0.5.4/src/scripts/gcc.mak optipng-0.5.4.patched/src/scripts/gcc.mak
+--- optipng-0.5.4/src/scripts/gcc.mak	2006-11-23 12:05:22.000000000 +0100
++++ optipng-0.5.4.patched/src/scripts/gcc.mak	2006-11-23 12:05:21.000000000 +0100
+@@ -19,24 +19,20 @@
+ ZLIB     = libz.a
+ PNGLIB   = libpng.a
+ PNGXLIB  = pngxtern.a
+-ZMAK     = Makefile
+-PNGMAK   = scripts/makefile.gcc
+ PNGXMAK  = scripts/gcc.mak
+-ZDIR     = ../lib/zlib
+-PNGDIR   = ../lib/libpng
+ PNGXDIR  = ../lib/pngxtern
+ BACKHERE = ../../src
+ 
+ OBJS = optipng.o opngio.o opngreduc.o cbitset.o osys.o strutil.o
+-LIBS = $(PNGXDIR)/$(PNGXLIB) $(PNGDIR)/$(PNGLIB) $(ZDIR)/$(ZLIB)
++LIBS = $(PNGXDIR)/$(PNGXLIB)
+ 
+ 
+ $(OPTIPNG): $(OBJS) $(LIBS)
+-	$(LD) -o $(OPTIPNG) $(LDFLAGS) $(OBJS) $(LIBS)
++	$(LD) -o $(OPTIPNG) $(LDFLAGS) $(OBJS) $(LIBS) -lpng -lz
+ 
+ 
+ .c.o:
+-	$(CC) -c $(CFLAGS) -I$(ZDIR) -I$(PNGDIR) -I$(PNGXDIR) $*.c
++	$(CC) -c $(CFLAGS) -I$(PNGXDIR) $*.c
+ 
+ optipng.o  : optipng.c proginfo.h opng.h cexcept.h cbitset.h osys.h strutil.h
+ opngio.o   : opngio.c opng.h
+@@ -46,23 +42,11 @@
+ strutil.o  : strutil.c strutil.h
+ 
+ 
+-$(PNGXDIR)/$(PNGXLIB): $(ZDIR)/$(ZLIB) $(PNGDIR)/$(PNGLIB)
++$(PNGXDIR)/$(PNGXLIB):
+ 	cd $(PNGXDIR); \
+ 	$(MAKE) -f $(PNGXMAK) $(PNGXLIB); \
+ 	cd $(BACKHERE)
+ 
+-$(PNGDIR)/$(PNGLIB): $(ZDIR)/$(ZLIB)
+-	cd $(PNGDIR); \
+-	$(MAKE) -f $(PNGMAK) $(PNGLIB); \
+-	cd $(BACKHERE)
+-
+-$(ZDIR)/$(ZLIB):
+-	cd $(ZDIR); \
+-	./configure; \
+-	$(MAKE) -f $(ZMAK) $(ZLIB); \
+-	cd $(BACKHERE)
+-
+-
+ install: $(OPTIPNG)
+ 	-@if [ ! -d ${bindir} ]; then mkdir -p ${bindir}; fi
+ 	-@if [ ! -d ${man1dir} ]; then mkdir -p ${man1dir}; fi
+@@ -82,9 +66,3 @@
+ 	cd $(PNGXDIR); \
+ 	$(MAKE) -f $(PNGXMAK) clean; \
+ 	cd $(BACKHERE)
+-	cd $(PNGDIR); \
+-	$(MAKE) -f $(PNGMAK) clean; \
+-	cd $(BACKHERE)
+-	cd $(ZDIR); \
+-	$(MAKE) -f $(ZMAK) clean; \
+-	cd $(BACKHERE)

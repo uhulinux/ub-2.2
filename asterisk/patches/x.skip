@@ -1,0 +1,45 @@
+--- a/channels/misdn/isdn_lib.c	2008-10-09 21:18:48.781250000 +0200
++++ a/channels/misdn/isdn_lib_fix_proposal.c	2008-10-09 21:17:40.437500000 +0200
+@@ -3133,16 +3133,25 @@
+ {
+ 	struct timeval now;
+ 	gettimeofday(&now, NULL);
+-	if (!bc->in_use) {
+-		if (misdn_lib_port_is_pri(bc->port) && bc->last_used.tv_sec == now.tv_sec ) {
+-			cb_log(2,bc->port, "channel with stid:%x for one second still in use! (n:%d lu:%d)\n", bc->b_stid, (int) now.tv_sec, (int) bc->last_used.tv_sec);
+-			return 1;
+-		}
+-	}
+-	return 0;
++   if (misdn_lib_port_is_pri(bc->port)) {
++	   if (bc->in_use) {
++         return 0;
++      }
++      else {
++         struct timeval now;
++         gettimeofday(&now, NULL);
++         if(bc->last_used.tv_sec == now.tv_sec ) {
++		      cb_log(2,bc->port, "channel with stid:%x for one second still in use! (n:%d lu:%d)\n", bc->b_stid, (int) now.tv_sec, (int) bc->last_used.tv_sec);
++		      return 0;
++         }
++         return 1;
++      }
++   }
++   else {
++      return ((bc->in_use) ? 0:1);
++   }
+ }
+ 
+-
+ static void prepare_bc(struct misdn_bchannel*bc, int channel)
+ {
+ 	bc->channel = channel;
+@@ -3188,7 +3197,7 @@
+ 			if (channel > 0) {
+ 				if (channel <= stack->b_num) {
+ 					for (i = 0; i < stack->b_num; i++) {
+-						if ( test_inuse(&stack->bc[i]) && stack->bc[i].channel == channel) {
++						if ( (test_inuse(&stack->bc[i])==0) && stack->bc[i].channel == channel) {
+ 							cb_log(0,port,"Requested channel:%d on port:%d is already in use\n",channel, port);
+ 							return NULL;
+ 						}

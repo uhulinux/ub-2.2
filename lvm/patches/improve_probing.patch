@@ -1,0 +1,37 @@
+diff -Naur LVM2.2.02.56-orig/lib/filters/filter.c LVM2.2.02.56/lib/filters/filter.c
+--- LVM2.2.02.56-orig/lib/filters/filter.c	2009-10-27 18:00:46.000000000 +0100
++++ LVM2.2.02.56/lib/filters/filter.c	2009-11-28 16:16:54.000000000 +0100
+@@ -12,7 +12,11 @@
+  * along with this program; if not, write to the Free Software Foundation,
+  * Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
+  */
+-
++#include <sys/ioctl.h>
++#include <linux/fs.h>
++#undef MAJOR
++#undef MINOR
++#undef MKDEV
+ #include "lib.h"
+ #include "dev-cache.h"
+ #include "filter.h"
+@@ -138,11 +142,18 @@
+ 	}
+ 
+ 	/* Check it's accessible */
+-	if (!dev_open_flags(dev, O_RDONLY, 0, 1)) {
++	if (!dev_open_flags(dev, O_RDONLY|O_NONBLOCK, 0, 1)) {
+ 		log_debug("%s: Skipping: open failed", name);
+ 		return 0;
+ 	}
+-	
++
++	/* Skip cdrom device */
++	#define CDROM_GET_CAPABILITY   0x5331
++	if (ioctl(dev->fd, CDROM_GET_CAPABILITY) >= 0) {
++		log_debug("%s: Skipping: cdrom device", name );
++		goto out;
++	}
++
+ 	/* Check it's not too small */
+ 	if (!dev_get_size(dev, &size)) {
+ 		log_debug("%s: Skipping: dev_get_size failed", name);

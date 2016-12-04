@@ -1,0 +1,8 @@
+gnome2-desktop-dev
+gnome2-menus-dev
+libbonoboui2-dev
+libgnome2-dev
+libgnomecanvas2-dev
+libgnomeui2-dev
+libxml2-dev
+perl-xml-parser

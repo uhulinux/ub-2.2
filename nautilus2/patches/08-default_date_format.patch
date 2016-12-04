@@ -1,0 +1,12 @@
+diff -urN nautilus-2.8.0.orig/libnautilus-private/apps_nautilus_preferences.schemas.in nautilus-2.8.0/libnautilus-private/apps_nautilus_preferences.schemas.in
+--- nautilus-2.8.0.orig/libnautilus-private/apps_nautilus_preferences.schemas.in	2004-08-16 12:26:03.000000000 +0200
++++ nautilus-2.8.0/libnautilus-private/apps_nautilus_preferences.schemas.in	2004-09-26 13:08:31.560387514 +0200
+@@ -633,7 +633,7 @@
+       <applyto>/apps/nautilus/preferences/date_format</applyto>
+       <owner>nautilus</owner>
+       <type>string</type>
+-      <default>locale</default>
++      <default>informal</default>
+       <locale name="C">
+          <short>Date Format</short>
+          <long>

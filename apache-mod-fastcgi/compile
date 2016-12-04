@@ -1,0 +1,5 @@
+#!/bin/sh -eux
+
+ln Makefile.AP2 Makefile
+
+ub_compile

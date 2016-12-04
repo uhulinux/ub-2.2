@@ -1,0 +1,28 @@
+Skip the initial empty-password check if permit_empty_passwd is disabled.  This
+doesn't change the timing profiles of the host because the additional condition
+check which can short-circuit the call to pam_authenticate() has no dependency
+on the identity of the user who is being authenticated.
+diff -Naurdp a/auth1.c b/auth1.c
+--- a/auth1.c	2009-03-08 01:40:28.000000000 +0100
++++ b/auth1.c	2010-03-04 20:08:43.335003574 +0100
+@@ -244,7 +244,7 @@ do_authloop(Authctxt *authctxt)
+ 	    authctxt->valid ? "" : "invalid user ", authctxt->user);
+ 
+ 	/* If the user has no password, accept authentication immediately. */
+-	if (options.password_authentication &&
++	if (options.permit_empty_passwd && options.password_authentication &&
+ #ifdef KRB5
+ 	    (!options.kerberos_authentication || options.kerberos_or_local_passwd) &&
+ #endif
+diff -Naurdp a/auth2-none.c b/auth2-none.c
+--- a/auth2-none.c	2009-03-08 01:40:28.000000000 +0100
++++ b/auth2-none.c	2010-03-04 20:10:11.311630747 +0100
+@@ -61,7 +61,7 @@ userauth_none(Authctxt *authctxt)
+ {
+ 	none_enabled = 0;
+ 	packet_check_eom();
+-	if (options.password_authentication)
++	if (options.permit_empty_passwd && options.password_authentication)
+ 		return (PRIVSEP(auth_password(authctxt, "")));
+ 	return (0);
+ }

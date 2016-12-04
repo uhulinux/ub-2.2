@@ -1,0 +1,12 @@
+diff -Naur ORIG/misc/emerald-theme-manager.desktop UHU/misc/emerald-theme-manager.desktop
+--- ORIG/misc/emerald-theme-manager.desktop	2009-03-05 05:14:21.000000000 +0100
++++ UHU/misc/emerald-theme-manager.desktop	2009-04-21 20:23:44.000000000 +0200
+@@ -7,7 +7,7 @@
+ Icon=/usr/share/pixmaps/emerald-theme-manager-icon.png
+ Terminal=false
+ Type=Application
+-Categories=Settings;DesktopSettings;
++Categories=Settings;DesktopSettings;X-UHU-Menu/Settings;
+ Exec=emerald-theme-manager -i %f
+ MimeType=application/x-emerald-theme;
+ 

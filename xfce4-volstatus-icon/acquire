@@ -1,0 +1,4 @@
+#!/usr/bin/env dl
+
+xfce4-volstatus-icon-${UB_VERSION}.tar.bz2 xfce4-volstatus-icon-${UB_VERSION}/
+	http://goodies.xfce.org/releases/xfce4-volstatus-icon/

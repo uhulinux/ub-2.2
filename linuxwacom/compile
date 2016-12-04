@@ -1,0 +1,8 @@
+#!/bin/sh -eux
+
+ub_compile \
+	--enable-wacdump                    \
+	--enable-libwacomcfg                \
+	--enable-dlloader                   \
+	--with-xmoduledir=/usr/lib/xorg/modules/input   \
+	--with-xlib=/usr/lib

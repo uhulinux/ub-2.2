@@ -1,0 +1,21 @@
+diff -urN xv-3.10a.orig/xv.c xv-3.10a/xv.c
+--- xv-3.10a.orig/xv.c	2004-05-24 23:39:43.000000000 +0200
++++ xv-3.10a/xv.c	2004-05-24 23:59:30.000000000 +0200
+@@ -19,6 +19,8 @@
+ 
+ #include <X11/Xatom.h>
+ 
++#include <locale.h>
++
+ #ifdef VMS
+   extern Window pseudo_root();
+ #endif
+@@ -154,6 +156,8 @@
+   /*** variable Initialization                       ***/
+   /*****************************************************/
+ 
++  setlocale(LC_CTYPE, "");
++
+   xv_getwd(initdir, sizeof(initdir));
+   searchdir[0] = '\0';
+   fullfname[0] = '\0';

@@ -1,0 +1,25 @@
+diff -Naur logrotate-3.7.8-orig/config.c logrotate-3.7.8/config.c
+--- logrotate-3.7.8-orig/config.c	2008-06-02 12:26:14.000000000 +0200
++++ logrotate-3.7.8/config.c	2009-11-27 19:31:52.000000000 +0100
+@@ -34,7 +34,8 @@
+ #endif
+ 
+ static char *defTabooExts[] = { ".rpmsave", ".rpmorig", "~", ",v",
+-    ".rpmnew", ".swp", ".cfsaved", ".rhn-cfg-tmp-*"
++    ".rpmnew", ".swp", ".cfsaved", ".rhn-cfg-tmp-*",
++    ".dpkg-old", ".dpkg-new", ".dpkg-dist", ".dpkg-tmp"
+ };
+ static int defTabooCount = sizeof(defTabooExts) / sizeof(char *);
+ 
+diff -Naur logrotate-3.7.8-orig/logrotate.8 logrotate-3.7.8/logrotate.8
+--- logrotate-3.7.8-orig/logrotate.8	2009-11-27 19:24:29.000000000 +0100
++++ logrotate-3.7.8/logrotate.8	2009-11-27 19:37:00.000000000 +0100
+@@ -442,7 +442,7 @@
+ for information on the taboo extensions). If a + precedes the list of
+ extensions, the current taboo extension list is augmented, otherwise it
+ is replaced. At startup, the taboo extension list 
+-contains .rpmorig, .rpmsave, ,v, .swp, .rpmnew, ~, .cfsaved and .rhn-cfg-tmp-*.
++contains .rpmorig, .rpmsave, ,v, .swp, .rpmnew, .dpkg-old, .dpkg-new, .dpkg-dist, .dpkg-tmp and ~, .cfsaved and .rhn-cfg-tmp-*.
+ 
+ .TP
+ \fBweekly\fR

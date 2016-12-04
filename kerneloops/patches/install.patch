@@ -1,0 +1,15 @@
+diff -Naurd a/Makefile c/Makefile
+--- a/Makefile	2008-01-05 13:46:04.000000000 +0100
++++ c/Makefile	2008-01-06 19:56:57.000000000 +0100
+@@ -51,9 +51,9 @@
+ 	install -m 0755 kerneloops $(DESTDIR)/usr/sbin
+ 	install -m 0755 kerneloops-applet $(DESTDIR)$(BINDIR)
+ 	install -m 0644 kerneloops.conf $(DESTDIR)/etc/kerneloops.conf
+-	desktop-file-install -m 0644 --dir=$(DESTDIR)/etc/xdg/autostart/ kerneloops-applet.desktop
++	desktop-file-install --mode 0644 --dir=$(DESTDIR)/etc/xdg/autostart/ kerneloops-applet.desktop
+ 	install -m 0644 kerneloops.dbus $(DESTDIR)/etc/dbus-1/system.d/
+-	install -m 0644 kerneloops.1.gz $(DESTDIR)$(MANDIR)
++	install -m 0644 kerneloops.1.gz $(DESTDIR)$(MANDIR)/kerneloops.8.gz
+ 	install -m 0644 icon.png $(DESTDIR)/usr/share/kerneloops/icon.png
+ 	@(cd po/ && env LOCALESDIR=$(LOCALESDIR) DESTDIR=$(DESTDIR) $(MAKE) $@)
+ 	

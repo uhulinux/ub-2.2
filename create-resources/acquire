@@ -1,0 +1,4 @@
+#!/usr/bin/env dl
+
+create-${UB_VERSION/~/-}.tar.bz2 create-${UB_VERSION/~/-}/
+	http://create.freedesktop.org/releases/create/

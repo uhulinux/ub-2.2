@@ -1,0 +1,4 @@
+#!/usr/bin/env dl
+
+vbindiff-$UB_VERSION.tar.gz vbindiff-$UB_VERSION/
+	http://www.cjmweb.net/vbindiff/

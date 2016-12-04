@@ -1,0 +1,4 @@
+#!/usr/bin/env dl
+
+repoze.what-pylons-${UB_VERSION}.tar.gz repoze.what-pylons-${UB_VERSION}/
+	http://pypi.python.org/packages/source/r/repoze.what-pylons/

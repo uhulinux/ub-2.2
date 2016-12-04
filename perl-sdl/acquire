@@ -1,0 +1,8 @@
+#!/usr/bin/env dl
+
+SDL_Perl-v${UB_VERSION}.tar.gz SDL_Perl-v${UB_VERSION}/
+	http://search.cpan.org/CPAN/authors/id/K/KT/KTHAKORE/
+	http://search.cpan.org/CPAN/authors/id/D/DG/DGOEHRIG/
+	http://ftp.kfki.hu/packages/perl/CPAN/authors/id/D/DG/DGOEHRIG/
+#	ftp://sdlperl.org/SDL_perl/stable/
+#	ftp://ftp.sunet.se/pub/Linux/distributions/mandrakelinux/official/10.0/SRPMS/

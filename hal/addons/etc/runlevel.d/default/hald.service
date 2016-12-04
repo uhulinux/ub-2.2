@@ -1,0 +1,10 @@
+Summary=Hardware Information Daemon
+Summary[hu]=Hardver információs démon
+Description=HAL is daemon for collection and maintaining information from several sources about the hardware on the system. It provides a live device list through D-BUS.
+Description[hu]=Hardver információkat összegyűjtő és karbantartó démon. A pillanatnyi eszközlistát a D-BUS alrendszeren keresztül elérhetővé teszi.
+MsgDesc=Hardware Information Daemon
+MsgDesc[hu]=Hardver információs démon
+Script=/etc/init.d/hald
+SupportsReload=no
+Runlevels=2345
+Sequence=08

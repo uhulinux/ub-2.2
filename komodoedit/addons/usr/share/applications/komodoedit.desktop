@@ -1,0 +1,13 @@
+[Desktop Entry]
+Version=1.1
+Name=Komodo Edit 5
+Name[hu]=Komodo Edit 5
+GenericName=Editor
+Comment=Free multi-platform editor that makes it easy to write quality code.
+Comment[hu]=Komodo editor
+Exec=komodo %F
+Icon=komodo.png
+Terminal=false
+Type=Application
+MimeType=text/plain;
+Categories=ActiveState;Application;Development;Editor;Utility;TextEditor;X-UHU-Menu/Tools/Editors;

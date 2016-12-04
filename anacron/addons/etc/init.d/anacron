@@ -1,0 +1,7 @@
+#!/bin/sh
+
+. /etc/init.d/common
+
+DAEMON=/usr/sbin/anacron
+
+startstop "$@"

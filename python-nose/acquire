@@ -1,0 +1,4 @@
+#!/usr/bin/env dl
+
+nose-${UB_VERSION}.tar.gz nose-${UB_VERSION}/
+	http://somethingaboutorange.com/mrl/projects/nose/

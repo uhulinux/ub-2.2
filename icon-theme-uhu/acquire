@@ -1,0 +1,4 @@
+#!/usr/bin/env dl
+
+icon-theme-uhu-${UB_VERSION}.tar.gz icon-theme-uhu-${UB_VERSION}/
+	ftp://ftp.uhulinux.hu/pub/sources/icon-theme-uhu/

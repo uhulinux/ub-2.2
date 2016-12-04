@@ -1,0 +1,11 @@
+#!/bin/sh -eux
+
+ub_install
+
+mkdir -p "$UB_INSTALLDIR"/usr/share/guile
+ln -s ../../lib/slib "$UB_INSTALLDIR"/usr/share/guile/slib
+ln -s /usr/share/guile/slib/mklibcat.scm "$UB_INSTALLDIR"/usr/share/guile/slib/mklibcat
+
+# postinst script will create slibcat here
+mkdir -p "$UB_INSTALLDIR"/usr/share/guile/site
+

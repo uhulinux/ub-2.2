@@ -1,0 +1,4 @@
+#!/usr/bin/env dl
+
+eel-${UB_VERSION}.tar.gz eel-${UB_VERSION}/
+	ftp://ftp.gnome.org/pub/GNOME/sources/eel/${UB_VERSION_HEAD2}/

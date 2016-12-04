@@ -1,0 +1,4 @@
+#!/usr/bin/env dl
+
+portmap-${UB_VERSION}.tgz portmap_${UB_VERSION}/
+	http://neil.brown.name/portmap/

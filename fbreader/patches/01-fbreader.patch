@@ -1,0 +1,39 @@
+diff -Naur orig/fbreader/desktop/desktop mod/fbreader/desktop/desktop
+--- orig/fbreader/desktop/desktop	2010-03-25 00:38:01.000000000 +0100
++++ mod/fbreader/desktop/desktop	2010-02-22 18:57:37.000000000 +0100
+@@ -12,6 +12,7 @@
+ Comment=FBReader E-book reader
+ Comment[ar]=قارئ الكتب الإلكترونية
+ Comment[es]=FBReader Lector de Libros Elecrónicos
++Comment[hu]=E-könyv olvasó
+ Comment[ru]=FBReader, программа для чтения электронных книг
+ Comment[zh_CN]=FBReader 电子书阅读器
+ TryExec=FBReader
+@@ -20,4 +21,4 @@
+ Terminal=false
+ Type=Application
+ Icon=FBReader.png
+-Categories=Office;Viewer;Literature;
++Categories=Office;Viewer;Literature;X-UHU-Menu/Tools/Viewers;
+diff -Naur orig/fbreader/src/database/sqldb/implsqlite/SQLiteCommand.cpp mod/fbreader/src/database/sqldb/implsqlite/SQLiteCommand.cpp
+--- orig/fbreader/src/database/sqldb/implsqlite/SQLiteCommand.cpp	2010-03-25 00:38:01.000000000 +0100
++++ mod/fbreader/src/database/sqldb/implsqlite/SQLiteCommand.cpp	2010-02-22 18:58:11.000000000 +0100
+@@ -17,6 +17,7 @@
+  * 02110-1301, USA.
+  */
+ 
++#include <stdio.h>
+ #include <iostream>
+ #include <algorithm>
+ 
+diff -Naur orig/zlibrary/core/src/util/ZLStringUtil.h mod/zlibrary/core/src/util/ZLStringUtil.h
+--- orig/zlibrary/core/src/util/ZLStringUtil.h	2010-03-25 00:37:59.000000000 +0100
++++ mod/zlibrary/core/src/util/ZLStringUtil.h	2010-03-23 17:58:57.000000000 +0100
+@@ -22,6 +22,7 @@
+ 
+ #include <vector>
+ #include <string>
++#include <stdio.h>
+ 
+ class ZLStringUtil {
+ 

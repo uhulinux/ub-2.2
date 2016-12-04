@@ -1,0 +1,12 @@
+diff -urN google-gadgets-for-linux-0.11.1.orig/cmake/Configure.cmake google-gadgets-for-linux-0.11.1/cmake/Configure.cmake
+--- google-gadgets-for-linux-0.11.1.orig/cmake/Configure.cmake	2009-09-08 02:40:58.000000000 +0200
++++ google-gadgets-for-linux-0.11.1/cmake/Configure.cmake	2009-12-04 17:01:01.941775093 +0100
+@@ -169,7 +169,7 @@
+ 
+ INCLUDE(CheckCCompilerFlag)
+ IF(UNIX)
+-  SET(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -fPIC -Wall -Werror -Wconversion")
++  SET(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -fPIC -Wall -Wconversion")
+   # No "-Wall -Werror" for C flags, to avoid third_party code break.
+   SET(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -fPIC")
+   SET(PROJECT_RESOURCE_DIR share/${PRODUCT_NAME})

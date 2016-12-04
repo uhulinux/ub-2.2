@@ -1,0 +1,197 @@
+diff -Naur Linux-PAM-0.99.4.0.orig/modules/pam_env/pam_env.c Linux-PAM-0.99.4.0/modules/pam_env/pam_env.c
+--- Linux-PAM-0.99.4.0.orig/modules/pam_env/pam_env.c	2005-12-12 16:56:35.000000000 +0100
++++ Linux-PAM-0.99.4.0/modules/pam_env/pam_env.c	2006-05-04 20:20:50.000000000 +0200
+@@ -8,7 +8,7 @@
+  * template for this file (via pam_mail)
+  */
+ 
+-#define DEFAULT_ETC_ENVFILE     "/etc/environment"
++#define DEFAULT_ETC_ENVFILE     "/etc/env.d"
+ #define DEFAULT_READ_ENVFILE    1
+ 
+ #include "config.h"
+@@ -24,6 +24,9 @@
+ #include <sys/stat.h>
+ #include <sys/types.h>
+ #include <unistd.h>
++#include <dirent.h>
++#include <fcntl.h>
++#include <sys/utsname.h>
+ 
+ /*
+  * here, we make a definition for the externally accessible function
+@@ -102,14 +105,14 @@
+ 		pam_syslog(pamh, LOG_ERR,
+ 			 "conffile= specification missing argument - ignored");
+ 	    }
+-	} else if (!strncmp(*argv,"envfile=",8)) {
+-	    *envfile = 8 + *argv;
++	} else if (!strncmp(*argv,"envdir=",7)) {
++	    *envfile = 7 + *argv;
+ 	    if (**envfile != '\0') {
+-		D(("new Env File: %s", *envfile));
++		D(("new Env Dir: %s", *envfile));
+ 		ctrl |= PAM_NEW_ENV_FILE;
+ 	    } else {
+ 		pam_syslog (pamh, LOG_ERR,
+-			 "envfile= specification missing argument - ignored");
++			 "envdir= specification missing argument - ignored");
+ 	    }
+ 	} else if (!strncmp(*argv,"readenv=",8))
+ 	    *readenv = atoi(8+*argv);
+@@ -187,22 +190,53 @@
+ _parse_env_file(pam_handle_t *pamh, int ctrl, const char *env_file)
+ {
+     int retval=PAM_SUCCESS, i, t;
++    int n, x = 0;
++    struct stat *fileinfo = malloc ( sizeof (struct stat) );
++    struct dirent **namelist;
+     const char *file;
+     char buffer[BUF_SIZE], *key, *mark;
+     FILE *conf;
++    int real_cwd;
+ 
+     if (ctrl & PAM_NEW_ENV_FILE)
+ 	file = env_file;
+     else
+ 	file = DEFAULT_ETC_ENVFILE;
+ 
+-    D(("Env file name is: %s", file));
++    D(("Env dir name is: %s", file));
+ 
+-    if ((conf = fopen(file,"r")) == NULL) {
++    n = scandir(file, &namelist, 0, alphasort);
++
++    if (n<0) {
++	D(("Unable to open env dir: %s", file));
++	return PAM_ABORT;
++    }
++
++    real_cwd = open(".", O_RDONLY);
++    chdir(file);
++    do {
++    /* skip hidden files */
++    if ( namelist[x]->d_name[0] == '.' ) {
++	continue;
++    }
++    /* require .env extension */
++    if ( strlen(namelist[x]->d_name) < 5 || strcmp(namelist[x]->d_name + strlen(namelist[x]->d_name) - 4, ".env") != 0 ) {
++	continue;
++    }
++    /* if stat fails we cry out */
++    if ( stat(namelist[x]->d_name, fileinfo) < 0 ) {
++	continue;
++    }
++    /* if the file is not a regular file, we cry out */
++    if (! S_ISREG(fileinfo->st_mode)) {
++	continue;
++    }
++		
++    if ((conf = fopen(namelist[x]->d_name,"r")) == NULL) {
+       pam_syslog(pamh, LOG_ERR, "Unable to open env file: %s: %m", file);
+-      return PAM_IGNORE;
+     }
+ 
++    free(namelist[x]);
+     while (_assemble_line(conf, buffer, BUF_SIZE) > 0) {
+ 	D(("Read line: %s", buffer));
+ 	key = buffer;
+@@ -258,6 +292,12 @@
+ 
+     (void) fclose(conf);
+ 
++    } while (++x < n );
++    fchdir(real_cwd);
++    close(real_cwd);
++    free(fileinfo);
++    free(namelist);
++
+     /* tidy up */
+     D(("Exit."));
+     return retval;
+@@ -663,6 +703,36 @@
+     item = PAM_RUSER;
+   } else if (strcmp(name, "PAM_RHOST") == 0) {
+     item = PAM_RHOST;
++  } else if (strcmp(name, "HOME") == 0) {
++    struct passwd *passwd;
++    if (pam_get_item(pamh, PAM_USER, (const void **)&itemval) != PAM_SUCCESS) {
++      D(("pam_get_item failed"));
++      return NULL;
++    }
++    passwd = getpwnam(itemval);
++    if (passwd == NULL) return NULL;
++    return passwd->pw_dir;
++  } else if (strcmp(name, "HOSTNAME") == 0) {
++    static struct utsname utsname;
++    if (uname(&utsname) < 0) return NULL;
++    return &utsname.nodename;
++  } else if (strcmp(name, "LOCALE") == 0) {
++    static char localebuf[32];
++    int fd, i;
++    if ((fd = open("/etc/sysconfig/locale", O_RDONLY)) < 0) {
++      D(("failed to open /etc/sysconfig/locale"));
++      return NULL;
++    }
++    i = read(fd, localebuf, 32);
++    close(fd);
++    if (i < 0 || i >= 32) {
++      D(("/etc/sysconfig/locale too large"));
++      return NULL;
++    }
++    localebuf[i] = '\0';
++    i = strcspn(localebuf, " \t\r\n");
++    localebuf[i] = '\0';
++    return &localebuf;
+   } else {
+     D(("Unknown PAM_ITEM: <%s>", name));
+     pam_syslog (pamh, LOG_ERR, "Unknown PAM_ITEM: <%s>", name);
+diff -Naur Linux-PAM-0.99.4.0.orig/modules/pam_env/pam_env.conf Linux-PAM-0.99.4.0/modules/pam_env/pam_env.conf
+--- Linux-PAM-0.99.4.0.orig/modules/pam_env/pam_env.conf	2005-08-16 14:27:42.000000000 +0200
++++ Linux-PAM-0.99.4.0/modules/pam_env/pam_env.conf	2006-05-04 20:20:50.000000000 +0200
+@@ -48,6 +48,10 @@
+ # For example, HOME is used below several times, but 
+ # many PAM applications don't make it available by the time you need it.
+ #
++# Added by UHU-Linux: @{HOME} refers to the home directory, @{HOSTNAME}
++# is the host name, @{LOCALE} is the default system locale read from
++# /etc/sysconfig/locale.
++#
+ #
+ # First, some special variables
+ #
+@@ -74,3 +78,13 @@
+ #DOLLARDOLLAR	DEFAULT=	OVERRIDE=\$${DOLLAR}
+ #DOLLARPLUS	DEFAULT=\${REMOTEHOST}${REMOTEHOST}
+ #ATSIGN		DEFAULT=""	OVERRIDE=\@
++
++USER		OVERRIDE=@{PAM_USER}
++USERNAME	OVERRIDE=@{PAM_USER}
++LOGNAME		OVERRIDE=@{PAM_USER}
++HOME		OVERRIDE=@{HOME}
++MAIL		OVERRIDE=/var/mail/@{PAM_USER}
++
++HOSTNAME	OVERRIDE=@{HOSTNAME}
++
++LANG		OVERRIDE=@{LOCALE}
+diff -Naur Linux-PAM-0.99.4.0.orig/modules/pam_env/README Linux-PAM-0.99.4.0/modules/pam_env/README
+--- Linux-PAM-0.99.4.0.orig/modules/pam_env/README	2006-02-17 20:51:23.000000000 +0100
++++ Linux-PAM-0.99.4.0/modules/pam_env/README	2006-05-04 20:22:32.000000000 +0200
+@@ -28,14 +28,14 @@
+ 
+     A lot of debug informations are printed with syslog(3).
+ 
+-envfile=/path/to/environment
++envdir=/path/to/environment
+ 
+-    Indicate an alternative environment file to override the default. This can
++    Indicate an alternative environment directory to override the default. This can
+     be useful when different services need different environments.
+ 
+ readenv=0|1
+ 
+-    Turns on or off the reading of the file specified by envfile (0 is off, 1
++    Turns on or off the reading of the directory specified by envdir (0 is off, 1
+     is on). By default this option is on.
+ 
+ EXAMPLES

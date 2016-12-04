@@ -1,0 +1,5 @@
+#!/usr/bin/env dl
+
+mod_perl-${UB_VERSION}.tar.gz mod_perl-${UB_VERSION}/
+	http://perl.apache.org/dist/old/
+	http://perl.apache.org/dist/

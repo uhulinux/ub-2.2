@@ -1,0 +1,10 @@
+[Desktop Entry]
+Version=1.1
+Type=Application
+Name=THE
+Comment=The Hessling Editor
+Comment[hu]=The Hessling Editor
+Exec=the-run %F
+Icon=/usr/share/doc/the/the64.png
+Terminal=true
+Categories=X-UHU-Menu/Tools/Editors;

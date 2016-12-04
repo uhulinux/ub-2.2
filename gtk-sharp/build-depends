@@ -1,0 +1,16 @@
+dbus-glib-dev
+esound-dev
+gtk2-dev
+gtkhtml-dev
+libart-lgpl-dev
+libgda-dev
+libglade2-dev
+libgnomeprintui2-dev
+libgnomeui2-dev
+libjpeg-dev
+librsvg2-dev
+libxml2-dev
+libxslt-dev
+mono-dev
+orbit2-dev
+vte-dev

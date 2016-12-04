@@ -1,0 +1,4 @@
+#!/usr/bin/env dl
+
+GeoIP-${UB_VERSION}.tar.gz ./GeoIP-${UB_VERSION}/
+	http://geolite.maxmind.com/download/geoip/api/c/

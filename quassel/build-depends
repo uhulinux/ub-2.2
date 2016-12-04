@@ -1,0 +1,6 @@
+cmake
+dbus-dev
+kdelibs-dev
+kdevelop
+openssl-dev
+qt4-dev

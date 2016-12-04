@@ -1,0 +1,5 @@
+#!/usr/bin/env dl
+
+libdvdcss-${UB_VERSION}.tar.gz libdvdcss-${UB_VERSION}/
+#	svn://svn.videolan.org/libdvdcss/trunk/@${UB_VERSION#*~r}
+	http://download.videolan.org/pub/libdvdcss/${UB_VERSION}/

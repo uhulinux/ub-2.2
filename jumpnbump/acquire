@@ -1,0 +1,4 @@
+#!/usr/bin/env dl
+
+jumpnbump-${UB_VERSION}.tar.gz jumpnbump-${UB_VERSION}/
+	http://www.jumpbump.mine.nu/port/

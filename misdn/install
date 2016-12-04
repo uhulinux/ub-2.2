@@ -1,0 +1,6 @@
+#!/bin/sh -eux
+
+for i in $(ls -1 /lib/modules); do
+	KVERS="$i" ARCH=${i##*.} ub_compile
+	KVERS="$i" ARCH=${i##*.} ub_install INSTALL_PREFIX="$UB_INSTALLDIR"
+done

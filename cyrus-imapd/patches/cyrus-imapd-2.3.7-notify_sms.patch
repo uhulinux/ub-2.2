@@ -1,0 +1,308 @@
+diff -up cyrus-imapd-2.3.15/doc/man/imapd.conf.5.html.notify_sms cyrus-imapd-2.3.15/doc/man/imapd.conf.5.html
+--- cyrus-imapd-2.3.15/doc/man/imapd.conf.5.html.notify_sms	2009-09-09 15:19:50.000000000 +0200
++++ cyrus-imapd-2.3.15/doc/man/imapd.conf.5.html	2009-09-18 11:49:42.207115959 +0200
+@@ -3469,6 +3469,24 @@ proxying CREATE.</p>
+ <tr valign="top" align="left">
+ <td width="10%"></td>
+ <td width="89%">
++<p><b>sendsms:</b> /usr/bin/sendsms</p></td>
++</table></p>
++<!-- INDENTATION -->
++<table width="100%" border=0 rules="none" frame="void"
++       cols="2" cellspacing="0" cellpadding="0">
++<tr valign="top" align="left">
++<td width="19%"></td>
++<td width="80%">
++<p>The pathname of the sendsms executable. Sieve invokes
++sendsms for sending SMS notifications.</p>
++</td>
++</table>
++<!-- INDENTATION -->
++<p><table width="100%" border=0 rules="none" frame="void"
++       cols="2" cellspacing="0" cellpadding="0">
++<tr valign="top" align="left">
++<td width="10%"></td>
++<td width="89%">
+ <p><b>servername:</b> &lt;none&gt;</p></td>
+ </table>
+ <!-- INDENTATION -->
+diff -up cyrus-imapd-2.3.15/doc/man/notifyd.8.html.notify_sms cyrus-imapd-2.3.15/doc/man/notifyd.8.html
+--- cyrus-imapd-2.3.15/doc/man/notifyd.8.html.notify_sms	2009-09-09 15:19:51.000000000 +0200
++++ cyrus-imapd-2.3.15/doc/man/notifyd.8.html	2009-09-18 11:49:42.208116026 +0200
+@@ -181,6 +181,18 @@ a Sieve &rsquo;notify&rsquo; action as i
+ <td width="11%"></td>
+ <td width="10%">
+ 
++<p><b>sms</b></p>
++</td>
++<td width="77%">
++
++<p>Send the notification as SMS. This method can ONLY be used in
++a Sieve &rsquo;notify&rsquo; action as it requires a
++<i>sms:</i> URL to be specified as an <i>:option</i>.</p>
++</td>
++<tr valign="top" align="left">
++<td width="11%"></td>
++<td width="10%">
++
+ <p><b>zephyr</b></p>
+ </td>
+ <td width="77%">
+diff -up cyrus-imapd-2.3.15/lib/imapoptions.notify_sms cyrus-imapd-2.3.15/lib/imapoptions
+--- cyrus-imapd-2.3.15/lib/imapoptions.notify_sms	2009-09-18 11:49:42.189116010 +0200
++++ cyrus-imapd-2.3.15/lib/imapoptions	2009-09-18 11:50:38.230115954 +0200
+@@ -966,6 +966,10 @@ are listed with ``<none>''.
+ /* The pathname of the sendmail executable.  Sieve invokes sendmail
+    for sending rejections, redirects and vacation responses. */
+ 
++{ "sendsms", "/usr/bin/sendsms", STRING }
++/* The pathname of the sendsms executable.  Sieve invokes sendsms
++   for sending SMS notifications. */
++
+ { "serverlist", NULL, STRING }
+ /* Whitespace separated list of backend server names.  Used for
+    finding server with the most available free space for proxying
+diff -up cyrus-imapd-2.3.15/man/imapd.conf.5.notify_sms cyrus-imapd-2.3.15/man/imapd.conf.5
+--- cyrus-imapd-2.3.15/man/imapd.conf.5.notify_sms	2009-09-09 15:19:48.000000000 +0200
++++ cyrus-imapd-2.3.15/man/imapd.conf.5	2009-09-18 11:51:26.441839866 +0200
+@@ -771,6 +771,9 @@ Allowed values: \fIflat\fR, \fIberkeley\
+ .IP "\fBsendmail:\fR /usr/lib/sendmail" 5
+ The pathname of the sendmail executable.  Sieve invokes sendmail
+ for sending rejections, redirects and vacation responses. 
++.IP "\fBsendsms:\fR /usr/bin/sendsms" 5
++The pathname of the sendsms executable.  Sieve invokes sendsms
++for sending SMS notifications. 
+ .IP "\fBserverlist:\fR <none>" 5
+ Whitespace separated list of backend server names.  Used for
+ finding server with the most available free space for proxying
+diff -up cyrus-imapd-2.3.15/man/notifyd.8.notify_sms cyrus-imapd-2.3.15/man/notifyd.8
+--- cyrus-imapd-2.3.15/man/notifyd.8.notify_sms	2008-04-04 14:47:00.000000000 +0200
++++ cyrus-imapd-2.3.15/man/notifyd.8	2009-09-18 11:49:42.225115999 +0200
+@@ -111,6 +111,11 @@ Email the notification.  This method can
+ Sieve 'notify' action as it requires a \fImailto:\fR URL to be
+ specified as an \fI:option\fR.
+ .TP
++.B sms
++Send the notification as SMS.  This method can ONLY be used in a
++Sieve 'notify' action as it requires a \fIsms:\fR URL to be
++specified as an \fI:option\fR.
++.TP
+ .B zephyr
+ Send the notification as a zephyrgram.  If used in a Sieve 'notify'
+ action, additional recipients can be specified as \fI:options\fR.
+diff -up cyrus-imapd-2.3.15/notifyd/Makefile.in.notify_sms cyrus-imapd-2.3.15/notifyd/Makefile.in
+--- cyrus-imapd-2.3.15/notifyd/Makefile.in.notify_sms	2009-09-18 11:49:42.172115947 +0200
++++ cyrus-imapd-2.3.15/notifyd/Makefile.in	2009-09-18 11:49:42.225115999 +0200
+@@ -85,7 +85,7 @@ all: notifyd
+ install:
+ 	$(INSTALL) -m 755 notifyd $(DESTDIR)$(service_path)
+ 
+-OBJS= notifyd.o notify_null.o notify_log.o notify_mailto.o notify_zephyr.o
++OBJS= notifyd.o notify_null.o notify_log.o notify_mailto.o notify_sms.o notify_zephyr.o
+ 
+ notifytest: notifytest.o
+ 	$(CC) $(LDFLAGS) -o notifytest \
+diff -up cyrus-imapd-2.3.15/notifyd/notifyd.h.notify_sms cyrus-imapd-2.3.15/notifyd/notifyd.h
+--- cyrus-imapd-2.3.15/notifyd/notifyd.h.notify_sms	2008-03-24 20:59:32.000000000 +0100
++++ cyrus-imapd-2.3.15/notifyd/notifyd.h	2009-09-18 11:49:42.233116003 +0200
+@@ -47,6 +47,7 @@
+ #include "notify_null.h"
+ #include "notify_log.h"
+ #include "notify_mailto.h"
++#include "notify_sms.h"
+ #include "notify_zephyr.h"
+ 
+ /* Notify method dispatch table definition */
+@@ -63,6 +64,7 @@ notifymethod_t methods[] = {
+     { "null",	notify_null },		/* do nothing */
+     { "log",	notify_log },		/* use syslog (for testing) */
+     { "mailto",	notify_mailto },	/* send an email */
++    { "sms",	notify_sms },		/* send an sms */
+ #ifdef HAVE_ZEPHYR
+     { "zephyr",	notify_zephyr },	/* send a zephyrgram */
+ #endif
+diff -up /dev/null cyrus-imapd-2.3.15/notifyd/notify_sms.c
+--- /dev/null	2009-09-11 15:21:01.808252010 +0200
++++ cyrus-imapd-2.3.15/notifyd/notify_sms.c	2009-09-18 11:49:42.233116003 +0200
+@@ -0,0 +1,116 @@
++/* notify_sms.c -- SMS notification method
++ * Simon Matter
++ */
++/*
++ * Copyright (c) 1998-2003 Carnegie Mellon University.  All rights reserved.
++ *
++ * Redistribution and use in source and binary forms, with or without
++ * modification, are permitted provided that the following conditions
++ * are met:
++ *
++ * 1. Redistributions of source code must retain the above copyright
++ *    notice, this list of conditions and the following disclaimer. 
++ *
++ * 2. Redistributions in binary form must reproduce the above copyright
++ *    notice, this list of conditions and the following disclaimer in
++ *    the documentation and/or other materials provided with the
++ *    distribution.
++ *
++ * 3. The name "Carnegie Mellon University" must not be used to
++ *    endorse or promote products derived from this software without
++ *    prior written permission. For permission or any other legal
++ *    details, please contact  
++ *      Office of Technology Transfer
++ *      Carnegie Mellon University
++ *      5000 Forbes Avenue
++ *      Pittsburgh, PA  15213-3890
++ *      (412) 268-4387, fax: (412) 268-7395
++ *      tech-transfer@andrew.cmu.edu
++ *
++ * 4. Redistributions of any form whatsoever must retain the following
++ *    acknowledgment:
++ *    "This product includes software developed by Computing Services
++ *     at Carnegie Mellon University (http://www.cmu.edu/computing/)."
++ *
++ * CARNEGIE MELLON UNIVERSITY DISCLAIMS ALL WARRANTIES WITH REGARD TO
++ * THIS SOFTWARE, INCLUDING ALL IMPLIED WARRANTIES OF MERCHANTABILITY
++ * AND FITNESS, IN NO EVENT SHALL CARNEGIE MELLON UNIVERSITY BE LIABLE
++ * FOR ANY SPECIAL, INDIRECT OR CONSEQUENTIAL DAMAGES OR ANY DAMAGES
++ * WHATSOEVER RESULTING FROM LOSS OF USE, DATA OR PROFITS, WHETHER IN
++ * AN ACTION OF CONTRACT, NEGLIGENCE OR OTHER TORTIOUS ACTION, ARISING
++ * OUT OF OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.
++ *
++ * notify_sms is based on code from notify_mailto by Ken Murchison.
++ * Copyright (c) 2005-2006 Simon Matter, Invoca Systems.
++ * Release 2006071300/2.3.7
++*/
++
++#include <config.h>
++
++#include "notify_sms.h"
++
++#include <stdio.h>
++#include <string.h>
++#include <unistd.h>
++#include <sys/types.h>
++#include <sys/wait.h>
++
++#include "global.h"
++#include "libconfig.h"
++#include "sieve_interface.h"
++
++static int global_outgoing_count = 0;
++
++char* notify_sms(const char *class __attribute__((unused)),
++		    const char *priority,
++		    const char *user,
++		    const char *mailbox __attribute__((unused)),
++		    int nopt, char **options,
++		    const char *message)
++{
++    FILE *sm;
++    const char *smbuf[10];
++    int sm_stat;
++    pid_t sm_pid;
++    int fds[2];
++
++    /* XXX check/parse options (sms URI) */
++    if (nopt < 1)
++	return strdup("NO sms URI not specified");
++
++    smbuf[0] = "sendsms";
++    smbuf[1] = "-u";
++    smbuf[2] = user;
++    smbuf[3] = "-p";
++    smbuf[4] = priority;
++    smbuf[5] = "-o";
++    smbuf[6] = options[0];
++    smbuf[7] = NULL;
++
++    pipe(fds);
++    if ((sm_pid = fork()) == 0) {
++	/* i'm the child! run sendsms! */
++	close(fds[1]);
++	/* make the pipe be stdin */
++	dup2(fds[0], 0);
++	execv(config_getstring(IMAPOPT_SENDSMS), (char **) smbuf);
++
++	/* if we're here we suck */
++	return strdup("NO sms couldn't exec");
++    }
++    /* i'm the parent */
++    close(fds[0]);
++    sm = fdopen(fds[1], "w");
++
++    if (!sm)
++	return strdup("NO sms could not spawn sendsms process");
++
++    fprintf(sm, message);
++
++    fclose(sm);
++    while (waitpid(sm_pid, &sm_stat, 0) < 0);
++
++    /* XXX check for sendsms exit code */
++
++    return strdup("OK sms notification successful");
++}
+diff -up /dev/null cyrus-imapd-2.3.15/notifyd/notify_sms.h
+--- /dev/null	2009-09-11 15:21:01.808252010 +0200
++++ cyrus-imapd-2.3.15/notifyd/notify_sms.h	2009-09-18 11:49:42.233116003 +0200
+@@ -0,0 +1,61 @@
++/* notify_sms.h -- SMS notification method
++ * Simon Matter
++ */
++/*
++ * Copyright (c) 1998-2003 Carnegie Mellon University.  All rights reserved.
++ *
++ * Redistribution and use in source and binary forms, with or without
++ * modification, are permitted provided that the following conditions
++ * are met:
++ *
++ * 1. Redistributions of source code must retain the above copyright
++ *    notice, this list of conditions and the following disclaimer. 
++ *
++ * 2. Redistributions in binary form must reproduce the above copyright
++ *    notice, this list of conditions and the following disclaimer in
++ *    the documentation and/or other materials provided with the
++ *    distribution.
++ *
++ * 3. The name "Carnegie Mellon University" must not be used to
++ *    endorse or promote products derived from this software without
++ *    prior written permission. For permission or any other legal
++ *    details, please contact  
++ *      Office of Technology Transfer
++ *      Carnegie Mellon University
++ *      5000 Forbes Avenue
++ *      Pittsburgh, PA  15213-3890
++ *      (412) 268-4387, fax: (412) 268-7395
++ *      tech-transfer@andrew.cmu.edu
++ *
++ * 4. Redistributions of any form whatsoever must retain the following
++ *    acknowledgment:
++ *    "This product includes software developed by Computing Services
++ *     at Carnegie Mellon University (http://www.cmu.edu/computing/)."
++ *
++ * CARNEGIE MELLON UNIVERSITY DISCLAIMS ALL WARRANTIES WITH REGARD TO
++ * THIS SOFTWARE, INCLUDING ALL IMPLIED WARRANTIES OF MERCHANTABILITY
++ * AND FITNESS, IN NO EVENT SHALL CARNEGIE MELLON UNIVERSITY BE LIABLE
++ * FOR ANY SPECIAL, INDIRECT OR CONSEQUENTIAL DAMAGES OR ANY DAMAGES
++ * WHATSOEVER RESULTING FROM LOSS OF USE, DATA OR PROFITS, WHETHER IN
++ * AN ACTION OF CONTRACT, NEGLIGENCE OR OTHER TORTIOUS ACTION, ARISING
++ * OUT OF OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.
++ *
++ * notify_sms is based on code from notify_mailto by Ken Murchison.
++ * Copyright (c) 2005-2006 Simon Matter, Invoca Systems.
++ * Release 2006071300/2.3.7
++ *
++ */
++
++#ifndef _NOTIFY_SMS_H_
++#define _NOTIFY_SMS_H_
++
++#include <config.h>
++
++char* notify_sms(const char *class __attribute__((unused)),
++		    const char *priority,
++		    const char *user,
++		    const char *mailbox __attribute__((unused)),
++		    int nopt, char **options,
++		    const char *message);
++
++#endif /* _NOTIFY_SMS_H_ */

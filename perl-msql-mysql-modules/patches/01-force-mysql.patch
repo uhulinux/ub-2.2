@@ -1,0 +1,11 @@
+diff -Naur a/Makefile.PL b/Makefile.PL
+--- a/Makefile.PL	2001-10-31 04:37:50.000000000 +0100
++++ b/Makefile.PL	2003-02-03 11:38:08.000000000 +0100
+@@ -185,6 +185,7 @@
+ 	    $choice = $config->{'mSQL1'}->{'install'} ? 4 : 2;	
+ 	}
+ 
++	$choice = 1;
+ 	$choice = prompt
+ 	    ("Which drivers do you want to install?\n\n"
+ 	     . "    1)	MySQL only\n"

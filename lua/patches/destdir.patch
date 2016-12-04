@@ -1,0 +1,17 @@
+diff -urN lua-5.1.4.orig/Makefile lua-5.1.4/Makefile
+--- lua-5.1.4.orig/Makefile	2008-08-12 02:40:48.000000000 +0200
++++ lua-5.1.4/Makefile	2008-09-11 19:55:14.000000000 +0200
+@@ -9,11 +9,11 @@
+ 
+ # Where to install. The installation starts in the src and doc directories,
+ # so take care if INSTALL_TOP is not an absolute path.
+-INSTALL_TOP= /usr/local
++INSTALL_TOP= $(DESTDIR)/usr
+ INSTALL_BIN= $(INSTALL_TOP)/bin
+ INSTALL_INC= $(INSTALL_TOP)/include
+ INSTALL_LIB= $(INSTALL_TOP)/lib
+-INSTALL_MAN= $(INSTALL_TOP)/man/man1
++INSTALL_MAN= $(INSTALL_TOP)/share/man/man1
+ #
+ # You probably want to make INSTALL_LMOD and INSTALL_CMOD consistent with
+ # LUA_ROOT, LUA_LDIR, and LUA_CDIR in luaconf.h (and also with etc/lua.pc).

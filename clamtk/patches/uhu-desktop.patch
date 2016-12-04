@@ -1,0 +1,18 @@
+--- clamtk.orig/clamtk.desktop	2009-12-31 12:46:45.000000000 +0100
++++ clamtk/clamtk.desktop	2010-02-08 19:47:40.000000000 +0100
+@@ -12,7 +12,7 @@
+ Name[fr]=Scanner de Virus
+ Name[gl]=Analizador de virus
+ Name[he]=סורק וירוסים
+-Name[hu]=Víruskereső
++Name[hu]=ClamTk
+ Name[it]=Virus Scanner
+ Name[ja]=ウイルススキャナ
+ Name[ko]=바이러스 검사기
+@@ -67,5 +67,5 @@
+ Icon=clamtk
+ Type=Application
+ Terminal=false
+-Categories=GTK;GNOME;Utility;Security;
++Categories=GTK;GNOME;Utility;Security;X-UHU-Menu/Tools/Utilities;
+ StartupNotify=false

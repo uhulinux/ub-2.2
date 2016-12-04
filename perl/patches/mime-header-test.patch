@@ -1,0 +1,11 @@
+diff -Naurdp perl-5.10.1.orig/ext/Encode/t/mime-header.t perl-5.10.1/ext/Encode/t/mime-header.t
+--- perl-5.10.1.orig/ext/Encode/t/mime-header.t	2009-04-14 16:03:12.000000000 +0200
++++ perl-5.10.1/ext/Encode/t/mime-header.t	2009-10-01 19:24:07.000000000 +0200
+@@ -123,6 +123,6 @@ is(Encode::encode('MIME-Q', "\x{fc}"), '
+ 
+ my $rt42627 = Encode::decode_utf8("\x{c2}\x{a3}xxxxxxxxxxxxxxxxxxx0");
+ is(Encode::encode('MIME-Q', $rt42627), 
+-   '=?UTF-8?Q?=C2=A3xxxxxxxxxxxxxxxxxxx?==?UTF-8?Q?0?=',
++   '=?UTF-8?Q?=C2=A3xxxxxxxxxxxxxxxxxxx?= =?UTF-8?Q?0?=',
+    'MIME-Q encoding does not truncate trailing zeros');
+ __END__;

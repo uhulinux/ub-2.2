@@ -1,0 +1,4 @@
+#!/usr/bin/env dl
+
+Font-TTF-${UB_VERSION}.tar.gz Font-TTF-${UB_VERSION}/
+	http://search.cpan.org/CPAN/authors/id/M/MH/MHOSKEN/

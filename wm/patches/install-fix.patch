@@ -1,0 +1,44 @@
+diff -Naurd wm.orig/Makefile wm/Makefile
+--- wm.orig/Makefile	1988-09-20 05:04:15.000000000 +0200
++++ wm/Makefile	2003-09-29 00:42:45.000000000 +0200
+@@ -48,22 +48,22 @@
+       LINTFLAGS = $(LINTOPTS) $(INCLUDES) $(STD_DEFINES) $(DEFINES) -DLINT
+         LDFLAGS = $(CDEBUGFLAGS) $(SYS_LIBRARIES) $(SYSAUX_LIBRARIES)
+    INSTUIDFLAGS = -m 4755
+-   INSTLIBFLAGS = -m 0664
+-   INSTINCFLAGS = -m 0444
+-   INSTMANFLAGS = -m 0444
+-   INSTAPPFLAGS = -m 0444
++   INSTLIBFLAGS = -m 0644
++   INSTINCFLAGS = -m 0644
++   INSTMANFLAGS = -m 0644
++   INSTAPPFLAGS = -m 0644
+ 
+       USRLIBDIR = $(DESTDIR)/usr/lib
+-         BINDIR = $(DESTDIR)/usr/bin/X11
+-         LIBDIR = $(USRLIBDIR)/X11
++         BINDIR = $(DESTDIR)/usr/bin
++         LIBDIR = $(USRLIBDIR)
+      LINTLIBDIR = $(USRLIBDIR)/lint
+-         INCDIR = $(DESTDIR)/usr/include/X11
++         INCDIR = $(DESTDIR)/usr/include
+         FONTDIR = $(LIBDIR)/fonts
+          UWMDIR = $(LIBDIR)/uwm
+          AWMDIR = $(LIBDIR)/awm
+          TWMDIR = $(LIBDIR)/twm
+-        MANPATH = $(DESTDIR)/usr/man
+-         MANDIR = $(MANPATH)/mann
++        MANPATH = $(DESTDIR)/usr/share/man
++         MANDIR = $(MANPATH)/man1
+       LIBMANDIR = $(MANPATH)/man3
+     XAPPLOADDIR = $(LIBDIR)/app-defaults
+          ADMDIR = $(DESTDIR)/usr/adm
+@@ -127,7 +127,7 @@
+ 	$(INSTALL) -c $(INSTALLFLAGS) wm $(BINDIR)
+ 
+ install:: wm.man
+-	$(INSTALL) -c $(INSTMANFLAGS) wm.man $(MANDIR)/wm.n
++	$(INSTALL) -c $(INSTMANFLAGS) wm.man $(MANDIR)/wm.1
+ 
+ depend:: $(DEPEND)
+ 

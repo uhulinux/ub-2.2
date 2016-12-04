@@ -1,0 +1,11 @@
+Summary=Distcc Daemon
+Summary[hu]=Distcc démon
+Description=Daemon for receiving distributed C compilation requests.
+Description[hu]=Elosztott C-fordítási feladatokat fogadó démon.
+MsgDesc=Distributed C Compiler Daemon
+MsgDesc[hu]=Elosztott C-fordító démon
+Script=/etc/init.d/distccd
+SupportsReload=no
+Runlevels=
+Sequence=20
+Resources=tcp/distcc

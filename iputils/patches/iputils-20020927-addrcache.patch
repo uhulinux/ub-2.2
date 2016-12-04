@@ -1,0 +1,33 @@
+--- iputils/ping.c.addrcache	2002-09-20 17:08:11.000000000 +0200
++++ iputils/ping.c	2003-05-15 16:41:19.000000000 +0200
+@@ -1124,6 +1124,12 @@
+ {
+ 	struct hostent *hp;
+ 	static char buf[4096];
++	static __u32 addr_cache = 0;
++
++	if ( addr == addr_cache )
++		return buf;
++
++	addr_cache = addr;
+ 
+ 	if ((options & F_NUMERIC) ||
+ 	    !(hp = gethostbyaddr((char *)&addr, 4, AF_INET)))
+--- iputils/ping6.c.addrcache	2002-09-20 17:08:11.000000000 +0200
++++ iputils/ping6.c	2003-05-15 16:41:19.000000000 +0200
+@@ -893,7 +893,14 @@
+  */
+ char * pr_addr(struct in6_addr *addr)
+ {
+-	struct hostent *hp = NULL;
++	static struct hostent *hp = NULL;
++	static struct in6_addr addr_cache = {{{0,0,0,0}}};
++
++	if ( addr->s6_addr32[0] == addr_cache.s6_addr32[0] &&
++	     addr->s6_addr32[1] == addr_cache.s6_addr32[1] &&
++	     addr->s6_addr32[2] == addr_cache.s6_addr32[2] &&
++	     addr->s6_addr32[3] == addr_cache.s6_addr32[3] )
++		return hp ? hp->h_name : pr_addr_n(addr);
+ 
+ 	if (!(options&F_NUMERIC))
+ 		hp = gethostbyaddr((__u8*)addr, sizeof(struct in6_addr), AF_INET6);

@@ -1,0 +1,4 @@
+#!/usr/bin/env dl
+
+repoze.what-${UB_VERSION}.tar.gz repoze.what-${UB_VERSION}/
+	http://pypi.python.org/packages/source/r/repoze.what/
