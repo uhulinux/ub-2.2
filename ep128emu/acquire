@@ -1,7 +1,4 @@
 #!/usr/bin/env dl
 
-ep128emu_roms.bin 
-	http://ep128emu.enterpriseforever.com/roms/
-
-ep128emu-${UB_VERSION}.tar.bz2 ep128emu-${UB_VERSION}/
-	http://sourceforge.net/projects/ep128emu/files/ep128emu2/ep128emu-${UB_VERSION}/ep128emu-${UB_VERSION}.tar.bz2/download
+${UB_VERSION}.tar.gz ep128emu-${UB_VERSION}/
+	https://github.com/istvan-v/ep128emu/archive/

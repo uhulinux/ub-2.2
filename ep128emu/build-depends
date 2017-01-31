@@ -1,11 +1,15 @@
-dotconf-dev
+curl-dev
 fltk1-dev
-imagemagick
+fontconfig-dev
 jack-dev
 libjpeg-dev
 libpng-dev
 libsndfile-dev
+libxft-dev
+libxinerama-dev
+lua-dev
 mesa-dev
 portaudio-dev
+pulseaudio-dev
 scons
 sdl-dev

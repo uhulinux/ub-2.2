@@ -1,0 +1,36 @@
+diff -Naur orig/Fl_Native_File_Chooser/FL/Fl_Native_File_Chooser.H mod/Fl_Native_File_Chooser/FL/Fl_Native_File_Chooser.H
+--- orig/Fl_Native_File_Chooser/FL/Fl_Native_File_Chooser.H	2017-01-20 12:30:46.000000000 +0100
++++ mod/Fl_Native_File_Chooser/FL/Fl_Native_File_Chooser.H	2017-01-30 20:21:25.984103336 +0100
+@@ -34,7 +34,7 @@
+ 
+ // All else falls back to FLTK's own chooser
+ #if ! defined(__APPLE__) && !defined(_WIN32)
+-#include <FL/Fl_Native_File_Chooser_FLTK.H>
++#include "Fl_Native_File_Chooser_FLTK.H"
+ #endif
+ 
+ #endif /*FL_NATIVE_FILE_CHOOSER_H*/
+diff -Naur orig/installer/makecfg.cpp mod/installer/makecfg.cpp
+--- orig/installer/makecfg.cpp	2017-01-20 12:30:46.000000000 +0100
++++ mod/installer/makecfg.cpp	2017-01-30 20:15:20.108679485 +0100
+@@ -26,7 +26,7 @@
+ #include "decompm2.hpp"
+ 
+ #include <FL/Fl_File_Chooser.H>
+-#include <FL/Fl_Native_File_Chooser.H>
++#include "Fl_Native_File_Chooser/FL/Fl_Native_File_Chooser.H"
+ 
+ #ifndef WIN32
+ #  include <sys/types.h>
+diff -Naur orig/tapeutil/tapeedit.fl mod/tapeutil/tapeedit.fl
+--- orig/tapeutil/tapeedit.fl	2017-01-20 12:30:46.000000000 +0100
++++ mod/tapeutil/tapeedit.fl	2017-01-30 20:27:16.995444623 +0100
+@@ -14,7 +14,7 @@
+ 
+ decl {\#include <FL/Fl_File_Chooser.H>} {} 
+ 
+-decl {\#include <FL/Fl_Native_File_Chooser.H>} {} 
++decl {\#include "Fl_Native_File_Chooser/FL/Fl_Native_File_Chooser.H"} {} 
+ 
+ decl {\#include <FL/Fl_Text_Buffer.H>} {} 
+ 

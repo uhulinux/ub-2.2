@@ -1,4 +1,4 @@
 #!/usr/bin/env dl
 
-lmms-${UB_VERSION}.tar.bz2 lmms-${UB_VERSION}/
-	    http://downloads.sourceforge.net/lmms/
+v${UB_VERSION}.tar.gz lmms-${UB_VERSION}/
+	    https://github.com/LMMS/lmms/archive/

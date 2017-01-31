@@ -1,0 +1,16 @@
+diff -Naur orig/SConstruct mod/SConstruct
+--- orig/SConstruct	2017-01-20 12:30:46.000000000 +0100
++++ mod/SConstruct	2017-01-30 19:54:08.766719749 +0100
+@@ -53,10 +53,10 @@
+ 
+ packageConfigs = {
+     'FLTK' : [
+-        'fltk-config --use-images --cflags --cxxflags --ldflags', [''],
++        'fltk1-config --use-images --cflags --cxxflags --ldflags', [''],
+         fltkLibsLinux, fltkLibsMinGW, '', 'FL/Fl.H', 0 ],
+     'FLTK-GL' : [
+-        'fltk-config --use-gl --use-images --cflags --cxxflags --ldflags', [''],
++        'fltk1-config --use-gl --use-images --cflags --cxxflags --ldflags', [''],
+         '-lfltk_gl ' + fltkLibsLinux + ' -lGL',
+         '-lfltk_gl ' + fltkLibsMinGW + ' -lopengl32',
+         '', 'FL/Fl_Gl_Window.H', 1 ],
